@@ -52,10 +52,9 @@ methods:
       - name: to
         type: L
       - name: from
-        type: List<S>
-      - type: Function<S
+        type: List
       - name: converter
-        type: E>
+        type: Function
     notes: |-
       Convert all elements in the source array, and add them to the target.
        Uses supplied converter function.
@@ -82,7 +81,7 @@ methods:
       - name: arr
         type: E[]
       - name: supplier
-        type: Supplier<E>
+        type: Supplier
   - name: arraySet
     modifiers:
       - public
@@ -100,10 +99,9 @@ methods:
     returnType: String
     parameters:
       - name: list
-        type: Iterable<E>
-      - type: Function<E
+        type: Iterable
       - name: toString
-        type: String>
+        type: Function
       - name: prefix
         type: String
       - name: suffix
@@ -150,11 +148,11 @@ methods:
     returnType: void
     parameters:
       - name: target
-        type: ArrayList<E>
+        type: ArrayList
       - name: source
-        type: ArrayList<E>
+        type: ArrayList
       - name: elementCloner
-        type: ICloner<E>
+        type: ICloner
     notes: >-
       Perform a copy of the source array into the target array, using the
       supplied ICloner.
@@ -166,9 +164,9 @@ methods:
     returnType: E
     parameters:
       - name: collection
-        type: Iterable<E>
+        type: Iterable
       - name: comparer
-        type: Predicate<E>
+        type: Predicate
   - name: forEach
     modifiers:
       - public
@@ -178,7 +176,7 @@ methods:
       - name: elements
         type: E[]
       - name: consumer
-        type: Consumer<? super E>
+        type: Consumer
     notes: |-
       Iterate over specified array, invoke supplied consumer on each element.
         Null-safe
@@ -189,7 +187,7 @@ methods:
     returnType: E
     parameters:
       - name: collection
-        type: Iterable<E>
+        type: Iterable
       - name: index
         type: int
     notes: Get the specified element from the supplied Iterable.
@@ -199,13 +197,12 @@ methods:
       - static
     returnType: V
     parameters:
-      - type: HashMap<K
       - name: map
-        type: V>
+        type: HashMap
       - name: key
         type: K
       - name: allocator
-        type: Supplier<V>
+        type: Supplier
   - name: getOrDefault
     modifiers:
       - public
@@ -228,7 +225,7 @@ methods:
     returnType: int
     parameters:
       - name: collection
-        type: Iterable<E>
+        type: Iterable
     notes: Count the number of elements in the supplied Iterable.
   - name: indexOf
     modifiers:
@@ -261,7 +258,7 @@ methods:
     returnType: boolean
     parameters:
       - name: it
-        type: Iterable<E>
+        type: Iterable
   - name: itConvert
     modifiers:
       - public
@@ -269,10 +266,9 @@ methods:
     returnType: Iterable
     parameters:
       - name: source
-        type: Iterable<S>
-      - type: Function<S
+        type: Iterable
       - name: converter
-        type: E>
+        type: Function
   - name: listConvert
     modifiers:
       - public
@@ -280,15 +276,13 @@ methods:
     returnType: List
     parameters:
       - name: source
-        type: List<S>
+        type: List
       - name: dest
-        type: List<E>
+        type: List
       - name: v1
         type: T1
-      - type: PZArrayUtil.IListConverter1Param<S
-      - type: E
       - name: converter
-        type: T1>
+        type: PZArrayUtil.IListConverter1Param
   - name: newInstance
     modifiers:
       - public
@@ -296,7 +290,7 @@ methods:
     returnType: E[]
     parameters:
       - name: componentType
-        type: Class<?>
+        type: Class
       - name: reusableArray
         type: E[]
       - name: newLength
@@ -304,7 +298,7 @@ methods:
       - name: growOnly
         type: boolean
       - name: newAllocator
-        type: Supplier<E>
+        type: Supplier
   - name: pickRandom
     modifiers:
       - public
@@ -312,7 +306,7 @@ methods:
     returnType: E
     parameters:
       - name: collection
-        type: Iterable<E>
+        type: Iterable
     notes: Pick a random element from the supplied Iterable.
   - name: sequenceEqual
     modifiers:
@@ -321,11 +315,11 @@ methods:
     returnType: boolean
     parameters:
       - name: a
-        type: List<? extends E>
+        type: List
       - name: b
-        type: List<? extends E>
+        type: List
       - name: comparator
-        type: Comparator<E>
+        type: Comparator
   - name: sort
     modifiers:
       - public
@@ -333,9 +327,9 @@ methods:
     returnType: void
     parameters:
       - name: stack
-        type: Stack<E>
+        type: Stack
       - name: comparator
-        type: Comparator<E>
+        type: Comparator
   - name: toArray
     modifiers:
       - public
@@ -343,4 +337,4 @@ methods:
     returnType: E[]
     parameters:
       - name: list
-        type: List<E>
+        type: List
