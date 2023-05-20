@@ -332,6 +332,27 @@ methods:
         type: boolean
       - name: zBias
         type: float
+  - name: AttachExistingAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spr
+        type: IsoSprite
+      - name: OffsetX
+        type: int
+      - name: OffsetY
+        type: int
+      - name: Looping
+        type: boolean
+      - name: FinishHoldFrameIndex
+        type: int
+      - name: DeleteWhenFinished
+        type: boolean
+      - name: zBias
+        type: float
+      - name: TintMod
+        type: ColorInfo
   - name: AttackObject
     modifiers:
       - public
@@ -440,6 +461,16 @@ methods:
     parameters:
       - name: cell
         type: IsoCell
+      - name: classID
+        type: byte
+  - name: factoryFromFileInput
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: cell
+        type: IsoCell
       - name: b
         type: ByteBuffer
   - name: factoryFromFileInput_OLD
@@ -466,6 +497,14 @@ methods:
       - static
     returnType: IsoObject
     parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: FindExternalWaterSource
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
       - name: x
         type: int
       - name: y
@@ -480,6 +519,10 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+  - name: getAlpha
+    modifiers:
+      - public
+    returnType: float
   - name: getAlpha
     modifiers:
       - public
@@ -626,6 +669,20 @@ methods:
       - public
       - static
     returnType: IsoObject
+  - name: getNew
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: spriteName
+        type: String
+      - name: name
+        type: String
+      - name: bShareTilesWithMap
+        type: boolean
   - name: getObjectIndex
     modifiers:
       - public
@@ -650,6 +707,11 @@ methods:
     modifiers:
       - public
     returnType: float
+  - name: getOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: int
   - name: getOutlineHighlightCol
     modifiers:
       - public
@@ -745,6 +807,10 @@ methods:
     modifiers:
       - public
     returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getTargetAlpha
+    modifiers:
+      - public
+    returnType: float
   - name: getTargetAlpha
     modifiers:
       - public
@@ -862,9 +928,19 @@ methods:
     modifiers:
       - public
     returnType: boolean
+    notes: Returns TRUE if both Alpha nad TargetAlpha are transparent, or near-zero.
+  - name: isAlphaAndTargetZero
+    modifiers:
+      - public
+    returnType: boolean
     parameters:
       - name: playerIndex
         type: int
+  - name: isAlphaZero
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Returns TRUE if Alpha is transparent, or near-zero.
   - name: isAlphaZero
     modifiers:
       - public
@@ -918,6 +994,15 @@ methods:
         type: int
       - name: y
         type: int
+  - name: isMaskClicked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
       - name: flip
         type: boolean
   - name: isMovedThumpable
@@ -937,6 +1022,11 @@ methods:
       - public
       - final
     returnType: boolean
+  - name: isOutlineHighlight
+    modifiers:
+      - public
+      - final
+    returnType: boolean
     parameters:
       - name: playerIndex
         type: int
@@ -945,9 +1035,18 @@ methods:
       - public
       - final
     returnType: boolean
+  - name: isOutlineHlAttached
+    modifiers:
+      - public
+      - final
+    returnType: boolean
     parameters:
       - name: playerIndex
         type: int
+  - name: isOutlineHlBlink
+    modifiers:
+      - public
+    returnType: boolean
   - name: isOutlineHlBlink
     modifiers:
       - public
@@ -1011,6 +1110,16 @@ methods:
   - name: load
     modifiers:
       - public
+      - final
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+  - name: load
+    modifiers:
+      - public
     returnType: void
     parameters:
       - name: input
@@ -1027,6 +1136,13 @@ methods:
       - name: change
         type: String
       - name: bb
+        type: ByteBuffer
+  - name: loadFromRemoteBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
         type: ByteBuffer
   - name: loadFromRemoteBuffer
     modifiers:
@@ -1252,6 +1368,14 @@ methods:
   - name: save
     modifiers:
       - public
+      - final
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+  - name: save
+    modifiers:
+      - public
     returnType: void
     parameters:
       - name: output
@@ -1283,6 +1407,22 @@ methods:
     parameters:
       - name: change
         type: String
+  - name: sendObjectChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: sendObjectChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
       - name: args
         type: Object...
   - name: Serialize
@@ -1294,8 +1434,24 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: alpha
+        type: float
+        notes: the alpha to set
+  - name: setAlpha
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: playerIndex
         type: int
+      - name: alpha
+        type: float
+        notes: the alpha to set
+  - name: setAlphaAndTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: alpha
         type: float
         notes: the alpha to set
@@ -1353,6 +1509,13 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: col
+        type: ColorInfo
+  - name: setCustomColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: r
         type: float
       - name: g
@@ -1383,8 +1546,23 @@ methods:
     returnType: void
     parameters:
       - name: dir
+        type: IsoDirections
+        notes: the dir to set
+  - name: setDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
         type: int
         notes: the dir to set
+  - name: setHighlightColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: highlightColor
+        type: ColorInfo
   - name: setHighlightColor
     modifiers:
       - public
@@ -1398,6 +1576,13 @@ methods:
         type: float
       - name: a
         type: float
+  - name: setHighlighted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: highlight
+        type: boolean
   - name: setHighlighted
     modifiers:
       - public
@@ -1484,10 +1669,50 @@ methods:
       - final
     returnType: void
     parameters:
+      - name: isOutlineHighlight
+        type: boolean
+  - name: setOutlineHighlight
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
       - name: playerIndex
         type: int
       - name: isOutlineHighlight
         type: boolean
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: outlineHighlightCol
+        type: ColorInfo
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: outlineHighlightCol
+        type: ColorInfo
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
   - name: setOutlineHighlightCol
     modifiers:
       - public
@@ -1507,12 +1732,26 @@ methods:
   - name: setOutlineHlAttached
     modifiers:
       - public
+    returnType: void
+    parameters:
+      - name: isOutlineHlAttached
+        type: boolean
+  - name: setOutlineHlAttached
+    modifiers:
+      - public
       - final
     returnType: void
     parameters:
       - name: playerIndex
         type: int
       - name: isOutlineHlAttached
+        type: boolean
+  - name: setOutlineHlBlink
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isOutlineHlBlink
         type: boolean
   - name: setOutlineHlBlink
     modifiers:
@@ -1538,6 +1777,37 @@ methods:
     returnType: void
     parameters:
       - name: outlineThickness
+        type: float
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spriteName
+        type: String
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spriteName
+        type: String
+      - name: bTransmit
+        type: boolean
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spriteName
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
         type: float
   - name: setOverlaySprite
     modifiers:
@@ -1583,6 +1853,13 @@ methods:
     parameters:
       - name: type
         type: RenderEffectType
+  - name: setRenderEffect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: RenderEffectType
       - name: reuseEqualType
         type: boolean
   - name: setRenderYOffset
@@ -1620,6 +1897,14 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: sprite
+        type: IsoSprite
+        notes: the sprite to set
+  - name: setSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: name
         type: String
   - name: setSpriteFromName
@@ -1652,6 +1937,14 @@ methods:
     parameters:
       - name: tainted
         type: boolean
+  - name: setTargetAlpha
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: targetAlpha
+        type: float
+        notes: the targetAlpha to set
   - name: setTargetAlpha
     modifiers:
       - public
@@ -1769,6 +2062,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: transmitUpdatedSpriteToClients
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: transmitUpdatedSpriteToServer
     modifiers:
       - public

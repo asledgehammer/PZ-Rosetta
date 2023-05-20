@@ -153,7 +153,23 @@ methods:
     returnType: void
     parameters:
       - name: msg
+        type: ChatMessage
+  - name: sendMessageToChatMembers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
         type: ServerChatMessage
+  - name: sendMessageToPlayer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: msg
+        type: ChatMessage
   - name: sendMessageToPlayer
     modifiers:
       - public
@@ -170,6 +186,13 @@ methods:
     parameters:
       - name: playerConnection
         type: UdpConnection
+  - name: sendPlayerLeaveChatPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerID
+        type: short
   - name: sendPlayerLeaveChatPacket
     modifiers:
       - public
@@ -221,6 +244,15 @@ methods:
     parameters:
       - name: msg
         type: ChatMessage
+  - name: showMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: text
+        type: String
+      - name: author
+        type: String
   - name: syncMembersByUsernames
     modifiers:
       - public

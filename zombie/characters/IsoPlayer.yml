@@ -384,6 +384,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: remoteConnection
+        type: UdpConnection
+  - name: checkCanSeeClient
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: remoteChr
         type: IsoPlayer
   - name: clearNetworkEvents
@@ -406,6 +413,13 @@ methods:
         type: ByteBufferWriter
       - name: adminUsername
         type: String
+  - name: DoAttack
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chargeDelta
+        type: float
   - name: DoAttack
     modifiers:
       - public
@@ -633,6 +647,10 @@ methods:
   - name: getItemVisuals
     modifiers:
       - public
+    returnType: ItemVisuals
+  - name: getItemVisuals
+    modifiers:
+      - public
     returnType: void
     parameters:
       - name: itemVisuals
@@ -850,6 +868,10 @@ methods:
     modifiers:
       - public
     returnType: BaseVehicle
+  - name: getUsername
+    modifiers:
+      - public
+    returnType: String
   - name: getUsername
     modifiers:
       - public
@@ -1261,6 +1283,17 @@ methods:
     parameters:
       - name: fileName
         type: String
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: MoveUnmodded
     modifiers:
       - public
@@ -1370,9 +1403,22 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
     parameters:
       - name: fileName
         type: String
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: setAccessLevel
     modifiers:
       - public
@@ -1719,6 +1765,13 @@ methods:
     parameters:
       - name: maxWeightDelta
         type: float
+  - name: setMeleeHitSurface
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: material
+        type: ParameterMeleeHitSurface.Material
   - name: setMeleeHitSurface
     modifiers:
       - public

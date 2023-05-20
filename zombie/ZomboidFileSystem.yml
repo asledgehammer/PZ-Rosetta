@@ -49,6 +49,14 @@ methods:
       - static
     returnType: boolean
     parameters:
+      - name: path
+        type: String
+  - name: ensureFolderExists
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
       - name: directory
         type: File
   - name: getAbsolutePath
@@ -73,6 +81,13 @@ methods:
     parameters:
       - name: out
         type: List
+  - name: getAllPathsContaining
+    modifiers:
+      - public
+    returnType: Object
+    parameters:
+      - name: str
+        type: String
   - name: getAllPathsContaining
     modifiers:
       - public
@@ -118,8 +133,22 @@ methods:
       - public
     returnType: File
     parameters:
+      - name: file
+        type: File
+  - name: getCanonicalFile
+    modifiers:
+      - public
+    returnType: File
+    parameters:
       - name: path
         type: String
+  - name: getCanonicalPath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: file
+        type: File
   - name: getCanonicalPath
     modifiers:
       - public
@@ -147,9 +176,41 @@ methods:
       - public
     returnType: File
     parameters:
+      - name: fileName
+        type: String
+  - name: getFileInCurrentSave
+    modifiers:
+      - public
+    returnType: File
+    parameters:
+      - name: subDir
+        type: String
+      - name: fileName
+        type: String
+  - name: getFileInCurrentSave
+    modifiers:
+      - public
+    returnType: File
+    parameters:
       - name: subDir1
         type: String
       - name: subDir2
+        type: String
+      - name: fileName
+        type: String
+  - name: getFileNameInCurrentSave
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: fileName
+        type: String
+  - name: getFileNameInCurrentSave
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subDir
         type: String
       - name: fileName
         type: String
@@ -264,6 +325,29 @@ methods:
       - public
     returnType: String
     parameters:
+      - name: file
+        type: File
+  - name: getRelativeFile
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: string
+        type: String
+  - name: getRelativeFile
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: root
+        type: URI
+      - name: file
+        type: File
+  - name: getRelativeFile
+    modifiers:
+      - public
+    returnType: String
+    parameters:
       - name: root
         type: URI
       - name: string
@@ -334,8 +418,32 @@ methods:
       - static
     returnType: File
     parameters:
+      - name: rootPath
+        type: String
+      - name: filter
+        type: FileFilter
+      - name: recursive
+        type: boolean
+  - name: listAllDirectories
+    modifiers:
+      - public
+      - static
+    returnType: File
+    parameters:
       - name: root
         type: File
+      - name: filter
+        type: FileFilter
+      - name: recursive
+        type: boolean
+  - name: listAllFiles
+    modifiers:
+      - public
+      - static
+    returnType: File
+    parameters:
+      - name: folderPath
+        type: String
       - name: filter
         type: FileFilter
       - name: recursive
@@ -367,6 +475,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: loadMods
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: activeMods
+        type: String
   - name: loadMods
     modifiers:
       - public

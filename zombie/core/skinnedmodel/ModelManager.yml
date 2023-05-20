@@ -87,6 +87,21 @@ methods:
         type: String
       - name: attachNameParent
         type: String
+  - name: addStatic
+    modifiers:
+      - public
+    returnType: ModelInstance
+    parameters:
+      - name: slot
+        type: ModelManager.ModelSlot
+      - name: meshName
+        type: String
+      - name: texName
+        type: String
+      - name: boneName
+        type: String
+      - name: shaderName
+        type: String
   - name: addStaticForcedTex
     modifiers:
       - public
@@ -177,6 +192,13 @@ methods:
         type: IsoMovingObject
       - name: ret
         type: IsoLightSource[]
+  - name: getLoadedModel
+    modifiers:
+      - public
+    returnType: Model
+    parameters:
+      - name: meshName
+        type: String
   - name: getLoadedModel
     modifiers:
       - public
@@ -316,6 +338,13 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: Remove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: vehicle
         type: BaseVehicle
   - name: RenderParticles
@@ -372,6 +401,17 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+        notes: the character to reset
+    notes: |-
+      Reset
+       Resets the specified character.
   - name: ResetCharacterEquippedHands
     modifiers:
       - public
@@ -420,6 +460,19 @@ methods:
     parameters:
       - name: isoGameCharacter
         type: IsoGameCharacter
+  - name: setModelMetaData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: meshName
+        type: String
+      - name: texName
+        type: String
+      - name: shaderName
+        type: String
+      - name: bStatic
+        type: boolean
   - name: setModelMetaData
     modifiers:
       - public

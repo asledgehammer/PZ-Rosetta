@@ -89,6 +89,11 @@ methods:
       - public
       - static
     returnType: void
+  - name: addAllVehicles
+    modifiers:
+      - public
+      - static
+    returnType: void
     parameters:
       - name: predicate
         type: Predicate
@@ -246,6 +251,24 @@ methods:
         type: String
       - name: room
         type: RoomDef
+      - name: femaleChance
+        type: Integer
+  - name: addZombiesInOutfit
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: totalZombies
+        type: int
+      - name: outfit
+        type: String
       - name: femaleChance
         type: Integer
   - name: addZombiesInOutfit
@@ -432,6 +455,14 @@ methods:
       - static
     returnType: se.krka.kahlua.vm.KahluaTable
     parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: copyTable
+    modifiers:
+      - public
+      - static
+    returnType: se.krka.kahlua.vm.KahluaTable
+    parameters:
       - name: to
         type: se.krka.kahlua.vm.KahluaTable
       - name: from
@@ -580,6 +611,16 @@ methods:
     parameters:
       - name: param
         type: Object
+  - name: debugLuaTable
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: param
+        type: Object
+      - name: depth
+        type: int
   - name: debugSetRoomType
     modifiers:
       - public
@@ -2033,6 +2074,50 @@ methods:
     parameters:
       - name: txt
         type: String
+  - name: getText
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+      - name: arg1
+        type: Object
+  - name: getText
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+      - name: arg1
+        type: Object
+      - name: arg2
+        type: Object
+  - name: getText
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+      - name: arg1
+        type: Object
+      - name: arg2
+        type: Object
+      - name: arg3
+        type: Object
+  - name: getText
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
       - name: arg1
         type: Object
       - name: arg2
@@ -2054,6 +2139,50 @@ methods:
     parameters:
       - name: txt
         type: String
+  - name: getTextOrNull
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+  - name: getTextOrNull
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+      - name: arg1
+        type: Object
+  - name: getTextOrNull
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+      - name: arg1
+        type: Object
+      - name: arg2
+        type: Object
+  - name: getTextOrNull
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: txt
+        type: String
+      - name: arg1
+        type: Object
+      - name: arg2
+        type: Object
+      - name: arg3
+        type: Object
   - name: getTextOrNull
     modifiers:
       - public
@@ -2246,6 +2375,14 @@ methods:
       - public
       - static
     returnType: void
+  - name: instanceItem
+    modifiers:
+      - public
+      - static
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: Item
   - name: instanceItem
     modifiers:
       - public
@@ -3225,6 +3362,18 @@ methods:
       - static
     returnType: void
     parameters:
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: sendClientCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
       - name: player
         type: IsoPlayer
       - name: module
@@ -3376,6 +3525,18 @@ methods:
         type: IsoPlayer
       - name: invited
         type: String
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
   - name: sendServerCommand
     modifiers:
       - public
@@ -3871,6 +4032,11 @@ methods:
       - public
       - static
     returnType: void
+  - name: takeScreenshot
+    modifiers:
+      - public
+      - static
+    returnType: void
     parameters:
       - name: fileName
         type: String
@@ -4063,6 +4229,50 @@ methods:
     parameters:
       - name: event
         type: String
+  - name: triggerEvent
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: event
+        type: String
+      - name: param
+        type: Object
+  - name: triggerEvent
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: event
+        type: String
+      - name: param
+        type: Object
+      - name: param2
+        type: Object
+  - name: triggerEvent
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: event
+        type: String
+      - name: param
+        type: Object
+      - name: param2
+        type: Object
+      - name: param3
+        type: Object
+  - name: triggerEvent
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: event
+        type: String
       - name: param
         type: Object
       - name: param2
@@ -4127,6 +4337,14 @@ methods:
         type: String
       - name: logs
         type: String
+  - name: ZombRand
+    modifiers:
+      - public
+      - static
+    returnType: double
+    parameters:
+      - name: max
+        type: double
   - name: ZombRand
     modifiers:
       - public

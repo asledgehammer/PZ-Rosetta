@@ -145,6 +145,18 @@ fields:
       - final
     returnType: BloodClothingType
 methods:
+  - name: __valueOf
+    modifiers:
+      - public
+      - static
+    returnType: BloodClothingType
+    parameters:
+      - name: name
+        type: String
+        notes: the name of the enum constant to be returned.
+    notes: |-
+      Returns the enum constant of this class with the specified name.
+      The string must match
   - name: addBasicPatch
     modifiers:
       - public
@@ -158,6 +170,34 @@ methods:
       - name: itemVisuals
         type: ArrayList
     notes: Should be used only for debug, use Clothing.addPatch for gameplay stuff
+  - name: addBlood
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: count
+        type: int
+      - name: humanVisual
+        type: HumanVisual
+      - name: itemVisuals
+        type: ArrayList
+      - name: allLayers
+        type: boolean
+  - name: addBlood
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+      - name: humanVisual
+        type: HumanVisual
+      - name: itemVisuals
+        type: ArrayList
+      - name: allLayers
+        type: boolean
   - name: addBlood
     modifiers:
       - public
@@ -182,6 +222,20 @@ methods:
     parameters:
       - name: part
         type: BloodBodyPartType
+      - name: humanVisual
+        type: HumanVisual
+      - name: itemVisuals
+        type: ArrayList
+      - name: allLayers
+        type: boolean
+  - name: addDirt
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: part
+        type: BloodBodyPartType
       - name: intensity
         type: float
       - name: humanVisual
@@ -190,6 +244,18 @@ methods:
         type: ArrayList
       - name: allLayers
         type: boolean
+  - name: addHole
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+      - name: humanVisual
+        type: HumanVisual
+      - name: itemVisuals
+        type: ArrayList
   - name: addHole
     modifiers:
       - public
@@ -244,20 +310,16 @@ methods:
     parameters:
       - name: bloodClothingType
         type: ArrayList
-      - name: result
-        type: ArrayList
-  - name: valueOf
+  - name: getCoveredParts
     modifiers:
       - public
       - static
-    returnType: BloodClothingType
+    returnType: ArrayList
     parameters:
-      - name: name
-        type: String
-        notes: the name of the enum constant to be returned.
-    notes: |-
-      Returns the enum constant of this class with the specified name.
-      The string must match
+      - name: bloodClothingType
+        type: ArrayList
+      - name: result
+        type: ArrayList
   - name: values
     modifiers:
       - public

@@ -381,6 +381,14 @@ methods:
       - public
       - static
     returnType: ArrayList
+  - name: getPlayers
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: players
+        type: ArrayList
   - name: getPoisonousBerry
     modifiers:
       - public
@@ -458,6 +466,28 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: PlaySoundAtEveryPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: PlaySoundAtEveryPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
       - name: x
         type: int
       - name: y
@@ -465,6 +495,26 @@ methods:
       - name: z
         type: int
       - name: usePlrCoords
+        type: boolean
+  - name: PlayWorldSoundServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
         type: boolean
   - name: PlayWorldSoundServer
     modifiers:
@@ -838,6 +888,20 @@ methods:
         type: int
       - name: roomID
         type: int
+  - name: sendMetaGrid
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: cellX
+        type: int
+      - name: cellY
+        type: int
+      - name: roomID
+        type: int
+      - name: connection
+        type: UdpConnection
   - name: sendNonPvpZone
     modifiers:
       - public
@@ -850,6 +914,18 @@ methods:
         type: boolean
       - name: connection
         type: UdpConnection
+  - name: sendObjectChange
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: o
+        type: IsoObject
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
   - name: sendObjectChange
     modifiers:
       - public
@@ -930,6 +1006,11 @@ methods:
       - public
       - static
     returnType: void
+  - name: sendRadioPostSilence
+    modifiers:
+      - public
+      - static
+    returnType: void
     parameters:
       - name: c
         type: UdpConnection
@@ -977,6 +1058,32 @@ methods:
       - static
     returnType: void
     parameters:
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: c
+        type: UdpConnection
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
       - name: player
         type: IsoPlayer
       - name: module
@@ -1002,6 +1109,11 @@ methods:
       - public
       - static
     returnType: void
+  - name: sendShortStatistic
+    modifiers:
+      - public
+      - static
+    returnType: void
     parameters:
       - name: c
         type: UdpConnection
@@ -1013,6 +1125,11 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+  - name: sendStatistic
+    modifiers:
+      - public
+      - static
+    returnType: void
   - name: sendStatistic
     modifiers:
       - public
@@ -1064,6 +1181,16 @@ methods:
       - public
       - static
     returnType: void
+  - name: sendWorldSound
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: sound
+        type: WorldSoundManager.WorldSound
   - name: sendWorldSound
     modifiers:
       - public
@@ -1174,6 +1301,16 @@ methods:
       - public
       - static
     returnType: void
+  - name: SyncObjectChunkHashes
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: SyncObjectChunkHashes
     modifiers:
       - public

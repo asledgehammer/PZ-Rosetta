@@ -43,6 +43,24 @@ methods:
         type: IsoGridSquare
       - name: player
         type: IsoPlayer
+  - name: addSafeHouse
+    modifiers:
+      - public
+      - static
+    returnType: SafeHouse
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: player
+        type: String
+      - name: remote
+        type: boolean
   - name: allowSafeHouse
     modifiers:
       - public
@@ -51,6 +69,13 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+  - name: alreadyHaveSafehouse
+    modifiers:
+      - public
+    returnType: SafeHouse
+    parameters:
+      - name: username
+        type: String
   - name: alreadyHaveSafehouse
     modifiers:
       - public
@@ -123,6 +148,14 @@ methods:
       - static
     returnType: SafeHouse
     parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: getSafeHouse
+    modifiers:
+      - public
+      - static
+    returnType: SafeHouse
+    parameters:
       - name: x
         type: int
       - name: y
@@ -160,6 +193,14 @@ methods:
     modifiers:
       - public
     returnType: int
+  - name: hasSafehouse
+    modifiers:
+      - public
+      - static
+    returnType: SafeHouse
+    parameters:
+      - name: username
+        type: String
   - name: hasSafehouse
     modifiers:
       - public
@@ -237,6 +278,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: player
+        type: IsoPlayer
+  - name: playerAllowed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: name
         type: String
   - name: removePlayer
@@ -246,6 +294,13 @@ methods:
     parameters:
       - name: player
         type: String
+  - name: removeSafeHouse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: removeSafeHouse
     modifiers:
       - public

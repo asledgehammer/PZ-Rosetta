@@ -26,6 +26,14 @@ constructors:
         elements will sacrifice space for a small amount of time gained.  The
         initial size will be rounded up internally to the next larger power of 2.
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
+    notes: |-
+      Returns a string representation of this map.  The string representation
+       consists of a list of key-value mappings in the order returned by the
+       map's
   - name: clear
     modifiers:
       - public
@@ -143,12 +151,32 @@ methods:
   - name: remove
     modifiers:
       - public
+    returnType: TypeV
+    parameters:
+      - name: key
+        type: Object
+    notes: |-
+      Removes the key (and its corresponding value) from this map.
+        This method does nothing if the key is not in the map.
+  - name: remove
+    modifiers:
+      - public
     returnType: boolean
     parameters:
       - name: key
         type: Object
       - name: val
         type: Object
+    notes: Atomically do a
+  - name: replace
+    modifiers:
+      - public
+    returnType: TypeV
+    parameters:
+      - name: key
+        type: TypeK
+      - name: val
+        type: TypeV
     notes: Atomically do a
   - name: replace
     modifiers:
@@ -175,14 +203,6 @@ methods:
       - public
     returnType: int
     notes: Returns the number of key-value mappings in this map.
-  - name: toString
-    modifiers:
-      - public
-    returnType: String
-    notes: |-
-      Returns a string representation of this map.  The string representation
-       consists of a list of key-value mappings in the order returned by the
-       map's
   - name: values
     modifiers:
       - public

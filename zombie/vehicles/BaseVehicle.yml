@@ -623,6 +623,19 @@ methods:
         type: String
       - name: attachmentB
         type: String
+  - name: addPointConstraint
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: vehicleB
+        type: BaseVehicle
+      - name: attachmentA
+        type: String
+      - name: attachmentB
+        type: String
       - name: remote
         type: Boolean
   - name: addRandomDamageFromCrash
@@ -677,8 +690,22 @@ methods:
     parameters:
       - name: area
         type: VehicleScript.Area
+  - name: areaPositionWorld
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: area
+        type: VehicleScript.Area
       - name: out
         type: Vector2
+  - name: areaPositionWorld4PlayerInteract
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: area
+        type: VehicleScript.Area
   - name: areaPositionWorld4PlayerInteract
     modifiers:
       - public
@@ -767,6 +794,17 @@ methods:
         type: int
       - name: chr
         type: IsoGameCharacter
+  - name: canAttachTrailer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: vehicleB
+        type: BaseVehicle
+      - name: attachmentA
+        type: String
+      - name: attachmentB
+        type: String
   - name: canAttachTrailer
     modifiers:
       - public
@@ -1013,6 +1051,17 @@ methods:
         type: int
       - name: chr
         type: IsoGameCharacter
+  - name: enter
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: seat
+        type: int
+      - name: chr
+        type: IsoGameCharacter
+      - name: offset
+        type: org.joml.Vector3f
   - name: enterRSync
     modifiers:
       - public
@@ -1067,6 +1116,13 @@ methods:
     modifiers:
       - public
     returnType: AnimationPlayer
+  - name: getAreaCenter
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: areaId
+        type: String
   - name: getAreaCenter
     modifiers:
       - public
@@ -1323,6 +1379,15 @@ methods:
       - public
     returnType: org.joml.Vector3f
     parameters:
+      - name: worldPos
+        type: org.joml.Vector3f
+      - name: localPos
+        type: org.joml.Vector3f
+  - name: getLocalPos
+    modifiers:
+      - public
+    returnType: org.joml.Vector3f
+    parameters:
       - name: worldX
         type: float
       - name: worldY
@@ -1459,6 +1524,15 @@ methods:
         type: int
       - name: id
         type: String
+  - name: getPassengerPositionWorldPos
+    modifiers:
+      - public
+    returnType: org.joml.Vector3f
+    parameters:
+      - name: posn
+        type: VehicleScript.Position
+      - name: out
+        type: org.joml.Vector3f
   - name: getPassengerPositionWorldPos
     modifiers:
       - public
@@ -1702,6 +1776,13 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+  - name: getUseablePart
+    modifiers:
+      - public
+    returnType: VehiclePart
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
       - name: checkDir
         type: boolean
   - name: getVehicleEngineRPM
@@ -1738,6 +1819,26 @@ methods:
       - public
     returnType: org.joml.Vector3f
     parameters:
+      - name: localPos
+        type: org.joml.Vector3f
+      - name: worldPos
+        type: org.joml.Vector3f
+  - name: getWorldPos
+    modifiers:
+      - public
+    returnType: org.joml.Vector3f
+    parameters:
+      - name: localPos
+        type: org.joml.Vector3f
+      - name: worldPos
+        type: org.joml.Vector3f
+      - name: script
+        type: VehicleScript
+  - name: getWorldPos
+    modifiers:
+      - public
+    returnType: org.joml.Vector3f
+    parameters:
       - name: localX
         type: float
       - name: localY
@@ -1746,6 +1847,21 @@ methods:
         type: float
       - name: worldPos
         type: org.joml.Vector3f
+  - name: getWorldPos
+    modifiers:
+      - public
+    returnType: org.joml.Vector3f
+    parameters:
+      - name: localX
+        type: float
+      - name: localY
+        type: float
+      - name: localZ
+        type: float
+      - name: worldPos
+        type: org.joml.Vector3f
+      - name: script
+        type: VehicleScript
   - name: getWorldTransform
     modifiers:
       - public
@@ -1801,6 +1917,13 @@ methods:
         type: BaseVehicle
       - name: amount
         type: float
+  - name: hitCharacter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoZombie
   - name: hitCharacter
     modifiers:
       - public
@@ -1911,6 +2034,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: seat
+        type: int
+  - name: isExitBlocked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: chr
         type: IsoGameCharacter
       - name: seat
@@ -1979,6 +2109,10 @@ methods:
       - name: z
         type: int
   - name: isInvalidChunkAhead
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInvalidChunkAround
     modifiers:
       - public
     returnType: boolean
@@ -2122,6 +2256,14 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: LoadVehicleTexture
+    modifiers:
+      - public
+      - static
+    returnType: Texture
+    parameters:
+      - name: name
+        type: String
       - name: flags
         type: int
   - name: LoadVehicleTextures
@@ -2208,6 +2350,15 @@ methods:
         type: VehiclePart
       - name: player
         type: IsoPlayer
+      - name: animId
+        type: String
+  - name: playPassengerAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: seat
+        type: int
       - name: animId
         type: String
   - name: playPassengerAnim
@@ -2720,6 +2871,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: setScript
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
   - name: setScriptName
     modifiers:
       - public
@@ -2741,6 +2899,13 @@ methods:
     parameters:
       - name: index
         type: int
+  - name: setSmashed
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: location
+        type: String
   - name: setSmashed
     modifiers:
       - public
@@ -2845,6 +3010,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: seat
+        type: int
+  - name: showPassenger
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: chr
         type: IsoGameCharacter
   - name: shutOff
@@ -2939,6 +3111,15 @@ methods:
         type: float
       - name: out
         type: Vector2
+  - name: testCollisionWithProneCharacter
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: doSound
+        type: boolean
   - name: testCollisionWithProneCharacter
     modifiers:
       - public
@@ -3071,6 +3252,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: tryStartEngine
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: haveKey
+        type: boolean
   - name: update
     modifiers:
       - public

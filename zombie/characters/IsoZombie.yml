@@ -498,6 +498,13 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: type
+        type: String
+  - name: DoFootstepSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: volume
         type: float
   - name: DoZombieInventory
@@ -585,6 +592,10 @@ methods:
     modifiers:
       - public
     returnType: HumanVisual
+  - name: getItemVisuals
+    modifiers:
+      - public
+    returnType: ItemVisuals
   - name: getItemVisuals
     modifiers:
       - public
@@ -688,10 +699,40 @@ methods:
         type: float
       - name: isHitFromBehind
         type: boolean
+      - name: hitDir
+        type: Vector2
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: speed
+        type: float
+      - name: isHitFromBehind
+        type: boolean
       - name: hitDirX
         type: float
       - name: hitDirY
         type: float
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
+      - name: damageSplit
+        type: float
+      - name: bIgnoreDamage
+        type: boolean
+      - name: modDelta
+        type: float
+      - name: bRemote
+        type: boolean
   - name: hitConsequences
     modifiers:
       - public
@@ -712,6 +753,10 @@ methods:
       - public
     returnType: void
   - name: initializeStates
+    modifiers:
+      - public
+    returnType: void
+  - name: InitSpritePartsZombie
     modifiers:
       - public
     returnType: void
@@ -876,6 +921,10 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: isZombieAttacking
+    modifiers:
+      - public
+    returnType: boolean
     parameters:
       - name: other
         type: IsoMovingObject
@@ -886,6 +935,15 @@ methods:
     parameters:
       - name: killer
         type: IsoGameCharacter
+  - name: Kill
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: killer
+        type: IsoGameCharacter
+      - name: bGory
+        type: boolean
   - name: knockDown
     modifiers:
       - public
@@ -1076,6 +1134,15 @@ methods:
         type: IsoMovingObject
       - name: force
         type: boolean
+  - name: setEatBodyTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: IsoMovingObject
+      - name: force
+        type: boolean
       - name: eatSpeed
         type: float
   - name: setFakeDead
@@ -1224,6 +1291,13 @@ methods:
     returnType: void
     parameters:
       - name: seconds
+        type: float
+  - name: setThumpCondition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: condition
         type: float
   - name: setThumpCondition
     modifiers:

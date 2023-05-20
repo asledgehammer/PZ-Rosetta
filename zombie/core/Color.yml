@@ -233,6 +233,10 @@ constructors:
        is specified as zero then it will be interpreted as unspecified
        and hence a value of 255 will be recorded.
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
   - name: abgrToColor
     modifiers:
       - public
@@ -285,6 +289,11 @@ methods:
     modifiers:
       - public
     returnType: Color
+    notes: Make a brighter instance of this colour
+  - name: brighter
+    modifiers:
+      - public
+    returnType: Color
     parameters:
       - name: scale
         type: float
@@ -308,6 +317,14 @@ methods:
       - static
     returnType: int
     parameters:
+      - name: val
+        type: Color
+  - name: colorToABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
       - name: r
         type: float
       - name: g
@@ -316,6 +333,11 @@ methods:
         type: float
       - name: a
         type: float
+  - name: darker
+    modifiers:
+      - public
+    returnType: Color
+    notes: Make a darker instance of this colour
   - name: darker
     modifiers:
       - public
@@ -461,6 +483,20 @@ methods:
         type: float
       - name: brightness
         type: float
+  - name: HSBtoRGB
+    modifiers:
+      - public
+      - static
+    returnType: Color
+    parameters:
+      - name: hue
+        type: float
+      - name: saturation
+        type: float
+      - name: brightness
+        type: float
+      - name: result
+        type: Color
   - name: interp
     modifiers:
       - public
@@ -542,6 +578,24 @@ methods:
       - public
     returnType: Color
     parameters:
+      - name: other
+        type: Color
+  - name: set
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+  - name: set
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
       - name: r
         type: float
       - name: g
@@ -618,7 +672,3 @@ methods:
         type: int
       - name: tintABGR
         type: int
-  - name: toString
-    modifiers:
-      - public
-    returnType: String

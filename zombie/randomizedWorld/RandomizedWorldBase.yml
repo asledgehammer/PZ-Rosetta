@@ -26,6 +26,15 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: type
+        type: String
+  - name: addItemOnGround
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: square
+        type: IsoGridSquare
       - name: item
         type: InventoryItem
   - name: addRandomItemOnGround
@@ -37,6 +46,17 @@ methods:
         type: IsoGridSquare
       - name: types
         type: ArrayList
+  - name: addRandomItemsOnGround
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: RoomDef
+      - name: type
+        type: String
+      - name: count
+        type: int
   - name: addRandomItemsOnGround
     modifiers:
       - public
@@ -77,6 +97,19 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
+      - name: spriteName
+        type: String
+  - name: addTileObject
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
       - name: spriteName
         type: String
   - name: addTrailer
@@ -133,6 +166,44 @@ methods:
     parameters:
       - name: zone
         type: IsoMetaGrid.Zone
+      - name: sq
+        type: IsoGridSquare
+      - name: chunk
+        type: IsoChunk
+      - name: zoneName
+        type: String
+      - name: scriptName
+        type: String
+      - name: dir
+        type: IsoDirections
+  - name: addVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: sq
+        type: IsoGridSquare
+      - name: chunk
+        type: IsoChunk
+      - name: zoneName
+        type: String
+      - name: scriptName
+        type: String
+      - name: skinIndex
+        type: Integer
+      - name: dir
+        type: IsoDirections
+      - name: specificContainer
+        type: String
+  - name: addVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
       - name: vehicleX
         type: float
       - name: vehicleY
@@ -147,6 +218,27 @@ methods:
         type: String
       - name: skinIndex
         type: Integer
+      - name: specificContainer
+        type: String
+  - name: addVehicleFlipped
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: sq
+        type: IsoGridSquare
+      - name: chunk
+        type: IsoChunk
+      - name: zoneName
+        type: String
+      - name: scriptName
+        type: String
+      - name: skinIndex
+        type: Integer
+      - name: dir
+        type: IsoDirections
       - name: specificContainer
         type: String
   - name: addVehicleFlipped
@@ -237,6 +329,66 @@ methods:
       - static
     returnType: IsoDeadBody
     parameters:
+      - name: room
+        type: RoomDef
+      - name: blood
+        type: int
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: dir
+        type: IsoDirections
+      - name: blood
+        type: int
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: dir
+        type: IsoDirections
+      - name: blood
+        type: int
+      - name: crawlerChance
+        type: int
+      - name: outfit
+        type: String
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: dir
+        type: IsoDirections
+      - name: blood
+        type: int
+      - name: crawlerChance
+        type: int
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
       - name: x
         type: float
       - name: y
@@ -253,6 +405,14 @@ methods:
         type: int
       - name: outfit
         type: String
+  - name: createRandomZombie
+    modifiers:
+      - public
+      - static
+    returnType: IsoGameCharacter
+    parameters:
+      - name: room
+        type: RoomDef
   - name: createRandomZombie
     modifiers:
       - public

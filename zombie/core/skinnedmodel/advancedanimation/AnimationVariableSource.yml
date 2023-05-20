@@ -50,9 +50,28 @@ methods:
       - public
     returnType: IAnimationVariableSlot
     parameters:
+      - name: handle
+        type: AnimationVariableHandle
+    notes: Returns the specified variable slot. Or NULL if not found.
+  - name: getVariable
+    modifiers:
+      - public
+    returnType: IAnimationVariableSlot
+    parameters:
       - name: key
         type: String
     notes: Returns the specified variable slot. Or NULL if not found.
+  - name: getVariableBoolean
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: key
+        type: String
+    notes: |-
+      Returns the specified variable, as a boolean.
+       Attempts to convert the string variable to a boolean.
+       If that fails, or if variable not found, returns FALSE
   - name: getVariableBoolean
     modifiers:
       - public
@@ -104,7 +123,225 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: var
+        type: IAnimationVariableSlot
+    notes: "Description copied from interface: IAnimationVariableMap"
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: String
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: boolean
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: key
         type: String
       - name: value
         type: float
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackInt.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: boolean
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: float
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: int
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: boolean
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: float
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: int
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackInt.CallbackSetStrongTyped
+    notes: Strong-typed utility function.

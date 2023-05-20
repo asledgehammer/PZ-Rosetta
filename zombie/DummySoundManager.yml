@@ -31,6 +31,17 @@ methods:
         type: fmod.fmod.Audio
       - name: targetVolume
         type: float
+  - name: BlendVolume
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: audio
+        type: fmod.fmod.Audio
+      - name: targetVolume
+        type: float
+      - name: blendSpeedAlpha
+        type: float
   - name: CacheSound
     modifiers:
       - public
@@ -120,6 +131,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: name
+        type: String
+  - name: isPlayingUISound
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: eventInstance
         type: long
   - name: isRemastered
@@ -137,6 +155,19 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: PlayAsMusic
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: musicTrack
+        type: fmod.fmod.Audio
+      - name: loop
+        type: boolean
+      - name: volume
+        type: float
   - name: PlayAsMusic
     modifiers:
       - public
@@ -206,6 +237,17 @@ methods:
         type: String
       - name: loop
         type: boolean
+      - name: maxGain
+        type: float
+  - name: PlaySound
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
       - name: pitchVar
         type: float
       - name: maxGain
@@ -217,6 +259,30 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+  - name: PlaySoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+  - name: PlaySoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: variations
+        type: int
       - name: loop
         type: boolean
       - name: maxGain
@@ -258,6 +324,44 @@ methods:
         type: float
       - name: ignoreOutside
         type: boolean
+  - name: PlayWorldSound
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: choices
+        type: int
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSound
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSoundImpl
     modifiers:
       - public
@@ -288,6 +392,44 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWav
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: choices
+        type: int
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
       - name: source
         type: IsoGridSquare
       - name: pitchVar

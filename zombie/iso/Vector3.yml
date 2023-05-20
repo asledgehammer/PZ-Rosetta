@@ -47,6 +47,11 @@ constructors:
         type: float
     notes: Create a new vector with specified horizontal and vertical parts
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
+    notes: Returns a string representing this vector
   - name: add
     modifiers:
       - public
@@ -56,6 +61,15 @@ methods:
         type: Vector2
         notes: The other Vector2 to add to this one
     notes: Add another vector to this one and return as a new vector
+  - name: addToThis
+    modifiers:
+      - public
+    returnType: Vector3
+    parameters:
+      - name: other
+        type: Vector2
+        notes: The other Vector2 to add to this one
+    notes: Add another vector to this one and store the result in this one
   - name: addToThis
     modifiers:
       - public
@@ -110,6 +124,20 @@ methods:
     parameters:
       - name: other
         type: Vector2
+  - name: dot
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: tx
+        type: float
+      - name: ty
+        type: float
   - name: dot3d
     modifiers:
       - public
@@ -186,6 +214,15 @@ methods:
       - public
     returnType: Vector3
     parameters:
+      - name: other
+        type: Vector3
+        notes: The Vector2 to copy
+    notes: Make this vector identical to another vector
+  - name: set
+    modifiers:
+      - public
+    returnType: Vector3
+    parameters:
       - name: x
         type: float
         notes: The horizontal part
@@ -226,6 +263,15 @@ methods:
   - name: sub
     modifiers:
       - public
+    returnType: Vector3
+    parameters:
+      - name: val
+        type: Vector3
+      - name: out
+        type: Vector3
+  - name: sub
+    modifiers:
+      - public
       - static
     returnType: Vector3
     parameters:
@@ -245,8 +291,3 @@ methods:
       - public
     returnType: Point
     notes: Convert this vector to an AWT Point
-  - name: toString
-    modifiers:
-      - public
-    returnType: String
-    notes: Returns a string representing this vector

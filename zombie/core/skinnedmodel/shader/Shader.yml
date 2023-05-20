@@ -57,6 +57,13 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: amb
+        type: float
+  - name: setAmbient
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: ambr
         type: float
       - name: ambg
@@ -77,6 +84,31 @@ methods:
     parameters:
       - name: hue
         type: float
+  - name: setLight
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: index
+        type: int
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: rad
+        type: float
+      - name: animPlayerAngle
+        type: float
+      - name: inst
+        type: ModelInstance
   - name: setLight
     modifiers:
       - public
@@ -123,6 +155,15 @@ methods:
       - name: location
         type: int
       - name: matrix4f
+        type: org.joml.Matrix4f
+  - name: setMatrix
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: location
+        type: int
+      - name: matrix4f
         type: float[]
   - name: setMatrixBlood1
     modifiers:
@@ -148,7 +189,30 @@ methods:
     returnType: void
     parameters:
       - name: skin
+        type: org.lwjgl.util.vector.Matrix4f[]
+  - name: setMatrixPalette
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: matrixPalette
+        type: FloatBuffer
+  - name: setMatrixPalette
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: skin
         type: org.joml.Matrix4f[]
+  - name: setMatrixPalette
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: matrixPalette
+        type: FloatBuffer
+      - name: transpose
+        type: boolean
   - name: setReflectionParam
     modifiers:
       - public
@@ -227,6 +291,28 @@ methods:
     parameters:
       - name: vec
         type: org.joml.Vector4f
+  - name: setTexturePainColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vec
+        type: org.joml.Vector3f
+      - name: a
+        type: float
+  - name: setTexturePainColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: a
+        type: float
   - name: setTextureRustA
     modifiers:
       - public
@@ -259,6 +345,15 @@ methods:
         type: float
       - name: z
         type: float
+  - name: setTransformMatrix
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: matrix4f
+        type: org.lwjgl.util.vector.Matrix4f
+      - name: transpose
+        type: boolean
   - name: setTransformMatrix
     modifiers:
       - public

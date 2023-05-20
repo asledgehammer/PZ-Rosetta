@@ -101,11 +101,35 @@ methods:
         type: BaseVehicle
       - name: vehicleTowedBy
         type: BaseVehicle
+  - name: sendDetachTowing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicleA
+        type: BaseVehicle
+      - name: vehicleB
+        type: BaseVehicle
   - name: sendEnter
     modifiers:
       - public
     returnType: void
     parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: character
+        type: IsoGameCharacter
+      - name: seatTo
+        type: int
+  - name: sendEnter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
       - name: vehicle
         type: BaseVehicle
       - name: character
@@ -123,6 +147,30 @@ methods:
         type: IsoGameCharacter
       - name: seatFrom
         type: int
+  - name: sendExit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicle
+        type: BaseVehicle
+      - name: character
+        type: IsoGameCharacter
+      - name: seatFrom
+        type: int
+  - name: sendPassengerPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: seat
+        type: int
+      - name: positionId
+        type: String
   - name: sendPassengerPosition
     modifiers:
       - public
@@ -150,6 +198,15 @@ methods:
     parameters:
       - name: vehicles
         type: List
+  - name: sendRequestGetFull
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: VehicleID
+        type: short
+      - name: packetType
+        type: PacketTypes.PacketType
   - name: sendRequestGetPosition
     modifiers:
       - public
@@ -192,11 +249,41 @@ methods:
         type: int
       - name: seatTo
         type: int
+  - name: sendSwitchSeat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicle
+        type: BaseVehicle
+      - name: character
+        type: IsoGameCharacter
+      - name: seatFrom
+        type: int
+      - name: seatTo
+        type: int
   - name: sendTowing
     modifiers:
       - public
     returnType: void
     parameters:
+      - name: vehicleA
+        type: BaseVehicle
+      - name: vehicleB
+        type: BaseVehicle
+      - name: attachmentA
+        type: String
+      - name: attachmentB
+        type: String
+  - name: sendTowing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
       - name: vehicleA
         type: BaseVehicle
       - name: vehicleB

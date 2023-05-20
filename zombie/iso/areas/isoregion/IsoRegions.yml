@@ -303,6 +303,14 @@ methods:
     parameters:
       - name: str
         type: String
+  - name: log
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: str
+        type: String
       - name: col
         type: Color
   - name: receiveClientRequestFullDataChunks
@@ -352,6 +360,17 @@ methods:
     notes: >-
       Needs to be called before a player manipulates the grid.
        Records bitFlags for the state of the square that are compared to bitFlags for the state of the square after manipulation to detect relevant changes.
+  - name: squareChanged
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: gs
+        type: IsoGridSquare
+    notes: >-
+      Called after the grid has been manipulated by a player.
+       NOTE: setPreviousFlags needs to be called prior to the grid being manipulated by a player.
   - name: squareChanged
     modifiers:
       - public

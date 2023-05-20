@@ -146,6 +146,13 @@ methods:
   - name: addLamppost
     modifiers:
       - public
+    returnType: void
+    parameters:
+      - name: light
+        type: IsoLightSource
+  - name: addLamppost
+    modifiers:
+      - public
     returnType: IsoLightSource
     parameters:
       - name: x
@@ -188,8 +195,22 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: item
+        type: InventoryItem
+  - name: addToProcessItems
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: items
         type: ArrayList
+  - name: addToProcessItemsRemove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: addToProcessItemsRemove
     modifiers:
       - public
@@ -492,6 +513,28 @@ methods:
     parameters:
       - name: col
         type: int
+  - name: getGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: double
+      - name: y
+        type: double
+      - name: z
+        type: double
+  - name: getGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: Double
+      - name: y
+        type: Double
+      - name: z
+        type: Double
   - name: getGridSquare
     modifiers:
       - public
@@ -835,6 +878,36 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: filename
+        type: String
+      - name: sx
+        type: int
+      - name: sy
+        type: int
+      - name: sz
+        type: int
+      - name: bClearExisting
+        type: boolean
+  - name: PlaceLot
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lot
+        type: IsoLot
+      - name: sx
+        type: int
+      - name: sy
+        type: int
+      - name: sz
+        type: int
+      - name: bClearExisting
+        type: boolean
+  - name: PlaceLot
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: lot
         type: IsoLot
       - name: sx
@@ -892,6 +965,17 @@ methods:
     parameters:
       - name: light
         type: IsoLightSource
+  - name: removeLamppost
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
   - name: render
     modifiers:
       - public
@@ -945,6 +1029,13 @@ methods:
     parameters:
       - name: scores
         type: Stack
+  - name: setCacheChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: setCacheChunk
     modifiers:
       - public

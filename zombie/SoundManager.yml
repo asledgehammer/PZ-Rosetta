@@ -57,6 +57,15 @@ methods:
         type: fmod.fmod.Audio
       - name: targetVolume
         type: float
+  - name: BlendVolume
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: audio
+        type: fmod.fmod.Audio
+      - name: targetVolume
+        type: float
       - name: blendSpeedAlpha
         type: float
   - name: CacheSound
@@ -152,6 +161,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: name
+        type: String
+  - name: isPlayingUISound
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: eventInstance
         type: long
   - name: isRemastered
@@ -169,6 +185,19 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: PlayAsMusic
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: musicTrack
+        type: fmod.fmod.Audio
+      - name: volume
+        type: float
+      - name: bloop
+        type: boolean
   - name: PlayAsMusic
     modifiers:
       - public
@@ -240,6 +269,19 @@ methods:
         type: boolean
       - name: maxGain
         type: float
+  - name: PlaySound
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+      - name: pitchVar
+        type: float
   - name: PlaySoundEvenSilent
     modifiers:
       - public
@@ -250,6 +292,30 @@ methods:
       - name: loop
         type: boolean
       - name: maxGain
+        type: float
+  - name: PlaySoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+  - name: PlaySoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+      - name: pitchVar
         type: float
   - name: PlaySoundWav
     modifiers:
@@ -286,6 +352,42 @@ methods:
         type: float
       - name: maxGain
         type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSound
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSound
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
       - name: choices
         type: int
       - name: ignoreOutside
@@ -305,6 +407,42 @@ methods:
         type: int
       - name: sz
         type: int
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWav
+    modifiers:
+      - public
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
       - name: pitchVar
         type: float
       - name: radius

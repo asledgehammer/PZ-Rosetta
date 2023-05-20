@@ -21,6 +21,76 @@ methods:
     parameters:
       - name: val1
         type: T1
+      - name: captureConsumer
+        type: Stacks.Params1.ICallback
+  - name: capture
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: captureConsumer
+        type: Stacks.Params2.ICallback
+  - name: capture
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: captureConsumer
+        type: Stacks.Params3.ICallback
+  - name: capture
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: val4
+        type: T4
+      - name: captureConsumer
+        type: Stacks.Params4.ICallback
+  - name: capture
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: val4
+        type: T4
+      - name: val5
+        type: T5
+      - name: captureConsumer
+        type: Stacks.Params5.ICallback
+  - name: capture
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: val1
+        type: T1
       - name: val2
         type: T2
       - name: val3
@@ -41,10 +111,72 @@ methods:
     parameters:
       - name: val1
         type: T1
+      - name: comparator
+        type: Comparators.Params1.ICallback
+  - name: comparator
+    modifiers:
+      - public
+      - static
+    returnType: Comparator
+    parameters:
+      - name: val1
+        type: T1
       - name: val2
         type: T2
       - name: comparator
         type: Comparators.Params2.ICallback
+  - name: consumer
+    modifiers:
+      - public
+      - static
+    returnType: Consumer
+    parameters:
+      - name: val1
+        type: T1
+      - name: consumer
+        type: Consumers.Params1.ICallback
+  - name: consumer
+    modifiers:
+      - public
+      - static
+    returnType: Consumer
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: consumer
+        type: Consumers.Params2.ICallback
+  - name: consumer
+    modifiers:
+      - public
+      - static
+    returnType: Consumer
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: consumer
+        type: Consumers.Params3.ICallback
+  - name: consumer
+    modifiers:
+      - public
+      - static
+    returnType: Consumer
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: val4
+        type: T4
+      - name: consumer
+        type: Consumers.Params4.ICallback
   - name: consumer
     modifiers:
       - public
@@ -120,12 +252,80 @@ methods:
         type: Consumer
       - name: captureVal1
         type: T1
+      - name: lambdaFunc
+        type: Consumers.Params1.ICallback
+    notes: >-
+      forEach
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: forEach
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: forEachFunction
+        type: Consumer
+      - name: captureVal1
+        type: T1
       - name: captureVal2
         type: T2
       - name: lambdaFunc
         type: Consumers.Params2.ICallback
     notes: >-
       forEach
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: forEachFrom
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: forEachFunction
+        type: BiConsumer
+      - name: from
+        type: List
+      - name: captureVal1
+        type: T1
+      - name: lambdaFunc
+        type: Consumers.Params1.ICallback
+    notes: >-
+      forEachFrom (List, 1-param)
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: forEachFrom
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: forEachFunction
+        type: BiConsumer
+      - name: from
+        type: F
+      - name: captureVal1
+        type: T1
+      - name: lambdaFunc
+        type: Consumers.Params1.ICallback
+    notes: >-
+      forEachFrom (Node, 1-param)
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: forEachFrom
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: forEachFunction
+        type: BiConsumer
+      - name: from
+        type: List
+      - name: captureVal1
+        type: T1
+      - name: captureVal2
+        type: T2
+      - name: lambdaFunc
+        type: Consumers.Params2.ICallback
+    notes: >-
+      forEachFrom (List, 2-param)
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
   - name: forEachFrom
     modifiers:
@@ -171,6 +371,21 @@ methods:
         type: Consumer
       - name: captureVal1
         type: T1
+      - name: lambdaFunc
+        type: Invokers.Params1.ICallback
+    notes: >-
+      invoke
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: invoke
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: runFunction
+        type: Consumer
+      - name: captureVal1
+        type: T1
       - name: captureVal2
         type: T2
       - name: lambdaFunc
@@ -178,6 +393,42 @@ methods:
     notes: >-
       invoke
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: invoker
+    modifiers:
+      - public
+      - static
+    returnType: Runnable
+    parameters:
+      - name: val1
+        type: T1
+      - name: invoker
+        type: Invokers.Params1.ICallback
+  - name: invoker
+    modifiers:
+      - public
+      - static
+    returnType: Runnable
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: invoker
+        type: Invokers.Params2.ICallback
+  - name: invoker
+    modifiers:
+      - public
+      - static
+    returnType: Runnable
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: invoker
+        type: Invokers.Params3.ICallback
   - name: invoker
     modifiers:
       - public
@@ -194,6 +445,28 @@ methods:
         type: T4
       - name: invoker
         type: Invokers.Params4.ICallback
+  - name: predicate
+    modifiers:
+      - public
+      - static
+    returnType: Predicate
+    parameters:
+      - name: val1
+        type: T1
+      - name: predicate
+        type: Predicates.Params1.ICallback
+  - name: predicate
+    modifiers:
+      - public
+      - static
+    returnType: Predicate
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: predicate
+        type: Predicates.Params2.ICallback
   - name: predicate
     modifiers:
       - public

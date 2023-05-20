@@ -254,6 +254,19 @@ methods:
     parameters:
       - name: speed
         type: float
+  - name: addBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+      - name: scratched
+        type: boolean
+      - name: bitten
+        type: boolean
+      - name: allLayers
+        type: boolean
   - name: addDirt
     modifiers:
       - public
@@ -265,6 +278,13 @@ methods:
         type: Integer
       - name: allLayers
         type: boolean
+  - name: addHole
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: part
+        type: BloodBodyPartType
   - name: addHole
     modifiers:
       - public
@@ -289,6 +309,45 @@ methods:
     returnType: void
     parameters:
       - name: guid
+        type: String
+  - name: addLineChatElement
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: line
+        type: String
+  - name: addLineChatElement
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: line
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+  - name: addLineChatElement
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: line
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: font
+        type: UIFont
+      - name: baseRange
+        type: float
+      - name: customTag
         type: String
   - name: addLineChatElement
     modifiers:
@@ -411,6 +470,17 @@ methods:
     parameters:
       - name: out
         type: Vector2
+  - name: calcHitDir
+    modifiers:
+      - public
+    returnType: Float
+    parameters:
+      - name: wielder
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
+      - name: out
+        type: Vector2
   - name: calculateBaseSpeed
     modifiers:
       - public
@@ -419,6 +489,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: Callout
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: doAnim
+        type: boolean
   - name: CanAttack
     modifiers:
       - public
@@ -516,6 +593,29 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: climbThroughWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoWindow
+  - name: climbThroughWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoThumpable
+  - name: climbThroughWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoWindow
+      - name: startingFrame
+        type: Integer
   - name: climbThroughWindow
     modifiers:
       - public
@@ -626,6 +726,15 @@ methods:
         type: HandWeapon
       - name: wielder
         type: IsoGameCharacter
+  - name: DoDeath
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
       - name: bGory
         type: boolean
   - name: DoFloorSplat
@@ -643,6 +752,13 @@ methods:
         type: float
       - name: alpha
         type: float
+  - name: DoFootstepSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: String
   - name: DoFootstepSound
     modifiers:
       - public
@@ -755,6 +871,15 @@ methods:
     parameters:
       - name: info
         type: InventoryItem
+  - name: Eat
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: info
+        type: InventoryItem
+      - name: percentage
+        type: float
   - name: endPlaybackGameVariables
     modifiers:
       - public
@@ -1149,6 +1274,13 @@ methods:
       - public
     returnType: float
     parameters:
+      - name: bonePos
+        type: Vector3
+  - name: getDotWithForwardDirection
+    modifiers:
+      - public
+    returnType: float
+    parameters:
       - name: targetX
         type: float
       - name: targetY
@@ -1307,6 +1439,10 @@ methods:
   - name: getItemVisuals
     modifiers:
       - public
+    returnType: ItemVisuals
+  - name: getItemVisuals
+    modifiers:
+      - public
     returnType: void
     parameters:
       - name: itemVisuals
@@ -1374,6 +1510,11 @@ methods:
     modifiers:
       - public
     returnType: int
+  - name: getLevelUpLevels
+    modifiers:
+      - public
+      - static
+    returnType: int[]
   - name: getLevelUpLevels
     modifiers:
       - public
@@ -1878,6 +2019,14 @@ methods:
       - public
     returnType: IAnimationVariableSlot
     parameters:
+      - name: handle
+        type: AnimationVariableHandle
+    notes: "Description copied from interface: IAnimationVariableSource"
+  - name: getVariable
+    modifiers:
+      - public
+    returnType: IAnimationVariableSlot
+    parameters:
       - name: key
         type: String
     notes: "Description copied from interface: IAnimationVariableSource"
@@ -1888,6 +2037,14 @@ methods:
     parameters:
       - name: key
         type: String
+  - name: getVariableBoolean
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: name
+        type: String
+    notes: "Description copied from interface: IAnimationVariableSource"
   - name: getVariableBoolean
     modifiers:
       - public
@@ -2044,8 +2201,30 @@ methods:
     parameters:
       - name: hitHead
         type: boolean
+  - name: helmetFall
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: hitHead
+        type: boolean
       - name: forcedItem
         type: String
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
+      - name: damageSplit
+        type: float
+      - name: bIgnoreDamage
+        type: boolean
+      - name: modDelta
+        type: float
   - name: Hit
     modifiers:
       - public
@@ -2061,6 +2240,23 @@ methods:
         type: float
       - name: hitDirY
         type: float
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
+      - name: damageSplit
+        type: float
+      - name: bIgnoreDamage
+        type: boolean
+      - name: modDelta
+        type: float
+      - name: bRemote
+        type: boolean
   - name: hitConsequences
     modifiers:
       - public
@@ -2152,6 +2348,17 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: IsAttackRange
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
   - name: IsAttackRange
     modifiers:
       - public
@@ -2530,6 +2737,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: recipe
+        type: Recipe
+  - name: isRecipeKnown
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: name
         type: String
   - name: isRunning
@@ -2649,6 +2863,10 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: isZombieAttacking
+    modifiers:
+      - public
+    returnType: boolean
     parameters:
       - name: other
         type: IsoMovingObject
@@ -2681,6 +2899,17 @@ methods:
       - name: perk
         type: PerkFactory.Perk
         notes: the perk to lvl up (a skill points is removed)
+    notes: Level up a perk (max lvl 5)
+  - name: LevelPerk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
+        notes: the perk to lvl up
+      - name: removePick
+        type: boolean
     notes: Level up a perk (max lvl 5)
   - name: load
     modifiers:
@@ -3021,6 +3250,13 @@ methods:
     parameters:
       - name: item
         type: InventoryItem
+  - name: removeWornItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
       - name: forceDropTooHeavy
         type: boolean
   - name: render
@@ -3132,6 +3368,13 @@ methods:
     parameters:
       - name: line
         type: String
+  - name: Say
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: line
+        type: String
       - name: r
         type: float
       - name: g
@@ -3143,6 +3386,13 @@ methods:
       - name: baseRange
         type: float
       - name: customTag
+        type: String
+  - name: SayDebug
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: text
         type: String
   - name: SayDebug
     modifiers:
@@ -3585,6 +3835,14 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: setDefaultState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: defaultState
+        type: State
+        notes: the defaultState to set
   - name: setDelayToSleep
     modifiers:
       - public
@@ -3719,6 +3977,14 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: dir
+        type: Vector2
+        notes: The character's new forward direction.
+  - name: setForwardDirection
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: x
         type: float
       - name: y
@@ -3730,6 +3996,22 @@ methods:
     parameters:
       - name: b
         type: boolean
+  - name: setHaloNote
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: str
+        type: String
+  - name: setHaloNote
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: str
+        type: String
+      - name: dispTime
+        type: float
   - name: setHaloNote
     modifiers:
       - public
@@ -4047,6 +4329,13 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: m
+        type: Metabolics
+  - name: setMetabolicTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: target
         type: float
   - name: setMomentumScalar
@@ -4205,6 +4494,13 @@ methods:
       - name: perks
         type: PerkFactory.Perk
       - name: level
+        type: int
+  - name: setPersistentOutfitID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: outfitID
         type: int
   - name: setPersistentOutfitID
     modifiers:
@@ -4552,6 +4848,131 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: var
+        type: IAnimationVariableSlot
+    notes: "Description copied from interface: IAnimationVariableMap"
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: String
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: boolean
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: float
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: boolean
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: float
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: int
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: boolean
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: float
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
+    notes: Strong-typed utility function.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: key
         type: String
       - name: defaultVal
@@ -4585,6 +5006,15 @@ methods:
       - name: VisibleToNPCs
         type: boolean
         notes: the VisibleToNPCs to set
+  - name: setWornItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: location
+        type: String
+      - name: item
+        type: InventoryItem
   - name: setWornItem
     modifiers:
       - public
@@ -4719,6 +5149,13 @@ methods:
     modifiers:
       - public
     returnType: AnimationVariableSource
+  - name: StartTimedActionAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: event
+        type: String
   - name: StartTimedActionAnim
     modifiers:
       - public

@@ -248,6 +248,15 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: Val
+        type: float
+  - name: AddDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: BodyPartIndex
         type: int
       - name: val
@@ -361,8 +370,22 @@ methods:
       - public
     returnType: float
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+  - name: getBodyPartHealth
+    modifiers:
+      - public
+    returnType: float
+    parameters:
       - name: BodyPartIndex
         type: int
+  - name: getBodyPartName
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: getBodyPartName
     modifiers:
       - public
@@ -659,8 +682,22 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+  - name: IsBandaged
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: BodyPartIndex
         type: int
+  - name: IsBitten
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsBitten
     modifiers:
       - public
@@ -673,8 +710,22 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+  - name: IsBleeding
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: BodyPartIndex
         type: int
+  - name: IsBleedingStemmed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsBleedingStemmed
     modifiers:
       - public
@@ -694,6 +745,13 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: IsCortorised
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsCortorised
     modifiers:
       - public
@@ -719,6 +777,10 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: IsFakeInfected
+    modifiers:
+      - public
+    returnType: boolean
     parameters:
       - name: BodyPartIndex
         type: int
@@ -734,6 +796,17 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: IsInfected
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsInfected
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsInfected
     modifiers:
       - public
@@ -762,6 +835,13 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+  - name: IsScratched
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: BodyPartIndex
         type: int
   - name: IsSneezingCoughing
@@ -773,8 +853,22 @@ methods:
       - public
     returnType: boolean
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+  - name: IsStitched
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
       - name: BodyPartIndex
         type: int
+  - name: IsWounded
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsWounded
     modifiers:
       - public
@@ -789,6 +883,15 @@ methods:
     parameters:
       - name: NewFood
         type: Food
+  - name: JustAteFood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: NewFood
+        type: Food
+      - name: percentage
+        type: float
   - name: JustDrankBooze
     modifiers:
       - public
@@ -878,6 +981,24 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: Bitten
+        type: boolean
+  - name: SetBitten
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: BodyPartIndex
+        type: int
+      - name: Bitten
+        type: boolean
+  - name: SetBitten
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: BodyPartIndex
         type: int
       - name: Bitten
@@ -889,9 +1010,27 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: Bleeding
+        type: boolean
+  - name: SetBleeding
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: BodyPartIndex
         type: int
       - name: Bleeding
+        type: boolean
+  - name: SetBleedingStemmed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: BleedingStemmed
         type: boolean
   - name: SetBleedingStemmed
     modifiers:
@@ -992,6 +1131,15 @@ methods:
       - name: ContinualPainIncrease
         type: float
         notes: the ContinualPainIncrease to set
+  - name: SetCortorised
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: Cortorised
+        type: boolean
   - name: SetCortorised
     modifiers:
       - public
@@ -1303,6 +1451,15 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: Scratched
+        type: boolean
+  - name: SetScratched
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: BodyPartIndex
         type: int
       - name: Scratched
@@ -1415,6 +1572,15 @@ methods:
       - name: Wetness
         type: float
         notes: the Wetness to set
+  - name: SetWounded
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
+      - name: Wounded
+        type: boolean
   - name: SetWounded
     modifiers:
       - public

@@ -178,6 +178,13 @@ methods:
     parameters:
       - name: tooltipUI
         type: ObjectTooltip
+  - name: DoTooltip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
       - name: layout
         type: ObjectTooltip.Layout
   - name: finishupdate
@@ -1105,6 +1112,16 @@ methods:
         type: ByteBuffer
       - name: WorldVersion
         type: int
+  - name: loadItem
+    modifiers:
+      - public
+      - static
+    returnType: InventoryItem
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
       - name: doSaveTypeCheck
         type: boolean
     notes: >-
@@ -1374,6 +1391,15 @@ methods:
       - name: Condition
         type: int
         notes: the Condition to set
+  - name: setCondition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Condition
+        type: int
+      - name: doSound
+        type: boolean
   - name: setConditionFromModData
     modifiers:
       - public
@@ -2128,6 +2154,17 @@ methods:
     parameters:
       - name: emitter
         type: BaseSoundEmitter
+  - name: Use
+    modifiers:
+      - public
+    returnType: void
+  - name: Use
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bCrafting
+        type: boolean
   - name: Use
     modifiers:
       - public

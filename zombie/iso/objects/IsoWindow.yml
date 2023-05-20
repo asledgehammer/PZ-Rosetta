@@ -72,6 +72,13 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: chr
+        type: IsoMovingObject
+  - name: addBrokenGlass
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: onOppositeSquare
         type: boolean
   - name: addRandomBarricades
@@ -85,6 +92,15 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+  - name: addSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: itemType
+        type: String
   - name: addSheetRope
     modifiers:
       - public
@@ -114,6 +130,16 @@ methods:
     modifiers:
       - public
     returnType: boolean
+  - name: canAddSheetRope
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: north
+        type: boolean
   - name: canClimbHere
     modifiers:
       - public
@@ -147,6 +173,32 @@ methods:
     modifiers:
       - public
     returnType: int
+  - name: countAddSheetRope
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: north
+        type: boolean
+  - name: Damage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: amount
+        type: float
+  - name: Damage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: amount
+        type: float
+      - name: isZombie
+        type: boolean
   - name: Damage
     modifiers:
       - public
@@ -196,9 +248,17 @@ methods:
     modifiers:
       - public
     returnType: IsoGameCharacter
+  - name: getFirstCharacterClimbingThrough
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
     parameters:
       - name: square
         type: IsoGridSquare
+  - name: getFirstCharacterClosing
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
   - name: getFirstCharacterClosing
     modifiers:
       - public
@@ -309,6 +369,14 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
+  - name: isTopOfSheetRopeHere
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
       - name: north
         type: boolean
   - name: load
@@ -360,6 +428,13 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+  - name: removeSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: removeSheetRope
     modifiers:
       - public
@@ -453,6 +528,22 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: smashWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+  - name: smashWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: doAlarm
+        type: boolean
   - name: syncIsoObject
     modifiers:
       - public

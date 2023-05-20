@@ -296,8 +296,34 @@ methods:
         type: int
       - name: z
         type: int
+  - name: getZonesAt
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
       - name: result
         type: ArrayList
+  - name: getZonesIntersecting
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
   - name: getZonesIntersecting
     modifiers:
       - public
@@ -373,6 +399,10 @@ methods:
         type: int
       - name: z
         type: int
+  - name: load
+    modifiers:
+      - public
+    returnType: void
   - name: load
     modifiers:
       - public
@@ -496,6 +526,25 @@ methods:
         type: int
       - name: height
         type: int
+  - name: registerZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
       - name: geometryType
         type: IsoMetaGrid.ZoneGeometryType
       - name: points
@@ -555,6 +604,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: savePart
     modifiers:
       - public

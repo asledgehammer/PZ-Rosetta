@@ -21,8 +21,24 @@ methods:
       - static
     returnType: UdpConnection
     parameters:
+      - name: playerOnlineID
+        type: short
+  - name: findConnection
+    modifiers:
+      - public
+      - static
+    returnType: UdpConnection
+    parameters:
       - name: playerName
         type: String
+  - name: findPlayer
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: playerOnlineID
+        type: int
   - name: findPlayer
     modifiers:
       - public
@@ -50,12 +66,34 @@ methods:
       - static
     returnType: float
     parameters:
+      - name: source
+        type: IsoObject
+      - name: dest
+        type: IsoPlayer
+  - name: getDistance
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
       - name: srcX
         type: float
       - name: srcY
         type: float
       - name: dest
         type: IsoPlayer
+  - name: getScrambleValue
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: src
+        type: IsoObject
+      - name: dest
+        type: IsoPlayer
+      - name: baseRange
+        type: float
   - name: getScrambleValue
     modifiers:
       - public
@@ -95,6 +133,18 @@ methods:
     parameters:
       - name: str
         type: String
+  - name: playerWithinBounds
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: source
+        type: IsoObject
+      - name: dest
+        type: IsoObject
+      - name: dist
+        type: float
   - name: playerWithinBounds
     modifiers:
       - public

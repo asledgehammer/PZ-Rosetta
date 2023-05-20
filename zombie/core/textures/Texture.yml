@@ -251,6 +251,15 @@ constructors:
       - public
     notes: creates an emptiy texture and adds it to the game engine's texture list
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
+  - name: bind
+    modifiers:
+      - public
+    returnType: void
+    notes: Blinds the image
   - name: bind
     modifiers:
       - public
@@ -295,6 +304,25 @@ methods:
         type: int
       - name: height
         type: int
+  - name: createMask
+    modifiers:
+      - public
+    returnType: void
+    notes: creates the mask of collisions
+  - name: createMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: mask
+        type: boolean[]
+  - name: createMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: mask
+        type: BooleanGrid
   - name: createMask
     modifiers:
       - public
@@ -393,6 +421,34 @@ methods:
     modifiers:
       - public
     returnType: int
+  - name: getSharedTexture
+    modifiers:
+      - public
+      - static
+    returnType: Texture
+    parameters:
+      - name: name
+        type: String
+  - name: getSharedTexture
+    modifiers:
+      - public
+      - static
+    returnType: Texture
+    parameters:
+      - name: name
+        type: String
+      - name: flags
+        type: int
+  - name: getSharedTexture
+    modifiers:
+      - public
+      - static
+    returnType: Texture
+    parameters:
+      - name: name
+        type: String
+      - name: palette
+        type: String
   - name: getSharedTexture
     modifiers:
       - public
@@ -554,6 +610,51 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: width
+        type: float
+      - name: height
+        type: float
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: width
+        type: float
+      - name: height
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: texdModifier
+        type: Consumer
   - name: render
     modifiers:
       - public
@@ -880,6 +981,34 @@ methods:
         type: int
       - name: yOffset
         type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+  - name: split
+    modifiers:
+      - public
+    returnType: Texture
+    parameters:
+      - name: name
+        type: String
+      - name: xOffset
+        type: int
+      - name: yOffset
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+  - name: split
+    modifiers:
+      - public
+    returnType: Texture
+    parameters:
+      - name: xOffset
+        type: int
+      - name: yOffset
+        type: int
       - name: row
         type: int
       - name: coloumn
@@ -913,10 +1042,6 @@ methods:
     parameters:
       - name: steamID
         type: long
-  - name: toString
-    modifiers:
-      - public
-    returnType: String
   - name: trygetTexture
     modifiers:
       - public
