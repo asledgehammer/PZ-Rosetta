@@ -1,0 +1,734 @@
+# zombie.core.sprite.GenericSpriteRenderState
+package: zombie.core.sprite
+type: class
+name: GenericSpriteRenderState
+extends: Object
+modifiers:
+  - public
+  - abstract
+fields:
+  - name: bCursorVisible
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bRendered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: defaultStyle
+    modifiers:
+      - public
+    returnType: AbstractStyle
+  - name: fbo
+    modifiers:
+      - public
+    returnType: TextureFBO
+  - name: index
+    modifiers:
+      - public
+      - final
+    returnType: int
+  - name: numSprites
+    modifiers:
+      - public
+    returnType: int
+  - name: postRender
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: sprite
+    modifiers:
+      - public
+    returnType: TextureDraw
+  - name: style
+    modifiers:
+      - public
+    returnType: Style
+  - name: UVCA_CIRCLE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: UVCA_NOCIRCLE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: UVCA_NONE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+methods:
+  - name: CheckSpriteSlots
+    modifiers:
+      - public
+    returnType: void
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: clearCutawayTexture
+    modifiers:
+      - public
+    returnType: void
+  - name: clearSprites
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: postRender
+        type: List<TextureDraw>
+  - name: clearUseVertColorsArray
+    modifiers:
+      - public
+    returnType: void
+  - name: doCoreIntParam
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: int
+      - name: val
+        type: float
+  - name: drawGeneric
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: gd
+        type: TextureDraw.GenericDrawer
+  - name: drawModel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: model
+        type: ModelManager.ModelSlot
+  - name: drawParticles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: var1
+        type: int
+      - name: var2
+        type: int
+  - name: drawPuddles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shader
+        type: Shader
+      - name: playerIndex
+        type: int
+      - name: apiId
+        type: int
+      - name: z
+        type: int
+  - name: drawSkyBox
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shader
+        type: Shader
+      - name: playerIndex
+        type: int
+      - name: apiId
+        type: int
+      - name: bufferId
+        type: int
+  - name: drawWater
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shader
+        type: Shader
+      - name: playerIndex
+        type: int
+      - name: apiId
+        type: int
+      - name: bShore
+        type: boolean
+  - name: EndShader
+    modifiers:
+      - public
+    returnType: void
+  - name: glAlphaFunc
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: float
+  - name: glBind
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glBlendEquation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glBlendFunc
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+  - name: glBlendFuncSeparate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+      - name: c
+        type: int
+      - name: d
+        type: int
+  - name: glBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: i
+        type: int
+      - name: p
+        type: int
+  - name: glClear
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glClearColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: int
+      - name: g
+        type: int
+      - name: b
+        type: int
+      - name: a
+        type: int
+  - name: glColorMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+      - name: c
+        type: int
+      - name: d
+        type: int
+  - name: glDepthMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: glDisable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glDoEndFrame
+    modifiers:
+      - public
+    returnType: void
+  - name: glDoEndFrameFx
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: int
+  - name: glDoStartFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: zoom
+        type: float
+      - name: player
+        type: int
+      - name: isTextFrame
+        type: boolean
+  - name: glDoStartFrameFx
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: player
+        type: int
+  - name: glEnable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glGenerateMipMaps
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glIgnoreStyles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: glLoadIdentity
+    modifiers:
+      - public
+    returnType: void
+  - name: glStencilFunc
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+      - name: c
+        type: int
+  - name: glStencilMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+  - name: glStencilOp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+      - name: c
+        type: int
+  - name: glTexParameteri
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+      - name: c
+        type: int
+  - name: glViewport
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+  - name: isReady
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRendered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRendering
+    modifiers:
+      - public
+    returnType: boolean
+  - name: onReady
+    modifiers:
+      - public
+    returnType: void
+  - name: onRenderAcquired
+    modifiers:
+      - public
+    returnType: void
+  - name: onRendered
+    modifiers:
+      - public
+    returnType: void
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: width
+        type: float
+      - name: height
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: u1
+        type: float
+      - name: v1
+        type: float
+      - name: u2
+        type: float
+      - name: v2
+        type: float
+      - name: u3
+        type: float
+      - name: v3
+        type: float
+      - name: u4
+        type: float
+      - name: v4
+        type: float
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+  - name: renderdebug
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x1
+        type: float
+      - name: y1
+        type: float
+      - name: x2
+        type: float
+      - name: y2
+        type: float
+      - name: x3
+        type: float
+      - name: y3
+        type: float
+      - name: x4
+        type: float
+      - name: y4
+        type: float
+      - name: r1
+        type: float
+      - name: g1
+        type: float
+      - name: b1
+        type: float
+      - name: a1
+        type: float
+      - name: r2
+        type: float
+      - name: g2
+        type: float
+      - name: b2
+        type: float
+      - name: a2
+        type: float
+      - name: r3
+        type: float
+      - name: g3
+        type: float
+      - name: b3
+        type: float
+      - name: a3
+        type: float
+      - name: r4
+        type: float
+      - name: g4
+        type: float
+      - name: b4
+        type: float
+      - name: a4
+        type: float
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+  - name: renderflipped
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: width
+        type: float
+      - name: height
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+  - name: renderline
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x1
+        type: int
+      - name: y1
+        type: int
+      - name: x2
+        type: int
+      - name: y2
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: renderPoly
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x1
+        type: float
+      - name: y1
+        type: float
+      - name: x2
+        type: float
+      - name: y2
+        type: float
+      - name: x3
+        type: float
+      - name: y3
+        type: float
+      - name: x4
+        type: float
+      - name: y4
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: u1
+        type: float
+      - name: v1
+        type: float
+      - name: u2
+        type: float
+      - name: v2
+        type: float
+      - name: u3
+        type: float
+      - name: v3
+        type: float
+      - name: u4
+        type: float
+      - name: v4
+        type: float
+  - name: renderRect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setCutawayTexture
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+  - name: setExtraWallShaderParams
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wallTexRender
+        type: SpriteRenderer.WallShaderTexRender
+  - name: setUseVertColorsArray
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: whichShader
+        type: byte
+      - name: c0
+        type: int
+      - name: c1
+        type: int
+      - name: c2
+        type: int
+      - name: c3
+        type: int
+  - name: ShaderUpdate1f
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shaderID
+        type: int
+      - name: uniform
+        type: int
+      - name: uniformValue
+        type: float
+  - name: ShaderUpdate1i
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shaderID
+        type: int
+      - name: uniform
+        type: int
+      - name: uniformValue
+        type: int
+  - name: ShaderUpdate2f
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shaderID
+        type: int
+      - name: uniform
+        type: int
+      - name: value1
+        type: float
+      - name: value2
+        type: float
+  - name: ShaderUpdate3f
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shaderID
+        type: int
+      - name: uniform
+        type: int
+      - name: value1
+        type: float
+      - name: value2
+        type: float
+      - name: value3
+        type: float
+  - name: ShaderUpdate4f
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shaderID
+        type: int
+      - name: uniform
+        type: int
+      - name: value1
+        type: float
+      - name: value2
+        type: float
+      - name: value3
+        type: float
+      - name: value4
+        type: float
+  - name: StartShader
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: iD
+        type: int
+      - name: playerIndex
+        type: int

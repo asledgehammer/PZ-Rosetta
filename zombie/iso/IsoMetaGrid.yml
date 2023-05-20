@@ -1,0 +1,575 @@
+# zombie.iso.IsoMetaGrid
+package: zombie.iso
+type: class
+name: IsoMetaGrid
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: Buildings
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: Grid
+    modifiers:
+      - public
+    returnType: IsoMetaCell
+  - name: maxX
+    modifiers:
+      - public
+    returnType: int
+  - name: maxY
+    modifiers:
+      - public
+    returnType: int
+  - name: MetaCharacters
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: minX
+    modifiers:
+      - public
+    returnType: int
+  - name: minY
+    modifiers:
+      - public
+    returnType: int
+  - name: VehiclesZones
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: Zones
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+constructors:
+  - name: IsoMetaGrid
+    modifiers:
+      - public
+methods:
+  - name: AddToMeta
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isoPlayer
+        type: IsoGameCharacter
+  - name: checkVehiclesZones
+    modifiers:
+      - public
+    returnType: void
+  - name: countNearbyBuildingsRooms
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: isoPlayer
+        type: IsoPlayer
+  - name: countRoomsIntersecting
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+  - name: Create
+    modifiers:
+      - public
+    returnType: void
+  - name: CreateStep1
+    modifiers:
+      - public
+    returnType: void
+  - name: CreateStep2
+    modifiers:
+      - public
+    returnType: void
+  - name: Dispose
+    modifiers:
+      - public
+    returnType: void
+  - name: getBuildingAt
+    modifiers:
+      - public
+    returnType: BuildingDef
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getBuildingAtRelax
+    modifiers:
+      - public
+    returnType: BuildingDef
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getCellData
+    modifiers:
+      - public
+    returnType: IsoMetaCell
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getCellDataAbs
+    modifiers:
+      - public
+    returnType: IsoMetaCell
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getChunkData
+    modifiers:
+      - public
+    returnType: IsoMetaChunk
+    parameters:
+      - name: cx
+        type: int
+      - name: cy
+        type: int
+  - name: getChunkDataFromTile
+    modifiers:
+      - public
+    returnType: IsoMetaChunk
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getCurrentCellData
+    modifiers:
+      - public
+    returnType: IsoMetaCell
+  - name: getCurrentChunkData
+    modifiers:
+      - public
+    returnType: IsoMetaChunk
+  - name: getEmptyOutsideAt
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getHeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getLotDirectories
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getMaxX
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxY
+    modifiers:
+      - public
+    returnType: int
+  - name: getMetaGridFromTile
+    modifiers:
+      - public
+    returnType: IsoMetaCell
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: getMinX
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinY
+    modifiers:
+      - public
+    returnType: int
+  - name: getRandomIndoorCoord
+    modifiers:
+      - public
+    returnType: Vector2
+  - name: getRandomRoomBetweenRange
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: min
+        type: float
+      - name: max
+        type: float
+  - name: getRandomRoomNotInRange
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: range
+        type: int
+  - name: getRoomAt
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getRoomsIntersecting
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: roomDefs
+        type: ArrayList<RoomDef>
+  - name: getVehicleZoneAt
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.VehicleZone
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: getZoneAt
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getZonesAt
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: result
+        type: ArrayList<IsoMetaGrid.Zone>
+  - name: getZonesIntersecting
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: result
+        type: ArrayList<IsoMetaGrid.Zone>
+  - name: getZoneWithBoundsAndType
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: type
+        type: String
+  - name: isPreferredZoneForSquare
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+  - name: isValidChunk
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: isValidSquare
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: isZoneAbove
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone1
+        type: IsoMetaGrid.Zone
+      - name: zone2
+        type: IsoMetaGrid.Zone
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+  - name: loadZone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+  - name: loadZones
+    modifiers:
+      - public
+    returnType: void
+  - name: processZones
+    modifiers:
+      - public
+    returnType: void
+  - name: registerGeometryZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: z
+        type: int
+      - name: geometry
+        type: String
+      - name: pointsTable
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: registerMannequinZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: registerRoomTone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: registerVehiclesZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: registerZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+      - name: geometryType
+        type: IsoMetaGrid.ZoneGeometryType
+      - name: points
+        type: gnu.trove.list.array.TIntArrayList
+      - name: polylineWidth
+        type: int
+  - name: registerZoneNoOverlap
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+  - name: RemoveFromMeta
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isoPlayer
+        type: IsoPlayer
+  - name: removeZone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+  - name: removeZonesForCell
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: cellX
+        type: int
+      - name: cellY
+        type: int
+  - name: removeZonesForLotDirectory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lotDir
+        type: String
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+  - name: savePart
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: part
+        type: int
+      - name: fromServer
+        type: boolean
+  - name: saveZone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer

@@ -1,0 +1,150 @@
+# zombie.fileSystem.FileSystemImpl
+package: zombie.fileSystem
+type: class
+name: FileSystemImpl
+extends: FileSystem
+modifiers:
+  - public
+  - final
+fields:
+  - name: TexturePackCompression
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+constructors:
+  - name: FileSystemImpl
+    modifiers:
+      - public
+methods:
+  - name: cancelAsync
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: int
+  - name: close
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: file
+        type: IFile
+  - name: closeAsync
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: file
+        type: IFile
+      - name: cb
+        type: IFileTask2Callback
+  - name: closeStream
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: stream
+        type: InputStream
+  - name: getDefaultDevice
+    modifiers:
+      - public
+    returnType: DeviceList
+  - name: getTexturePackAlpha
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: name
+        type: String
+      - name: page
+        type: String
+  - name: getTexturePackDevice
+    modifiers:
+      - public
+    returnType: DeviceList
+    parameters:
+      - name: name
+        type: String
+  - name: getTexturePackFlags
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: name
+        type: String
+  - name: hasWork
+    modifiers:
+      - public
+    returnType: boolean
+  - name: mount
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: device
+        type: IFileDevice
+  - name: mountTexturePack
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: subTextures
+        type: FileSystem.TexturePackTextures
+      - name: flags
+        type: int
+  - name: open
+    modifiers:
+      - public
+    returnType: IFile
+    parameters:
+      - name: deviceList
+        type: DeviceList
+      - name: path
+        type: String
+      - name: mode
+        type: int
+  - name: openAsync
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: deviceList
+        type: DeviceList
+      - name: path
+        type: String
+      - name: mode
+        type: int
+      - name: cb
+        type: IFileTask2Callback
+  - name: openStream
+    modifiers:
+      - public
+    returnType: InputStream
+    parameters:
+      - name: deviceList
+        type: DeviceList
+      - name: path
+        type: String
+  - name: runAsync
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: fileTask
+        type: FileTask
+  - name: unMount
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: device
+        type: IFileDevice
+  - name: updateAsyncTransactions
+    modifiers:
+      - public
+    returnType: void

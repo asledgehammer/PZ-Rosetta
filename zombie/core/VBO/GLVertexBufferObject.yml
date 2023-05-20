@@ -1,0 +1,101 @@
+# zombie.core.VBO.GLVertexBufferObject
+package: zombie.core.VBO
+type: class
+name: GLVertexBufferObject
+extends: Object
+modifiers:
+  - public
+notes: Vertex buffer object wrapper
+fields:
+  - name: funcs
+    modifiers:
+      - public
+      - static
+    returnType: IGLBufferObject
+constructors:
+  - name: GLVertexBufferObject
+    modifiers:
+      - public
+    parameters:
+      - name: size
+        type: long
+      - name: type
+        type: int
+      - name: usage
+        type: int
+    notes: C'tor
+  - name: GLVertexBufferObject
+    modifiers:
+      - public
+    parameters:
+      - name: type
+        type: int
+      - name: usage
+        type: int
+    notes: C'tor
+methods:
+  - name: bind
+    modifiers:
+      - public
+    returnType: void
+  - name: bindNone
+    modifiers:
+      - public
+    returnType: void
+  - name: bufferData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: data
+        type: ByteBuffer
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+    notes: Tells the driver we don't care about the data in our buffer any more (may
+      improve performance before mapping)
+  - name: create
+    modifiers:
+      - public
+    returnType: void
+  - name: disableVertexAttribArray
+    modifiers:
+      - public
+    returnType: void
+  - name: enableVertexAttribArray
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: index
+        type: int
+  - name: getID
+    modifiers:
+      - public
+    returnType: int
+  - name: init
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: isMapped
+    modifiers:
+      - public
+    returnType: boolean
+  - name: map
+    modifiers:
+      - public
+    returnType: ByteBuffer
+  - name: orphan
+    modifiers:
+      - public
+    returnType: void
+  - name: toString
+    modifiers:
+      - public
+    returnType: String
+  - name: unmap
+    modifiers:
+      - public
+    returnType: boolean

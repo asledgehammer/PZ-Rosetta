@@ -1,0 +1,1371 @@
+# zombie.characters.IsoZombie
+package: zombie.characters
+type: class
+name: IsoZombie
+extends: IsoGameCharacter
+modifiers:
+  - public
+  - final
+fields:
+  - name: alerted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: AllowRepathDelay
+    modifiers:
+      - public
+    returnType: float
+  - name: AllowRepathDelayMax
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: atlasTex
+    modifiers:
+      - public
+    returnType: DeadBodyAtlas.BodyTexture
+  - name: AttackAnimTime
+    modifiers:
+      - public
+    returnType: int
+  - name: AttackAnimTimeMax
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: authOwner
+    modifiers:
+      - public
+    returnType: UdpConnection
+  - name: authOwnerPlayer
+    modifiers:
+      - public
+    returnType: IsoPlayer
+  - name: bCrawling
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bDressInRandomOutfit
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bIndoorZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bLunger
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bodyToEat
+    modifiers:
+      - public
+    returnType: IsoDeadBody
+  - name: bRemote
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bRunning
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bStaggerBack
+    modifiers:
+      - public
+    returnType: boolean
+  - name: cognition
+    modifiers:
+      - public
+    returnType: int
+  - name: collideWhileHit
+    modifiers:
+      - public
+    returnType: boolean
+  - name: CRAWLER_DAMAGE_DOT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: CRAWLER_DAMAGE_RANGE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: EAT_BODY_DIST
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: EAT_BODY_TIME
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: eatBodyTarget
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: FollowCount
+    modifiers:
+      - public
+    returnType: int
+  - name: Ghost
+    modifiers:
+      - public
+    returnType: boolean
+  - name: group
+    modifiers:
+      - public
+    returnType: ZombieGroup
+  - name: ImmortalTutorialZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: inactive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: KeepItReal
+    modifiers:
+      - public
+    returnType: boolean
+  - name: laceration
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lastChangeOwner
+    modifiers:
+      - public
+    returnType: long
+  - name: lastPlayerHit
+    modifiers:
+      - public
+    returnType: int
+  - name: lastRemoteUpdate
+    modifiers:
+      - public
+    returnType: short
+  - name: LastTargetSeenX
+    modifiers:
+      - public
+    returnType: int
+  - name: LastTargetSeenY
+    modifiers:
+      - public
+    returnType: int
+  - name: LastTargetSeenZ
+    modifiers:
+      - public
+    returnType: int
+  - name: LUNGE_TIME
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: LungeSoundTime
+    modifiers:
+      - public
+    returnType: long
+  - name: LungeTimer
+    modifiers:
+      - public
+    returnType: float
+  - name: movex
+    modifiers:
+      - public
+    returnType: float
+  - name: movey
+    modifiers:
+      - public
+    returnType: float
+  - name: networkAI
+    modifiers:
+      - public
+      - final
+    returnType: NetworkZombieAI
+  - name: OnlineID
+    modifiers:
+      - public
+    returnType: short
+  - name: palette
+    modifiers:
+      - public
+    returnType: int
+  - name: PALETTE_COUNT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: parameterCharacterInside
+    modifiers:
+      - public
+      - final
+    returnType: ParameterCharacterInside
+  - name: parameterPlayerDistance
+    modifiers:
+      - public
+      - final
+    returnType: ParameterPlayerDistance
+  - name: parameterZombieState
+    modifiers:
+      - public
+      - final
+    returnType: ParameterZombieState
+  - name: pendingOutfitName
+    modifiers:
+      - public
+    returnType: String
+  - name: scratch
+    modifiers:
+      - public
+    returnType: boolean
+  - name: soundAttract
+    modifiers:
+      - public
+    returnType: float
+  - name: soundAttractTimeout
+    modifiers:
+      - public
+    returnType: float
+  - name: soundSourceTarget
+    modifiers:
+      - public
+    returnType: Object
+  - name: SPEED_FAST_SHAMBLER
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: SPEED_RANDOM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: SPEED_SHAMBLER
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: SPEED_SPRINTER
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: speedType
+    modifiers:
+      - public
+    returnType: int
+  - name: spotSoundDelay
+    modifiers:
+      - public
+    returnType: int
+  - name: spottedLast
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: SPRINTER_FIXES
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: boolean
+  - name: SpriteName
+    modifiers:
+      - public
+    returnType: String
+  - name: strength
+    modifiers:
+      - public
+    returnType: int
+  - name: target
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: THUMP_FLAG_GARAGE_DOOR
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: THUMP_FLAG_GENERIC
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: THUMP_FLAG_METAL
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: THUMP_FLAG_WINDOW
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: THUMP_FLAG_WINDOW_EXTRA
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: thumpFlag
+    modifiers:
+      - public
+    returnType: int
+  - name: thumpSent
+    modifiers:
+      - public
+    returnType: boolean
+  - name: TimeSinceSeenFlesh
+    modifiers:
+      - public
+    returnType: float
+  - name: vectorToTarget
+    modifiers:
+      - public
+      - final
+    returnType: Vector2
+  - name: walkVariant
+    modifiers:
+      - public
+    returnType: String
+  - name: walkVariantUse
+    modifiers:
+      - public
+    returnType: String
+  - name: ZombieID
+    modifiers:
+      - public
+    returnType: int
+  - name: zombiePacket
+    modifiers:
+      - public
+    returnType: ZombiePacket
+  - name: zombiePacketUpdated
+    modifiers:
+      - public
+    returnType: boolean
+constructors:
+  - name: IsoZombie
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoZombie
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: desc
+        type: SurvivorDesc
+      - name: _palette
+        type: int
+methods:
+  - name: actionStateChanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sender
+        type: ActionContext
+  - name: addAggro
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: other
+        type: IsoMovingObject
+      - name: damage
+        type: float
+  - name: addBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: speed
+        type: float
+  - name: addItemToSpawnAtDeath
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: addRandomBloodDirtHolesEtc
+    modifiers:
+      - public
+    returnType: void
+  - name: addRandomVisualBandages
+    modifiers:
+      - public
+    returnType: void
+    notes: >-
+      Possibly add visual bandages (bloody) on the zombie
+       TODO: Make InventoryItem linked to it in DeadBodyAtlas to being able to remove them (like primary/secondary weapons)
+  - name: addRandomVisualDamages
+    modifiers:
+      - public
+    returnType: void
+    notes: |-
+      Add some random visual damage (clothing actually) to the zombies.
+       Those items won't appear in inventory.
+  - name: addVisualBandage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bodyPart
+        type: BodyPartType
+      - name: bloody
+        type: boolean
+  - name: applyDamageFromVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicleSpeed
+        type: float
+      - name: damage
+        type: float
+  - name: becomeCorpse
+    modifiers:
+      - public
+    returnType: void
+  - name: calcHitDir
+    modifiers:
+      - public
+    returnType: Float
+    parameters:
+      - name: wielder
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
+      - name: out
+        type: Vector2
+  - name: canBeDeletedUnnoticed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: minDistance
+        type: float
+  - name: clearAggroList
+    modifiers:
+      - public
+    returnType: void
+  - name: clearItemsToSpawnAtDeath
+    modifiers:
+      - public
+    returnType: void
+  - name: clothingItemChanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemGuid
+        type: String
+        notes: The item's Globally Unique Identifier (GUID).
+    notes: "Description copied from class: IsoGameCharacter"
+  - name: collideWith
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: DoCorpseInventory
+    modifiers:
+      - public
+    returnType: void
+  - name: DoFootstepSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: volume
+        type: float
+  - name: DoZombieInventory
+    modifiers:
+      - public
+    returnType: void
+  - name: DoZombieSpeeds
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spMod
+        type: float
+  - name: DoZombieStats
+    modifiers:
+      - public
+    returnType: void
+  - name: dressInClothingItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemGUID
+        type: String
+  - name: dressInNamedOutfit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: outfitName
+        type: String
+  - name: dressInPersistentOutfitID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: outfitID
+        type: int
+  - name: dressInRandomOutfit
+    modifiers:
+      - public
+    returnType: void
+    notes: "Description copied from class: IsoGameCharacter"
+  - name: getActionContext
+    modifiers:
+      - public
+    returnType: ActionContext
+  - name: GetAnimSetName
+    modifiers:
+      - public
+    returnType: String
+  - name: getCrawlerType
+    modifiers:
+      - public
+    returnType: int
+  - name: getEatBodyTarget
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: getEatSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: getFootstepVolume
+    modifiers:
+      - public
+    returnType: float
+  - name: getHitAngle
+    modifiers:
+      - public
+    returnType: Vector2
+  - name: getHitHeadWhileOnFloor
+    modifiers:
+      - public
+    returnType: int
+  - name: getHitReactionNetworkAI
+    modifiers:
+      - public
+    returnType: HitReactionNetworkAI
+  - name: getHitTime
+    modifiers:
+      - public
+    returnType: int
+  - name: getHumanVisual
+    modifiers:
+      - public
+    returnType: HumanVisual
+  - name: getItemVisuals
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemVisuals
+        type: ItemVisuals
+  - name: getNetworkCharacterAI
+    modifiers:
+      - public
+    returnType: NetworkCharacterAI
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getOnlineID
+    modifiers:
+      - public
+    returnType: short
+  - name: getPlayerAttackPosition
+    modifiers:
+      - public
+    returnType: String
+  - name: getRealState
+    modifiers:
+      - public
+    returnType: String
+  - name: getReanimatedPlayer
+    modifiers:
+      - public
+    returnType: IsoPlayer
+  - name: getScreenProperX
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getScreenProperY
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getSharedDescriptor
+    modifiers:
+      - public
+    returnType: SharedDescriptors.Descriptor
+  - name: getSharedDescriptorID
+    modifiers:
+      - public
+    returnType: int
+  - name: getTarget
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: getTargetSeenTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getThumpCondition
+    modifiers:
+      - public
+    returnType: float
+  - name: getThumpTimer
+    modifiers:
+      - public
+    returnType: int
+  - name: getTurnDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: getVisual
+    modifiers:
+      - public
+    returnType: BaseVisual
+  - name: getZombieLungeSpeed
+    modifiers:
+      - public
+    returnType: void
+  - name: getZombieWalkTowardSpeed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: speed
+        type: float
+      - name: dist
+        type: float
+      - name: temp
+        type: Vector2
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: speed
+        type: float
+      - name: isHitFromBehind
+        type: boolean
+      - name: hitDirX
+        type: float
+      - name: hitDirY
+        type: float
+  - name: hitConsequences
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
+      - name: bIgnoreDamage
+        type: boolean
+      - name: damage
+        type: float
+      - name: bRemote
+        type: boolean
+  - name: initCanCrawlUnderVehicle
+    modifiers:
+      - public
+    returnType: void
+  - name: initializeStates
+    modifiers:
+      - public
+    returnType: void
+  - name: InitSpritePartsZombie
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: desc
+        type: SurvivorDesc
+  - name: isAlwaysKnockedDown
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAttacking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBecomeCrawler
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanCrawlUnderVehicle
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanWalk
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCrawling
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isFacingTarget
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isFakeDead
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isForceEatingAnimation
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isForceFakeDead
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isHitLegsWhileOnFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isJawStabAttach
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isKnifeDeath
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLeadAggro
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoMovingObject
+  - name: isLocal
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNoTeeth
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isOnlyJawStab
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isProne
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPushableForSeparate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPushedByForSeparate
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoMovingObject
+  - name: isReanimate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isReanimatedPlayer
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRemoteZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSitAgainstWall
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSkeleton
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSolidForSeparate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStaggerBack
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTargetInCone
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dist
+        type: float
+      - name: dot
+        type: float
+  - name: isTargetLocationKnown
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTargetVisible
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isUseless
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isUsingWornItems
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isVehicleCollisionActive
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: testVehicle
+        type: BaseVehicle
+  - name: isZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isZombieAttacking
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoMovingObject
+  - name: Kill
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: killer
+        type: IsoGameCharacter
+  - name: knockDown
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitFromBehind
+        type: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: makeInactive
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: binactive
+        type: boolean
+  - name: Move
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: Vector2
+  - name: MoveUnmodded
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: Vector2
+  - name: onMouseLeftClick
+    modifiers:
+      - public
+    returnType: void
+  - name: onWornItemsChanged
+    modifiers:
+      - public
+    returnType: void
+  - name: pathToCharacter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: IsoGameCharacter
+  - name: pathToLocationF
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: playHurtSound
+    modifiers:
+      - public
+    returnType: void
+  - name: postupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: preupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoChild
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: renderlast
+    modifiers:
+      - public
+    returnType: void
+  - name: resetForReuse
+    modifiers:
+      - public
+    returnType: void
+  - name: RespondToSound
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: setAlwaysKnockedDown
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: alwaysKnockedDown
+        type: boolean
+  - name: setAsSurvivor
+    modifiers:
+      - public
+    returnType: void
+  - name: setBecomeCrawler
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: crawler
+        type: boolean
+  - name: setBodyToEat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: body
+        type: IsoDeadBody
+  - name: setCanCrawlUnderVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setCanWalk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bCanStand
+        type: boolean
+  - name: setCrawler
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: crawling
+        type: boolean
+  - name: setCrawlerType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: crawlerType
+        type: int
+  - name: setDressInRandomOutfit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dressInRandom
+        type: boolean
+  - name: setEatBodyTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: IsoMovingObject
+      - name: force
+        type: boolean
+      - name: eatSpeed
+        type: float
+  - name: setFakeDead
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bFakeDead
+        type: boolean
+  - name: setFemaleEtc
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: female
+        type: boolean
+  - name: setForceEatingAnimation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: forceEatingAnimation
+        type: boolean
+  - name: setForceFakeDead
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bForceFakeDead
+        type: boolean
+  - name: setHitAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitAngle
+        type: Vector2
+  - name: setHitHeadWhileOnFloor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitHeadWhileOnFloor
+        type: int
+  - name: setHitLegsWhileOnFloor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitLegsWhileOnFloor
+        type: boolean
+  - name: setHitTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitTime
+        type: int
+  - name: setImmortalTutorialZombie
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: immortal
+        type: boolean
+  - name: setJawStabAttach
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bJawStabAttach
+        type: boolean
+  - name: setKnifeDeath
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bKnifeDeath
+        type: boolean
+  - name: setNoTeeth
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: noTeeth
+        type: boolean
+  - name: setOnlyJawStab
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: onlyJawStab
+        type: boolean
+  - name: setPlayerAttackPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerAttackPosition
+        type: String
+  - name: setReanimate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: reanimate
+        type: boolean
+  - name: setReanimatedPlayer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: reanimated
+        type: boolean
+  - name: setSitAgainstWall
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sitAgainstWall
+        type: boolean
+  - name: setSkeleton
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isSkeleton
+        type: boolean
+  - name: setStaggerBack
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bStaggerBack
+        type: boolean
+  - name: setTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: t
+        type: IsoMovingObject
+  - name: setTargetSeenTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: seconds
+        type: float
+  - name: setThumpCondition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: condition
+        type: int
+      - name: maxCondition
+        type: int
+  - name: setThumpFlag
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: v
+        type: int
+  - name: setThumpTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: thumpTimer
+        type: int
+  - name: setTurnAlertedValues
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: soundX
+        type: int
+      - name: soundY
+        type: int
+  - name: setUseless
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: useless
+        type: boolean
+  - name: setVehicle4TestCollision
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: setVehicleHitLocation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: setWalkType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: _walkType
+        type: String
+  - name: setWasFakeDead
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wasFakeDead
+        type: boolean
+  - name: shouldDoFenceLunge
+    modifiers:
+      - public
+    returnType: boolean
+  - name: shouldDoInventory
+    modifiers:
+      - public
+    returnType: boolean
+  - name: shouldGetUpFromCrawl
+    modifiers:
+      - public
+    returnType: boolean
+  - name: spotted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: other
+        type: IsoMovingObject
+      - name: bForced
+        type: boolean
+  - name: testCollideWithVehicles
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: toggleCrawling
+    modifiers:
+      - public
+    returnType: void
+  - name: tryThump
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateVocalProperties
+    modifiers:
+      - public
+    returnType: void
+  - name: useDescriptor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sharedDesc
+        type: SharedDescriptors.Descriptor
+  - name: Wander
+    modifiers:
+      - public
+    returnType: void
+  - name: WanderFromWindow
+    modifiers:
+      - public
+    returnType: boolean
+  - name: wasFakeDead
+    modifiers:
+      - public
+    returnType: boolean
+  - name: wasLocal
+    modifiers:
+      - public
+    returnType: boolean
+  - name: writeInventory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer

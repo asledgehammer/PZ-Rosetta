@@ -1,0 +1,160 @@
+# zombie.core.fonts.AngelCodeFont
+package: zombie.core.fonts
+type: class
+name: AngelCodeFont
+extends: Object
+modifiers:
+  - public
+  - final
+notes: >-
+  A font implementation that will parse BMFont format font files. The font files
+  can be output
+   by Hiero, which is included with Slick, and also the AngelCode font tool available at:
+fields:
+  - name: chars
+    modifiers:
+      - public
+    returnType: AngelCodeFont.CharDef
+    notes: The characters building up the font
+  - name: curA
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: curB
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: curCol
+    modifiers:
+      - public
+      - static
+    returnType: Color
+  - name: curG
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: curR
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: xoff
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: yoff
+    modifiers:
+      - public
+      - static
+    returnType: int
+constructors:
+  - name: AngelCodeFont
+    modifiers:
+      - public
+    parameters:
+      - name: fntFile
+        type: String
+        notes: The location of the font defnition file
+      - name: image
+        type: Texture
+    notes: |-
+      Create a new font based on a font definition from AngelCode's tool and
+       the font image generated from the tool.
+  - name: AngelCodeFont
+    modifiers:
+      - public
+    parameters:
+      - name: fntFile
+        type: String
+        notes: The location of the font defnition file
+      - name: imgFile
+        type: String
+    notes: |-
+      Create a new font based on a font definition from AngelCode's tool and
+       the font image generated from the tool.
+methods:
+  - name: destroy
+    modifiers:
+      - public
+    returnType: void
+  - name: drawString
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: scale
+        type: float
+      - name: text
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: startIndex
+        type: int
+      - name: endIndex
+        type: int
+  - name: getHeight
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: text
+        type: String
+        notes: The string to obtain the rendered with of
+    notes: "Description copied from interface: Font"
+  - name: getLineHeight
+    modifiers:
+      - public
+    returnType: int
+    notes: "Description copied from interface: Font"
+  - name: getWidth
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: text
+        type: String
+      - name: start
+        type: int
+      - name: end
+        type: int
+      - name: xadvance
+        type: boolean
+  - name: getYOffset
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: text
+        type: String
+        notes: The text that is to be tested
+    notes: Returns the distance from the y drawing location to the top most pixel of
+      the specified text.
+  - name: isEmpty
+    modifiers:
+      - public
+    returnType: boolean
+  - name: onStateChanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: oldState
+        type: Asset.State
+      - name: newState
+        type: Asset.State
+      - name: asset
+        type: Asset

@@ -1,0 +1,159 @@
+# zombie.iso.ObjectsSyncRequests
+package: zombie.iso
+type: class
+name: ObjectsSyncRequests
+extends: Object
+modifiers:
+  - public
+  - final
+notes: Created by krotos139 on 11/6/2017.
+fields:
+  - name: ClientSendChunkHashes
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: ClientSendGridSquareRequest
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: ClientSendObjectRequests
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: requestsSyncIsoChunk
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: requestsSyncIsoGridSquare
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: requestsSyncIsoObject
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: ServerSendGridSquareHashes
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: ServerSendGridSquareObjectsHashes
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: ServerSendObject
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: timeout
+    modifiers:
+      - public
+    returnType: long
+constructors:
+  - name: ObjectsSyncRequests
+    modifiers:
+      - public
+    parameters:
+      - name: isClient
+        type: boolean
+methods:
+  - name: putRequestSyncIsoChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ch
+        type: IsoChunk
+  - name: putRequestSyncIsoGridSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: putRequestSyncItemContainer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: container
+        type: ItemContainer
+  - name: receiveGridSquareHashes
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: receiveGridSquareObjectHashes
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: receiveObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: receiveSyncIsoChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: receiveSyncIsoGridSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: receiveSyncIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: hash
+        type: long
+  - name: sendRequests
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: serverSendRequests
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection

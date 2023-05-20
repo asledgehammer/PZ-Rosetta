@@ -1,0 +1,56 @@
+# zombie.iso.IsoGridOcclusionData
+package: zombie.iso
+type: class
+name: IsoGridOcclusionData
+extends: Object
+modifiers:
+  - public
+notes: Created by ChrisWood (Tanglewood Games Limited) on 09/10/2017.
+fields:
+  - name: MAXBUILDINGOCCLUDERS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: IsoGridOcclusionData
+    modifiers:
+      - public
+    parameters:
+      - name: inOwnerSquare
+        type: IsoGridSquare
+methods:
+  - name: getBuildingsCouldBeOccluders
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: filter
+        type: IsoGridOcclusionData.OcclusionFilter
+    notes: >-
+      Returns buildings that could occlude some of the square.
+       Depending on the exact shape of the building, the square might not be hidden at all.
+       This is used to hide buildings that might block our view of something in a square (at ground level)
+  - name: getCouldBeOccludedByOrphanStructures
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: filter
+        type: IsoGridOcclusionData.OcclusionFilter
+    notes: >-
+      Returns whether built structures with no building id (orphans) could
+      occlude some of the square.
+       Depending on the exact shape of the structures, the square might not be hidden at all.
+       This is used to hide player-built structures that might block our view of something in a square (at ground
+       level)
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+  - name: SquareChanged
+    modifiers:
+      - public
+      - static
+    returnType: void

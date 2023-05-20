@@ -1,0 +1,170 @@
+# zombie.iso.weather.ThunderStorm
+package: zombie.iso.weather
+type: class
+name: ThunderStorm
+extends: Object
+modifiers:
+  - public
+notes: TurboTuTone.
+fields:
+  - name: MAP_MAX_X
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: MAP_MAX_Y
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: MAP_MIN_X
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: MAP_MIN_Y
+    modifiers:
+      - public
+      - static
+    returnType: int
+constructors:
+  - name: ThunderStorm
+    modifiers:
+      - public
+    parameters:
+      - name: climmgr
+        type: ClimateManager
+methods:
+  - name: applyLightningForPlayer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: renderSettings
+        type: RenderSettings.PlayerRenderSettings
+      - name: plrIndex
+        type: int
+      - name: player
+        type: IsoPlayer
+  - name: enqueueThunderEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: doStrike
+        type: boolean
+      - name: doLightning
+        type: boolean
+      - name: doRumble
+        type: boolean
+  - name: getClouds
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getMapDiagonal
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: HasActiveThunderClouds
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isModifyingNight
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: DataInputStream
+  - name: noise
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: s
+        type: String
+  - name: readNetThunderEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: DataOutputStream
+    notes: IO
+  - name: startThunderCloud
+    modifiers:
+      - public
+    returnType: ThunderStorm.ThunderCloud
+    parameters:
+      - name: str
+        type: float
+      - name: angle
+        type: float
+      - name: radius
+        type: float
+      - name: eventFreq
+        type: float
+      - name: thunderRatio
+        type: float
+      - name: duration
+        type: double
+      - name: targetRandomPlayer
+        type: boolean
+      - name: percentageOffset
+        type: float
+  - name: stopAllClouds
+    modifiers:
+      - public
+    returnType: void
+  - name: stopCloud
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: int
+  - name: triggerThunderEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: doStrike
+        type: boolean
+      - name: doLightning
+        type: boolean
+      - name: doRumble
+        type: boolean
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: currentTime
+        type: double
+  - name: writeNetThunderEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer

@@ -1,0 +1,333 @@
+# zombie.iso.IsoChunkMap
+package: zombie.iso
+type: class
+name: IsoChunkMap
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: bSettingChunk
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ReentrantLock
+  - name: ChunkGridWidth
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: ChunksPerWidth
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: chunkStore
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ConcurrentLinkedQueue
+  - name: ChunkWidthInTiles
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: filenameServerRequests
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: ignore
+    modifiers:
+      - public
+    returnType: boolean
+  - name: LEVELS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: MPWorldXA
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: MPWorldYA
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: MPWorldZA
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: PlayerID
+    modifiers:
+      - public
+    returnType: int
+  - name: SharedChunks
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+  - name: SWorldX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int[]
+  - name: SWorldY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int[]
+  - name: WorldX
+    modifiers:
+      - public
+    returnType: int
+  - name: WorldXA
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: WorldY
+    modifiers:
+      - public
+    returnType: int
+  - name: WorldYA
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: WorldZA
+    modifiers:
+      - public
+      - static
+    returnType: int
+constructors:
+  - name: IsoChunkMap
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+methods:
+  - name: CalcChunkWidth
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: checkIntegrity
+    modifiers:
+      - public
+    returnType: void
+  - name: checkIntegrityThread
+    modifiers:
+      - public
+    returnType: void
+  - name: copy
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: from
+        type: IsoChunkMap
+  - name: Dispose
+    modifiers:
+      - public
+    returnType: void
+  - name: drawDebugChunkMap
+    modifiers:
+      - public
+    returnType: void
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getChunkCurrent
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getChunkForGridSquare
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getGridSquareDirect
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: tileX
+        type: int
+      - name: tileY
+        type: int
+      - name: tileZ
+        type: int
+  - name: getRoom
+    modifiers:
+      - public
+    returnType: IsoRoom
+    parameters:
+      - name: iD
+        type: int
+  - name: getWidthInTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldXMaxTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldXMin
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldXMinTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldYMaxTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldYMin
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldYMinTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: LoadChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: LoadChunkForLater
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: processAllLoadGridSquare
+    modifiers:
+      - public
+    returnType: void
+  - name: ProcessChunkPos
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: renderBloodForChunks
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zza
+        type: int
+  - name: Save
+    modifiers:
+      - public
+    returnType: void
+  - name: setChunkDirect
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: c
+        type: IsoChunk
+      - name: bRequireLock
+        type: boolean
+  - name: setGridSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: setInitialPos
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: setWorldStartPos
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: SwapChunkBuffers
+    modifiers:
+      - public
+    returnType: void
+  - name: Unload
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void

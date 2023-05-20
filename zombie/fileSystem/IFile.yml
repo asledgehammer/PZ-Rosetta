@@ -1,0 +1,49 @@
+# zombie.fileSystem.IFile
+package: zombie.fileSystem
+type: interface
+name: IFile
+modifiers:
+  - public
+methods:
+  - name: close
+    returnType: void
+  - name: getBuffer
+    returnType: byte[]
+  - name: getDevice
+    returnType: IFileDevice
+  - name: getInputStream
+    returnType: InputStream
+  - name: open
+    returnType: boolean
+    parameters:
+      - name: path
+        type: String
+      - name: mode
+        type: int
+  - name: pos
+    returnType: long
+  - name: read
+    returnType: boolean
+    parameters:
+      - name: buffer
+        type: byte[]
+      - name: size
+        type: long
+  - name: release
+    returnType: void
+  - name: seek
+    returnType: boolean
+    parameters:
+      - name: mode
+        type: FileSeekMode
+      - name: pos
+        type: long
+  - name: size
+    returnType: long
+  - name: write
+    returnType: boolean
+    parameters:
+      - name: buffer
+        type: byte[]
+      - name: size
+        type: long

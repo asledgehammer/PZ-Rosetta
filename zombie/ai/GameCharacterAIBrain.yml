@@ -1,0 +1,159 @@
+# zombie.ai.GameCharacterAIBrain
+package: zombie.ai
+type: class
+name: GameCharacterAIBrain
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: AIFocusPoint
+    modifiers:
+      - public
+      - final
+    returnType: Vector2
+  - name: aiTarget
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: allowLongTermTick
+    modifiers:
+      - public
+    returnType: boolean
+  - name: BlockedMemories
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: chasingZombies
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: controlledByAdvancedPathfinder
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HumanControlVars
+    modifiers:
+      - public
+      - final
+    returnType: AIBrainPlayerControlVars
+  - name: isAI
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInMeta
+    modifiers:
+      - public
+    returnType: boolean
+  - name: NextPathNodeInvalidated
+    modifiers:
+      - public
+    returnType: boolean
+  - name: nextPathTarget
+    modifiers:
+      - public
+      - final
+    returnType: Vector3
+  - name: spottedCharacters
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: stance
+    modifiers:
+      - public
+    returnType: Stance
+  - name: StepBehaviors
+    modifiers:
+      - public
+    returnType: boolean
+  - name: teammateChasingZombies
+    modifiers:
+      - public
+    returnType: ArrayList
+constructors:
+  - name: GameCharacterAIBrain
+    modifiers:
+      - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+methods:
+  - name: AddBlockedMemory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ttx
+        type: int
+      - name: tty
+        type: int
+      - name: ttz
+        type: int
+  - name: getCharacter
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+  - name: getClosestChasingZombie
+    modifiers:
+      - public
+    returnType: IsoZombie
+  - name: getClosestChasingZombies
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: num
+        type: int
+  - name: getCloseZombieCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getGroup
+    modifiers:
+      - public
+    returnType: SurvivorGroup
+  - name: getOrder
+    modifiers:
+      - public
+    returnType: String
+  - name: HasBlockedMemory
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: lx
+        type: int
+      - name: ly
+        type: int
+      - name: lz
+        type: int
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: postUpdateHuman
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isoPlayer
+        type: IsoPlayer
+  - name: renderlast
+    modifiers:
+      - public
+    returnType: void
+  - name: setOrder
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: order
+        type: String
+  - name: update
+    modifiers:
+      - public
+    returnType: void

@@ -1,0 +1,1521 @@
+# zombie.inventory.types.HandWeapon
+package: zombie.inventory.types
+type: class
+name: HandWeapon
+extends: InventoryItem
+modifiers:
+  - public
+  - final
+fields:
+  - name: aimingMod
+    modifiers:
+      - public
+    returnType: float
+  - name: bIsAimedFirearm
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bIsAimedHandWeapon
+    modifiers:
+      - public
+    returnType: boolean
+  - name: CriticalChance
+    modifiers:
+      - public
+    returnType: float
+  - name: HitAngleMod
+    modifiers:
+      - public
+    returnType: float
+  - name: IdleAnim
+    modifiers:
+      - public
+    returnType: String
+  - name: ProjectileCount
+    modifiers:
+      - public
+    returnType: int
+  - name: RunAnim
+    modifiers:
+      - public
+    returnType: String
+  - name: SplatSize
+    modifiers:
+      - public
+    returnType: float
+  - name: WeaponLength
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: HandWeapon
+    modifiers:
+      - public
+    parameters:
+      - name: module
+        type: String
+      - name: name
+        type: String
+      - name: itemType
+        type: String
+      - name: texName
+        type: String
+  - name: HandWeapon
+    modifiers:
+      - public
+    parameters:
+      - name: module
+        type: String
+      - name: name
+        type: String
+      - name: itemType
+        type: String
+      - name: item
+        type: Item
+methods:
+  - name: attachWeaponPart
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: part
+        type: WeaponPart
+      - name: doChange
+        type: boolean
+  - name: canBePlaced
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canBeReused
+    modifiers:
+      - public
+    returnType: boolean
+  - name: CanStack
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: detachWeaponPart
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: part
+        type: WeaponPart
+  - name: DoTooltip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
+      - name: layout
+        type: ObjectTooltip.Layout
+  - name: getActualWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimingMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimingPerkCritModifier
+    modifiers:
+      - public
+    returnType: int
+  - name: getAimingPerkHitChanceModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimingPerkMinAngleModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimingPerkRangeModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimingTime
+    modifiers:
+      - public
+    returnType: int
+  - name: getAllWeaponParts
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: result
+        type: ArrayList<WeaponPart>
+  - name: getAmmoBox
+    modifiers:
+      - public
+    returnType: String
+  - name: getAmmoPerShoot
+    modifiers:
+      - public
+    returnType: int
+  - name: getBaseSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: getBestMagazine
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+    notes: Get the magazine with the most bullets in it
+  - name: getBloodLevel
+    modifiers:
+      - public
+    returnType: float
+  - name: getBulletOutSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getCanon
+    modifiers:
+      - public
+    returnType: WeaponPart
+  - name: getCategories
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getCategory
+    modifiers:
+      - public
+    returnType: String
+  - name: getClickSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getClip
+    modifiers:
+      - public
+    returnType: WeaponPart
+  - name: getClipSize
+    modifiers:
+      - public
+    returnType: int
+  - name: getConditionLowerChance
+    modifiers:
+      - public
+    returnType: int
+  - name: getContentsWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getCritDmgMultiplier
+    modifiers:
+      - public
+    returnType: float
+  - name: getCriticalChance
+    modifiers:
+      - public
+    returnType: float
+  - name: getDamageCategory
+    modifiers:
+      - public
+    returnType: String
+  - name: getDamageMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getDoorDamage
+    modifiers:
+      - public
+    returnType: int
+  - name: getDoorHitSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getDoSwingBeforeImpact
+    modifiers:
+      - public
+    returnType: float
+  - name: getEjectAmmoSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getEjectAmmoStartSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getEjectAmmoStopSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getEnduranceMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getExplosionPower
+    modifiers:
+      - public
+    returnType: int
+  - name: getExplosionRange
+    modifiers:
+      - public
+    returnType: int
+  - name: getExplosionTimer
+    modifiers:
+      - public
+    returnType: int
+  - name: getExtraDamage
+    modifiers:
+      - public
+    returnType: float
+  - name: getFatigueMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getFireMode
+    modifiers:
+      - public
+    returnType: String
+  - name: getFireModePossibilities
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getFirePower
+    modifiers:
+      - public
+    returnType: int
+  - name: getFireRange
+    modifiers:
+      - public
+    returnType: int
+  - name: getHitChance
+    modifiers:
+      - public
+    returnType: int
+  - name: getHitFloorSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getImpactSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getInsertAmmoSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getInsertAmmoStartSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getInsertAmmoStopSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getJamGunChance
+    modifiers:
+      - public
+    returnType: float
+  - name: getKnockbackMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getKnockdownMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getMagazineType
+    modifiers:
+      - public
+    returnType: String
+  - name: getMaxAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getMaxDamage
+    modifiers:
+      - public
+    returnType: float
+  - name: getMaxHitCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxRange
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: getMinAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getMinDamage
+    modifiers:
+      - public
+    returnType: float
+  - name: getMinimumSwingTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getMinRange
+    modifiers:
+      - public
+    returnType: float
+  - name: getMinRangeRanged
+    modifiers:
+      - public
+    returnType: float
+  - name: getModelWeaponPart
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getNoiseDuration
+    modifiers:
+      - public
+    returnType: int
+  - name: getNoiseFactor
+    modifiers:
+      - public
+    returnType: float
+  - name: getNoiseRange
+    modifiers:
+      - public
+    returnType: int
+  - name: getOriginalWeaponSprite
+    modifiers:
+      - public
+    returnType: String
+  - name: getOtherBoost
+    modifiers:
+      - public
+    returnType: float
+  - name: getOtherHandRequire
+    modifiers:
+      - public
+    returnType: String
+  - name: getPhysicsObject
+    modifiers:
+      - public
+    returnType: String
+  - name: getPlacedSprite
+    modifiers:
+      - public
+    returnType: String
+  - name: getProjectileCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getPushBackMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getRackSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getRangeMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getRecoilDelay
+    modifiers:
+      - public
+    returnType: int
+  - name: getRecoilpad
+    modifiers:
+      - public
+    returnType: WeaponPart
+  - name: getReloadTime
+    modifiers:
+      - public
+    returnType: int
+  - name: getRunAnim
+    modifiers:
+      - public
+    returnType: String
+  - name: getSaveType
+    modifiers:
+      - public
+    returnType: int
+  - name: getScope
+    modifiers:
+      - public
+    returnType: WeaponPart
+  - name: getScore
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
+  - name: getSensorRange
+    modifiers:
+      - public
+    returnType: int
+  - name: getShellFallSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getSling
+    modifiers:
+      - public
+    returnType: WeaponPart
+  - name: getSmokeRange
+    modifiers:
+      - public
+    returnType: int
+  - name: getSoundGain
+    modifiers:
+      - public
+    returnType: float
+  - name: getSoundRadius
+    modifiers:
+      - public
+    returnType: int
+  - name: getSoundVolume
+    modifiers:
+      - public
+    returnType: int
+  - name: getSpeedMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getSpentRoundCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getSplatNumber
+    modifiers:
+      - public
+    returnType: int
+  - name: getSplatSize
+    modifiers:
+      - public
+    returnType: float
+  - name: getStaticModel
+    modifiers:
+      - public
+    returnType: String
+  - name: getStock
+    modifiers:
+      - public
+    returnType: WeaponPart
+  - name: getStopPower
+    modifiers:
+      - public
+    returnType: float
+  - name: getSubCategory
+    modifiers:
+      - public
+    returnType: String
+  - name: getSwingSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getSwingTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getToHitMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getToHitModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getTreeDamage
+    modifiers:
+      - public
+    returnType: int
+  - name: getTriggerExplosionTimer
+    modifiers:
+      - public
+    returnType: int
+  - name: getWeaponPart
+    modifiers:
+      - public
+    returnType: WeaponPart
+    parameters:
+      - name: type
+        type: String
+  - name: getWeaponPartWeightModifier
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: part
+        type: WeaponPart
+  - name: getWeaponReloadType
+    modifiers:
+      - public
+    returnType: String
+  - name: getWeaponSprite
+    modifiers:
+      - public
+    returnType: String
+  - name: getWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getZombieHitSound
+    modifiers:
+      - public
+    returnType: String
+  - name: haveChamber
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAimed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAimedFirearm
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAimedHandWeapon
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAlwaysKnockdown
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAngleFalloff
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanBarracade
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCantAttackWithLowestEndurance
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isContainsClip
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDamageMakeHole
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInsertAllBulletsReload
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInstantExplosion
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isJammed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isKnockBackOnNoDeath
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isManuallyRemoveSpentRounds
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isMultipleHitConditionAffected
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isOtherHandUse
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPiercingBullets
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRackAfterShoot
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRanged
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRangeFalloff
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isReloadable
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: isRoundChambered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isShareDamage
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isShareEndurance
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSpentRoundChambered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSplatBloodOnNoDeath
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isUseEndurance
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isUseSelf
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsWeapon
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+  - name: randomizeBullets
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: net
+        type: boolean
+  - name: setAimingPerkCritModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aimingPerkCritModifier
+        type: int
+  - name: setAimingPerkHitChanceModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aimingPerkHitChanceModifier
+        type: float
+  - name: setAimingPerkMinAngleModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aimingPerkMinAngleModifier
+        type: float
+  - name: setAimingPerkRangeModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aimingPerkRangeModifier
+        type: float
+  - name: setAimingTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aimingTime
+        type: int
+  - name: setAlwaysKnockdown
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: AlwaysKnockdown
+        type: boolean
+        notes: the AlwaysKnockdown to set
+  - name: setAmmoBox
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ammoBox
+        type: String
+  - name: setAmmoPerShoot
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ammoPerShoot
+        type: int
+  - name: setAngleFalloff
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: angleFalloff
+        type: boolean
+        notes: the angleFalloff to set
+  - name: setBaseSpeed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: baseSpeed
+        type: float
+  - name: setBloodLevel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: level
+        type: float
+  - name: setBulletOutSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bulletOutSound
+        type: String
+  - name: setCanBarracade
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bCanBarracade
+        type: boolean
+        notes: the bCanBarracade to set
+  - name: setCanBePlaced
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: canBePlaced
+        type: boolean
+  - name: setCanBeReused
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: canBeReused
+        type: boolean
+  - name: setCanon
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: canon
+        type: WeaponPart
+  - name: setCantAttackWithLowestEndurance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: CantAttackWithLowestEndurance
+        type: boolean
+        notes: the CantAttackWithLowestEndurance to set
+  - name: setCategories
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: categories
+        type: ArrayList<String>
+  - name: setClickSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: clickSound
+        type: String
+  - name: setClip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: clip
+        type: WeaponPart
+  - name: setClipSize
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: capacity
+        type: int
+  - name: setConditionLowerChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ConditionLowerChance
+        type: int
+        notes: the ConditionLowerChance to set
+  - name: setContainsClip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: containsClip
+        type: boolean
+  - name: setCritDmgMultiplier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: critDmgMultiplier
+        type: float
+  - name: setCriticalChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: criticalChance
+        type: float
+  - name: setDamageCategory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: damageCategory
+        type: String
+  - name: setDamageMakeHole
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: damageMakeHole
+        type: boolean
+  - name: setDoorDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: DoorDamage
+        type: int
+        notes: the DoorDamage to set
+  - name: setDoorHitSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: doorHitSound
+        type: String
+        notes: the doorHitSound to set
+  - name: setDoSwingBeforeImpact
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: doSwingBeforeImpact
+        type: float
+        notes: the doSwingBeforeImpact to set
+  - name: setEnduranceMod
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: EnduranceMod
+        type: float
+        notes: the EnduranceMod to set
+  - name: setExplosionPower
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: explosionPower
+        type: int
+  - name: setExplosionRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: explosionRange
+        type: int
+  - name: setExplosionTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: explosionTimer
+        type: int
+  - name: setExtraDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: extraDamage
+        type: float
+  - name: setFireMode
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fireMode
+        type: String
+  - name: setFireModePossibilities
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fireModePossibilities
+        type: ArrayList<String>
+  - name: setFirePower
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: firePower
+        type: int
+  - name: setFireRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fireRange
+        type: int
+  - name: setHaveChamber
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: haveChamber
+        type: boolean
+  - name: setHitChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitChance
+        type: int
+  - name: setHitFloorSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitFloorSound
+        type: String
+  - name: setImpactSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: impactSound
+        type: String
+        notes: the impactSound to set
+  - name: setInsertAllBulletsReload
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: insertAllBulletsReload
+        type: boolean
+  - name: setJamGunChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: jamGunChance
+        type: float
+  - name: setJammed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isJammed
+        type: boolean
+  - name: setKnockBackOnNoDeath
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: knockBackOnNoDeath
+        type: boolean
+        notes: the knockBackOnNoDeath to set
+  - name: setKnockdownMod
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: KnockdownMod
+        type: float
+        notes: the KnockdownMod to set
+  - name: setMagazineType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: magazineType
+        type: String
+  - name: setMaxAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxAngle
+        type: float
+        notes: the maxAngle to set
+  - name: setMaxDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxDamage
+        type: float
+        notes: the maxDamage to set
+  - name: setMaxHitCount
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxHitCount
+        type: int
+        notes: the maxHitCount to set
+  - name: setMaxRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxRange
+        type: float
+        notes: the maxRange to set
+  - name: setMinAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minAngle
+        type: float
+        notes: the minAngle to set
+  - name: setMinDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minDamage
+        type: float
+        notes: the minDamage to set
+  - name: setMinimumSwingTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minimumSwingTime
+        type: float
+        notes: the minimumSwingTime to set
+  - name: setMinRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minRange
+        type: float
+        notes: the minRange to set
+  - name: setMinRangeRanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minRangeRanged
+        type: float
+  - name: setModelWeaponPart
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelWeaponPart
+        type: ArrayList<ModelWeaponPart>
+  - name: setMultipleHitConditionAffected
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: MultipleHitConditionAffected
+        type: boolean
+        notes: the MultipleHitConditionAffected to set
+  - name: setNoiseFactor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: noiseFactor
+        type: float
+        notes: the noiseFactor to set
+  - name: setNoiseRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: noiseRange
+        type: int
+  - name: setOriginalWeaponSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: originalWeaponSprite
+        type: String
+  - name: setOtherBoost
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: otherBoost
+        type: float
+        notes: the otherBoost to set
+  - name: setOtherHandRequire
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: otherHandRequire
+        type: String
+        notes: the otherHandRequire to set
+  - name: setOtherHandUse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: otherHandUse
+        type: boolean
+        notes: the otherHandUse to set
+  - name: setPhysicsObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: physicsObject
+        type: String
+        notes: the physicsObject to set
+  - name: setPiercingBullets
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: piercingBullets
+        type: boolean
+  - name: setPlacedSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: placedSprite
+        type: String
+  - name: setProjectileCount
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: count
+        type: int
+  - name: setPushBackMod
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pushBackMod
+        type: float
+        notes: the pushBackMod to set
+  - name: setRackAfterShoot
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: rackAfterShoot
+        type: boolean
+  - name: setRackSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: rackSound
+        type: String
+  - name: setRanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ranged
+        type: boolean
+        notes: the ranged to set
+  - name: setRangeFalloff
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: rangeFalloff
+        type: boolean
+        notes: the rangeFalloff to set
+  - name: setRecoilDelay
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: recoilDelay
+        type: int
+  - name: setRecoilpad
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: recoilpad
+        type: WeaponPart
+  - name: setReloadTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: reloadTime
+        type: int
+  - name: setRoundChambered
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: roundChambered
+        type: boolean
+  - name: setScope
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: scope
+        type: WeaponPart
+  - name: setSensorRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sensorRange
+        type: int
+  - name: setShareDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shareDamage
+        type: boolean
+        notes: the shareDamage to set
+  - name: setShareEndurance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shareEndurance
+        type: boolean
+        notes: the shareEndurance to set
+  - name: setShellFallSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shellFallSound
+        type: String
+  - name: setSling
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sling
+        type: WeaponPart
+  - name: setSmokeRange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: smokeRange
+        type: int
+  - name: setSoundGain
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: soundGain
+        type: float
+  - name: setSoundRadius
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: soundRadius
+        type: int
+        notes: the soundRadius to set
+  - name: setSoundVolume
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: soundVolume
+        type: int
+        notes: the soundVolume to set
+  - name: setSpentRoundChambered
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: roundChambered
+        type: boolean
+  - name: setSpentRoundCount
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: count
+        type: int
+  - name: setSplatBloodOnNoDeath
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: splatBloodOnNoDeath
+        type: boolean
+        notes: the splatBloodOnNoDeath to set
+  - name: setSplatNumber
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: splatNumber
+        type: int
+        notes: the splatNumber to set
+  - name: setStock
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: stock
+        type: WeaponPart
+  - name: setSubCategory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: subcategory
+        type: String
+  - name: setSwingSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: swingSound
+        type: String
+        notes: the swingSound to set
+  - name: setSwingTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: swingTime
+        type: float
+        notes: the swingTime to set
+  - name: setToHitModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: toHitModifier
+        type: float
+        notes: the toHitModifier to set
+  - name: setTreeDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: treeDamage
+        type: int
+  - name: setTriggerExplosionTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: triggerExplosionTimer
+        type: int
+  - name: setUseEndurance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: useEndurance
+        type: boolean
+        notes: the useEndurance to set
+  - name: setUseSelf
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: useSelf
+        type: boolean
+        notes: the useSelf to set
+  - name: setWeaponLength
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weaponLength
+        type: float
+  - name: setWeaponPart
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: String
+      - name: part
+        type: WeaponPart
+  - name: setWeaponReloadType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weaponReloadType
+        type: String
+  - name: setWeaponSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weaponSprite
+        type: String
+        notes: the weaponSprite to set
+  - name: setZombieHitSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hitSound
+        type: String

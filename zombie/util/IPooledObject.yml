@@ -1,0 +1,47 @@
+# zombie.util.IPooledObject
+package: zombie.util
+type: interface
+name: IPooledObject
+modifiers:
+  - public
+notes: The base interface of all pooled objects managed by zombie.util.Pool
+methods:
+  - name: getPool
+    returnType: Pool
+  - name: isFree
+    returnType: boolean
+  - name: onReleased
+    modifiers:
+      - default
+    returnType: void
+  - name: release
+    modifiers:
+      - static
+    returnType: void
+    parameters:
+      - name: list
+        type: List<? extends IPooledObject>
+  - name: releaseAndBlank
+    modifiers:
+      - static
+    returnType: void
+    parameters:
+      - name: list
+        type: IPooledObject[]
+  - name: setFree
+    returnType: void
+    parameters:
+      - name: isFree
+        type: boolean
+  - name: setPool
+    returnType: void
+    parameters:
+      - name: pool
+        type: Pool<IPooledObject>
+  - name: tryReleaseAndBlank
+    modifiers:
+      - static
+    returnType: void
+    parameters:
+      - name: list
+        type: IPooledObject[]

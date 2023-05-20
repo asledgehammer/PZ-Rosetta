@@ -1,0 +1,237 @@
+# zombie.chat.ChatBase
+package: zombie.chat
+type: class
+name: ChatBase
+extends: Object
+modifiers:
+  - public
+  - abstract
+constructors:
+  - name: ChatBase
+    modifiers:
+      - public
+    parameters:
+      - name: bb
+        type: ByteBuffer
+        notes: package from server that describe how chat should look and work
+      - name: type
+        type: ChatType
+      - name: tab
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
+    notes: Should called only on client side of chat system
+  - name: ChatBase
+    modifiers:
+      - public
+    parameters:
+      - name: id
+        type: int
+        notes: unique id of chat. It will be used to identify chat in client-server
+          communication
+      - name: type
+        type: ChatType
+      - name: tab
+        type: ChatTab
+    notes: Should be called only on server side of chat system
+methods:
+  - name: addMember
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerID
+        type: short
+  - name: close
+    modifiers:
+      - public
+    returnType: void
+  - name: createMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: text
+        type: String
+        notes: text of the message
+    notes: Message creator. Every chat know how to create its own message
+  - name: createServerMessage
+    modifiers:
+      - public
+    returnType: ServerChatMessage
+    parameters:
+      - name: text
+        type: String
+  - name: getColor
+    modifiers:
+      - public
+    returnType: Color
+  - name: getID
+    modifiers:
+      - public
+    returnType: int
+  - name: getJustAddedMembers
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getJustRemovedMembers
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getMessagePrefix
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: getMessageTextWithPrefix
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: getMode
+    modifiers:
+      - public
+    returnType: ChatMode
+  - name: getRange
+    modifiers:
+      - public
+    returnType: float
+  - name: getTabID
+    modifiers:
+      - public
+    returnType: short
+  - name: getTitleID
+    modifiers:
+      - public
+    returnType: String
+  - name: getType
+    modifiers:
+      - public
+    returnType: ChatType
+  - name: getZombieAttractionRange
+    modifiers:
+      - public
+    returnType: float
+  - name: isEnabled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSendingToRadio
+    modifiers:
+      - public
+    returnType: boolean
+  - name: leaveMember
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerID
+        type: Short
+  - name: packMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
+  - name: removeMember
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerID
+        type: Short
+  - name: sendMessageToChatMembers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ServerChatMessage
+  - name: sendMessageToPlayer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerID
+        type: short
+      - name: msg
+        type: ChatMessage
+  - name: sendPlayerJoinChatPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerConnection
+        type: UdpConnection
+  - name: sendPlayerLeaveChatPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: sendToServer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+      - name: deviceData
+        type: DeviceData
+  - name: setFontSize
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fontSize
+        type: String
+  - name: setSettings
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: settings
+        type: ChatSettings
+  - name: setShowTimestamp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: showTimestamp
+        type: boolean
+  - name: setShowTitle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: showTitle
+        type: boolean
+  - name: showMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: syncMembersByUsernames
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: players
+        type: ArrayList<String>
+  - name: unpackMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

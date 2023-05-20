@@ -1,0 +1,104 @@
+# zombie.core.physics.Transform
+package: zombie.core.physics
+type: class
+name: Transform
+extends: Object
+modifiers:
+  - public
+  - final
+notes: |-
+  Transform represents translation and rotation (rigid transform). Scaling and
+   shearing is not supported.
+fields:
+  - name: basis
+    modifiers:
+      - public
+      - final
+    returnType: org.joml.Matrix3f
+    notes: Rotation matrix of this Transform.
+  - name: origin
+    modifiers:
+      - public
+      - final
+    returnType: org.joml.Vector3f
+    notes: Translation vector of this Transform.
+constructors:
+  - name: Transform
+    modifiers:
+      - public
+  - name: Transform
+    modifiers:
+      - public
+    parameters:
+      - name: mat
+        type: org.joml.Matrix3f
+  - name: Transform
+    modifiers:
+      - public
+    parameters:
+      - name: mat
+        type: org.joml.Matrix4f
+  - name: Transform
+    modifiers:
+      - public
+    parameters:
+      - name: tr
+        type: Transform
+methods:
+  - name: equals
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: Object
+  - name: getMatrix
+    modifiers:
+      - public
+    returnType: org.joml.Matrix4f
+    parameters:
+      - name: out
+        type: org.joml.Matrix4f
+  - name: getRotation
+    modifiers:
+      - public
+    returnType: org.joml.Quaternionf
+    parameters:
+      - name: out
+        type: org.joml.Quaternionf
+  - name: hashCode
+    modifiers:
+      - public
+    returnType: int
+  - name: inverse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tr
+        type: Transform
+  - name: set
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: mat
+        type: org.joml.Matrix4f
+  - name: setIdentity
+    modifiers:
+      - public
+    returnType: void
+  - name: setRotation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: q
+        type: org.joml.Quaternionf
+  - name: transform
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: v
+        type: org.joml.Vector3f

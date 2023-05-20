@@ -1,0 +1,327 @@
+# zombie.scripting.ScriptManager
+package: zombie.scripting
+type: class
+name: ScriptManager
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: currentFileName
+    modifiers:
+      - public
+    returnType: String
+  - name: CurrentLoadingModule
+    modifiers:
+      - public
+    returnType: ScriptModule
+  - name: instance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ScriptManager
+  - name: ModuleList
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: ModuleMap
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: scriptsWithVehicles
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: scriptsWithVehicleTemplates
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: VanillaID
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+constructors:
+  - name: ScriptManager
+    modifiers:
+      - public
+methods:
+  - name: CheckExitPoints
+    modifiers:
+      - public
+    returnType: void
+  - name: FindItem
+    modifiers:
+      - public
+    returnType: Item
+    parameters:
+      - name: name
+        type: String
+      - name: moduleDefaultsToBase
+        type: boolean
+  - name: getAllAnimationsMeshes
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllEvolvedRecipes
+    modifiers:
+      - public
+    returnType: Stack
+  - name: getAllFixing
+    modifiers:
+      - public
+    returnType: List
+    parameters:
+      - name: result
+        type: List<Fixing>
+  - name: getAllGameSounds
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllItems
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllMannequinScripts
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllModelScripts
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllRecipes
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllRecipesFor
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: result
+        type: String
+  - name: getAllRuntimeAnimationScripts
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAllUniqueRecipes
+    modifiers:
+      - public
+    returnType: Stack
+  - name: getAllVehicleScripts
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getAnimationsMesh
+    modifiers:
+      - public
+    returnType: AnimationsMesh
+    parameters:
+      - name: name
+        type: String
+  - name: getChecksum
+    modifiers:
+      - public
+    returnType: String
+  - name: getCurrentLoadFileAbsPath
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: getCurrentLoadFileMod
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: getItem
+    modifiers:
+      - public
+    returnType: Item
+    parameters:
+      - name: name
+        type: String
+  - name: getItemForClothingItem
+    modifiers:
+      - public
+    returnType: Item
+    parameters:
+      - name: clothingName
+        type: String
+  - name: getItemName
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: name
+        type: String
+  - name: getItemsByType
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+  - name: getItemsTag
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+  - name: getItemTypeForClothingItem
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: clothingItem
+        type: String
+  - name: getMannequinScript
+    modifiers:
+      - public
+    returnType: MannequinScript
+    parameters:
+      - name: name
+        type: String
+  - name: getModelScript
+    modifiers:
+      - public
+    returnType: ModelScript
+    parameters:
+      - name: name
+        type: String
+  - name: getModule
+    modifiers:
+      - public
+    returnType: ScriptModule
+    parameters:
+      - name: name
+        type: String
+      - name: defaultToBase
+        type: boolean
+  - name: getModuleNoDisableCheck
+    modifiers:
+      - public
+    returnType: ScriptModule
+    parameters:
+      - name: name
+        type: String
+  - name: getRecipe
+    modifiers:
+      - public
+    returnType: Recipe
+    parameters:
+      - name: name
+        type: String
+  - name: getSoundTimeline
+    modifiers:
+      - public
+    returnType: SoundTimelineScript
+    parameters:
+      - name: eventName
+        type: String
+  - name: getSpecificItem
+    modifiers:
+      - public
+    returnType: Item
+    parameters:
+      - name: name
+        type: String
+    notes: Attempts to get the specific item of "module.type" without defaulting to
+      module "Base".
+  - name: getVehicle
+    modifiers:
+      - public
+    returnType: VehicleScript
+    parameters:
+      - name: name
+        type: String
+  - name: getVehicleEngineRPM
+    modifiers:
+      - public
+    returnType: VehicleEngineRPM
+    parameters:
+      - name: name
+        type: String
+  - name: getVehicleTemplate
+    modifiers:
+      - public
+    returnType: VehicleTemplate
+    parameters:
+      - name: name
+        type: String
+  - name: getZedDmgMap
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: isDrainableItemType
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: itemType
+        type: String
+  - name: Load
+    modifiers:
+      - public
+    returnType: void
+  - name: LoadFile
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: filename
+        type: String
+      - name: bLoadJar
+        type: boolean
+  - name: ParseScript
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: totalFile
+        type: String
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+  - name: resolveItemType
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: module
+        type: ScriptModule
+      - name: itemType
+        type: String
+  - name: resolveModelScript
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: module
+        type: ScriptModule
+      - name: modelScriptName
+        type: String
+  - name: searchFolders
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: base
+        type: URI
+      - name: fo
+        type: File
+      - name: loadList
+        type: ArrayList<String>
+  - name: update
+    modifiers:
+      - public
+    returnType: void

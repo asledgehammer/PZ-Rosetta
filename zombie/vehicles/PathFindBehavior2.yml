@@ -1,0 +1,281 @@
+# zombie.vehicles.PathFindBehavior2
+package: zombie.vehicles
+type: class
+name: PathFindBehavior2
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: bStopping
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Listeners
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: NPCData
+    modifiers:
+      - public
+    returnType: PathFindBehavior2.NPCData
+  - name: pathNextIsSet
+    modifiers:
+      - public
+    returnType: boolean
+  - name: pathNextX
+    modifiers:
+      - public
+    returnType: float
+  - name: pathNextY
+    modifiers:
+      - public
+    returnType: float
+  - name: walkingOnTheSpot
+    modifiers:
+      - public
+      - final
+    returnType: WalkingOnTheSpot
+constructors:
+  - name: PathFindBehavior2
+    modifiers:
+      - public
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+methods:
+  - name: cancel
+    modifiers:
+      - public
+    returnType: void
+  - name: closestPointOnPath
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: x3
+        type: float
+      - name: y3
+        type: float
+      - name: z
+        type: float
+      - name: mover
+        type: IsoMovingObject
+      - name: path
+        type: PolygonalMap2.Path
+      - name: pop
+        type: PathFindBehavior2.PointOnPath
+  - name: Failed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: mover
+        type: Mover
+  - name: getIsCancelled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getPathLength
+    modifiers:
+      - public
+    returnType: float
+  - name: getTargetChar
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+  - name: getTargetX
+    modifiers:
+      - public
+    returnType: float
+  - name: getTargetY
+    modifiers:
+      - public
+    returnType: float
+  - name: getTargetZ
+    modifiers:
+      - public
+    returnType: float
+  - name: isGoalCharacter
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGoalLocation
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGoalNone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGoalSound
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGoalVehicleAdjacent
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGoalVehicleArea
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGoalVehicleSeat
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isMovingUsingPathFind
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStrafing
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTargetLocation
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: moveToDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: IsoMovingObject
+      - name: speedMul
+        type: float
+  - name: moveToPoint
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: speedMul
+        type: float
+  - name: pathToCharacter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: IsoGameCharacter
+  - name: pathToLocation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: pathToLocationF
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: pathToNearest
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: locations
+        type: gnu.trove.list.array.TFloatArrayList
+  - name: pathToNearestTable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: locationsTable
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: pathToSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: pathToVehicleAdjacent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: pathToVehicleArea
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: areaId
+        type: String
+  - name: pathToVehicleSeat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: seat
+        type: int
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: setData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: targetX
+        type: float
+      - name: targetY
+        type: float
+      - name: targetZ
+        type: float
+  - name: shouldGetUpFromCrawl
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Succeeded
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: path
+        type: PolygonalMap2.Path
+      - name: mover
+        type: Mover
+  - name: update
+    modifiers:
+      - public
+    returnType: PathFindBehavior2.BehaviorResult

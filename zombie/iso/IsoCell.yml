@@ -1,0 +1,1197 @@
+# zombie.iso.IsoCell
+package: zombie.iso
+type: class
+name: IsoCell
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: addVehicles
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: bRendering
+    modifiers:
+      - public
+    returnType: boolean
+  - name: BuildingList
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: ChunkMap
+    modifiers:
+      - public
+      - final
+    returnType: IsoChunkMap
+  - name: DangerScore
+    modifiers:
+      - public
+    returnType: IntGrid
+  - name: DeferredCharacterTick
+    modifiers:
+      - public
+    returnType: int
+  - name: ENABLE_SQUARE_CACHE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: boolean
+  - name: ISOANGLEFACTOR
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: MaxHeight
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: perPlayerRender
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: IsoCell.PerPlayerRender
+  - name: ProcessWorldItemsRemove
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: recalcFloors
+    modifiers:
+      - public
+    returnType: boolean
+  - name: roomLights
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: RTF_MinusFloorCharacters
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: RTF_ShadedFloor
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: RTF_Shadows
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: RTF_SolidFloor
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: RTF_VegetationCorpses
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: StencilX1
+    modifiers:
+      - public
+    returnType: int
+  - name: StencilX2
+    modifiers:
+      - public
+    returnType: int
+  - name: StencilY1
+    modifiers:
+      - public
+    returnType: int
+  - name: StencilY2
+    modifiers:
+      - public
+    returnType: int
+  - name: Trees
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: vehicles
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+constructors:
+  - name: IsoCell
+    modifiers:
+      - public
+    parameters:
+      - name: width
+        type: int
+      - name: height
+        type: int
+methods:
+  - name: addHeatSource
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: heatSource
+        type: IsoHeatSource
+  - name: addLamppost
+    modifiers:
+      - public
+    returnType: IsoLightSource
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: rad
+        type: int
+  - name: addMovingObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: o
+        type: IsoMovingObject
+  - name: addToProcessIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: addToProcessIsoObjectRemove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: addToProcessItems
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: items
+        type: ArrayList<InventoryItem>
+  - name: addToProcessItemsRemove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: items
+        type: ArrayList<InventoryItem>
+  - name: addToProcessWorldItems
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: worldItem
+        type: IsoWorldInventoryObject
+  - name: addToProcessWorldItemsRemove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: worldItem
+        type: IsoWorldInventoryObject
+  - name: addToStaticUpdaterObjectList
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: addToWindowList
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: window
+        type: IsoWindow
+  - name: blocked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: mover
+        type: Mover
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: lx
+        type: int
+      - name: ly
+        type: int
+      - name: lz
+        type: int
+  - name: CalculateVertColoursForTile
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sqThis
+        type: IsoGridSquare
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: zz
+        type: int
+      - name: playerIndex
+        type: int
+  - name: CanBuildingSquareOccludePlayer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: playerIndex
+        type: int
+  - name: checkHaveRoof
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: clearCacheGridSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: ConnectNewSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: newSquare
+        type: IsoGridSquare
+      - name: bDoSurrounds
+        type: boolean
+  - name: createNewGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: recalcAll
+        type: boolean
+  - name: DeleteAllMovingObjects
+    modifiers:
+      - public
+    returnType: void
+  - name: Dispose
+    modifiers:
+      - public
+    returnType: void
+  - name: DistanceFromSupport
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: DoBuilding
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: int
+      - name: bRender
+        type: boolean
+  - name: DoGridNav
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newSquare
+        type: IsoGridSquare
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: DrawStencilMask
+    modifiers:
+      - public
+    returnType: void
+  - name: EnsureSurroundNotNull
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: xx
+        type: int
+      - name: yy
+        type: int
+      - name: zz
+        type: int
+  - name: FromMouseTile
+    modifiers:
+      - public
+      - static
+    returnType: IsoDirections
+  - name: getAddList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getBComponent
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: col
+        type: int
+  - name: getBestBuildings
+    modifiers:
+      - public
+    returnType: Stack
+    parameters:
+      - name: criteria
+        type: IsoCell.BuildingSearchCriteria
+      - name: count
+        type: int
+  - name: getBuildingList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getBuildings
+    modifiers:
+      - public
+      - static
+    returnType: Stack
+  - name: getBuildingScores
+    modifiers:
+      - public
+    returnType: HashMap
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: getChunkForGridSquare
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getChunkMap
+    modifiers:
+      - public
+    returnType: IsoChunkMap
+    parameters:
+      - name: pl
+        type: int
+  - name: getClosestBuildingExcept
+    modifiers:
+      - public
+    returnType: IsoBuilding
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: except
+        type: IsoRoom
+  - name: getCurrentLightX
+    modifiers:
+      - public
+    returnType: int
+  - name: getCurrentLightY
+    modifiers:
+      - public
+    returnType: int
+  - name: getCurrentLightZ
+    modifiers:
+      - public
+    returnType: int
+  - name: getCurrentLotHeader
+    modifiers:
+      - public
+    returnType: LotHeader
+  - name: getDangerScore
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getDangerUpdate
+    modifiers:
+      - public
+    returnType: OnceEvery
+  - name: getDrag
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: player
+        type: int
+  - name: GetEffectivePlayerRoomId
+    modifiers:
+      - public
+    returnType: int
+  - name: getFakeZombieForHit
+    modifiers:
+      - public
+    returnType: IsoZombie
+  - name: getFreeTile
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: def
+        type: RoomDef
+  - name: getGComponent
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: col
+        type: int
+  - name: getGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getGridSquareDirect
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: playerIndex
+        type: int
+  - name: getHeatSourceHighestTemperature
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: surroundingAirTemperature
+        type: float
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getHeatSourceTemperature
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getHeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getHeightInTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: IsoCell
+  - name: getLamppostPositions
+    modifiers:
+      - public
+    returnType: Stack
+  - name: getLightInfoUpdate
+    modifiers:
+      - public
+    returnType: Thread
+  - name: getLightSourceAt
+    modifiers:
+      - public
+    returnType: IsoLightSource
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getLuaObjectList
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getMaxFloors
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxHeight
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: getMaxX
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxY
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxZ
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinX
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinY
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinZ
+    modifiers:
+      - public
+    returnType: int
+  - name: getNearestVisibleZombie
+    modifiers:
+      - public
+    returnType: IsoZombie
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getNetworkPlayer
+    modifiers:
+      - public
+    returnType: IsoSurvivor
+    parameters:
+      - name: RemoteID
+        type: int
+  - name: getObjectList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getOrCreateGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: double
+      - name: y
+        type: double
+      - name: z
+        type: double
+  - name: getProcessIsoObjectRemove
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getProcessIsoObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getProcessItems
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getProcessItemsRemove
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getProcessWorldItems
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getPushableObjectList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getRandomFreeTileInRoom
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getRandomOutdoorTile
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getRComponent
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: col
+        type: int
+  - name: getRelativeGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getRemoteSurvivorList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getRemoveList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getRoom
+    modifiers:
+      - public
+    returnType: IsoRoom
+    parameters:
+      - name: ID
+        type: int
+  - name: getRoomList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getSpriteManager
+    modifiers:
+      - public
+    returnType: IsoSpriteManager
+  - name: getStaticUpdaterObjectList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getStencilValue
+    modifiers:
+      - public
+    returnType: short
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getStencilValue2z
+    modifiers:
+      - public
+    returnType: short
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getSurvivorList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getVehicles
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getWeatherFX
+    modifiers:
+      - public
+    returnType: IsoWeatherFX
+  - name: getWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: getWidthInTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getWindowList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getWorldX
+    modifiers:
+      - public
+    returnType: int
+  - name: getWorldY
+    modifiers:
+      - public
+    returnType: int
+  - name: getZombieList
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: gridSquareIsSnow
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: invalidatePeekedRoom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isInChunkMap
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: isNull
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: IsPlayerWindowPeeking
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isSafeToAdd
+    modifiers:
+      - public
+    returnType: boolean
+  - name: LoadPlayer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: WorldVersion
+        type: int
+  - name: PlaceLot
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lot
+        type: IsoLot
+      - name: sx
+        type: int
+      - name: sy
+        type: int
+      - name: sz
+        type: int
+      - name: ch
+        type: IsoChunk
+      - name: WX
+        type: int
+      - name: WY
+        type: int
+  - name: ProcessSpottedRooms
+    modifiers:
+      - public
+    returnType: void
+  - name: putInVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: reloadRainTextures
+    modifiers:
+      - public
+    returnType: void
+  - name: Remove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+  - name: removeFromWindowList
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: window
+        type: IsoWindow
+  - name: removeHeatSource
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: heatSource
+        type: IsoHeatSource
+  - name: removeLamppost
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: light
+        type: IsoLightSource
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+  - name: RenderFloorShading
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zza
+        type: int
+  - name: RenderTiles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: MaxHeight
+        type: int
+  - name: resumeVehicleSounds
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: roomSpotted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: IsoRoom
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: DataOutputStream
+      - name: bDoChars
+        type: boolean
+  - name: savePlayer
+    modifiers:
+      - public
+    returnType: void
+  - name: setBuildings
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: scores
+        type: Stack<BuildingScore>
+  - name: setCacheChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
+      - name: playerIndex
+        type: int
+  - name: setCacheGridSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: square
+        type: IsoGridSquare
+  - name: setCacheGridSquareLocal
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: square
+        type: IsoGridSquare
+      - name: playerIndex
+        type: int
+  - name: setCurrentLightX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: currentLX
+        type: int
+        notes: the currentLX to set
+  - name: setCurrentLightY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: currentLY
+        type: int
+        notes: the currentLY to set
+  - name: setCurrentLightZ
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: currentLZ
+        type: int
+        notes: the currentLZ to set
+  - name: setDangerUpdate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dangerUpdate
+        type: OnceEvery
+        notes: the dangerUpdate to set
+  - name: setDrag
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: player
+        type: int
+  - name: setHeight
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: height
+        type: int
+        notes: the height to set
+  - name: setLightInfoUpdate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: LightInfoUpdate
+        type: Thread
+        notes: the LightInfoUpdate to set
+  - name: setMaxX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxX
+        type: int
+        notes: the maxX to set
+  - name: setMaxY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxY
+        type: int
+        notes: the maxY to set
+  - name: setMaxZ
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxZ
+        type: int
+        notes: the maxZ to set
+  - name: setMinX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minX
+        type: int
+        notes: the minX to set
+  - name: setMinY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minY
+        type: int
+        notes: the minY to set
+  - name: setMinZ
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minZ
+        type: int
+        notes: the minZ to set
+  - name: setRainAlpha
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: alpha
+        type: int
+  - name: setRainIntensity
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: intensity
+        type: int
+  - name: setRainSpeed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: speed
+        type: int
+  - name: setSafeToAdd
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: safeToAdd
+        type: boolean
+        notes: the safeToAdd to set
+  - name: setSnowTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: int
+  - name: setStencilValue
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: stencil
+        type: int
+  - name: setStencilValue2z
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: stencil
+        type: int
+  - name: setWidth
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: width
+        type: int
+        notes: the width to set
+  - name: setWorldX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: worldX
+        type: int
+        notes: the worldX to set
+  - name: setWorldY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: worldY
+        type: int
+        notes: the worldY to set
+  - name: toIntColor
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateHeatSources
+    modifiers:
+      - public
+    returnType: void

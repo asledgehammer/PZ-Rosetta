@@ -1,0 +1,55 @@
+# zombie.core.skinnedmodel.advancedanimation.IAnimationVariableSlot
+package: zombie.core.skinnedmodel.advancedanimation
+type: interface
+name: IAnimationVariableSlot
+modifiers:
+  - public
+notes: |-
+  An Animation Variable Slot
+    Used to store a variable's key+value pair, and its current type.
+methods:
+  - name: canConvertFrom
+    returnType: boolean
+    parameters:
+      - name: val
+        type: String
+    notes: >-
+      Returns TRUE if this variable slot can accept and/or convert the supplied
+      value object.
+       Returns FALSE if the conversion would result in a loss of data.
+
+        Eg. If a String is given to a Float variable, and the string is not of a numeric format, then the string value
+            would be lost.
+  - name: clear
+    returnType: void
+    notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+      0 for Floats, False for Booleans, etc.
+  - name: getKey
+    returnType: String
+    notes: This variable's unique key
+  - name: getType
+    returnType: AnimationVariableType
+    notes: This variable's value type
+  - name: getValueBool
+    returnType: boolean
+    notes: This variable's value, as a Boolean.
+  - name: getValueFloat
+    returnType: float
+    notes: This variable's value, as a Float.
+  - name: getValueString
+    returnType: String
+    notes: This variable's value, in String form.
+  - name: isReadOnly
+    modifiers:
+      - default
+    returnType: boolean
+    notes: >-
+      Returns TRUE if this variable is not writable. Typically, the value of
+      this variable is specified by an outside
+       condition, such as whether the character is currently falling, etc.
+  - name: setValue
+    returnType: void
+    parameters:
+      - name: val
+        type: boolean
+    notes: Set this variable's value

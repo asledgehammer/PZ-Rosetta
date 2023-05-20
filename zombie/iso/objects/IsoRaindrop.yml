@@ -1,0 +1,85 @@
+# zombie.iso.objects.IsoRaindrop
+package: zombie.iso.objects
+type: class
+name: IsoRaindrop
+extends: IsoObject
+modifiers:
+  - public
+fields:
+  - name: AnimSpriteIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: GravMod
+    modifiers:
+      - public
+    returnType: float
+  - name: Life
+    modifiers:
+      - public
+    returnType: int
+  - name: OffsetY
+    modifiers:
+      - public
+    returnType: float
+  - name: SplashY
+    modifiers:
+      - public
+    returnType: float
+  - name: Vel_Y
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: IsoRaindrop
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: CanSee
+        type: boolean
+methods:
+  - name: ChangeTintMod
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: NewTintMod
+        type: ColorInfo
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: HasTooltip
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Serialize
+    modifiers:
+      - public
+    returnType: boolean
+  - name: TestCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: PassedObjectSquare
+        type: IsoGridSquare
+  - name: TestVision
+    modifiers:
+      - public
+    returnType: IsoObject.VisionResult
+    parameters:
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: update
+    modifiers:
+      - public
+    returnType: void

@@ -1,0 +1,76 @@
+# zombie.characters.NetworkTeleport
+package: zombie.characters
+type: class
+name: NetworkTeleport
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: enable
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: enableInstantTeleport
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: ndirection
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: NetworkTeleport
+    modifiers:
+      - public
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: type
+        type: NetworkTeleport.Type
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: byte
+      - name: _duration
+        type: float
+methods:
+  - name: process
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: stop
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: teleport
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: packet
+        type: PlayerPacket
+      - name: _duration
+        type: float
+  - name: update
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: packet
+        type: PlayerPacket

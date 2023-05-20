@@ -1,0 +1,47 @@
+# zombie.popman.ObjectPool&lt;T&gt;
+package: zombie.popman
+type: class
+name: ObjectPool&lt;T&gt;
+extends: Object
+modifiers:
+  - public
+constructors:
+  - name: ObjectPool
+    modifiers:
+      - public
+  - name: ObjectPool
+    modifiers:
+      - public
+    parameters:
+      - name: alloc
+        type: ObjectPool.Allocator<T>
+methods:
+  - name: alloc
+    modifiers:
+      - public
+    returnType: T
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: forEach
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: consumer
+        type: Consumer<T>
+  - name: release
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: objs
+        type: T[]
+  - name: releaseAll
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: objs
+        type: List<T>

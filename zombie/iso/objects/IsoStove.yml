@@ -1,0 +1,159 @@
+# zombie.iso.objects.IsoStove
+package: zombie.iso.objects
+type: class
+name: IsoStove
+extends: IsoObject
+modifiers:
+  - public
+constructors:
+  - name: IsoStove
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: sq
+        type: IsoGridSquare
+      - name: gid
+        type: IsoSprite
+  - name: IsoStove
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+methods:
+  - name: Activated
+    modifiers:
+      - public
+    returnType: boolean
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: getActivatableType
+    modifiers:
+      - public
+    returnType: String
+  - name: getCurrentTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getMaxTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getTimer
+    modifiers:
+      - public
+    returnType: int
+  - name: isBroken
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isMicrowave
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRunningFor
+    modifiers:
+      - public
+    returnType: int
+  - name: isTemperatureChanging
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: setActivated
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setBroken
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: broken
+        type: boolean
+  - name: setMaxTemperature
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxTemperature
+        type: float
+  - name: setTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: seconds
+        type: int
+  - name: sync
+    modifiers:
+      - public
+    returnType: void
+  - name: syncIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
+  - name: syncIsoObjectSend
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+  - name: syncSpriteGridObjects
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: toggle
+        type: boolean
+      - name: network
+        type: boolean
+  - name: Toggle
+    modifiers:
+      - public
+    returnType: void
+    notes: Turn on or off the stove, if no electricity it won't work
+  - name: update
+    modifiers:
+      - public
+    returnType: void

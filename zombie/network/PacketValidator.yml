@@ -1,0 +1,231 @@
+# zombie.network.PacketValidator
+package: zombie.network
+type: class
+name: PacketValidator
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: details
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: detailsFromClient
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+constructors:
+  - name: PacketValidator
+    modifiers:
+      - public
+    parameters:
+      - name: connection
+        type: UdpConnection
+methods:
+  - name: checkDamage
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: hit
+        type: Hit
+      - name: issuedBy
+        type: String
+  - name: checkLongDistance
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: wielder
+        type: IPositional
+      - name: target
+        type: IPositional
+      - name: issuedBy
+        type: String
+  - name: checkOwner
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: wielder
+        type: Zombie
+      - name: issuedBy
+        type: String
+  - name: checkPVP
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: wielder
+        type: Character
+      - name: target
+        type: Character
+      - name: issuedBy
+        type: String
+  - name: checkSafehouseAuth
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: playerName
+        type: String
+      - name: issuedBy
+        type: String
+  - name: checkShortDistance
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: wielder
+        type: IPositional
+      - name: target
+        type: IPositional
+      - name: issuedBy
+        type: String
+  - name: checkSpeed
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: movable
+        type: IMovable
+      - name: issuedBy
+        type: String
+  - name: checkTarget
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: target
+        type: Player
+      - name: issuedBy
+        type: String
+  - name: checkUser
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: doAntiCheatProtection
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: doBanUser
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: issuedBy
+        type: String
+      - name: reason
+        type: String
+  - name: doKickUser
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: issuedBy
+        type: String
+      - name: reason
+        type: String
+  - name: doLogUser
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: issuedBy
+        type: String
+      - name: reason
+        type: String
+  - name: failChecksum
+    modifiers:
+      - public
+    returnType: void
+  - name: failTimeMultiplier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: multiplier
+        type: float
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: getSalt
+    modifiers:
+      - public
+    returnType: int
+  - name: isFailed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: sendChecksum
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: queued
+        type: boolean
+      - name: done
+        type: boolean
+      - name: details
+        type: boolean
+  - name: successChecksum
+    modifiers:
+      - public
+    returnType: void
+  - name: successTimeMultiplier
+    modifiers:
+      - public
+    returnType: void
+  - name: timeoutTimeMultiplier
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void

@@ -1,0 +1,62 @@
+# zombie.ISoundSystem
+package: zombie
+type: interface
+name: ISoundSystem
+modifiers:
+  - public
+methods:
+  - name: cacheSound
+    returnType: void
+    parameters:
+      - name: format
+        type: ISoundSystem.SoundFormat
+      - name: path
+        type: String
+      - name: rootName
+        type: String
+  - name: clearSoundCache
+    returnType: void
+  - name: countInstances
+    returnType: int
+    parameters:
+      - name: rootName
+        type: String
+  - name: fadeOutAll
+    returnType: void
+    parameters:
+      - name: fSeconds
+        type: float
+  - name: init
+    returnType: void
+  - name: playSound
+    returnType: ISoundSystem.ISoundInstance
+    parameters:
+      - name: format
+        type: ISoundSystem.SoundFormat
+      - name: path
+        type: String
+      - name: rootName
+        type: String
+      - name: bStreaming
+        type: boolean
+      - name: bLooped
+        type: boolean
+      - name: fVolume
+        type: float
+      - name: fPanning
+        type: float
+      - name: fPitch
+        type: float
+  - name: purge
+    returnType: void
+  - name: setInstanceLimit
+    returnType: void
+    parameters:
+      - name: rootName
+        type: String
+      - name: limit
+        type: int
+      - name: onFail
+        type: ISoundSystem.InstanceFailAction
+  - name: update
+    returnType: void

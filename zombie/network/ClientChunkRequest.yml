@@ -1,0 +1,74 @@
+# zombie.network.ClientChunkRequest
+package: zombie.network
+type: class
+name: ClientChunkRequest
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: chunks
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: freeBuffers
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ConcurrentLinkedQueue
+  - name: largeArea
+    modifiers:
+      - public
+    returnType: boolean
+constructors:
+  - name: ClientChunkRequest
+    modifiers:
+      - public
+methods:
+  - name: getByteBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: ClientChunkRequest.Chunk
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: ClientChunkRequest.Chunk
+  - name: releaseBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: ClientChunkRequest.Chunk
+  - name: releaseBuffers
+    modifiers:
+      - public
+    returnType: void
+  - name: releaseChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: ClientChunkRequest.Chunk
+  - name: unpack
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: unpackLargeArea
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection

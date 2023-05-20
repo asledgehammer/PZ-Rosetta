@@ -1,0 +1,21 @@
+# zombie.core.Rand.PZSeedGenerator
+package: zombie.core
+type: class
+name: Rand.PZSeedGenerator
+extends: Object
+modifiers:
+  - public
+  - static
+  - final
+notes: >-
+  Custom class to disable DevRandomSeedGenerator() on Linux since it can block
+  forever, and disable
+   RandomDotOrgSeedGenerator() since it connects to the internet.
+methods:
+  - name: generateSeed
+    modifiers:
+      - public
+    returnType: byte[]
+    parameters:
+      - name: length
+        type: int

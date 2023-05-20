@@ -1,0 +1,107 @@
+# zombie.ai.State
+package: zombie.ai
+type: class
+name: State
+extends: Object
+modifiers:
+  - public
+  - abstract
+constructors:
+  - name: State
+    modifiers:
+      - public
+methods:
+  - name: animEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
+  - name: enter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: execute
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: exit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: getDeltaModifiers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: modifiers
+        type: MoveDeltaModifiers
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getStatePermissions
+    modifiers:
+      - public
+    returnType: IStatePermissions
+  - name: isAttacking
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+    notes: |-
+      Return TRUE if the owner is currently attacking.
+        Defaults to FALSE
+  - name: isDoingActionThatCanBeCancelled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isIgnoreCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: fromX
+        type: int
+      - name: fromY
+        type: int
+      - name: fromZ
+        type: int
+      - name: toX
+        type: int
+      - name: toY
+        type: int
+      - name: toZ
+        type: int
+    notes: >-
+      Return TRUE if the owner should ignore collisions when passing between two
+      squares.
+       Defaults to FALSE
+  - name: isMoving
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+    notes: |-
+      Return TRUE if the owner is currently moving.
+        Defaults to FALSE

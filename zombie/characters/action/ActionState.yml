@@ -1,0 +1,87 @@
+# zombie.characters.action.ActionState
+package: zombie.characters.action
+type: class
+name: ActionState
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: name
+    modifiers:
+      - public
+      - final
+    returnType: String
+  - name: transitions
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+constructors:
+  - name: ActionState
+    modifiers:
+      - public
+    parameters:
+      - name: name
+        type: String
+methods:
+  - name: canBeSubstate
+    modifiers:
+      - public
+      - final
+    returnType: boolean
+  - name: canHaveSubState
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: parent
+        type: ActionState
+      - name: child
+        type: ActionState
+    notes: >-
+      Returns TRUE if the supplied child state can be a child of this state.
+       To determine this, the parent's childStateTags are compared to the child's parentStateTags.
+       If there is an overlap, the child is compatible with the parent.
+  - name: canHaveSubStates
+    modifiers:
+      - public
+      - final
+    returnType: boolean
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: stateFolderPath
+        type: String
+  - name: parse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: file
+        type: File
+  - name: resetForReload
+    modifiers:
+      - public
+    returnType: void
+  - name: sortTransitions
+    modifiers:
+      - public
+    returnType: void
+  - name: tagsOverlap
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: parentTags
+        type: String[]
+      - name: childTags
+        type: String[]

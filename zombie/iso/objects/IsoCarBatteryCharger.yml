@@ -1,0 +1,154 @@
+# zombie.iso.objects.IsoCarBatteryCharger
+package: zombie.iso.objects
+type: class
+name: IsoCarBatteryCharger
+extends: IsoObject
+modifiers:
+  - public
+constructors:
+  - name: IsoCarBatteryCharger
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoCarBatteryCharger
+    modifiers:
+      - public
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: cell
+        type: IsoCell
+      - name: square
+        type: IsoGridSquare
+methods:
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: getBattery
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: getChargeRate
+    modifiers:
+      - public
+    returnType: float
+  - name: getItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: isActivated
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoChild
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: renderObjectPicker
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: lightInfo
+        type: ColorInfo
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: setActivated
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: activated
+        type: boolean
+  - name: setBattery
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: battery
+        type: InventoryItem
+  - name: setChargeRate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chargeRate
+        type: float
+  - name: sync
+    modifiers:
+      - public
+    returnType: void
+  - name: syncIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
+  - name: syncIsoObjectSend
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+  - name: update
+    modifiers:
+      - public
+    returnType: void

@@ -1,0 +1,106 @@
+# zombie.popman.NetworkZombieSimulator
+package: zombie.popman
+type: class
+name: NetworkZombieSimulator
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: MAX_ZOMBIES_PER_UPDATE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: NetworkZombieSimulator
+    modifiers:
+      - public
+methods:
+  - name: add
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: onlineId
+        type: short
+  - name: added
+    modifiers:
+      - public
+    returnType: void
+  - name: addExtraUpdate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
+  - name: anyUnknownZombies
+    modifiers:
+      - public
+    returnType: boolean
+  - name: becomeLocal
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: z
+        type: IsoZombie
+  - name: becomeRemote
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: z
+        type: IsoZombie
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: clearTargetAuth
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: getAuthorizedZombieCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: NetworkZombieSimulator
+  - name: getUnauthorizedZombieCount
+    modifiers:
+      - public
+    returnType: int
+  - name: isZombieSimulated
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zombieId
+        type: Short
+  - name: receivePacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: remove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
+  - name: send
+    modifiers:
+      - public
+    returnType: void

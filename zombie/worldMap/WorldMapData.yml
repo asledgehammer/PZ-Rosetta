@@ -1,0 +1,132 @@
+# zombie.worldMap.WorldMapData
+package: zombie.worldMap
+type: class
+name: WorldMapData
+extends: Asset
+modifiers:
+  - public
+  - final
+fields:
+  - name: ASSET_TYPE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: AssetType
+  - name: m_cellLookup
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: m_cells
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: m_maxX
+    modifiers:
+      - public
+    returnType: int
+  - name: m_maxY
+    modifiers:
+      - public
+    returnType: int
+  - name: m_minX
+    modifiers:
+      - public
+    returnType: int
+  - name: m_minY
+    modifiers:
+      - public
+    returnType: int
+  - name: m_relativeFileName
+    modifiers:
+      - public
+    returnType: String
+  - name: s_fileNameToData
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+constructors:
+  - name: WorldMapData
+    modifiers:
+      - public
+    parameters:
+      - name: path
+        type: AssetPath
+      - name: manager
+        type: AssetManager
+  - name: WorldMapData
+    modifiers:
+      - public
+    parameters:
+      - name: path
+        type: AssetPath
+      - name: manager
+        type: AssetManager
+      - name: params
+        type: AssetManager.AssetParams
+methods:
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: getCell
+    modifiers:
+      - public
+    returnType: WorldMapCell
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getHeightInCells
+    modifiers:
+      - public
+    returnType: int
+  - name: getHeightInSquares
+    modifiers:
+      - public
+    returnType: int
+  - name: getOrCreateData
+    modifiers:
+      - public
+      - static
+    returnType: WorldMapData
+    parameters:
+      - name: fileName
+        type: String
+  - name: getType
+    modifiers:
+      - public
+    returnType: AssetType
+  - name: getWidthInCells
+    modifiers:
+      - public
+    returnType: int
+  - name: getWidthInSquares
+    modifiers:
+      - public
+    returnType: int
+  - name: hitTest
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: features
+        type: ArrayList<WorldMapFeature>
+  - name: onLoaded
+    modifiers:
+      - public
+    returnType: void
+  - name: Reset
+    modifiers:
+      - public
+      - static
+    returnType: void

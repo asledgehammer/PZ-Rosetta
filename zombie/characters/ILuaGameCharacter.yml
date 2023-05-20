@@ -1,0 +1,608 @@
+# zombie.characters.ILuaGameCharacter
+package: zombie.characters
+type: interface
+name: ILuaGameCharacter
+extends: ILuaVariableSource
+modifiers:
+  - public
+notes: >-
+  ILuaGameCharacter
+   Provides the functions expected by LUA when dealing with objects of this type.
+methods:
+  - name: addKnownMediaLine
+    returnType: void
+    parameters:
+      - name: guid
+        type: String
+  - name: addWorldSoundUnlessInvisible
+    returnType: void
+    parameters:
+      - name: radius
+        type: int
+      - name: volume
+        type: int
+      - name: bStressHumans
+        type: boolean
+  - name: Callout
+    returnType: void
+  - name: CanAttack
+    returnType: boolean
+  - name: canClimbDownSheetRope
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: canClimbDownSheetRopeInCurrentSquare
+    returnType: boolean
+  - name: canClimbSheetRope
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: changeState
+    returnType: void
+    parameters:
+      - name: state
+        type: State
+  - name: clearKnownMediaLines
+    returnType: void
+  - name: climbDownSheetRope
+    returnType: void
+  - name: climbOverFence
+    returnType: void
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: climbSheetRope
+    returnType: void
+  - name: climbThroughWindow
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoThumpable
+      - name: startingFrame
+        type: Integer
+  - name: climbThroughWindowFrame
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: closeWindow
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoWindow
+  - name: facePosition
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: faceThisObject
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: faceThisObjectAlt
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: getAlreadyReadPages
+    returnType: int
+    parameters:
+      - name: fullType
+        type: String
+  - name: getBed
+    returnType: IsoObject
+  - name: getBedType
+    returnType: String
+  - name: getCharacterActions
+    returnType: Stack
+  - name: getCurrentState
+    returnType: State
+  - name: getDebugMonitor
+    returnType: AnimatorDebugMonitor
+  - name: getDescriptor
+    returnType: SurvivorDesc
+  - name: getEmitter
+    returnType: BaseCharacterSoundEmitter
+  - name: getFullName
+    returnType: String
+  - name: getHammerSoundMod
+    returnType: float
+  - name: getHoursSurvived
+    returnType: double
+  - name: getInventory
+    returnType: ItemContainer
+  - name: getInventoryWeight
+    returnType: float
+  - name: getKnownRecipes
+    returnType: List
+  - name: getMaintenanceMod
+    returnType: int
+  - name: getMaxWeight
+    returnType: int
+  - name: getMeleeDelay
+    returnType: float
+  - name: getMoodles
+    returnType: Moodles
+  - name: getPath2
+    returnType: PolygonalMap2.Path
+  - name: getPathFindBehavior2
+    returnType: PathFindBehavior2
+  - name: getPerkInfo
+    returnType: IsoGameCharacter.PerkInfo
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
+  - name: getPerkLevel
+    returnType: int
+    parameters:
+      - name: perks
+        type: PerkFactory.Perk
+  - name: getPrimaryHandItem
+    returnType: InventoryItem
+  - name: getRecoilDelay
+    returnType: float
+  - name: getSafety
+    returnType: Safety
+  - name: getSecondaryHandItem
+    returnType: InventoryItem
+  - name: getSpriteDef
+    returnType: IsoSpriteInstance
+  - name: getStats
+    returnType: Stats
+  - name: getTimeSinceLastSmoke
+    returnType: float
+  - name: getTraits
+    returnType: TraitCollection
+  - name: getVehicle
+    returnType: BaseVehicle
+  - name: getVisual
+    returnType: BaseVisual
+  - name: getWeldingSoundMod
+    returnType: float
+  - name: getXp
+    returnType: IsoGameCharacter.XP
+  - name: getXpForLevel
+    returnType: int
+    parameters:
+      - name: level
+        type: int
+  - name: getZombieKills
+    returnType: int
+  - name: hasEquipped
+    returnType: boolean
+    parameters:
+      - name: String
+        type: String
+  - name: hasEquippedTag
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+  - name: hasItems
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+      - name: count
+        type: int
+  - name: HasTrait
+    returnType: boolean
+    parameters:
+      - name: trait
+        type: String
+  - name: initSpritePartsEmpty
+    returnType: void
+  - name: isAboveTopOfStairs
+    returnType: boolean
+  - name: isAiming
+    returnType: boolean
+  - name: isAsleep
+    returnType: boolean
+  - name: isAttachedItem
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isBuildCheat
+    returnType: boolean
+  - name: isCurrentState
+    returnType: boolean
+    parameters:
+      - name: state
+        type: State
+  - name: isDriving
+    returnType: boolean
+  - name: isEquipped
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isEquippedClothing
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isFarmingCheat
+    returnType: boolean
+  - name: isFemale
+    returnType: boolean
+  - name: isGodMod
+    returnType: boolean
+  - name: isHandItem
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isHealthCheat
+    returnType: boolean
+  - name: isInARoom
+    returnType: boolean
+  - name: isInvisible
+    returnType: boolean
+  - name: isItemInBothHands
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isKnownMediaLine
+    returnType: boolean
+    parameters:
+      - name: guid
+        type: String
+  - name: isKnownPoison
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isMechanicsCheat
+    returnType: boolean
+  - name: isMovablesCheat
+    returnType: boolean
+  - name: isOutside
+    returnType: boolean
+  - name: isPrimaryHandItem
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isRangedWeaponEmpty
+    returnType: boolean
+  - name: isReading
+    returnType: boolean
+  - name: isRecipeKnown
+    returnType: boolean
+    parameters:
+      - name: name
+        type: String
+  - name: isSecondaryHandItem
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isShowAdminTag
+    returnType: boolean
+  - name: isSpeaking
+    returnType: boolean
+  - name: IsSpeaking
+    returnType: boolean
+  - name: isTimedActionInstant
+    returnType: boolean
+  - name: isTimedActionInstantCheat
+    returnType: boolean
+  - name: isUnlimitedCarry
+    returnType: boolean
+  - name: isZombie
+    returnType: boolean
+  - name: LevelPerk
+    returnType: void
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
+  - name: LoseLevel
+    returnType: void
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
+  - name: openWindow
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoWindow
+  - name: pathToLocation
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: pathToLocationF
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: PlayAnim
+    returnType: void
+    parameters:
+      - name: string
+        type: String
+  - name: PlayAnimUnlooped
+    returnType: void
+    parameters:
+      - name: string
+        type: String
+  - name: PlayAnimWithSpeed
+    returnType: void
+    parameters:
+      - name: string
+        type: String
+      - name: framesSpeedPerFrame
+        type: float
+  - name: playSound
+    returnType: long
+    parameters:
+      - name: file
+        type: String
+  - name: playSoundLocal
+    returnType: long
+    parameters:
+      - name: file
+        type: String
+  - name: ReadLiterature
+    returnType: void
+    parameters:
+      - name: literature
+        type: Literature
+  - name: removeFromHands
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: removeKnownMediaLine
+    returnType: void
+    parameters:
+      - name: guid
+        type: String
+  - name: reportEvent
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: resetBeardGrowingTime
+    returnType: void
+  - name: resetHairGrowingTime
+    returnType: void
+  - name: resetModel
+    returnType: void
+  - name: resetModelNextFrame
+    returnType: void
+  - name: Say
+    returnType: void
+    parameters:
+      - name: line
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: font
+        type: UIFont
+      - name: baseRange
+        type: float
+      - name: customTag
+        type: String
+  - name: setAlreadyReadPages
+    returnType: void
+    parameters:
+      - name: fullType
+        type: String
+      - name: pages
+        type: int
+  - name: setAsleep
+    returnType: void
+    parameters:
+      - name: Asleep
+        type: boolean
+  - name: setBed
+    returnType: void
+    parameters:
+      - name: bed
+        type: IsoObject
+  - name: setBedType
+    returnType: void
+    parameters:
+      - name: bedType
+        type: String
+  - name: setBuildCheat
+    returnType: void
+    parameters:
+      - name: buildCheat
+        type: boolean
+  - name: setDebugMonitor
+    returnType: void
+    parameters:
+      - name: monitor
+        type: AnimatorDebugMonitor
+  - name: setDescriptor
+    returnType: void
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
+  - name: setDir
+    returnType: void
+    parameters:
+      - name: directions
+        type: IsoDirections
+  - name: setFarmingCheat
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setFemale
+    returnType: void
+    parameters:
+      - name: isFemale
+        type: boolean
+  - name: setForceWakeUpTime
+    returnType: void
+    parameters:
+      - name: ForceWakeUpTime
+        type: float
+  - name: setGodMod
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setHaloNote
+    returnType: void
+    parameters:
+      - name: str
+        type: String
+      - name: r
+        type: int
+      - name: g
+        type: int
+      - name: b
+        type: int
+      - name: dispTime
+        type: float
+  - name: setHealthCheat
+    returnType: void
+    parameters:
+      - name: healthCheat
+        type: boolean
+  - name: setInvisible
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setMechanicsCheat
+    returnType: void
+    parameters:
+      - name: mechanicsCheat
+        type: boolean
+  - name: setMeleeDelay
+    returnType: void
+    parameters:
+      - name: delay
+        type: float
+  - name: setMovablesCheat
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setPath2
+    returnType: void
+    parameters:
+      - name: path
+        type: PolygonalMap2.Path
+  - name: setPerkLevelDebug
+    returnType: void
+    parameters:
+      - name: perks
+        type: PerkFactory.Perk
+      - name: level
+        type: int
+  - name: setPrimaryHandItem
+    returnType: void
+    parameters:
+      - name: leftHandItem
+        type: InventoryItem
+  - name: setRangedWeaponEmpty
+    returnType: void
+    parameters:
+      - name: val
+        type: boolean
+  - name: setReading
+    returnType: void
+    parameters:
+      - name: isReading
+        type: boolean
+  - name: setRecoilDelay
+    returnType: void
+    parameters:
+      - name: recoilDelay
+        type: float
+  - name: setSafety
+    returnType: void
+    parameters:
+      - name: safety
+        type: Safety
+  - name: setSecondaryHandItem
+    returnType: void
+    parameters:
+      - name: rightHandItem
+        type: InventoryItem
+  - name: setShowAdminTag
+    returnType: void
+    parameters:
+      - name: showAdminTag
+        type: boolean
+  - name: setSpeakColourInfo
+    returnType: void
+    parameters:
+      - name: info
+        type: ColorInfo
+  - name: setTimedActionInstantCheat
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setTimeSinceLastSmoke
+    returnType: void
+    parameters:
+      - name: timeSinceLastSmoke
+        type: float
+  - name: setUnlimitedCarry
+    returnType: void
+    parameters:
+      - name: unlimitedCarry
+        type: boolean
+  - name: setVehicle
+    returnType: void
+    parameters:
+      - name: v
+        type: BaseVehicle
+  - name: smashCarWindow
+    returnType: void
+    parameters:
+      - name: part
+        type: VehiclePart
+  - name: smashWindow
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoWindow
+  - name: StartAction
+    returnType: void
+    parameters:
+      - name: act
+        type: BaseAction
+  - name: StartTimedActionAnim
+    returnType: void
+    parameters:
+      - name: event
+        type: String
+      - name: type
+        type: String
+  - name: StopAllActionQueue
+    returnType: void
+  - name: stopOrTriggerSound
+    returnType: void
+    parameters:
+      - name: eventInstance
+        type: long
+  - name: StopTimedActionAnim
+    returnType: void

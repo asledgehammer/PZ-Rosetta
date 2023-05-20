@@ -1,0 +1,67 @@
+# zombie.core.VBO.IGLBufferObject
+package: zombie.core.VBO
+type: interface
+name: IGLBufferObject
+modifiers:
+  - public
+methods:
+  - name: GL_ARRAY_BUFFER
+    returnType: int
+  - name: GL_BUFFER_SIZE
+    returnType: int
+  - name: GL_ELEMENT_ARRAY_BUFFER
+    returnType: int
+  - name: GL_STATIC_DRAW
+    returnType: int
+  - name: GL_STREAM_DRAW
+    returnType: int
+  - name: GL_WRITE_ONLY
+    returnType: int
+  - name: glBindBuffer
+    returnType: void
+    parameters:
+      - name: target
+        type: int
+      - name: buffer
+        type: int
+  - name: glBufferData
+    returnType: void
+    parameters:
+      - name: target
+        type: int
+      - name: data_size
+        type: long
+      - name: usage
+        type: int
+  - name: glDeleteBuffers
+    returnType: void
+    parameters:
+      - name: buffers
+        type: int
+  - name: glGenBuffers
+    returnType: int
+  - name: glGetBufferParameter
+    returnType: void
+    parameters:
+      - name: target
+        type: int
+      - name: pname
+        type: int
+      - name: params
+        type: IntBuffer
+  - name: glMapBuffer
+    returnType: ByteBuffer
+    parameters:
+      - name: target
+        type: int
+      - name: access
+        type: int
+      - name: length
+        type: long
+      - name: old_buffer
+        type: ByteBuffer
+  - name: glUnmapBuffer
+    returnType: boolean
+    parameters:
+      - name: target
+        type: int

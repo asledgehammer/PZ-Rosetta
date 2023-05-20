@@ -1,0 +1,71 @@
+# zombie.chat.defaultChats.GeneralChat
+package: zombie.chat.defaultChats
+type: class
+name: GeneralChat
+extends: ChatBase
+modifiers:
+  - public
+constructors:
+  - name: GeneralChat
+    modifiers:
+      - public
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: tab
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
+  - name: GeneralChat
+    modifiers:
+      - public
+    parameters:
+      - name: id
+        type: int
+      - name: tab
+        type: ChatTab
+      - name: discordEnabled
+        type: boolean
+  - name: GeneralChat
+    modifiers:
+      - public
+methods:
+  - name: getDefaultSettings
+    modifiers:
+      - public
+      - static
+    returnType: ChatSettings
+  - name: getMessagePrefix
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: packMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
+  - name: sendMessageToChatMembers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: sendToDiscordGeneralChatDisabled
+    modifiers:
+      - public
+    returnType: void
+  - name: unpackMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

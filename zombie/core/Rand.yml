@@ -1,0 +1,68 @@
+# zombie.core.Rand
+package: zombie.core
+type: class
+name: Rand
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: id
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: rand
+    modifiers:
+      - public
+      - static
+    returnType: org.uncommons.maths.random.CellularAutomatonRNG
+  - name: randlua
+    modifiers:
+      - public
+      - static
+    returnType: org.uncommons.maths.random.CellularAutomatonRNG
+constructors:
+  - name: Rand
+    modifiers:
+      - public
+methods:
+  - name: AdjustForFramerate
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: chance
+        type: int
+  - name: init
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: Next
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: min
+        type: float
+      - name: max
+        type: float
+  - name: NextBool
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: invProbability
+        type: int
+        notes: The inverse probability of returning TRUE. The one in- chance.
+    notes: >-
+      Returns random TRUE or FALSE, based on the inverse probability value
+      supplied.
+
+        Basically, returns TRUE if the next rand(invProbability) returns 0.
+        eg.
+         NextBool(10) has a one in 10 chance of returning TRUE.

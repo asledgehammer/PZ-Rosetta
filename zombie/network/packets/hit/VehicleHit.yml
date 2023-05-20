@@ -1,0 +1,80 @@
+# zombie.network.packets.hit.VehicleHit
+package: zombie.network.packets.hit
+type: class
+name: VehicleHit
+extends: Hit
+modifiers:
+  - public
+fields:
+  - name: isTargetHitFromBehind
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isVehicleHitFromBehind
+    modifiers:
+      - public
+    returnType: boolean
+  - name: vehicleDamage
+    modifiers:
+      - public
+    returnType: int
+  - name: vehicleSpeed
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: VehicleHit
+    modifiers:
+      - public
+methods:
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: getSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: isVehicle
+    modifiers:
+      - public
+    returnType: boolean
+  - name: parse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: set
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ignore
+        type: boolean
+      - name: damage
+        type: float
+      - name: hitForce
+        type: float
+      - name: hitDirectionX
+        type: float
+      - name: hitDirectionY
+        type: float
+      - name: vehicleDamage
+        type: int
+      - name: vehicleSpeed
+        type: float
+      - name: isVehicleHitFromBehind
+        type: boolean
+      - name: isTargetHitFromBehind
+        type: boolean
+  - name: write
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

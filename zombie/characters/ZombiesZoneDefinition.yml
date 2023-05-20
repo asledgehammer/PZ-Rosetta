@@ -1,0 +1,100 @@
+# zombie.characters.ZombiesZoneDefinition
+package: zombie.characters
+type: class
+name: ZombiesZoneDefinition
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: bDirty
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+constructors:
+  - name: ZombiesZoneDefinition
+    modifiers:
+      - public
+methods:
+  - name: applyDefinition
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoZombie
+      - name: zombieZone
+        type: IsoMetaGrid.Zone
+      - name: zombieToSpawn
+        type: zombie.characters.ZombiesZoneDefinition.ZZDOutfit
+      - name: bFemale
+        type: boolean
+  - name: dressInRandomOutfit
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoZombie
+  - name: getDefinitionZoneAt
+    modifiers:
+      - public
+      - static
+    returnType: IsoMetaGrid.Zone
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getRandomDefaultOutfit
+    modifiers:
+      - public
+      - static
+    returnType: Outfit
+    parameters:
+      - name: bFemale
+        type: boolean
+      - name: roomName
+        type: String
+  - name: getRandomOutfitInSetList
+    modifiers:
+      - public
+      - static
+    returnType: zombie.characters.ZombiesZoneDefinition.ZZDOutfit
+    parameters:
+      - name: list
+        type: ArrayList<zombie.characters.ZombiesZoneDefinition.ZZDOutfit>
+      - name: doTotalChance100
+        type: boolean
+  - name: pickDefinition
+    modifiers:
+      - public
+      - static
+    returnType: ZombiesZoneDefinition.PickDefinition
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: bFemale
+        type: boolean
+  - name: pickPersistentOutfit
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: registerCustomOutfits
+    modifiers:
+      - public
+      - static
+    returnType: void

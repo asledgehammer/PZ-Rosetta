@@ -1,0 +1,220 @@
+# zombie.iso.WorldMarkers
+package: zombie.iso
+type: class
+name: WorldMarkers
+extends: Object
+modifiers:
+  - public
+  - final
+notes: TurboTuTone.
+fields:
+  - name: instance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: WorldMarkers
+methods:
+  - name: addDirectionArrow
+    modifiers:
+      - public
+    returnType: WorldMarkers.DirectionArrow
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: texname
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: addGridSquareMarker
+    modifiers:
+      - public
+    returnType: WorldMarkers.GridSquareMarker
+    parameters:
+      - name: texid
+        type: String
+      - name: overlay
+        type: String
+      - name: gs
+        type: IsoGridSquare
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: doAlpha
+        type: boolean
+      - name: size
+        type: float
+      - name: fadeSpeed
+        type: float
+      - name: fadeMin
+        type: float
+      - name: fadeMax
+        type: float
+  - name: addPlayerHomingPoint
+    modifiers:
+      - public
+    returnType: WorldMarkers.PlayerHomingPoint
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: texname
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: homeOnTarget
+        type: boolean
+      - name: homeOnDist
+        type: int
+  - name: debugRender
+    modifiers:
+      - public
+    returnType: void
+  - name: getDirectionArrow
+    modifiers:
+      - public
+    returnType: WorldMarkers.DirectionArrow
+    parameters:
+      - name: id
+        type: int
+  - name: getGridSquareMarker
+    modifiers:
+      - public
+    returnType: WorldMarkers.GridSquareMarker
+    parameters:
+      - name: id
+        type: int
+  - name: getHomingPoint
+    modifiers:
+      - public
+    returnType: WorldMarkers.PlayerHomingPoint
+    parameters:
+      - name: id
+        type: int
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: intersectLineSegments
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: l1
+        type: zombie.iso.WorldMarkers.Line
+      - name: l2
+        type: zombie.iso.WorldMarkers.Line
+      - name: intersection
+        type: zombie.iso.WorldMarkers.Point
+  - name: removeAllDirectionArrows
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: removeAllHomingPoints
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: removeDirectionArrow
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: id
+        type: int
+  - name: removeGridSquareMarker
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: id
+        type: int
+  - name: removeHomingPoint
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: id
+        type: int
+  - name: removePlayerDirectionArrow
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: id
+        type: int
+  - name: removePlayerHomingPoint
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: id
+        type: int
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+  - name: renderDirectionArrow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: worldDraw
+        type: boolean
+  - name: renderGridSquareMarkers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: perPlayerRender
+        type: IsoCell.PerPlayerRender
+      - name: zLayer
+        type: int
+      - name: playerIndex
+        type: int
+  - name: renderHomingPoint
+    modifiers:
+      - public
+    returnType: void
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void

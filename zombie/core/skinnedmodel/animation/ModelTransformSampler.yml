@@ -1,0 +1,59 @@
+# zombie.core.skinnedmodel.animation.ModelTransformSampler
+package: zombie.core.skinnedmodel.animation
+type: class
+name: ModelTransformSampler
+extends: PooledObject
+modifiers:
+  - public
+constructors:
+  - name: ModelTransformSampler
+    modifiers:
+      - public
+methods:
+  - name: alloc
+    modifiers:
+      - public
+      - static
+    returnType: ModelTransformSampler
+    parameters:
+      - name: animationPlayer
+        type: AnimationPlayer
+      - name: animTrack
+        type: AnimationTrack
+  - name: getBoneMatrix
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: boneIdx
+        type: int
+      - name: out_matrix
+        type: org.lwjgl.util.vector.Matrix4f
+  - name: getCurrentTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getNumBones
+    modifiers:
+      - public
+    returnType: int
+  - name: getTotalTime
+    modifiers:
+      - public
+    returnType: float
+  - name: isLooped
+    modifiers:
+      - public
+    returnType: boolean
+  - name: moveToTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: time
+        type: float
+  - name: onReleased
+    modifiers:
+      - public
+    returnType: void
+    notes: Release any Pooled objects.

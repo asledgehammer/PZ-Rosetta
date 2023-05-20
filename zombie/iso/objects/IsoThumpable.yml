@@ -1,0 +1,965 @@
+# zombie.iso.objects.IsoThumpable
+package: zombie.iso.objects
+type: class
+name: IsoThumpable
+extends: IsoObject
+modifiers:
+  - public
+fields:
+  - name: breakSound
+    modifiers:
+      - public
+    returnType: String
+  - name: canPassThrough
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Health
+    modifiers:
+      - public
+    returnType: int
+  - name: isDoor
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: isDoorFrame
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: keyId
+    modifiers:
+      - public
+    returnType: int
+  - name: Locked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lockedByCode
+    modifiers:
+      - public
+    returnType: int
+  - name: lockedByPadlock
+    modifiers:
+      - public
+    returnType: boolean
+  - name: MaxHealth
+    modifiers:
+      - public
+    returnType: int
+  - name: north
+    modifiers:
+      - public
+    returnType: boolean
+  - name: OldNumPlanks
+    modifiers:
+      - public
+    returnType: int
+  - name: open
+    modifiers:
+      - public
+    returnType: boolean
+  - name: PushedMaxStrength
+    modifiers:
+      - public
+    returnType: int
+  - name: PushedStrength
+    modifiers:
+      - public
+    returnType: int
+  - name: tempo
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Vector2
+  - name: thumpSound
+    modifiers:
+      - public
+    returnType: String
+constructors:
+  - name: IsoThumpable
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoThumpable
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: closedSprite
+        type: String
+      - name: openSprite
+        type: String
+      - name: north
+        type: boolean
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+    notes: >-
+      Create an object than can be interacted by you, survivor or zombie
+      (destroy, barricade, etc.) This one have a closed/openSprite so it can be
+      a
+       door for example
+  - name: IsoThumpable
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: sprite
+        type: String
+      - name: north
+        type: boolean
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+    notes: Create an object than can be interacted by you, survivor or zombie
+      (destroy, barricade, etc.) This one can be a wall, a fence, etc.
+methods:
+  - name: addSheet
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: addSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: itemType
+        type: String
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: canAddSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canBeLockByPadlock
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canBePlastered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canClimbOver
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: canClimbThrough
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: countAddSheetRope
+    modifiers:
+      - public
+    returnType: int
+  - name: createLightSource
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: radius
+        type: int
+      - name: offsetX
+        type: int
+      - name: offsetY
+        type: int
+      - name: offsetZ
+        type: int
+      - name: life
+        type: int
+      - name: lightSourceFuel
+        type: String
+      - name: baseItem
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
+  - name: destroy
+    modifiers:
+      - public
+    returnType: void
+  - name: getAddSheetSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getBarricadeForCharacter
+    modifiers:
+      - public
+    returnType: IsoBarricade
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getBarricadeOnOppositeSquare
+    modifiers:
+      - public
+    returnType: IsoBarricade
+  - name: getBarricadeOnSameSquare
+    modifiers:
+      - public
+    returnType: IsoBarricade
+  - name: getBarricadeOppositeCharacter
+    modifiers:
+      - public
+    returnType: IsoBarricade
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getBreakSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getCanBarricade
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Can you barricade/unbarricade the item
+  - name: getCrossSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: getFacingPosition
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: pos
+        type: Vector2
+  - name: getHealth
+    modifiers:
+      - public
+    returnType: int
+  - name: getIndoorSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getInsideSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getKeyId
+    modifiers:
+      - public
+    returnType: int
+  - name: getLifeDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: getLifeLeft
+    modifiers:
+      - public
+    returnType: float
+  - name: getLightSource
+    modifiers:
+      - public
+    returnType: IsoLightSource
+  - name: getLightSourceFuel
+    modifiers:
+      - public
+    returnType: String
+  - name: getLightSourceLife
+    modifiers:
+      - public
+    returnType: int
+  - name: getLightSourceRadius
+    modifiers:
+      - public
+    returnType: int
+  - name: getLightSourceXOffset
+    modifiers:
+      - public
+    returnType: int
+  - name: getLightSourceYOffset
+    modifiers:
+      - public
+    returnType: int
+  - name: getLockedByCode
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxHealth
+    modifiers:
+      - public
+    returnType: int
+  - name: getModData
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getNorth
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getOpenSprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: getOppositeSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getOtherSideOfDoor
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getRenderEffectMaster
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getSpriteEdge
+    modifiers:
+      - public
+    returnType: IsoDirections
+    parameters:
+      - name: ignoreOpen
+        type: boolean
+  - name: getTable
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getThumpableFor
+    modifiers:
+      - public
+    returnType: Thumpable
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getThumpCondition
+    modifiers:
+      - public
+    returnType: float
+  - name: getThumpDmg
+    modifiers:
+      - public
+    returnType: int
+  - name: getThumpSound
+    modifiers:
+      - public
+    returnType: String
+  - name: HasCurtains
+    modifiers:
+      - public
+    returnType: IsoCurtain
+  - name: hasModData
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveFuel
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: insertNewFuel
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
+  - name: isAdjacentToSquare
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: square2
+        type: IsoGridSquare
+  - name: isBarricadeAllowed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBarricaded
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBlockAllTheSquare
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanPassThrough
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Can you pass through the item, if false we gonna test the collide default
+      to false (so it collide)
+  - name: isCorner
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDestroyed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDismantable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDoor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDoorFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isHoppable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLightSourceOn
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLocked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLockedByKey
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLockedByPadlock
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLockedToCharacter
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: isObstructed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsOpen
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPaintable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStairs
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsStrengthenedByPushedItems
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isThumpable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isWindow
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: loadChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: bb
+        type: ByteBuffer
+  - name: onMouseLeftClick
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: removeCurrentFuel
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: removeSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: saveChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
+  - name: setBlockAllTheSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: blockAllTheSquare
+        type: boolean
+  - name: setBreakSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pBreakSound
+        type: String
+    notes: The sound that be played if this object is broken default "BreakDoor"
+  - name: setCanBarricade
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pCanBarricade
+        type: boolean
+    notes: Can you barricade/unbarricade the item default true
+  - name: setCanBeLockByPadlock
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: canBeLockByPadlock
+        type: boolean
+  - name: setCanBePlastered
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: canBePlastered
+        type: boolean
+  - name: setCanPassThrough
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pCanPassThrough
+        type: boolean
+  - name: setClosedSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
+  - name: setCorner
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pCorner
+        type: boolean
+  - name: setCrossSpeed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pCrossSpeed
+        type: float
+  - name: setHaveFuel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: haveFuel
+        type: boolean
+  - name: setHealth
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: health
+        type: int
+  - name: setHoppable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isHoppable
+        type: boolean
+  - name: setIsContainer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pIsContainer
+        type: boolean
+  - name: setIsDismantable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dismantable
+        type: boolean
+  - name: setIsDoor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pIsDoor
+        type: Boolean
+  - name: setIsDoorFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pIsDoorFrame
+        type: boolean
+  - name: setIsFloor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pIsFloor
+        type: boolean
+  - name: setIsHoppable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isHoppable
+        type: boolean
+  - name: setIsLocked
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lock
+        type: boolean
+  - name: setIsStairs
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pStairs
+        type: boolean
+  - name: setIsThumpable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: thumpable
+        type: boolean
+  - name: setKeyId
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: keyId
+        type: int
+  - name: setLifeDelta
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lifeDelta
+        type: float
+  - name: setLifeLeft
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lifeLeft
+        type: float
+  - name: setLightSource
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSource
+        type: IsoLightSource
+  - name: setLightSourceFuel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSourceFuel
+        type: String
+  - name: setLightSourceLife
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSourceLife
+        type: int
+  - name: setLightSourceOn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSourceOn
+        type: boolean
+  - name: setLightSourceRadius
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSourceRadius
+        type: int
+  - name: setLightSourceXOffset
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSourceXOffset
+        type: int
+  - name: setLightSourceYOffset
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lightSourceYOffset
+        type: int
+  - name: setLockedByCode
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lockedByCode
+        type: int
+  - name: setLockedByKey
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lockedByKey
+        type: boolean
+  - name: setLockedByPadlock
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lockedByPadlock
+        type: boolean
+  - name: setMaxHealth
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxHealth
+        type: int
+  - name: setModData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modData
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: setOpenSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
+  - name: setPaintable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: paintable
+        type: boolean
+  - name: setSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sprite
+        type: String
+  - name: setSpriteFromName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: setTable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+        notes: the table to set
+  - name: setThumpDmg
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pThumpDmg
+        type: Integer
+    notes: Numbers of zeds need to hurt the object default 8
+  - name: setThumpSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: thumpSound
+        type: String
+  - name: syncIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
+  - name: syncIsoObjectSend
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+  - name: syncIsoThumpable
+    modifiers:
+      - public
+    returnType: void
+  - name: TestCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: TestPathfindCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: TestVision
+    modifiers:
+      - public
+    returnType: IsoObject.VisionResult
+    parameters:
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: Thump
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: thumper
+        type: IsoMovingObject
+  - name: ToggleDoor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: ToggleDoorActual
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: ToggleDoorSilent
+    modifiers:
+      - public
+    returnType: void
+  - name: toggleLightSource
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: toggle
+        type: boolean
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: WeaponHit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon

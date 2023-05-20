@@ -1,0 +1,1040 @@
+# zombie.iso.weather.ClimateManager
+package: zombie.iso.weather
+type: class
+name: ClimateManager
+extends: Object
+modifiers:
+  - public
+notes: TurboTuTone.
+fields:
+  - name: A_STORM_IS_COMING
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: AVG_FAV_AIR_TEMPERATURE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: BOOL_IS_SNOW
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: BOOL_MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: COLOR_GLOBAL_LIGHT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: COLOR_MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: COLOR_NEW_FOG
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_AMBIENT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_CLOUD_INTENSITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_DAYLIGHT_STRENGTH
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_DESATURATION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_FOG_INTENSITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_GLOBAL_LIGHT_INTENSITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_HUMIDITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_NIGHT_STRENGTH
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_PRECIPITATION_INTENSITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_TEMPERATURE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_VIEW_DISTANCE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_WIND_ANGLE_INTENSITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FLOAT_WIND_INTENSITY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FRONT_COLD
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FRONT_STATIONARY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: FRONT_WARM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: MAX_WINDSPEED_KPH
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: MAX_WINDSPEED_MPH
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: PacketAdminVarsUpdate
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketClientChangedAdminVars
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketClientChangedWeather
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketFlare
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketRequestAdminVars
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketThunderEvent
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketUpdateClimateVars
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: PacketWeatherUpdate
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: THE_DESCENDING_FOG
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: WINTER_IS_COMING
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+constructors:
+  - name: ClimateManager
+    modifiers:
+      - public
+methods:
+  - name: CalculateWeatherFrontStrength
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: year
+        type: int
+      - name: month
+        type: int
+      - name: day
+        type: int
+      - name: front
+        type: ClimateManager.AirFront
+  - name: clamp
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: min
+        type: int
+      - name: max
+        type: int
+      - name: val
+        type: int
+  - name: clamp01
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: clerp
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: t
+        type: float
+      - name: a
+        type: float
+      - name: b
+        type: float
+  - name: CopyClimateValues
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: copy
+        type: ClimateValues
+  - name: execute_Simulation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: RainModOverride
+        type: int
+  - name: forceDayInfoUpdate
+    modifiers:
+      - public
+    returnType: void
+  - name: getAirMass
+    modifiers:
+      - public
+    returnType: float
+  - name: getAirMassDaily
+    modifiers:
+      - public
+    returnType: float
+  - name: getAirMassTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getAirTemperatureForCharacter
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: plr
+        type: IsoGameCharacter
+      - name: doWindChill
+        type: boolean
+  - name: getAirTemperatureForSquare
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: vehicle
+        type: BaseVehicle
+      - name: doWindChill
+        type: boolean
+  - name: getAmbient
+    modifiers:
+      - public
+    returnType: float
+  - name: getBaseTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getBoolMax
+    modifiers:
+      - public
+    returnType: int
+  - name: getClimateBool
+    modifiers:
+      - public
+    returnType: ClimateManager.ClimateBool
+    parameters:
+      - name: id
+        type: int
+  - name: getClimateColor
+    modifiers:
+      - public
+    returnType: ClimateManager.ClimateColor
+    parameters:
+      - name: id
+        type: int
+  - name: getClimateFloat
+    modifiers:
+      - public
+    returnType: ClimateManager.ClimateFloat
+    parameters:
+      - name: id
+        type: int
+  - name: getClimateForecaster
+    modifiers:
+      - public
+    returnType: ClimateForecaster
+  - name: getClimateHistory
+    modifiers:
+      - public
+    returnType: ClimateHistory
+  - name: getClimateValuesCopy
+    modifiers:
+      - public
+    returnType: ClimateValues
+  - name: getCloudIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getColFog
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getColFogLegacy
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getColFogNew
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getColNight
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getColNightMoon
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getColNightNoMoon
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getColorMax
+    modifiers:
+      - public
+    returnType: int
+  - name: getColorNewFog
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCorrectedWindAngleIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getCurrentDay
+    modifiers:
+      - public
+    returnType: ClimateManager.DayInfo
+  - name: getDayLightStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getDayMeanTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getDesaturation
+    modifiers:
+      - public
+    returnType: float
+  - name: getEnabledFxUpdate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getEnabledSimulation
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getEnabledWeatherGeneration
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getFloatMax
+    modifiers:
+      - public
+    returnType: int
+  - name: getFogIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getFogTintStorm
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getFogTintTropical
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getFrontStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getGlobalLight
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getGlobalLightIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getGlobalLightInternal
+    modifiers:
+      - public
+    returnType: Color
+  - name: getHumidity
+    modifiers:
+      - public
+    returnType: float
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: ClimateManager
+  - name: getIsThunderStorming
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getMaxWindspeedKph
+    modifiers:
+      - public
+    returnType: float
+  - name: getMaxWindspeedMph
+    modifiers:
+      - public
+    returnType: float
+  - name: getModData
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getNextDay
+    modifiers:
+      - public
+    returnType: ClimateManager.DayInfo
+  - name: getNightStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getPrecipitationIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getPrecipitationIsSnow
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getPreviousDay
+    modifiers:
+      - public
+    returnType: ClimateManager.DayInfo
+  - name: getRainIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getSeason
+    modifiers:
+      - public
+    returnType: ErosionSeason
+  - name: getSeasonColor
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+    parameters:
+      - name: segment
+        type: int
+      - name: temperature
+        type: int
+      - name: season
+        type: int
+  - name: getSeasonName
+    modifiers:
+      - public
+    returnType: String
+  - name: getSeasonProgression
+    modifiers:
+      - public
+    returnType: float
+  - name: getSeasonStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getSimplexOffsetA
+    modifiers:
+      - public
+    returnType: double
+  - name: getSimplexOffsetB
+    modifiers:
+      - public
+    returnType: double
+  - name: getSimplexOffsetC
+    modifiers:
+      - public
+    returnType: double
+  - name: getSimplexOffsetD
+    modifiers:
+      - public
+    returnType: double
+  - name: getSnowFracNow
+    modifiers:
+      - public
+    returnType: float
+  - name: getSnowIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getSnowStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getThunderStorm
+    modifiers:
+      - public
+    returnType: ThunderStorm
+  - name: getViewDistance
+    modifiers:
+      - public
+    returnType: float
+  - name: getWeatherInterference
+    modifiers:
+      - public
+    returnType: float
+  - name: getWeatherPeriod
+    modifiers:
+      - public
+    returnType: WeatherPeriod
+  - name: getWindAngleDegrees
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindAngleIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindAngleRadians
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindAngleString
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: angle
+        type: float
+  - name: getWindForceMovement
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+      - name: angle
+        type: float
+  - name: getWindIntensity
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindNoiseBase
+    modifiers:
+      - public
+      - static
+    returnType: double
+  - name: getWindNoiseFinal
+    modifiers:
+      - public
+      - static
+    returnType: double
+  - name: getWindPower
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindspeedKph
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindSpeedMovement
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindTickFinal
+    modifiers:
+      - public
+      - static
+    returnType: double
+  - name: getWorldAgeHours
+    modifiers:
+      - public
+    returnType: double
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: metaGrid
+        type: IsoMetaGrid
+  - name: isRaining
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSnowing
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isUpdated
+    modifiers:
+      - public
+    returnType: boolean
+  - name: launchFlare
+    modifiers:
+      - public
+    returnType: void
+  - name: lerp
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: t
+        type: float
+      - name: a
+        type: float
+      - name: b
+        type: float
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: DataInputStream
+      - name: worldVersion
+        type: int
+  - name: normalizeRange
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: v
+        type: float
+      - name: n
+        type: float
+  - name: postCellLoadSetSnow
+    modifiers:
+      - public
+    returnType: void
+  - name: posToPosNegRange
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: v
+        type: float
+  - name: receiveClimatePacket
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: ignoreConnection
+        type: UdpConnection
+  - name: resetAdmin
+    modifiers:
+      - public
+    returnType: void
+  - name: resetModded
+    modifiers:
+      - public
+    returnType: void
+  - name: resetOverrides
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: DataOutputStream
+    notes: IO
+  - name: sendInitialState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: setAmbient
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: f
+        type: float
+  - name: setDayLightStrength
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: f
+        type: float
+  - name: setDesaturation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: desaturation
+        type: float
+  - name: setEnabledFxUpdate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setEnabledSimulation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setEnabledWeatherGeneration
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setInstance
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: inst
+        type: ClimateManager
+  - name: setNightStrength
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: float
+  - name: setPrecipitationIsSnow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setSeasonColorDawn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: temperature
+        type: int
+      - name: season
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: exterior
+        type: boolean
+  - name: setSeasonColorDay
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: temperature
+        type: int
+      - name: season
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: exterior
+        type: boolean
+  - name: setSeasonColorDusk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: temperature
+        type: int
+      - name: season
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: exterior
+        type: boolean
+  - name: setViewDistance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: f
+        type: float
+  - name: stopWeatherAndThunder
+    modifiers:
+      - public
+    returnType: void
+  - name: ToKph
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: ToMph
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: transmitClientChangeAdminVars
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitGenerateWeather
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: strength
+        type: float
+      - name: front
+        type: int
+  - name: transmitRequestAdminVars
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitServerStartRain
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: intensity
+        type: float
+  - name: transmitServerStopRain
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitServerStopWeather
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitServerTriggerLightning
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: doStrike
+        type: boolean
+      - name: doLightning
+        type: boolean
+      - name: doRumble
+        type: boolean
+  - name: transmitServerTriggerStorm
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: duration
+        type: float
+  - name: transmitStopWeather
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitTriggerBlizzard
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: duration
+        type: float
+  - name: transmitTriggerStorm
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: duration
+        type: float
+  - name: transmitTriggerTropical
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: duration
+        type: float
+  - name: triggerCustomWeather
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: strength
+        type: float
+      - name: warmFront
+        type: boolean
+  - name: triggerCustomWeatherStage
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: stage
+        type: int
+      - name: duration
+        type: float
+  - name: triggerKateBobIntroStorm
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: centerX
+        type: int
+      - name: centerY
+        type: int
+      - name: duration
+        type: double
+      - name: strength
+        type: float
+      - name: initialProgress
+        type: float
+      - name: angle
+        type: float
+      - name: initialPuddles
+        type: float
+      - name: cloudcolor
+        type: ClimateColorInfo
+  - name: triggerWinterIsComingStorm
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateEveryTenMins
+    modifiers:
+      - public
+    returnType: void
+  - name: updateOLD
+    modifiers:
+      - public
+    returnType: void

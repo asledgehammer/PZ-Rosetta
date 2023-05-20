@@ -1,0 +1,192 @@
+# zombie.randomizedWorld.randomizedBuilding.RandomizedBuildingBase
+package: zombie.randomizedWorld.randomizedBuilding
+type: class
+name: RandomizedBuildingBase
+extends: RandomizedWorldBase
+modifiers:
+  - public
+constructors:
+  - name: RandomizedBuildingBase
+    modifiers:
+      - public
+methods:
+  - name: addBarricade
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: numPlanks
+        type: int
+  - name: addRandomRangedWeapon
+    modifiers:
+      - public
+    returnType: HandWeapon
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: addBulletsInGun
+        type: boolean
+      - name: addBoxInContainer
+        type: boolean
+      - name: attachPart
+        type: boolean
+  - name: addWorldItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: String
+      - name: sq
+        type: IsoGridSquare
+      - name: obj
+        type: IsoObject
+  - name: addZombies
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: def
+        type: BuildingDef
+        notes: buildingDef
+      - name: totalZombies
+        type: int
+      - name: outfit
+        type: String
+      - name: femaleChance
+        type: Integer
+      - name: room
+        type: RoomDef
+    notes: |-
+      If you specify a outfit, make sure it works for both gender! (or force
+       femaleChance to 0 or 1 if it's gender-specific)
+  - name: addZombiesOnSquare
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: totalZombies
+        type: int
+      - name: outfit
+        type: String
+      - name: femaleChance
+        type: Integer
+      - name: square
+        type: IsoGridSquare
+  - name: ChunkLoaded
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: building
+        type: IsoBuilding
+  - name: getChance
+    modifiers:
+      - public
+    returnType: int
+  - name: getDoor
+    modifiers:
+      - public
+    returnType: IsoDoor
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: getMinimumDays
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinimumRooms
+    modifiers:
+      - public
+    returnType: int
+  - name: getWindow
+    modifiers:
+      - public
+    returnType: IsoWindow
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: initAllRBMapChance
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: isAlwaysDo
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTableFor3DItems
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: sq
+        type: IsoGridSquare
+  - name: isValid
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: def
+        type: BuildingDef
+      - name: force
+        type: boolean
+    notes: >-
+      Don't do any building change in a player's building Also check if the
+       building have a bathroom, a kitchen and a bedroom
+       This is ignored for the alwaysDo building (so i can do stuff in spiffo, pizzawhirled, etc..)
+  - name: randomizeBuilding
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: def
+        type: BuildingDef
+  - name: setAlwaysDo
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: alwaysDo
+        type: boolean
+  - name: setChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chance
+        type: int
+  - name: setMinimumDays
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minimumDays
+        type: int
+  - name: setMinimumRooms
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minimumRooms
+        type: int
+  - name: spawnItemsInContainers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: def
+        type: BuildingDef
+      - name: distribName
+        type: String
+      - name: chance
+        type: int

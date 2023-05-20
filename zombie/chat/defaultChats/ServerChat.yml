@@ -1,0 +1,100 @@
+# zombie.chat.defaultChats.ServerChat
+package: zombie.chat.defaultChats
+type: class
+name: ServerChat
+extends: ChatBase
+modifiers:
+  - public
+constructors:
+  - name: ServerChat
+    modifiers:
+      - public
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: tab
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
+  - name: ServerChat
+    modifiers:
+      - public
+    parameters:
+      - name: id
+        type: int
+      - name: tab
+        type: ChatTab
+methods:
+  - name: createMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: author
+        type: String
+      - name: text
+        type: String
+      - name: isAlert
+        type: boolean
+  - name: createServerMessage
+    modifiers:
+      - public
+    returnType: ServerChatMessage
+    parameters:
+      - name: text
+        type: String
+      - name: isAlert
+        type: boolean
+  - name: getDefaultSettings
+    modifiers:
+      - public
+      - static
+    returnType: ChatSettings
+  - name: getMessagePrefix
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: getMessageTextWithPrefix
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: getTabID
+    modifiers:
+      - public
+    returnType: short
+  - name: packMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
+  - name: sendMessageToChatMembers
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: showMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: unpackMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

@@ -1,0 +1,90 @@
+# zombie.ai.StateMachine
+package: zombie.ai
+type: class
+name: StateMachine
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: activeStateChanged
+    modifiers:
+      - public
+    returnType: int
+constructors:
+  - name: StateMachine
+    modifiers:
+      - public
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+methods:
+  - name: changeState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newState
+        type: State
+      - name: subStates
+        type: Iterable<State>
+      - name: restart
+        type: boolean
+  - name: getCurrent
+    modifiers:
+      - public
+    returnType: State
+  - name: getPrevious
+    modifiers:
+      - public
+    returnType: State
+  - name: getSubStateAt
+    modifiers:
+      - public
+    returnType: State
+    parameters:
+      - name: idx
+        type: int
+  - name: getSubStateCount
+    modifiers:
+      - public
+    returnType: int
+  - name: isLocked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSubstate
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: substate
+        type: State
+  - name: revertToPreviousState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sender
+        type: State
+  - name: setLocked
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lock
+        type: boolean
+  - name: stateAnimEvent
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: stateLayer
+        type: int
+      - name: event
+        type: AnimEvent
+  - name: update
+    modifiers:
+      - public
+    returnType: void

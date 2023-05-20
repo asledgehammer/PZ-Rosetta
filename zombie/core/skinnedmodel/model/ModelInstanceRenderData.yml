@@ -1,0 +1,134 @@
+# zombie.core.skinnedmodel.model.ModelInstanceRenderData
+package: zombie.core.skinnedmodel.model
+type: class
+name: ModelInstanceRenderData
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: depthBias
+    modifiers:
+      - public
+    returnType: float
+  - name: hue
+    modifiers:
+      - public
+    returnType: float
+  - name: m_muzzleFlash
+    modifiers:
+      - public
+    returnType: boolean
+  - name: matrixPalette
+    modifiers:
+      - public
+    returnType: FloatBuffer
+  - name: model
+    modifiers:
+      - public
+    returnType: Model
+  - name: modelInstance
+    modifiers:
+      - public
+    returnType: ModelInstance
+  - name: parentBone
+    modifiers:
+      - public
+    returnType: int
+  - name: softwareMesh
+    modifiers:
+      - public
+    returnType: SoftwareModelMeshInstance
+  - name: tex
+    modifiers:
+      - public
+    returnType: Texture
+  - name: tintB
+    modifiers:
+      - public
+    returnType: float
+  - name: tintG
+    modifiers:
+      - public
+    returnType: float
+  - name: tintR
+    modifiers:
+      - public
+    returnType: float
+  - name: xfrm
+    modifiers:
+      - public
+      - final
+    returnType: org.joml.Matrix4f
+constructors:
+  - name: ModelInstanceRenderData
+    modifiers:
+      - public
+methods:
+  - name: alloc
+    modifiers:
+      - public
+      - static
+    returnType: ModelInstanceRenderData
+  - name: applyBoneTransform
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: parentInstance
+        type: ModelInstance
+      - name: boneName
+        type: String
+      - name: transform
+        type: org.joml.Matrix4f
+  - name: init
+    modifiers:
+      - public
+    returnType: ModelInstanceRenderData
+    parameters:
+      - name: modelInstance
+        type: ModelInstance
+  - name: makeAttachmentTransform
+    modifiers:
+      - public
+      - static
+    returnType: org.joml.Matrix4f
+    parameters:
+      - name: attachment
+        type: ModelAttachment
+      - name: attachmentXfrm
+        type: org.joml.Matrix4f
+  - name: release
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: objs
+        type: ArrayList<ModelInstanceRenderData>
+  - name: RenderCharacter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: slotData
+        type: ModelSlotRenderData
+  - name: renderDebug
+    modifiers:
+      - public
+    returnType: void
+  - name: RenderVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: slotData
+        type: ModelSlotRenderData
+  - name: transformToParent
+    modifiers:
+      - public
+    returnType: ModelInstanceRenderData
+    parameters:
+      - name: parentData
+        type: ModelInstanceRenderData

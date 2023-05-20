@@ -1,0 +1,184 @@
+# zombie.characters.NetworkCharacterAI
+package: zombie.characters
+type: class
+name: NetworkCharacterAI
+extends: Object
+modifiers:
+  - public
+  - abstract
+fields:
+  - name: debugData
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: predictionType
+    modifiers:
+      - public
+    returnType: NetworkVariables.PredictionTypes
+  - name: teleportDebug
+    modifiers:
+      - public
+    returnType: NetworkTeleport.NetworkTeleportDebug
+constructors:
+  - name: NetworkCharacterAI
+    modifiers:
+      - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+methods:
+  - name: addTeleportData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: time
+        type: int
+      - name: prediction
+        type: String
+  - name: checkPosition
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: character
+        type: IsoGameCharacter
+      - name: x
+        type: float
+      - name: y
+        type: float
+  - name: clearTeleportDebug
+    modifiers:
+      - public
+    returnType: void
+  - name: getAction
+    modifiers:
+      - public
+    returnType: BaseAction
+  - name: getPerformingAction
+    modifiers:
+      - public
+    returnType: String
+  - name: getTeleportDebug
+    modifiers:
+      - public
+    returnType: NetworkTeleport.NetworkTeleportDebug
+  - name: isCollisionEnabled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNoCollisionTimeout
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSetDeadBody
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSetVehicleHit
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isVehicleHitTimeout
+    modifiers:
+      - public
+    returnType: boolean
+  - name: processDeadBody
+    modifiers:
+      - public
+    returnType: void
+  - name: processVehicleHit
+    modifiers:
+      - public
+    returnType: void
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: resetSpeedLimiter
+    modifiers:
+      - public
+    returnType: void
+  - name: resetVehicleHitTimeout
+    modifiers:
+      - public
+    returnType: void
+  - name: setAction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: action
+        type: BaseAction
+  - name: setDeadBody
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: packet
+        type: DeadCharacterPacket
+  - name: setLocal
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wasLocal
+        type: boolean
+  - name: setNoCollision
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: interval
+        type: long
+  - name: setOverride
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: override
+        type: boolean
+      - name: primaryHandModel
+        type: String
+      - name: secondaryHandModel
+        type: String
+  - name: setPerformingAction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: animation
+        type: String
+  - name: setTeleportDebug
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: teleportDebug
+        type: NetworkTeleport.NetworkTeleportDebug
+  - name: setVehicleHit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: packet
+        type: VehicleHitPacket
+  - name: startAction
+    modifiers:
+      - public
+    returnType: void
+  - name: stopAction
+    modifiers:
+      - public
+    returnType: void
+  - name: updateHitVehicle
+    modifiers:
+      - public
+    returnType: void
+  - name: wasLocal
+    modifiers:
+      - public
+    returnType: boolean

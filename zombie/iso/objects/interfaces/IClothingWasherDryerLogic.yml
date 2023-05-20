@@ -1,0 +1,52 @@
+# zombie.iso.objects.interfaces.IClothingWasherDryerLogic
+package: zombie.iso.objects.interfaces
+type: interface
+name: IClothingWasherDryerLogic
+modifiers:
+  - public
+methods:
+  - name: getContainer
+    returnType: ItemContainer
+  - name: isActivated
+    returnType: boolean
+  - name: isItemAllowedInContainer
+    returnType: boolean
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
+  - name: isRemoveItemAllowedFromContainer
+    returnType: boolean
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
+  - name: loadChange
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: bb
+        type: ByteBuffer
+  - name: saveChange
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
+  - name: setActivated
+    returnType: void
+    parameters:
+      - name: activated
+        type: boolean
+  - name: switchModeOff
+    returnType: void
+  - name: switchModeOn
+    returnType: void
+  - name: update
+    returnType: void

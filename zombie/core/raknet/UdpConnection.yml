@@ -1,0 +1,324 @@
+# zombie.core.raknet.UdpConnection
+package: zombie.core.raknet
+type: class
+name: UdpConnection
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: accessLevel
+    modifiers:
+      - public
+    returnType: byte
+  - name: allChatMuted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: awaitingCoopApprove
+    modifiers:
+      - public
+    returnType: boolean
+  - name: checksumState
+    modifiers:
+      - public
+    returnType: UdpConnection.ChecksumState
+  - name: checksumTime
+    modifiers:
+      - public
+    returnType: long
+  - name: ChunkGridWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: chunkObjectState
+    modifiers:
+      - public
+      - final
+    returnType: gnu.trove.list.array.TShortArrayList
+  - name: connectArea
+    modifiers:
+      - public
+    returnType: Vector3
+  - name: CONNECTION_GRACE_INTERVAL
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: long
+  - name: connectionTimestamp
+    modifiers:
+      - public
+    returnType: long
+  - name: idStr
+    modifiers:
+      - public
+    returnType: String
+  - name: index
+    modifiers:
+      - public
+    returnType: int
+  - name: ip
+    modifiers:
+      - public
+    returnType: String
+  - name: isCoopHost
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNeighborPlayer
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lastUnauthorizedPacket
+    modifiers:
+      - public
+    returnType: long
+  - name: loadedCells
+    modifiers:
+      - public
+    returnType: ClientServerMap
+  - name: maxPlayers
+    modifiers:
+      - public
+    returnType: int
+  - name: netStatistics
+    modifiers:
+      - public
+    returnType: ZNetStatistics
+  - name: ownerID
+    modifiers:
+      - public
+    returnType: long
+  - name: password
+    modifiers:
+      - public
+    returnType: String
+  - name: ping
+    modifiers:
+      - public
+    returnType: boolean
+  - name: pingHistory
+    modifiers:
+      - public
+      - final
+    returnType: Deque
+  - name: playerDownloadServer
+    modifiers:
+      - public
+    returnType: PlayerDownloadServer
+  - name: playerIDs
+    modifiers:
+      - public
+    returnType: short[]
+  - name: players
+    modifiers:
+      - public
+    returnType: IsoPlayer
+  - name: preferredInQueue
+    modifiers:
+      - public
+    returnType: boolean
+  - name: ReleventPos
+    modifiers:
+      - public
+    returnType: Vector3
+  - name: ReleventRange
+    modifiers:
+      - public
+    returnType: byte
+  - name: statistic
+    modifiers:
+      - public
+    returnType: UdpConnection.MPClientStatistic
+  - name: steamID
+    modifiers:
+      - public
+    returnType: long
+  - name: timerSendZombie
+    modifiers:
+      - public
+    returnType: UpdateTimer
+  - name: username
+    modifiers:
+      - public
+    returnType: String
+  - name: usernames
+    modifiers:
+      - public
+    returnType: String
+  - name: validator
+    modifiers:
+      - public
+      - final
+    returnType: PacketValidator
+  - name: wasInLoadingQueue
+    modifiers:
+      - public
+    returnType: boolean
+constructors:
+  - name: UdpConnection
+    modifiers:
+      - public
+    parameters:
+      - name: engine
+        type: UdpEngine
+      - name: connectedGUID
+        type: long
+      - name: index
+        type: int
+methods:
+  - name: calcCountPlayersInRelevantPosition
+    modifiers:
+      - public
+    returnType: void
+  - name: cancelPacket
+    modifiers:
+      - public
+    returnType: void
+  - name: endPacket
+    modifiers:
+      - public
+    returnType: void
+  - name: endPacketImmediate
+    modifiers:
+      - public
+    returnType: void
+  - name: endPacketSuperHighUnreliable
+    modifiers:
+      - public
+    returnType: void
+  - name: endPacketUnordered
+    modifiers:
+      - public
+    returnType: void
+  - name: endPacketUnreliable
+    modifiers:
+      - public
+    returnType: void
+  - name: endPingPacket
+    modifiers:
+      - public
+    returnType: void
+  - name: forceDisconnect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: description
+        type: String
+  - name: getAveragePing
+    modifiers:
+      - public
+    returnType: int
+  - name: getBufferPosition
+    modifiers:
+      - public
+    returnType: int
+  - name: getConnectedGUID
+    modifiers:
+      - public
+    returnType: long
+  - name: getConnectionType
+    modifiers:
+      - public
+    returnType: UdpConnection.ConnectionType
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: getInetSocketAddress
+    modifiers:
+      - public
+    returnType: InetSocketAddress
+  - name: getLastPing
+    modifiers:
+      - public
+    returnType: int
+  - name: getLowestPing
+    modifiers:
+      - public
+    returnType: int
+  - name: getMTUSize
+    modifiers:
+      - public
+    returnType: int
+  - name: getPeer
+    modifiers:
+      - public
+    returnType: RakNetPeerInterface
+  - name: getRelevantAndDistance
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: getServerIP
+    modifiers:
+      - public
+    returnType: String
+  - name: getStatistics
+    modifiers:
+      - public
+    returnType: ZNetStatistics
+  - name: havePlayer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: p
+        type: IsoPlayer
+  - name: isConnectionAttemptTimeout
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isConnectionGraceIntervalTimeout
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isFullyConnected
+    modifiers:
+      - public
+    returnType: boolean
+  - name: RelevantTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: radius
+        type: float
+  - name: RelevantToPlayerIndex
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: n
+        type: int
+      - name: x
+        type: float
+      - name: y
+        type: float
+  - name: setConnectionTimestamp
+    modifiers:
+      - public
+    returnType: void
+  - name: setFullyConnected
+    modifiers:
+      - public
+    returnType: void
+  - name: startPacket
+    modifiers:
+      - public
+    returnType: ByteBufferWriter
+  - name: startPingPacket
+    modifiers:
+      - public
+    returnType: ByteBufferWriter

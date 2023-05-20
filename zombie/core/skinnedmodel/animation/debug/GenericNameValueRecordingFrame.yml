@@ -1,0 +1,90 @@
+# zombie.core.skinnedmodel.animation.debug.GenericNameValueRecordingFrame
+package: zombie.core.skinnedmodel.animation.debug
+type: class
+name: GenericNameValueRecordingFrame
+extends: Object
+modifiers:
+  - public
+  - abstract
+constructors:
+  - name: GenericNameValueRecordingFrame
+    modifiers:
+      - public
+    parameters:
+      - name: fileKey
+        type: String
+      - name: valuesFileNameSuffix
+        type: String
+methods:
+  - name: appendCell
+    modifiers:
+      - public
+      - static
+    returnType: StringBuilder
+    parameters:
+      - name: logLine
+        type: StringBuilder
+      - name: cell
+        type: long
+    notes: Append numeric cell
+  - name: appendCellQuot
+    modifiers:
+      - public
+      - static
+    returnType: StringBuilder
+    parameters:
+      - name: logLine
+        type: StringBuilder
+      - name: cell
+        type: String
+    notes: Append text cell, enclosed in quotes
+  - name: close
+    modifiers:
+      - public
+    returnType: void
+  - name: closeAndDiscard
+    modifiers:
+      - public
+    returnType: void
+  - name: getColumnCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getNameAt
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: i
+        type: int
+  - name: getOrCreateColumn
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: nodeName
+        type: String
+  - name: getValueAt
+    modifiers:
+      - public
+      - abstract
+    returnType: String
+    parameters:
+      - name: i
+        type: int
+  - name: reset
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: setFrameNumber
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: frameNumber
+        type: int
+  - name: writeLine
+    modifiers:
+      - public
+    returnType: void

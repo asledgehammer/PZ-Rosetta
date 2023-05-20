@@ -1,0 +1,204 @@
+# zombie.core.opengl.ShaderProgram
+package: zombie.core.opengl
+type: class
+name: ShaderProgram
+extends: Object
+modifiers:
+  - public
+  - final
+methods:
+  - name: addCompileListener
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: listener
+        type: IShaderProgramListener
+  - name: addShader
+    modifiers:
+      - public
+    returnType: ShaderUnit
+    parameters:
+      - name: fileName
+        type: String
+      - name: unitType
+        type: ShaderUnit.Type
+  - name: compile
+    modifiers:
+      - public
+    returnType: void
+    notes: Compiles or re-compiles this program.
+  - name: createFragShader
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: fileName
+        type: String
+    notes: |-
+      Creates a fragment shader unit.
+       Deprecated: Use ShaderProgram.createShaderProgram instead.
+  - name: createShaderProgram
+    modifiers:
+      - public
+      - static
+    returnType: ShaderProgram
+    parameters:
+      - name: name
+        type: String
+        notes: The program name.
+      - name: isStatic
+        type: boolean
+      - name: compile
+        type: boolean
+    notes: >-
+      createShaderProgram
+       Creates and Compiles a Shader Program, using the specified program name.
+       The vertex and fragment shader file names are constructed using the program name.
+  - name: createVertShader
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: fileName
+        type: String
+    notes: |-
+      Creates a vertex shader unit.
+       Deprecated: Use ShaderProgram.createShaderProgram instead.
+  - name: destroy
+    modifiers:
+      - public
+    returnType: void
+  - name: End
+    modifiers:
+      - public
+    returnType: void
+  - name: getLogInfo
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: obj
+        type: int
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getShaderID
+    modifiers:
+      - public
+    returnType: int
+  - name: getUniform
+    modifiers:
+      - public
+    returnType: ShaderProgram.Uniform
+    parameters:
+      - name: loc
+        type: String
+      - name: type
+        type: int
+      - name: bWarn
+        type: boolean
+  - name: isCompiled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: printLogInfo
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: obj
+        type: int
+  - name: removeCompileListener
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: listener
+        type: IShaderProgramListener
+  - name: setSamplerUnit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: loc
+        type: String
+      - name: textureUnit
+        type: int
+  - name: setValue
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: loc
+        type: String
+      - name: tex
+        type: Texture
+      - name: samplerUnit
+        type: int
+  - name: setValueColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: loc
+        type: String
+      - name: rgba
+        type: int
+  - name: setValueColorRGB
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: loc
+        type: String
+      - name: rgb
+        type: int
+  - name: setVector2
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: int
+      - name: x
+        type: float
+      - name: y
+        type: float
+  - name: setVector3
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: int
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: setVector4
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: int
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: w
+        type: float
+  - name: Start
+    modifiers:
+      - public
+    returnType: void

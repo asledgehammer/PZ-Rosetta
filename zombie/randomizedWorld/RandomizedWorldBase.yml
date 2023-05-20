@@ -1,0 +1,444 @@
+# zombie.randomizedWorld.RandomizedWorldBase
+package: zombie.randomizedWorld
+type: class
+name: RandomizedWorldBase
+extends: Object
+modifiers:
+  - public
+constructors:
+  - name: RandomizedWorldBase
+    modifiers:
+      - public
+methods:
+  - name: addBloodSplat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: nbr
+        type: int
+  - name: addItemOnGround
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: item
+        type: InventoryItem
+  - name: addRandomItemOnGround
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: types
+        type: ArrayList<String>
+  - name: addRandomItemsOnGround
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: RoomDef
+      - name: types
+        type: ArrayList<String>
+      - name: count
+        type: int
+  - name: addTentNorthSouth
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: addTentWestEast
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: addTileObject
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: spriteName
+        type: String
+  - name: addTrailer
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: v
+        type: BaseVehicle
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: zoneName
+        type: String
+      - name: vehicleDistrib
+        type: String
+      - name: trailerName
+        type: String
+  - name: addTrailOfBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: direction
+        type: float
+      - name: count
+        type: int
+  - name: addTraitOfBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: IsoDirections
+      - name: time
+        type: int
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: addVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: vehicleX
+        type: float
+      - name: vehicleY
+        type: float
+      - name: vehicleZ
+        type: float
+      - name: direction
+        type: float
+      - name: zoneName
+        type: String
+      - name: scriptName
+        type: String
+      - name: skinIndex
+        type: Integer
+      - name: specificContainer
+        type: String
+  - name: addVehicleFlipped
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: vehicleX
+        type: float
+      - name: vehicleY
+        type: float
+      - name: vehicleZ
+        type: float
+      - name: direction
+        type: float
+      - name: zoneName
+        type: String
+      - name: scriptName
+        type: String
+      - name: skinIndex
+        type: Integer
+      - name: specificContainer
+        type: String
+  - name: addWeapon
+    modifiers:
+      - public
+    returnType: HandWeapon
+    parameters:
+      - name: type
+        type: String
+      - name: addRandomBullets
+        type: boolean
+    notes: Create and return a weapon, if it's ranged you can ask for some bullets
+      in it
+  - name: addZombiesOnSquare
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: totalZombies
+        type: int
+      - name: outfit
+        type: String
+      - name: femaleChance
+        type: Integer
+      - name: square
+        type: IsoGridSquare
+  - name: addZombiesOnVehicle
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: totalZombies
+        type: int
+      - name: outfit
+        type: String
+      - name: femaleChance
+        type: Integer
+      - name: vehicle
+        type: BaseVehicle
+    notes: >-
+      Add zombies near the vehicles, around a 4x4 square around it, avoiding
+      being
+       ON the vehicle &amp; randomizing square for each zombies
+  - name: alignCorpseToSquare
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: square
+        type: IsoGridSquare
+  - name: createBodyFromZombie
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: direction
+        type: float
+      - name: alignToSquare
+        type: boolean
+      - name: blood
+        type: int
+      - name: crawlerChance
+        type: int
+      - name: outfit
+        type: String
+  - name: createRandomZombie
+    modifiers:
+      - public
+      - static
+    returnType: IsoGameCharacter
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: createRandomZombieForCorpse
+    modifiers:
+      - public
+      - static
+    returnType: IsoGameCharacter
+    parameters:
+      - name: room
+        type: RoomDef
+  - name: createSkeletonCorpse
+    modifiers:
+      - public
+    returnType: IsoDeadBody
+    parameters:
+      - name: room
+        type: RoomDef
+  - name: getDebugLine
+    modifiers:
+      - public
+    returnType: String
+  - name: getLivingRoomOrKitchen
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: bDef
+        type: BuildingDef
+    notes: Get either the living room or kitchen (in this order)
+  - name: getMaximumDays
+    modifiers:
+      - public
+    returnType: int
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getRandomRoom
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: bDef
+        type: BuildingDef
+      - name: minArea
+        type: int
+    notes: Get a random room in the building
+  - name: getRandomSpawnSquare
+    modifiers:
+      - public
+      - static
+    returnType: IsoGridSquare
+    parameters:
+      - name: roomDef
+        type: RoomDef
+  - name: getRandomSquareForCorpse
+    modifiers:
+      - public
+      - static
+    returnType: IsoGridSquare
+    parameters:
+      - name: roomDef
+        type: RoomDef
+  - name: getRoom
+    modifiers:
+      - public
+    returnType: RoomDef
+    parameters:
+      - name: bDef
+        type: BuildingDef
+      - name: roomName
+        type: String
+    notes: Return the wanted room
+  - name: getSq
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: is1x2AreaClear
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: is2x1AreaClear
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: is2x1or1x2AreaClear
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: is2x2AreaClear
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: isTimeValid
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: force
+        type: boolean
+    notes: Check if the world age is correct for our definition
+  - name: isUnique
+    modifiers:
+      - public
+    returnType: boolean
+  - name: removeAllVehiclesOnZone
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+  - name: setAttachedItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
+      - name: location
+        type: String
+      - name: item
+        type: String
+      - name: ensureItem
+        type: String
+  - name: setDebugLine
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: debugLine
+        type: String
+  - name: setMaximumDays
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maximumDays
+        type: int
+  - name: setUnique
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: unique
+        type: boolean
+  - name: spawnCarOnNearestNav
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: carName
+        type: String
+      - name: def
+        type: BuildingDef

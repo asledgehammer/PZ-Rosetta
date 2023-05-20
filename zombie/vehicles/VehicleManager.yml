@@ -1,0 +1,236 @@
+# zombie.vehicles.VehicleManager
+package: zombie.vehicles
+type: class
+name: VehicleManager
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: connected
+    modifiers:
+      - public
+      - final
+    returnType: UdpConnection
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: VehicleManager
+  - name: vehiclePacketTypes
+    modifiers:
+      - public
+      - static
+    returnType: HashMap
+constructors:
+  - name: VehicleManager
+    modifiers:
+      - public
+methods:
+  - name: clientPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: clientUpdate
+    modifiers:
+      - public
+    returnType: void
+  - name: getTowedVehicleID
+    modifiers:
+      - public
+    returnType: short
+    parameters:
+      - name: towingID
+        type: short
+  - name: getVehicleByID
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: id
+        type: short
+  - name: getVehicles
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: registerVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: sendAddImpulse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: impulse
+        type: org.joml.Vector3f
+      - name: rel_pos
+        type: org.joml.Vector3f
+  - name: sendCollide
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: chr
+        type: IsoGameCharacter
+      - name: isCollide
+        type: boolean
+  - name: sendDetachTowing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicleTowing
+        type: BaseVehicle
+      - name: vehicleTowedBy
+        type: BaseVehicle
+  - name: sendEnter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: character
+        type: IsoGameCharacter
+      - name: seatTo
+        type: int
+  - name: sendExit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: character
+        type: IsoGameCharacter
+      - name: seatFrom
+        type: int
+  - name: sendPassengerPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: seat
+        type: int
+      - name: positionId
+        type: String
+      - name: ignore
+        type: UdpConnection
+  - name: sendPhysic
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: sendRequestGetFull
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicles
+        type: List<VehicleCache>
+  - name: sendRequestGetPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: VehicleID
+        type: short
+      - name: packetType
+        type: PacketTypes.PacketType
+  - name: sendSound
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: id
+        type: byte
+  - name: sendSoundFromServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: soundId
+        type: byte
+  - name: sendSwitchSeat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: character
+        type: IsoGameCharacter
+      - name: seatFrom
+        type: int
+      - name: seatTo
+        type: int
+  - name: sendTowing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicleA
+        type: BaseVehicle
+      - name: vehicleB
+        type: BaseVehicle
+      - name: attachmentA
+        type: String
+      - name: attachmentB
+        type: String
+  - name: serverPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: type
+        type: short
+  - name: serverSendInitialWorldState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: serverUpdate
+    modifiers:
+      - public
+    returnType: void
+  - name: unregisterVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle

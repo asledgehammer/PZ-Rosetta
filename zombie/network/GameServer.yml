@@ -1,0 +1,1251 @@
+# zombie.network.GameServer
+package: zombie.network
+type: class
+name: GameServer
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: bCoop
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: bDebug
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: bFastForward
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: bServer
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: bSoftReset
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: checksum
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: DebugPlayer
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashSet
+  - name: DEFAULT_PORT
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: discordBot
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: DiscordBot
+  - name: FPS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: GameMap
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: GUICommandline
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: IDToAddressMap
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+  - name: IDToPlayerMap
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+  - name: ip
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: IPCommandline
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: loginQueue
+    modifiers:
+      - public
+      - static
+    returnType: LoginQueue
+  - name: MainThread
+    modifiers:
+      - public
+      - static
+    returnType: Thread
+  - name: MAX_PLAYERS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: MaxTicksSinceKeepAliveBeforeStall
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: PacketsUpdateRate
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: Players
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ArrayList
+  - name: PortCommandline
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: removeZombiesConnection
+    modifiers:
+      - public
+      - static
+    returnType: UdpConnection
+  - name: ResetID
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: ServerMods
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ArrayList
+  - name: ServerName
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: SteamVACCommandline
+    modifiers:
+      - public
+      - static
+    returnType: Boolean
+  - name: test
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: TimeLimitForProcessPackets
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: timeSinceKeepAlive
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: transactionIDMap
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+  - name: udpEngine
+    modifiers:
+      - public
+      - static
+    returnType: UdpEngine
+  - name: UDPPort
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: UDPPortCommandline
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: WorkshopInstallFolders
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: WorkshopItems
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ArrayList
+  - name: WorkshopTimeStamps
+    modifiers:
+      - public
+      - static
+    returnType: long[]
+  - name: worldObjectsServerSyncReq
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ObjectsSyncRequests
+constructors:
+  - name: GameServer
+    modifiers:
+      - public
+methods:
+  - name: addConnection
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: con
+        type: UdpConnection
+  - name: addDisconnect
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: con
+        type: UdpConnection
+  - name: AddExplosiveTrap
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: sq
+        type: IsoGridSquare
+      - name: sensor
+        type: boolean
+  - name: addIncoming
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: id
+        type: short
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: addXp
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: p
+        type: IsoPlayer
+      - name: perk
+        type: PerkFactory.Perk
+      - name: xp
+        type: int
+  - name: disconnect
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: description
+        type: String
+  - name: disconnectPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: connection
+        type: UdpConnection
+  - name: doMinimumInit
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: doZomboidDataInMainLoop
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: d
+        type: ZomboidNetData
+  - name: getAnyPlayerFromConnection
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: getConnectionByPlayerOnlineID
+    modifiers:
+      - public
+      - static
+    returnType: UdpConnection
+    parameters:
+      - name: onlineID
+        type: short
+  - name: getConnectionFromPlayer
+    modifiers:
+      - public
+      - static
+    returnType: UdpConnection
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: getDifficulty
+    modifiers:
+      - public
+    returnType: String
+  - name: getFreeSlot
+    modifiers:
+      - public
+      - static
+    returnType: short
+  - name: getPlayerByRealUserName
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: username
+        type: String
+  - name: getPlayerByUserName
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: username
+        type: String
+  - name: getPlayerByUserNameForCommand
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: username
+        type: String
+  - name: getPlayerCount
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: getPlayerFromConnection
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: playerIndex
+        type: int
+  - name: getPlayers
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+  - name: getPoisonousBerry
+    modifiers:
+      - public
+    returnType: String
+  - name: getPoisonousMushroom
+    modifiers:
+      - public
+    returnType: String
+  - name: getStatisticFromClients
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: heartBeat
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: initClientCommandFilter
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: isServerDropPackets
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isSpawnBuilding
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: def
+        type: BuildingDef
+  - name: kick
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: description
+        type: String
+      - name: reason
+        type: String
+  - name: loadModData
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: main
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: args
+        type: String[]
+  - name: PauseAllClients
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: PlaySoundAtEveryPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: usePlrCoords
+        type: boolean
+  - name: PlayWorldSoundServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWavServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: rcon
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: command
+        type: String
+  - name: receiveClientConnect
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: r
+        type: ServerWorldDatabase.LogonResult
+  - name: receiveEatBody
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveKickOutOfSafehouse
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receivePlayerListensChannel
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveRadioDeviceDataState
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveRadioServerData
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveSyncCustomLightSettings
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveSyncRadioData
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveThump
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveWaveSignal
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: RemoveItemFromMap
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: sendAddItemToContainer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
+  - name: sendAdminMessage
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: message
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: sendAlarm
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: sendAmbient
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: radius
+        type: int
+      - name: volume
+        type: float
+  - name: sendBecomeCorpse
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: body
+        type: IsoDeadBody
+  - name: sendBloodSplatter
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: hitDir
+        type: Vector2
+      - name: closeKilled
+        type: boolean
+      - name: radial
+        type: boolean
+  - name: sendChangeSafety
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: safety
+        type: Safety
+  - name: sendCompost
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: compost
+        type: IsoCompost
+      - name: connection
+        type: UdpConnection
+  - name: sendCorpse
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: body
+        type: IsoDeadBody
+  - name: sendFuranceChange
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: furnace
+        type: BSFurnace
+      - name: connection
+        type: UdpConnection
+  - name: sendHelicopter
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: active
+        type: boolean
+  - name: sendIsoWaveSignal
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: source
+        type: long
+      - name: sourceX
+        type: int
+      - name: sourceY
+        type: int
+      - name: channel
+        type: int
+      - name: msg
+        type: String
+      - name: guid
+        type: String
+      - name: codes
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: signalStrength
+        type: int
+      - name: isTV
+        type: boolean
+  - name: sendItemListNet
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: ignore
+        type: UdpConnection
+      - name: sender
+        type: IsoPlayer
+      - name: items
+        type: ArrayList<InventoryItem>
+      - name: receiver
+        type: IsoPlayer
+      - name: sessionID
+        type: String
+      - name: custom
+        type: String
+  - name: sendItemsInContainer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: o
+        type: IsoObject
+      - name: container
+        type: ItemContainer
+  - name: sendMetaGrid
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: cellX
+        type: int
+      - name: cellY
+        type: int
+      - name: roomID
+        type: int
+  - name: sendNonPvpZone
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zone
+        type: NonPvpZone
+      - name: remove
+        type: boolean
+      - name: connection
+        type: UdpConnection
+  - name: sendObjectChange
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: o
+        type: IsoObject
+      - name: change
+        type: String
+      - name: objects
+        type: Object...
+  - name: sendObjectModData
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: o
+        type: IsoObject
+  - name: sendOptionsToClients
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: sendPlayerConnect
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: p
+        type: IsoPlayer
+      - name: c
+        type: UdpConnection
+  - name: sendPlayerDamage
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: connection
+        type: UdpConnection
+  - name: sendPlayerDamagedByCarCrash
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoPlayer
+      - name: damage
+        type: float
+  - name: sendPlayerDeath
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: packet
+        type: DeadPlayerPacket
+      - name: connection
+        type: UdpConnection
+  - name: sendPlayerExtraInfo
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: p
+        type: IsoPlayer
+      - name: connection
+        type: UdpConnection
+  - name: sendRadioPostSilence
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: c
+        type: UdpConnection
+  - name: sendReanimatedZombieID
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: zombie
+        type: IsoZombie
+  - name: sendRemoveCorpseFromMap
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: deadBody
+        type: IsoDeadBody
+  - name: sendRemoveItemFromContainer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
+  - name: sendSafehouse
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: packet
+        type: SyncSafehousePacket
+      - name: connection
+        type: UdpConnection
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: sendServerCommandV
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: objects
+        type: Object...
+  - name: sendShortStatistic
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: c
+        type: UdpConnection
+  - name: sendSlowFactor
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: sendStatistic
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: c
+        type: UdpConnection
+  - name: sendTeleport
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: sendValidatePacket
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: queued
+        type: boolean
+      - name: done
+        type: boolean
+      - name: details
+        type: boolean
+  - name: sendWakeUpPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: connection
+        type: UdpConnection
+  - name: sendWeather
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: sendWorldSound
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: sound
+        type: WorldSoundManager.WorldSound
+      - name: connection
+        type: UdpConnection
+  - name: sendZombieDeath
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
+  - name: sendZombieSound
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: sound
+        type: IsoZombie.ZombieSound
+      - name: zombie
+        type: IsoZombie
+  - name: sendZone
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: connection
+        type: UdpConnection
+  - name: setDifficulty
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: difficulty
+        type: String
+  - name: setPoisonousBerry
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: poisonousBerry
+        type: String
+  - name: setPoisonousMushroom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: poisonousMushroom
+        type: String
+  - name: setupCoop
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: smashWindow
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: isoWindow
+        type: IsoWindow
+      - name: action
+        type: int
+  - name: startFireOnClient
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: fireStartingEnergy
+        type: int
+      - name: igniteOnAny
+        type: boolean
+      - name: Life
+        type: int
+      - name: smoke
+        type: boolean
+  - name: startRain
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: startServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: stopRain
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: syncClock
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: SyncObjectChunkHashes
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: ch
+        type: IsoChunk
+      - name: connection
+        type: UdpConnection
+  - name: SyncObjectsGridSquareRequest
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: SyncObjectsRequest
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: transmitBrokenGlass
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: UnPauseAllClients
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: updateOverlayForClients
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+      - name: spriteName
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: playerConnection
+        type: UdpConnection
+  - name: updateZombieControl
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
+      - name: variableParam
+        type: short
+      - name: value
+        type: int

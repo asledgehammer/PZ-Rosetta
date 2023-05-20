@@ -1,0 +1,60 @@
+# zombie.Lua.Event
+package: zombie.Lua
+type: class
+name: Event
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: ADD
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: callbacks
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: name
+    modifiers:
+      - public
+    returnType: String
+  - name: NUM_FUNCTIONS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: Event
+    modifiers:
+      - public
+    parameters:
+      - name: name
+        type: String
+      - name: index
+        type: int
+methods:
+  - name: register
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: platform
+        type: se.krka.kahlua.vm.Platform
+      - name: environment
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: trigger
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: env
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: caller
+        type: se.krka.kahlua.integration.LuaCaller
+      - name: params
+        type: Object[]

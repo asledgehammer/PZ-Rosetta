@@ -1,0 +1,240 @@
+# zombie.util.Lambda
+package: zombie.util
+type: class
+name: Lambda
+extends: Object
+modifiers:
+  - public
+  - final
+notes: A GC-friendly lambda class. Useful for capturing local variables for use
+  in callbacks.
+constructors:
+  - name: Lambda
+    modifiers:
+      - public
+methods:
+  - name: capture
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: val4
+        type: T4
+      - name: val5
+        type: T5
+      - name: val6
+        type: T6
+      - type: Stacks.Params6.ICallback<T1
+      - type: T2
+      - type: T3
+      - type: T4
+      - type: T5
+      - name: captureConsumer
+        type: T6>
+  - name: comparator
+    modifiers:
+      - public
+      - static
+    returnType: Comparator
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - type: Comparators.Params2.ICallback<E
+      - type: T1
+      - name: comparator
+        type: T2>
+  - name: consumer
+    modifiers:
+      - public
+      - static
+    returnType: Consumer
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: val4
+        type: T4
+      - name: val5
+        type: T5
+      - type: Consumers.Params5.ICallback<E
+      - type: T1
+      - type: T2
+      - type: T3
+      - type: T4
+      - name: consumer
+        type: T5>
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: findFunction
+        type: Predicate<Predicate<E>>
+      - name: captureVal1
+        type: T1
+      - type: Predicates.Params1.ICallback<E
+      - name: lambdaFunc
+        type: T1>
+    notes: >-
+      contains
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: containsFrom
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - type: BiPredicate<F
+      - name: findFunction
+        type: Predicate<E>>
+      - name: from
+        type: F
+      - name: captureVal1
+        type: T1
+      - type: Predicates.Params1.ICallback<E
+      - name: lambdaFunc
+        type: T1>
+    notes: >-
+      containsFrom
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: find
+    modifiers:
+      - public
+      - static
+    returnType: R
+    parameters:
+      - type: Function<Predicate<E>
+      - name: findFunction
+        type: R>
+      - name: captureVal1
+        type: T1
+      - type: Predicates.Params1.ICallback<E
+      - name: lambdaFunc
+        type: T1>
+    notes: >-
+      find
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: forEach
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: forEachFunction
+        type: Consumer<Consumer<E>>
+      - name: captureVal1
+        type: T1
+      - name: captureVal2
+        type: T2
+      - type: Consumers.Params2.ICallback<E
+      - type: T1
+      - name: lambdaFunc
+        type: T2>
+    notes: >-
+      forEach
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: forEachFrom
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - type: BiConsumer<F
+      - name: forEachFunction
+        type: Consumer<E>>
+      - name: from
+        type: F
+      - name: captureVal1
+        type: T1
+      - name: captureVal2
+        type: T2
+      - type: Consumers.Params2.ICallback<E
+      - type: T1
+      - name: lambdaFunc
+        type: T2>
+    notes: >-
+      forEachFrom (Node, 2-param)
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: indexOf
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: findFunction
+        type: IntSupplierFunction<Predicate<E>>
+      - name: captureVal1
+        type: T1
+      - type: Predicates.Params1.ICallback<E
+      - name: lambdaFunc
+        type: T1>
+    notes: >-
+      contains
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: invoke
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: runFunction
+        type: Consumer<Runnable>
+      - name: captureVal1
+        type: T1
+      - name: captureVal2
+        type: T2
+      - type: Invokers.Params2.ICallback<T1
+      - name: lambdaFunc
+        type: T2>
+    notes: >-
+      invoke
+       A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+  - name: invoker
+    modifiers:
+      - public
+      - static
+    returnType: Runnable
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - name: val4
+        type: T4
+      - type: Invokers.Params4.ICallback<T1
+      - type: T2
+      - type: T3
+      - name: invoker
+        type: T4>
+  - name: predicate
+    modifiers:
+      - public
+      - static
+    returnType: Predicate
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - type: Predicates.Params3.ICallback<E
+      - type: T1
+      - type: T2
+      - name: predicate
+        type: T3>

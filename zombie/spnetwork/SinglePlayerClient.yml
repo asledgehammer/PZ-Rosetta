@@ -1,0 +1,60 @@
+# zombie.spnetwork.SinglePlayerClient
+package: zombie.spnetwork
+type: class
+name: SinglePlayerClient
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: connection
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: UdpConnection
+  - name: udpEngine
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: UdpEngine
+constructors:
+  - name: SinglePlayerClient
+    modifiers:
+      - public
+methods:
+  - name: addIncoming
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: id
+        type: short
+      - name: bb
+        type: ByteBuffer
+  - name: Reset
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: sendClientCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: update
+    modifiers:
+      - public
+      - static
+    returnType: void

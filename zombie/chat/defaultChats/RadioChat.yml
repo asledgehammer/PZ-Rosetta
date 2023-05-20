@@ -1,0 +1,99 @@
+# zombie.chat.defaultChats.RadioChat
+package: zombie.chat.defaultChats
+type: class
+name: RadioChat
+extends: RangeBasedChat
+modifiers:
+  - public
+constructors:
+  - name: RadioChat
+    modifiers:
+      - public
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: tab
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
+  - name: RadioChat
+    modifiers:
+      - public
+    parameters:
+      - name: id
+        type: int
+      - name: tab
+        type: ChatTab
+  - name: RadioChat
+    modifiers:
+      - public
+methods:
+  - name: createBroadcastingMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: text
+        type: String
+      - name: channel
+        type: int
+  - name: createMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: text
+        type: String
+        notes: text of the message
+    notes: "Description copied from class: ChatBase"
+  - name: createStaticSoundMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: text
+        type: String
+  - name: getDefaultSettings
+    modifiers:
+      - public
+      - static
+    returnType: ChatSettings
+  - name: getMessagePrefix
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: packMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
+  - name: sendToServer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+      - name: deviceData
+        type: DeviceData
+  - name: showMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: ChatMessage
+  - name: unpackMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

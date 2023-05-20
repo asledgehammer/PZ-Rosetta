@@ -1,0 +1,391 @@
+# zombie.iso.IsoMetaGrid.Zone
+package: zombie.iso
+type: class
+name: IsoMetaGrid.Zone
+extends: Object
+modifiers:
+  - public
+  - static
+fields:
+  - name: geometryType
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.ZoneGeometryType
+  - name: h
+    modifiers:
+      - public
+    returnType: int
+  - name: haveConstruction
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hourLastSeen
+    modifiers:
+      - public
+    returnType: int
+  - name: id
+    modifiers:
+      - public
+    returnType: Double
+  - name: isPreferredZoneForSquare
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lastActionTimestamp
+    modifiers:
+      - public
+    returnType: int
+  - name: name
+    modifiers:
+      - public
+    returnType: String
+  - name: pickedRZStory
+    modifiers:
+      - public
+    returnType: RandomizedZoneStoryBase
+  - name: pickedXForZoneStory
+    modifiers:
+      - public
+    returnType: int
+  - name: pickedYForZoneStory
+    modifiers:
+      - public
+    returnType: int
+  - name: points
+    modifiers:
+      - public
+      - final
+    returnType: gnu.trove.list.array.TIntArrayList
+  - name: polylineOutlinePoints
+    modifiers:
+      - public
+    returnType: float[]
+  - name: polylineWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: spawnedZombies
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: spawnSpecialZombies
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: totalArea
+    modifiers:
+      - public
+    returnType: float
+  - name: triangleAreas
+    modifiers:
+      - public
+    returnType: float[]
+  - name: triangles
+    modifiers:
+      - public
+    returnType: float[]
+  - name: type
+    modifiers:
+      - public
+    returnType: String
+  - name: w
+    modifiers:
+      - public
+    returnType: int
+  - name: x
+    modifiers:
+      - public
+    returnType: int
+  - name: y
+    modifiers:
+      - public
+    returnType: int
+  - name: z
+    modifiers:
+      - public
+    returnType: int
+  - name: zombiesTypeToSpawn
+    modifiers:
+      - public
+    returnType: String
+constructors:
+  - name: Zone
+    modifiers:
+      - public
+    parameters:
+      - name: name
+        type: String
+      - name: type
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+methods:
+  - name: addSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: contains
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: difference
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: result
+        type: ArrayList<IsoMetaGrid.Zone>
+  - name: Dispose
+    modifiers:
+      - public
+    returnType: void
+  - name: getClippedSegmentOfPolyline
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: clipX1
+        type: int
+      - name: clipY1
+        type: int
+      - name: clipX2
+        type: int
+      - name: clipY2
+        type: int
+      - name: t1t2
+        type: double[]
+  - name: getHeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getHoursSinceLastSeen
+    modifiers:
+      - public
+    returnType: float
+  - name: getLastActionTimestamp
+    modifiers:
+      - public
+    returnType: int
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getOriginalName
+    modifiers:
+      - public
+    returnType: String
+  - name: getPolygonTriangles
+    modifiers:
+      - public
+    returnType: float[]
+  - name: getPolylineLength
+    modifiers:
+      - public
+    returnType: float
+  - name: getPolylineOutlineTriangles
+    modifiers:
+      - public
+    returnType: float[]
+  - name: getRandomSquareInZone
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getRandomUnseenSquareInZone
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getSquares
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getTotalArea
+    modifiers:
+      - public
+    returnType: float
+  - name: getType
+    modifiers:
+      - public
+    returnType: String
+  - name: getWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: getX
+    modifiers:
+      - public
+    returnType: int
+  - name: getY
+    modifiers:
+      - public
+    returnType: int
+  - name: getZ
+    modifiers:
+      - public
+    returnType: int
+  - name: getZombieDensity
+    modifiers:
+      - public
+    returnType: int
+  - name: haveCons
+    modifiers:
+      - public
+    returnType: boolean
+  - name: intersects
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+  - name: isPoint
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPolygon
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPolyline
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRectangle
+    modifiers:
+      - public
+    returnType: boolean
+  - name: pickRandomLocation
+    modifiers:
+      - public
+    returnType: IsoGameCharacter.Location
+    parameters:
+      - name: location
+        type: IsoGameCharacter.Location
+  - name: removeSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: sendToServer
+    modifiers:
+      - public
+    returnType: void
+  - name: setH
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: h
+        type: int
+  - name: setHaveConstruction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: have
+        type: boolean
+  - name: setHourSeenToCurrent
+    modifiers:
+      - public
+    returnType: void
+  - name: setLastActionTimestamp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lastActionTimestamp
+        type: int
+  - name: setName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: setOriginalName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: originalName
+        type: String
+  - name: setPickedXForZoneStory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pickedXForZoneStory
+        type: int
+  - name: setPickedYForZoneStory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pickedYForZoneStory
+        type: int
+  - name: setType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: String
+  - name: setW
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: int
+  - name: setX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+  - name: setY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: y
+        type: int

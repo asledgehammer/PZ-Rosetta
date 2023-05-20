@@ -1,0 +1,101 @@
+# zombie.characters.NetworkZombieAI
+package: zombie.characters
+type: class
+name: NetworkZombieAI
+extends: NetworkCharacterAI
+modifiers:
+  - public
+fields:
+  - name: DebugInterfaceActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isClimbing
+    modifiers:
+      - public
+    returnType: boolean
+  - name: mindSync
+    modifiers:
+      - public
+      - final
+    returnType: NetworkZombieMind
+  - name: reanimatedBodyID
+    modifiers:
+      - public
+    returnType: short
+  - name: targetX
+    modifiers:
+      - public
+    returnType: float
+  - name: targetY
+    modifiers:
+      - public
+    returnType: float
+  - name: targetZ
+    modifiers:
+      - public
+    returnType: int
+  - name: usePathFind
+    modifiers:
+      - public
+    returnType: boolean
+  - name: zombie
+    modifiers:
+      - public
+      - final
+    returnType: IsoZombie
+constructors:
+  - name: NetworkZombieAI
+    modifiers:
+      - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+methods:
+  - name: extraUpdate
+    modifiers:
+      - public
+    returnType: void
+  - name: getPredictionDebug
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+      - name: packet
+        type: ZombiePacket
+      - name: currentTime
+        type: int
+      - name: next
+        type: long
+  - name: parse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: packet
+        type: ZombiePacket
+  - name: preupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: set
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: packet
+        type: ZombiePacket
+  - name: setUpdateTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: time
+        type: float

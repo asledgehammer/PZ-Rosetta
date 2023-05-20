@@ -1,0 +1,47 @@
+# zombie.core.fonts.Font
+package: zombie.core.fonts
+type: interface
+name: Font
+modifiers:
+  - public
+methods:
+  - name: drawString
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+        notes: The x location at which to draw the string
+      - name: y
+        type: float
+      - name: text
+        type: String
+      - name: col
+        type: Color
+      - name: startIndex
+        type: int
+      - name: endIndex
+        type: int
+    notes: |-
+      Draw part of a string to the screen. Note that this will
+       still position the text as though it's part of the bigger string.
+  - name: getHeight
+    returnType: int
+    parameters:
+      - name: str
+        type: String
+        notes: The string to obtain the rendered with of
+    notes: get the height of the given string
+  - name: getLineHeight
+    returnType: int
+    notes: get the maximum height of any line drawn by this font
+  - name: getWidth
+    returnType: int
+    parameters:
+      - name: str
+        type: String
+      - name: startIndex
+        type: int
+      - name: endIndex
+        type: int
+      - name: xAdvance
+        type: boolean

@@ -1,0 +1,162 @@
+# zombie.core.skinnedmodel.advancedanimation.AnimLayer
+package: zombie.core.skinnedmodel.advancedanimation
+type: class
+name: AnimLayer
+extends: Object
+modifiers:
+  - public
+  - final
+constructors:
+  - name: AnimLayer
+    modifiers:
+      - public
+    parameters:
+      - name: character
+        type: IAnimatable
+      - name: animEventsCallback
+        type: IAnimEventCallback
+  - name: AnimLayer
+    modifiers:
+      - public
+    parameters:
+      - name: parentLayer
+        type: AnimLayer
+      - name: character
+        type: IAnimatable
+      - name: animEventsCallback
+        type: IAnimEventCallback
+methods:
+  - name: findTransitionToNewNode
+    modifiers:
+      - public
+    returnType: LiveAnimNode
+    parameters:
+      - name: newNode
+        type: LiveAnimNode
+      - name: isSubNode
+        type: boolean
+  - name: getAnimationTrack
+    modifiers:
+      - public
+    returnType: AnimationMultiTrack
+  - name: getCurrentStateName
+    modifiers:
+      - public
+    returnType: String
+  - name: getCurrentSyncNode
+    modifiers:
+      - public
+    returnType: LiveAnimNode
+  - name: getCurrentSyncTrack
+    modifiers:
+      - public
+    returnType: AnimationTrack
+  - name: getDebugNodeName
+    modifiers:
+      - public
+    returnType: String
+  - name: GetDebugString
+    modifiers:
+      - public
+    returnType: String
+  - name: getDepth
+    modifiers:
+      - public
+    returnType: int
+    notes: The layer's depth, how many layer ancestors (parent, grandparent,
+      great-grandparent, etc) does this layer have.
+  - name: getLiveAnimNodes
+    modifiers:
+      - public
+    returnType: List
+  - name: getVariableSource
+    modifiers:
+      - public
+    returnType: IAnimationVariableSource
+  - name: hasState
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCurrentState
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: stateName
+        type: String
+  - name: isRecording
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStateless
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSubLayer
+    modifiers:
+      - public
+    returnType: boolean
+  - name: onAnimStarted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onLoopedAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onNonLoopedAnimFadeOut
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onNonLoopedAnimFinished
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onTrackDestroyed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: removeFadedOutNodes
+    modifiers:
+      - public
+    returnType: void
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+  - name: TransitionTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: newState
+        type: AnimState
+      - name: force
+        type: boolean
+  - name: Update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateNodeActiveFlags
+    modifiers:
+      - public
+    returnType: void

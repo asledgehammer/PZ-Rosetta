@@ -1,0 +1,170 @@
+# zombie.radio.media.RecordedMedia
+package: zombie.radio.media
+type: class
+name: RecordedMedia
+extends: Object
+modifiers:
+  - public
+notes: TurboTuTone.
+fields:
+  - name: DISABLE_LINE_LEARNING
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: SAVE_FILE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: VERSION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: VERSION1
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: VERSION2
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: RecordedMedia
+    modifiers:
+      - public
+methods:
+  - name: getAllMediaForCategory
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: category
+        type: String
+  - name: getAllMediaForType
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: byte
+  - name: getCategories
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getIndexForMediaData
+    modifiers:
+      - public
+    returnType: short
+    parameters:
+      - name: data
+        type: MediaData
+  - name: getMediaData
+    modifiers:
+      - public
+    returnType: MediaData
+    parameters:
+      - name: id
+        type: String
+  - name: getMediaDataFromIndex
+    modifiers:
+      - public
+    returnType: MediaData
+    parameters:
+      - name: index
+        type: short
+  - name: getMediaTypeForCategory
+    modifiers:
+      - public
+      - static
+    returnType: byte
+    parameters:
+      - name: category
+        type: String
+  - name: getRandomFromCategory
+    modifiers:
+      - public
+    returnType: MediaData
+    parameters:
+      - name: cat
+        type: String
+  - name: handleLegacyListenedLines
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: hasListenedToAll
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: mediaData
+        type: MediaData
+  - name: hasListenedToLine
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: guid
+        type: String
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+  - name: receiveRequestData
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: register
+    modifiers:
+      - public
+    returnType: MediaData
+    parameters:
+      - name: category
+        type: String
+      - name: id
+        type: String
+      - name: itemDisplayName
+        type: String
+      - name: spawning
+        type: int
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+  - name: sendRequestData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: toAscii
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: string
+        type: String

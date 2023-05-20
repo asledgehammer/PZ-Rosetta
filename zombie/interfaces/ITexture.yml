@@ -1,0 +1,106 @@
+# zombie.interfaces.ITexture
+package: zombie.interfaces
+type: interface
+name: ITexture
+extends: IDestroyable
+modifiers:
+  - public
+methods:
+  - name: bind
+    returnType: void
+    parameters:
+      - name: unit
+        type: int
+        notes: the texture unit in witch the current TextureObject will be binded
+    notes: bind the current texture object in the specified texture unit
+  - name: getData
+    returnType: WrappedBuffer
+    notes: |-
+      returns the texture's pixel in a ByteBuffer
+
+       EXAMPLE:
+  - name: getHeight
+    returnType: int
+    notes: returns the height of image
+  - name: getHeightHW
+    returnType: int
+    notes: return the height hardware of image
+  - name: getID
+    returnType: int
+    notes: returns the ID of image in the Vram
+  - name: getWidth
+    returnType: int
+    notes: returns the width of image
+  - name: getWidthHW
+    returnType: int
+    notes: return the width Hardware of image
+  - name: getXEnd
+    returnType: float
+    notes: returns the end X-coordinate
+  - name: getXStart
+    returnType: float
+    notes: returns the start X-coordinate
+  - name: getYEnd
+    returnType: float
+    notes: returns the end Y-coordinate
+  - name: getYStart
+    returnType: float
+    notes: returns the start Y-coordinate
+  - name: isSolid
+    returnType: boolean
+    notes: indicates if the texture is solid or not.
+  - name: makeTransp
+    returnType: void
+    parameters:
+      - name: red
+        type: int
+        notes: color used in the test
+      - name: green
+        type: int
+      - name: blue
+        type: int
+    notes: sets transparent each pixel that it's equal to the red, green blue value
+      specified
+  - name: setAlphaForeach
+    returnType: void
+    parameters:
+      - name: red
+        type: int
+        notes: color used in the test
+      - name: green
+        type: int
+      - name: blue
+        type: int
+      - name: alpha
+        type: int
+    notes: sets the specified alpha for each pixel that it's equal to the red, green
+      blue value specified
+  - name: setData
+    returnType: void
+    parameters:
+      - name: data
+        type: ByteBuffer
+        notes: texture's pixel data
+    notes: |-
+      sets the texture's pixel from a ByteBuffer
+
+       EXAMPLE:
+  - name: setMask
+    returnType: void
+    parameters:
+      - name: mask
+        type: Mask
+    notes: Pixel collision mask of texture
+  - name: setRegion
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+        notes: xstart position
+      - name: y
+        type: int
+      - name: width
+        type: int
+      - name: height
+        type: int
+    notes: sets the region of the image

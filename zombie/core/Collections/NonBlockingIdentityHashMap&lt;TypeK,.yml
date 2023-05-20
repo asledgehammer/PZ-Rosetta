@@ -1,0 +1,191 @@
+# zombie.core.Collections.NonBlockingIdentityHashMap&lt;TypeK,
+package: zombie.core.Collections
+type: class
+name: NonBlockingIdentityHashMap&lt;TypeK,
+extends: AbstractMap
+modifiers:
+  - public
+notes: A lock-free alternate implementation of
+constructors:
+  - name: NonBlockingIdentityHashMap
+    modifiers:
+      - public
+    notes: |-
+      Create a new NonBlockingHashMap with default minimum size (currently set
+        to 8 K/V pairs or roughly 84 bytes on a standard 32-bit JVM).
+  - name: NonBlockingIdentityHashMap
+    modifiers:
+      - public
+    parameters:
+      - name: initial_sz
+        type: int
+    notes: >-
+      Create a new NonBlockingHashMap with initial room for the given number of
+        elements, thus avoiding internal resizing operations to reach an
+        appropriate size.  Large numbers here when used with a small count of
+        elements will sacrifice space for a small amount of time gained.  The
+        initial size will be rounded up internally to the next larger power of 2.
+methods:
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+    notes: Removes all of the mappings from this map.
+  - name: clone
+    modifiers:
+      - public
+    returnType: Object
+    notes: |-
+      Creates a shallow copy of this hashtable. All the structure of the
+       hashtable itself is copied, but the keys and values are not cloned.
+       This is a relatively expensive operation.
+  - name: contains
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: val
+        type: Object
+        notes: a value to search for
+    notes: |-
+      Legacy method testing if some key maps into the specified value in this
+        table.  This method is identical in functionality to
+  - name: containsKey
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: key
+        type: Object
+    notes: Tests if the key in the table using the
+  - name: containsValue
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: val
+        type: Object
+        notes: value whose presence in this map is to be tested
+    notes: Returns
+  - name: elements
+    modifiers:
+      - public
+    returnType: Enumeration
+    notes: Returns an enumeration of the values in this table.
+  - name: entrySet
+    modifiers:
+      - public
+    returnType: Set
+    notes: Returns a
+  - name: get
+    modifiers:
+      - public
+    returnType: TypeV
+    parameters:
+      - name: key
+        type: Object
+    notes: Returns the value to which the specified key is mapped, or
+  - name: isEmpty
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Returns
+  - name: keys
+    modifiers:
+      - public
+    returnType: Enumeration
+    notes: Returns an enumeration of the keys in this table.
+  - name: keySet
+    modifiers:
+      - public
+    returnType: Set
+    notes: Returns a
+  - name: print
+    modifiers:
+      - public
+      - final
+    returnType: void
+    notes: Verbose printout of table internals, useful for debugging.
+  - name: put
+    modifiers:
+      - public
+    returnType: TypeV
+    parameters:
+      - name: key
+        type: TypeK
+        notes: key with which the specified value is to be associated
+      - name: val
+        type: TypeV
+    notes: |-
+      Maps the specified key to the specified value in the table.  Neither key
+        nor value can be null.
+  - name: putAll
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - type: Map<? extends TypeK
+      - name: m
+        type: "? extends TypeV>"
+        notes: mappings to be stored in this map
+    notes: |-
+      Copies all of the mappings from the specified map to this one, replacing
+        any existing mappings.
+  - name: putIfAbsent
+    modifiers:
+      - public
+    returnType: TypeV
+    parameters:
+      - name: key
+        type: TypeK
+      - name: val
+        type: TypeV
+    notes: Atomically, do a
+  - name: remove
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: key
+        type: Object
+      - name: val
+        type: Object
+    notes: Atomically do a
+  - name: replace
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: key
+        type: TypeK
+      - name: oldValue
+        type: TypeV
+      - name: newValue
+        type: TypeV
+    notes: Atomically do a
+  - name: reprobes
+    modifiers:
+      - public
+    returnType: long
+    notes: |-
+      Get and clear the current count of reprobes.  Reprobes happen on key
+        collisions, and a high reprobe rate may indicate a poor hash function or
+        weaknesses in the table resizing function.
+  - name: size
+    modifiers:
+      - public
+    returnType: int
+    notes: Returns the number of key-value mappings in this map.
+  - name: toString
+    modifiers:
+      - public
+    returnType: String
+    notes: |-
+      Returns a string representation of this map.  The string representation
+       consists of a list of key-value mappings in the order returned by the
+       map's
+  - name: values
+    modifiers:
+      - public
+    returnType: Collection
+    notes: Returns a

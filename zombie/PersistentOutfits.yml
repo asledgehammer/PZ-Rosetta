@@ -1,0 +1,142 @@
+# zombie.PersistentOutfits
+package: zombie
+type: class
+name: PersistentOutfits
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: FEMALE_BIT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: instance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: PersistentOutfits
+  - name: INVALID_ID
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: NO_HAT_BIT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: PersistentOutfits
+    modifiers:
+      - public
+methods:
+  - name: dressInOutfit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: outfitID
+        type: int
+  - name: getOutfit
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: ID
+        type: int
+  - name: getOutfitNames
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: isHatFallen
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: outfitID
+        type: int
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+  - name: pickOutfit
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: outfitName
+        type: String
+      - name: female
+        type: boolean
+  - name: pickOutfitFemale
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: outfitName
+        type: String
+  - name: pickOutfitMale
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: outfitName
+        type: String
+  - name: pickRandomFemale
+    modifiers:
+      - public
+    returnType: int
+  - name: pickRandomMale
+    modifiers:
+      - public
+    returnType: int
+  - name: registerOutfitter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: String
+      - name: useSeed
+        type: boolean
+      - name: outfitter
+        type: PersistentOutfits.IOutfitter
+  - name: removeFallenHat
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: outfitID
+        type: int
+      - name: chr
+        type: IsoGameCharacter
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+  - name: setFallenHat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: fallen
+        type: boolean

@@ -1,0 +1,92 @@
+# zombie.GameProfiler
+package: zombie
+type: class
+name: GameProfiler
+extends: Object
+modifiers:
+  - public
+  - final
+methods:
+  - name: end
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: area
+        type: GameProfiler.ProfileArea
+  - name: endFrame
+    modifiers:
+      - public
+    returnType: void
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: GameProfiler
+  - name: getTimeNs
+    modifiers:
+      - public
+      - static
+    returnType: long
+  - name: init
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: invokeAndMeasure
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: areaKey
+        type: String
+      - name: val1
+        type: T1
+      - name: val2
+        type: T2
+      - name: val3
+        type: T3
+      - type: Invokers.Params3.ICallback<T1
+      - type: T2
+      - name: invoker
+        type: T3>
+  - name: invokeAndMeasureFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: invokerKey
+        type: String
+      - name: invoke
+        type: Runnable
+    notes: Perform an entire frame, call startFrame, invoke.run(), endFrame
+  - name: isRunning
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: start
+    modifiers:
+      - public
+    returnType: GameProfiler.ProfileArea
+    parameters:
+      - name: area
+        type: GameProfiler.ProfileArea
+      - name: timeNs
+        type: long
+  - name: startFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: frameInvokerKey
+        type: String

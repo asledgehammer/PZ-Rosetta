@@ -1,0 +1,131 @@
+# zombie.world.moddata.GlobalModData
+package: zombie.world.moddata
+type: class
+name: GlobalModData
+extends: Object
+modifiers:
+  - public
+  - final
+notes: >-
+  TurboTuTone.
+   This class is not exposed to lua, ModData.java which callbacks to this is exposed instead.
+fields:
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: GlobalModData
+  - name: SAVE_EXT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: SAVE_FILE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+constructors:
+  - name: GlobalModData
+    modifiers:
+      - public
+methods:
+  - name: add
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tag
+        type: String
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: collectTableNames
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: list
+        type: List<String>
+  - name: create
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
+  - name: exists
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+  - name: get
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
+  - name: getOrCreate
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+  - name: receive
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: receiveRequest
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: requesterConnection
+        type: UdpConnection
+  - name: remove
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
+  - name: request
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tag
+        type: String
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+  - name: transmit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tag
+        type: String

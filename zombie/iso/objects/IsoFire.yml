@@ -1,0 +1,320 @@
+# zombie.iso.objects.IsoFire
+package: zombie.iso.objects
+type: class
+name: IsoFire
+extends: IsoObject
+modifiers:
+  - public
+fields:
+  - name: Age
+    modifiers:
+      - public
+    returnType: int
+  - name: bSmoke
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Energy
+    modifiers:
+      - public
+    returnType: int
+  - name: Life
+    modifiers:
+      - public
+    returnType: int
+  - name: LifeStage
+    modifiers:
+      - public
+    returnType: int
+  - name: LifeStageDuration
+    modifiers:
+      - public
+    returnType: int
+  - name: LifeStageTimer
+    modifiers:
+      - public
+    returnType: int
+  - name: LightOscillator
+    modifiers:
+      - public
+    returnType: float
+  - name: LightRadius
+    modifiers:
+      - public
+    returnType: int
+  - name: LightSource
+    modifiers:
+      - public
+    returnType: IsoLightSource
+  - name: MaxLife
+    modifiers:
+      - public
+    returnType: int
+  - name: MinLife
+    modifiers:
+      - public
+    returnType: int
+  - name: numFlameParticles
+    modifiers:
+      - public
+    returnType: int
+  - name: perm
+    modifiers:
+      - public
+    returnType: boolean
+  - name: SpreadDelay
+    modifiers:
+      - public
+    returnType: int
+  - name: SpreadTimer
+    modifiers:
+      - public
+    returnType: int
+constructors:
+  - name: IsoFire
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoFire
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+  - name: IsoFire
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: CanBurnAnywhere
+        type: boolean
+      - name: StartingEnergy
+        type: int
+      - name: SetLife
+        type: int
+      - name: isSmoke
+        type: boolean
+  - name: IsoFire
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: CanBurnAnywhere
+        type: boolean
+      - name: StartingEnergy
+        type: int
+      - name: SetLife
+        type: int
+  - name: IsoFire
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: CanBurnAnywhere
+        type: boolean
+      - name: StartingEnergy
+        type: int
+methods:
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: CanAddFire
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: CanBurnAnywhere
+        type: boolean
+      - name: smoke
+        type: boolean
+  - name: CanAddSmoke
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: CanBurnAnywhere
+        type: boolean
+  - name: extinctFire
+    modifiers:
+      - public
+    returnType: void
+  - name: Fire_IsSquareFlamable
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: gridSquare
+        type: IsoGridSquare
+  - name: getEnergy
+    modifiers:
+      - public
+    returnType: int
+  - name: getLife
+    modifiers:
+      - public
+    returnType: int
+  - name: getLightRadius
+    modifiers:
+      - public
+    returnType: int
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getSpreadDelay
+    modifiers:
+      - public
+    returnType: int
+    notes: The more this number is low, the faster it's gonna spread
+  - name: HasTooltip
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCampfire
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPermanent
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: loadChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: bb
+        type: ByteBuffer
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoChild
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: saveChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
+  - name: setLife
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Life
+        type: int
+    notes: Up this number to make the fire life longer
+  - name: setLifeStage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lifeStage
+        type: int
+  - name: setLightRadius
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: radius
+        type: int
+  - name: setSpreadDelay
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: SpreadDelay
+        type: int
+    notes: The more this number is low, the faster it's gonna spread
+  - name: Spread
+    modifiers:
+      - public
+    returnType: void
+  - name: TestCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: PassedObjectSquare
+        type: IsoGridSquare
+  - name: TestVision
+    modifiers:
+      - public
+    returnType: IsoObject.VisionResult
+    parameters:
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: update
+    modifiers:
+      - public
+    returnType: void

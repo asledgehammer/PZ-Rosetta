@@ -1,0 +1,72 @@
+# zombie.interfaces.ICommonSoundEmitter
+package: zombie.interfaces
+type: interface
+name: ICommonSoundEmitter
+modifiers:
+  - public
+notes: TurboTuTone.
+methods:
+  - name: hasSustainPoints
+    returnType: boolean
+    parameters:
+      - name: handle
+        type: long
+  - name: isEmpty
+    returnType: boolean
+  - name: isPlaying
+    returnType: boolean
+    parameters:
+      - name: alias
+        type: String
+  - name: playSound
+    returnType: long
+    parameters:
+      - name: file
+        type: String
+      - name: doWorldSound
+        type: boolean
+  - name: setPitch
+    returnType: void
+    parameters:
+      - name: handle
+        type: long
+      - name: pitch
+        type: float
+  - name: setPos
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: setVolume
+    returnType: void
+    parameters:
+      - name: handle
+        type: long
+      - name: volume
+        type: float
+  - name: stopOrTriggerSound
+    returnType: void
+    parameters:
+      - name: handle
+        type: long
+  - name: stopOrTriggerSoundByName
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: stopSound
+    returnType: int
+    parameters:
+      - name: channel
+        type: long
+  - name: tick
+    returnType: void
+  - name: triggerCue
+    returnType: void
+    parameters:
+      - name: handle
+        type: long

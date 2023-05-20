@@ -1,0 +1,624 @@
+# zombie.core.Color
+package: zombie.core
+type: class
+name: Color
+extends: Object
+modifiers:
+  - public
+  - final
+notes: A simple wrapper round the values required for a colour
+fields:
+  - name: a
+    modifiers:
+      - public
+    returnType: float
+    notes: The alpha component of the colour
+  - name: b
+    modifiers:
+      - public
+    returnType: float
+    notes: The blue component of the colour
+  - name: black
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour black
+  - name: blue
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour blue
+  - name: cyan
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour cyan
+  - name: darkGray
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour dark gray
+  - name: darkGreen
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour dark green
+  - name: g
+    modifiers:
+      - public
+    returnType: float
+    notes: The green component of the colour
+  - name: gray
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour gray
+  - name: green
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour green
+  - name: lightGray
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour light gray
+  - name: lightGreen
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour light green
+  - name: magenta
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour dark magenta
+  - name: orange
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour dark orange
+  - name: pink
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour dark pink
+  - name: purple
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour purple
+  - name: r
+    modifiers:
+      - public
+    returnType: float
+    notes: The red component of the colour
+  - name: red
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour red
+  - name: transparent
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed color transparent
+  - name: white
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour white
+  - name: yellow
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Color
+    notes: The fixed colour yellow
+constructors:
+  - name: Color
+    modifiers:
+      - public
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: color
+        type: Color
+        notes: The color to copy into the new instance
+    notes: Copy constructor
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: float
+        notes: The red component of the colour (0.0
+      - name: g
+        type: float
+      - name: b
+        type: float
+    notes: Create a 3 component colour
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: float
+        notes: The red component of the colour (0.0
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+    notes: Create a 4 component colour
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: A
+        type: Color
+      - name: B
+        type: Color
+      - name: delta
+        type: float
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: int
+        notes: The red component of the colour (0
+      - name: g
+        type: int
+      - name: b
+        type: int
+    notes: Create a 3 component colour
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: int
+        notes: The red component of the colour (0
+      - name: g
+        type: int
+      - name: b
+        type: int
+      - name: a
+        type: int
+    notes: Create a 4 component colour
+  - name: Color
+    modifiers:
+      - public
+    parameters:
+      - name: value
+        type: int
+        notes: The value to interpret for the colour
+    notes: |-
+      Create a colour from an evil integer packed 0xAARRGGBB. If AA
+       is specified as zero then it will be interpreted as unspecified
+       and hence a value of 255 will be recorded.
+methods:
+  - name: abgrToColor
+    modifiers:
+      - public
+      - static
+    returnType: Color
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: out_result
+        type: Color
+  - name: add
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: c
+        type: Color
+        notes: The colour to add
+    notes: Add another colour to this one
+  - name: addToCopy
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: c
+        type: Color
+        notes: The colour to add
+    notes: Add another colour to this one
+  - name: blendABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: targetABGR
+        type: int
+  - name: blendBGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: targetABGR
+        type: int
+  - name: brighter
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: scale
+        type: float
+        notes: The scale up of RGB (i.e. if you supply 0.03 the colour will be
+          brightened by 3%)
+    notes: Make a brighter instance of this colour
+  - name: changeHSBValue
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hFactor
+        type: float
+      - name: sFactor
+        type: float
+      - name: bFactor
+        type: float
+  - name: colorToABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: darker
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: scale
+        type: float
+        notes: The scale down of RGB (i.e. if you supply 0.03 the colour will be
+          darkened by 3%)
+    notes: Make a darker instance of this colour
+  - name: decode
+    modifiers:
+      - public
+      - static
+    returnType: Color
+    parameters:
+      - name: nm
+        type: String
+        notes: The number string to decode
+    notes: |-
+      Decode a number in a string and process it as a colour
+       reference.
+  - name: equals
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: Object
+  - name: fromColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: valueABGR
+        type: int
+    notes: >-
+      Converts the supplied binary value into color values, and sets the result
+      to this object.
+        Performs a clamp on the alpha channel.
+        Performs a special-case on the alpha channel, where if it is 0, it is set to MAX instead.
+  - name: getAlpha
+    modifiers:
+      - public
+    returnType: int
+    notes: get the alpha byte component of this colour
+  - name: getAlphaByte
+    modifiers:
+      - public
+    returnType: int
+    notes: get the alpha byte component of this colour
+  - name: getAlphaChannelFromABGR
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: valueABGR
+        type: int
+  - name: getAlphaFloat
+    modifiers:
+      - public
+    returnType: float
+  - name: getBlue
+    modifiers:
+      - public
+    returnType: int
+    notes: get the blue byte component of this colour
+  - name: getBlueByte
+    modifiers:
+      - public
+    returnType: int
+    notes: get the blue byte component of this colour
+  - name: getBlueChannelFromABGR
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: valueABGR
+        type: int
+  - name: getBlueFloat
+    modifiers:
+      - public
+    returnType: float
+  - name: getGreen
+    modifiers:
+      - public
+    returnType: int
+    notes: get the green byte component of this colour
+  - name: getGreenByte
+    modifiers:
+      - public
+    returnType: int
+    notes: get the green byte component of this colour
+  - name: getGreenChannelFromABGR
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: valueABGR
+        type: int
+  - name: getGreenFloat
+    modifiers:
+      - public
+    returnType: float
+  - name: getRed
+    modifiers:
+      - public
+    returnType: int
+    notes: get the red byte component of this colour
+  - name: getRedByte
+    modifiers:
+      - public
+    returnType: int
+    notes: get the red byte component of this colour
+  - name: getRedChannelFromABGR
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: valueABGR
+        type: int
+  - name: getRedFloat
+    modifiers:
+      - public
+    returnType: float
+  - name: hashCode
+    modifiers:
+      - public
+    returnType: int
+  - name: HSBtoRGB
+    modifiers:
+      - public
+      - static
+    returnType: Color
+    parameters:
+      - name: hue
+        type: float
+      - name: saturation
+        type: float
+      - name: brightness
+        type: float
+  - name: interp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: to
+        type: Color
+      - name: delta
+        type: float
+      - name: dest
+        type: Color
+  - name: lerpABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: colA
+        type: int
+      - name: colB
+        type: int
+      - name: alpha
+        type: float
+  - name: multiply
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: c
+        type: Color
+        notes: the other color
+    notes: Multiply this color by another
+  - name: multiplyABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: multiplierABGR
+        type: int
+  - name: multiplyBGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: multiplierABGR
+        type: int
+  - name: random
+    modifiers:
+      - public
+      - static
+    returnType: Color
+    notes: Create a random color.
+  - name: scale
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: value
+        type: float
+        notes: The value to scale by
+    notes: Scale the components of the colour by the given value
+  - name: scaleCopy
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: value
+        type: float
+        notes: The value to scale by
+    notes: Scale the components of the colour by the given value
+  - name: set
+    modifiers:
+      - public
+    returnType: Color
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setABGR
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: valueABGR
+        type: int
+  - name: setAlphaChannelToABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: a
+        type: float
+  - name: setBlueChannelToABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: b
+        type: float
+  - name: setColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: A
+        type: Color
+      - name: B
+        type: Color
+      - name: delta
+        type: float
+  - name: setGreenChannelToABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: g
+        type: float
+  - name: setRedChannelToABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: valueABGR
+        type: int
+      - name: r
+        type: float
+  - name: tintABGR
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: targetABGR
+        type: int
+      - name: tintABGR
+        type: int
+  - name: toString
+    modifiers:
+      - public
+    returnType: String

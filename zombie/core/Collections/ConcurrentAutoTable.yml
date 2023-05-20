@@ -1,0 +1,84 @@
+# zombie.core.Collections.ConcurrentAutoTable
+package: zombie.core.Collections
+type: class
+name: ConcurrentAutoTable
+extends: Object
+modifiers:
+  - public
+notes: An auto-resizing table of
+constructors:
+  - name: ConcurrentAutoTable
+    modifiers:
+      - public
+methods:
+  - name: add
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: long
+    notes: |-
+      Add the given value to current counter value.  Concurrent updates will
+       not be lost, but addAndGet or getAndAdd are not implemented because the
+       total counter value (i.e.,
+  - name: decrement
+    modifiers:
+      - public
+    returnType: void
+    notes: add(long)
+  - name: estimate_get
+    modifiers:
+      - public
+    returnType: long
+    notes: A cheaper
+  - name: get
+    modifiers:
+      - public
+    returnType: long
+    notes: |-
+      Current value of the counter.  Since other threads are updating furiously
+       the value is only approximate, but it includes all counts made by the
+       current thread.  Requires a pass over the internally striped counters.
+  - name: increment
+    modifiers:
+      - public
+    returnType: void
+    notes: add(long)
+  - name: internal_size
+    modifiers:
+      - public
+    returnType: int
+    notes: |-
+      Return the internal counter striping factor.  Useful for diagnosing
+       performance problems.
+  - name: intValue
+    modifiers:
+      - public
+    returnType: int
+    notes: Same as
+  - name: longValue
+    modifiers:
+      - public
+    returnType: long
+    notes: Same as
+  - name: print
+    modifiers:
+      - public
+    returnType: void
+    notes: A more verbose print than
+  - name: set
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: long
+    notes: |-
+      Atomically set the sum of the striped counters to specified value.
+        Rather more expensive than a simple store, in order to remain atomic.
+  - name: toString
+    modifiers:
+      - public
+    returnType: String
+    notes: Return the counter's

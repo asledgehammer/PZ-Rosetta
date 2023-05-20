@@ -1,0 +1,518 @@
+# zombie.iso.objects.IsoWindow
+package: zombie.iso.objects
+type: class
+name: IsoWindow
+extends: IsoObject
+modifiers:
+  - public
+fields:
+  - name: Health
+    modifiers:
+      - public
+    returnType: int
+  - name: Locked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: MaxHealth
+    modifiers:
+      - public
+    returnType: int
+  - name: north
+    modifiers:
+      - public
+    returnType: boolean
+  - name: OldNumPlanks
+    modifiers:
+      - public
+    returnType: int
+  - name: open
+    modifiers:
+      - public
+    returnType: boolean
+  - name: PermaLocked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: type
+    modifiers:
+      - public
+    returnType: IsoWindow.WindowType
+constructors:
+  - name: IsoWindow
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoWindow
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: gid
+        type: IsoSprite
+      - name: north
+        type: boolean
+methods:
+  - name: addBarricadesDebug
+    modifiers:
+      - public
+    returnType: IsoBarricade
+    parameters:
+      - name: numPlanks
+        type: int
+      - name: metal
+        type: boolean
+  - name: addBrokenGlass
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: onOppositeSquare
+        type: boolean
+  - name: addRandomBarricades
+    modifiers:
+      - public
+    returnType: void
+  - name: addSheet
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: addSheetRope
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: sq
+        type: IsoGridSquare
+      - name: north
+        type: boolean
+      - name: itemType
+        type: String
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: AttackObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: canAddSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canClimbHere
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: canClimbThrough
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: canClimbThroughHelper
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: sq
+        type: IsoGridSquare
+      - name: oppositeSq
+        type: IsoGridSquare
+      - name: north
+        type: boolean
+  - name: countAddSheetRope
+    modifiers:
+      - public
+    returnType: int
+  - name: Damage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: amount
+        type: float
+      - name: chr
+        type: IsoMovingObject
+  - name: getAddSheetSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getBarricadeForCharacter
+    modifiers:
+      - public
+    returnType: IsoBarricade
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getBarricadeOnOppositeSquare
+    modifiers:
+      - public
+    returnType: IsoBarricade
+  - name: getBarricadeOnSameSquare
+    modifiers:
+      - public
+    returnType: IsoBarricade
+  - name: getBarricadeOppositeCharacter
+    modifiers:
+      - public
+    returnType: IsoBarricade
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getFacingPosition
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: pos
+        type: Vector2
+  - name: getFirstCharacterClimbingThrough
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: getFirstCharacterClosing
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: getIndoorSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getInsideSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getNorth
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getOpenSprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: getOppositeSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getSmashedSprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: getThumpableFor
+    modifiers:
+      - public
+    returnType: Thumpable
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getThumpCondition
+    modifiers:
+      - public
+    returnType: float
+  - name: HasCurtains
+    modifiers:
+      - public
+    returnType: IsoCurtain
+  - name: haveSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBarricadeAllowed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBarricaded
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDestroyed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isExterior
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGlassRemoved
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInvincible
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLocked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsOpen
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPermaLocked
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSheetRopeHere
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: isSmashed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTopOfSheetRopeHere
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: north
+        type: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: loadState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: onMouseLeftClick
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: openCloseCurtain
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: removeBrokenGlass
+    modifiers:
+      - public
+    returnType: void
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: removeSheet
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: removeSheetRope
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: square
+        type: IsoGridSquare
+      - name: north
+        type: boolean
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoAttached
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: saveState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: setGlassRemoved
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: removed
+        type: boolean
+  - name: setIsLocked
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lock
+        type: boolean
+  - name: setOpenSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
+  - name: setPermaLocked
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: permaLock
+        type: Boolean
+  - name: setSmashed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: destroyed
+        type: boolean
+  - name: setSmashedSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
+  - name: smashWindow
+    modifiers:
+      - public
+    returnType: void
+  - name: syncIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
+  - name: syncIsoObjectSend
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+  - name: TestCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: TestVision
+    modifiers:
+      - public
+    returnType: IsoObject.VisionResult
+    parameters:
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: Thump
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: thumper
+        type: IsoMovingObject
+  - name: ToggleWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: WeaponHit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon

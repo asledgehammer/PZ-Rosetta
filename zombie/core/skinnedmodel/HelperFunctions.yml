@@ -1,0 +1,208 @@
+# zombie.core.skinnedmodel.HelperFunctions
+package: zombie.core.skinnedmodel
+type: class
+name: HelperFunctions
+extends: Object
+modifiers:
+  - public
+  - final
+notes: Created by LEMMYATI on 03/01/14.
+constructors:
+  - name: HelperFunctions
+    modifiers:
+      - public
+methods:
+  - name: ApplyBlendBone
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: weight
+        type: float
+      - name: transform
+        type: org.lwjgl.util.vector.Matrix4f
+      - name: vertPos
+        type: Vector3
+      - name: vertNorm
+        type: Vector3
+      - name: tmpVect
+        type: org.lwjgl.util.vector.Vector4f
+      - name: newPos
+        type: Vector3
+      - name: newNorm
+        type: Vector3
+  - name: CreateFromQuaternion
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: q
+        type: org.lwjgl.util.vector.Quaternion
+      - name: result
+        type: org.lwjgl.util.vector.Matrix4f
+  - name: CreateFromQuaternionPositionScale
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: position
+        type: org.lwjgl.util.vector.Vector3f
+      - name: rotation
+        type: org.lwjgl.util.vector.Quaternion
+      - name: scale
+        type: org.lwjgl.util.vector.Vector3f
+      - name: transformResult
+        type: HelperFunctions.TransformResult_QPS
+  - name: getIdentityQ
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Quaternion
+  - name: getMatrix
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: copyFrom
+        type: org.lwjgl.util.vector.Matrix4f
+  - name: getPosition
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Vector3f
+    parameters:
+      - name: matrix
+        type: org.lwjgl.util.vector.Matrix4f
+      - name: out_pos
+        type: org.lwjgl.util.vector.Vector3f
+  - name: getRotation
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Quaternion
+    parameters:
+      - name: matrix
+        type: org.lwjgl.util.vector.Matrix4f
+      - name: out_rot
+        type: org.lwjgl.util.vector.Quaternion
+  - name: getRotationY
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: rotation
+        type: org.lwjgl.util.vector.Quaternion
+    notes: Returns the rotation about the Y axis, in radians.
+  - name: getRotationZ
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: rotation
+        type: org.lwjgl.util.vector.Quaternion
+    notes: Returns the rotation about the Z axis, in radians.
+  - name: getVector3f
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Vector3f
+  - name: getZero3
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Vector3f
+  - name: returnMatrix
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: mat
+        type: org.lwjgl.util.vector.Matrix4f
+  - name: returnVector3f
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: v
+        type: org.lwjgl.util.vector.Vector3f
+  - name: setPosition
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: matrix
+        type: org.lwjgl.util.vector.Matrix4f
+      - name: pos
+        type: org.lwjgl.util.vector.Vector3f
+  - name: ToEulerAngles
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Vector3f
+    parameters:
+      - name: rot
+        type: org.lwjgl.util.vector.Quaternion
+      - name: out_angles
+        type: org.lwjgl.util.vector.Vector3f
+    notes: >-
+      Convert the supplied Quaternion to Euler angles.
+        Source: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
+  - name: ToQuaternion
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Quaternion
+    parameters:
+      - name: roll
+        type: double
+      - name: pitch
+        type: double
+      - name: yaw
+        type: double
+      - name: out_result
+        type: org.lwjgl.util.vector.Quaternion
+    notes: >-
+      Convert the supplied Euler angles to a Quaternion.
+        Source: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
+  - name: ToRgba
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: color
+        type: Color
+  - name: transform
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: rotation
+        type: org.lwjgl.util.vector.Quaternion
+      - name: in_vector
+        type: org.lwjgl.util.vector.Vector3f
+      - name: out_result
+        type: org.lwjgl.util.vector.Vector3f
+    notes: |-
+      Applies the supplied quaternion to transform the supplied in_vector,
+        stores the result in the supplied out_result.
+  - name: TransformVertices
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: vertices
+        type: VertexPositionNormalTangentTextureSkin[]
+      - name: boneTransforms
+        type: List<org.lwjgl.util.vector.Matrix4f>

@@ -1,0 +1,84 @@
+# zombie.core.Collections.NonBlockingSetInt
+package: zombie.core.Collections
+type: class
+name: NonBlockingSetInt
+extends: AbstractSet
+modifiers:
+  - public
+notes: A multi-threaded bit-vector set, implemented as an array of primitive
+constructors:
+  - name: NonBlockingSetInt
+    modifiers:
+      - public
+    notes: Create a new empty bit-vector
+methods:
+  - name: add
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: i
+        type: int
+    notes: Add
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+    notes: Empty the bitvector.
+  - name: contains
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: i
+        type: int
+    notes: Test if
+  - name: intersect
+    modifiers:
+      - public
+    returnType: NonBlockingSetInt
+    parameters:
+      - name: op
+        type: NonBlockingSetInt
+    notes: bitwise comparisons optimised for NBSI
+  - name: intIterator
+    modifiers:
+      - public
+    returnType: IntIterator
+  - name: iterator
+    modifiers:
+      - public
+    returnType: Iterator
+    notes: Standard Java
+  - name: print
+    modifiers:
+      - public
+    returnType: void
+    notes: Verbose printout of internal structure for debugging.
+  - name: remove
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: i
+        type: int
+    notes: Remove
+  - name: size
+    modifiers:
+      - public
+    returnType: int
+    notes: |-
+      Current count of elements in the set.  Due to concurrent racing updates,
+       the size is only ever approximate.  Updates due to the calling thread are
+       immediately visible to calling thread.
+  - name: sizeInBytes
+    modifiers:
+      - public
+    returnType: int
+  - name: union
+    modifiers:
+      - public
+    returnType: NonBlockingSetInt
+    parameters:
+      - name: op
+        type: NonBlockingSetInt

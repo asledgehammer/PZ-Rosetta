@@ -1,0 +1,239 @@
+# zombie.randomizedWorld.randomizedVehicleStory.RandomizedVehicleStoryBase
+package: zombie.randomizedWorld.randomizedVehicleStory
+type: class
+name: RandomizedVehicleStoryBase
+extends: RandomizedWorldBase
+modifiers:
+  - public
+fields:
+  - name: baseChance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+constructors:
+  - name: RandomizedVehicleStoryBase
+    modifiers:
+      - public
+methods:
+  - name: addSmashedOverlay
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: v1
+        type: BaseVehicle
+      - name: v2
+        type: BaseVehicle
+      - name: xOffset
+        type: int
+      - name: yOffset
+        type: int
+      - name: horizontalZone
+        type: boolean
+      - name: addBlood
+        type: boolean
+  - name: callVehicleStorySpawner
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: additionalRotationRadians
+        type: float
+  - name: doRandomStory
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: force
+        type: boolean
+  - name: getCenterOfChunk
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+    notes: |-
+      Get the center of the chunk according to the zone (so center of the 10x10
+       chunk AND the zone)
+  - name: getChance
+    modifiers:
+      - public
+    returnType: int
+  - name: getDebugLine
+    modifiers:
+      - public
+    returnType: String
+  - name: getMaximumDays
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinimumDays
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinZoneHeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinZoneWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getPolylineSpawnPoint
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: result
+        type: float[]
+  - name: getRectangleSpawnPoint
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: result
+        type: float[]
+  - name: getSpawnPoint
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: result
+        type: float[]
+  - name: initAllRVSMapChance
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+    notes: We init a map with every possible stories for this zone
+  - name: initSpawnDataForChunk
+    modifiers:
+      - public
+    returnType: VehicleStorySpawnData
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+  - name: initVehicleStorySpawner
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: debug
+        type: boolean
+  - name: isChunkLoaded
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: isFullyStreamedIn
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x1
+        type: int
+      - name: y1
+        type: int
+      - name: x2
+        type: int
+      - name: y2
+        type: int
+  - name: isValid
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+      - name: force
+        type: boolean
+  - name: randomizeVehicleStory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: chunk
+        type: IsoChunk
+  - name: registerCustomOutfits
+    modifiers:
+      - public
+    returnType: void
+  - name: setChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chance
+        type: int
+  - name: setMaximumDays
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maximumDays
+        type: int
+  - name: setMinimumDays
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: minimumDays
+        type: int
+  - name: spawnElement
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spawner
+        type: VehicleStorySpawner
+      - name: element
+        type: VehicleStorySpawner.Element

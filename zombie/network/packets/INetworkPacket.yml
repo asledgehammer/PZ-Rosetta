@@ -1,0 +1,40 @@
+# zombie.network.packets.INetworkPacket
+package: zombie.network.packets
+type: interface
+name: INetworkPacket
+modifiers:
+  - public
+methods:
+  - name: getDescription
+    modifiers:
+      - default
+    returnType: String
+  - name: getPacketSizeBytes
+    modifiers:
+      - default
+    returnType: int
+  - name: isConsistent
+    modifiers:
+      - default
+    returnType: boolean
+  - name: log
+    modifiers:
+      - default
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: tag
+        type: String
+  - name: parse
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: write
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

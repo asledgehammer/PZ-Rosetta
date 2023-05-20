@@ -1,0 +1,399 @@
+# zombie.core.skinnedmodel.animation.AnimationPlayer
+package: zombie.core.skinnedmodel.animation
+type: class
+name: AnimationPlayer
+extends: PooledObject
+modifiers:
+  - public
+  - final
+notes: Created by LEMMYATI on 03/01/14.
+fields:
+  - name: angleStepDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: angleTwistDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: bDoBlending
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bUpdateBones
+    modifiers:
+      - public
+    returnType: boolean
+  - name: dismembered
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: modelTransforms
+    modifiers:
+      - public
+    returnType: org.lwjgl.util.vector.Matrix4f[]
+  - name: parentPlayer
+    modifiers:
+      - public
+    returnType: AnimationPlayer
+methods:
+  - name: addBoneReparent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: boneName
+        type: String
+      - name: newParentBone
+        type: String
+  - name: alloc
+    modifiers:
+      - public
+      - static
+    returnType: AnimationPlayer
+    parameters:
+      - name: model
+        type: Model
+  - name: calculateAnimPlayerAngle
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: dir
+        type: Vector2
+  - name: discardRecording
+    modifiers:
+      - public
+    returnType: void
+  - name: dismember
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bone
+        type: int
+  - name: DoAngles
+    modifiers:
+      - public
+    returnType: void
+  - name: getAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getBoneModelTransform
+    modifiers:
+      - public
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: boneIdx
+        type: int
+      - name: out_modelTransform
+        type: org.lwjgl.util.vector.Matrix4f
+    notes: |-
+      Get the bone's transform, in the model space.
+        That is, relative to the model's origin.
+  - name: getBoneTransform
+    modifiers:
+      - public
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: boneIdx
+        type: int
+      - name: out_boneTransform
+        type: org.lwjgl.util.vector.Matrix4f
+    notes: |-
+      Get the bone's transform, in its local space.
+        That is, relative to its parent bone.
+  - name: getCounterRotationBone
+    modifiers:
+      - public
+    returnType: AnimationBoneBinding
+  - name: getDeferredAngleDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: getDeferredMovement
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: out_result
+        type: Vector2
+  - name: getDeferredRotationWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getExcessTwistAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getMaxTwistAngle
+    modifiers:
+      - public
+    returnType: float
+    notes: Returns the maximum twist angle, in radians.
+  - name: getModel
+    modifiers:
+      - public
+    returnType: Model
+  - name: getMultiTrack
+    modifiers:
+      - public
+    returnType: AnimationMultiTrack
+  - name: GetPropBoneMatrix
+    modifiers:
+      - public
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: bone
+        type: int
+  - name: getRecorder
+    modifiers:
+      - public
+    returnType: AnimationPlayerRecorder
+  - name: getRenderedAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getShoulderTwistAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getSkinningBoneIndex
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: boneName
+        type: String
+      - name: defaultVal
+        type: int
+  - name: getSkinningBoneIndices
+    modifiers:
+      - public
+    returnType: HashMap
+  - name: getSkinningData
+    modifiers:
+      - public
+    returnType: SkinningData
+  - name: getSkinTransforms
+    modifiers:
+      - public
+    returnType: org.lwjgl.util.vector.Matrix4f[]
+    parameters:
+      - name: skinnedTo
+        type: SkinningData
+  - name: getTargetAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getTargetTwistAngle
+    modifiers:
+      - public
+    returnType: float
+    notes: >-
+      The lookAt bearing, in radians. The difference between angle and
+      targetAngle.
+        The twist target, not clamped at all.
+        All twists aim for this target, and are clamped by maxTwist.
+  - name: getTwistAngle
+    modifiers:
+      - public
+    returnType: float
+  - name: getUnweightedBoneTransform
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: track
+        type: AnimationTrack
+      - name: boneIdx
+        type: int
+      - name: out_boneTransform
+        type: org.lwjgl.util.vector.Matrix4f
+  - name: getUnweightedModelTransform
+    modifiers:
+      - public
+    returnType: org.lwjgl.util.vector.Matrix4f
+    parameters:
+      - name: track
+        type: AnimationTrack
+      - name: boneIdx
+        type: int
+      - name: out_modelTransform
+        type: org.lwjgl.util.vector.Matrix4f
+  - name: hasSkinningData
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBoneReparented
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: boneIdx
+        type: int
+  - name: isBoneTransformsNeedFirstFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isReady
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRecording
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lerpBlendWeight
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: from
+        type: float
+      - name: to
+        type: float
+      - name: fadeTimeTo1
+        type: float
+  - name: onReleased
+    modifiers:
+      - public
+    returnType: void
+  - name: play
+    modifiers:
+      - public
+    returnType: AnimationTrack
+    parameters:
+      - name: animName
+        type: String
+      - name: looped
+        type: boolean
+  - name: releaseTracks
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: tracks
+        type: List<AnimationTrack>
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: resetBoneModelTransforms
+    modifiers:
+      - public
+    returnType: void
+  - name: setAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: angle
+        type: float
+  - name: setAngleToTarget
+    modifiers:
+      - public
+    returnType: void
+  - name: setCounterRotationBone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: boneName
+        type: String
+  - name: SetDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: Vector2
+  - name: SetForceDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: Vector2
+  - name: setMaxTwistAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: radians
+        type: float
+    notes: Set the maximum twist angle, in radians
+  - name: setModel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: model
+        type: Model
+  - name: setRecorder
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: recorder
+        type: AnimationPlayerRecorder
+  - name: setRecording
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: val
+        type: boolean
+  - name: setSharedAnimRepo
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: repo
+        type: SharedSkeleAnimationRepository
+  - name: setTargetAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: targetAngle
+        type: float
+  - name: setTargetToAngle
+    modifiers:
+      - public
+    returnType: void
+  - name: setTwistBones
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bones
+        type: String...
+  - name: Update
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: deltaT
+        type: float
+  - name: UpdateDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
+  - name: updateMultiTrackBoneTransforms_DeferredMovementOnly
+    modifiers:
+      - public
+    returnType: void
+  - name: UpdateSkinTransforms
+    modifiers:
+      - public
+    returnType: void

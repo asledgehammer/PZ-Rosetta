@@ -1,0 +1,360 @@
+# zombie.iso.weather.WeatherPeriod
+package: zombie.iso.weather
+type: class
+name: WeatherPeriod
+extends: Object
+modifiers:
+  - public
+notes: TurboTuTone.
+fields:
+  - name: FRONT_STRENGTH_THRESHOLD
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: STAGE_BLIZZARD
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_CLEARING
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_DRIZZLE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_HEAVY_PRECIP
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_INTERMEZZO
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_KATEBOB_STORM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_MODDED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_MODERATE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_SHOWERS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_START
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_STORM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: STAGE_TROPICAL_STORM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: WeatherPeriod
+    modifiers:
+      - public
+    parameters:
+      - name: climmgr
+        type: ClimateManager
+      - name: ts
+        type: ThunderStorm
+methods:
+  - name: createAndAddModdedStage
+    modifiers:
+      - public
+    returnType: WeatherPeriod.WeatherStage
+    parameters:
+      - name: moddedID
+        type: String
+      - name: duration
+        type: double
+  - name: createAndAddStage
+    modifiers:
+      - public
+    returnType: WeatherPeriod.WeatherStage
+    parameters:
+      - name: typeid
+        type: int
+      - name: duration
+        type: double
+  - name: endCreateModdedPeriod
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getCloudColor
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCloudColorBlizzard
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCloudColorBlueish
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCloudColorGreenish
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCloudColorPurplish
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCloudColorReddish
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCloudColorTropical
+    modifiers:
+      - public
+    returnType: ClimateColorInfo
+  - name: getCurrentStage
+    modifiers:
+      - public
+    returnType: WeatherPeriod.WeatherStage
+  - name: getCurrentStageID
+    modifiers:
+      - public
+    returnType: int
+  - name: getCurrentStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getDuration
+    modifiers:
+      - public
+    returnType: double
+  - name: getFrontCache
+    modifiers:
+      - public
+    returnType: ClimateManager.AirFront
+  - name: getFrontType
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxTemperatureInfluence
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: getPrecipitationFinal
+    modifiers:
+      - public
+    returnType: float
+  - name: getPrintStuff
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getRainThreshold
+    modifiers:
+      - public
+    returnType: float
+  - name: getStageForWorldAge
+    modifiers:
+      - public
+    returnType: WeatherPeriod.WeatherStage
+    parameters:
+      - name: worldAgeHours
+        type: double
+  - name: getStageProgress
+    modifiers:
+      - public
+    returnType: float
+  - name: getTotalProgress
+    modifiers:
+      - public
+    returnType: float
+  - name: getTotalStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getWeatherNoise
+    modifiers:
+      - public
+    returnType: double
+  - name: getWeatherStages
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getWindAngleDegrees
+    modifiers:
+      - public
+    returnType: float
+  - name: hasBlizzard
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasHeavyRain
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasStorm
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasTropical
+    modifiers:
+      - public
+    returnType: boolean
+  - name: initSimulationDebug
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: front
+        type: ClimateManager.AirFront
+      - name: hoursSinceStart
+        type: double
+      - name: doThisStageOnly
+        type: int
+      - name: singleStageDuration
+        type: float
+  - name: isBlizzard
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRunning
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isThunderStorm
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTropicalStorm
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: DataInputStream
+      - name: worldVersion
+        type: int
+  - name: readNetWeatherData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: DataOutputStream
+    notes: IO
+  - name: setCloudColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: cloudcol
+        type: ClimateColorInfo
+  - name: setDummy
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setKateBobStormCoords
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: setKateBobStormProgress
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: progress
+        type: float
+  - name: setPrintStuff
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: startCreateModdedPeriod
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: warmFront
+        type: boolean
+      - name: strength
+        type: float
+      - name: angle
+        type: float
+  - name: stopWeatherPeriod
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hoursSinceStart
+        type: double
+  - name: writeNetWeatherData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer

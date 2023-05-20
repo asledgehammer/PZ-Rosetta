@@ -1,0 +1,2010 @@
+# zombie.characters.IsoPlayer
+package: zombie.characters
+type: class
+name: IsoPlayer
+extends: IsoLivingCharacter
+modifiers:
+  - public
+  - final
+fields:
+  - name: accessLevel
+    modifiers:
+      - public
+    returnType: String
+  - name: assumedPlayer
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: attackStarted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bBannedAttacking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bDeathFinished
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bJoypadIgnoreAimUntilCentered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bJoypadIgnoreChargingRT
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bJoypadMovementActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bleedingLevel
+    modifiers:
+      - public
+    returnType: byte
+  - name: bPressContext
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bRemote
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canHearAll
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canSeeAll
+    modifiers:
+      - public
+    returnType: boolean
+  - name: chargeTime
+    modifiers:
+      - public
+    returnType: float
+  - name: closestZombie
+    modifiers:
+      - public
+    returnType: float
+  - name: ContextPanic
+    modifiers:
+      - public
+    returnType: float
+  - name: CurrentSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: DEATH_MUSIC_NAME
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: dirtyRecalcGridStack
+    modifiers:
+      - public
+    returnType: boolean
+  - name: dirtyRecalcGridStackTime
+    modifiers:
+      - public
+    returnType: float
+  - name: factionPvp
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCharging
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isChargingLT
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSpeek
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTestAIMode
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isVoiceMute
+    modifiers:
+      - public
+    returnType: boolean
+  - name: JoypadBind
+    modifiers:
+      - public
+    returnType: int
+  - name: L3Pressed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lastAngle
+    modifiers:
+      - public
+      - final
+    returnType: Vector2
+  - name: lastRemoteUpdate
+    modifiers:
+      - public
+    returnType: long
+  - name: lastTargeted
+    modifiers:
+      - public
+    returnType: float
+  - name: MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: short
+  - name: MaxSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: maxWeightDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: MoodleCantSprint
+    modifiers:
+      - public
+    returnType: boolean
+  - name: mpTorchCone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: mpTorchDist
+    modifiers:
+      - public
+    returnType: float
+  - name: mpTorchStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: networkAI
+    modifiers:
+      - public
+      - final
+    returnType: NetworkPlayerAI
+  - name: NoSound
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: boolean
+  - name: numNearbyBuildingsRooms
+    modifiers:
+      - public
+    returnType: float
+  - name: numPlayers
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: OnlineChunkGridWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: OnlineID
+    modifiers:
+      - public
+    returnType: short
+  - name: PlayerIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: playerMoveDir
+    modifiers:
+      - public
+      - final
+    returnType: Vector2
+  - name: players
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: IsoPlayer
+  - name: R3Pressed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: remoteFitLvl
+    modifiers:
+      - public
+    returnType: int
+  - name: remoteSneakLvl
+    modifiers:
+      - public
+    returnType: int
+  - name: remoteStrLvl
+    modifiers:
+      - public
+    returnType: int
+  - name: replay
+    modifiers:
+      - public
+    returnType: ReplayManager
+  - name: runningTime
+    modifiers:
+      - public
+    returnType: float
+  - name: SaveFileName
+    modifiers:
+      - public
+    returnType: String
+  - name: serverPlayerIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: showTag
+    modifiers:
+      - public
+    returnType: boolean
+  - name: soundListener
+    modifiers:
+      - public
+    returnType: fmod.fmod.BaseSoundListener
+  - name: spottedByPlayer
+    modifiers:
+      - public
+    returnType: boolean
+  - name: sqlID
+    modifiers:
+      - public
+    returnType: int
+  - name: tagPrefix
+    modifiers:
+      - public
+    returnType: String
+  - name: targetedByZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: timePressedContext
+    modifiers:
+      - public
+    returnType: float
+  - name: TimeSinceLastNetData
+    modifiers:
+      - public
+    returnType: int
+  - name: TimeSinceOpenDoor
+    modifiers:
+      - public
+    returnType: float
+  - name: useChargeDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: useChargeTime
+    modifiers:
+      - public
+    returnType: float
+  - name: username
+    modifiers:
+      - public
+    returnType: String
+constructors:
+  - name: IsoPlayer
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoPlayer
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: desc
+        type: SurvivorDesc
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+methods:
+  - name: actionStateChanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sender
+        type: ActionContext
+  - name: addMechanicsItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemid
+        type: String
+      - name: part
+        type: VehiclePart
+      - name: milli
+        type: Long
+  - name: addWorldSoundUnlessInvisible
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: radius
+        type: int
+      - name: volume
+        type: int
+      - name: bStressHumans
+        type: boolean
+  - name: allPlayersAsleep
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: allPlayersDead
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: AttemptAttack
+    modifiers:
+      - public
+    returnType: boolean
+  - name: becomeCorpse
+    modifiers:
+      - public
+    returnType: void
+  - name: calculateContext
+    modifiers:
+      - public
+    returnType: void
+  - name: calculateCritChance
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: target
+        type: IsoGameCharacter
+  - name: canClimbOverWall
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: canSeePlayerStats
+    modifiers:
+      - public
+    returnType: boolean
+  - name: checkCanSeeClient
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: remoteChr
+        type: IsoPlayer
+  - name: clearNetworkEvents
+    modifiers:
+      - public
+    returnType: void
+  - name: climbOverWall
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: createPlayerStats
+    modifiers:
+      - public
+    returnType: ByteBufferWriter
+    parameters:
+      - name: b
+        type: ByteBufferWriter
+      - name: adminUsername
+        type: String
+  - name: DoAttack
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chargeDelta
+        type: float
+      - name: forceShove
+        type: boolean
+      - name: clickSound
+        type: String
+  - name: doBeatenVehicle
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicleSpeed
+        type: float
+  - name: doContext
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: DoFootstepSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: String
+  - name: dressInClothingItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemGUID
+        type: String
+  - name: dressInNamedOutfit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: outfitName
+        type: String
+  - name: getAccessLevel
+    modifiers:
+      - public
+    returnType: String
+  - name: getActionContext
+    modifiers:
+      - public
+    returnType: ActionContext
+  - name: getActiveLightItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: getAimingMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimingRangeMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getAimVector
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: vec
+        type: Vector2
+  - name: getAllFileNames
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+  - name: getAllSavedPlayers
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+  - name: getAlreadyReadBook
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: GetAnimSetName
+    modifiers:
+      - public
+    returnType: String
+  - name: getAsleepTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getAttackType
+    modifiers:
+      - public
+    returnType: String
+  - name: getCell
+    modifiers:
+      - public
+    returnType: IsoCell
+  - name: getClearSpottedTimer
+    modifiers:
+      - public
+    returnType: int
+  - name: getClosestZombieDist
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+  - name: getClosestZombieToOtherZombie
+    modifiers:
+      - public
+    returnType: IsoZombie
+    parameters:
+      - name: closestTo
+        type: IsoZombie
+  - name: getContextDoorOrWindowOrWindowFrame
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: assumedDir
+        type: IsoDirections
+  - name: getControllerAimDir
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: vec
+        type: Vector2
+  - name: getCoopPVP
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: getDamageFromHitByACar
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicleSpeed
+        type: float
+  - name: getDeferredMovement
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: out_result
+        type: Vector2
+  - name: getDialogMood
+    modifiers:
+      - public
+    returnType: int
+  - name: getDisplayName
+    modifiers:
+      - public
+    returnType: String
+  - name: getDragCharacter
+    modifiers:
+      - public
+    returnType: IsoSurvivor
+  - name: getDragObject
+    modifiers:
+      - public
+    returnType: IsoMovingObject
+  - name: getFitness
+    modifiers:
+      - public
+    returnType: Fitness
+  - name: getFollowDeadCount
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: getFollowID
+    modifiers:
+      - public
+    returnType: int
+  - name: getForname
+    modifiers:
+      - public
+    returnType: String
+  - name: getGlobalMovementMod
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: bDoNoises
+        type: boolean
+  - name: getHeartDelay
+    modifiers:
+      - public
+    returnType: float
+  - name: getHeartDelayMax
+    modifiers:
+      - public
+    returnType: float
+  - name: getHitReactionNetworkAI
+    modifiers:
+      - public
+    returnType: HitReactionNetworkAI
+  - name: getHoursSurvived
+    modifiers:
+      - public
+    returnType: double
+  - name: getHumanVisual
+    modifiers:
+      - public
+    returnType: HumanVisual
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+  - name: getInvAimingMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getInvAimingRangeMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getItemVisuals
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemVisuals
+        type: ItemVisuals
+  - name: getJoypadBind
+    modifiers:
+      - public
+    returnType: int
+  - name: getLastAngle
+    modifiers:
+      - public
+    returnType: Vector2
+  - name: getLastSeenZomboidTime
+    modifiers:
+      - public
+    returnType: double
+  - name: getLastSpotted
+    modifiers:
+      - public
+    returnType: Stack
+  - name: getLightDistance
+    modifiers:
+      - public
+    returnType: float
+  - name: getLocalPlayerByOnlineID
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
+    parameters:
+      - name: ID
+        type: short
+  - name: getMaxWeightDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: getMechanicsItem
+    modifiers:
+      - public
+    returnType: Long
+    parameters:
+      - name: itemId
+        type: String
+  - name: getMoodleLevel
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: MoodleType
+  - name: getMouseAimVector
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: vec
+        type: Vector2
+  - name: getMoveSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: getNearVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+  - name: getNetworkCharacterAI
+    modifiers:
+      - public
+    returnType: NetworkCharacterAI
+  - name: getNutrition
+    modifiers:
+      - public
+    returnType: Nutrition
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getOffSetXUI
+    modifiers:
+      - public
+    returnType: int
+  - name: getOffSetYUI
+    modifiers:
+      - public
+    returnType: int
+  - name: getOnlineID
+    modifiers:
+      - public
+    returnType: short
+  - name: getParameterCharacterMovementSpeed
+    modifiers:
+      - public
+    returnType: ParameterCharacterMovementSpeed
+  - name: getPathSpeed
+    modifiers:
+      - public
+    returnType: float
+  - name: getPing
+    modifiers:
+      - public
+    returnType: int
+  - name: getPlayerClothingInsulation
+    modifiers:
+      - public
+    returnType: float
+  - name: getPlayerClothingTemperature
+    modifiers:
+      - public
+    returnType: float
+    notes: Return the amount of temperature given by clothes wear
+  - name: getPlayerIndex
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: getPlayerMoveDir
+    modifiers:
+      - public
+    returnType: Vector2
+  - name: getPlayerNum
+    modifiers:
+      - public
+    returnType: int
+  - name: getPlayers
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+  - name: getRelevantAndDistance
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: RelevantRange
+        type: float
+  - name: getReloadingMod
+    modifiers:
+      - public
+    returnType: float
+  - name: getSeeNearbyCharacterDistance
+    modifiers:
+      - public
+    returnType: float
+  - name: getSleepingPillsTaken
+    modifiers:
+      - public
+    returnType: int
+  - name: getSpottedList
+    modifiers:
+      - public
+    returnType: Stack
+  - name: getStaticTraits
+    modifiers:
+      - public
+      - static
+    returnType: Stack
+  - name: getSteamID
+    modifiers:
+      - public
+    returnType: long
+  - name: getSurname
+    modifiers:
+      - public
+    returnType: String
+  - name: getTagColor
+    modifiers:
+      - public
+    returnType: ColorInfo
+  - name: getTagPrefix
+    modifiers:
+      - public
+    returnType: String
+  - name: getTicksSinceSeenZombie
+    modifiers:
+      - public
+    returnType: int
+  - name: getTimedActionTimeModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getTimeSinceLastStab
+    modifiers:
+      - public
+    returnType: float
+  - name: getTimeSurvived
+    modifiers:
+      - public
+    returnType: String
+  - name: getTorchDot
+    modifiers:
+      - public
+    returnType: float
+  - name: getTorchStrength
+    modifiers:
+      - public
+    returnType: float
+  - name: getTransactionID
+    modifiers:
+      - public
+    returnType: Integer
+  - name: getTurnDelta
+    modifiers:
+      - public
+    returnType: float
+  - name: getUniqueFileName
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: getUseableVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+  - name: getUsername
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: canShowFirstname
+        type: Boolean
+  - name: getVisual
+    modifiers:
+      - public
+    returnType: BaseVisual
+  - name: getZombieRelevenceScore
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: z
+        type: IsoZombie
+  - name: hasInstance
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: speed
+        type: float
+      - name: isHitFromBehind
+        type: boolean
+      - name: hitDirX
+        type: float
+      - name: hitDirY
+        type: float
+  - name: hitConsequences
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
+      - name: bIgnoreDamage
+        type: boolean
+      - name: damage
+        type: float
+      - name: bRemote
+        type: boolean
+  - name: hopFence
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dir
+        type: IsoDirections
+      - name: bTest
+        type: boolean
+  - name: InitSpriteParts
+    modifiers:
+      - public
+    returnType: void
+  - name: invokeOnPlayerInstance
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: callback
+        type: Runnable
+    notes: >-
+      The IsoPlayer.instance thread-safe invoke.
+        Calls the supplied callback if the IsoPlayer.instance is non-null.
+        Performs this in a thread-safe manner.
+
+        It is intended that, should any thread intend to use the IsoPlayer.instance, and does not want another thread
+        to change the ptr in the meanwhile, it should call invokeOnPlayerInstance(Runnable callback)
+
+        eg.
+        IsoPlayer.invokeOnPlayerInstance(()->
+          {
+              IsoPlayer.instance.doStuff();
+          }
+  - name: isAccessLevel
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: level
+        type: String
+  - name: isAimControlActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsAiming
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAimKeyDown
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAllChatMuted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAllowRun
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAllowSprint
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAttackAnimThrowTimeOut
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAttackFromBehind
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAttacking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAttackStarted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAuthorizeMeleeAction
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAuthorizeShoveStomp
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBannedAttacking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isbChangeCharacterDebounce
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isbCouldBeSeenThisFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBehaviourMoving
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isBlockMovement
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isbSeenThisFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanHearAll
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanSeeAll
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCheatPlayerSeeEveryone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isClimbOverWallStruggle
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isClimbOverWallSuccess
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDeaf
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDoingActionThatCanBeCancelled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isFactionPvp
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isForceAim
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isForceOverrideAnim
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isForceRun
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isForceSprint
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isGhostMode
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isIgnoreAutoVault
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isIgnoreContextKey
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isIgnoreInputsForDirection
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsInMeleeAttack
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInTrees2
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: ignoreBush
+        type: boolean
+  - name: isJustMoved
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLBPressed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLocal
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLocalPlayer
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLookingWhileInVehicle
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isMaskClicked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: flip
+        type: boolean
+  - name: isNearVehicle
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: isNetworkTeleportEnabled
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNoClip
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isOnlyPlayerAsleep
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isOutside
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPathfindRunning
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPerformingAnAction
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPlayerMoving
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPushableForSeparate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPushedByForSeparate
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoMovingObject
+  - name: IsRunning
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSafeToClimbOver
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: isSaveFileInUse
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSaveFileIPValid
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSeeEveryone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSeeNonPvpZone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isServerPlayerIDValid
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: id
+        type: String
+  - name: isShowMPInfos
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isShowTag
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSkeleton
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSolidForSeparate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTargetedByZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTimedActionInstant
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTorchCone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsUsingAimWeapon
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isVehicleCollisionActive
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: testVehicle
+        type: BaseVehicle
+  - name: isWaiting
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isWearingNightVisionGoggles
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Kill
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: killer
+        type: IsoGameCharacter
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fileName
+        type: String
+  - name: MoveUnmodded
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: Vector2
+  - name: nullifyAiming
+    modifiers:
+      - public
+    returnType: void
+  - name: OnAnimEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sender
+        type: AnimLayer
+      - name: event
+        type: AnimEvent
+  - name: onCullStateChanged
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelManager
+        type: ModelManager
+        notes: Event sender.
+      - name: isCulled
+        type: boolean
+    notes: Callback from ModelManager.Add/Remove functions.
+  - name: OnDeath
+    modifiers:
+      - public
+    returnType: void
+  - name: onWornItemsChanged
+    modifiers:
+      - public
+    returnType: void
+  - name: postupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: pressedAim
+    modifiers:
+      - public
+    returnType: boolean
+  - name: pressedAttack
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: calcAttackVars
+        type: boolean
+  - name: pressedCancelAction
+    modifiers:
+      - public
+    returnType: boolean
+  - name: pressedMovement
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: ignoreBlock
+        type: boolean
+  - name: preupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: removeSaveFile
+    modifiers:
+      - public
+    returnType: void
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoChild
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: renderlast
+    modifiers:
+      - public
+    returnType: void
+  - name: Reset
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fileName
+        type: String
+  - name: setAccessLevel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newLvl
+        type: String
+  - name: setAllChatMuted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: allChatMuted
+        type: boolean
+  - name: setAllowRun
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: allowRun
+        type: boolean
+  - name: setAllowSprint
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: allowSprint
+        type: boolean
+  - name: setAsleepTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: AsleepTime
+        type: float
+  - name: setAttackAnimThrowTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dt
+        type: long
+  - name: setAttackFromBehind
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: attackFromBehind
+        type: boolean
+  - name: setAttackType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: attackType
+        type: String
+  - name: setAuthorizeMeleeAction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: enabled
+        type: boolean
+  - name: setAuthorizeShoveStomp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: enabled
+        type: boolean
+  - name: setBannedAttacking
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setbChangeCharacterDebounce
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bChangeCharacterDebounce
+        type: boolean
+  - name: setbCouldBeSeenThisFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bCouldBeSeenThisFrame
+        type: boolean
+  - name: setBlockMovement
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: blockMovement
+        type: boolean
+  - name: setbSeenThisFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bSeenThisFrame
+        type: boolean
+  - name: setCanHearAll
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setCanSeeAll
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setClearSpottedTimer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ClearSpottedTimer
+        type: int
+  - name: setClimbOverWallStruggle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: climbOverWallStruggle
+        type: boolean
+  - name: setClimbOverWallSuccess
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: climbOverWallSuccess
+        type: boolean
+  - name: setCoopPVP
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: enabled
+        type: boolean
+  - name: setDialogMood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: DialogMood
+        type: int
+  - name: setDisplayName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: displayName
+        type: String
+  - name: setDragCharacter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: DragCharacter
+        type: IsoSurvivor
+  - name: setDragObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: DragObject
+        type: IsoMovingObject
+  - name: setFactionPvp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: pvp
+        type: boolean
+  - name: setFitnessSpeed
+    modifiers:
+      - public
+    returnType: void
+  - name: setFollowDeadCount
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: aFollowDeadCount
+        type: int
+  - name: setFollowID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: followID
+        type: int
+  - name: setForceAim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: forceAim
+        type: boolean
+  - name: setForceOverrideAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: forceOverride
+        type: boolean
+  - name: setForceRun
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: forceRun
+        type: boolean
+  - name: setForceSprint
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: forceSprint
+        type: boolean
+  - name: setForname
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Forname
+        type: String
+  - name: setGhostMode
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aGhostMode
+        type: boolean
+  - name: setHeartDelay
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: heartDelay
+        type: float
+  - name: setHeartDelayMax
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: heartDelayMax
+        type: int
+  - name: setHoursSurvived
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hrs
+        type: double
+  - name: setIgnoreAutoVault
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ignoreAutoVault
+        type: boolean
+  - name: setIgnoreContextKey
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ignoreContextKey
+        type: boolean
+  - name: setIgnoreInputsForDirection
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ignoreInputsForDirection
+        type: boolean
+  - name: setInitiateAttack
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: initiate
+        type: boolean
+  - name: setInstance
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: newInstance
+        type: IsoPlayer
+  - name: setJoypadIgnoreAimUntilCentered
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ignore
+        type: boolean
+  - name: setJustMoved
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: val
+        type: boolean
+  - name: setLastAngle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lastAngle
+        type: Vector2
+  - name: setLastSpotted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: LastSpotted
+        type: Stack<IsoMovingObject>
+  - name: setLocalPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: index
+        type: int
+      - name: newPlayerObj
+        type: IsoPlayer
+  - name: setMaxWeightDelta
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxWeightDelta
+        type: float
+  - name: setMeleeHitSurface
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: material
+        type: String
+  - name: setMoodleCantSprint
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setMoveSpeed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: moveSpeed
+        type: float
+  - name: setNetworkTeleportEnabled
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setNoClip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: noClip
+        type: boolean
+  - name: setOffSetXUI
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: offSetXUI
+        type: int
+  - name: setOffSetYUI
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: offSetYUI
+        type: int
+  - name: setOnlineID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: value
+        type: short
+  - name: setPathfindRunning
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newvalue
+        type: boolean
+  - name: setPerformingAnAction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: val
+        type: boolean
+  - name: setPing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ping
+        type: int
+  - name: setPlayerMoveDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: aPlayerMoveDir
+        type: Vector2
+  - name: setPlayerStats
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: adminUsername
+        type: String
+  - name: setPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ax
+        type: float
+      - name: ay
+        type: float
+      - name: az
+        type: float
+  - name: setSeeNonPvpZone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: seeNonPvpZone
+        type: boolean
+  - name: setShowMPInfos
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setShowTag
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: show
+        type: boolean
+  - name: setSleepingPillsTaken
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sleepingPillsTaken
+        type: int
+    notes: |-
+      If you've take more than 10 sleeping pills you lose some health If you're
+       drunk, 1 pills = 2
+  - name: setSteamID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: steamID
+        type: long
+  - name: setSurname
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Surname
+        type: String
+  - name: setTagColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tagColor
+        type: ColorInfo
+  - name: setTagPrefix
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newTag
+        type: String
+  - name: setTicksSinceSeenZombie
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: TicksSinceSeenZombie
+        type: int
+  - name: setTimeSinceLastStab
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: timeSinceLastStab
+        type: float
+  - name: setTransactionID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: transactionID
+        type: Integer
+  - name: setUsername
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newUsername
+        type: String
+  - name: setVehicle4TestCollision
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: setVehicleHitLocation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: setWaiting
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Waiting
+        type: boolean
+  - name: setWearingNightVisionGoggles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: shouldBeTurning
+    modifiers:
+      - public
+    returnType: boolean
+  - name: shouldDoInventory
+    modifiers:
+      - public
+    returnType: boolean
+  - name: startReceivingBodyDamageUpdates
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: other
+        type: IsoPlayer
+  - name: stopReceivingBodyDamageUpdates
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: other
+        type: IsoPlayer
+  - name: TestZombieSpotPlayer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoMovingObject
+  - name: toggleForceAim
+    modifiers:
+      - public
+    returnType: boolean
+  - name: toggleForceRun
+    modifiers:
+      - public
+    returnType: boolean
+  - name: toggleForceSprint
+    modifiers:
+      - public
+    returnType: boolean
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateEnduranceWhileSitting
+    modifiers:
+      - public
+    returnType: void
+  - name: updateLOS
+    modifiers:
+      - public
+    returnType: void
+  - name: updateMovementRates
+    modifiers:
+      - public
+    returnType: void
+  - name: UpdateRemovedEmitters
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: updateUsername
+    modifiers:
+      - public
+    returnType: void
+  - name: zombiesSwitchOwnershipEachUpdate
+    modifiers:
+      - public
+    returnType: boolean

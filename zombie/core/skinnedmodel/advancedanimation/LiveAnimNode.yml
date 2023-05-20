@@ -1,0 +1,238 @@
+# zombie.core.skinnedmodel.advancedanimation.LiveAnimNode
+package: zombie.core.skinnedmodel.advancedanimation
+type: class
+name: LiveAnimNode
+extends: PooledObject
+modifiers:
+  - public
+notes: >-
+  The Live version of an AnimNode
+   The AnimNode represents the data.
+   The LiveAnimNode represents the playback of said data, its blend weights, timing, transitions etc.
+methods:
+  - name: addMainTrack
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: alloc
+    modifiers:
+      - public
+      - static
+    returnType: LiveAnimNode
+    parameters:
+      - name: animLayer
+        type: AnimLayer
+      - name: sourceNode
+        type: AnimNode
+      - name: layerIdx
+        type: int
+  - name: findTransitionTo
+    modifiers:
+      - public
+    returnType: AnimTransition
+    parameters:
+      - name: varSource
+        type: IAnimationVariableSource
+      - name: name
+        type: String
+  - name: getBlendInTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getBlendOutTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getDeferredBoneAxis
+    modifiers:
+      - public
+    returnType: BoneAxis
+  - name: getDeferredBoneName
+    modifiers:
+      - public
+    returnType: String
+  - name: getLayerIdx
+    modifiers:
+      - public
+    returnType: int
+  - name: getMainInitialRewindTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getPlayingTrackAt
+    modifiers:
+      - public
+    returnType: AnimationTrack
+    parameters:
+      - name: trackIdx
+        type: int
+  - name: getPlayingTrackCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getPriority
+    modifiers:
+      - public
+    returnType: int
+  - name: getSourceNode
+    modifiers:
+      - public
+    returnType: AnimNode
+  - name: getSpeedScale
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: varSource
+        type: IAnimationVariableSource
+  - name: getSubStateBoneWeights
+    modifiers:
+      - public
+    returnType: List
+  - name: getTransitionFrom
+    modifiers:
+      - public
+    returnType: String
+  - name: getTransitionInBlendInTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getTransitionInBlendOutTime
+    modifiers:
+      - public
+    returnType: float
+  - name: getTransitionInTrack
+    modifiers:
+      - public
+    returnType: AnimationTrack
+  - name: getTransitionInWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getTransitionLayerIdx
+    modifiers:
+      - public
+    returnType: int
+  - name: getWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: isActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isIdleAnimActive
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Returns TRUE if this Live node is currently Active, and if the source
+      AnimNode is an Idle animation.
+  - name: isLooped
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isMainAnimActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNew
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTransitioningIn
+    modifiers:
+      - public
+    returnType: boolean
+  - name: onAnimStarted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onLoopedAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onNonLoopedAnimFadeOut
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onNonLoopedAnimFinished
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: onReleased
+    modifiers:
+      - public
+    returnType: void
+  - name: onTrackDestroyed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: track
+        type: AnimationTrack
+  - name: setActive
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: active
+        type: boolean
+  - name: setTransitionInBlendDelta
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: blendDelta
+        type: float
+  - name: setTransitionOut
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: transitionOut
+        type: AnimTransition
+  - name: startTransitionIn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: transitionFrom
+        type: AnimNode
+      - name: transitionIn
+        type: AnimTransition
+      - name: track
+        type: AnimationTrack
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: timeDelta
+        type: float
+  - name: wasActivated
+    modifiers:
+      - public
+    returnType: boolean
+  - name: wasDeactivated
+    modifiers:
+      - public
+    returnType: boolean

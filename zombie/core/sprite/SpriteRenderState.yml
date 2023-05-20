@@ -1,0 +1,83 @@
+# zombie.core.sprite.SpriteRenderState
+package: zombie.core.sprite
+type: class
+name: SpriteRenderState
+extends: GenericSpriteRenderState
+modifiers:
+  - public
+  - final
+fields:
+  - name: fbo
+    modifiers:
+      - public
+    returnType: TextureFBO
+  - name: maxZoomLevel
+    modifiers:
+      - public
+    returnType: float
+  - name: minZoomLevel
+    modifiers:
+      - public
+    returnType: float
+  - name: playerAmbient
+    modifiers:
+      - public
+      - final
+    returnType: float[]
+  - name: playerCamera
+    modifiers:
+      - public
+      - final
+    returnType: PlayerCamera
+  - name: playerIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: stateUI
+    modifiers:
+      - public
+      - final
+    returnType: SpriteRenderStateUI
+  - name: time
+    modifiers:
+      - public
+    returnType: long
+  - name: zoomLevel
+    modifiers:
+      - public
+      - final
+    returnType: float[]
+constructors:
+  - name: SpriteRenderState
+    modifiers:
+      - public
+    parameters:
+      - name: index
+        type: int
+methods:
+  - name: CheckSpriteSlots
+    modifiers:
+      - public
+    returnType: void
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: getActiveState
+    modifiers:
+      - public
+    returnType: GenericSpriteRenderState
+    notes: Returns either the UI state, or this state. Depends on the value of
+      stateUI.bActive
+  - name: onReady
+    modifiers:
+      - public
+    returnType: void
+  - name: onRendered
+    modifiers:
+      - public
+    returnType: void
+  - name: prePopulating
+    modifiers:
+      - public
+    returnType: void

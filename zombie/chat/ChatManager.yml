@@ -1,0 +1,191 @@
+# zombie.chat.ChatManager
+package: zombie.chat
+type: class
+name: ChatManager
+extends: Object
+modifiers:
+  - public
+methods:
+  - name: addMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msgAuthor
+        type: String
+      - name: msg
+        type: String
+  - name: createRadiostationMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: text
+        type: String
+      - name: channel
+        type: int
+  - name: focusOnTab
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: Short
+  - name: getFocusTab
+    modifiers:
+      - public
+    returnType: ChatTab
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: ChatManager
+  - name: getTabName
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: tabID
+        type: short
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isSinglePlayer
+        type: boolean
+      - name: owner
+        type: IsoPlayer
+  - name: isPlayerCanUseChat
+    modifiers:
+      - public
+    returnType: Boolean
+    parameters:
+      - name: chat
+        type: ChatType
+  - name: isSinglePlayerMode
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isWorking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: processAddTabPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: processChatMessagePacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: processInitPlayerChatPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: processJoinChatPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: processLeaveChatPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: processPlayerNotFound
+    modifiers:
+      - public
+    returnType: void
+  - name: processRemoveTabPacket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: sendMessageToChat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: ChatType
+      - name: msg
+        type: String
+  - name: sendWhisperMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: destPlayerName
+        type: String
+      - name: msg
+        type: String
+  - name: setFullyConnected
+    modifiers:
+      - public
+    returnType: void
+  - name: showInfoMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: author
+        type: String
+      - name: msg
+        type: String
+  - name: showRadioMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: text
+        type: String
+      - name: channel
+        type: int
+  - name: showServerChatMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: msg
+        type: String
+  - name: showStaticRadioSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: text
+        type: String
+  - name: unpackMessage
+    modifiers:
+      - public
+    returnType: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: updateChatSettings
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fontSize
+        type: String
+      - name: showTimestamp
+        type: boolean
+      - name: showTitle
+        type: boolean

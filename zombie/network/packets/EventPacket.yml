@@ -1,0 +1,91 @@
+# zombie.network.packets.EventPacket
+package: zombie.network.packets
+type: class
+name: EventPacket
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: MAX_PLAYER_EVENTS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: x
+    modifiers:
+      - public
+    returnType: float
+  - name: y
+    modifiers:
+      - public
+    returnType: float
+  - name: z
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: EventPacket
+    modifiers:
+      - public
+methods:
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: isConsistent
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isMovableEvent
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Some events could be triggered in motion
+  - name: isRelevant
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: isTimeout
+    modifiers:
+      - public
+    returnType: boolean
+  - name: parse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: process
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: set
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: eventName
+        type: String
+  - name: tryProcess
+    modifiers:
+      - public
+    returnType: void
+  - name: write
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

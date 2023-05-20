@@ -1,0 +1,274 @@
+# zombie.iso.RoomDef
+package: zombie.iso
+type: class
+name: RoomDef
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: area
+    modifiers:
+      - public
+    returnType: int
+  - name: bDoneSpawn
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bExplored
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bLightsActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: building
+    modifiers:
+      - public
+    returnType: BuildingDef
+  - name: ID
+    modifiers:
+      - public
+    returnType: int
+  - name: IndoorZombies
+    modifiers:
+      - public
+    returnType: int
+  - name: level
+    modifiers:
+      - public
+    returnType: int
+  - name: metaID
+    modifiers:
+      - public
+    returnType: long
+  - name: name
+    modifiers:
+      - public
+    returnType: String
+  - name: objects
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: rects
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: spawnCount
+    modifiers:
+      - public
+    returnType: int
+  - name: x
+    modifiers:
+      - public
+    returnType: int
+  - name: x2
+    modifiers:
+      - public
+    returnType: int
+  - name: y
+    modifiers:
+      - public
+    returnType: int
+  - name: y2
+    modifiers:
+      - public
+    returnType: int
+constructors:
+  - name: RoomDef
+    modifiers:
+      - public
+    parameters:
+      - name: ID
+        type: int
+      - name: name
+        type: String
+methods:
+  - name: CalculateBounds
+    modifiers:
+      - public
+    returnType: void
+  - name: calculateMetaID
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: cellX
+        type: int
+      - name: cellY
+        type: int
+  - name: Dispose
+    modifiers:
+      - public
+    returnType: void
+  - name: forEachChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - type: BiConsumer<RoomDef
+      - name: consumer
+        type: IsoChunk>
+  - name: getArea
+    modifiers:
+      - public
+    returnType: int
+  - name: getAreaOverlapping
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+  - name: getBuilding
+    modifiers:
+      - public
+    returnType: BuildingDef
+  - name: getClosestPoint
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: closestXY
+        type: org.joml.Vector2f
+  - name: getFreeSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getH
+    modifiers:
+      - public
+    returnType: int
+  - name: getID
+    modifiers:
+      - public
+    returnType: int
+  - name: getIsoRoom
+    modifiers:
+      - public
+    returnType: IsoRoom
+  - name: getMetaObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getProceduralSpawnedContainer
+    modifiers:
+      - public
+    returnType: HashMap
+  - name: getRandomSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: predicate
+        type: Predicate<IsoGridSquare>
+  - name: getRects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getW
+    modifiers:
+      - public
+    returnType: int
+  - name: getX
+    modifiers:
+      - public
+    returnType: int
+  - name: getX2
+    modifiers:
+      - public
+    returnType: int
+  - name: getY
+    modifiers:
+      - public
+    returnType: int
+  - name: getY2
+    modifiers:
+      - public
+    returnType: int
+  - name: getZ
+    modifiers:
+      - public
+    returnType: int
+  - name: intersects
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+  - name: isEmptyOutside
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isExplored
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInside
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: isRoofFixed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: refreshSquares
+    modifiers:
+      - public
+    returnType: void
+  - name: setBuilding
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: def
+        type: BuildingDef
+  - name: setExplored
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: explored
+        type: boolean
+  - name: setRoofFixed
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean

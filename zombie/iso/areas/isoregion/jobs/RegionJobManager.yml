@@ -1,0 +1,62 @@
+# zombie.iso.areas.isoregion.jobs.RegionJobManager
+package: zombie.iso.areas.isoregion.jobs
+type: class
+name: RegionJobManager
+extends: Object
+modifiers:
+  - public
+  - final
+notes: TurboTuTone.
+constructors:
+  - name: RegionJobManager
+    modifiers:
+      - public
+methods:
+  - name: allocApplyChanges
+    modifiers:
+      - public
+      - static
+    returnType: JobApplyChanges
+    parameters:
+      - name: saveToDisk
+        type: boolean
+  - name: allocChunkUpdate
+    modifiers:
+      - public
+      - static
+    returnType: JobChunkUpdate
+  - name: allocDebugResetAllData
+    modifiers:
+      - public
+      - static
+    returnType: JobDebugResetAllData
+  - name: allocServerSendFullData
+    modifiers:
+      - public
+      - static
+    returnType: JobServerSendFullData
+    parameters:
+      - name: conn
+        type: UdpConnection
+  - name: allocSquareUpdate
+    modifiers:
+      - public
+      - static
+    returnType: JobSquareUpdate
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: flags
+        type: byte
+  - name: release
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: job
+        type: RegionJob

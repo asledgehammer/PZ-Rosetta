@@ -1,0 +1,138 @@
+# zombie.core.raknet.UdpEngine
+package: zombie.core.raknet
+type: class
+name: UdpEngine
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: connections
+    modifiers:
+      - public
+      - final
+    returnType: List
+  - name: port
+    modifiers:
+      - public
+    returnType: int
+constructors:
+  - name: UdpEngine
+    modifiers:
+      - public
+    parameters:
+      - name: port
+        type: int
+      - name: UDPPort
+        type: int
+      - name: maxConnections
+        type: int
+      - name: serverPassword
+        type: String
+      - name: bListen
+        type: boolean
+methods:
+  - name: Connect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hostname
+        type: String
+      - name: port
+        type: int
+      - name: serverPassword
+        type: String
+  - name: connected
+    modifiers:
+      - public
+    returnType: void
+  - name: endPacketBroadcast
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: packetType
+        type: PacketTypes.PacketType
+  - name: endPacketBroadcastExcept
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: priority
+        type: int
+      - name: reliability
+        type: int
+      - name: connection
+        type: UdpConnection
+  - name: forceDisconnect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connectedGUID
+        type: long
+      - name: message
+        type: String
+  - name: getActiveConnection
+    modifiers:
+      - public
+    returnType: UdpConnection
+    parameters:
+      - name: connection
+        type: long
+  - name: getClientOwnerSteamID
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: guid
+        type: long
+  - name: getClientSteamID
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: guid
+        type: long
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: getMaxConnections
+    modifiers:
+      - public
+    returnType: int
+  - name: getPeer
+    modifiers:
+      - public
+    returnType: RakNetPeerInterface
+  - name: getServerIP
+    modifiers:
+      - public
+    returnType: String
+  - name: hashServerPassword
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: password
+        type: String
+  - name: Receive
+    modifiers:
+      - public
+    returnType: ByteBuffer
+  - name: SetServerPassword
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: password
+        type: String
+  - name: Shutdown
+    modifiers:
+      - public
+    returnType: void
+  - name: startPacket
+    modifiers:
+      - public
+    returnType: ByteBufferWriter

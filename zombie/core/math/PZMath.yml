@@ -1,0 +1,478 @@
+# zombie.core.math.PZMath
+package: zombie.core.math
+type: class
+name: PZMath
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: degToRads
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+    notes: Conversion ratios, Degrees to Radians and back
+  - name: microsToNanos
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: long
+  - name: millisToMicros
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: long
+  - name: PI
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+    notes: The
+  - name: PI2
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: radToDegs
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float
+  - name: secondsToMillis
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: long
+  - name: secondsToNanos
+    modifiers:
+      - public
+      - static
+    returnType: long
+constructors:
+  - name: PZMath
+    modifiers:
+      - public
+methods:
+  - name: abs
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: almostIdentity
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+        notes: value in [0..1]
+      - name: m
+        type: float
+      - name: n
+        type: float
+    notes: >-
+      Almost Identity
+
+       Imagine you don't want to modify a signal unless it's drops to zero or close to it, in which case you want
+       to replace the value with a small possitive constant. Then, rather than clamping the value and introduce
+       a discontinuity, you can smoothly blend the signal into the desired clipped value. So, let m be the threshold
+       (anything above m stays unchanged), and n the value things will take when the signal is zero.
+       Then, the following function does the soft clipping (in a cubic fashion):
+
+       https://iquilezles.org/www/articles/functions/functions.htm
+  - name: almostUnitIdentity
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+        notes: value in [0..1]
+    notes: >-
+      Almost Unit Identity
+
+       This is a near-identiy function that maps the unit interval into itself. It is the cousin of smoothstep(), in
+       that it maps 0 to 0, 1 to 1, and has a 0 derivative at the origin, just like smoothstep. However, instead of
+       having a 0 derivative at 1, it has a derivative of 1 at that point. It's equivalent to the Almost Identiy above
+       with n=0 and m=1. Since it's a cubic just like smoothstep() it is very fast to evaluate.
+
+       https://iquilezles.org/www/articles/functions/functions.htm
+  - name: c_lerp
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: src
+        type: float
+      - name: dest
+        type: float
+      - name: alpha
+        type: float
+  - name: canParseFloat
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: varStr
+        type: String
+  - name: ceil
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: clamp
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: val
+        type: int
+      - name: min
+        type: int
+      - name: max
+        type: int
+    notes: Result is clamped between min and max.
+  - name: clamp_01
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: clampFloat
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+      - name: min
+        type: float
+      - name: max
+        type: float
+  - name: convertMatrix
+    modifiers:
+      - public
+      - static
+    returnType: org.joml.Matrix4f
+    parameters:
+      - name: src
+        type: org.lwjgl.util.vector.Matrix4f
+      - name: dst
+        type: org.joml.Matrix4f
+  - name: degToRad
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: degrees
+        type: float
+  - name: equal
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: a
+        type: float
+      - name: b
+        type: float
+      - name: delta
+        type: float
+  - name: fastfloor
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: x
+        type: float
+  - name: floor
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: frac
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: gain
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+      - name: k
+        type: float
+    notes: >-
+      Gain
+
+       Remapping the unit interval into the unit interval by expanding the sides and compressing the center, and
+       keeping 1/2 mapped to 1/2, that can be done with the gain() function. This was a common function in RSL tutorials
+       (the Renderman Shading Language). k=1 is the identity curve, k&lt;1 produces the classic gain() shape, and k>1
+       produces "s" shaped curces. The curves are symmetric (and inverse) for k=a and k=1/a.
+
+       https://iquilezles.org/www/articles/functions/functions.htm
+  - name: getClosestAngle
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: in_radsA
+        type: float
+      - name: in_radsB
+        type: float
+  - name: getClosestAngleDegrees
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: in_degsA
+        type: float
+      - name: in_degsB
+        type: float
+  - name: lerp
+    modifiers:
+      - public
+      - static
+    returnType: Vector2
+    parameters:
+      - name: out
+        type: Vector2
+      - name: a
+        type: Vector2
+      - name: b
+        type: Vector2
+      - name: t
+        type: float
+  - name: lerpAngle
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: src
+        type: float
+      - name: dest
+        type: float
+      - name: alpha
+        type: float
+  - name: lerpFunc_EaseInQuad
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+  - name: lerpFunc_EaseOutInQuad
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+  - name: lerpFunc_EaseOutQuad
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: x
+        type: float
+  - name: max
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+  - name: min
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: a
+        type: int
+      - name: b
+        type: int
+  - name: radToDeg
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: radians
+        type: float
+  - name: roundFromEdges
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: roundToInt
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: val
+        type: float
+  - name: roundToIntPlus05
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: roundToNearest
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: sign
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: val
+        type: float
+  - name: slerp
+    modifiers:
+      - public
+      - static
+    returnType: org.lwjgl.util.vector.Quaternion
+    parameters:
+      - name: result
+        type: org.lwjgl.util.vector.Quaternion
+      - name: from
+        type: org.lwjgl.util.vector.Quaternion
+      - name: to
+        type: org.lwjgl.util.vector.Quaternion
+      - name: alpha
+        type: float
+  - name: sqrt
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: step
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: from
+        type: float
+      - name: to
+        type: float
+      - name: delta
+        type: float
+  - name: testSideOfLine
+    modifiers:
+      - public
+      - static
+    returnType: PZMath.SideOfLine
+    parameters:
+      - name: x1
+        type: float
+      - name: y1
+        type: float
+      - name: x2
+        type: float
+      - name: y2
+        type: float
+      - name: px
+        type: float
+      - name: py
+        type: float
+  - name: tryParseDouble
+    modifiers:
+      - public
+      - static
+    returnType: double
+    parameters:
+      - name: varStr
+        type: String
+      - name: defaultVal
+        type: double
+  - name: tryParseFloat
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: varStr
+        type: String
+      - name: defaultVal
+        type: float
+  - name: tryParseInt
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: varStr
+        type: String
+      - name: defaultVal
+        type: int
+  - name: wrap
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: in_val
+        type: float
+      - name: in_min
+        type: float
+      - name: in_max
+        type: float

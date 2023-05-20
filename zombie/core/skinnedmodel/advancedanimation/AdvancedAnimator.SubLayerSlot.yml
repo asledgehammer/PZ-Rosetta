@@ -1,0 +1,48 @@
+# zombie.core.skinnedmodel.advancedanimation.AdvancedAnimator.SubLayerSlot
+package: zombie.core.skinnedmodel.advancedanimation
+type: class
+name: AdvancedAnimator.SubLayerSlot
+extends: Object
+modifiers:
+  - public
+  - static
+fields:
+  - name: animLayer
+    modifiers:
+      - public
+      - final
+    returnType: AnimLayer
+  - name: shouldBeActive
+    modifiers:
+      - public
+    returnType: boolean
+constructors:
+  - name: SubLayerSlot
+    modifiers:
+      - public
+    parameters:
+      - name: rootLayer
+        type: AnimLayer
+      - name: character
+        type: IAnimatable
+      - name: animEventsCallback
+        type: IAnimEventCallback
+methods:
+  - name: applyTransition
+    modifiers:
+      - public
+    returnType: void
+    notes: Transition to NULL, if shouldBeActive is FALSE
+  - name: transitionTo
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newState
+        type: AnimState
+      - name: force
+        type: boolean
+  - name: update
+    modifiers:
+      - public
+    returnType: void

@@ -1,0 +1,38 @@
+# zombie.ai.permission.DefaultStatePermissions
+package: zombie.ai.permission
+type: class
+name: DefaultStatePermissions
+extends: Object
+modifiers:
+  - public
+notes: >-
+  Default State permissions singleton.
+    Typically returns fixed values that are default for most states.
+
+    States that wish to override this need to implement and return their own IStatePermissions object.
+fields:
+  - name: Instance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: DefaultStatePermissions
+constructors:
+  - name: DefaultStatePermissions
+    modifiers:
+      - public
+methods:
+  - name: isDeferredMovementAllowed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: isPlayerInputAllowed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter

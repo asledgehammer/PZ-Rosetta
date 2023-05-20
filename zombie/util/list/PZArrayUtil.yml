@@ -1,0 +1,346 @@
+# zombie.util.list.PZArrayUtil
+package: zombie.util.list
+type: class
+name: PZArrayUtil
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: emptyFloatArray
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: float[]
+  - name: emptyIntArray
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int[]
+constructors:
+  - name: PZArrayUtil
+    modifiers:
+      - public
+methods:
+  - name: add
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: array
+        type: E[]
+      - name: val
+        type: E
+  - name: arrayAdd
+    modifiers:
+      - public
+      - static
+    returnType: int[]
+    parameters:
+      - name: in_out_a
+        type: int[]
+      - name: b
+        type: int[]
+  - name: arrayConvert
+    modifiers:
+      - public
+      - static
+    returnType: L
+    parameters:
+      - name: to
+        type: L
+      - name: from
+        type: List<S>
+      - type: Function<S
+      - name: converter
+        type: E>
+    notes: |-
+      Convert all elements in the source array, and add them to the target.
+       Uses supplied converter function.
+       Clears target before populating.
+  - name: arrayCopy
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: to
+        type: E[]
+      - name: from
+        type: S[]
+    notes: |-
+      Copies all elements from the source array to the target.
+       Clears target before populating.
+  - name: arrayPopulate
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: arr
+        type: E[]
+      - name: supplier
+        type: Supplier<E>
+  - name: arraySet
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: arr
+        type: E[]
+      - name: val
+        type: E
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: list
+        type: Iterable<E>
+      - type: Function<E
+      - name: toString
+        type: String>
+      - name: prefix
+        type: String
+      - name: suffix
+        type: String
+      - name: delimiter
+        type: String
+  - name: clone
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: src
+        type: E[]
+  - name: concat
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: arrayA
+        type: E[]
+      - name: arrayB
+        type: E[]
+    notes: |-
+      Concatenate two arrays.
+       null-safe. Allows either A or B parameters to be null or empty.
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: arr
+        type: int[]
+      - name: count
+        type: int
+      - name: val
+        type: int
+  - name: copy
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: target
+        type: ArrayList<E>
+      - name: source
+        type: ArrayList<E>
+      - name: elementCloner
+        type: ICloner<E>
+    notes: >-
+      Perform a copy of the source array into the target array, using the
+      supplied ICloner.
+       The target array's contents first cleared, and then populated with elements generated using the ICloner.clone() function.
+  - name: find
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: collection
+        type: Iterable<E>
+      - name: comparer
+        type: Predicate<E>
+  - name: forEach
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: elements
+        type: E[]
+      - name: consumer
+        type: Consumer<? super E>
+    notes: |-
+      Iterate over specified array, invoke supplied consumer on each element.
+        Null-safe
+  - name: getElementAt
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: collection
+        type: Iterable<E>
+      - name: index
+        type: int
+    notes: Get the specified element from the supplied Iterable.
+  - name: getOrCreate
+    modifiers:
+      - public
+      - static
+    returnType: V
+    parameters:
+      - type: HashMap<K
+      - name: map
+        type: V>
+      - name: key
+        type: K
+      - name: allocator
+        type: Supplier<V>
+  - name: getOrDefault
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: list
+        type: float[]
+      - name: i
+        type: int
+      - name: defaultVal
+        type: float
+    notes: |-
+      Get the array value at index.
+       Bounds-safe: Returns default value if out of bounds.
+  - name: getSize
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: collection
+        type: Iterable<E>
+    notes: Count the number of elements in the supplied Iterable.
+  - name: indexOf
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: arr
+        type: int[]
+      - name: count
+        type: int
+      - name: val
+        type: int
+  - name: insertAt
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: arr
+        type: float[]
+      - name: insertAt
+        type: int
+      - name: val
+        type: float
+  - name: isNullOrEmpty
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: it
+        type: Iterable<E>
+  - name: itConvert
+    modifiers:
+      - public
+      - static
+    returnType: Iterable
+    parameters:
+      - name: source
+        type: Iterable<S>
+      - type: Function<S
+      - name: converter
+        type: E>
+  - name: listConvert
+    modifiers:
+      - public
+      - static
+    returnType: List
+    parameters:
+      - name: source
+        type: List<S>
+      - name: dest
+        type: List<E>
+      - name: v1
+        type: T1
+      - type: PZArrayUtil.IListConverter1Param<S
+      - type: E
+      - name: converter
+        type: T1>
+  - name: newInstance
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: componentType
+        type: Class<?>
+      - name: reusableArray
+        type: E[]
+      - name: newLength
+        type: int
+      - name: growOnly
+        type: boolean
+      - name: newAllocator
+        type: Supplier<E>
+  - name: pickRandom
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: collection
+        type: Iterable<E>
+    notes: Pick a random element from the supplied Iterable.
+  - name: sequenceEqual
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: a
+        type: List<? extends E>
+      - name: b
+        type: List<? extends E>
+      - name: comparator
+        type: Comparator<E>
+  - name: sort
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: stack
+        type: Stack<E>
+      - name: comparator
+        type: Comparator<E>
+  - name: toArray
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: list
+        type: List<E>

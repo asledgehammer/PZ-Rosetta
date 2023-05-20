@@ -1,0 +1,193 @@
+# zombie.AmbientStreamManager
+package: zombie
+type: class
+name: AmbientStreamManager
+extends: BaseAmbientStreamManager
+modifiers:
+  - public
+  - final
+fields:
+  - name: allAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: ambient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: dayAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: freeEmitters
+    modifiers:
+      - public
+      - final
+    returnType: ArrayDeque
+  - name: indoorAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: initialized
+    modifiers:
+      - public
+    returnType: boolean
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: BaseAmbientStreamManager
+  - name: MaxAmbientCount
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: MaxRange
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: nightAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: OneInAmbienceChance
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: outdoorAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: rainAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: windAmbient
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: worldEmitters
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+constructors:
+  - name: AmbientStreamManager
+    modifiers:
+      - public
+methods:
+  - name: addAmbient
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: radius
+        type: int
+      - name: volume
+        type: float
+  - name: addAmbientEmitter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: int
+      - name: name
+        type: String
+  - name: addBlend
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: vol
+        type: float
+      - name: bIndoors
+        type: boolean
+      - name: bRain
+        type: boolean
+      - name: bNight
+        type: boolean
+      - name: bDay
+        type: boolean
+  - name: addDaytimeAmbientEmitter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: int
+      - name: name
+        type: String
+  - name: addRandomAmbient
+    modifiers:
+      - public
+    returnType: void
+  - name: doAlarm
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: RoomDef
+  - name: doGunEvent
+    modifiers:
+      - public
+    returnType: void
+  - name: doOneShotAmbients
+    modifiers:
+      - public
+    returnType: void
+  - name: getInstance
+    modifiers:
+      - public
+      - static
+    returnType: BaseAmbientStreamManager
+  - name: getNearestBuilding
+    modifiers:
+      - public
+    returnType: BuildingDef
+    parameters:
+      - name: px
+        type: float
+      - name: py
+        type: float
+      - name: closestXY
+        type: org.joml.Vector2f
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: stop
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void

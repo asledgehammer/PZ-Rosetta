@@ -1,0 +1,274 @@
+# zombie.network.ServerMap
+package: zombie.network
+type: class
+name: ServerMap
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: bQueuedQuit
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bQueuedSaveAll
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bUpdateLOSThisFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: cellMap
+    modifiers:
+      - public
+    returnType: ServerMap.ServerCell
+  - name: CellSize
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ChunksPerCellWidth
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: ServerMap
+  - name: LastSaved
+    modifiers:
+      - public
+    returnType: long
+  - name: LoadedCells
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: LOSTick
+    modifiers:
+      - public
+      - static
+    returnType: OnceEvery
+  - name: ReleventNow
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: TimeTick
+    modifiers:
+      - public
+      - static
+    returnType: OnceEvery
+  - name: ZombieMap
+    modifiers:
+      - public
+      - final
+    returnType: IsoObjectID
+constructors:
+  - name: ServerMap
+    modifiers:
+      - public
+methods:
+  - name: characterIn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: chunkGridWidth
+        type: int
+  - name: clearSoftResetChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
+  - name: getCell
+    modifiers:
+      - public
+    returnType: ServerMap.ServerCell
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: IsoChunk
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: getGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getMaxX
+    modifiers:
+      - public
+    returnType: int
+  - name: getMaxY
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinX
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinY
+    modifiers:
+      - public
+    returnType: int
+  - name: getStartLocation
+    modifiers:
+      - public
+    returnType: Vector3
+    parameters:
+      - name: r
+        type: ServerWorldDatabase.LogonResult
+  - name: getUniqueZombieId
+    modifiers:
+      - public
+    returnType: short
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: metaGrid
+        type: IsoMetaGrid
+  - name: isInLoaded
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+  - name: isValidCell
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: loadMapChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ix
+        type: int
+      - name: iy
+        type: int
+  - name: loadOrKeepRelevent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: physicsCheck
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: postupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: preupdate
+    modifiers:
+      - public
+    returnType: void
+  - name: QueueQuit
+    modifiers:
+      - public
+    returnType: void
+  - name: QueueSaveAll
+    modifiers:
+      - public
+    returnType: void
+  - name: SaveAll
+    modifiers:
+      - public
+    returnType: void
+  - name: saveZoneInsidePlayerInfluence
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerOID
+        type: short
+  - name: setGridSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: sq
+        type: IsoGridSquare
+  - name: setSoftResetChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
+  - name: toServerCellX
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: x
+        type: int
+  - name: toServerCellY
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: y
+        type: int
+  - name: toWorldCellX
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: x
+        type: int
+  - name: toWorldCellY
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: y
+        type: int

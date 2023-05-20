@@ -1,0 +1,80 @@
+# zombie.network.LoginQueue
+package: zombie.network
+type: class
+name: LoginQueue
+extends: Object
+modifiers:
+  - public
+constructors:
+  - name: LoginQueue
+    modifiers:
+      - public
+methods:
+  - name: disconnect
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: getDescription
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: isInTheQueue
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: receiveClientLoginQueueRequest
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: packetType
+        type: short
+  - name: receiveLogin
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: receiveLoginQueueDone
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: receiveServerLoginQueueRequest
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+      - name: packetType
+        type: short
+  - name: update
+    modifiers:
+      - public
+      - static
+    returnType: void

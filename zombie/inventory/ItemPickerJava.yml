@@ -1,0 +1,193 @@
+# zombie.inventory.ItemPickerJava
+package: zombie.inventory
+type: class
+name: ItemPickerJava
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: containers
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: gnu.trove.map.hash.THashMap&lt;
+  - name: NoContainerFillRooms
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ArrayList
+  - name: ProceduralDistributions
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: gnu.trove.map.hash.THashMap&lt;
+  - name: rooms
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: gnu.trove.map.hash.THashMap&lt;
+  - name: VehicleDistributions
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: gnu.trove.map.hash.THashMap&lt;
+  - name: WeaponUpgradeMap
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: HashMap
+  - name: WeaponUpgrades
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ArrayList
+  - name: zombieDensityCap
+    modifiers:
+      - public
+      - static
+    returnType: float
+constructors:
+  - name: ItemPickerJava
+    modifiers:
+      - public
+methods:
+  - name: doOverlaySprite
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+  - name: doRollItem
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: containerDist
+        type: ItemPickerJava.ItemPickerContainer
+      - name: container
+        type: ItemContainer
+      - name: zombieDensity
+        type: float
+      - name: character
+        type: IsoGameCharacter
+      - name: doItemContainer
+        type: boolean
+      - name: isJunk
+        type: boolean
+      - name: roomDist
+        type: ItemPickerJava.ItemPickerRoom
+  - name: fillContainer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: player
+        type: IsoPlayer
+  - name: fillContainerType
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: roomDist
+        type: ItemPickerJava.ItemPickerRoom
+      - name: container
+        type: ItemContainer
+      - name: roomName
+        type: String
+      - name: character
+        type: IsoGameCharacter
+  - name: getItemContainer
+    modifiers:
+      - public
+      - static
+    returnType: ItemPickerJava.ItemPickerContainer
+    parameters:
+      - name: room
+        type: String
+      - name: container
+        type: String
+      - name: proceduralName
+        type: String
+      - name: junk
+        type: boolean
+  - name: getLootModifier
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: itemname
+        type: String
+  - name: InitSandboxLootSettings
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: Parse
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: rollContainerItem
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: bag
+        type: InventoryContainer
+      - name: character
+        type: IsoGameCharacter
+      - name: containerDist
+        type: ItemPickerJava.ItemPickerContainer
+  - name: rollItem
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: containerDist
+        type: ItemPickerJava.ItemPickerContainer
+      - name: container
+        type: ItemContainer
+      - name: doItemContainer
+        type: boolean
+      - name: character
+        type: IsoGameCharacter
+      - name: roomDist
+        type: ItemPickerJava.ItemPickerRoom
+  - name: tryAddItemToContainer
+    modifiers:
+      - public
+      - static
+    returnType: InventoryItem
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: itemType
+        type: String
+      - name: containerDist
+        type: ItemPickerJava.ItemPickerContainer
+  - name: updateOverlaySprite
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject

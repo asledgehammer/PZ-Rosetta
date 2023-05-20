@@ -1,0 +1,194 @@
+# zombie.VirtualZombieManager
+package: zombie
+type: class
+name: VirtualZombieManager
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: choices
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: VirtualZombieManager
+  - name: MaxRealZombies
+    modifiers:
+      - public
+    returnType: int
+constructors:
+  - name: VirtualZombieManager
+    modifiers:
+      - public
+methods:
+  - name: AddBloodToMap
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: nSize
+        type: int
+      - name: chk
+        type: IsoChunk
+  - name: addDeadZombiesToMap
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: nSize
+        type: int
+      - name: room
+        type: RoomDef
+  - name: addIndoorZombiesToChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
+      - name: room
+        type: IsoRoom
+  - name: addToReusable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: z
+        type: IsoZombie
+  - name: addZombiesToMap
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: nSize
+        type: int
+      - name: room
+        type: RoomDef
+      - name: bAllowDead
+        type: boolean
+  - name: canSpawnAt
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: createEatingZombies
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: target
+        type: IsoDeadBody
+      - name: nb
+        type: int
+  - name: createHordeFromTo
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spawnX
+        type: float
+      - name: spawnY
+        type: float
+      - name: targetX
+        type: float
+      - name: targetY
+        type: float
+      - name: count
+        type: int
+  - name: createRealZombie
+    modifiers:
+      - public
+    returnType: IsoZombie
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: createRealZombieAlways
+    modifiers:
+      - public
+    returnType: IsoZombie
+    parameters:
+      - name: ZombieDir
+        type: int
+      - name: bDead
+        type: boolean
+      - name: outfitID
+        type: int
+  - name: createRealZombieNow
+    modifiers:
+      - public
+    returnType: IsoZombie
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: isReused
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: z
+        type: IsoZombie
+  - name: RemoveZombie
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoZombie
+  - name: removeZombieFromWorld
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: z
+        type: IsoZombie
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+  - name: reusableZombiesSize
+    modifiers:
+      - public
+    returnType: int
+  - name: roomSpotted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: IsoRoom
+  - name: tryAddIndoorZombies
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: RoomDef
+      - name: bAllowDead
+        type: boolean
+  - name: update
+    modifiers:
+      - public
+    returnType: void

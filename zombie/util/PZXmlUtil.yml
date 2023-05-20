@@ -1,0 +1,75 @@
+# zombie.util.PZXmlUtil
+package: zombie.util
+type: class
+name: PZXmlUtil
+extends: Object
+modifiers:
+  - public
+  - final
+constructors:
+  - name: PZXmlUtil
+    modifiers:
+      - public
+methods:
+  - name: createNewDocument
+    modifiers:
+      - public
+      - static
+    returnType: Document
+  - name: forEachElement
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: root
+        type: Element
+      - name: consumer
+        type: Consumer<Element>
+  - name: parse
+    modifiers:
+      - public
+      - static
+    returnType: T
+    parameters:
+      - name: type
+        type: Class<T>
+        notes: The type of the loaded class. A new instance is created.
+      - name: source
+        type: String
+    notes: >-
+      Deserialize function.
+       Parses the supplied XML source, and creates a new instance of the supplied type.
+        The Source can be either a file path, or a file GUID.
+  - name: parseXml
+    modifiers:
+      - public
+      - static
+    returnType: Element
+    parameters:
+      - name: source
+        type: String
+        notes: The data source. Can be a file path, or a file GUID.
+    notes: |-
+      Parses the XML data from the specified Source.
+        The Source can be either a file path, or a file GUID.
+  - name: tryWrite
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: doc
+        type: Document
+      - name: outFile
+        type: File
+  - name: write
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: doc
+        type: Document
+      - name: outFile
+        type: File

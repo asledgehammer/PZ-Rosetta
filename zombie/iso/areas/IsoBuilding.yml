@@ -1,0 +1,244 @@
+# zombie.iso.areas.IsoBuilding
+package: zombie.iso.areas
+type: class
+name: IsoBuilding
+extends: IsoArea
+modifiers:
+  - public
+  - final
+fields:
+  - name: bounds
+    modifiers:
+      - public
+    returnType: Rectangle
+  - name: bSeenInside
+    modifiers:
+      - public
+    returnType: boolean
+  - name: container
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: def
+    modifiers:
+      - public
+    returnType: BuildingDef
+  - name: Exits
+    modifiers:
+      - public
+      - final
+    returnType: Vector
+  - name: GoodBuildingScore
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: ID
+    modifiers:
+      - public
+    returnType: int
+  - name: IDMax
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: IsResidence
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lights
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: PoorBuildingScore
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: Rooms
+    modifiers:
+      - public
+      - final
+    returnType: Vector
+  - name: safety
+    modifiers:
+      - public
+    returnType: int
+  - name: scoreUpdate
+    modifiers:
+      - public
+    returnType: int
+  - name: transparentWalls
+    modifiers:
+      - public
+    returnType: int
+  - name: Windows
+    modifiers:
+      - public
+      - final
+    returnType: Vector
+constructors:
+  - name: IsoBuilding
+    modifiers:
+      - public
+  - name: IsoBuilding
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+methods:
+  - name: addDoor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoDoor
+      - name: bOtherTile
+        type: boolean
+  - name: AddRoom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: IsoRoom
+  - name: addWindow
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoWindow
+      - name: bOtherTile
+        type: boolean
+  - name: CalculateExits
+    modifiers:
+      - public
+    returnType: void
+  - name: CalculateWindows
+    modifiers:
+      - public
+    returnType: void
+  - name: ContainsAllItems
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: items
+        type: Stack<String>
+  - name: containsRoom
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: room
+        type: String
+  - name: CreateFrom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: building
+        type: BuildingDef
+      - name: info
+        type: LotHeader
+  - name: FillContainers
+    modifiers:
+      - public
+    returnType: void
+  - name: forceAwake
+    modifiers:
+      - public
+    returnType: void
+    notes: Check for player inside the house and awake them all
+  - name: getContainerWith
+    modifiers:
+      - public
+    returnType: ItemContainer
+    parameters:
+      - name: itemType
+        type: ItemType
+  - name: getDef
+    modifiers:
+      - public
+    returnType: BuildingDef
+  - name: getFreeTile
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getID
+    modifiers:
+      - public
+    returnType: int
+  - name: getRandomContainer
+    modifiers:
+      - public
+    returnType: ItemContainer
+    parameters:
+      - name: type
+        type: String
+  - name: getRandomFirstFloorWindow
+    modifiers:
+      - public
+    returnType: IsoWindow
+  - name: getRandomRoom
+    modifiers:
+      - public
+    returnType: IsoRoom
+    parameters:
+      - name: room
+        type: String
+  - name: getRoomsNumber
+    modifiers:
+      - public
+    returnType: int
+  - name: hasWater
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isAllExplored
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isResidential
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isToxic
+    modifiers:
+      - public
+    returnType: boolean
+  - name: ScoreBuildingPersonSpecific
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
+      - name: bFarGood
+        type: boolean
+  - name: setAllExplored
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setToxic
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isToxic
+        type: boolean
+  - name: TriggerAlarm
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void

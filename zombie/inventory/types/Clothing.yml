@@ -1,0 +1,529 @@
+# zombie.inventory.types.Clothing
+package: zombie.inventory.types
+type: class
+name: Clothing
+extends: InventoryItem
+modifiers:
+  - public
+fields:
+  - name: bloodLevel
+    modifiers:
+      - public
+    returnType: float
+  - name: CONDITION_PER_HOLES
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: Clothing
+    modifiers:
+      - public
+    parameters:
+      - name: module
+        type: String
+      - name: name
+        type: String
+      - name: itemType
+        type: String
+      - name: texName
+        type: String
+      - name: palette
+        type: String
+      - name: SpriteName
+        type: String
+  - name: Clothing
+    modifiers:
+      - public
+    parameters:
+      - name: module
+        type: String
+      - name: name
+        type: String
+      - name: itemType
+        type: String
+      - name: item
+        type: Item
+      - name: palette
+        type: String
+      - name: SpriteName
+        type: String
+methods:
+  - name: addPatch
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: part
+        type: BloodBodyPartType
+      - name: fabric
+        type: InventoryItem
+  - name: canBe3DRender
+    modifiers:
+      - public
+    returnType: boolean
+  - name: canFullyRestore
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: part
+        type: BloodBodyPartType
+      - name: fabric
+        type: InventoryItem
+  - name: CanStack
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: copyPatchesTo
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newClothing
+        type: Clothing
+  - name: CreateFromSprite
+    modifiers:
+      - public
+      - static
+    returnType: Clothing
+    parameters:
+      - name: Sprite
+        type: String
+  - name: DoTooltip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
+      - name: layout
+        type: ObjectTooltip.Layout
+  - name: finishupdate
+    modifiers:
+      - public
+    returnType: boolean
+  - name: flushWetness
+    modifiers:
+      - public
+    returnType: void
+  - name: getBiteDefense
+    modifiers:
+      - public
+    returnType: float
+  - name: getBiteDefenseFromItem
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: fabric
+        type: InventoryItem
+    notes: Used from lua tooltip when repairing clothing
+  - name: getBloodlevel
+    modifiers:
+      - public
+    returnType: float
+  - name: getBloodLevel
+    modifiers:
+      - public
+    returnType: float
+  - name: getBloodlevelForPart
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+  - name: getBloodLevelForPart
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+  - name: getBulletDefense
+    modifiers:
+      - public
+    returnType: float
+  - name: getCanHaveHoles
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: getCategory
+    modifiers:
+      - public
+    returnType: String
+  - name: getChanceToFall
+    modifiers:
+      - public
+    returnType: int
+  - name: getClothingDirtynessIncreaseLevel
+    modifiers:
+      - public
+    returnType: float
+  - name: getClothingExtraSubmenu
+    modifiers:
+      - public
+    returnType: String
+  - name: getCombatSpeedModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getConditionLowerChance
+    modifiers:
+      - public
+    returnType: int
+  - name: getCondLossPerHole
+    modifiers:
+      - public
+    returnType: int
+  - name: getCoveredParts
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getDefForPart
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+      - name: bite
+        type: boolean
+      - name: bullet
+        type: boolean
+  - name: getDirtyness
+    modifiers:
+      - public
+    returnType: float
+  - name: getHolesNumber
+    modifiers:
+      - public
+    returnType: int
+  - name: getInsulation
+    modifiers:
+      - public
+    returnType: float
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getNbrOfCoveredParts
+    modifiers:
+      - public
+    returnType: int
+  - name: getNeckProtectionModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getPalette
+    modifiers:
+      - public
+    returnType: String
+  - name: getPatchesNumber
+    modifiers:
+      - public
+    returnType: int
+  - name: getPatchType
+    modifiers:
+      - public
+    returnType: Clothing.ClothingPatch
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+  - name: getRunSpeedModifier
+    modifiers:
+      - public
+    returnType: float
+  - name: getSaveType
+    modifiers:
+      - public
+    returnType: int
+  - name: getScratchDefense
+    modifiers:
+      - public
+    returnType: float
+  - name: getScratchDefenseFromItem
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: fabric
+        type: InventoryItem
+    notes: Used from lua tooltip when repairing clothing
+  - name: getSpriteName
+    modifiers:
+      - public
+    returnType: String
+  - name: getStompPower
+    modifiers:
+      - public
+    returnType: float
+  - name: getTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getWaterResistance
+    modifiers:
+      - public
+    returnType: float
+  - name: getWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getWeightWet
+    modifiers:
+      - public
+    returnType: float
+  - name: getWetness
+    modifiers:
+      - public
+    returnType: float
+  - name: getWindresistance
+    modifiers:
+      - public
+    returnType: float
+  - name: isBloody
+    modifiers:
+      - public
+    returnType: boolean
+  - name: IsClothing
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCosmetic
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDirty
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRemoveOnBroken
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+  - name: removePatch
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: part
+        type: BloodBodyPartType
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: net
+        type: boolean
+  - name: setBiteDefense
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: biteDefense
+        type: float
+  - name: setBloodLevel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: delta
+        type: float
+  - name: setBulletDefense
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bulletDefense
+        type: float
+  - name: setCanHaveHoles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: canHaveHoles
+        type: Boolean
+  - name: setChanceToFall
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chanceToFall
+        type: int
+  - name: setCombatSpeedModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: combatSpeedModifier
+        type: float
+  - name: setCondition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Condition
+        type: int
+        notes: the Condition to set
+  - name: setConditionLowerChance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: conditionLowerChance
+        type: int
+  - name: setDirtyness
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: delta
+        type: float
+  - name: setInsulation
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: insulation
+        type: float
+  - name: setNeckProtectionModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: neckProtectionModifier
+        type: float
+  - name: setPalette
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: palette
+        type: String
+        notes: the palette to set
+  - name: setRemoveOnBroken
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: removeOnBroken
+        type: Boolean
+  - name: setRunSpeedModifier
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: runSpeedModifier
+        type: float
+  - name: setScratchDefense
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: scratchDefense
+        type: float
+  - name: setSpriteName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: SpriteName
+        type: String
+        notes: the SpriteName to set
+  - name: setStompPower
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: stompPower
+        type: float
+  - name: setTemperature
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: temperature
+        type: float
+  - name: setWaterResistance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: waterResistance
+        type: float
+  - name: setWeightWet
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weight
+        type: float
+  - name: setWetness
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: percent
+        type: float
+  - name: setWindresistance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: windresistance
+        type: float
+  - name: toString
+    modifiers:
+      - public
+    returnType: String
+  - name: Unwear
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateWetness
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bIgnoreEquipped
+        type: boolean
+  - name: Use
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bCrafting
+        type: boolean
+      - name: bInContainer
+        type: boolean

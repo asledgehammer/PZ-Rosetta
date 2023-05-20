@@ -1,0 +1,1820 @@
+# zombie.iso.IsoObject
+package: zombie.iso
+type: class
+name: IsoObject
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: AttachedAnimSprite
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: bAlphaForced
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bmod
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: bNeverDoneAlpha
+    modifiers:
+      - public
+    returnType: boolean
+  - name: container
+    modifiers:
+      - public
+    returnType: ItemContainer
+  - name: Damage
+    modifiers:
+      - public
+    returnType: short
+  - name: dir
+    modifiers:
+      - public
+    returnType: IsoDirections
+  - name: doNotSync
+    modifiers:
+      - public
+    returnType: boolean
+  - name: emitter
+    modifiers:
+      - public
+    returnType: BaseSoundEmitter
+  - name: gmod
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: highlightFlags
+    modifiers:
+      - public
+    returnType: byte
+  - name: keyId
+    modifiers:
+      - public
+    returnType: int
+  - name: lastRendered
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+  - name: lastRenderedRendered
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+  - name: LowLightingQualityHack
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: MAX_WALL_SPLATS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: name
+    modifiers:
+      - public
+    returnType: String
+  - name: NoPicking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: OBF_Blink
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: OBF_Highlighted
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: OBF_HighlightRenderOnce
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: offsetX
+    modifiers:
+      - public
+    returnType: float
+  - name: offsetY
+    modifiers:
+      - public
+    returnType: float
+  - name: OutlineOnMouseover
+    modifiers:
+      - public
+    returnType: boolean
+  - name: overlaySprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: overlaySpriteColor
+    modifiers:
+      - public
+    returnType: ColorInfo
+  - name: partialThumpDmg
+    modifiers:
+      - public
+    returnType: float
+  - name: rerouteCollide
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: rerouteMask
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: rmod
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: sheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: sheetRopeHealth
+    modifiers:
+      - public
+    returnType: float
+  - name: sprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: spriteName
+    modifiers:
+      - public
+    returnType: String
+  - name: square
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: sx
+    modifiers:
+      - public
+    returnType: float
+  - name: sy
+    modifiers:
+      - public
+    returnType: float
+  - name: table
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: tintb
+    modifiers:
+      - public
+    returnType: float
+  - name: tintg
+    modifiers:
+      - public
+    returnType: float
+  - name: tintr
+    modifiers:
+      - public
+    returnType: float
+  - name: wallBloodSplats
+    modifiers:
+      - public
+    returnType: ArrayList
+constructors:
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoObject
+    modifiers:
+      - public
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: square
+        type: IsoGridSquare
+      - name: spr
+        type: IsoSprite
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: square
+        type: IsoGridSquare
+      - name: gid
+        type: String
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: tile
+        type: String
+      - name: name
+        type: String
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: tile
+        type: String
+      - name: name
+        type: String
+      - name: bShareTilesWithMap
+        type: boolean
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: tile
+        type: String
+      - name: bShareTilesWithMap
+        type: boolean
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: tile
+        type: String
+methods:
+  - name: addChild
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: child
+        type: IsoObject
+  - name: addSecondaryContainer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: container
+        type: ItemContainer
+  - name: addSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: itemType
+        type: String
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: AttachAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ObjectName
+        type: String
+      - name: AnimName
+        type: String
+      - name: NumFrames
+        type: int
+      - name: frameIncrease
+        type: float
+      - name: OffsetX
+        type: int
+      - name: OffsetY
+        type: int
+      - name: Looping
+        type: boolean
+      - name: FinishHoldFrameIndex
+        type: int
+      - name: DeleteWhenFinished
+        type: boolean
+      - name: zBias
+        type: float
+      - name: TintMod
+        type: ColorInfo
+  - name: AttachExistingAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spr
+        type: IsoSprite
+      - name: OffsetX
+        type: int
+      - name: OffsetY
+        type: int
+      - name: Looping
+        type: boolean
+      - name: FinishHoldFrameIndex
+        type: int
+      - name: DeleteWhenFinished
+        type: boolean
+      - name: zBias
+        type: float
+  - name: AttackObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: canAddSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: checkAmbientSound
+    modifiers:
+      - public
+    returnType: void
+  - name: checkHaveElectricity
+    modifiers:
+      - public
+    returnType: void
+  - name: cleanWallBlood
+    modifiers:
+      - public
+    returnType: void
+  - name: clearAttachedAnimSprite
+    modifiers:
+      - public
+    returnType: void
+  - name: Collision
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: collision
+        type: Vector2
+      - name: object
+        type: IsoObject
+  - name: countAddSheetRope
+    modifiers:
+      - public
+    returnType: int
+  - name: createContainersFromSpriteProperties
+    modifiers:
+      - public
+    returnType: void
+  - name: customHashCode
+    modifiers:
+      - public
+    returnType: long
+  - name: Damage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: amount
+        type: float
+  - name: debugPrintout
+    modifiers:
+      - public
+    returnType: void
+  - name: destroyFence
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: DirtySlice
+    modifiers:
+      - public
+    returnType: void
+  - name: doFindExternalWaterSource
+    modifiers:
+      - public
+    returnType: void
+  - name: DoSpecialTooltip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
+      - name: square
+        type: IsoGridSquare
+  - name: DoTooltip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
+  - name: factoryClassFromFileInput
+    modifiers:
+      - public
+      - static
+    returnType: Class
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: classID
+        type: int
+  - name: factoryFromFileInput
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: b
+        type: ByteBuffer
+  - name: factoryFromFileInput_OLD
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: classID
+        type: int
+  - name: factoryGetClassID
+    modifiers:
+      - public
+      - static
+    returnType: byte
+    parameters:
+      - name: name
+        type: String
+  - name: FindExternalWaterSource
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: FindWaterSourceOnSquare
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: square
+        type: IsoGridSquare
+  - name: getAlpha
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getAttachedAnimSprite
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getCell
+    modifiers:
+      - public
+    returnType: IsoCell
+  - name: getChildSprites
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: IsoChunk
+  - name: getContainer
+    modifiers:
+      - public
+    returnType: ItemContainer
+  - name: getContainerByEitherType
+    modifiers:
+      - public
+    returnType: ItemContainer
+    parameters:
+      - name: type1
+        type: String
+      - name: type2
+        type: String
+  - name: getContainerByIndex
+    modifiers:
+      - public
+    returnType: ItemContainer
+    parameters:
+      - name: index
+        type: int
+  - name: getContainerByType
+    modifiers:
+      - public
+    returnType: ItemContainer
+    parameters:
+      - name: type
+        type: String
+  - name: getContainerCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getContainerIndex
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: container
+        type: ItemContainer
+  - name: getCustomColor
+    modifiers:
+      - public
+    returnType: ColorInfo
+  - name: getDamage
+    modifiers:
+      - public
+    returnType: short
+  - name: getDir
+    modifiers:
+      - public
+    returnType: IsoDirections
+  - name: getFacingPosition
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: pos
+        type: Vector2
+  - name: getFacingPositionAlt
+    modifiers:
+      - public
+    returnType: Vector2
+    parameters:
+      - name: pos
+        type: Vector2
+  - name: getFactoryVehicle
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject.IsoObjectFactory
+  - name: getHighlightColor
+    modifiers:
+      - public
+    returnType: ColorInfo
+  - name: getIsSurfaceNormalOffset
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getItemContainer
+    modifiers:
+      - public
+    returnType: ItemContainer
+  - name: getKeyId
+    modifiers:
+      - public
+    returnType: int
+  - name: getLastRendered
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+  - name: getLastRenderedRendered
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+  - name: getMaskClickedY
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: flip
+        type: boolean
+  - name: getModData
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getMovingObjectIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: getName
+    modifiers:
+      - public
+    returnType: String
+  - name: getNew
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+  - name: getObjectIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getObjectRenderEffects
+    modifiers:
+      - public
+    returnType: ObjectRenderEffects
+  - name: getObjectRenderEffectsToApply
+    modifiers:
+      - public
+    returnType: ObjectRenderEffects
+  - name: getOffsetX
+    modifiers:
+      - public
+    returnType: float
+  - name: getOffsetY
+    modifiers:
+      - public
+    returnType: float
+  - name: getOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: int
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getOutlineThickness
+    modifiers:
+      - public
+    returnType: float
+  - name: getOverlaySprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: getOverlaySpriteColor
+    modifiers:
+      - public
+    returnType: ColorInfo
+  - name: getPipedFuelAmount
+    modifiers:
+      - public
+    returnType: int
+  - name: getProperties
+    modifiers:
+      - public
+    returnType: PropertyContainer
+  - name: getRenderEffectMaster
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getRenderYOffset
+    modifiers:
+      - public
+    returnType: float
+  - name: getRerouteCollide
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getRerouteMask
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getRerouteMaskObject
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getScriptName
+    modifiers:
+      - public
+    returnType: String
+  - name: getSpecialObjectIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: getSprite
+    modifiers:
+      - public
+    returnType: IsoSprite
+  - name: getSpriteGridObjects
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: result
+        type: ArrayList<IsoObject>
+  - name: getSpriteName
+    modifiers:
+      - public
+    returnType: String
+  - name: getSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getStaticMovingObjectIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: getSurfaceNormalOffset
+    modifiers:
+      - public
+    returnType: float
+  - name: getSurfaceOffset
+    modifiers:
+      - public
+    returnType: float
+  - name: getSurfaceOffsetNoTable
+    modifiers:
+      - public
+    returnType: float
+  - name: getTable
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getTargetAlpha
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getTextureName
+    modifiers:
+      - public
+    returnType: String
+  - name: getThumpableFor
+    modifiers:
+      - public
+    returnType: Thumpable
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getThumpCondition
+    modifiers:
+      - public
+    returnType: float
+  - name: getTile
+    modifiers:
+      - public
+    returnType: String
+  - name: getType
+    modifiers:
+      - public
+    returnType: IsoObjectType
+  - name: getUsesExternalWaterSource
+    modifiers:
+      - public
+    returnType: boolean
+  - name: GetVehicleSlowFactor
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: getWaterAmount
+    modifiers:
+      - public
+    returnType: int
+  - name: getWaterMax
+    modifiers:
+      - public
+    returnType: int
+  - name: getWindRenderEffects
+    modifiers:
+      - public
+    returnType: ObjectRenderEffects
+  - name: getWorldObjectIndex
+    modifiers:
+      - public
+    returnType: int
+  - name: getX
+    modifiers:
+      - public
+    returnType: float
+  - name: getY
+    modifiers:
+      - public
+    returnType: float
+  - name: getZ
+    modifiers:
+      - public
+    returnType: float
+  - name: hasExternalWaterSource
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasModData
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasTooltip
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasWater
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveSpecialTooltip
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Hit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: collision
+        type: Vector2
+      - name: obj
+        type: IsoObject
+      - name: damage
+        type: float
+  - name: HitByVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: amount
+        type: float
+  - name: isAlphaAndTargetZero
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isAlphaZero
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isBlink
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCharacter
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDestroyed
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isExistInTheWorld
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isHighlighted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isHoppable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isItemAllowedInContainer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
+  - name: isMaskClicked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: flip
+        type: boolean
+  - name: isMovedThumpable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNoPicking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNorthHoppable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isOutlineHighlight
+    modifiers:
+      - public
+      - final
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isOutlineHlAttached
+    modifiers:
+      - public
+      - final
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isOutlineHlBlink
+    modifiers:
+      - public
+      - final
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isOutlineOnMouseover
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRemoveItemAllowedFromContainer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: container
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
+  - name: isSpriteInvisible
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStairsNorth
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStairsObject
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isStairsWest
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTableSurface
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTableTopObject
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTaintedWater
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isTargetAlphaZero
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isZombie
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: loadChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: bb
+        type: ByteBuffer
+  - name: loadFromRemoteBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: addToObjects
+        type: boolean
+  - name: loadState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: onMouseLeftClick
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: onMouseRightClick
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lx
+        type: int
+      - name: ly
+        type: int
+  - name: onMouseRightReleased
+    modifiers:
+      - public
+    returnType: void
+  - name: removeAllContainers
+    modifiers:
+      - public
+    returnType: void
+  - name: RemoveAttachedAnim
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: index
+        type: int
+  - name: RemoveAttachedAnims
+    modifiers:
+      - public
+    returnType: void
+  - name: removeFromSquare
+    modifiers:
+      - public
+    returnType: void
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: removeRenderEffect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: o
+        type: ObjectRenderEffects
+  - name: removeSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoAttached
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: renderAttachedAndOverlaySprites
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoAttached
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+  - name: renderFloorTile
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoAttached
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+      - name: attachedAndOverlayModifier
+        type: Consumer<TextureDraw>
+  - name: renderFxMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: bDoAttached
+        type: boolean
+  - name: renderlast
+    modifiers:
+      - public
+    returnType: void
+  - name: renderObjectPicker
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: lightInfo
+        type: ColorInfo
+  - name: renderWallTile
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoAttached
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+  - name: renderWallTileOnly
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: shader
+        type: Shader
+      - name: texdModifier
+        type: Consumer<TextureDraw>
+  - name: replaceItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: reset
+    modifiers:
+      - public
+    returnType: void
+  - name: reuseGridSquare
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: saveChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
+  - name: saveState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: sendObjectChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: args
+        type: Object...
+  - name: Serialize
+    modifiers:
+      - public
+    returnType: boolean
+  - name: setAlpha
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: alpha
+        type: float
+        notes: the alpha to set
+  - name: setAlphaAndTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+        notes: The playerIndex to use
+      - name: alpha
+        type: float
+  - name: setAlphaToTarget
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+        notes: The playerIndex to use
+  - name: setAttachedAnimSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: AttachedAnimSprite
+        type: ArrayList<IsoSpriteInstance>
+        notes: the AttachedAnimSprite to set
+  - name: setBlink
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: blink
+        type: boolean
+  - name: setChildSprites
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: AttachedAnimSprite
+        type: ArrayList<IsoSpriteInstance>
+        notes: the AttachedAnimSprite to set
+  - name: setContainer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: container
+        type: ItemContainer
+        notes: the container to set
+  - name: setCustomColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setDamage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Damage
+        type: short
+        notes: the Damage to set
+  - name: setDefaultCondition
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: i
+        type: int
+  - name: setDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: int
+        notes: the dir to set
+  - name: setHighlightColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setHighlighted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: highlight
+        type: boolean
+      - name: renderOnce
+        type: boolean
+  - name: setKeyId
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: keyId
+        type: int
+  - name: setLastRendered
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: aLastRendered
+        type: IsoObject
+        notes: the lastRendered to set
+  - name: setLastRenderedRendered
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: aLastRenderedRendered
+        type: IsoObject
+        notes: the lastRenderedRendered to set
+  - name: setMovedThumpable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: movedThumpable
+        type: boolean
+  - name: setName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+        notes: the name to set
+  - name: SetName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: setNoPicking
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: NoPicking
+        type: boolean
+        notes: the NoPicking to set
+  - name: setOffsetX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: offsetX
+        type: float
+        notes: the offsetX to set
+  - name: setOffsetY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: offsetY
+        type: float
+        notes: the offsetY to set
+  - name: setOutlineHighlight
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: isOutlineHighlight
+        type: boolean
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setOutlineHlAttached
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: isOutlineHlAttached
+        type: boolean
+  - name: setOutlineHlBlink
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: isOutlineHlBlink
+        type: boolean
+  - name: setOutlineOnMouseover
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: OutlineOnMouseover
+        type: boolean
+        notes: the OutlineOnMouseover to set
+  - name: setOutlineThickness
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: outlineThickness
+        type: float
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: spriteName
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: bTransmit
+        type: boolean
+  - name: setOverlaySpriteColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setPipedFuelAmount
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: units
+        type: int
+  - name: setRenderEffect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: RenderEffectType
+      - name: reuseEqualType
+        type: boolean
+  - name: setRenderYOffset
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: f
+        type: float
+  - name: setRerouteCollide
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: rerouteCollide
+        type: IsoObject
+        notes: the rerouteCollide to set
+  - name: setRerouteMask
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: rerouteMask
+        type: IsoObject
+        notes: the rerouteMask to set
+  - name: setSpecialTooltip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: specialTooltip
+        type: boolean
+  - name: setSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: setSpriteFromName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: setSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: square
+        type: IsoGridSquare
+        notes: the square to set
+  - name: setTable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+        notes: the table to set
+  - name: setTaintedWater
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tainted
+        type: boolean
+  - name: setTargetAlpha
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: targetAlpha
+        type: float
+        notes: the targetAlpha to set
+  - name: setType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: IsoObjectType
+  - name: setUsesExternalWaterSource
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setWaterAmount
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: units
+        type: int
+  - name: softReset
+    modifiers:
+      - public
+    returnType: void
+  - name: syncIsoObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
+  - name: syncIsoObjectSend
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBufferWriter
+  - name: TestCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: TestPathfindCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: TestVision
+    modifiers:
+      - public
+    returnType: IsoObject.VisionResult
+    parameters:
+      - name: from
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
+  - name: Thump
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: thumper
+        type: IsoMovingObject
+  - name: transmitCompleteItemToClients
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitCompleteItemToServer
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitCustomColor
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitModData
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitUpdatedSprite
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitUpdatedSpriteToClients
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitUpdatedSpriteToServer
+    modifiers:
+      - public
+    returnType: void
+  - name: UnCollision
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: unsetOutlineHighlight
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: useItemOn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: useWater
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: amount
+        type: int
+  - name: WeaponHit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
+  - name: writeToRemoteBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

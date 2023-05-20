@@ -1,0 +1,380 @@
+# zombie.iso.areas.isoregion.IsoRegions
+package: zombie.iso.areas.isoregion
+type: class
+name: IsoRegions
+extends: Object
+modifiers:
+  - public
+  - final
+notes: TurboTuTone.
+fields:
+  - name: BIT_EMPTY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_HAS_FLOOR
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_HAS_ROOF
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_PATH_WALL_N
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_PATH_WALL_W
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_STAIRCASE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_WALL_N
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: BIT_WALL_W
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: CELL_CHUNK_DIM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: CELL_DIM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: CHUNK_DIM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: CHUNK_MAX_Z
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: CHUNKS_DATA_PACKET_SIZE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: DIR_2D_MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_2D_NW
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_BOT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_E
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_MAX
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_N
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_NONE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_S
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_TOP
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: DIR_W
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: FILE_DIR
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: FILE_EXT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: FILE_PRE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: FILE_SEP
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: PRINT_D
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: SINGLE_CHUNK_PACKET_SIZE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: IsoRegions
+    modifiers:
+      - public
+methods:
+  - name: getChunkFile
+    modifiers:
+      - public
+      - static
+    returnType: File
+    parameters:
+      - name: chunkX
+        type: int
+      - name: chunkY
+        type: int
+  - name: getChunkRegion
+    modifiers:
+      - public
+      - static
+    returnType: IChunkRegion
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+    notes: >-
+      Returns a IChunkRegion for the square.
+       Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
+  - name: getDataChunk
+    modifiers:
+      - public
+      - static
+    returnType: DataChunk
+    parameters:
+      - name: chunkx
+        type: int
+      - name: chunky
+        type: int
+    notes: >-
+      Returns a DataChunk for the square.
+       Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
+  - name: getDirectory
+    modifiers:
+      - public
+      - static
+    returnType: File
+  - name: getHeaderFile
+    modifiers:
+      - public
+      - static
+    returnType: File
+  - name: getIsoWorldRegion
+    modifiers:
+      - public
+      - static
+    returnType: IWorldRegion
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+    notes: >-
+      Returns a IWorldRegion for the square.
+       Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
+       Note: The IWorldRegion does get cached in IsoGridSquare for optimizing purposes but this gets handled in 'clientResetCachedRegionReferences()'
+  - name: getLogger
+    modifiers:
+      - public
+      - static
+    returnType: IsoRegionsLogger
+  - name: GetOppositeDir
+    modifiers:
+      - public
+      - static
+    returnType: byte
+    parameters:
+      - name: dir
+        type: byte
+  - name: getSquareFlags
+    modifiers:
+      - public
+      - static
+    returnType: byte
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: hash
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: init
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: isDebugLoadAllChunks
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: log
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: str
+        type: String
+      - name: col
+        type: Color
+  - name: receiveClientRequestFullDataChunks
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: conn
+        type: UdpConnection
+  - name: receiveServerUpdatePacket
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+  - name: reset
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: ResetAllDataDebug
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: setDebugLoadAllChunks
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setPreviousFlags
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: gs
+        type: IsoGridSquare
+    notes: >-
+      Needs to be called before a player manipulates the grid.
+       Records bitFlags for the state of the square that are compared to bitFlags for the state of the square after manipulation to detect relevant changes.
+  - name: squareChanged
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: gs
+        type: IsoGridSquare
+      - name: isRemoval
+        type: boolean
+    notes: >-
+      Called after the grid has been manipulated by a player.
+       NOTE: setPreviousFlags needs to be called prior to the grid being manipulated by a player.
+  - name: update
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: warn
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: str
+        type: String

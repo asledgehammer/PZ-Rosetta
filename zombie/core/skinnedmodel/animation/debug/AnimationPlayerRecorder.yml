@@ -1,0 +1,115 @@
+# zombie.core.skinnedmodel.animation.debug.AnimationPlayerRecorder
+package: zombie.core.skinnedmodel.animation.debug
+type: class
+name: AnimationPlayerRecorder
+extends: Object
+modifiers:
+  - public
+  - final
+notes: Used for recording the activity of an AnimationPlayer
+constructors:
+  - name: AnimationPlayerRecorder
+    modifiers:
+      - public
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+methods:
+  - name: beginLine
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: frameNo
+        type: int
+  - name: discardRecording
+    modifiers:
+      - public
+    returnType: void
+  - name: endLine
+    modifiers:
+      - public
+    returnType: void
+  - name: getOwner
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+  - name: isRecording
+    modifiers:
+      - public
+    returnType: boolean
+  - name: logActionState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: state
+        type: ActionState
+      - name: childStates
+        type: List<ActionState>
+  - name: logAIState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: state
+        type: State
+      - name: subStates
+        type: List<StateMachine.SubstateSlot>
+  - name: logAnimNode
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: liveNode
+        type: LiveAnimNode
+  - name: logAnimState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: state
+        type: AnimState
+  - name: logAnimWeights
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tracks
+        type: List<AnimationTrack>
+      - name: animBlendIndices
+        type: int[]
+      - name: animBlendWeights
+        type: float[]
+      - name: deferredMovement
+        type: Vector2
+  - name: logCharacterPos
+    modifiers:
+      - public
+    returnType: void
+  - name: logVariables
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: varSource
+        type: IAnimationVariableSource
+  - name: openFileStream
+    modifiers:
+      - public
+      - static
+    returnType: PrintStream
+    parameters:
+      - name: key
+        type: String
+      - name: append
+        type: boolean
+      - name: fileNameConsumer
+        type: Consumer<String>
+  - name: setRecording
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: value
+        type: boolean

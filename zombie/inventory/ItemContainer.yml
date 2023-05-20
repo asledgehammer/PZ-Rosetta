@@ -1,0 +1,1841 @@
+# zombie.inventory.ItemContainer
+package: zombie.inventory
+type: class
+name: ItemContainer
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: active
+    modifiers:
+      - public
+    returnType: boolean
+  - name: ageFactor
+    modifiers:
+      - public
+    returnType: float
+  - name: bExplored
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Capacity
+    modifiers:
+      - public
+    returnType: int
+  - name: containingItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: CookingFactor
+    modifiers:
+      - public
+    returnType: float
+  - name: ID
+    modifiers:
+      - public
+    returnType: int
+  - name: IncludingObsoleteItems
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: inventoryContainer
+    modifiers:
+      - public
+    returnType: InventoryContainer
+  - name: IsDevice
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Items
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: parent
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: SourceGrid
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: type
+    modifiers:
+      - public
+    returnType: String
+  - name: vehiclePart
+    modifiers:
+      - public
+    returnType: VehiclePart
+constructors:
+  - name: ItemContainer
+    modifiers:
+      - public
+    parameters:
+      - name: ID
+        type: int
+      - name: containerName
+        type: String
+      - name: square
+        type: IsoGridSquare
+      - name: parent
+        type: IsoObject
+  - name: ItemContainer
+    modifiers:
+      - public
+    parameters:
+      - name: containerName
+        type: String
+      - name: square
+        type: IsoGridSquare
+      - name: parent
+        type: IsoObject
+  - name: ItemContainer
+    modifiers:
+      - public
+    parameters:
+      - name: ID
+        type: int
+  - name: ItemContainer
+    modifiers:
+      - public
+methods:
+  - name: addItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: AddItem
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+      - name: useDelta
+        type: float
+  - name: AddItemBlind
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: addItemOnServer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: AddItems
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: use
+        type: int
+  - name: addItemsToProcessItems
+    modifiers:
+      - public
+    returnType: void
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: contains
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+  - name: containsEval
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: containsEvalArg
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: containsEvalArgRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: containsEvalRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: containsID
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: id
+        type: int
+  - name: containsRecursive
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: containsTag
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+  - name: containsTagEval
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: containsTagEvalArgRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: containsTagEvalRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: containsTagRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: tag
+        type: String
+  - name: containsType
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+  - name: containsTypeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: containsTypeEvalRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: containsTypeRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: String
+  - name: containsWithModule
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: moduleType
+        type: String
+      - name: withDeltaLeft
+        type: boolean
+  - name: DoAddItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: DoAddItemBlind
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: DoRemoveItem
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: emptyIt
+    modifiers:
+      - public
+    returnType: void
+  - name: Find
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: itemType
+        type: ItemType
+  - name: FindAll
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+  - name: FindAndReturn
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: FindAndReturnCategory
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: category
+        type: String
+  - name: FindAndReturnStack
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: itemlike
+        type: InventoryItem
+  - name: FindAndReturnWaterItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: uses
+        type: int
+  - name: FindWaterSource
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: floatingPointCorrection
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: val
+        type: float
+  - name: getAcceptItemFunction
+    modifiers:
+      - public
+    returnType: String
+  - name: getAgeFactor
+    modifiers:
+      - public
+    returnType: float
+  - name: getAll
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+  - name: getAllCategory
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: category
+        type: String
+  - name: getAllCategoryRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: category
+        type: String
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getAllEval
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllEvalArg
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getAllEvalArgRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getAllEvalRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllItems
+    modifiers:
+      - public
+    returnType: LinkedHashMap
+    parameters:
+      - type: LinkedHashMap<String
+      - name: items
+        type: InventoryItem>
+      - name: inInv
+        type: boolean
+  - name: getAllRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getAllTag
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getAllTagEval
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllTagEvalArg
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getAllTagEvalArgRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getAllTagEvalRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getAllTagRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getAllType
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+  - name: getAllTypeEval
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllTypeEvalArg
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getAllTypeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getAllTypeEvalRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllTypeRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+  - name: getAllWaterFillables
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getBest
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+      - name: comparator
+        type: Comparator<InventoryItem>
+  - name: getBestBandage
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
+  - name: getBestCondition
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: getBestConditionEval
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getBestConditionEvalArg
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getBestConditionEvalArgRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getBestConditionEvalRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getBestConditionRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: getBestEval
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicateObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getBestEvalArg
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicateObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getBestEvalArgRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicateObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getBestEvalRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicateObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getBestFood
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
+  - name: getBestRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+      - name: comparator
+        type: Comparator<InventoryItem>
+  - name: getBestType
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: comparator
+        type: Comparator<InventoryItem>
+  - name: getBestTypeEval
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getBestTypeEvalArg
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getBestTypeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getBestTypeEvalRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getBestTypeRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: comparator
+        type: Comparator<InventoryItem>
+  - name: getBestWeapon
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: getCapacity
+    modifiers:
+      - public
+    returnType: int
+  - name: getCapacityWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getCharacter
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+  - name: getCloseSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getContainerPosition
+    modifiers:
+      - public
+    returnType: String
+  - name: getContainingItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: getContentsWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getCookingFactor
+    modifiers:
+      - public
+    returnType: float
+  - name: getCount
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+  - name: getCountEval
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getCountEvalArg
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getCountEvalArgRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getCountEvalRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getCountRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+  - name: getCountTag
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: tag
+        type: String
+  - name: getCountTagEval
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getCountTagEvalArg
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getCountTagEvalArgRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getCountTagEvalRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getCountTagRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: tag
+        type: String
+  - name: getCountType
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+  - name: getCountTypeEval
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getCountTypeEvalArg
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getCountTypeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getCountTypeEvalRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getCountTypeRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+  - name: getCustomTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: getEffectiveCapacity
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getFirst
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+  - name: getFirstCategory
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: category
+        type: String
+  - name: getFirstCategoryRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: category
+        type: String
+  - name: getFirstEval
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getFirstEvalArg
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getFirstEvalArgRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getFirstEvalRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getFirstRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+  - name: getFirstTag
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: tag
+        type: String
+  - name: getFirstTagEval
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getFirstTagEvalArgRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getFirstTagEvalRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getFirstTagRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: tag
+        type: String
+  - name: getFirstType
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: getFirstTypeEval
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getFirstTypeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+  - name: getFirstTypeEvalRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getFirstTypeRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: getFreezerPosition
+    modifiers:
+      - public
+    returnType: String
+  - name: getItemById
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: id
+        type: long
+  - name: getItemCount
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+      - name: doBags
+        type: boolean
+  - name: getItemCountFromTypeRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+  - name: getItemCountRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+  - name: getItemFromType
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: getItemFromTypeRecurse
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: type
+        type: String
+  - name: getItems
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getItems4Admin
+    modifiers:
+      - public
+    returnType: LinkedHashMap
+  - name: getItemsFromCategory
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: category
+        type: String
+  - name: getItemsFromFullType
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: includeInv
+        type: boolean
+  - name: getItemsFromType
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: includeInv
+        type: boolean
+  - name: getItemWithID
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: id
+        type: int
+  - name: getItemWithIDRecursiv
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: id
+        type: int
+  - name: getMaxWeight
+    modifiers:
+      - public
+    returnType: float
+  - name: getNumberOfItem
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: findItem
+        type: String
+      - name: includeReplaceOnDeplete
+        type: boolean
+      - name: insideInv
+        type: boolean
+  - name: getNumItems
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: item
+        type: String
+  - name: getOnlyAcceptCategory
+    modifiers:
+      - public
+    returnType: String
+  - name: getOpenSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getParent
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getPutSound
+    modifiers:
+      - public
+    returnType: String
+  - name: getSome
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getSomeCategory
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: category
+        type: String
+      - name: count
+        type: int
+  - name: getSomeCategoryRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: category
+        type: String
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getSomeEval
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+  - name: getSomeEvalArg
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: count
+        type: int
+  - name: getSomeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: count
+        type: int
+  - name: getSomeEvalRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+  - name: getSomeRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getSomeTag
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: count
+        type: int
+  - name: getSomeTagEval
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getSomeTagEvalArg
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList<InventoryItem>
+  - name: getSomeTagEvalArgRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: count
+        type: int
+  - name: getSomeTagEvalRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+  - name: getSomeTagRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: tag
+        type: String
+      - name: count
+        type: int
+  - name: getSomeType
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: count
+        type: int
+  - name: getSomeTypeEval
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+  - name: getSomeTypeEvalArg
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: count
+        type: int
+  - name: getSomeTypeEvalArgRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: count
+        type: int
+  - name: getSomeTypeEvalRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+  - name: getSomeTypeRecurse
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: type
+        type: String
+      - name: count
+        type: int
+  - name: getSourceGrid
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getTemprature
+    modifiers:
+      - public
+    returnType: float
+  - name: getTotalFoodScore
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
+  - name: getTotalWeaponScore
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
+  - name: getType
+    modifiers:
+      - public
+    returnType: String
+  - name: getUsesRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: predicate
+        type: Predicate<InventoryItem>
+  - name: getUsesType
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+  - name: getUsesTypeRecurse
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: type
+        type: String
+  - name: getVehiclePart
+    modifiers:
+      - public
+    returnType: VehiclePart
+  - name: getWaterContainerCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getWeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getWeightReduction
+    modifiers:
+      - public
+    returnType: int
+  - name: hasRoomFor
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+      - name: weightVal
+        type: float
+  - name: HasType
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: itemType
+        type: ItemType
+  - name: haveThisKeyId
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: keyId
+        type: int
+  - name: isActive
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDirty
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isDrawDirty
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isEmpty
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isExistYet
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isExplored
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isHasBeenLooted
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isInCharacterInventory
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: isInside
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isIsDevice
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isItemAllowed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isMicrowave
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPowered
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isRemoveItemAllowed
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: isTemperatureChanging
+    modifiers:
+      - public
+    returnType: boolean
+  - name: load
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+  - name: Remove
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: itemType
+        type: ItemType
+  - name: RemoveAll
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: itemType
+        type: String
+    notes: |-
+      Remove all the item of the type in parameter inside the container Ex of
+       itemType : Broccoli (no need the module like Base.Broccoli)
+  - name: removeAllItems
+    modifiers:
+      - public
+    returnType: void
+  - name: removeItemOnServer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: item
+        type: InventoryItem
+  - name: removeItemsFromProcessItems
+    modifiers:
+      - public
+    returnType: void
+  - name: removeItemWithID
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: id
+        type: int
+  - name: removeItemWithIDRecurse
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: id
+        type: int
+  - name: RemoveOneOf
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: String
+        type: String
+  - name: requestServerItemsForContainer
+    modifiers:
+      - public
+    returnType: void
+  - name: requestSync
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: output
+        type: ByteBuffer
+  - name: sendContentsToRemoteContainer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: setAcceptItemFunction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: functionName
+        type: String
+  - name: setActive
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: active
+        type: boolean
+        notes: the active to set
+  - name: setAgeFactor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ageFactor
+        type: float
+        notes: the ageFactor to set
+  - name: setCloseSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: closeSound
+        type: String
+  - name: setContainerPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: containerPosition
+        type: String
+  - name: setCookingFactor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: CookingFactor
+        type: float
+        notes: the CookingFactor to set
+  - name: setCustomTemperature
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newTemp
+        type: float
+  - name: setDirty
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dirty
+        type: boolean
+        notes: the dirty to set
+  - name: setDrawDirty
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setExplored
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: boolean
+  - name: setFreezerPosition
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: freezerPosition
+        type: String
+  - name: setHasBeenLooted
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hasBeenLooted
+        type: boolean
+  - name: setIsDevice
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: IsDevice
+        type: boolean
+        notes: the IsDevice to set
+  - name: setItems
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: Items
+        type: ArrayList<InventoryItem>
+        notes: the Items to set
+  - name: setOnlyAcceptCategory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: onlyAcceptCategory
+        type: String
+  - name: setOpenSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: openSound
+        type: String
+  - name: setParent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: parent
+        type: IsoObject
+        notes: the parent to set
+  - name: setPutSound
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: putSound
+        type: String
+  - name: setSourceGrid
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: SourceGrid
+        type: IsoGridSquare
+        notes: the SourceGrid to set
+  - name: setType
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: String
+        notes: the type to set
+  - name: setWeightReduction
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weightReduction
+        type: int

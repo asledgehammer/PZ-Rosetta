@@ -1,0 +1,266 @@
+# zombie.inventory.RecipeManager
+package: zombie.inventory
+type: class
+name: RecipeManager
+extends: Object
+modifiers:
+  - public
+  - final
+constructors:
+  - name: RecipeManager
+    modifiers:
+      - public
+methods:
+  - name: DoesUseItemUp
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: itemToUse
+        type: String
+      - name: recipe
+        type: Recipe
+  - name: DoesWipeUseDelta
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: itemToUse
+        type: String
+      - name: itemToMake
+        type: String
+  - name: getAllEvolvedRecipes
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+  - name: getAvailableItemsAll
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: selectedItem
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList<InventoryItem>
+  - name: getAvailableItemsNeeded
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: selectedItem
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList<InventoryItem>
+  - name: getDismantleRecipeFor
+    modifiers:
+      - public
+      - static
+    returnType: Recipe
+    parameters:
+      - name: item
+        type: String
+  - name: getEvolvedRecipe
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: baseItem
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: need1ingredient
+        type: boolean
+  - name: getKnownRecipesNumber
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: GetMovableRecipeTool
+    modifiers:
+      - public
+      - static
+    returnType: InventoryItem
+    parameters:
+      - name: isPrimary
+        type: boolean
+      - name: recipe
+        type: Recipe
+      - name: selectedItem
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+  - name: getNumberOfTimesRecipeCanBeDone
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: selectedItem
+        type: InventoryItem
+  - name: getSourceItemsAll
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: sourceIndex
+        type: int
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: selectedItem
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList<InventoryItem>
+  - name: getSourceItemsNeeded
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: sourceIndex
+        type: int
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: selectedItem
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList<InventoryItem>
+  - name: getUniqueRecipeItems
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+  - name: HasAllRequiredItems
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter
+      - name: selectedItem
+        type: InventoryItem
+      - name: containers
+        type: ArrayList<ItemContainer>
+  - name: hasHeat
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: item
+        type: InventoryItem
+      - name: containers
+        type: ArrayList<ItemContainer>
+      - name: chr
+        type: IsoGameCharacter
+  - name: IsItemDestroyed
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: itemToUse
+        type: String
+      - name: recipe
+        type: Recipe
+  - name: IsRecipeValid
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter
+      - name: item
+        type: InventoryItem
+      - name: containers
+        type: ArrayList<ItemContainer>
+  - name: Loaded
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: LoadedAfterLua
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: PerformMakeItem
+    modifiers:
+      - public
+      - static
+    returnType: InventoryItem
+    parameters:
+      - name: recipe
+        type: Recipe
+      - name: selectedItem
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList<ItemContainer>
+  - name: UseAmount
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: sourceFullType
+        type: String
+      - name: recipe
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter

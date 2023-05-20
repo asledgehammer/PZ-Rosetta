@@ -1,0 +1,520 @@
+# zombie.BaseSoundManager
+package: zombie
+type: class
+name: BaseSoundManager
+extends: Object
+modifiers:
+  - public
+  - abstract
+fields:
+  - name: AllowMusic
+    modifiers:
+      - public
+    returnType: boolean
+constructors:
+  - name: BaseSoundManager
+    modifiers:
+      - public
+methods:
+  - name: BlendThenStart
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: musicTrack
+        type: fmod.fmod.Audio
+      - name: f
+        type: float
+      - name: PrefMusic
+        type: String
+  - name: BlendVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: audio
+        type: fmod.fmod.Audio
+      - name: targetVolume
+        type: float
+  - name: CacheSound
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: file
+        type: String
+  - name: CheckDoMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: debugScriptSounds
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: DoMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: bLoop
+        type: boolean
+  - name: FadeOutMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: milli
+        type: int
+  - name: getAmbientPieces
+    modifiers:
+      - public
+      - abstract
+    returnType: ArrayList
+  - name: getAmbientVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: float
+  - name: getCurrentMusicLibrary
+    modifiers:
+      - public
+      - abstract
+    returnType: String
+  - name: getCurrentMusicName
+    modifiers:
+      - public
+      - abstract
+    returnType: String
+  - name: getMusicPosition
+    modifiers:
+      - public
+      - abstract
+    returnType: float
+  - name: getMusicVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: float
+  - name: getSoundVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: float
+  - name: getVehicleEngineVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: float
+  - name: isListenerInRange
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: range
+        type: float
+  - name: IsMusicPlaying
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+  - name: isPlayingMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+  - name: isPlayingUISound
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+    parameters:
+      - name: eventInstance
+        type: long
+  - name: isRemastered
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+  - name: pauseSoundAndMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: playAmbient
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: PlayAsMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: musicTrack
+        type: fmod.fmod.Audio
+      - name: volume
+        type: float
+      - name: bloop
+        type: boolean
+  - name: PlayJukeboxSound
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+  - name: playMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: PlayMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: n
+        type: String
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+  - name: playMusicNonTriggered
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: gain
+        type: float
+  - name: playNightAmbient
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: choice
+        type: String
+  - name: PlaySound
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: pitchVar
+        type: float
+      - name: maxGain
+        type: float
+  - name: PlaySoundEvenSilent
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+  - name: PlaySoundWav
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: maxGain
+        type: float
+      - name: pitchVar
+        type: float
+  - name: playUISound
+    modifiers:
+      - public
+      - abstract
+    returnType: long
+    parameters:
+      - name: name
+        type: String
+  - name: PlayWorldSound
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundImpl
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: sx
+        type: int
+      - name: sy
+        type: int
+      - name: sz
+        type: int
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWav
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PlayWorldSoundWavImpl
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: boolean
+      - name: source
+        type: IsoGridSquare
+      - name: pitchVar
+        type: float
+      - name: radius
+        type: float
+      - name: maxGain
+        type: float
+      - name: ignoreOutside
+        type: boolean
+  - name: PrepareMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
+  - name: Purge
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: registerEmitter
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
+  - name: resumeSoundAndMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: setAmbientVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: volume
+        type: float
+  - name: setMusicState
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: stateName
+        type: String
+  - name: setMusicVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: volume
+        type: float
+  - name: setMusicWakeState
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: stateName
+        type: String
+  - name: setSoundVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: volume
+        type: float
+  - name: setVehicleEngineVolume
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: volume
+        type: float
+  - name: Start
+    modifiers:
+      - public
+      - abstract
+    returnType: fmod.fmod.Audio
+    parameters:
+      - name: musicTrack
+        type: fmod.fmod.Audio
+      - name: f
+        type: float
+      - name: PrefMusic
+        type: String
+  - name: stop
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: stopMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+  - name: StopMusic
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: StopSound
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: SoundEffect
+        type: fmod.fmod.Audio
+  - name: stopUISound
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: eventInstance
+        type: long
+  - name: unregisterEmitter
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
+  - name: Update
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: update1
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: update2
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: update3
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: update3D
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: update4
+    modifiers:
+      - public
+      - abstract
+    returnType: void

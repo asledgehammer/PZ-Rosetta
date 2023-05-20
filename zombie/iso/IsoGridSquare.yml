@@ -1,0 +1,2372 @@
+# zombie.iso.IsoGridSquare
+package: zombie.iso
+type: class
+name: IsoGridSquare
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: bFlattenGrassEtc
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bmod
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: CachedScreenX
+    modifiers:
+      - public
+    returnType: float
+  - name: CachedScreenY
+    modifiers:
+      - public
+    returnType: float
+  - name: cellGetSquare
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: IsoGridSquare.CellGetSquare
+  - name: choices
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ArrayList
+  - name: chunk
+    modifiers:
+      - public
+    returnType: IsoChunk
+  - name: CircleStencil
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: collideMatrix
+    modifiers:
+      - public
+    returnType: int
+  - name: e
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: gmod
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: gridSquareCacheEmptyTimer
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: hashCodeObjects
+    modifiers:
+      - public
+    returnType: long
+  - name: haveRoof
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveSheetRope
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hourLastSeen
+    modifiers:
+      - public
+    returnType: int
+  - name: ID
+    modifiers:
+      - public
+    returnType: Integer
+  - name: IDMax
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: isExteriorCache
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isoGridSquareCache
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ConcurrentLinkedQueue
+  - name: isOnScreenLast
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isSolidFloorCache
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isVegitationCache
+    modifiers:
+      - public
+    returnType: boolean
+  - name: lighting
+    modifiers:
+      - public
+      - final
+    returnType: IsoGridSquare.ILighting
+  - name: loadGridSquareCache
+    modifiers:
+      - public
+      - static
+    returnType: ArrayDeque
+  - name: n
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: nav
+    modifiers:
+      - public
+      - final
+    returnType: IsoGridSquare
+  - name: ne
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: nw
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: ObjectsSyncCount
+    modifiers:
+      - public
+    returnType: int
+  - name: pathMatrix
+    modifiers:
+      - public
+    returnType: int
+  - name: propertiesDirty
+    modifiers:
+      - public
+    returnType: boolean
+  - name: RecalcLightTime
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: rmod
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: roofHideBuilding
+    modifiers:
+      - public
+    returnType: IsoBuilding
+  - name: room
+    modifiers:
+      - public
+    returnType: IsoRoom
+  - name: roomID
+    modifiers:
+      - public
+    returnType: int
+  - name: s
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: se
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: SolidFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: SolidFloorCached
+    modifiers:
+      - public
+    returnType: boolean
+  - name: sw
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: USE_WALL_SHADER
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: UseSlowCollision
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: visionMatrix
+    modifiers:
+      - public
+    returnType: int
+  - name: w
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: WALL_TYPE_E
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: WALL_TYPE_N
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: WALL_TYPE_S
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: WALL_TYPE_W
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: x
+    modifiers:
+      - public
+    returnType: int
+  - name: y
+    modifiers:
+      - public
+    returnType: int
+  - name: z
+    modifiers:
+      - public
+    returnType: int
+  - name: zone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+constructors:
+  - name: IsoGridSquare
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: slice
+        type: SliceY
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+methods:
+  - name: addBrokenGlass
+    modifiers:
+      - public
+    returnType: IsoBrokenGlass
+  - name: addCorpse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: body
+        type: IsoDeadBody
+      - name: bRemote
+        type: boolean
+  - name: addDeferredCharacter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: addFloor
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: sprite
+        type: String
+  - name: AddSpecialObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: index
+        type: int
+  - name: AddSpecialTileObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: AddStairs
+    modifiers:
+      - public
+    returnType: IsoThumpable
+    parameters:
+      - name: north
+        type: boolean
+      - name: level
+        type: int
+      - name: sprite
+        type: String
+      - name: pillarSprite
+        type: String
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: AddTileObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: index
+        type: int
+  - name: AddWorldInventoryItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: height
+        type: float
+      - name: transmit
+        type: boolean
+  - name: auth
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: username
+        type: String
+      - name: pw
+        type: char[]
+  - name: Burn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: explode
+        type: boolean
+  - name: BurnTick
+    modifiers:
+      - public
+    returnType: void
+  - name: BurnWalls
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: explode
+        type: boolean
+  - name: BurnWallsTCOnly
+    modifiers:
+      - public
+    returnType: void
+  - name: CalculateCollide
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: bVision
+        type: boolean
+      - name: bPathfind
+        type: boolean
+      - name: bIgnoreSolidTrans
+        type: boolean
+      - name: bIgnoreSolid
+        type: boolean
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: CalculateVisionBlocked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: gridSquare
+        type: IsoGridSquare
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: CalcVisibility
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: checkRoomSeen
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: clearPuddles
+    modifiers:
+      - public
+    returnType: void
+  - name: ClearTileObjects
+    modifiers:
+      - public
+    returnType: void
+  - name: ClearTileObjectsExceptFloor
+    modifiers:
+      - public
+    returnType: void
+  - name: clearWater
+    modifiers:
+      - public
+    returnType: void
+  - name: connectedWithFloor
+    modifiers:
+      - public
+    returnType: boolean
+    notes: Check if there's at least one solid floor around this tile, used to build
+      wooden floor
+  - name: damageSpriteSheetRopeFromBottom
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: north
+        type: boolean
+  - name: DeleteTileObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: DirtySlice
+    modifiers:
+      - public
+    returnType: void
+  - name: disableErosion
+    modifiers:
+      - public
+    returnType: void
+  - name: discard
+    modifiers:
+      - public
+    returnType: void
+  - name: DistTo
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: other
+        type: IsoMovingObject
+  - name: DistToProper
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: other
+        type: IsoMovingObject
+  - name: DoCutawayShader
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: dir
+        type: IsoDirections
+      - name: cutawaySW
+        type: boolean
+      - name: cutawayNW
+        type: boolean
+      - name: cutawayNE
+        type: boolean
+      - name: bHasDoorN
+        type: boolean
+      - name: bHasDoorW
+        type: boolean
+      - name: bHasWindowN
+        type: boolean
+      - name: bHasWindowW
+        type: boolean
+      - name: texdModifier
+        type: WallShaperWhole
+  - name: DoCutawayShaderSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
+      - name: dir
+        type: IsoDirections
+      - name: cutawaySW
+        type: boolean
+      - name: cutawayNW
+        type: boolean
+      - name: cutawayNE
+        type: boolean
+  - name: DoSplat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: id
+        type: String
+      - name: bFlip
+        type: boolean
+      - name: prop
+        type: IsoFlagType
+      - name: offX
+        type: float
+      - name: offZ
+        type: float
+      - name: alpha
+        type: float
+  - name: DoWallLightingN
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: stenciled
+        type: int
+      - name: cutawayNW
+        type: boolean
+      - name: cutawayNE
+        type: boolean
+      - name: bHasDoorN
+        type: boolean
+      - name: bHasWindowN
+        type: boolean
+      - name: wallRenderShader
+        type: Shader
+  - name: DoWallLightingNW
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: stenciled
+        type: int
+      - name: cutawaySW
+        type: boolean
+      - name: cutawayNW
+        type: boolean
+      - name: cutawayNE
+        type: boolean
+      - name: bHasDoorN
+        type: boolean
+      - name: bHasDoorW
+        type: boolean
+      - name: bHasWindowN
+        type: boolean
+      - name: bHasWindowW
+        type: boolean
+      - name: wallRenderShader
+        type: Shader
+  - name: DoWallLightingW
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: stenciled
+        type: int
+      - name: cutawaySW
+        type: boolean
+      - name: cutawayNW
+        type: boolean
+      - name: bHasDoorW
+        type: boolean
+      - name: bHasWindowW
+        type: boolean
+      - name: wallRenderShader
+        type: Shader
+  - name: drawCircleExplosion
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: radius
+        type: int
+      - name: trap
+        type: IsoTrap
+      - name: explosionMode
+        type: IsoTrap.ExplosionMode
+  - name: EnsureSurroundNotNull
+    modifiers:
+      - public
+    returnType: void
+  - name: explode
+    modifiers:
+      - public
+    returnType: void
+  - name: explodeTrap
+    modifiers:
+      - public
+    returnType: void
+  - name: explosion
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: trap
+        type: IsoTrap
+  - name: FindEnemy
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+    parameters:
+      - name: g
+        type: IsoGameCharacter
+      - name: range
+        type: int
+      - name: EnemyList
+        type: ArrayList<IsoMovingObject>
+  - name: FindFriend
+    modifiers:
+      - public
+    returnType: IsoGameCharacter
+    parameters:
+      - name: g
+        type: IsoGameCharacter
+      - name: range
+        type: int
+      - name: EnemyList
+        type: Stack<IsoGameCharacter>
+  - name: fixPlacedItemRenderOffsets
+    modifiers:
+      - public
+    returnType: void
+  - name: FixStackableObjects
+    modifiers:
+      - public
+    returnType: void
+  - name: getAdjacentPathSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: getAdjacentSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: getApparentZ
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: dx
+        type: float
+      - name: dy
+        type: float
+  - name: getBedTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: getBrokenGlass
+    modifiers:
+      - public
+    returnType: IsoBrokenGlass
+  - name: getBuilding
+    modifiers:
+      - public
+    returnType: IsoBuilding
+  - name: getCanSee
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getCell
+    modifiers:
+      - public
+    returnType: IsoCell
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: IsoChunk
+  - name: getCollideMatrix
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dx
+        type: int
+      - name: dy
+        type: int
+      - name: dz
+        type: int
+  - name: getCompost
+    modifiers:
+      - public
+    returnType: IsoCompost
+  - name: getContainerItem
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: type
+        type: String
+  - name: getCurtain
+    modifiers:
+      - public
+    returnType: IsoCurtain
+    parameters:
+      - name: curtainType
+        type: IsoObjectType
+  - name: getDarkMulti
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getDarkStep
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: getDeadBody
+    modifiers:
+      - public
+    returnType: IsoDeadBody
+  - name: getDeadBodys
+    modifiers:
+      - public
+    returnType: List
+  - name: getDefColorInfo
+    modifiers:
+      - public
+      - static
+    returnType: ColorInfo
+  - name: getDeferedCharacters
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getDoor
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: north
+        type: boolean
+  - name: getDoorFrameTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: getDoorOrWindow
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: north
+        type: boolean
+  - name: getDoorOrWindowOrWindowFrame
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: dir
+        type: IsoDirections
+      - name: ignoreOpen
+        type: boolean
+  - name: getDoorTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+    notes: Get the door between this grid and the next in parameter
+  - name: getE
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getErosionData
+    modifiers:
+      - public
+    returnType: ErosionData.Square
+  - name: getFloor
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getGenerator
+    modifiers:
+      - public
+    returnType: IsoGenerator
+  - name: getGridSneakModifier
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: onlySolidTrans
+        type: boolean
+    notes: Check if there's any object on this grid that has a sneak modifier, we
+      use this to check if we reduce the chance of being spotted while crouching
+  - name: getHashCodeObjects
+    modifiers:
+      - public
+    returnType: long
+  - name: getHashCodeObjectsInt
+    modifiers:
+      - public
+    returnType: int
+  - name: getHasTypes
+    modifiers:
+      - public
+    returnType: ZomboidBitFlag
+  - name: getHoppable
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: north
+        type: boolean
+  - name: getHoppableThumpable
+    modifiers:
+      - public
+    returnType: IsoThumpable
+    parameters:
+      - name: north
+        type: boolean
+  - name: getHoppableThumpableTo
+    modifiers:
+      - public
+    returnType: IsoThumpable
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: getHoppableTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: getHoppableWall
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: bNorth
+        type: boolean
+  - name: getHourLastSeen
+    modifiers:
+      - public
+    returnType: int
+  - name: getHoursSinceLastSeen
+    modifiers:
+      - public
+    returnType: float
+  - name: getID
+    modifiers:
+      - public
+    returnType: Integer
+  - name: getIsDissolved
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: currentTimeMillis
+        type: long
+  - name: getIsoDoor
+    modifiers:
+      - public
+    returnType: IsoDoor
+  - name: getIsoWorldRegion
+    modifiers:
+      - public
+    returnType: IWorldRegion
+  - name: getLampostTotalB
+    modifiers:
+      - public
+    returnType: float
+  - name: getLampostTotalG
+    modifiers:
+      - public
+    returnType: float
+  - name: getLampostTotalR
+    modifiers:
+      - public
+    returnType: float
+  - name: getLightcache
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: getLightInfluenceB
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getLightInfluenceG
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getLightInfluenceR
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getLightLevel
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getLocalTemporaryObjects
+    modifiers:
+      - public
+    returnType: PZArrayList
+  - name: getLuaMovingObjectList
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getLuaTileObjectList
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getMatrixBit
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: matrix
+        type: int
+      - name: x
+        type: byte
+      - name: y
+        type: byte
+      - name: z
+        type: byte
+  - name: getModData
+    modifiers:
+      - public
+    returnType: se.krka.kahlua.vm.KahluaTable
+  - name: getMovingObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getN
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getNew
+    modifiers:
+      - public
+      - static
+    returnType: IsoGridSquare
+    parameters:
+      - name: isoGridSquareCache
+        type: ArrayDeque<IsoGridSquare>
+      - name: cell
+        type: IsoCell
+      - name: slice
+        type: SliceY
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getObjects
+    modifiers:
+      - public
+    returnType: PZArrayList
+  - name: getOcclusionData
+    modifiers:
+      - public
+    returnType: IsoGridOcclusionData
+  - name: getOpenDoor
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: dir
+        type: IsoDirections
+  - name: getOrCreateOcclusionData
+    modifiers:
+      - public
+    returnType: IsoGridOcclusionData
+  - name: getPathMatrix
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dx
+        type: int
+      - name: dy
+        type: int
+      - name: dz
+        type: int
+  - name: getPlayer
+    modifiers:
+      - public
+    returnType: IsoPlayer
+  - name: getPlayerBuiltFloor
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getPlayerCutawayFlag
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: currentTimeMillis
+        type: long
+  - name: getProperties
+    modifiers:
+      - public
+    returnType: PropertyContainer
+  - name: getPuddles
+    modifiers:
+      - public
+    returnType: IsoPuddlesGeometry
+  - name: getPuddlesDir
+    modifiers:
+      - public
+    returnType: int
+  - name: getPuddlesInGround
+    modifiers:
+      - public
+    returnType: float
+  - name: getRainDrop
+    modifiers:
+      - public
+    returnType: IsoRaindrop
+  - name: getRainSplash
+    modifiers:
+      - public
+    returnType: IsoRainSplash
+  - name: getRecalcLightTime
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: getRoofHideBuilding
+    modifiers:
+      - public
+    returnType: IsoBuilding
+  - name: getRoom
+    modifiers:
+      - public
+    returnType: IsoRoom
+  - name: getRoomID
+    modifiers:
+      - public
+    returnType: int
+  - name: getRoomSize
+    modifiers:
+      - public
+    returnType: int
+  - name: getS
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getSeen
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getSheetRope
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getSpecialObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getSquaresForThread
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: isoGridSquareCacheDest
+        type: ArrayDeque<IsoGridSquare>
+      - name: count
+        type: int
+  - name: getStaticMovingObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getTargetDarkMulti
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: getThumpableWall
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: bNorth
+        type: boolean
+  - name: getThumpableWallOrHoppable
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: bNorth
+        type: boolean
+  - name: getThumpableWindow
+    modifiers:
+      - public
+    returnType: IsoThumpable
+    parameters:
+      - name: north
+        type: boolean
+  - name: getTileInDirection
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: directions
+        type: IsoDirections
+  - name: getTotalWeightOfItemsOnFloor
+    modifiers:
+      - public
+    returnType: float
+  - name: getTransparentWallTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: getTrapPositionX
+    modifiers:
+      - public
+    returnType: int
+  - name: getTrapPositionY
+    modifiers:
+      - public
+    returnType: int
+  - name: getTrapPositionZ
+    modifiers:
+      - public
+    returnType: int
+  - name: getTree
+    modifiers:
+      - public
+    returnType: IsoTree
+  - name: getVehicleContainer
+    modifiers:
+      - public
+    returnType: BaseVehicle
+  - name: getVertLight
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: i
+        type: int
+      - name: playerIndex
+        type: int
+  - name: getVisionMatrix
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dx
+        type: int
+      - name: dy
+        type: int
+      - name: dz
+        type: int
+  - name: getW
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+  - name: getWall
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: bNorth
+        type: boolean
+  - name: getWallFull
+    modifiers:
+      - public
+    returnType: Boolean
+  - name: getWallHoppable
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: north
+        type: boolean
+  - name: getWallHoppableTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: getWallSE
+    modifiers:
+      - public
+    returnType: IsoObject
+  - name: getWallType
+    modifiers:
+      - public
+    returnType: int
+  - name: getWater
+    modifiers:
+      - public
+    returnType: IsoWaterGeometry
+  - name: getWindow
+    modifiers:
+      - public
+    returnType: IsoWindow
+  - name: getWindowFrame
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: north
+        type: boolean
+  - name: getWindowFrameTo
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: getWindowThumpableTo
+    modifiers:
+      - public
+    returnType: IsoThumpable
+    parameters:
+      - name: next
+        type: IsoGridSquare
+    notes: Get the IsoThumpable window between this grid and the next in parameter
+  - name: getWindowTo
+    modifiers:
+      - public
+    returnType: IsoWindow
+    parameters:
+      - name: next
+        type: IsoGridSquare
+    notes: Get the IsoWindow window between this grid and the next in parameter
+  - name: getWorldObjects
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getX
+    modifiers:
+      - public
+    returnType: int
+  - name: getY
+    modifiers:
+      - public
+    returnType: int
+  - name: getZ
+    modifiers:
+      - public
+    returnType: int
+  - name: getZombie
+    modifiers:
+      - public
+    returnType: IsoZombie
+  - name: getZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+  - name: getZoneType
+    modifiers:
+      - public
+    returnType: String
+  - name: Has
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: type
+        type: IsoObjectType
+  - name: hasBlockedDoor
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: north
+        type: boolean
+  - name: hasBlockedWindow
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: north
+        type: boolean
+  - name: hasDoorOnEdge
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: edge
+        type: IsoDirections
+      - name: ignoreOpen
+        type: boolean
+  - name: HasElevatedFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasFlies
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasFloor
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: north
+        type: boolean
+        notes: is the item we're trying to place facing north or not
+    notes: >-
+      Check if a tile has a solid floor, used to build stuff at z level > 0
+       Also gonna check the tile "behind" the one w&lt;e're trying to build something has a floor (only one is required)
+  - name: hashCodeNoOverride
+    modifiers:
+      - public
+    returnType: int
+  - name: hasModData
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasPushable
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasSlopedRoof
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasSlopedRoofNorth
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasSlopedRoofWest
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasStairs
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasStairsBelow
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasStairsNorth
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasStairsWest
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasSupport
+    modifiers:
+      - public
+    returnType: boolean
+  - name: HasTree
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasWindowFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasWindowOrWindowFrame
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveBlood
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveDoor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveElectricity
+    modifiers:
+      - public
+    returnType: boolean
+  - name: haveFire
+    modifiers:
+      - public
+    returnType: boolean
+  - name: interpolateLight
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: inf
+        type: ColorInfo
+      - name: x
+        type: float
+      - name: y
+        type: float
+  - name: InvalidateSpecialObjectPaths
+    modifiers:
+      - public
+    returnType: void
+  - name: Is
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: flag
+        type: String
+  - name: isAdjacentToWindow
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isbDoSlowPathfinding
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isBlockedTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isCachedIsFree
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCacheIsFree
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCanSee
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isCommonGrass
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isCouldSee
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isDoorBlockedTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isDoorTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isFree
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bCountOtherCharacters
+        type: boolean
+  - name: isFreeOrMidair
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bCountOtherCharacters
+        type: boolean
+      - name: bDoZombie
+        type: boolean
+  - name: isHoppableTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isInARoom
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isNotBlocked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bCountOtherCharacters
+        type: boolean
+  - name: IsOnScreen
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: halfTileBorder
+        type: boolean
+  - name: isOutside
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isOverlayDone
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSafeToSpawn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: depth
+        type: int
+  - name: isSameStaircase
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: isSeen
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: isSolid
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSolidFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSolidFloorCached
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSolidTrans
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSomethingTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isVehicleIntersecting
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isWallTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isWindowBlockedTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: isWindowTo
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: other
+        type: IsoGridSquare
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: placeWallAndDoorCheck
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: index
+        type: int
+  - name: playSound
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: file
+        type: String
+      - name: doWorldSound
+        type: boolean
+  - name: RecalcAllWithNeighbours
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bDoReverse
+        type: boolean
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: RecalcAllWithNeighboursMineOnly
+    modifiers:
+      - public
+    returnType: void
+  - name: recalcHashCodeObjects
+    modifiers:
+      - public
+    returnType: void
+  - name: RecalcProperties
+    modifiers:
+      - public
+    returnType: void
+  - name: RecalcPropertiesIfNeeded
+    modifiers:
+      - public
+    returnType: void
+  - name: ReCalculateCollide
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: ReCalculatePathFind
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: ReCalculateVisionBlocked
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: removeAllWorldObjects
+    modifiers:
+      - public
+    returnType: void
+  - name: removeBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: remote
+        type: boolean
+      - name: onlyWall
+        type: boolean
+  - name: removeCorpse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: body
+        type: IsoDeadBody
+      - name: bRemote
+        type: boolean
+  - name: removeErosionObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: type
+        type: String
+  - name: removeLightSwitch
+    modifiers:
+      - public
+    returnType: void
+  - name: removeSheetRopeFromBottom
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: north
+        type: boolean
+  - name: RemoveTileObject
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: RemoveTileObjectErosionNoRecalc
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: removeWorldObject
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoWorldInventoryObject
+  - name: renderCharacters
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxZ
+        type: int
+      - name: deadRender
+        type: boolean
+      - name: doBlendFunc
+        type: boolean
+  - name: renderDeferredCharacters
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: maxZ
+        type: int
+  - name: RenderMinusFloorFxMask
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: maxZ
+        type: int
+      - name: doSE
+        type: boolean
+      - name: vegitationRender
+        type: boolean
+  - name: RenderOpenDoorOnly
+    modifiers:
+      - public
+    returnType: void
+  - name: ResetIsoWorldRegion
+    modifiers:
+      - public
+    returnType: void
+  - name: restackSheetRope
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: outputObj
+        type: ObjectOutputStream
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: scoreAsWaypoint
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: setbDoSlowPathfinding
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: abDoSlowPathfinding
+        type: boolean
+        notes: the bDoSlowPathfinding to set
+  - name: setCachedIsFree
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: CachedIsFree
+        type: boolean
+        notes: the CachedIsFree to set
+  - name: setCacheIsFree
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: CacheIsFree
+        type: boolean
+        notes: the CacheIsFree to set
+  - name: setCanSee
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: canSee
+        type: boolean
+        notes: the canSee to set
+  - name: setCollisionMode
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: setCouldSee
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: bCouldSee
+        type: boolean
+        notes: the bCouldSee to set
+  - name: setDarkMulti
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: darkMulti
+        type: float
+        notes: the darkMulti to set
+  - name: setDarkStep
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: aDarkStep
+        type: float
+        notes: the darkStep to set
+  - name: setE
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: e
+        type: IsoGridSquare
+        notes: the e to set
+  - name: setHasFlies
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: hasFlies
+        type: boolean
+  - name: setHaveElectricity
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: haveElectricity
+        type: boolean
+  - name: setHourSeenToCurrent
+    modifiers:
+      - public
+    returnType: void
+  - name: setID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ID
+        type: int
+        notes: the ID to set
+  - name: setIsDissolved
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: bDissolved
+        type: boolean
+      - name: currentTimeMillis
+        type: long
+  - name: setIsoWorldRegion
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: mr
+        type: IsoWorldRegion
+  - name: setIsSeen
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: bSeen
+        type: boolean
+        notes: the bSeen to set
+  - name: setLampostTotalB
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lampostTotalB
+        type: float
+        notes: the lampostTotalB to set
+  - name: setLampostTotalG
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lampostTotalG
+        type: float
+        notes: the lampostTotalG to set
+  - name: setLampostTotalR
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lampostTotalR
+        type: float
+        notes: the lampostTotalR to set
+  - name: setLightcache
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: aLightcache
+        type: int
+        notes: the lightcache to set
+  - name: setLightInfluenceB
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: LightInfluenceB
+        type: ArrayList<Float>
+        notes: the LightInfluenceB to set
+  - name: setLightInfluenceG
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: LightInfluenceG
+        type: ArrayList<Float>
+        notes: the LightInfluenceG to set
+  - name: setLightInfluenceR
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: LightInfluenceR
+        type: ArrayList<Float>
+        notes: the LightInfluenceR to set
+  - name: setLightInfoServerGUIOnly
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: c
+        type: ColorInfo
+  - name: setMatrixBit
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: matrix
+        type: int
+      - name: x
+        type: byte
+      - name: y
+        type: byte
+      - name: z
+        type: byte
+      - name: val
+        type: boolean
+  - name: setN
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: n
+        type: IsoGridSquare
+        notes: the n to set
+  - name: setOverlayDone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: overlayDone
+        type: boolean
+  - name: setPlayerCutawayFlag
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: bCutaway
+        type: boolean
+      - name: currentTimeMillis
+        type: long
+  - name: setRainDrop
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: drop
+        type: IsoRaindrop
+  - name: setRainSplash
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: splash
+        type: IsoRainSplash
+  - name: setRecalcLightTime
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: aRecalcLightTime
+        type: int
+        notes: the RecalcLightTime to set
+  - name: setRoom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: IsoRoom
+        notes: the room to set
+  - name: setRoomID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: roomID
+        type: int
+  - name: setS
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: s
+        type: IsoGridSquare
+        notes: the s to set
+  - name: setSolidFloor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: SolidFloor
+        type: boolean
+        notes: the SolidFloor to set
+  - name: setSolidFloorCached
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: SolidFloorCached
+        type: boolean
+        notes: the SolidFloorCached to set
+  - name: setTargetDarkMulti
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+      - name: targetDarkMulti
+        type: float
+        notes: the targetDarkMulti to set
+  - name: setTrapPositionX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: trapPositionX
+        type: int
+  - name: setTrapPositionY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: trapPositionY
+        type: int
+  - name: setTrapPositionZ
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: trapPositionZ
+        type: int
+  - name: setVertLight
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: i
+        type: int
+      - name: col
+        type: int
+      - name: playerIndex
+        type: int
+  - name: setW
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
+        type: IsoGridSquare
+        notes: the w to set
+  - name: setX
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+        notes: the x to set
+  - name: setY
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: y
+        type: int
+        notes: the y to set
+  - name: setZ
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: z
+        type: int
+        notes: the z to set
+  - name: shouldSave
+    modifiers:
+      - public
+    returnType: boolean
+  - name: smoke
+    modifiers:
+      - public
+    returnType: void
+  - name: softClear
+    modifiers:
+      - public
+    returnType: void
+  - name: splatBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dist
+        type: int
+      - name: alpha
+        type: float
+  - name: StartFire
+    modifiers:
+      - public
+    returnType: void
+  - name: stopFire
+    modifiers:
+      - public
+    returnType: void
+  - name: switchLight
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: active
+        type: boolean
+  - name: syncIsoTrap
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+  - name: testCollideAdjacent
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: collideObject
+        type: IsoMovingObject
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: testCollideAdjacentAdvanced
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: ignoreDoors
+        type: boolean
+  - name: testCollideSpecialObjects
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: next
+        type: IsoGridSquare
+  - name: testPathFindAdjacent
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: mover
+        type: IsoMovingObject
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: getter
+        type: IsoGridSquare.GetSquare
+  - name: testVisionAdjacent
+    modifiers:
+      - public
+    returnType: LosUtil.TestResults
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: specialDiag
+        type: boolean
+      - name: bIgnoreDoors
+        type: boolean
+  - name: toBoolean
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: data
+        type: byte[]
+  - name: transmitAddObjectToSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: index
+        type: int
+  - name: transmitModdata
+    modifiers:
+      - public
+    returnType: void
+  - name: transmitRemoveItemFromSquare
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: transmitRemoveItemFromSquareOnServer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+  - name: transmitStopFire
+    modifiers:
+      - public
+    returnType: void
+  - name: TreatAsSolidFloor
+    modifiers:
+      - public
+    returnType: boolean

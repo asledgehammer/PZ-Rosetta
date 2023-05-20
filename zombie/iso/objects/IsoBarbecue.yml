@@ -1,0 +1,207 @@
+# zombie.iso.objects.IsoBarbecue
+package: zombie.iso.objects
+type: class
+name: IsoBarbecue
+extends: IsoObject
+modifiers:
+  - public
+constructors:
+  - name: IsoBarbecue
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+  - name: IsoBarbecue
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+      - name: sq
+        type: IsoGridSquare
+      - name: gid
+        type: IsoSprite
+methods:
+  - name: addFuel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: units
+        type: int
+  - name: addToWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: extinguish
+    modifiers:
+      - public
+    returnType: void
+  - name: getFuelAmount
+    modifiers:
+      - public
+    returnType: int
+  - name: getObjectName
+    modifiers:
+      - public
+    returnType: String
+  - name: getTemperature
+    modifiers:
+      - public
+    returnType: float
+  - name: hasFuel
+    modifiers:
+      - public
+    returnType: boolean
+  - name: hasPropaneTank
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLit
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isPropaneBBQ
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSmouldering
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSpriteWithoutPropaneTank
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sprite
+        type: IsoSprite
+  - name: isSpriteWithPropaneTank
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: sprite
+        type: IsoSprite
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: loadChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: bb
+        type: ByteBuffer
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: removePropaneTank
+    modifiers:
+      - public
+    returnType: InventoryItem
+  - name: render
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: col
+        type: ColorInfo
+      - name: bDoChild
+        type: boolean
+      - name: bWallLightingPass
+        type: boolean
+      - name: shader
+        type: Shader
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
+  - name: saveChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
+  - name: setFuelAmount
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: units
+        type: int
+  - name: setLit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: lit
+        type: boolean
+  - name: setPropaneTank
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tank
+        type: InventoryItem
+  - name: setSprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newsprite
+        type: IsoSprite
+        notes: the sprite to set
+  - name: toggle
+    modifiers:
+      - public
+    returnType: void
+  - name: turnOff
+    modifiers:
+      - public
+    returnType: void
+  - name: turnOn
+    modifiers:
+      - public
+    returnType: void
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: useFuel
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: amount
+        type: int

@@ -1,0 +1,114 @@
+# zombie.ai.astar.Path
+package: zombie.ai.astar
+type: class
+name: Path
+extends: Object
+modifiers:
+  - public
+notes: |-
+  A path determined by some path finding algorithm. A series of steps from
+   the starting location to the target location. This includes a step for the
+   initial location.
+fields:
+  - name: cost
+    modifiers:
+      - public
+    returnType: float
+  - name: stepstore
+    modifiers:
+      - public
+      - static
+    returnType: Stack
+constructors:
+  - name: Path
+    modifiers:
+      - public
+    notes: Create an empty path
+methods:
+  - name: appendStep
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+        notes: The x coordinate of the new step
+      - name: y
+        type: int
+      - name: z
+        type: int
+    notes: Append a step to the path.
+  - name: contains
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: costPerStep
+    modifiers:
+      - public
+    returnType: float
+  - name: createStep
+    modifiers:
+      - public
+      - static
+    returnType: Path.Step
+  - name: getLength
+    modifiers:
+      - public
+    returnType: int
+    notes: get the length of the path, i.e. the number of steps
+  - name: getStep
+    modifiers:
+      - public
+    returnType: Path.Step
+    parameters:
+      - name: index
+        type: int
+        notes: |-
+          The index of the step to retrieve. Note this should
+           be >= 0 and &lt; getLength();
+    notes: get the step at a given index in the path
+  - name: getX
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the step whose x coordinate should be retrieved
+    notes: get the x coordinate for the step at the given index
+  - name: getY
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the step whose y coordinate should be retrieved
+    notes: get the y coordinate for the step at the given index
+  - name: getZ
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: index
+        type: int
+  - name: prependStep
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+        notes: The x coordinate of the new step
+      - name: y
+        type: int
+      - name: z
+        type: int
+    notes: Prepend a step to the path.

@@ -1,0 +1,458 @@
+# zombie.core.raknet.RakNetPeerInterface
+package: zombie.core.raknet
+type: class
+name: RakNetPeerInterface
+extends: Object
+modifiers:
+  - public
+notes: Created by LEMMYPC on 10/01/14.
+fields:
+  - name: ConnectionType_Disconnected
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: ConnectionType_Steam
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: ConnectionType_UDPRakNet
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte
+  - name: ID_ALREADY_CONNECTED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_CONNECTED_PING
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_CONNECTION_ATTEMPT_FAILED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_CONNECTION_BANNED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_CONNECTION_LOST
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_CONNECTION_REQUEST_ACCEPTED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_DISCONNECTION_NOTIFICATION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_INCOMPATIBLE_PROTOCOL_VERSION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_INVALID_PASSWORD
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_NEW_INCOMING_CONNECTION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_NO_FREE_INCOMING_CONNECTIONS
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_PING
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_RAKVOICE_CLOSE_CHANNEL
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_RAKVOICE_OPEN_CHANNEL_REPLY
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_RAKVOICE_OPEN_CHANNEL_REQUEST
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_REMOTE_CONNECTION_LOST
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_REMOTE_DISCONNECTION_NOTIFICATION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_REMOTE_NEW_INCOMING_CONNECTION
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_UNCONNECTED_PING
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: ID_USER_PACKET_ENUM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketPriority_HIGH
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketPriority_IMMEDIATE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketPriority_LOW
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketPriority_MEDIUM
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_RELIABLE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_RELIABLE_ORDERED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_RELIABLE_ORDERED_WITH_ACK_RECEIPT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_RELIABLE_SEQUENCED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_RELIABLE_WITH_ACK_RECEIPT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_UNRELIABLE
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_UNRELIABLE_SEQUENCED
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: PacketReliability_UNRELIABLE_WITH_ACK_RECEIPT
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+constructors:
+  - name: RakNetPeerInterface
+    modifiers:
+      - public
+methods:
+  - name: Connect
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: host
+        type: String
+      - name: remotePort
+        type: int
+      - name: password
+        type: String
+  - name: ConnectToSteamServer
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: steamId
+        type: long
+        notes: Server steam ID
+      - name: password
+        type: String
+  - name: disconnect
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connectedGUID
+        type: long
+      - name: message
+        type: String
+  - name: GetAveragePing
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: guid
+        type: long
+  - name: GetClientOwnerSteamID
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: guid
+        type: long
+  - name: GetClientSteamID
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: guid
+        type: long
+  - name: GetConnectionsNumber
+    modifiers:
+      - public
+    returnType: int
+  - name: GetConnectionType
+    modifiers:
+      - public
+    returnType: byte
+    parameters:
+      - name: guid
+        type: long
+  - name: getGuidFromIndex
+    modifiers:
+      - public
+    returnType: long
+    parameters:
+      - name: id
+        type: int
+  - name: getGuidOfPacket
+    modifiers:
+      - public
+    returnType: long
+  - name: getIPFromGUID
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: guid
+        type: long
+  - name: GetLastPing
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: guid
+        type: long
+  - name: GetLowestPing
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: guid
+        type: long
+  - name: GetMTUSize
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: guid
+        type: long
+  - name: GetNetStatistics
+    modifiers:
+      - public
+    returnType: ZNetStatistics
+    parameters:
+      - name: guid
+        type: long
+  - name: GetServerIP
+    modifiers:
+      - public
+    returnType: String
+  - name: init
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: Init
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: steamMode
+        type: boolean
+  - name: Receive
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: buffer
+        type: ByteBuffer
+  - name: Send
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: data
+        type: ByteBuffer
+      - name: PacketPriority
+        type: int
+      - name: PacketReliability
+        type: int
+      - name: orderingChannel
+        type: byte
+      - name: guid
+        type: long
+      - name: broadcast
+        type: boolean
+  - name: SendRaw
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: data
+        type: ByteBuffer
+      - name: PacketPriority
+        type: int
+      - name: PacketReliability
+        type: int
+      - name: orderingChannel
+        type: byte
+      - name: guid
+        type: long
+      - name: broadcast
+        type: boolean
+  - name: SetClientPort
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: port
+        type: int
+  - name: SetIncomingPassword
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: password
+        type: String
+  - name: SetMaximumIncomingConnections
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: num
+        type: int
+  - name: SetOccasionalPing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bPing
+        type: boolean
+  - name: SetServerIP
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ip
+        type: String
+  - name: SetServerPort
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: port
+        type: int
+      - name: UDPPort
+        type: int
+  - name: SetTimeoutTime
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: time
+        type: int
+  - name: SetUnreliableTimeout
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: timeout
+        type: int
+  - name: Shutdown
+    modifiers:
+      - public
+    returnType: void
+  - name: Startup
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: maxConnections
+        type: int

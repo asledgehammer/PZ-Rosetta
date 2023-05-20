@@ -1,0 +1,188 @@
+# zombie.core.raknet.RakVoice
+package: zombie.core.raknet
+type: class
+name: RakVoice
+extends: Object
+modifiers:
+  - public
+notes: Created by krotos139 on 05.05.2016.
+constructors:
+  - name: RakVoice
+    modifiers:
+      - public
+methods:
+  - name: CloseAllChannels
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: CloseVoiceChannel
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: uuid
+        type: long
+  - name: GetBuffering
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: GetBufferSizeBytes
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: GetChannelStatistics
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: uuid
+        type: long
+      - name: buf
+        type: long[]
+  - name: GetComplexity
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: GetIs3D
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: GetMaxDistance
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: GetMinDistance
+    modifiers:
+      - public
+      - static
+    returnType: float
+  - name: GetSampleRate
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: GetSendFramePeriod
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: GetServerVOIPEnable
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: ReceiveFrame
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: playerid
+        type: long
+      - name: buf
+        type: byte[]
+  - name: RequestVoiceChannel
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: uuid
+        type: long
+  - name: RVDeinit
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: RVInit
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: frames_per_buffer
+        type: int
+  - name: RVInitServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: enable
+        type: boolean
+      - name: sample_rate
+        type: int
+      - name: framePeriod
+        type: int
+      - name: complexity
+        type: int
+      - name: buffering
+        type: int
+      - name: minDistance
+        type: float
+      - name: maxDistance
+        type: float
+      - name: is3D
+        type: boolean
+  - name: SendFrame
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: uuid
+        type: long
+      - name: playerid
+        type: long
+      - name: buf
+        type: byte[]
+      - name: bufSize
+        type: long
+  - name: SetChannelsRouting
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: uuid
+        type: long
+      - name: isCanHearAll
+        type: boolean
+      - name: radioData
+        type: int[]
+      - name: radioDataCount
+        type: short
+  - name: SetComplexity
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: value
+        type: int
+  - name: SetLoopbackMode
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: mode
+        type: boolean
+  - name: SetVoiceBan
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: uuid
+        type: long
+      - name: is_ban
+        type: boolean

@@ -1,0 +1,604 @@
+# zombie.iso.IsoChunk
+package: zombie.iso
+type: class
+name: IsoChunk
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: bDoServerRequests
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: bLightingNeverDone
+    modifiers:
+      - public
+      - final
+    returnType: boolean[]
+  - name: bLoaded
+    modifiers:
+      - public
+    returnType: boolean
+  - name: collision
+    modifiers:
+      - public
+      - final
+    returnType: CollideWithObstaclesPoly.ChunkData
+  - name: corpseData
+    modifiers:
+      - public
+    returnType: FliesSound.ChunkData
+  - name: FloorBloodSplats
+    modifiers:
+      - public
+      - final
+    returnType: BoundedQueue
+  - name: FloorBloodSplatsFade
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: jobType
+    modifiers:
+      - public
+    returnType: IsoChunk.JobType
+  - name: lightCheck
+    modifiers:
+      - public
+      - final
+    returnType: boolean[]
+  - name: loadGridSquare
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ConcurrentLinkedQueue
+  - name: lootRespawnHour
+    modifiers:
+      - public
+    returnType: int
+  - name: lotheader
+    modifiers:
+      - public
+    returnType: LotHeader
+  - name: m_adjacentChunkLoadedCounter
+    modifiers:
+      - public
+    returnType: int
+  - name: m_loadVehiclesObject
+    modifiers:
+      - public
+    returnType: Object
+  - name: m_objectEmitterData
+    modifiers:
+      - public
+      - final
+    returnType: ObjectAmbientEmitters.ChunkData
+  - name: m_vehicleStorySpawnData
+    modifiers:
+      - public
+    returnType: VehicleStorySpawnData
+  - name: maxLevel
+    modifiers:
+      - public
+    returnType: int
+  - name: nearestWalls
+    modifiers:
+      - public
+      - final
+    returnType: NearestWalls.ChunkData
+  - name: next
+    modifiers:
+      - public
+    returnType: IsoChunk
+  - name: ObjectsSyncCount
+    modifiers:
+      - public
+    returnType: int
+  - name: randomID
+    modifiers:
+      - public
+    returnType: int
+  - name: refs
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: renderByIndex
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: byte[][]
+  - name: revision
+    modifiers:
+      - public
+    returnType: long
+  - name: roomLights
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: SoundList
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: squares
+    modifiers:
+      - public
+      - final
+    returnType: IsoGridSquare
+  - name: vehicles
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: vehiclesForAddToWorld
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: vehiclesForAddToWorldLock
+    modifiers:
+      - public
+      - final
+    returnType: Object
+  - name: WriteLock
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: Object
+  - name: wx
+    modifiers:
+      - public
+    returnType: int
+  - name: wy
+    modifiers:
+      - public
+    returnType: int
+constructors:
+  - name: IsoChunk
+    modifiers:
+      - public
+    parameters:
+      - name: cell
+        type: IsoCell
+methods:
+  - name: AddBlood
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: addBloodSplat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+      - name: Type
+        type: int
+  - name: AddCorpses
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: addFromCheckedVehicles
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: v
+        type: BaseVehicle
+  - name: addGeneratorPos
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: addObjectAmbientEmitter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+      - name: logic
+        type: ObjectAmbientEmitters.PerObjectLogic
+  - name: addRandomCarCrash
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: addToWorld
+        type: boolean
+  - name: addSpawnedRoom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: roomID
+        type: int
+  - name: addSurvivorInHorde
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: forced
+        type: boolean
+  - name: AddVehicles
+    modifiers:
+      - public
+    returnType: void
+  - name: Blam
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: canAddRandomCarCrash
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: force
+        type: boolean
+  - name: checkForMissingGenerators
+    modifiers:
+      - public
+    returnType: void
+  - name: doLoadGridsquare
+    modifiers:
+      - public
+    returnType: void
+  - name: doReuseGridsquares
+    modifiers:
+      - public
+    returnType: void
+  - name: doSpawnedVehiclesInInvalidPosition
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: v
+        type: BaseVehicle
+  - name: FileExists
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: Fix2x
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: tileName
+        type: String
+  - name: getErosionData
+    modifiers:
+      - public
+    returnType: ErosionData.Chunk
+  - name: getGridSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: getHashCodeObjects
+    modifiers:
+      - public
+    returnType: long
+  - name: getNumberOfWaterTiles
+    modifiers:
+      - public
+    returnType: int
+  - name: getRoom
+    modifiers:
+      - public
+    returnType: IsoRoom
+    parameters:
+      - name: roomID
+        type: int
+  - name: getScavengeZone
+    modifiers:
+      - public
+    returnType: IsoMetaGrid.Zone
+  - name: hashCodeNoOverride
+    modifiers:
+      - public
+    returnType: int
+  - name: hasObjectAmbientEmitter
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: IsDebugSave
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isGeneratorPoweringSquare
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: isNewChunk
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isSpawnedRoom
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: roomID
+        type: int
+  - name: LoadBrandNew
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+  - name: LoadFromBuffer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: bb
+        type: ByteBuffer
+  - name: LoadFromDisk
+    modifiers:
+      - public
+    returnType: void
+  - name: LoadFromDiskOrBuffer
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: loadInMainThread
+    modifiers:
+      - public
+    returnType: void
+  - name: loadInWorldStreamerThread
+    modifiers:
+      - public
+    returnType: void
+  - name: loadObjectState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: LoadOrCreate
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: fromServer
+        type: ByteBuffer
+  - name: RandomizeModel
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: v
+        type: BaseVehicle
+        notes: vehicle
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: name
+        type: String
+      - name: type
+        type: VehicleType
+    notes: Randomize a model with his corresponding texture defined in VehicleType
+  - name: recalcHashCodeObjects
+    modifiers:
+      - public
+    returnType: void
+  - name: recalcNeighboursNow
+    modifiers:
+      - public
+    returnType: void
+  - name: removeFromCheckedVehicles
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: v
+        type: BaseVehicle
+  - name: removeFromWorld
+    modifiers:
+      - public
+    returnType: void
+  - name: removeGeneratorPos
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+  - name: removeObjectAmbientEmitter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: object
+        type: IsoObject
+  - name: Reset
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: resetForStore
+    modifiers:
+      - public
+    returnType: void
+  - name: SafeRead
+    modifiers:
+      - public
+      - static
+    returnType: ByteBuffer
+    parameters:
+      - name: prefix
+        type: String
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: bb
+        type: ByteBuffer
+  - name: SafeWrite
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: prefix
+        type: String
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+      - name: bb
+        type: ByteBuffer
+  - name: Save
+    modifiers:
+      - public
+    returnType: ByteBuffer
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: crc
+        type: CRC32
+  - name: SaveLoadedChunk
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ccrc
+        type: ClientChunkRequest.Chunk
+      - name: crc32
+        type: CRC32
+  - name: saveObjectState
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: setCache
+    modifiers:
+      - public
+    returnType: void
+  - name: setCacheIncludingNull
+    modifiers:
+      - public
+    returnType: void
+  - name: setRandomVehicleStoryToSpawnLater
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spawnData
+        type: VehicleStorySpawnData
+  - name: setSquare
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: square
+        type: IsoGridSquare
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: updateBuildings
+    modifiers:
+      - public
+    returnType: void
+  - name: updatePlayerInBullet
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: updateSounds
+    modifiers:
+      - public
+    returnType: void
+  - name: updateVehicleStory
+    modifiers:
+      - public
+    returnType: void

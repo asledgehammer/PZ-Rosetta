@@ -1,0 +1,66 @@
+# zombie.core.Collections.NonBlockingHashSet&lt;E&gt;
+package: zombie.core.Collections
+type: class
+name: NonBlockingHashSet&lt;E&gt;
+extends: AbstractSet
+modifiers:
+  - public
+notes: A simple wrapper around
+constructors:
+  - name: NonBlockingHashSet
+    modifiers:
+      - public
+    notes: Make a new empty
+methods:
+  - name: add
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: o
+        type: E
+    notes: Add
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+    notes: Empty the set.
+  - name: contains
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: o
+        type: Object
+  - name: iterator
+    modifiers:
+      - public
+    returnType: Iterator
+  - name: readOnly
+    modifiers:
+      - public
+    returnType: void
+    notes: |-
+      Atomically make the set immutable.  Future calls to mutate will throw an
+       IllegalStateException.  Existing mutator calls in other threads racing
+       with this thread and will either throw IllegalStateException or their
+       update will be visible to this thread.  This implies that a simple flag
+       cannot make the Set immutable, because a late-arriving update in another
+       thread might see immutable flag not set yet, then mutate the Set after
+       the
+  - name: remove
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: o
+        type: Object
+    notes: Remove
+  - name: size
+    modifiers:
+      - public
+    returnType: int
+    notes: |-
+      Current count of elements in the set.  Due to concurrent racing updates,
+       the size is only ever approximate.  Updates due to the calling thread are
+       immediately visible to calling thread.

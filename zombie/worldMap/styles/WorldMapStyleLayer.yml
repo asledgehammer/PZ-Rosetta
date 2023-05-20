@@ -1,0 +1,68 @@
+# zombie.worldMap.styles.WorldMapStyleLayer
+package: zombie.worldMap.styles
+type: class
+name: WorldMapStyleLayer
+extends: Object
+modifiers:
+  - public
+  - abstract
+fields:
+  - name: m_filter
+    modifiers:
+      - public
+    returnType: WorldMapStyleLayer.IWorldMapStyleFilter
+  - name: m_filterKey
+    modifiers:
+      - public
+    returnType: String
+  - name: m_filterValue
+    modifiers:
+      - public
+    returnType: String
+  - name: m_id
+    modifiers:
+      - public
+    returnType: String
+  - name: m_minZoom
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: WorldMapStyleLayer
+    modifiers:
+      - public
+    parameters:
+      - name: id
+        type: String
+methods:
+  - name: filter
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: feature
+        type: WorldMapFeature
+      - name: args
+        type: WorldMapStyleLayer.FilterArgs
+  - name: getTypeString
+    modifiers:
+      - public
+      - abstract
+    returnType: String
+  - name: render
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: feature
+        type: WorldMapFeature
+      - name: args
+        type: WorldMapStyleLayer.RenderArgs
+  - name: renderCell
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: args
+        type: WorldMapStyleLayer.RenderArgs

@@ -1,0 +1,38 @@
+# zombie.core.Styles.Style
+package: zombie.core.Styles
+type: interface
+name: Style
+modifiers:
+  - public
+notes: |-
+  The default sprite renderer has various different styles of rendering, which
+   affect what data it uses from the buffer and what GL state that it sets and
+   resets before and after rendering.
+methods:
+  - name: build
+    returnType: GeometryData
+    notes: If not rendering a sprite, then we perform a build() to create
+  - name: getAlphaOp
+    returnType: AlphaOp
+  - name: getRenderSprite
+    returnType: boolean
+    notes: Whether to actually render a sprite when using this Style.
+  - name: getStyleID
+    returnType: int
+  - name: render
+    returnType: void
+    parameters:
+      - name: vertexOffset
+        type: int
+      - name: indexOffset
+        type: int
+    notes: >-
+      If not rendering a sprite, then render stuff. Our geometry was written to
+      a pre-prepared buffer which is pointed to
+       already.
+  - name: resetState
+    returnType: void
+    notes: Called to reset GL rendering state after actual drawing is done.
+  - name: setupState
+    returnType: void
+    notes: Called to set up GL rendering state before actual drawing is done.

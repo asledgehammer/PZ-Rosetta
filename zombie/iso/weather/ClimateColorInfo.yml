@@ -1,0 +1,146 @@
+# zombie.iso.weather.ClimateColorInfo
+package: zombie.iso.weather
+type: class
+name: ClimateColorInfo
+extends: Object
+modifiers:
+  - public
+notes: >-
+  TurboTuTone.
+   A pair of colors for global light interior and exterior, the alpha of the colors is blend intensity.
+   When outside the shader is used to apply global light, when inside a room its using a different method (using the weather mask) to do the coloring of outside parts.
+   This requires separate balancing of colors as using one and the same for both methods doesn't always look right.
+constructors:
+  - name: ClimateColorInfo
+    modifiers:
+      - public
+  - name: ClimateColorInfo
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: ClimateColorInfo
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: r2
+        type: float
+      - name: g2
+        type: float
+      - name: b2
+        type: float
+      - name: a2
+        type: float
+methods:
+  - name: getExterior
+    modifiers:
+      - public
+    returnType: Color
+  - name: getInterior
+    modifiers:
+      - public
+    returnType: Color
+  - name: interp
+    modifiers:
+      - public
+      - static
+    returnType: ClimateColorInfo
+    parameters:
+      - name: source
+        type: ClimateColorInfo
+      - name: target
+        type: ClimateColorInfo
+      - name: t
+        type: float
+      - name: resultColorInfo
+        type: ClimateColorInfo
+  - name: load
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: DataInputStream
+      - name: worldVersion
+        type: int
+  - name: read
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: DataOutputStream
+  - name: scale
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: val
+        type: float
+  - name: setExterior
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setInterior
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: setTo
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: other
+        type: ClimateColorInfo
+  - name: write
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: output
+        type: ByteBuffer
+  - name: writeColorInfoConfig
+    modifiers:
+      - public
+      - static
+    returnType: boolean

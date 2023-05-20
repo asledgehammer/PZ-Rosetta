@@ -1,0 +1,146 @@
+# zombie.iso.IsoMetaCell
+package: zombie.iso
+type: class
+name: IsoMetaCell
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: ChunkMap
+    modifiers:
+      - public
+      - final
+    returnType: IsoMetaChunk
+  - name: info
+    modifiers:
+      - public
+    returnType: LotHeader
+  - name: mannequinZones
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: roomTones
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: triggers
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: vehicleZones
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+constructors:
+  - name: IsoMetaCell
+    modifiers:
+      - public
+    parameters:
+      - name: wx
+        type: int
+      - name: wy
+        type: int
+methods:
+  - name: addRoom
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: RoomDef
+      - name: cellX
+        type: int
+      - name: cellY
+        type: int
+  - name: addTrigger
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: def
+        type: BuildingDef
+      - name: triggerRange
+        type: int
+      - name: zombieExclusionRange
+        type: int
+      - name: type
+        type: String
+  - name: addZone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: cellX
+        type: int
+      - name: cellY
+        type: int
+  - name: checkTriggers
+    modifiers:
+      - public
+    returnType: void
+  - name: Dispose
+    modifiers:
+      - public
+    returnType: void
+  - name: getChunk
+    modifiers:
+      - public
+    returnType: IsoMetaChunk
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+  - name: getRoomsIntersecting
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: result
+        type: ArrayList<RoomDef>
+  - name: getZonesIntersecting
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: result
+        type: ArrayList<IsoMetaGrid.Zone>
+  - name: getZonesUnique
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: result
+        type: Set<IsoMetaGrid.Zone>
+  - name: removeZone
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone

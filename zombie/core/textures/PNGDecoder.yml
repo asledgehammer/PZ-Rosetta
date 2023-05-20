@@ -1,0 +1,116 @@
+# zombie.core.textures.PNGDecoder
+package: zombie.core.textures
+type: class
+name: PNGDecoder
+extends: Object
+modifiers:
+  - public
+  - final
+notes: A PNGDecoder. The slick PNG decoder is based on this class :)
+fields:
+  - name: bDoMask
+    modifiers:
+      - public
+    returnType: boolean
+  - name: mask
+    modifiers:
+      - public
+    returnType: BooleanGrid
+  - name: maskID
+    modifiers:
+      - public
+    returnType: int
+  - name: readTotal
+    modifiers:
+      - public
+    returnType: long
+constructors:
+  - name: PNGDecoder
+    modifiers:
+      - public
+    parameters:
+      - name: input
+        type: InputStream
+      - name: bDoMask
+        type: boolean
+methods:
+  - name: decideTextureFormat
+    modifiers:
+      - public
+    returnType: PNGDecoder.Format
+    parameters:
+      - name: fmt
+        type: PNGDecoder.Format
+        notes: the desired format
+    notes: Computes the implemented format conversion for the desired format.
+  - name: decode
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: buffer
+        type: ByteBuffer
+        notes: the buffer
+      - name: stride
+        type: int
+      - name: fmt
+        type: PNGDecoder.Format
+    notes: |-
+      Decodes the image into the specified buffer. The first line is placed at
+       the current position. After decode the buffer position is at the end of
+       the last line.
+  - name: decodeFlipped
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: buffer
+        type: ByteBuffer
+        notes: the buffer
+      - name: stride
+        type: int
+      - name: fmt
+        type: PNGDecoder.Format
+    notes: |-
+      Decodes the image into the specified buffer. The last line is placed at
+       the current position. After decode the buffer position is at the end of
+       the first line.
+  - name: getHeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: hasAlpha
+    modifiers:
+      - public
+    returnType: boolean
+    notes: |-
+      Checks if the image has transparency information either from
+       an alpha channel or from a tRNS chunk.
+  - name: hasAlphaChannel
+    modifiers:
+      - public
+    returnType: boolean
+    notes: |-
+      Checks if the image has a real alpha channel.
+       This method does not check for the presence of a tRNS chunk.
+  - name: isRGB
+    modifiers:
+      - public
+    returnType: boolean
+  - name: overwriteTRNS
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: r
+        type: byte
+        notes: the red component of the color to make transparent
+      - name: g
+        type: byte
+      - name: b
+        type: byte
+    notes: Overwrites the tRNS chunk entry to make a selected color transparent.

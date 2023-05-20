@@ -1,0 +1,110 @@
+# zombie.core.skinnedmodel.advancedanimation.AnimationVariableSource
+package: zombie.core.skinnedmodel.advancedanimation
+type: class
+name: AnimationVariableSource
+extends: Object
+modifiers:
+  - public
+constructors:
+  - name: AnimationVariableSource
+    modifiers:
+      - public
+methods:
+  - name: clearVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+  - name: clearVariables
+    modifiers:
+      - public
+    returnType: void
+  - name: containsVariable
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: key
+        type: String
+  - name: getGameVariables
+    modifiers:
+      - public
+    returnType: Iterable
+    notes: Returns all Game variables.
+  - name: getOrCreateVariable
+    modifiers:
+      - public
+    returnType: IAnimationVariableSlot
+    parameters:
+      - name: key
+        type: String
+    notes: |-
+      Returns the specified variable slot.
+        Creates a new slot if not found.
+
+        Returns NULL if key is null, whitespace, or empty.
+  - name: getVariable
+    modifiers:
+      - public
+    returnType: IAnimationVariableSlot
+    parameters:
+      - name: key
+        type: String
+    notes: Returns the specified variable slot. Or NULL if not found.
+  - name: getVariableBoolean
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: boolean
+    notes: |-
+      Returns the specified variable, as a boolean.
+       Attempts to convert the string variable to a boolean.
+       If that fails, or if variable not found, returns defaultVal
+  - name: getVariableFloat
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: float
+    notes: |-
+      Returns the specified variable, as a float.
+       Attempts to convert the string variable to a float.
+       If that fails, or if variable not found, returns the defaultValue
+  - name: getVariableString
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: key
+        type: String
+    notes: Returns the specified variable. Or an empty string "" if not found.
+  - name: isVariable
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: name
+        type: String
+      - name: val
+        type: String
+    notes: |-
+      Compares (ignoring case) the value of the specified variable.
+       Returns TRUE if they match.
+  - name: setVariable
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: float

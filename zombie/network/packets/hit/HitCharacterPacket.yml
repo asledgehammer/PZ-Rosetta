@@ -1,0 +1,59 @@
+# zombie.network.packets.hit.HitCharacterPacket
+package: zombie.network.packets.hit
+type: class
+name: HitCharacterPacket
+extends: Object
+modifiers:
+  - public
+  - abstract
+constructors:
+  - name: HitCharacterPacket
+    modifiers:
+      - public
+    parameters:
+      - name: hitType
+        type: HitCharacterPacket.HitType
+methods:
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: isRelevant
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: process
+    modifiers:
+      - public
+      - static
+    returnType: HitCharacterPacket
+    parameters:
+      - name: b
+        type: ByteBuffer
+  - name: tryProcess
+    modifiers:
+      - public
+    returnType: void
+  - name: tryProcessInternal
+    modifiers:
+      - public
+    returnType: void
+  - name: validate
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
+  - name: write
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

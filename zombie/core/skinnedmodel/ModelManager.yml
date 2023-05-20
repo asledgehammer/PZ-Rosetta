@@ -1,0 +1,456 @@
+# zombie.core.skinnedmodel.ModelManager
+package: zombie.core.skinnedmodel
+type: class
+name: ModelManager
+extends: Object
+modifiers:
+  - public
+  - final
+notes: Created by LEMMYATI on 05/01/14.
+fields:
+  - name: bCreateSoftwareMeshes
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bDebugEnableModels
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bitmap
+    modifiers:
+      - public
+    returnType: TextureFBO
+  - name: instance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ModelManager
+  - name: m_femaleModel
+    modifiers:
+      - public
+    returnType: Model
+  - name: m_maleModel
+    modifiers:
+      - public
+    returnType: Model
+  - name: m_skeletonFemaleModel
+    modifiers:
+      - public
+    returnType: Model
+  - name: m_skeletonMaleModel
+    modifiers:
+      - public
+    returnType: Model
+  - name: NoOpenGL
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: SoftwareMeshAnims
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+constructors:
+  - name: ModelManager
+    modifiers:
+      - public
+methods:
+  - name: Add
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+    notes: Add the supplied character to the visible render list.
+  - name: addAnimationClip
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: clip
+        type: AnimationClip
+  - name: addStatic
+    modifiers:
+      - public
+    returnType: ModelInstance
+    parameters:
+      - name: parentInst
+        type: ModelInstance
+      - name: modelName
+        type: String
+      - name: attachNameSelf
+        type: String
+      - name: attachNameParent
+        type: String
+  - name: addStaticForcedTex
+    modifiers:
+      - public
+    returnType: ModelInstance
+    parameters:
+      - name: parentInst
+        type: ModelInstance
+      - name: modelName
+        type: String
+      - name: attachNameSelf
+        type: String
+      - name: attachNameParent
+        type: String
+      - name: forcedTex
+        type: String
+  - name: addVehicle
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: animationAssetLoaded
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: animationAsset
+        type: AnimationAsset
+  - name: ContainsChar
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+    notes: Returns TRUE if the character is currently in the visible render list,
+      and has not been flagged for removal.
+  - name: create
+    modifiers:
+      - public
+    returnType: void
+  - name: derefModelInstance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelInstance
+        type: ModelInstance
+  - name: derefModelInstances
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelInstances
+        type: ArrayList<ModelInstance>
+  - name: dressInRandomOutfit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getAllAnimationClips
+    modifiers:
+      - public
+    returnType: Collection
+  - name: getAnimationClip
+    modifiers:
+      - public
+    returnType: AnimationClip
+    parameters:
+      - name: name
+        type: String
+  - name: getBodyModel
+    modifiers:
+      - public
+    returnType: Model
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getClosestThreeLights
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoMovingObject
+      - name: ret
+        type: IsoLightSource[]
+  - name: getLoadedModel
+    modifiers:
+      - public
+    returnType: Model
+    parameters:
+      - name: meshName
+        type: String
+      - name: tex
+        type: String
+      - name: isStatic
+        type: boolean
+      - name: shaderName
+        type: String
+  - name: getSlot
+    modifiers:
+      - public
+    returnType: ModelManager.ModelSlot
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: getTextureFlags
+    modifiers:
+      - public
+    returnType: int
+  - name: initAnimationMeshes
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: bReloading
+        type: boolean
+  - name: isCreated
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isLoadingAnimations
+    modifiers:
+      - public
+    returnType: boolean
+  - name: loadAdditionalModel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: meshName
+        type: String
+      - name: tex
+        type: String
+      - name: bStatic
+        type: boolean
+      - name: shaderName
+        type: String
+  - name: loadModAnimations
+    modifiers:
+      - public
+    returnType: void
+  - name: loadStaticModel
+    modifiers:
+      - public
+    returnType: Model
+    parameters:
+      - name: meshName
+        type: String
+      - name: tex
+        type: String
+      - name: shaderName
+        type: String
+  - name: newAdditionalModelInstance
+    modifiers:
+      - public
+    returnType: ModelInstance
+    parameters:
+      - name: meshName
+        type: String
+      - name: tex
+        type: String
+      - name: chr
+        type: IsoGameCharacter
+      - name: animPlayer
+        type: AnimationPlayer
+      - name: shaderName
+        type: String
+  - name: newInstance
+    modifiers:
+      - public
+    returnType: ModelInstance
+    parameters:
+      - name: model
+        type: Model
+      - name: chr
+        type: IsoGameCharacter
+      - name: player
+        type: AnimationPlayer
+  - name: newStaticInstance
+    modifiers:
+      - public
+    returnType: ModelInstance
+    parameters:
+      - name: slot
+        type: ModelManager.ModelSlot
+      - name: meshName
+        type: String
+      - name: texName
+        type: String
+      - name: boneName
+        type: String
+      - name: shaderName
+        type: String
+  - name: putLoadedModel
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: tex
+        type: String
+      - name: isStatic
+        type: boolean
+      - name: shaderName
+        type: String
+      - name: model
+        type: Model
+  - name: reloadAllOutfits
+    modifiers:
+      - public
+    returnType: void
+  - name: reloadModelsMatching
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: meshName
+        type: String
+  - name: Remove
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+  - name: RenderParticles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: texd
+        type: TextureDraw
+      - name: userId
+        type: int
+      - name: va11
+        type: int
+  - name: RenderPuddles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: shaderID
+        type: int
+      - name: userId
+        type: int
+      - name: z
+        type: int
+  - name: RenderSkyBox
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: texd
+        type: TextureDraw
+      - name: shaderID
+        type: int
+      - name: userId
+        type: int
+      - name: apiId
+        type: int
+      - name: bufferId
+        type: int
+  - name: RenderWater
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: texd
+        type: TextureDraw
+      - name: shaderID
+        type: int
+      - name: userId
+        type: int
+      - name: bShore
+        type: boolean
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+  - name: ResetCharacterEquippedHands
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+  - name: ResetEquippedNextFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isoGameCharacter
+        type: IsoGameCharacter
+  - name: resetModelInstance
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelInstance
+        type: ModelInstance
+      - name: expectedOwner
+        type: Object
+  - name: resetModelInstanceRecurse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelInstance
+        type: ModelInstance
+      - name: expectedOwner
+        type: Object
+  - name: resetModelInstancesRecurse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelInstances
+        type: ArrayList<ModelInstance>
+      - name: expectedOwner
+        type: Object
+  - name: ResetNextFrame
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: isoGameCharacter
+        type: IsoGameCharacter
+  - name: setModelMetaData
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: modelId
+        type: String
+      - name: meshName
+        type: String
+      - name: texName
+        type: String
+      - name: shaderName
+        type: String
+      - name: bStatic
+        type: boolean
+  - name: tryGetLoadedModel
+    modifiers:
+      - public
+    returnType: Model
+    parameters:
+      - name: meshName
+        type: String
+      - name: tex
+        type: String
+      - name: isStatic
+        type: boolean
+      - name: shaderName
+        type: String
+      - name: logError
+        type: boolean
+  - name: update
+    modifiers:
+      - public
+    returnType: void

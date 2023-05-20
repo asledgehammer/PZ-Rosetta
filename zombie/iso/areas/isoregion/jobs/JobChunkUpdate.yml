@@ -1,0 +1,93 @@
+# zombie.iso.areas.isoregion.jobs.JobChunkUpdate
+package: zombie.iso.areas.isoregion.jobs
+type: class
+name: JobChunkUpdate
+extends: RegionJob
+modifiers:
+  - public
+notes: TurboTuTone.
+methods:
+  - name: addChunkFromDataChunk
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: chunk
+        type: DataChunk
+  - name: addChunkFromFile
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: addChunkFromIsoChunk
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: isoChunk
+        type: IsoChunk
+  - name: canAddChunk
+    modifiers:
+      - public
+    returnType: boolean
+  - name: getBuffer
+    modifiers:
+      - public
+    returnType: ByteBuffer
+  - name: getChunkCount
+    modifiers:
+      - public
+    returnType: int
+  - name: getNetTimeStamp
+    modifiers:
+      - public
+    returnType: long
+  - name: getTargetConn
+    modifiers:
+      - public
+    returnType: UdpConnection
+  - name: readChunksFromNetBuffer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
+      - name: serverTimeStamp
+        type: long
+  - name: readChunksPacket
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: root
+        type: DataRoot
+      - name: knownChunks
+        type: List<Integer>
+  - name: saveChunksToDisk
+    modifiers:
+      - public
+    returnType: boolean
+  - name: saveChunksToNetBuffer
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: setNetTimeStamp
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: netTimeStamp
+        type: long
+  - name: setTargetConn
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: conn
+        type: UdpConnection

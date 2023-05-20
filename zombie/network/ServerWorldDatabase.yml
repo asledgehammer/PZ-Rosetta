@@ -1,0 +1,327 @@
+# zombie.network.ServerWorldDatabase
+package: zombie.network
+type: class
+name: ServerWorldDatabase
+extends: Object
+modifiers:
+  - public
+notes: Created by LEMMYPC on 14/01/14.
+fields:
+  - name: CommandLineAdminPassword
+    modifiers:
+      - public
+    returnType: String
+  - name: CommandLineAdminUsername
+    modifiers:
+      - public
+    returnType: String
+  - name: dbSchema
+    modifiers:
+      - public
+    returnType: DBSchema
+  - name: doAdmin
+    modifiers:
+      - public
+    returnType: boolean
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: ServerWorldDatabase
+constructors:
+  - name: ServerWorldDatabase
+    modifiers:
+      - public
+methods:
+  - name: addTicket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: author
+        type: String
+      - name: message
+        type: String
+      - name: ticketID
+        type: int
+  - name: addUser
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: user
+        type: String
+      - name: pass
+        type: String
+  - name: addUserlog
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: username
+        type: String
+      - name: type
+        type: Userlog.UserlogType
+      - name: text
+        type: String
+      - name: issuedBy
+        type: String
+      - name: amount
+        type: int
+  - name: addWarningPoint
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+      - name: reason
+        type: String
+      - name: amount
+        type: int
+      - name: issuedBy
+        type: String
+  - name: authClient
+    modifiers:
+      - public
+    returnType: ServerWorldDatabase.LogonResult
+    parameters:
+      - name: steamID
+        type: long
+  - name: authOwner
+    modifiers:
+      - public
+    returnType: ServerWorldDatabase.LogonResult
+    parameters:
+      - name: steamID
+        type: long
+      - name: ownerID
+        type: long
+  - name: banIp
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: ip
+        type: String
+      - name: username
+        type: String
+      - name: reason
+        type: String
+      - name: ban
+        type: boolean
+  - name: banSteamID
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: steamID
+        type: String
+      - name: reason
+        type: String
+      - name: ban
+        type: boolean
+  - name: banUser
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+      - name: ban
+        type: boolean
+  - name: changePwd
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+      - name: previousPwd
+        type: String
+      - name: newPwd
+        type: String
+  - name: changeUsername
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: user
+        type: String
+      - name: newUsername
+        type: String
+  - name: close
+    modifiers:
+      - public
+    returnType: void
+  - name: containsCaseinsensitiveUser
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: user
+        type: String
+  - name: containsUser
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: user
+        type: String
+  - name: create
+    modifiers:
+      - public
+    returnType: void
+  - name: encrypt
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: previousPwd
+        type: String
+  - name: executeQuery
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: query
+        type: String
+      - name: params
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: getDBSchema
+    modifiers:
+      - public
+    returnType: DBSchema
+  - name: getDisplayName
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+  - name: getTableResult
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: table
+        type: String
+  - name: getTickets
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: playerName
+        type: String
+  - name: getUserlog
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: username
+        type: String
+  - name: grantAdmin
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+      - name: setAdmin
+        type: boolean
+  - name: isValidUserName
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: user
+        type: String
+  - name: removeTicket
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: ticketID
+        type: int
+  - name: removeUser
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+  - name: removeUserLog
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: username
+        type: String
+      - name: type
+        type: String
+      - name: text
+        type: String
+  - name: saveAllTransactionsID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - type: HashMap<String
+      - name: map
+        type: Integer>
+  - name: saveTransactionID
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: username
+        type: String
+      - name: transactionID
+        type: Integer
+  - name: setAccessLevel
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: username
+        type: String
+      - name: accessLevel
+        type: String
+  - name: setPassword
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: username
+        type: String
+      - name: password
+        type: String
+  - name: setUserSteamID
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: user
+        type: String
+      - name: steamID
+        type: String
+  - name: updateDisplayName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: user
+        type: String
+      - name: displayName
+        type: String
+  - name: updateLastConnectionDate
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: u
+        type: String
+      - name: p
+        type: String

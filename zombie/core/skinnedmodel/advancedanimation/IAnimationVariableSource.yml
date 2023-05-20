@@ -1,0 +1,59 @@
+# zombie.core.skinnedmodel.advancedanimation.IAnimationVariableSource
+package: zombie.core.skinnedmodel.advancedanimation
+type: interface
+name: IAnimationVariableSource
+modifiers:
+  - public
+methods:
+  - name: containsVariable
+    returnType: boolean
+    parameters:
+      - name: name
+        type: String
+  - name: getGameVariables
+    returnType: Iterable
+    notes: Returns all Game variables.
+  - name: getVariable
+    returnType: IAnimationVariableSlot
+    parameters:
+      - name: key
+        type: String
+    notes: Returns the specified variable slot. Or NULL if not found.
+  - name: getVariableBoolean
+    returnType: boolean
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: boolean
+    notes: |-
+      Returns the specified variable, as a boolean.
+       Attempts to convert the string variable to a boolean.
+       If that fails, or if variable not found, returns defaultVal
+  - name: getVariableFloat
+    returnType: float
+    parameters:
+      - name: name
+        type: String
+      - name: defaultVal
+        type: float
+    notes: |-
+      Returns the specified variable, as a float.
+        Attempts to convert the string variable to a float.
+        If that fails, or if variable not found, returns the defaultValue
+  - name: getVariableString
+    returnType: String
+    parameters:
+      - name: name
+        type: String
+    notes: Returns the specified variable. Or an empty string "" if not found.
+  - name: isVariable
+    returnType: boolean
+    parameters:
+      - name: name
+        type: String
+      - name: val
+        type: String
+    notes: |-
+      Compares (ignoring case) the value of the specified variable.
+       Returns TRUE if they match.

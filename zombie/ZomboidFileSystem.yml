@@ -1,0 +1,529 @@
+# zombie.ZomboidFileSystem
+package: zombie
+type: class
+name: ZomboidFileSystem
+extends: Object
+modifiers:
+  - public
+  - final
+fields:
+  - name: ActiveFileMap
+    modifiers:
+      - public
+      - final
+    returnType: HashMap
+  - name: base
+    modifiers:
+      - public
+    returnType: File
+  - name: baseURI
+    modifiers:
+      - public
+    returnType: URI
+  - name: IgnoreActiveFileMap
+    modifiers:
+      - public
+      - final
+    returnType: ThreadLocal
+  - name: instance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: ZomboidFileSystem
+methods:
+  - name: cleanMultiplayerSaves
+    modifiers:
+      - public
+    returnType: void
+  - name: deleteFile
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: filePath
+        type: String
+  - name: ensureFolderExists
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: directory
+        type: File
+  - name: getAbsolutePath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: rel
+        type: String
+  - name: getAbsoluteWorkDir
+    modifiers:
+      - public
+    returnType: String
+  - name: getActionGroupsPath
+    modifiers:
+      - public
+    returnType: String
+  - name: getAllModFolders
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: out
+        type: List<String>
+  - name: getAllPathsContaining
+    modifiers:
+      - public
+    returnType: Object
+    parameters:
+      - name: str
+        type: String
+      - name: str2
+        type: String
+  - name: getAnimName
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: mediaURI
+        type: URI
+      - name: file
+        type: File
+  - name: getAnimSetsPath
+    modifiers:
+      - public
+    returnType: String
+  - name: getCacheDir
+    modifiers:
+      - public
+    returnType: String
+    notes: >-
+      Returns the root cache folder. Used for all save/settings/etc. files in
+      the user directory.
+        The returned folder exists on arrival.
+  - name: getCacheDirSub
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subPath
+        type: String
+    notes: |-
+      Returns the subPath, relative to the CacheDir path.
+        NOTE: Does not create the subPath, nor ensure that it exists.
+  - name: getCanonicalFile
+    modifiers:
+      - public
+    returnType: File
+    parameters:
+      - name: path
+        type: String
+  - name: getCanonicalPath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: path
+        type: String
+  - name: getCanonicalURI
+    modifiers:
+      - public
+    returnType: URI
+    parameters:
+      - name: path
+        type: String
+  - name: getCurrentSaveDir
+    modifiers:
+      - public
+    returnType: String
+  - name: getFileGuidTable
+    modifiers:
+      - public
+    returnType: FileGuidTable
+  - name: getFileInCurrentSave
+    modifiers:
+      - public
+    returnType: File
+    parameters:
+      - name: subDir1
+        type: String
+      - name: subDir2
+        type: String
+      - name: fileName
+        type: String
+  - name: getFileNameInCurrentSave
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subDir1
+        type: String
+      - name: subDir2
+        type: String
+      - name: fileName
+        type: String
+  - name: getFilePathFromGuid
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: guid
+        type: String
+  - name: getGameModeCacheDir
+    modifiers:
+      - public
+    returnType: String
+  - name: getGuidFromFilePath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: path
+        type: String
+  - name: getInstalledItemModsFolders
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: out
+        type: ArrayList<String>
+  - name: getLocalWorkDir
+    modifiers:
+      - public
+    returnType: String
+  - name: getLocalWorkDirSub
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subPath
+        type: String
+  - name: getMediaFile
+    modifiers:
+      - public
+    returnType: File
+    parameters:
+      - name: subPath
+        type: String
+  - name: getMediaPath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subPath
+        type: String
+  - name: getMediaRootFile
+    modifiers:
+      - public
+    returnType: File
+  - name: getMediaRootPath
+    modifiers:
+      - public
+    returnType: String
+  - name: getMessagingDir
+    modifiers:
+      - public
+    returnType: String
+    notes: >-
+      Returns the messaging folder. Used for writing Trigger files for
+      communicating with the game.
+        The returned folder exists on arrival.
+  - name: getMessagingDirSub
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subPath
+        type: String
+    notes: >-
+      Returns the messaging folder. Used for writing Trigger files for
+      communicating with the game.
+        NOTE: Does not create the subPath, nor ensure that it exists.
+  - name: getModDir
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: modId
+        type: String
+  - name: getModIDs
+    modifiers:
+      - public
+    returnType: ArrayList
+  - name: getModInfoForDir
+    modifiers:
+      - public
+    returnType: ChooseGameInfo.Mod
+    parameters:
+      - name: modDir
+        type: String
+  - name: getRelativeFile
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: root
+        type: URI
+      - name: string
+        type: String
+  - name: getSaveDir
+    modifiers:
+      - public
+    returnType: String
+  - name: getSaveDirSub
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subPath
+        type: String
+    notes: |-
+      Returns the subPath, relative to the SaveDir path.
+        NOTE: Does not create the subPath, nor ensure that it exists.
+  - name: getScreenshotDir
+    modifiers:
+      - public
+    returnType: String
+  - name: getScreenshotDirSub
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: subPath
+        type: String
+    notes: |-
+      Returns the subPath, relative to the ScreenshotDir path.
+        NOTE: Does not create the subPath, nor ensure that it exists.
+  - name: getStagedItemModsFolders
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: out
+        type: ArrayList<String>
+  - name: getString
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: str
+        type: String
+  - name: getWorkshopItemMods
+    modifiers:
+      - public
+    returnType: ArrayList
+    parameters:
+      - name: itemID
+        type: long
+  - name: init
+    modifiers:
+      - public
+    returnType: void
+  - name: isValidFilePathGuid
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: source
+        type: String
+  - name: listAllDirectories
+    modifiers:
+      - public
+      - static
+    returnType: File
+    parameters:
+      - name: root
+        type: File
+      - name: filter
+        type: FileFilter
+      - name: recursive
+        type: boolean
+  - name: listAllFiles
+    modifiers:
+      - public
+      - static
+    returnType: File
+    parameters:
+      - name: folder
+        type: File
+      - name: filter
+        type: FileFilter
+      - name: recursive
+        type: boolean
+  - name: loadFileGuidTable
+    modifiers:
+      - public
+    returnType: void
+  - name: loadMod
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: path
+        type: String
+  - name: loadModPackFiles
+    modifiers:
+      - public
+    returnType: void
+  - name: loadMods
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: toLoad
+        type: ArrayList<String>
+  - name: loadModsAux
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: toLoad
+        type: ArrayList<String>
+      - name: ordered
+        type: ArrayList<String>
+  - name: loadModTileDefPropertyStrings
+    modifiers:
+      - public
+    returnType: void
+  - name: loadModTileDefs
+    modifiers:
+      - public
+    returnType: void
+  - name: normalizeFolderPath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: path
+        type: String
+  - name: processFilePath
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: filePath
+        type: String
+      - name: separatorChar
+        type: char
+  - name: Reset
+    modifiers:
+      - public
+    returnType: void
+  - name: resetDefaultModsForNewRelease
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: versionStr
+        type: String
+  - name: resetModFolders
+    modifiers:
+      - public
+    returnType: void
+  - name: resolveAllDirectories
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: relPath
+        type: String
+      - name: filter
+        type: FileFilter
+      - name: recursive
+        type: boolean
+  - name: resolveAllFiles
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: relPath
+        type: String
+      - name: filter
+        type: FileFilter
+      - name: recursive
+        type: boolean
+  - name: resolveFileOrGUID
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: source
+        type: String
+    notes: >-
+      Takes a string source, which is either a GUID or a file path. Returns a
+      file
+       path, if found. If none is found, returns the original source.
+  - name: resolveRelativePath
+    modifiers:
+      - public
+    returnType: String
+    parameters:
+      - name: srcFilePath
+        type: String
+      - name: relativePath
+        type: String
+  - name: saveModsFile
+    modifiers:
+      - public
+    returnType: void
+  - name: searchFolders
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: fo
+        type: File
+  - name: searchForModInfo
+    modifiers:
+      - public
+    returnType: ChooseGameInfo.Mod
+    parameters:
+      - name: path
+        type: File
+      - name: modSearched
+        type: String
+      - name: mods
+        type: ArrayList<ChooseGameInfo.Mod>
+  - name: setCacheDir
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: dir
+        type: String
+    notes: >-
+      Specify root cache folder. Used for all save/settings/etc. files in the
+      user directory.
+        If the specified folder does not exist, is created on the spot.
+  - name: setModFoldersOrder
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: s
+        type: String
+  - name: tryDeleteFile
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: filePath
+        type: String
+  - name: update
+    modifiers:
+      - public
+    returnType: void
+  - name: walkGameAndModFiles
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: relPath
+        type: String
+      - name: recursive
+        type: boolean
+      - name: consumer
+        type: ZomboidFileSystem.IWalkFilesVisitor

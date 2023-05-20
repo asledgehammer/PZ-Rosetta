@@ -1,0 +1,191 @@
+# zombie.ai.states.SwipeStatePlayer
+package: zombie.ai.states
+type: class
+name: SwipeStatePlayer
+extends: State
+modifiers:
+  - public
+  - final
+fields:
+  - name: hitInfoPool
+    modifiers:
+      - public
+      - final
+    returnType: ObjectPool
+constructors:
+  - name: SwipeStatePlayer
+    modifiers:
+      - public
+methods:
+  - name: animEvent
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
+  - name: CalcAttackVars
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoLivingCharacter
+      - name: vars
+        type: AttackVars
+  - name: CalcHitChance
+    modifiers:
+      - public
+    returnType: int
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
+      - name: hitInfo
+        type: HitInfo
+  - name: CalcHitList
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: extraRange
+        type: boolean
+      - name: attackVars
+        type: AttackVars
+      - name: hitList
+        type: ArrayList<HitInfo>
+  - name: calcValidTargets
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoLivingCharacter
+      - name: weapon
+        type: HandWeapon
+      - name: extraRange
+        type: boolean
+      - name: targetsProne
+        type: ArrayList<HitInfo>
+      - name: targetsStanding
+        type: ArrayList<HitInfo>
+  - name: changeWeapon
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: owner
+        type: IsoGameCharacter
+  - name: checkPVP
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: obj
+        type: IsoMovingObject
+  - name: ConnectSwing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
+  - name: enter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: execute
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: exit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+  - name: getBoneWorldPos
+    modifiers:
+      - public
+      - static
+    returnType: Vector3
+    parameters:
+      - name: target
+        type: IsoMovingObject
+      - name: boneName
+        type: String
+      - name: bonePos
+        type: Vector3
+  - name: instance
+    modifiers:
+      - public
+      - static
+    returnType: SwipeStatePlayer
+  - name: isProne
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+  - name: isProneTargetBetter
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
+      - name: bestStanding
+        type: HitInfo
+      - name: bestProne
+        type: HitInfo
+  - name: isStanding
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+  - name: splash
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoMovingObject
+      - name: weapon
+        type: HandWeapon
+      - name: owner
+        type: IsoGameCharacter
+  - name: WeaponLowerCondition
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: owner
+        type: IsoGameCharacter

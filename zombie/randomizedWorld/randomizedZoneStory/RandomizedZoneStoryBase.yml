@@ -1,0 +1,108 @@
+# zombie.randomizedWorld.randomizedZoneStory.RandomizedZoneStoryBase
+package: zombie.randomizedWorld.randomizedZoneStory
+type: class
+name: RandomizedZoneStoryBase
+extends: RandomizedWorldBase
+modifiers:
+  - public
+fields:
+  - name: alwaysDo
+    modifiers:
+      - public
+    returnType: boolean
+  - name: baseChance
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: int
+  - name: chance
+    modifiers:
+      - public
+    returnType: int
+  - name: totalChance
+    modifiers:
+      - public
+      - static
+    returnType: int
+  - name: zoneStory
+    modifiers:
+      - public
+      - static
+      - final
+    returnType: String
+  - name: zoneType
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+constructors:
+  - name: RandomizedZoneStoryBase
+    modifiers:
+      - public
+methods:
+  - name: cleanAreaForStory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: rzs
+        type: RandomizedZoneStoryBase
+      - name: zone
+        type: IsoMetaGrid.Zone
+  - name: getMinimumHeight
+    modifiers:
+      - public
+    returnType: int
+  - name: getMinimumWidth
+    modifiers:
+      - public
+    returnType: int
+  - name: getRandomFreeSquare
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: rzs
+        type: RandomizedZoneStoryBase
+      - name: zone
+        type: IsoMetaGrid.Zone
+    notes: Get a random free square in our story zone
+  - name: getRandomFreeSquareFullZone
+    modifiers:
+      - public
+    returnType: IsoGridSquare
+    parameters:
+      - name: rzs
+        type: RandomizedZoneStoryBase
+      - name: zone
+        type: IsoMetaGrid.Zone
+  - name: initAllRZSMapChance
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+  - name: isValid
+    modifiers:
+      - public
+    returnType: boolean
+  - name: isValidForStory
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: force
+        type: boolean
+  - name: randomizeZoneStory
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone

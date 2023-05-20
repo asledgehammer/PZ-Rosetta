@@ -1,0 +1,96 @@
+# zombie.network.packets.hit.AttackVars
+package: zombie.network.packets.hit
+type: class
+name: AttackVars
+extends: Object
+modifiers:
+  - public
+fields:
+  - name: bAimAtFloor
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bCloseKill
+    modifiers:
+      - public
+    returnType: boolean
+  - name: bDoShove
+    modifiers:
+      - public
+    returnType: boolean
+  - name: recoilDelay
+    modifiers:
+      - public
+    returnType: int
+  - name: targetOnGround
+    modifiers:
+      - public
+    returnType: MovingObject
+  - name: targetsProne
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: targetsStanding
+    modifiers:
+      - public
+      - final
+    returnType: ArrayList
+  - name: useChargeDelta
+    modifiers:
+      - public
+    returnType: float
+constructors:
+  - name: AttackVars
+    modifiers:
+      - public
+methods:
+  - name: clear
+    modifiers:
+      - public
+    returnType: void
+  - name: copy
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: original
+        type: AttackVars
+  - name: getDescription
+    modifiers:
+      - public
+    returnType: String
+  - name: getPacketSizeBytes
+    modifiers:
+      - public
+    returnType: int
+  - name: getWeapon
+    modifiers:
+      - public
+    returnType: HandWeapon
+    parameters:
+      - name: owner
+        type: IsoLivingCharacter
+  - name: parse
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
+  - name: setWeapon
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
+  - name: write
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

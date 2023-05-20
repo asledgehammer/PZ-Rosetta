@@ -1,0 +1,116 @@
+# zombie.erosion.categories.ErosionCategory
+package: zombie.erosion.categories
+type: class
+name: ErosionCategory
+extends: Object
+modifiers:
+  - public
+  - abstract
+fields:
+  - name: ID
+    modifiers:
+      - public
+    returnType: int
+  - name: region
+    modifiers:
+      - public
+    returnType: ErosionRegions.Region
+constructors:
+  - name: ErosionCategory
+    modifiers:
+      - public
+methods:
+  - name: getObjectNames
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: list
+        type: ArrayList<String>
+  - name: init
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+  - name: loadCategoryData
+    modifiers:
+      - public
+      - static
+    returnType: ErosionCategory.Data
+    parameters:
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: int
+  - name: replaceExistingObject
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+    parameters:
+      - name: _sq
+        type: IsoGridSquare
+      - name: _sqErosionData
+        type: ErosionData.Square
+      - name: _chunkData
+        type: ErosionData.Chunk
+      - name: _isExterior
+        type: boolean
+      - name: _hasWall
+        type: boolean
+  - name: update
+    modifiers:
+      - public
+      - abstract
+    returnType: void
+    parameters:
+      - name: _sq
+        type: IsoGridSquare
+      - name: _sqErosionData
+        type: ErosionData.Square
+      - name: _sqCategoryData
+        type: ErosionCategory.Data
+      - name: _chunkData
+        type: ErosionData.Chunk
+      - name: _eTick
+        type: int
+  - name: updateObj
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: _sqErosionData
+        type: ErosionData.Square
+      - name: _sqCategoryData
+        type: ErosionCategory.Data
+      - name: _sq
+        type: IsoGridSquare
+      - name: _gameObj
+        type: ErosionObj
+      - name: _bTree
+        type: boolean
+      - name: _stage
+        type: int
+      - name: _dispSeason
+        type: int
+      - name: _bloom
+        type: boolean
+  - name: validateSpawn
+    modifiers:
+      - public
+      - abstract
+    returnType: boolean
+    parameters:
+      - name: _sq
+        type: IsoGridSquare
+      - name: _sqErosionData
+        type: ErosionData.Square
+      - name: _chunkData
+        type: ErosionData.Chunk
+      - name: _isExterior
+        type: boolean
+      - name: _hasWall
+        type: boolean
+      - name: _isRespawn
+        type: boolean
