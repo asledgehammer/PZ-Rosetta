@@ -39,33 +39,23 @@ constructors:
   - name: IsoTree
     modifiers:
       - public
-    parameters:
-      - name: cell
-        type: IsoCell
   - name: IsoTree
     modifiers:
       - public
     parameters:
       - name: sq
         type: IsoGridSquare
-      - name: gid
-        type: String
   - name: IsoTree
     modifiers:
       - public
     parameters:
       - name: sq
         type: IsoGridSquare
-      - name: gid
-        type: IsoSprite
 methods:
   - name: Damage
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: amount
-        type: float
   - name: getHealth
     modifiers:
       - public
@@ -91,9 +81,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: chr
-        type: IsoMovingObject
   - name: HitByVehicle
     modifiers:
       - public
@@ -101,8 +88,6 @@ methods:
     parameters:
       - name: vehicle
         type: BaseVehicle
-      - name: amount
-        type: float
   - name: initTree
     modifiers:
       - public
@@ -115,9 +100,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: flip
-        type: boolean
+        type: " int"
   - name: load
     modifiers:
       - public
@@ -126,9 +109,7 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: int
-      - name: IS_DEBUG_SAVE
-        type: boolean
+        type: " int"
   - name: render
     modifiers:
       - public
@@ -137,17 +118,15 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoAttached
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
-      - name: shader
-        type: Shader
+        type: " boolean"
   - name: renderChopTreeIndicators
     modifiers:
       - public
@@ -164,8 +143,6 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
-      - name: IS_DEBUG_SAVE
-        type: boolean
   - name: setChopTreeCursorLocation
     modifiers:
       - public
@@ -175,26 +152,17 @@ methods:
       - name: playerIndex
         type: int
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: setHealth
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: health
-        type: int
   - name: setSprite
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sprite
-        type: IsoSprite
-        notes: the sprite to set
   - name: WeaponHit
     modifiers:
       - public
@@ -202,5 +170,3 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
-      - name: weapon
-        type: HandWeapon

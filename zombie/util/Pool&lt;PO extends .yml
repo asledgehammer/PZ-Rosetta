@@ -16,9 +16,6 @@ constructors:
   - name: Pool
     modifiers:
       - public
-    parameters:
-      - name: allocator
-        type: Supplier<PO>
 methods:
   - name: alloc
     modifiers:
@@ -30,14 +27,18 @@ methods:
       - public
       - final
     returnType: void
-    parameters:
-      - name: item
-        type: IPooledObject
+  - name: tryRelease
+    modifiers:
+      - public
+      - static
+    returnType: E
+  - name: tryRelease
+    modifiers:
+      - public
+      - static
+    returnType: E
   - name: tryRelease
     modifiers:
       - public
       - static
     returnType: E[]
-    parameters:
-      - name: objArray
-        type: E[]

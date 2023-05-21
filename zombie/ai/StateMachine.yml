@@ -15,9 +15,6 @@ constructors:
   - name: StateMachine
     modifiers:
       - public
-    parameters:
-      - name: owner
-        type: IsoGameCharacter
 methods:
   - name: changeState
     modifiers:
@@ -26,10 +23,16 @@ methods:
     parameters:
       - name: newState
         type: State
+  - name: changeState
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: newState
+        type: State
       - name: subStates
-        type: Iterable<State>
-      - name: restart
-        type: boolean
+        type: " Iterable"
+        genericType: " Iterable<State>"
   - name: getCurrent
     modifiers:
       - public
@@ -42,9 +45,6 @@ methods:
     modifiers:
       - public
     returnType: State
-    parameters:
-      - name: idx
-        type: int
   - name: getSubStateCount
     modifiers:
       - public
@@ -57,23 +57,14 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: substate
-        type: State
   - name: revertToPreviousState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sender
-        type: State
   - name: setLocked
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: lock
-        type: boolean
   - name: stateAnimEvent
     modifiers:
       - public
@@ -82,8 +73,6 @@ methods:
     parameters:
       - name: stateLayer
         type: int
-      - name: event
-        type: AnimEvent
   - name: update
     modifiers:
       - public

@@ -17,8 +17,6 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
-      - name: numPlanks
-        type: int
   - name: addRandomRangedWeapon
     modifiers:
       - public
@@ -27,11 +25,9 @@ methods:
       - name: container
         type: ItemContainer
       - name: addBulletsInGun
-        type: boolean
+        type: " boolean"
       - name: addBoxInContainer
-        type: boolean
-      - name: attachPart
-        type: boolean
+        type: " boolean"
   - name: addWorldItem
     modifiers:
       - public
@@ -40,9 +36,35 @@ methods:
       - name: item
         type: String
       - name: sq
-        type: IsoGridSquare
-      - name: obj
-        type: IsoObject
+        type: " IsoGridSquare"
+  - name: addWorldItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: String
+      - name: sq
+        type: " IsoGridSquare"
+      - name: xoffset
+        type: " float"
+      - name: yoffset
+        type: " float"
+  - name: addWorldItem
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: item
+        type: String
+      - name: sq
+        type: " IsoGridSquare"
+      - name: xoffset
+        type: " float"
+      - name: yoffset
+        type: " float"
+      - name: zoffset
+        type: " float"
   - name: addZombies
     modifiers:
       - public
@@ -52,13 +74,11 @@ methods:
         type: BuildingDef
         notes: buildingDef
       - name: totalZombies
-        type: int
+        type: " int"
       - name: outfit
-        type: String
+        type: " String"
       - name: femaleChance
-        type: Integer
-      - name: room
-        type: RoomDef
+        type: " Integer"
     notes: |-
       If you specify a outfit, make sure it works for both gender! (or force
        femaleChance to 0 or 1 if it's gender-specific)
@@ -70,19 +90,14 @@ methods:
       - name: totalZombies
         type: int
       - name: outfit
-        type: String
+        type: " String"
       - name: femaleChance
-        type: Integer
-      - name: square
-        type: IsoGridSquare
+        type: " Integer"
   - name: ChunkLoaded
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: building
-        type: IsoBuilding
   - name: getChance
     modifiers:
       - public
@@ -91,9 +106,6 @@ methods:
     modifiers:
       - public
     returnType: IsoDoor
-    parameters:
-      - name: sq
-        type: IsoGridSquare
   - name: getMinimumDays
     modifiers:
       - public
@@ -106,9 +118,6 @@ methods:
     modifiers:
       - public
     returnType: IsoWindow
-    parameters:
-      - name: sq
-        type: IsoGridSquare
   - name: init
     modifiers:
       - public
@@ -129,8 +138,6 @@ methods:
     parameters:
       - name: obj
         type: IsoObject
-      - name: sq
-        type: IsoGridSquare
   - name: isValid
     modifiers:
       - public
@@ -138,8 +145,6 @@ methods:
     parameters:
       - name: def
         type: BuildingDef
-      - name: force
-        type: boolean
     notes: >-
       Don't do any building change in a player's building Also check if the
        building have a bathroom, a kitchen and a bedroom
@@ -148,37 +153,22 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: def
-        type: BuildingDef
   - name: setAlwaysDo
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: alwaysDo
-        type: boolean
   - name: setChance
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: chance
-        type: int
   - name: setMinimumDays
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: minimumDays
-        type: int
   - name: setMinimumRooms
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: minimumRooms
-        type: int
   - name: spawnItemsInContainers
     modifiers:
       - public
@@ -187,6 +177,4 @@ methods:
       - name: def
         type: BuildingDef
       - name: distribName
-        type: String
-      - name: chance
-        type: int
+        type: " String"

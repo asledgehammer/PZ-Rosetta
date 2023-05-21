@@ -363,9 +363,6 @@ constructors:
   - name: IsoZombie
     modifiers:
       - public
-    parameters:
-      - name: cell
-        type: IsoCell
   - name: IsoZombie
     modifiers:
       - public
@@ -373,17 +370,12 @@ constructors:
       - name: cell
         type: IsoCell
       - name: desc
-        type: SurvivorDesc
-      - name: _palette
-        type: int
+        type: " SurvivorDesc"
 methods:
   - name: actionStateChanged
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sender
-        type: ActionContext
   - name: addAggro
     modifiers:
       - public
@@ -391,22 +383,14 @@ methods:
     parameters:
       - name: other
         type: IsoMovingObject
-      - name: damage
-        type: float
   - name: addBlood
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: speed
-        type: float
   - name: addItemToSpawnAtDeath
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: addRandomBloodDirtHolesEtc
     modifiers:
       - public
@@ -432,16 +416,12 @@ methods:
     parameters:
       - name: bodyPart
         type: BodyPartType
-      - name: bloody
-        type: boolean
   - name: applyDamageFromVehicle
     modifiers:
       - public
     returnType: void
     parameters:
       - name: vehicleSpeed
-        type: float
-      - name: damage
         type: float
   - name: becomeCorpse
     modifiers:
@@ -455,16 +435,11 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: weapon
-        type: HandWeapon
-      - name: out
-        type: Vector2
+        type: " HandWeapon"
   - name: canBeDeletedUnnoticed
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: minDistance
-        type: float
   - name: clearAggroList
     modifiers:
       - public
@@ -477,18 +452,11 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: itemGuid
-        type: String
-        notes: The item's Globally Unique Identifier (GUID).
     notes: "Description copied from class: IsoGameCharacter"
   - name: collideWith
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: obj
-        type: IsoObject
   - name: DoCorpseInventory
     modifiers:
       - public
@@ -497,9 +465,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: volume
-        type: float
+  - name: DoFootstepSound
+    modifiers:
+      - public
+    returnType: void
   - name: DoZombieInventory
     modifiers:
       - public
@@ -508,9 +477,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: spMod
-        type: float
   - name: DoZombieStats
     modifiers:
       - public
@@ -519,23 +485,14 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: itemGUID
-        type: String
   - name: dressInNamedOutfit
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: outfitName
-        type: String
   - name: dressInPersistentOutfitID
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: outfitID
-        type: int
   - name: dressInRandomOutfit
     modifiers:
       - public
@@ -588,10 +545,11 @@ methods:
   - name: getItemVisuals
     modifiers:
       - public
+    returnType: ItemVisuals
+  - name: getItemVisuals
+    modifiers:
+      - public
     returnType: void
-    parameters:
-      - name: itemVisuals
-        type: ItemVisuals
   - name: getNetworkCharacterAI
     modifiers:
       - public
@@ -620,16 +578,10 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: playerIndex
-        type: int
   - name: getScreenProperY
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: playerIndex
-        type: int
   - name: getSharedDescriptor
     modifiers:
       - public
@@ -674,9 +626,7 @@ methods:
       - name: speed
         type: float
       - name: dist
-        type: float
-      - name: temp
-        type: Vector2
+        type: " float"
   - name: Hit
     modifiers:
       - public
@@ -685,13 +635,37 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: speed
-        type: float
+        type: " float"
       - name: isHitFromBehind
-        type: boolean
+        type: " boolean"
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
+      - name: speed
+        type: " float"
+      - name: isHitFromBehind
+        type: " boolean"
       - name: hitDirX
-        type: float
-      - name: hitDirY
-        type: float
+        type: " float"
+  - name: Hit
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: " IsoGameCharacter"
+      - name: damageSplit
+        type: " float"
+      - name: bIgnoreDamage
+        type: " boolean"
+      - name: modDelta
+        type: " float"
   - name: hitConsequences
     modifiers:
       - public
@@ -700,13 +674,11 @@ methods:
       - name: weapon
         type: HandWeapon
       - name: wielder
-        type: IsoGameCharacter
+        type: " IsoGameCharacter"
       - name: bIgnoreDamage
-        type: boolean
+        type: " boolean"
       - name: damage
-        type: float
-      - name: bRemote
-        type: boolean
+        type: " float"
   - name: initCanCrawlUnderVehicle
     modifiers:
       - public
@@ -719,9 +691,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: desc
-        type: SurvivorDesc
+  - name: InitSpritePartsZombie
+    modifiers:
+      - public
+    returnType: void
   - name: isAlwaysKnockedDown
     modifiers:
       - public
@@ -778,9 +751,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: other
-        type: IsoMovingObject
   - name: isLocal
     modifiers:
       - public
@@ -805,9 +775,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: other
-        type: IsoMovingObject
   - name: isReanimate
     modifiers:
       - public
@@ -843,8 +810,6 @@ methods:
     parameters:
       - name: dist
         type: float
-      - name: dot
-        type: float
   - name: isTargetLocationKnown
     modifiers:
       - public
@@ -865,9 +830,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: testVehicle
-        type: BaseVehicle
   - name: isZombie
     modifiers:
       - public
@@ -876,9 +838,14 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: other
-        type: IsoMovingObject
+  - name: isZombieAttacking
+    modifiers:
+      - public
+    returnType: boolean
+  - name: Kill
+    modifiers:
+      - public
+    returnType: void
   - name: Kill
     modifiers:
       - public
@@ -890,9 +857,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hitFromBehind
-        type: boolean
   - name: load
     modifiers:
       - public
@@ -901,30 +865,19 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: int
-      - name: IS_DEBUG_SAVE
-        type: boolean
+        type: " int"
   - name: makeInactive
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: binactive
-        type: boolean
   - name: Move
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: Vector2
   - name: MoveUnmodded
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: Vector2
   - name: onMouseLeftClick
     modifiers:
       - public
@@ -937,9 +890,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: target
-        type: IsoGameCharacter
   - name: pathToLocationF
     modifiers:
       - public
@@ -948,9 +898,7 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
-      - name: z
-        type: float
+        type: " float"
   - name: playHurtSound
     modifiers:
       - public
@@ -975,17 +923,15 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoChild
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
-      - name: shader
-        type: Shader
+        type: " boolean"
   - name: renderlast
     modifiers:
       - public
@@ -1005,15 +951,10 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
-      - name: IS_DEBUG_SAVE
-        type: boolean
   - name: setAlwaysKnockedDown
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: alwaysKnockedDown
-        type: boolean
   - name: setAsSurvivor
     modifiers:
       - public
@@ -1022,51 +963,37 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: crawler
-        type: boolean
   - name: setBodyToEat
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: body
-        type: IsoDeadBody
   - name: setCanCrawlUnderVehicle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setCanWalk
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bCanStand
-        type: boolean
   - name: setCrawler
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: crawling
-        type: boolean
   - name: setCrawlerType
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: crawlerType
-        type: int
   - name: setDressInRandomOutfit
     modifiers:
       - public
     returnType: void
+  - name: setEatBodyTarget
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: dressInRandom
-        type: boolean
+      - name: target
+        type: IsoMovingObject
   - name: setEatBodyTarget
     modifiers:
       - public
@@ -1075,156 +1002,95 @@ methods:
       - name: target
         type: IsoMovingObject
       - name: force
-        type: boolean
-      - name: eatSpeed
-        type: float
+        type: " boolean"
   - name: setFakeDead
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bFakeDead
-        type: boolean
   - name: setFemaleEtc
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: female
-        type: boolean
   - name: setForceEatingAnimation
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: forceEatingAnimation
-        type: boolean
   - name: setForceFakeDead
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bForceFakeDead
-        type: boolean
   - name: setHitAngle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hitAngle
-        type: Vector2
   - name: setHitHeadWhileOnFloor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hitHeadWhileOnFloor
-        type: int
   - name: setHitLegsWhileOnFloor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hitLegsWhileOnFloor
-        type: boolean
   - name: setHitTime
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hitTime
-        type: int
   - name: setImmortalTutorialZombie
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: immortal
-        type: boolean
   - name: setJawStabAttach
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bJawStabAttach
-        type: boolean
   - name: setKnifeDeath
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bKnifeDeath
-        type: boolean
   - name: setNoTeeth
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: noTeeth
-        type: boolean
   - name: setOnlyJawStab
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: onlyJawStab
-        type: boolean
   - name: setPlayerAttackPosition
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: playerAttackPosition
-        type: String
   - name: setReanimate
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: reanimate
-        type: boolean
   - name: setReanimatedPlayer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: reanimated
-        type: boolean
   - name: setSitAgainstWall
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sitAgainstWall
-        type: boolean
   - name: setSkeleton
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: isSkeleton
-        type: boolean
   - name: setStaggerBack
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bStaggerBack
-        type: boolean
   - name: setTarget
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: t
-        type: IsoMovingObject
   - name: setTargetSeenTime
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: seconds
-        type: float
+  - name: setThumpCondition
+    modifiers:
+      - public
+    returnType: void
   - name: setThumpCondition
     modifiers:
       - public
@@ -1232,22 +1098,14 @@ methods:
     parameters:
       - name: condition
         type: int
-      - name: maxCondition
-        type: int
   - name: setThumpFlag
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: v
-        type: int
   - name: setThumpTimer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: thumpTimer
-        type: int
   - name: setTurnAlertedValues
     modifiers:
       - public
@@ -1255,43 +1113,26 @@ methods:
     parameters:
       - name: soundX
         type: int
-      - name: soundY
-        type: int
   - name: setUseless
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: useless
-        type: boolean
   - name: setVehicle4TestCollision
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: setVehicleHitLocation
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: setWalkType
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: _walkType
-        type: String
   - name: setWasFakeDead
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: wasFakeDead
-        type: boolean
   - name: shouldDoFenceLunge
     modifiers:
       - public
@@ -1311,15 +1152,10 @@ methods:
     parameters:
       - name: other
         type: IsoMovingObject
-      - name: bForced
-        type: boolean
   - name: testCollideWithVehicles
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: toggleCrawling
     modifiers:
       - public
@@ -1328,9 +1164,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: square
-        type: IsoGridSquare
   - name: update
     modifiers:
       - public
@@ -1343,9 +1176,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sharedDesc
-        type: SharedDescriptors.Descriptor
   - name: Wander
     modifiers:
       - public
@@ -1366,6 +1196,3 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: ByteBuffer

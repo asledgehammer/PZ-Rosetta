@@ -224,17 +224,11 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: con
-        type: UdpConnection
   - name: addDisconnect
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: con
-        type: UdpConnection
   - name: AddExplosiveTrap
     modifiers:
       - public
@@ -244,9 +238,7 @@ methods:
       - name: weapon
         type: HandWeapon
       - name: sq
-        type: IsoGridSquare
-      - name: sensor
-        type: boolean
+        type: " IsoGridSquare"
   - name: addIncoming
     modifiers:
       - public
@@ -256,9 +248,7 @@ methods:
       - name: id
         type: short
       - name: bb
-        type: ByteBuffer
-      - name: connection
-        type: UdpConnection
+        type: " ByteBuffer"
   - name: addXp
     modifiers:
       - public
@@ -268,9 +258,7 @@ methods:
       - name: p
         type: IsoPlayer
       - name: perk
-        type: PerkFactory.Perk
-      - name: xp
-        type: int
+        type: " PerkFactory.Perk"
   - name: disconnect
     modifiers:
       - public
@@ -279,8 +267,6 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
-      - name: description
-        type: String
   - name: disconnectPlayer
     modifiers:
       - public
@@ -289,8 +275,6 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
-      - name: connection
-        type: UdpConnection
   - name: doMinimumInit
     modifiers:
       - public
@@ -301,33 +285,21 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: d
-        type: ZomboidNetData
   - name: getAnyPlayerFromConnection
     modifiers:
       - public
       - static
     returnType: IsoPlayer
-    parameters:
-      - name: connection
-        type: UdpConnection
   - name: getConnectionByPlayerOnlineID
     modifiers:
       - public
       - static
     returnType: UdpConnection
-    parameters:
-      - name: onlineID
-        type: short
   - name: getConnectionFromPlayer
     modifiers:
       - public
       - static
     returnType: UdpConnection
-    parameters:
-      - name: player
-        type: IsoPlayer
   - name: getDifficulty
     modifiers:
       - public
@@ -342,25 +314,16 @@ methods:
       - public
       - static
     returnType: IsoPlayer
-    parameters:
-      - name: username
-        type: String
   - name: getPlayerByUserName
     modifiers:
       - public
       - static
     returnType: IsoPlayer
-    parameters:
-      - name: username
-        type: String
   - name: getPlayerByUserNameForCommand
     modifiers:
       - public
       - static
     returnType: IsoPlayer
-    parameters:
-      - name: username
-        type: String
   - name: getPlayerCount
     modifiers:
       - public
@@ -374,8 +337,11 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
-      - name: playerIndex
-        type: int
+  - name: getPlayers
+    modifiers:
+      - public
+      - static
+    returnType: ArrayList
   - name: getPlayers
     modifiers:
       - public
@@ -414,9 +380,6 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: def
-        type: BuildingDef
   - name: kick
     modifiers:
       - public
@@ -426,26 +389,23 @@ methods:
       - name: connection
         type: UdpConnection
       - name: description
-        type: String
-      - name: reason
-        type: String
+        type: " String"
   - name: loadModData
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: sq
-        type: IsoGridSquare
   - name: main
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: args
-        type: String[]
   - name: PauseAllClients
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: PlaySoundAtEveryPlayer
     modifiers:
       - public
       - static
@@ -459,13 +419,41 @@ methods:
       - name: name
         type: String
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
+        type: " int"
+  - name: PlaySoundAtEveryPlayer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: x
+        type: " int"
+      - name: y
+        type: " int"
       - name: z
-        type: int
-      - name: usePlrCoords
-        type: boolean
+        type: " int"
+  - name: PlayWorldSoundServer
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: name
+        type: String
+      - name: loop
+        type: " boolean"
+      - name: source
+        type: " IsoGridSquare"
+      - name: pitchVar
+        type: " float"
+      - name: radius
+        type: " float"
+      - name: maxGain
+        type: " float"
   - name: PlayWorldSoundServer
     modifiers:
       - public
@@ -475,19 +463,17 @@ methods:
       - name: character
         type: IsoGameCharacter
       - name: name
-        type: String
+        type: " String"
       - name: loop
-        type: boolean
+        type: " boolean"
       - name: source
-        type: IsoGridSquare
+        type: " IsoGridSquare"
       - name: pitchVar
-        type: float
+        type: " float"
       - name: radius
-        type: float
+        type: " float"
       - name: maxGain
-        type: float
-      - name: ignoreOutside
-        type: boolean
+        type: " float"
   - name: PlayWorldSoundWavServer
     modifiers:
       - public
@@ -497,25 +483,20 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: boolean
+        type: " boolean"
       - name: source
-        type: IsoGridSquare
+        type: " IsoGridSquare"
       - name: pitchVar
-        type: float
+        type: " float"
       - name: radius
-        type: float
+        type: " float"
       - name: maxGain
-        type: float
-      - name: ignoreOutside
-        type: boolean
+        type: " float"
   - name: rcon
     modifiers:
       - public
       - static
     returnType: String
-    parameters:
-      - name: command
-        type: String
   - name: receiveClientConnect
     modifiers:
       - public
@@ -524,8 +505,6 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
-      - name: r
-        type: ServerWorldDatabase.LogonResult
   - name: receiveEatBody
     modifiers:
       - public
@@ -535,9 +514,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveKickOutOfSafehouse
     modifiers:
       - public
@@ -547,9 +524,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receivePlayerListensChannel
     modifiers:
       - public
@@ -559,9 +534,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveRadioDeviceDataState
     modifiers:
       - public
@@ -571,9 +544,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveRadioServerData
     modifiers:
       - public
@@ -583,9 +554,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveSyncCustomLightSettings
     modifiers:
       - public
@@ -595,9 +564,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveSyncRadioData
     modifiers:
       - public
@@ -607,9 +574,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveThump
     modifiers:
       - public
@@ -619,9 +584,7 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: receiveWaveSignal
     modifiers:
       - public
@@ -631,17 +594,12 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: packetType
-        type: short
+        type: " UdpConnection"
   - name: RemoveItemFromMap
     modifiers:
       - public
       - static
     returnType: int
-    parameters:
-      - name: obj
-        type: IsoObject
   - name: sendAddItemToContainer
     modifiers:
       - public
@@ -650,8 +608,6 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
-      - name: item
-        type: InventoryItem
   - name: sendAdminMessage
     modifiers:
       - public
@@ -661,11 +617,9 @@ methods:
       - name: message
         type: String
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: sendAlarm
     modifiers:
       - public
@@ -673,8 +627,6 @@ methods:
     returnType: void
     parameters:
       - name: x
-        type: int
-      - name: y
         type: int
   - name: sendAmbient
     modifiers:
@@ -685,21 +637,16 @@ methods:
       - name: name
         type: String
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
+        type: " int"
       - name: radius
-        type: int
-      - name: volume
-        type: float
+        type: " int"
   - name: sendBecomeCorpse
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: body
-        type: IsoDeadBody
   - name: sendBloodSplatter
     modifiers:
       - public
@@ -709,25 +656,20 @@ methods:
       - name: weapon
         type: HandWeapon
       - name: x
-        type: float
+        type: " float"
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: hitDir
-        type: Vector2
+        type: " Vector2"
       - name: closeKilled
-        type: boolean
-      - name: radial
-        type: boolean
+        type: " boolean"
   - name: sendChangeSafety
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: safety
-        type: Safety
   - name: sendCompost
     modifiers:
       - public
@@ -736,16 +678,11 @@ methods:
     parameters:
       - name: compost
         type: IsoCompost
-      - name: connection
-        type: UdpConnection
   - name: sendCorpse
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: body
-        type: IsoDeadBody
   - name: sendFuranceChange
     modifiers:
       - public
@@ -754,8 +691,6 @@ methods:
     parameters:
       - name: furnace
         type: BSFurnace
-      - name: connection
-        type: UdpConnection
   - name: sendHelicopter
     modifiers:
       - public
@@ -765,9 +700,7 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
-      - name: active
-        type: boolean
+        type: " float"
   - name: sendIsoWaveSignal
     modifiers:
       - public
@@ -777,27 +710,25 @@ methods:
       - name: source
         type: long
       - name: sourceX
-        type: int
+        type: " int"
       - name: sourceY
-        type: int
+        type: " int"
       - name: channel
-        type: int
+        type: " int"
       - name: msg
-        type: String
+        type: " String"
       - name: guid
-        type: String
+        type: " String"
       - name: codes
-        type: String
+        type: " String"
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
+        type: " float"
       - name: signalStrength
-        type: int
-      - name: isTV
-        type: boolean
+        type: " int"
   - name: sendItemListNet
     modifiers:
       - public
@@ -807,15 +738,14 @@ methods:
       - name: ignore
         type: UdpConnection
       - name: sender
-        type: IsoPlayer
+        type: " IsoPlayer"
       - name: items
-        type: ArrayList<InventoryItem>
+        type: " ArrayList"
+        genericType: " ArrayList<InventoryItem>"
       - name: receiver
-        type: IsoPlayer
+        type: " IsoPlayer"
       - name: sessionID
-        type: String
-      - name: custom
-        type: String
+        type: " String"
   - name: sendItemsInContainer
     modifiers:
       - public
@@ -824,8 +754,6 @@ methods:
     parameters:
       - name: o
         type: IsoObject
-      - name: container
-        type: ItemContainer
   - name: sendMetaGrid
     modifiers:
       - public
@@ -835,9 +763,19 @@ methods:
       - name: cellX
         type: int
       - name: cellY
+        type: " int"
+  - name: sendMetaGrid
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: cellX
         type: int
+      - name: cellY
+        type: " int"
       - name: roomID
-        type: int
+        type: " int"
   - name: sendNonPvpZone
     modifiers:
       - public
@@ -847,9 +785,7 @@ methods:
       - name: zone
         type: NonPvpZone
       - name: remove
-        type: boolean
-      - name: connection
-        type: UdpConnection
+        type: " boolean"
   - name: sendObjectChange
     modifiers:
       - public
@@ -859,10 +795,8 @@ methods:
       - name: o
         type: IsoObject
       - name: change
-        type: String
-      - name: objects
-        type: Object...
-  - name: sendObjectModData
+        type: " String"
+  - name: sendObjectChange
     modifiers:
       - public
       - static
@@ -870,6 +804,13 @@ methods:
     parameters:
       - name: o
         type: IsoObject
+      - name: change
+        type: " String"
+  - name: sendObjectModData
+    modifiers:
+      - public
+      - static
+    returnType: void
   - name: sendOptionsToClients
     modifiers:
       - public
@@ -883,8 +824,6 @@ methods:
     parameters:
       - name: p
         type: IsoPlayer
-      - name: c
-        type: UdpConnection
   - name: sendPlayerDamage
     modifiers:
       - public
@@ -893,8 +832,6 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
-      - name: connection
-        type: UdpConnection
   - name: sendPlayerDamagedByCarCrash
     modifiers:
       - public
@@ -903,8 +840,6 @@ methods:
     parameters:
       - name: chr
         type: IsoPlayer
-      - name: damage
-        type: float
   - name: sendPlayerDeath
     modifiers:
       - public
@@ -913,8 +848,6 @@ methods:
     parameters:
       - name: packet
         type: DeadPlayerPacket
-      - name: connection
-        type: UdpConnection
   - name: sendPlayerExtraInfo
     modifiers:
       - public
@@ -923,16 +856,16 @@ methods:
     parameters:
       - name: p
         type: IsoPlayer
-      - name: connection
-        type: UdpConnection
   - name: sendRadioPostSilence
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: c
-        type: UdpConnection
+  - name: sendRadioPostSilence
+    modifiers:
+      - public
+      - static
+    returnType: void
   - name: sendReanimatedZombieID
     modifiers:
       - public
@@ -941,16 +874,11 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
-      - name: zombie
-        type: IsoZombie
   - name: sendRemoveCorpseFromMap
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: deadBody
-        type: IsoDeadBody
   - name: sendRemoveItemFromContainer
     modifiers:
       - public
@@ -959,8 +887,6 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
-      - name: item
-        type: InventoryItem
   - name: sendSafehouse
     modifiers:
       - public
@@ -969,8 +895,28 @@ methods:
     parameters:
       - name: packet
         type: SyncSafehousePacket
-      - name: connection
-        type: UdpConnection
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: module
+        type: String
+      - name: command
+        type: " String"
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: module
+        type: String
+      - name: command
+        type: " String"
+      - name: args
+        type: " se.krka.kahlua.vm.KahluaTable"
   - name: sendServerCommand
     modifiers:
       - public
@@ -980,11 +926,9 @@ methods:
       - name: player
         type: IsoPlayer
       - name: module
-        type: String
+        type: " String"
       - name: command
-        type: String
-      - name: args
-        type: se.krka.kahlua.vm.KahluaTable
+        type: " String"
   - name: sendServerCommandV
     modifiers:
       - public
@@ -994,33 +938,32 @@ methods:
       - name: module
         type: String
       - name: command
-        type: String
-      - name: objects
-        type: Object...
+        type: " String"
   - name: sendShortStatistic
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: c
-        type: UdpConnection
+  - name: sendShortStatistic
+    modifiers:
+      - public
+      - static
+    returnType: void
   - name: sendSlowFactor
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: chr
-        type: IsoGameCharacter
   - name: sendStatistic
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: c
-        type: UdpConnection
+  - name: sendStatistic
+    modifiers:
+      - public
+      - static
+    returnType: void
   - name: sendTeleport
     modifiers:
       - public
@@ -1030,11 +973,9 @@ methods:
       - name: player
         type: IsoPlayer
       - name: x
-        type: float
+        type: " float"
       - name: y
-        type: float
-      - name: z
-        type: float
+        type: " float"
   - name: sendValidatePacket
     modifiers:
       - public
@@ -1044,11 +985,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: queued
-        type: boolean
+        type: " boolean"
       - name: done
-        type: boolean
-      - name: details
-        type: boolean
+        type: " boolean"
   - name: sendWakeUpPlayer
     modifiers:
       - public
@@ -1057,8 +996,6 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
-      - name: connection
-        type: UdpConnection
   - name: sendWeather
     modifiers:
       - public
@@ -1070,18 +1007,21 @@ methods:
       - static
     returnType: void
     parameters:
-      - name: sound
-        type: WorldSoundManager.WorldSound
       - name: connection
         type: UdpConnection
-  - name: sendZombieDeath
+  - name: sendWorldSound
     modifiers:
       - public
       - static
     returnType: void
     parameters:
-      - name: zombie
-        type: IsoZombie
+      - name: sound
+        type: WorldSoundManager.WorldSound
+  - name: sendZombieDeath
+    modifiers:
+      - public
+      - static
+    returnType: void
   - name: sendZombieSound
     modifiers:
       - public
@@ -1090,8 +1030,6 @@ methods:
     parameters:
       - name: sound
         type: IsoZombie.ZombieSound
-      - name: zombie
-        type: IsoZombie
   - name: sendZone
     modifiers:
       - public
@@ -1100,29 +1038,18 @@ methods:
     parameters:
       - name: zone
         type: IsoMetaGrid.Zone
-      - name: connection
-        type: UdpConnection
   - name: setDifficulty
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: difficulty
-        type: String
   - name: setPoisonousBerry
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: poisonousBerry
-        type: String
   - name: setPoisonousMushroom
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: poisonousMushroom
-        type: String
   - name: setupCoop
     modifiers:
       - public
@@ -1136,8 +1063,6 @@ methods:
     parameters:
       - name: isoWindow
         type: IsoWindow
-      - name: action
-        type: int
   - name: startFireOnClient
     modifiers:
       - public
@@ -1147,13 +1072,11 @@ methods:
       - name: gridSquare
         type: IsoGridSquare
       - name: fireStartingEnergy
-        type: int
+        type: " int"
       - name: igniteOnAny
-        type: boolean
+        type: " boolean"
       - name: Life
-        type: int
-      - name: smoke
-        type: boolean
+        type: " int"
   - name: startRain
     modifiers:
       - public
@@ -1180,10 +1103,16 @@ methods:
       - static
     returnType: void
     parameters:
+      - name: bb
+        type: ByteBuffer
+  - name: SyncObjectChunkHashes
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
       - name: ch
         type: IsoChunk
-      - name: connection
-        type: UdpConnection
   - name: SyncObjectsGridSquareRequest
     modifiers:
       - public
@@ -1192,8 +1121,6 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
-      - name: connection
-        type: UdpConnection
   - name: SyncObjectsRequest
     modifiers:
       - public
@@ -1202,16 +1129,11 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
-      - name: connection
-        type: UdpConnection
   - name: transmitBrokenGlass
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: sq
-        type: IsoGridSquare
   - name: UnPauseAllClients
     modifiers:
       - public
@@ -1226,17 +1148,15 @@ methods:
       - name: object
         type: IsoObject
       - name: spriteName
-        type: String
+        type: " String"
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
+        type: " float"
       - name: a
-        type: float
-      - name: playerConnection
-        type: UdpConnection
+        type: " float"
   - name: updateZombieControl
     modifiers:
       - public
@@ -1246,6 +1166,4 @@ methods:
       - name: zombie
         type: IsoZombie
       - name: variableParam
-        type: short
-      - name: value
-        type: int
+        type: " short"

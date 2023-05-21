@@ -13,8 +13,6 @@ methods:
     parameters:
       - name: msgAuthor
         type: String
-      - name: msg
-        type: String
   - name: createRadiostationMessage
     modifiers:
       - public
@@ -22,15 +20,10 @@ methods:
     parameters:
       - name: text
         type: String
-      - name: channel
-        type: int
   - name: focusOnTab
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: id
-        type: Short
   - name: getFocusTab
     modifiers:
       - public
@@ -44,9 +37,6 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: tabID
-        type: short
   - name: init
     modifiers:
       - public
@@ -54,15 +44,10 @@ methods:
     parameters:
       - name: isSinglePlayer
         type: boolean
-      - name: owner
-        type: IsoPlayer
   - name: isPlayerCanUseChat
     modifiers:
       - public
     returnType: Boolean
-    parameters:
-      - name: chat
-        type: ChatType
   - name: isSinglePlayerMode
     modifiers:
       - public
@@ -75,37 +60,22 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: processChatMessagePacket
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: processInitPlayerChatPacket
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: processJoinChatPacket
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: processLeaveChatPacket
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: processPlayerNotFound
     modifiers:
       - public
@@ -114,9 +84,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: sendMessageToChat
     modifiers:
       - public
@@ -124,8 +91,15 @@ methods:
     parameters:
       - name: type
         type: ChatType
-      - name: msg
+  - name: sendMessageToChat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: author
         type: String
+      - name: type
+        type: " ChatType"
   - name: sendWhisperMessage
     modifiers:
       - public
@@ -133,9 +107,11 @@ methods:
     parameters:
       - name: destPlayerName
         type: String
-      - name: msg
-        type: String
   - name: setFullyConnected
+    modifiers:
+      - public
+    returnType: void
+  - name: showInfoMessage
     modifiers:
       - public
     returnType: void
@@ -146,8 +122,10 @@ methods:
     parameters:
       - name: author
         type: String
-      - name: msg
-        type: String
+  - name: showRadioMessage
+    modifiers:
+      - public
+    returnType: void
   - name: showRadioMessage
     modifiers:
       - public
@@ -155,29 +133,18 @@ methods:
     parameters:
       - name: text
         type: String
-      - name: channel
-        type: int
   - name: showServerChatMessage
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: msg
-        type: String
   - name: showStaticRadioSound
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: text
-        type: String
   - name: unpackMessage
     modifiers:
       - public
     returnType: ChatMessage
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: updateChatSettings
     modifiers:
       - public
@@ -186,6 +153,4 @@ methods:
       - name: fontSize
         type: String
       - name: showTimestamp
-        type: boolean
-      - name: showTitle
-        type: boolean
+        type: " boolean"

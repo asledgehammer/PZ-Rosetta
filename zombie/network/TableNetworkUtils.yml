@@ -19,8 +19,14 @@ methods:
     parameters:
       - name: key
         type: Object
-      - name: value
-        type: Object
+  - name: load
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
   - name: load
     modifiers:
       - public
@@ -29,8 +35,6 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
-      - name: sbyt
-        type: byte
   - name: save
     modifiers:
       - public
@@ -39,8 +43,6 @@ methods:
     parameters:
       - name: tbl
         type: se.krka.kahlua.vm.KahluaTable
-      - name: output
-        type: ByteBuffer
   - name: saveSome
     modifiers:
       - public
@@ -50,6 +52,4 @@ methods:
       - name: tbl
         type: se.krka.kahlua.vm.KahluaTable
       - name: output
-        type: ByteBuffer
-      - name: keys
-        type: HashSet<? extends Object>
+        type: " ByteBuffer"

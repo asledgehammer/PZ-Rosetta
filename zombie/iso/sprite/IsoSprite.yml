@@ -182,39 +182,24 @@ constructors:
   - name: IsoSprite
     modifiers:
       - public
-    parameters:
-      - name: manager
-        type: IsoSpriteManager
 methods:
   - name: AddProperties
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sprite
-        type: IsoSprite
   - name: CacheAnims
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: key
-        type: String
   - name: ChangeTintMod
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: NewTintMod
-        type: ColorInfo
   - name: CreateSprite
     modifiers:
       - public
       - static
     returnType: IsoSprite
-    parameters:
-      - name: manager
-        type: IsoSpriteManager
   - name: CreateSpriteUsingCache
     modifiers:
       - public
@@ -224,9 +209,7 @@ methods:
       - name: objectName
         type: String
       - name: animName
-        type: String
-      - name: numFrames
-        type: int
+        type: " String"
   - name: Dispose
     modifiers:
       - public
@@ -248,11 +231,9 @@ methods:
       - name: dir
         type: IsoDirections
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: flip
-        type: boolean
+        type: " int"
   - name: getName
     modifiers:
       - public
@@ -268,11 +249,30 @@ methods:
   - name: getSheetGridIdFromName
     modifiers:
       - public
+    returnType: int
+  - name: getSheetGridIdFromName
+    modifiers:
+      - public
       - static
     returnType: int
+  - name: getSprite
+    modifiers:
+      - public
+      - static
+    returnType: IsoSprite
     parameters:
-      - name: name
-        type: String
+      - name: manager
+        type: IsoSpriteManager
+  - name: getSprite
+    modifiers:
+      - public
+      - static
+    returnType: IsoSprite
+    parameters:
+      - name: manager
+        type: IsoSpriteManager
+      - name: spr
+        type: " IsoSprite"
   - name: getSprite
     modifiers:
       - public
@@ -282,9 +282,7 @@ methods:
       - name: manager
         type: IsoSpriteManager
       - name: name
-        type: String
-      - name: offset
-        type: int
+        type: " String"
   - name: getSpriteGrid
     modifiers:
       - public
@@ -293,9 +291,6 @@ methods:
     modifiers:
       - public
     returnType: Texture
-    parameters:
-      - name: dir
-        type: IsoDirections
   - name: getTextureForFrame
     modifiers:
       - public
@@ -303,8 +298,6 @@ methods:
     parameters:
       - name: frame
         type: int
-      - name: dir
-        type: IsoDirections
   - name: getTintMod
     modifiers:
       - public
@@ -322,9 +315,6 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: string
-        type: String
   - name: isMaskClicked
     modifiers:
       - public
@@ -333,11 +323,18 @@ methods:
       - name: dir
         type: IsoDirections
       - name: x
-        type: int
+        type: " int"
+  - name: isMaskClicked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: dir
+        type: IsoDirections
+      - name: x
+        type: " int"
       - name: y
-        type: int
-      - name: flip
-        type: boolean
+        type: " int"
   - name: isMoveWithWind
     modifiers:
       - public
@@ -346,23 +343,14 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: input
-        type: DataInputStream
   - name: LoadCache
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: string
-        type: String
   - name: LoadFrameExplicit
     modifiers:
       - public
     returnType: Texture
-    parameters:
-      - name: ObjectName
-        type: String
   - name: LoadFrames
     modifiers:
       - public
@@ -371,9 +359,7 @@ methods:
       - name: ObjectName
         type: String
       - name: AnimName
-        type: String
-      - name: nFrames
-        type: int
+        type: " String"
   - name: LoadFramesNoDirPage
     modifiers:
       - public
@@ -382,9 +368,7 @@ methods:
       - name: ObjectName
         type: String
       - name: AnimName
-        type: String
-      - name: nFrames
-        type: int
+        type: " String"
   - name: LoadFramesNoDirPageDirect
     modifiers:
       - public
@@ -393,16 +377,11 @@ methods:
       - name: ObjectName
         type: String
       - name: AnimName
-        type: String
-      - name: nFrames
-        type: int
+        type: " String"
   - name: LoadFramesNoDirPageSimple
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ObjectName
-        type: String
   - name: LoadFramesPageSimple
     modifiers:
       - public
@@ -411,11 +390,9 @@ methods:
       - name: NObjectName
         type: String
       - name: SObjectName
-        type: String
+        type: " String"
       - name: EObjectName
-        type: String
-      - name: WObjectName
-        type: String
+        type: " String"
   - name: LoadFramesPcx
     modifiers:
       - public
@@ -424,9 +401,7 @@ methods:
       - name: ObjectName
         type: String
       - name: AnimName
-        type: String
-      - name: nFrames
-        type: int
+        type: " String"
   - name: LoadFramesReverseAltName
     modifiers:
       - public
@@ -435,11 +410,9 @@ methods:
       - name: ObjectName
         type: String
       - name: AnimName
-        type: String
+        type: " String"
       - name: AltName
-        type: String
-      - name: nFrames
-        type: int
+        type: " String"
   - name: newInstance
     modifiers:
       - public
@@ -448,16 +421,84 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
+  - name: PlayAnim
+    modifiers:
+      - public
+    returnType: void
   - name: PlayAnimUnlooped
     modifiers:
       - public
     returnType: void
+  - name: render
+    modifiers:
+      - public
+      - final
+    returnType: void
     parameters:
-      - name: name
-        type: String
+      - name: obj
+        type: IsoObject
+      - name: x
+        type: " float"
+      - name: y
+        type: " float"
+      - name: z
+        type: " float"
+      - name: dir
+        type: " IsoDirections"
+      - name: offsetX
+        type: " float"
+      - name: offsetY
+        type: " float"
+      - name: info2
+        type: " ColorInfo"
+  - name: render
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: obj
+        type: IsoObject
+      - name: x
+        type: " float"
+      - name: y
+        type: " float"
+      - name: z
+        type: " float"
+      - name: dir
+        type: " IsoDirections"
+      - name: offsetX
+        type: " float"
+      - name: offsetY
+        type: " float"
+      - name: info2
+        type: " ColorInfo"
+      - name: bDoRenderPrep
+        type: " boolean"
+  - name: render
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: inst
+        type: IsoSpriteInstance
+      - name: obj
+        type: " IsoObject"
+      - name: x
+        type: " float"
+      - name: y
+        type: " float"
+      - name: z
+        type: " float"
+      - name: dir
+        type: " IsoDirections"
+      - name: offsetX
+        type: " float"
+      - name: offsetY
+        type: " float"
+      - name: info2
+        type: " ColorInfo"
   - name: render
     modifiers:
       - public
@@ -466,25 +507,23 @@ methods:
       - name: inst
         type: IsoSpriteInstance
       - name: obj
-        type: IsoObject
+        type: " IsoObject"
       - name: x
-        type: float
+        type: " float"
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: dir
-        type: IsoDirections
+        type: " IsoDirections"
       - name: offsetX
-        type: float
+        type: " float"
       - name: offsetY
-        type: float
+        type: " float"
       - name: info2
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoRenderPrep
-        type: boolean
-      - name: texdModifier
-        type: Consumer<TextureDraw>
+        type: " boolean"
   - name: renderActiveModel
     modifiers:
       - public
@@ -497,11 +536,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
-      - name: info2
-        type: ColorInfo
+        type: " float"
   - name: renderCurrentAnim
     modifiers:
       - public
@@ -510,25 +547,23 @@ methods:
       - name: inst
         type: IsoSpriteInstance
       - name: obj
-        type: IsoObject
+        type: " IsoObject"
       - name: x
-        type: float
+        type: " float"
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: dir
-        type: IsoDirections
+        type: " IsoDirections"
       - name: offsetX
-        type: float
+        type: " float"
       - name: offsetY
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoRenderPrep
-        type: boolean
-      - name: texdModifier
-        type: Consumer<TextureDraw>
+        type: " boolean"
   - name: RenderGhostTile
     modifiers:
       - public
@@ -537,9 +572,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: RenderGhostTileColor
     modifiers:
       - public
@@ -548,21 +581,36 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
+        type: " int"
       - name: z
-        type: int
-      - name: offsetX
-        type: float
-      - name: offsetY
-        type: float
+        type: " int"
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
+  - name: RenderGhostTileColor
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: " int"
+      - name: z
+        type: " int"
+      - name: offsetX
+        type: " float"
+      - name: offsetY
+        type: " float"
+      - name: r
+        type: " float"
+      - name: g
+        type: " float"
+      - name: b
+        type: " float"
   - name: RenderGhostTileRed
     modifiers:
       - public
@@ -571,9 +619,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: renderObjectPicker
     modifiers:
       - public
@@ -582,9 +628,7 @@ methods:
       - name: def
         type: IsoSpriteInstance
       - name: obj
-        type: IsoObject
-      - name: dir
-        type: IsoDirections
+        type: " IsoObject"
   - name: renderVehicle
     modifiers:
       - public
@@ -593,42 +637,31 @@ methods:
       - name: inst
         type: IsoSpriteInstance
       - name: obj
-        type: IsoObject
+        type: " IsoObject"
       - name: x
-        type: float
+        type: " float"
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: offsetX
-        type: float
+        type: " float"
       - name: offsetY
-        type: float
+        type: " float"
       - name: info2
-        type: ColorInfo
-      - name: bDoRenderPrep
-        type: boolean
+        type: " ColorInfo"
   - name: ReplaceCurrentAnimFrames
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ObjectName
-        type: String
   - name: save
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: DataOutputStream
   - name: setAnimate
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: animate
-        type: boolean
   - name: setFromCache
     modifiers:
       - public
@@ -637,9 +670,7 @@ methods:
       - name: objectName
         type: String
       - name: animName
-        type: String
-      - name: numFrames
-        type: int
+        type: " String"
   - name: setHideForWaterRender
     modifiers:
       - public
@@ -648,23 +679,14 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: string
-        type: String
   - name: setParentObjectName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: String
   - name: setSpriteGrid
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sGrid
-        type: IsoSpriteGrid
   - name: setSpriteID
     modifiers:
       - public
@@ -674,27 +696,20 @@ methods:
       - name: manager
         type: IsoSpriteManager
       - name: id
-        type: int
-      - name: spr
-        type: IsoSprite
+        type: " int"
   - name: setTintMod
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: info
-        type: ColorInfo
   - name: setType
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ntype
-        type: IsoObjectType
   - name: update
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: def
-        type: IsoSpriteInstance
+  - name: update
+    modifiers:
+      - public
+    returnType: void

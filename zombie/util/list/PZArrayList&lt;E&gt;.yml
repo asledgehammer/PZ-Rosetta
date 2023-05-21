@@ -12,10 +12,17 @@ constructors:
       - public
     parameters:
       - name: elementType
-        type: Class<E>
-      - name: initialCapacity
-        type: int
+        type: Class
+        genericType: Class<E>
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
+  - name: add
+    modifiers:
+      - public
+    returnType: boolean
   - name: add
     modifiers:
       - public
@@ -23,8 +30,6 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: e
-        type: E
   - name: clear
     modifiers:
       - public
@@ -33,9 +38,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: o
-        type: Object
   - name: emptyList
     modifiers:
       - public
@@ -45,9 +47,6 @@ methods:
     modifiers:
       - public
     returnType: E
-    parameters:
-      - name: index
-        type: int
   - name: getElements
     modifiers:
       - public
@@ -56,9 +55,6 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: o
-        type: Object
   - name: isEmpty
     modifiers:
       - public
@@ -71,16 +67,18 @@ methods:
     modifiers:
       - public
     returnType: ListIterator
-    parameters:
-      - name: index
-        type: int
+  - name: listIterator
+    modifiers:
+      - public
+    returnType: ListIterator
+  - name: remove
+    modifiers:
+      - public
+    returnType: E
   - name: remove
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: o
-        type: Object
   - name: set
     modifiers:
       - public
@@ -88,13 +86,7 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: e
-        type: E
   - name: size
     modifiers:
       - public
     returnType: int
-  - name: toString
-    modifiers:
-      - public
-    returnType: String

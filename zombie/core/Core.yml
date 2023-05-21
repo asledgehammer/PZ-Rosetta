@@ -514,8 +514,6 @@ methods:
     parameters:
       - name: keyName
         type: String
-      - name: key
-        type: Integer
   - name: CheckDelayResetLua
     modifiers:
       - public
@@ -531,16 +529,12 @@ methods:
     parameters:
       - name: activeMods
         type: String
-      - name: reason
-        type: String
   - name: DoEndFrameStuff
     modifiers:
       - public
     returnType: void
     parameters:
       - name: w
-        type: int
-      - name: h
         type: int
   - name: DoEndFrameStuffFx
     modifiers:
@@ -550,9 +544,7 @@ methods:
       - name: w
         type: int
       - name: h
-        type: int
-      - name: player
-        type: int
+        type: " int"
   - name: DoFrameReady
     modifiers:
       - public
@@ -569,9 +561,7 @@ methods:
       - name: ox
         type: float
       - name: oy
-        type: float
-      - name: oz
-        type: float
+        type: " float"
   - name: DoPushIsoStuff
     modifiers:
       - public
@@ -580,13 +570,11 @@ methods:
       - name: ox
         type: float
       - name: oy
-        type: float
+        type: " float"
       - name: oz
-        type: float
+        type: " float"
       - name: useangle
-        type: float
-      - name: vehicle
-        type: boolean
+        type: " float"
   - name: DoStartFrameStuff
     modifiers:
       - public
@@ -595,13 +583,22 @@ methods:
       - name: w
         type: int
       - name: h
-        type: int
+        type: " int"
       - name: zoom
-        type: float
-      - name: player
+        type: " float"
+  - name: DoStartFrameStuff
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: w
         type: int
-      - name: isTextFrame
-        type: boolean
+      - name: h
+        type: " int"
+      - name: zoom
+        type: " float"
+      - name: player
+        type: " int"
   - name: DoStartFrameStuffSmartTextureFx
     modifiers:
       - public
@@ -610,9 +607,7 @@ methods:
       - name: w
         type: int
       - name: h
-        type: int
-      - name: player
-        type: int
+        type: " int"
   - name: doZoomScroll
     modifiers:
       - public
@@ -620,8 +615,10 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: del
-        type: int
+  - name: EndFrame
+    modifiers:
+      - public
+    returnType: void
   - name: EndFrame
     modifiers:
       - public
@@ -630,9 +627,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: nPlayer
-        type: int
   - name: EndFrameUI
     modifiers:
       - public
@@ -650,16 +644,11 @@ methods:
       - name: imgPixels
         type: int[]
       - name: imgw
-        type: int
-      - name: imgh
-        type: int
+        type: " int"
   - name: getAutoZoom
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
   - name: getBlinkingMoodle
     modifiers:
       - public
@@ -724,9 +713,6 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: keyName
-        type: String
   - name: getKeyMaps
     modifiers:
       - public
@@ -763,8 +749,6 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: del
-        type: int
   - name: getObjectHighlitedColor
     modifiers:
       - public
@@ -773,16 +757,14 @@ methods:
     modifiers:
       - public
     returnType: TextureFBO
-    parameters:
-      - name: nPlayer
-        type: int
+  - name: getOffscreenBuffer
+    modifiers:
+      - public
+    returnType: TextureFBO
   - name: getOffscreenHeight
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: playerIndex
-        type: int
   - name: getOffscreenTrueHeight
     modifiers:
       - public
@@ -795,9 +777,6 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: playerIndex
-        type: int
   - name: getOpenGLVersions
     modifiers:
       - public
@@ -807,9 +786,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: guid
-        type: String
   - name: getOptionAimOutline
     modifiers:
       - public
@@ -954,9 +930,6 @@ methods:
     modifiers:
       - public
     returnType: Object
-    parameters:
-      - name: name
-        type: String
   - name: getOptionPanCameraWhileAiming
     modifiers:
       - public
@@ -1017,9 +990,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
   - name: getOptionSoundVolume
     modifiers:
       - public
@@ -1200,8 +1170,6 @@ methods:
     parameters:
       - name: width
         type: int
-      - name: angle
-        type: float
   - name: getYAngle
     modifiers:
       - public
@@ -1209,15 +1177,10 @@ methods:
     parameters:
       - name: width
         type: int
-      - name: angle
-        type: float
   - name: getZoom
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: playerIndex
-        type: int
   - name: gotNewBelt
     modifiers:
       - public
@@ -1228,8 +1191,6 @@ methods:
     returnType: void
     parameters:
       - name: width
-        type: int
-      - name: height
         type: int
   - name: initFBOs
     modifiers:
@@ -1348,9 +1309,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: bZombie
-        type: boolean
   - name: isRenderPrecipIndoors
     modifiers:
       - public
@@ -1448,9 +1406,14 @@ methods:
       - public
     returnType: void
     parameters:
+      - name: sp
+        type: boolean
+  - name: ResetLua
+    modifiers:
+      - public
+    returnType: void
+    parameters:
       - name: activeMods
-        type: String
-      - name: reason
         type: String
   - name: saveOptions
     modifiers:
@@ -1460,9 +1423,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: done
-        type: boolean
   - name: setAutoZoom
     modifiers:
       - public
@@ -1470,58 +1430,35 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: auto
-        type: boolean
   - name: setAzerty
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: isAzerty
-        type: boolean
   - name: setBlinkingMoodle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: blinkingMoodle
-        type: String
   - name: setCelsius
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: celsius
-        type: boolean
   - name: setChallenge
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bChallenge
-        type: boolean
   - name: setCollideZombies
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: collideZombies
-        type: boolean
   - name: setContentTranslationsEnabled
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setDifficulty
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: vdifficulty
-        type: String
   - name: setDisplayMode
     modifiers:
       - public
@@ -1531,130 +1468,76 @@ methods:
       - name: width
         type: int
       - name: height
-        type: int
-      - name: fullscreen
-        type: boolean
+        type: " int"
   - name: setDoneNewSaveFolder
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: doneNewSaveFolder
-        type: boolean
   - name: setFlashIsoCursor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: flashIsoCursor
-        type: boolean
   - name: setForceSnow
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: forceSnow
-        type: boolean
   - name: setFramerate
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: index
-        type: int
   - name: setFullScreen
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: bool
-        type: boolean
   - name: setGotNewBelt
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: gotit
-        type: boolean
   - name: setIsoCursorVisibility
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: isoCursorVisibility
-        type: int
   - name: setIsSelectingAll
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: isSelectingAll
-        type: boolean
   - name: setKeyMaps
     modifiers:
       - public
     returnType: void
-    parameters:
-      - type: Map<String
-      - name: keyMaps
-        type: Integer>
   - name: setLastRenderedFBO
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: fbo
-        type: TextureFBO
   - name: setModsPopupDone
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: done
-        type: boolean
   - name: setMpTextColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: mpTextColor
-        type: ColorInfo
   - name: setMultiThread
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: boolean
   - name: setNewReloading
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newReloading
-        type: boolean
   - name: setNoSave
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: noSave
-        type: boolean
   - name: setObjectHighlitedColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: objectHighlitedColor
-        type: ColorInfo
   - name: setOption3DGroundItem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option3Dgrounditem
-        type: boolean
   - name: setOptionActiveController
     modifiers:
       - public
@@ -1662,267 +1545,154 @@ methods:
     parameters:
       - name: controllerIndex
         type: int
-      - name: active
-        type: boolean
   - name: setOptionAimOutline
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: choice
-        type: int
   - name: setOptionAmbientVolume
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: volume
-        type: int
   - name: setOptionAutoDrink
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionAutoProneAtk
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionAutoProneAtk
-        type: boolean
   - name: setOptionBloodDecals
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: n
-        type: int
   - name: setOptionBorderlessWindow
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionChatFadeTime
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionChatFadeTime
-        type: float
   - name: setOptionChatFontSize
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionChatFontSize
-        type: String
   - name: setOptionChatOpaqueOnFocus
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionChatOpaqueOnFocus
-        type: boolean
   - name: setOptionClock24Hour
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b24Hour
-        type: boolean
   - name: setOptionClockFormat
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: fmt
-        type: int
   - name: setOptionClockSize
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: size
-        type: int
   - name: setOptionContextMenuFont
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: font
-        type: String
   - name: setOptionCorpseShadows
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionCycleContainerKey
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: s
-        type: String
   - name: setOptiondblTapJogToSprint
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dbltap
-        type: boolean
   - name: setOptionDisplayAsCelsius
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionDoDoorSpriteEffects
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionDoWindSpriteEffects
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionDropItemsOnSquareCenter
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionEnableLeftJoystickRadialMenu
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionFontSize
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: size
-        type: int
   - name: setOptionIgnoreProneZombieRange
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: i
-        type: int
   - name: setOptionInventoryContainerSize
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: size
-        type: int
   - name: setOptionInventoryFont
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: font
-        type: String
   - name: setOptionJumpScareVolume
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: volume
-        type: int
   - name: setOptionLanguageName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setOptionLeaveKeyInIgnition
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionLockCursorToWindow
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionMaxChatOpaque
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionMaxChatOpaque
-        type: float
   - name: setOptionMeasurementFormat
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: format
-        type: String
   - name: setOptionMinChatOpaque
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionMinChatOpaque
-        type: float
   - name: setOptionModelTextureMipmaps
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionModsEnabled
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enabled
-        type: boolean
   - name: setOptionMusicActionStyle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: v
-        type: int
   - name: setOptionMusicLibrary
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: m
-        type: int
   - name: setOptionMusicVolume
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: volume
-        type: int
   - name: setOptionOnStartup
     modifiers:
       - public
@@ -1930,127 +1700,74 @@ methods:
     parameters:
       - name: name
         type: String
-      - name: value
-        type: Object
   - name: setOptionPanCameraWhileAiming
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionPanCameraWhileDriving
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionProgressBar
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionProgressBar
-        type: boolean
   - name: setOptionRackProgress
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionRadialMenuKeyToggle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: toggle
-        type: boolean
   - name: setOptionReloadDifficulty
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: d
-        type: int
   - name: setOptionReloadRadialInstant
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionRenderPrecipitation
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionRenderPrecipitation
-        type: int
   - name: setOptionSearchModeOverlayEffect
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: v
-        type: int
   - name: setOptionShoulderButtonContainerSwitch
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: v
-        type: int
   - name: setOptionShowChatTimestamp
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionShowChatTimestamp
-        type: boolean
   - name: setOptionShowChatTitle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionShowChatTitle
-        type: boolean
   - name: setOptionShowCursorWhileAiming
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: show
-        type: boolean
   - name: setOptionShowItemModInfo
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionShowSurvivalGuide
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionSimpleClothingTextures
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: v
-        type: int
   - name: setOptionSimpleWeaponTextures
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setOptionSingleContextMenu
     modifiers:
       - public
@@ -2058,211 +1775,122 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: b
-        type: boolean
   - name: setOptionSoundVolume
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: volume
-        type: int
   - name: setOptionTexture2x
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionTextureCompression
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionTieredZombieUpdates
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: boolean
   - name: setOptionTimedActionGameSpeedReset
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionTooltipFont
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: font
-        type: String
   - name: setOptionUIFBO
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: use
-        type: boolean
   - name: setOptionUIRenderFPS
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: fps
-        type: int
   - name: setOptionUpdateSneakButton
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setOptionVehicleEngineVolume
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: volume
-        type: int
   - name: setOptionVoiceAGCMode
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: int
   - name: setOptionVoiceEnable
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: boolean
   - name: setOptionVoiceMode
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: int
   - name: setOptionVoiceRecordDevice
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: int
   - name: setOptionVoiceRecordDeviceName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: String
   - name: setOptionVoiceVADMode
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: int
   - name: setOptionVoiceVolumeMic
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: int
   - name: setOptionVoiceVolumePlayers
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: option
-        type: int
   - name: setOptionVSync
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sync
-        type: boolean
   - name: setOptionZoom
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: zoom
-        type: boolean
   - name: setOptionZoomLevels1x
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: levels
-        type: String
   - name: setOptionZoomLevels2x
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: levels
-        type: String
   - name: setPerfPuddles
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: int
   - name: setPerfReflections
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: boolean
   - name: setPerfSkybox
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: int
   - name: setPoisonousBerry
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: poisonousBerry
-        type: String
   - name: setPoisonousMushroom
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: poisonousMushroom
-        type: String
   - name: setRenderPrecipIndoors
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: optionRenderPrecipIndoors
-        type: boolean
   - name: setResolution
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: res
-        type: String
   - name: setResolutionAndFullScreen
     modifiers:
       - public
@@ -2271,16 +1899,11 @@ methods:
       - name: w
         type: int
       - name: h
-        type: int
-      - name: fullScreen
-        type: boolean
+        type: " int"
   - name: setRiversideDone
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: riversideDone
-        type: boolean
   - name: setScreenSize
     modifiers:
       - public
@@ -2288,128 +1911,79 @@ methods:
     parameters:
       - name: width
         type: int
-      - name: height
-        type: int
   - name: setSeenUpdateText
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: seenUpdateText
-        type: String
   - name: setShowFirstTimeSearchTutorial
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: showFirstTimeSearchTutorial
-        type: boolean
   - name: setShowFirstTimeSneakTutorial
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: showFirstTimeSneakTutorial
-        type: boolean
   - name: setShowFirstTimeVehicleTutorial
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: showFirstTimeVehicleTutorial
-        type: boolean
   - name: setShowFirstTimeWeatherTutorial
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: showFirstTimeWeatherTutorial
-        type: boolean
   - name: setShowPing
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: showPing
-        type: boolean
   - name: setShowYourUsername
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: showYourUsername
-        type: boolean
   - name: setTestingMicrophone
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: testing
-        type: boolean
   - name: setToggleToAim
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enable
-        type: boolean
   - name: setToggleToRun
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: toggleToRun
-        type: boolean
   - name: setToggleToSprint
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: toggleToSprint
-        type: boolean
   - name: setTutorialDone
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: done
-        type: boolean
   - name: setUseShaders
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bUse
-        type: boolean
   - name: setVehiclesWarningShow
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: done
-        type: boolean
   - name: setVidMem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: mem
-        type: int
   - name: setWindowed
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setZombieGroupSound
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: zombieGroupSound
-        type: boolean
   - name: shadersOptionChanged
+    modifiers:
+      - public
+    returnType: void
+  - name: StartFrame
     modifiers:
       - public
     returnType: void
@@ -2420,15 +1994,10 @@ methods:
     parameters:
       - name: nPlayer
         type: int
-      - name: clear
-        type: boolean
   - name: StartFrameText
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: nPlayer
-        type: int
   - name: StartFrameUI
     modifiers:
       - public
@@ -2450,8 +2019,6 @@ methods:
     parameters:
       - name: width
         type: int
-      - name: height
-        type: int
   - name: supportsFBO
     modifiers:
       - public
@@ -2460,9 +2027,19 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: TakeScreenshot
+    modifiers:
+      - public
+    returnType: void
+  - name: TakeScreenshot
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: filename
-        type: String
+      - name: width
+        type: int
+      - name: height
+        type: " int"
   - name: TakeScreenshot
     modifiers:
       - public
@@ -2471,13 +2048,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
+        type: " int"
       - name: width
-        type: int
+        type: " int"
       - name: height
-        type: int
-      - name: readBuffer
-        type: int
+        type: " int"
   - name: UnfocusActiveTextEntryBox
     modifiers:
       - public
@@ -2495,6 +2070,3 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: inGame
-        type: boolean

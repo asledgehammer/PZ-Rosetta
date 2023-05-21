@@ -90,9 +90,11 @@ constructors:
     parameters:
       - name: path
         type: AssetPath
-      - name: assetManager
-        type: AssetManager
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
   - name: getAllowRandomHue
     modifiers:
       - public
@@ -113,9 +115,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: in_out_mask
-        type: CharacterMask
   - name: getDecalGroup
     modifiers:
       - public
@@ -132,9 +131,6 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: female
-        type: boolean
   - name: getTextureChoices
     modifiers:
       - public
@@ -155,10 +151,14 @@ methods:
     modifiers:
       - public
     returnType: boolean
-  - name: toString
+  - name: tryGetCombinedMask
     modifiers:
       - public
-    returnType: String
+      - static
+    returnType: void
+    parameters:
+      - name: itemRef
+        type: ClothingItemReference
   - name: tryGetCombinedMask
     modifiers:
       - public
@@ -167,5 +167,3 @@ methods:
     parameters:
       - name: item
         type: ClothingItem
-      - name: in_out_mask
-        type: CharacterMask

@@ -18,15 +18,9 @@ constructors:
   - name: Matrix4
     modifiers:
       - public
-    parameters:
-      - name: m
-        type: float[]
   - name: Matrix4
     modifiers:
       - public
-    parameters:
-      - name: m
-        type: Matrix4
 methods:
   - name: clear
     modifiers:
@@ -44,15 +38,13 @@ methods:
       - name: left
         type: float
       - name: right
-        type: float
+        type: " float"
       - name: bottom
-        type: float
+        type: " float"
       - name: top
-        type: float
+        type: " float"
       - name: near
-        type: float
-      - name: far
-        type: float
+        type: " float"
   - name: clearToPerspective
     modifiers:
       - public
@@ -61,20 +53,15 @@ methods:
       - name: fovRad
         type: float
       - name: width
-        type: float
+        type: " float"
       - name: height
-        type: float
+        type: " float"
       - name: near
-        type: float
-      - name: far
-        type: float
+        type: " float"
   - name: get
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: index
-        type: int
   - name: getBuffer
     modifiers:
       - public
@@ -83,16 +70,34 @@ methods:
     modifiers:
       - public
     returnType: Matrix4
-    parameters:
-      - name: m
-        type: Matrix4
+  - name: mult
+    modifiers:
+      - public
+    returnType: Matrix4
+  - name: put
+    modifiers:
+      - public
+    returnType: Matrix4
+  - name: put
+    modifiers:
+      - public
+    returnType: Matrix4
   - name: put
     modifiers:
       - public
     returnType: Matrix4
     parameters:
-      - name: m
-        type: Matrix4
+      - name: index
+        type: int
+  - name: put
+    modifiers:
+      - public
+    returnType: Matrix4
+    parameters:
+      - name: index
+        type: int
+      - name: v
+        type: " Vector3"
   - name: rotate
     modifiers:
       - public
@@ -100,22 +105,43 @@ methods:
     parameters:
       - name: angle
         type: float
-      - name: vec
-        type: Vector3
+  - name: rotate
+    modifiers:
+      - public
+    returnType: Matrix4
+    parameters:
+      - name: angle
+        type: float
+      - name: x
+        type: " float"
+      - name: y
+        type: " float"
+  - name: scale
+    modifiers:
+      - public
+    returnType: Matrix4
   - name: scale
     modifiers:
       - public
     returnType: Matrix4
     parameters:
-      - name: vec
-        type: Vector3
+      - name: x
+        type: float
+      - name: y
+        type: " float"
+  - name: translate
+    modifiers:
+      - public
+    returnType: Matrix4
   - name: translate
     modifiers:
       - public
     returnType: Matrix4
     parameters:
-      - name: vec
-        type: Vector3
+      - name: x
+        type: float
+      - name: y
+        type: " float"
   - name: transpose
     modifiers:
       - public

@@ -21,11 +21,9 @@ constructors:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
   - name: ClimateColorInfo
     modifiers:
       - public
@@ -33,19 +31,17 @@ constructors:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
+        type: " float"
       - name: a
-        type: float
+        type: " float"
       - name: r2
-        type: float
+        type: " float"
       - name: g2
-        type: float
+        type: " float"
       - name: b2
-        type: float
-      - name: a2
-        type: float
+        type: " float"
 methods:
   - name: getExterior
     modifiers:
@@ -58,17 +54,24 @@ methods:
   - name: interp
     modifiers:
       - public
+    returnType: ClimateColorInfo
+    parameters:
+      - name: to
+        type: ClimateColorInfo
+      - name: t
+        type: " float"
+  - name: interp
+    modifiers:
+      - public
       - static
     returnType: ClimateColorInfo
     parameters:
       - name: source
         type: ClimateColorInfo
       - name: target
-        type: ClimateColorInfo
+        type: " ClimateColorInfo"
       - name: t
-        type: float
-      - name: resultColorInfo
-        type: ClimateColorInfo
+        type: " float"
   - name: load
     modifiers:
       - public
@@ -76,29 +79,22 @@ methods:
     parameters:
       - name: input
         type: DataInputStream
-      - name: worldVersion
-        type: int
   - name: read
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: input
-        type: ByteBuffer
   - name: save
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: DataOutputStream
   - name: scale
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: float
+  - name: setExterior
+    modifiers:
+      - public
+    returnType: void
   - name: setExterior
     modifiers:
       - public
@@ -107,11 +103,13 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
+  - name: setInterior
+    modifiers:
+      - public
+    returnType: void
   - name: setInterior
     modifiers:
       - public
@@ -120,25 +118,17 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
   - name: setTo
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: ClimateColorInfo
   - name: write
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: ByteBuffer
   - name: writeColorInfoConfig
     modifiers:
       - public

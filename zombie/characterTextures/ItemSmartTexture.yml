@@ -17,17 +17,12 @@ constructors:
   - name: ItemSmartTexture
     modifiers:
       - public
-    parameters:
-      - name: tex
-        type: String
   - name: ItemSmartTexture
     modifiers:
       - public
     parameters:
       - name: tex
         type: String
-      - name: hue
-        type: float
 methods:
   - name: addBlood
     modifiers:
@@ -36,12 +31,28 @@ methods:
     parameters:
       - name: tex
         type: String
-      - name: mask
+      - name: bodyPart
+        type: " BloodBodyPartType"
+  - name: addBlood
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: tex
         type: String
+      - name: mask
+        type: " String"
       - name: intensity
-        type: float
-      - name: category
-        type: int
+        type: " float"
+  - name: addDirt
+    modifiers:
+      - public
+    returnType: float
+    parameters:
+      - name: tex
+        type: String
+      - name: bodyPart
+        type: " BloodBodyPartType"
   - name: addDirt
     modifiers:
       - public
@@ -50,11 +61,9 @@ methods:
       - name: tex
         type: String
       - name: mask
-        type: String
+        type: " String"
       - name: intensity
-        type: float
-      - name: category
-        type: int
+        type: " float"
   - name: getTexName
     modifiers:
       - public
@@ -63,23 +72,31 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPart
-        type: BloodBodyPartType
+  - name: removeBlood
+    modifiers:
+      - public
+    returnType: void
   - name: removeDirt
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPart
-        type: BloodBodyPartType
+  - name: removeDirt
+    modifiers:
+      - public
+    returnType: void
   - name: setBasicPatches
     modifiers:
       - public
     returnType: void
+  - name: setBlood
+    modifiers:
+      - public
+    returnType: void
     parameters:
+      - name: tex
+        type: String
       - name: bodyPart
-        type: BloodBodyPartType
+        type: " BloodBodyPartType"
   - name: setBlood
     modifiers:
       - public
@@ -88,22 +105,14 @@ methods:
       - name: tex
         type: String
       - name: mask
-        type: String
+        type: " String"
       - name: intensity
-        type: float
-      - name: category
-        type: int
+        type: " float"
   - name: setDenimPatches
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPart
-        type: BloodBodyPartType
   - name: setLeatherPatches
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPart
-        type: BloodBodyPartType

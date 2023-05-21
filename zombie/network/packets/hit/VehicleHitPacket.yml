@@ -10,9 +10,6 @@ constructors:
   - name: VehicleHitPacket
     modifiers:
       - public
-    parameters:
-      - name: hitType
-        type: HitCharacterPacket.HitType
 methods:
   - name: getDescription
     modifiers:
@@ -26,9 +23,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: connection
-        type: UdpConnection
   - name: parse
     modifiers:
       - public
@@ -36,8 +30,6 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
-      - name: connection
-        type: UdpConnection
   - name: set
     modifiers:
       - public
@@ -46,13 +38,8 @@ methods:
       - name: wielder
         type: IsoPlayer
       - name: vehicle
-        type: BaseVehicle
-      - name: isCriticalHit
-        type: boolean
+        type: " BaseVehicle"
   - name: write
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: ByteBufferWriter

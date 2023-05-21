@@ -22,24 +22,16 @@ constructors:
     parameters:
       - name: name
         type: String
-      - name: owner
-        type: String
 methods:
   - name: addPlayer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: pName
-        type: String
   - name: canCreateFaction
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: player
-        type: IsoPlayer
   - name: canCreateTag
     modifiers:
       - public
@@ -52,24 +44,16 @@ methods:
     parameters:
       - name: name
         type: String
-      - name: owner
-        type: String
   - name: factionExist
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: name
-        type: String
   - name: getFaction
     modifiers:
       - public
       - static
     returnType: Faction
-    parameters:
-      - name: name
-        type: String
   - name: getFactions
     modifiers:
       - public
@@ -88,9 +72,11 @@ methods:
       - public
       - static
     returnType: Faction
-    parameters:
-      - name: username
-        type: String
+  - name: getPlayerFaction
+    modifiers:
+      - public
+      - static
+    returnType: Faction
   - name: getPlayers
     modifiers:
       - public
@@ -108,30 +94,23 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: player
-        type: IsoPlayer
+  - name: isAlreadyInFaction
+    modifiers:
+      - public
+      - static
+    returnType: boolean
   - name: isMember
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: name
-        type: String
   - name: isOwner
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: name
-        type: String
   - name: isPlayerMember
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: player
-        type: IsoPlayer
   - name: load
     modifiers:
       - public
@@ -139,8 +118,6 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
-      - name: WorldVersion
-        type: int
   - name: removeFaction
     modifiers:
       - public
@@ -149,44 +126,26 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: player
-        type: String
   - name: save
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: ByteBuffer
   - name: setName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setOwner
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: owner
-        type: String
   - name: setTag
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: tag
-        type: String
   - name: setTagColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: tagColor
-        type: ColorInfo
   - name: syncFaction
     modifiers:
       - public
@@ -196,9 +155,6 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: name
-        type: String
   - name: writeToBuffer
     modifiers:
       - public
@@ -206,5 +162,3 @@ methods:
     parameters:
       - name: bb
         type: ByteBufferWriter
-      - name: remove
-        type: boolean

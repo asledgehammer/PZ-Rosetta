@@ -15,31 +15,19 @@ constructors:
   - name: HumanVisual
     modifiers:
       - public
-    parameters:
-      - name: owner
-        type: IHumanVisual
 methods:
   - name: addBodyVisual
     modifiers:
       - public
     returnType: ItemVisual
-    parameters:
-      - name: clothingItemName
-        type: String
   - name: addBodyVisualFromClothingItemName
     modifiers:
       - public
     returnType: ItemVisual
-    parameters:
-      - name: clothingItemName
-        type: String
   - name: addBodyVisualFromItemType
     modifiers:
       - public
     returnType: ItemVisual
-    parameters:
-      - name: itemType
-        type: String
   - name: addClothingItem
     modifiers:
       - public
@@ -47,8 +35,6 @@ methods:
     parameters:
       - name: itemVisuals
         type: ItemVisuals
-      - name: scriptItem
-        type: Item
   - name: clear
     modifiers:
       - public
@@ -57,9 +43,13 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: dressInClothingItem
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: other_
-        type: BaseVisual
+      - name: itemGUID
+        type: String
   - name: dressInClothingItem
     modifiers:
       - public
@@ -68,9 +58,7 @@ methods:
       - name: itemGUID
         type: String
       - name: itemVisuals
-        type: ItemVisuals
-      - name: clearCurrentVisuals
-        type: boolean
+        type: " ItemVisuals"
   - name: dressInNamedOutfit
     modifiers:
       - public
@@ -78,8 +66,6 @@ methods:
     parameters:
       - name: outfitName
         type: String
-      - name: itemVisuals
-        type: ItemVisuals
   - name: getBeardColor
     modifiers:
       - public
@@ -92,9 +78,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getBodyHairIndex
     modifiers:
       - public
@@ -107,9 +90,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getHairColor
     modifiers:
       - public
@@ -122,9 +102,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getLastStandString
     modifiers:
       - public
@@ -134,9 +111,6 @@ methods:
       - public
       - static
     returnType: CharacterMask
-    parameters:
-      - name: itemVisuals
-        type: ItemVisuals
   - name: getModel
     modifiers:
       - public
@@ -181,9 +155,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: itemType
-        type: String
   - name: isFemale
     modifiers:
       - public
@@ -203,10 +174,8 @@ methods:
     parameters:
       - name: start
         type: float
-      - name: end
-        type: float
-      - name: delta
-        type: float
+      - name: __end
+        type: " float"
   - name: load
     modifiers:
       - public
@@ -214,15 +183,10 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
-      - name: WorldVersion
-        type: int
   - name: loadLastStandString
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: saveStr
-        type: String
   - name: pickRandomZombieRotStage
     modifiers:
       - public
@@ -243,9 +207,6 @@ methods:
     modifiers:
       - public
     returnType: ItemVisual
-    parameters:
-      - name: itemType
-        type: String
   - name: removeDirt
     modifiers:
       - public
@@ -254,23 +215,14 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: ByteBuffer
   - name: setBeardColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: color
-        type: ImmutableColor
   - name: setBeardModel
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: model
-        type: String
   - name: setBlood
     modifiers:
       - public
@@ -278,15 +230,10 @@ methods:
     parameters:
       - name: bodyPartType
         type: BloodBodyPartType
-      - name: amount
-        type: float
   - name: setBodyHairIndex
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: index
-        type: int
   - name: setDirt
     modifiers:
       - public
@@ -294,96 +241,55 @@ methods:
     parameters:
       - name: bodyPartType
         type: BloodBodyPartType
-      - name: amount
-        type: float
   - name: setForceModel
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: model
-        type: Model
   - name: setForceModelScript
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: modelScript
-        type: String
   - name: setHairColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: color
-        type: ImmutableColor
   - name: setHairModel
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: model
-        type: String
   - name: setHole
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: setNaturalBeardColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: color
-        type: ImmutableColor
   - name: setNaturalHairColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: color
-        type: ImmutableColor
   - name: setNonAttachedHair
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: nonAttachedHair
-        type: String
   - name: setOutfit
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: outfit
-        type: Outfit
   - name: setSkinColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: color
-        type: ImmutableColor
   - name: setSkinTextureIndex
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: index
-        type: int
   - name: setSkinTextureName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: textureName
-        type: String
   - name: synchWithOutfit
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: outfit
-        type: Outfit

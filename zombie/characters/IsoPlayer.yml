@@ -292,9 +292,6 @@ constructors:
   - name: IsoPlayer
     modifiers:
       - public
-    parameters:
-      - name: cell
-        type: IsoCell
   - name: IsoPlayer
     modifiers:
       - public
@@ -302,21 +299,16 @@ constructors:
       - name: cell
         type: IsoCell
       - name: desc
-        type: SurvivorDesc
+        type: " SurvivorDesc"
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
 methods:
   - name: actionStateChanged
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sender
-        type: ActionContext
   - name: addMechanicsItem
     modifiers:
       - public
@@ -325,9 +317,7 @@ methods:
       - name: itemid
         type: String
       - name: part
-        type: VehiclePart
-      - name: milli
-        type: Long
+        type: " VehiclePart"
   - name: addWorldSoundUnlessInvisible
     modifiers:
       - public
@@ -336,9 +326,7 @@ methods:
       - name: radius
         type: int
       - name: volume
-        type: int
-      - name: bStressHumans
-        type: boolean
+        type: " int"
   - name: allPlayersAsleep
     modifiers:
       - public
@@ -365,16 +353,10 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: target
-        type: IsoGameCharacter
   - name: canClimbOverWall
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: dir
-        type: IsoDirections
   - name: canSeePlayerStats
     modifiers:
       - public
@@ -383,9 +365,10 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: remoteChr
-        type: IsoPlayer
+  - name: checkCanSeeClient
+    modifiers:
+      - public
+    returnType: boolean
   - name: clearNetworkEvents
     modifiers:
       - public
@@ -394,9 +377,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: dir
-        type: IsoDirections
   - name: createPlayerStats
     modifiers:
       - public
@@ -404,8 +384,10 @@ methods:
     parameters:
       - name: b
         type: ByteBufferWriter
-      - name: adminUsername
-        type: String
+  - name: DoAttack
+    modifiers:
+      - public
+    returnType: boolean
   - name: DoAttack
     modifiers:
       - public
@@ -414,44 +396,27 @@ methods:
       - name: chargeDelta
         type: float
       - name: forceShove
-        type: boolean
-      - name: clickSound
-        type: String
+        type: " boolean"
   - name: doBeatenVehicle
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: vehicleSpeed
-        type: float
   - name: doContext
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: dir
-        type: IsoDirections
   - name: DoFootstepSound
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: type
-        type: String
   - name: dressInClothingItem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: itemGUID
-        type: String
   - name: dressInNamedOutfit
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: outfitName
-        type: String
   - name: getAccessLevel
     modifiers:
       - public
@@ -476,9 +441,6 @@ methods:
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: vec
-        type: Vector2
   - name: getAllFileNames
     modifiers:
       - public
@@ -521,23 +483,14 @@ methods:
     modifiers:
       - public
     returnType: IsoZombie
-    parameters:
-      - name: closestTo
-        type: IsoZombie
   - name: getContextDoorOrWindowOrWindowFrame
     modifiers:
       - public
     returnType: IsoObject
-    parameters:
-      - name: assumedDir
-        type: IsoDirections
   - name: getControllerAimDir
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: vec
-        type: Vector2
   - name: getCoopPVP
     modifiers:
       - public
@@ -547,16 +500,10 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: vehicleSpeed
-        type: float
   - name: getDeferredMovement
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: out_result
-        type: Vector2
   - name: getDialogMood
     modifiers:
       - public
@@ -594,9 +541,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bDoNoises
-        type: boolean
   - name: getHeartDelay
     modifiers:
       - public
@@ -633,10 +577,11 @@ methods:
   - name: getItemVisuals
     modifiers:
       - public
+    returnType: ItemVisuals
+  - name: getItemVisuals
+    modifiers:
+      - public
     returnType: void
-    parameters:
-      - name: itemVisuals
-        type: ItemVisuals
   - name: getJoypadBind
     modifiers:
       - public
@@ -662,9 +607,6 @@ methods:
       - public
       - static
     returnType: IsoPlayer
-    parameters:
-      - name: ID
-        type: short
   - name: getMaxWeightDelta
     modifiers:
       - public
@@ -673,23 +615,14 @@ methods:
     modifiers:
       - public
     returnType: Long
-    parameters:
-      - name: itemId
-        type: String
   - name: getMoodleLevel
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: type
-        type: MoodleType
   - name: getMouseAimVector
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: vec
-        type: Vector2
   - name: getMoveSpeed
     modifiers:
       - public
@@ -769,9 +702,7 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
-      - name: RelevantRange
-        type: float
+        type: " float"
   - name: getReloadingMod
     modifiers:
       - public
@@ -854,9 +785,10 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: canShowFirstname
-        type: Boolean
+  - name: getUsername
+    modifiers:
+      - public
+    returnType: String
   - name: getVisual
     modifiers:
       - public
@@ -865,9 +797,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: z
-        type: IsoZombie
   - name: hasInstance
     modifiers:
       - public
@@ -881,13 +810,11 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: speed
-        type: float
+        type: " float"
       - name: isHitFromBehind
-        type: boolean
+        type: " boolean"
       - name: hitDirX
-        type: float
-      - name: hitDirY
-        type: float
+        type: " float"
   - name: hitConsequences
     modifiers:
       - public
@@ -896,13 +823,11 @@ methods:
       - name: weapon
         type: HandWeapon
       - name: wielder
-        type: IsoGameCharacter
+        type: " IsoGameCharacter"
       - name: bIgnoreDamage
-        type: boolean
+        type: " boolean"
       - name: damage
-        type: float
-      - name: bRemote
-        type: boolean
+        type: " float"
   - name: hopFence
     modifiers:
       - public
@@ -910,8 +835,6 @@ methods:
     parameters:
       - name: dir
         type: IsoDirections
-      - name: bTest
-        type: boolean
   - name: InitSpriteParts
     modifiers:
       - public
@@ -921,9 +844,6 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: callback
-        type: Runnable
     notes: >-
       The IsoPlayer.instance thread-safe invoke.
         Calls the supplied callback if the IsoPlayer.instance is non-null.
@@ -941,9 +861,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: level
-        type: String
   - name: isAimControlActive
     modifiers:
       - public
@@ -1088,9 +1005,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: ignoreBush
-        type: boolean
   - name: isJustMoved
     modifiers:
       - public
@@ -1119,9 +1033,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: flip
-        type: boolean
+        type: " int"
   - name: isNearVehicle
     modifiers:
       - public
@@ -1162,9 +1074,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: other
-        type: IsoMovingObject
   - name: IsRunning
     modifiers:
       - public
@@ -1173,9 +1082,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: dir
-        type: IsoDirections
   - name: isSaveFileInUse
     modifiers:
       - public
@@ -1197,9 +1103,6 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: id
-        type: String
   - name: isShowMPInfos
     modifiers:
       - public
@@ -1236,9 +1139,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: testVehicle
-        type: BaseVehicle
   - name: isWaiting
     modifiers:
       - public
@@ -1251,23 +1151,23 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: killer
-        type: IsoGameCharacter
+  - name: load
+    modifiers:
+      - public
+    returnType: void
   - name: load
     modifiers:
       - public
     returnType: void
     parameters:
-      - name: fileName
-        type: String
+      - name: input
+        type: ByteBuffer
+      - name: WorldVersion
+        type: " int"
   - name: MoveUnmodded
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: Vector2
   - name: nullifyAiming
     modifiers:
       - public
@@ -1279,8 +1179,6 @@ methods:
     parameters:
       - name: sender
         type: AnimLayer
-      - name: event
-        type: AnimEvent
   - name: onCullStateChanged
     modifiers:
       - public
@@ -1289,8 +1187,6 @@ methods:
       - name: modelManager
         type: ModelManager
         notes: Event sender.
-      - name: isCulled
-        type: boolean
     notes: Callback from ModelManager.Add/Remove functions.
   - name: OnDeath
     modifiers:
@@ -1312,9 +1208,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: calcAttackVars
-        type: boolean
   - name: pressedCancelAction
     modifiers:
       - public
@@ -1323,9 +1216,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: ignoreBlock
-        type: boolean
   - name: preupdate
     modifiers:
       - public
@@ -1346,17 +1236,15 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoChild
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
-      - name: shader
-        type: Shader
+        type: " boolean"
   - name: renderlast
     modifiers:
       - public
@@ -1370,192 +1258,122 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
+  - name: save
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: fileName
-        type: String
+      - name: output
+        type: ByteBuffer
   - name: setAccessLevel
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newLvl
-        type: String
   - name: setAllChatMuted
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: allChatMuted
-        type: boolean
   - name: setAllowRun
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: allowRun
-        type: boolean
   - name: setAllowSprint
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: allowSprint
-        type: boolean
   - name: setAsleepTime
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: AsleepTime
-        type: float
   - name: setAttackAnimThrowTimer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dt
-        type: long
   - name: setAttackFromBehind
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: attackFromBehind
-        type: boolean
   - name: setAttackType
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: attackType
-        type: String
   - name: setAuthorizeMeleeAction
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enabled
-        type: boolean
   - name: setAuthorizeShoveStomp
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: enabled
-        type: boolean
   - name: setBannedAttacking
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setbChangeCharacterDebounce
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bChangeCharacterDebounce
-        type: boolean
   - name: setbCouldBeSeenThisFrame
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bCouldBeSeenThisFrame
-        type: boolean
   - name: setBlockMovement
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: blockMovement
-        type: boolean
   - name: setbSeenThisFrame
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bSeenThisFrame
-        type: boolean
   - name: setCanHearAll
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setCanSeeAll
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setClearSpottedTimer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ClearSpottedTimer
-        type: int
   - name: setClimbOverWallStruggle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: climbOverWallStruggle
-        type: boolean
   - name: setClimbOverWallSuccess
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: climbOverWallSuccess
-        type: boolean
   - name: setCoopPVP
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: enabled
-        type: boolean
   - name: setDialogMood
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: DialogMood
-        type: int
   - name: setDisplayName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: displayName
-        type: String
   - name: setDragCharacter
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: DragCharacter
-        type: IsoSurvivor
   - name: setDragObject
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: DragObject
-        type: IsoMovingObject
   - name: setFactionPvp
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: pvp
-        type: boolean
   - name: setFitnessSpeed
     modifiers:
       - public
@@ -1565,143 +1383,83 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: aFollowDeadCount
-        type: int
   - name: setFollowID
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: followID
-        type: int
   - name: setForceAim
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: forceAim
-        type: boolean
   - name: setForceOverrideAnim
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: forceOverride
-        type: boolean
   - name: setForceRun
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: forceRun
-        type: boolean
   - name: setForceSprint
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: forceSprint
-        type: boolean
   - name: setForname
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: Forname
-        type: String
   - name: setGhostMode
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: aGhostMode
-        type: boolean
   - name: setHeartDelay
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: heartDelay
-        type: float
   - name: setHeartDelayMax
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: heartDelayMax
-        type: int
   - name: setHoursSurvived
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hrs
-        type: double
   - name: setIgnoreAutoVault
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ignoreAutoVault
-        type: boolean
   - name: setIgnoreContextKey
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ignoreContextKey
-        type: boolean
   - name: setIgnoreInputsForDirection
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ignoreInputsForDirection
-        type: boolean
   - name: setInitiateAttack
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: initiate
-        type: boolean
   - name: setInstance
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: newInstance
-        type: IsoPlayer
   - name: setJoypadIgnoreAimUntilCentered
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ignore
-        type: boolean
   - name: setJustMoved
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: boolean
   - name: setLastAngle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: lastAngle
-        type: Vector2
   - name: setLastSpotted
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: LastSpotted
-        type: Stack<IsoMovingObject>
   - name: setLocalPlayer
     modifiers:
       - public
@@ -1710,99 +1468,62 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: newPlayerObj
-        type: IsoPlayer
   - name: setMaxWeightDelta
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: maxWeightDelta
-        type: float
   - name: setMeleeHitSurface
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: material
-        type: String
+  - name: setMeleeHitSurface
+    modifiers:
+      - public
+    returnType: void
   - name: setMoodleCantSprint
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setMoveSpeed
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: moveSpeed
-        type: float
   - name: setNetworkTeleportEnabled
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setNoClip
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: noClip
-        type: boolean
   - name: setOffSetXUI
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: offSetXUI
-        type: int
   - name: setOffSetYUI
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: offSetYUI
-        type: int
   - name: setOnlineID
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: value
-        type: short
   - name: setPathfindRunning
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newvalue
-        type: boolean
   - name: setPerformingAnAction
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: boolean
   - name: setPing
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ping
-        type: int
   - name: setPlayerMoveDir
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: aPlayerMoveDir
-        type: Vector2
   - name: setPlayerStats
     modifiers:
       - public
@@ -1810,8 +1531,6 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
-      - name: adminUsername
-        type: String
   - name: setPosition
     modifiers:
       - public
@@ -1820,37 +1539,23 @@ methods:
       - name: ax
         type: float
       - name: ay
-        type: float
-      - name: az
-        type: float
+        type: " float"
   - name: setSeeNonPvpZone
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: seeNonPvpZone
-        type: boolean
   - name: setShowMPInfos
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setShowTag
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: show
-        type: boolean
   - name: setSleepingPillsTaken
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: sleepingPillsTaken
-        type: int
     notes: |-
       If you've take more than 10 sleeping pills you lose some health If you're
        drunk, 1 pills = 2
@@ -1858,86 +1563,50 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: steamID
-        type: long
   - name: setSurname
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: Surname
-        type: String
   - name: setTagColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: tagColor
-        type: ColorInfo
   - name: setTagPrefix
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newTag
-        type: String
   - name: setTicksSinceSeenZombie
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: TicksSinceSeenZombie
-        type: int
   - name: setTimeSinceLastStab
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: timeSinceLastStab
-        type: float
   - name: setTransactionID
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: transactionID
-        type: Integer
   - name: setUsername
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newUsername
-        type: String
   - name: setVehicle4TestCollision
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: setVehicleHitLocation
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: setWaiting
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: Waiting
-        type: boolean
   - name: setWearingNightVisionGoggles
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: shouldBeTurning
     modifiers:
       - public
@@ -1950,23 +1619,14 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: IsoPlayer
   - name: stopReceivingBodyDamageUpdates
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: IsoPlayer
   - name: TestZombieSpotPlayer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: chr
-        type: IsoMovingObject
   - name: toggleForceAim
     modifiers:
       - public

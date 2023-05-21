@@ -17,8 +17,6 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
-      - name: nbr
-        type: int
   - name: addItemOnGround
     modifiers:
       - public
@@ -26,8 +24,13 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
-      - name: item
-        type: InventoryItem
+  - name: addItemOnGround
+    modifiers:
+      - public
+    returnType: InventoryItem
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: addRandomItemOnGround
     modifiers:
       - public
@@ -35,8 +38,15 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
-      - name: types
-        type: ArrayList<String>
+  - name: addRandomItemsOnGround
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: room
+        type: RoomDef
+      - name: type
+        type: " String"
   - name: addRandomItemsOnGround
     modifiers:
       - public
@@ -45,9 +55,8 @@ methods:
       - name: room
         type: RoomDef
       - name: types
-        type: ArrayList<String>
-      - name: count
-        type: int
+        type: " ArrayList"
+        genericType: " ArrayList<String>"
   - name: addTentNorthSouth
     modifiers:
       - public
@@ -56,9 +65,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: addTentWestEast
     modifiers:
       - public
@@ -67,9 +74,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: addTileObject
     modifiers:
       - public
@@ -77,8 +82,17 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
-      - name: spriteName
-        type: String
+  - name: addTileObject
+    modifiers:
+      - public
+    returnType: IsoObject
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: " int"
+      - name: z
+        type: " int"
   - name: addTrailer
     modifiers:
       - public
@@ -87,15 +101,13 @@ methods:
       - name: v
         type: BaseVehicle
       - name: zone
-        type: IsoMetaGrid.Zone
+        type: " IsoMetaGrid.Zone"
       - name: chunk
-        type: IsoChunk
+        type: " IsoChunk"
       - name: zoneName
-        type: String
+        type: " String"
       - name: vehicleDistrib
-        type: String
-      - name: trailerName
-        type: String
+        type: " String"
   - name: addTrailOfBlood
     modifiers:
       - public
@@ -104,13 +116,11 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: direction
-        type: float
-      - name: count
-        type: int
+        type: " float"
   - name: addTraitOfBlood
     modifiers:
       - public
@@ -119,13 +129,45 @@ methods:
       - name: dir
         type: IsoDirections
       - name: time
-        type: int
+        type: " int"
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
+  - name: addVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: sq
+        type: " IsoGridSquare"
+      - name: chunk
+        type: " IsoChunk"
+      - name: zoneName
+        type: " String"
+      - name: scriptName
+        type: " String"
+  - name: addVehicle
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: sq
+        type: " IsoGridSquare"
+      - name: chunk
+        type: " IsoChunk"
+      - name: zoneName
+        type: " String"
+      - name: scriptName
+        type: " String"
+      - name: skinIndex
+        type: " Integer"
+      - name: dir
+        type: " IsoDirections"
   - name: addVehicle
     modifiers:
       - public
@@ -134,21 +176,38 @@ methods:
       - name: zone
         type: IsoMetaGrid.Zone
       - name: vehicleX
-        type: float
+        type: " float"
       - name: vehicleY
-        type: float
+        type: " float"
       - name: vehicleZ
-        type: float
+        type: " float"
       - name: direction
-        type: float
+        type: " float"
       - name: zoneName
-        type: String
+        type: " String"
       - name: scriptName
-        type: String
+        type: " String"
       - name: skinIndex
-        type: Integer
-      - name: specificContainer
-        type: String
+        type: " Integer"
+  - name: addVehicleFlipped
+    modifiers:
+      - public
+    returnType: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: sq
+        type: " IsoGridSquare"
+      - name: chunk
+        type: " IsoChunk"
+      - name: zoneName
+        type: " String"
+      - name: scriptName
+        type: " String"
+      - name: skinIndex
+        type: " Integer"
+      - name: dir
+        type: " IsoDirections"
   - name: addVehicleFlipped
     modifiers:
       - public
@@ -157,21 +216,19 @@ methods:
       - name: zone
         type: IsoMetaGrid.Zone
       - name: vehicleX
-        type: float
+        type: " float"
       - name: vehicleY
-        type: float
+        type: " float"
       - name: vehicleZ
-        type: float
+        type: " float"
       - name: direction
-        type: float
+        type: " float"
       - name: zoneName
-        type: String
+        type: " String"
       - name: scriptName
-        type: String
+        type: " String"
       - name: skinIndex
-        type: Integer
-      - name: specificContainer
-        type: String
+        type: " Integer"
   - name: addWeapon
     modifiers:
       - public
@@ -179,8 +236,6 @@ methods:
     parameters:
       - name: type
         type: String
-      - name: addRandomBullets
-        type: boolean
     notes: Create and return a weapon, if it's ranged you can ask for some bullets
       in it
   - name: addZombiesOnSquare
@@ -191,11 +246,9 @@ methods:
       - name: totalZombies
         type: int
       - name: outfit
-        type: String
+        type: " String"
       - name: femaleChance
-        type: Integer
-      - name: square
-        type: IsoGridSquare
+        type: " Integer"
   - name: addZombiesOnVehicle
     modifiers:
       - public
@@ -204,11 +257,9 @@ methods:
       - name: totalZombies
         type: int
       - name: outfit
-        type: String
+        type: " String"
       - name: femaleChance
-        type: Integer
-      - name: vehicle
-        type: BaseVehicle
+        type: " Integer"
     notes: >-
       Add zombies near the vehicles, around a 4x4 square around it, avoiding
       being
@@ -221,16 +272,63 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
-      - name: square
-        type: IsoGridSquare
   - name: createBodyFromZombie
     modifiers:
       - public
       - static
     returnType: IsoDeadBody
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
     parameters:
-      - name: chr
-        type: IsoGameCharacter
+      - name: room
+        type: RoomDef
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: " int"
+      - name: z
+        type: " int"
+      - name: dir
+        type: " IsoDirections"
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: dir
+        type: " IsoDirections"
+      - name: blood
+        type: " int"
+      - name: crawlerChance
+        type: " int"
+  - name: createRandomDeadBody
+    modifiers:
+      - public
+      - static
+    returnType: IsoDeadBody
+    parameters:
+      - name: x
+        type: int
+      - name: y
+        type: " int"
+      - name: z
+        type: " int"
+      - name: dir
+        type: " IsoDirections"
+      - name: blood
+        type: " int"
   - name: createRandomDeadBody
     modifiers:
       - public
@@ -240,19 +338,22 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: direction
-        type: float
+        type: " float"
       - name: alignToSquare
-        type: boolean
+        type: " boolean"
       - name: blood
-        type: int
+        type: " int"
       - name: crawlerChance
-        type: int
-      - name: outfit
-        type: String
+        type: " int"
+  - name: createRandomZombie
+    modifiers:
+      - public
+      - static
+    returnType: IsoGameCharacter
   - name: createRandomZombie
     modifiers:
       - public
@@ -262,24 +363,16 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: createRandomZombieForCorpse
     modifiers:
       - public
       - static
     returnType: IsoGameCharacter
-    parameters:
-      - name: room
-        type: RoomDef
   - name: createSkeletonCorpse
     modifiers:
       - public
     returnType: IsoDeadBody
-    parameters:
-      - name: room
-        type: RoomDef
   - name: getDebugLine
     modifiers:
       - public
@@ -288,9 +381,6 @@ methods:
     modifiers:
       - public
     returnType: RoomDef
-    parameters:
-      - name: bDef
-        type: BuildingDef
     notes: Get either the living room or kitchen (in this order)
   - name: getMaximumDays
     modifiers:
@@ -307,25 +397,17 @@ methods:
     parameters:
       - name: bDef
         type: BuildingDef
-      - name: minArea
-        type: int
     notes: Get a random room in the building
   - name: getRandomSpawnSquare
     modifiers:
       - public
       - static
     returnType: IsoGridSquare
-    parameters:
-      - name: roomDef
-        type: RoomDef
   - name: getRandomSquareForCorpse
     modifiers:
       - public
       - static
     returnType: IsoGridSquare
-    parameters:
-      - name: roomDef
-        type: RoomDef
   - name: getRoom
     modifiers:
       - public
@@ -333,8 +415,6 @@ methods:
     parameters:
       - name: bDef
         type: BuildingDef
-      - name: roomName
-        type: String
     notes: Return the wanted room
   - name: getSq
     modifiers:
@@ -344,48 +424,31 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: is1x2AreaClear
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: square
-        type: IsoGridSquare
   - name: is2x1AreaClear
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: square
-        type: IsoGridSquare
   - name: is2x1or1x2AreaClear
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: square
-        type: IsoGridSquare
   - name: is2x2AreaClear
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: square
-        type: IsoGridSquare
   - name: isTimeValid
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: force
-        type: boolean
     notes: Check if the world age is correct for our definition
   - name: isUnique
     modifiers:
@@ -396,9 +459,6 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: zone
-        type: IsoMetaGrid.Zone
   - name: setAttachedItem
     modifiers:
       - public
@@ -407,32 +467,21 @@ methods:
       - name: zombie
         type: IsoZombie
       - name: location
-        type: String
+        type: " String"
       - name: item
-        type: String
-      - name: ensureItem
-        type: String
+        type: " String"
   - name: setDebugLine
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: debugLine
-        type: String
   - name: setMaximumDays
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: maximumDays
-        type: int
   - name: setUnique
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: unique
-        type: boolean
   - name: spawnCarOnNearestNav
     modifiers:
       - public
@@ -440,5 +489,3 @@ methods:
     parameters:
       - name: carName
         type: String
-      - name: def
-        type: BuildingDef

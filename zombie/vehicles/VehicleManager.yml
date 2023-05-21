@@ -31,9 +31,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: clientUpdate
     modifiers:
       - public
@@ -42,16 +39,10 @@ methods:
     modifiers:
       - public
     returnType: short
-    parameters:
-      - name: towingID
-        type: short
   - name: getVehicleByID
     modifiers:
       - public
     returnType: BaseVehicle
-    parameters:
-      - name: id
-        type: short
   - name: getVehicles
     modifiers:
       - public
@@ -60,16 +51,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: removeFromWorld
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: sendAddImpulse
     modifiers:
       - public
@@ -78,9 +63,7 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: impulse
-        type: org.joml.Vector3f
-      - name: rel_pos
-        type: org.joml.Vector3f
+        type: " org.joml.Vector3f"
   - name: sendCollide
     modifiers:
       - public
@@ -89,9 +72,7 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: chr
-        type: IsoGameCharacter
-      - name: isCollide
-        type: boolean
+        type: " IsoGameCharacter"
   - name: sendDetachTowing
     modifiers:
       - public
@@ -99,8 +80,15 @@ methods:
     parameters:
       - name: vehicleTowing
         type: BaseVehicle
-      - name: vehicleTowedBy
-        type: BaseVehicle
+  - name: sendDetachTowing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicleA
+        type: " BaseVehicle"
   - name: sendEnter
     modifiers:
       - public
@@ -109,9 +97,18 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: character
-        type: IsoGameCharacter
-      - name: seatTo
-        type: int
+        type: " IsoGameCharacter"
+  - name: sendEnter
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicle
+        type: " BaseVehicle"
+      - name: character
+        type: " IsoGameCharacter"
   - name: sendExit
     modifiers:
       - public
@@ -120,9 +117,18 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: character
-        type: IsoGameCharacter
-      - name: seatFrom
-        type: int
+        type: " IsoGameCharacter"
+  - name: sendExit
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicle
+        type: " BaseVehicle"
+      - name: character
+        type: " IsoGameCharacter"
   - name: sendPassengerPosition
     modifiers:
       - public
@@ -131,25 +137,33 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: seat
-        type: int
-      - name: positionId
-        type: String
-      - name: ignore
-        type: UdpConnection
-  - name: sendPhysic
+        type: " int"
+  - name: sendPassengerPosition
     modifiers:
       - public
     returnType: void
     parameters:
       - name: vehicle
         type: BaseVehicle
+      - name: seat
+        type: " int"
+      - name: positionId
+        type: " String"
+  - name: sendPhysic
+    modifiers:
+      - public
+    returnType: void
+  - name: sendRequestGetFull
+    modifiers:
+      - public
+    returnType: void
   - name: sendRequestGetFull
     modifiers:
       - public
     returnType: void
     parameters:
-      - name: vehicles
-        type: List<VehicleCache>
+      - name: VehicleID
+        type: short
   - name: sendRequestGetPosition
     modifiers:
       - public
@@ -157,8 +171,6 @@ methods:
     parameters:
       - name: VehicleID
         type: short
-      - name: packetType
-        type: PacketTypes.PacketType
   - name: sendSound
     modifiers:
       - public
@@ -167,8 +179,6 @@ methods:
     parameters:
       - name: vehicle
         type: BaseVehicle
-      - name: id
-        type: byte
   - name: sendSoundFromServer
     modifiers:
       - public
@@ -177,8 +187,6 @@ methods:
     parameters:
       - name: vehicle
         type: BaseVehicle
-      - name: soundId
-        type: byte
   - name: sendSwitchSeat
     modifiers:
       - public
@@ -187,11 +195,22 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: character
-        type: IsoGameCharacter
+        type: " IsoGameCharacter"
       - name: seatFrom
-        type: int
-      - name: seatTo
-        type: int
+        type: " int"
+  - name: sendSwitchSeat
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicle
+        type: " BaseVehicle"
+      - name: character
+        type: " IsoGameCharacter"
+      - name: seatFrom
+        type: " int"
   - name: sendTowing
     modifiers:
       - public
@@ -200,11 +219,22 @@ methods:
       - name: vehicleA
         type: BaseVehicle
       - name: vehicleB
-        type: BaseVehicle
+        type: " BaseVehicle"
       - name: attachmentA
-        type: String
-      - name: attachmentB
-        type: String
+        type: " String"
+  - name: sendTowing
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: connection
+        type: UdpConnection
+      - name: vehicleA
+        type: " BaseVehicle"
+      - name: vehicleB
+        type: " BaseVehicle"
+      - name: attachmentA
+        type: " String"
   - name: serverPacket
     modifiers:
       - public
@@ -213,16 +243,11 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: UdpConnection
-      - name: type
-        type: short
+        type: " UdpConnection"
   - name: serverSendInitialWorldState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: connection
-        type: UdpConnection
   - name: serverUpdate
     modifiers:
       - public
@@ -231,6 +256,3 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vehicle
-        type: BaseVehicle

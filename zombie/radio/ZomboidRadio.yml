@@ -52,11 +52,18 @@ methods:
       - name: name
         type: String
       - name: frequency
-        type: int
-      - name: category
+        type: " int"
+  - name: addChannelName
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: name
         type: String
-      - name: overwrite
-        type: boolean
+      - name: frequency
+        type: " int"
+      - name: category
+        type: " String"
   - name: clone
     modifiers:
       - public
@@ -65,9 +72,6 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: str
-        type: String
   - name: getBroadcastDevices
     modifiers:
       - public
@@ -76,16 +80,10 @@ methods:
     modifiers:
       - public
     returnType: Map
-    parameters:
-      - name: category
-        type: String
   - name: getChannelName
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: frequency
-        type: int
   - name: getDaysSinceStart
     modifiers:
       - public
@@ -123,10 +121,12 @@ methods:
     modifiers:
       - public
     returnType: int
+  - name: getRandomFrequency
+    modifiers:
+      - public
+    returnType: int
     parameters:
       - name: rangemin
-        type: int
-      - name: rangemax
         type: int
   - name: getRecordedMedia
     modifiers:
@@ -145,17 +145,11 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: savedWorldVersion
-        type: int
   - name: isStaticSound
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: str
-        type: String
   - name: Load
     modifiers:
       - public
@@ -165,9 +159,6 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: channel
-        type: RadioChannel
   - name: PlayerListensChannel
     modifiers:
       - public
@@ -176,9 +167,7 @@ methods:
       - name: channel
         type: int
       - name: listenmode
-        type: boolean
-      - name: isTV
-        type: boolean
+        type: " boolean"
   - name: ReceiveTransmission
     modifiers:
       - public
@@ -187,39 +176,31 @@ methods:
       - name: sourceX
         type: int
       - name: sourceY
-        type: int
+        type: " int"
       - name: channel
-        type: int
+        type: " int"
       - name: msg
-        type: String
+        type: " String"
       - name: guid
-        type: String
+        type: " String"
       - name: codes
-        type: String
+        type: " String"
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
+        type: " float"
       - name: signalStrength
-        type: int
-      - name: isTV
-        type: boolean
+        type: " int"
   - name: RegisterDevice
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: device
-        type: WaveSignalDevice
   - name: removeChannelName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: frequency
-        type: int
   - name: render
     modifiers:
       - public
@@ -240,11 +221,45 @@ methods:
       - name: msg
         type: String
       - name: intensity
-        type: int
+        type: " int"
       - name: ignoreBBcode
-        type: boolean
-      - name: customScramble
-        type: String
+        type: " boolean"
+  - name: SendTransmission
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sourceX
+        type: int
+      - name: sourceY
+        type: " int"
+      - name: msg
+        type: " ChatMessage"
+  - name: SendTransmission
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: sourceX
+        type: int
+      - name: sourceY
+        type: " int"
+      - name: channel
+        type: " int"
+      - name: msg
+        type: " String"
+      - name: guid
+        type: " String"
+      - name: codes
+        type: " String"
+      - name: r
+        type: " float"
+      - name: g
+        type: " float"
+      - name: b
+        type: " float"
+      - name: signalStrength
+        type: " int"
   - name: SendTransmission
     modifiers:
       - public
@@ -253,55 +268,41 @@ methods:
       - name: source
         type: long
       - name: sourceX
-        type: int
+        type: " int"
       - name: sourceY
-        type: int
+        type: " int"
       - name: channel
-        type: int
+        type: " int"
       - name: msg
-        type: String
+        type: " String"
       - name: guid
-        type: String
+        type: " String"
       - name: codes
-        type: String
+        type: " String"
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
+        type: " float"
       - name: signalStrength
-        type: int
-      - name: isTV
-        type: boolean
+        type: " int"
   - name: setDisableBroadcasting
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setDisableMediaLineLearning
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setHasRecievedServerData
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: state
-        type: boolean
   - name: UnRegisterDevice
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: device
-        type: WaveSignalDevice
   - name: update
     modifiers:
       - public
@@ -313,12 +314,7 @@ methods:
     parameters:
       - name: hour
         type: int
-      - name: mins
-        type: int
   - name: WriteRadioServerDataPacket
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBufferWriter

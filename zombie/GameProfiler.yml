@@ -11,9 +11,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: area
-        type: GameProfiler.ProfileArea
   - name: endFrame
     modifiers:
       - public
@@ -40,16 +37,40 @@ methods:
     parameters:
       - name: areaKey
         type: String
+    notes: Measure how long it takes to run the supplied invoker.
+  - name: invokeAndMeasure
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: areaKey
+        type: String
       - name: val1
-        type: T1
+        type: " T1"
+  - name: invokeAndMeasure
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: areaKey
+        type: String
+      - name: val1
+        type: " T1"
       - name: val2
-        type: T2
+        type: " T2"
+  - name: invokeAndMeasure
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: areaKey
+        type: String
+      - name: val1
+        type: " T1"
+      - name: val2
+        type: " T2"
       - name: val3
-        type: T3
-      - type: Invokers.Params3.ICallback<T1
-      - type: T2
-      - name: invoker
-        type: T3>
+        type: " T3"
   - name: invokeAndMeasureFrame
     modifiers:
       - public
@@ -57,8 +78,6 @@ methods:
     parameters:
       - name: invokerKey
         type: String
-      - name: invoke
-        type: Runnable
     notes: Perform an entire frame, call startFrame, invoke.run(), endFrame
   - name: isRunning
     modifiers:
@@ -72,8 +91,14 @@ methods:
     parameters:
       - name: x
         type: int
-      - name: y
-        type: int
+  - name: start
+    modifiers:
+      - public
+    returnType: GameProfiler.ProfileArea
+  - name: start
+    modifiers:
+      - public
+    returnType: GameProfiler.ProfileArea
   - name: start
     modifiers:
       - public
@@ -81,12 +106,7 @@ methods:
     parameters:
       - name: area
         type: GameProfiler.ProfileArea
-      - name: timeNs
-        type: long
   - name: startFrame
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: frameInvokerKey
-        type: String

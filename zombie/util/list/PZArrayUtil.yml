@@ -27,12 +27,18 @@ methods:
     modifiers:
       - public
       - static
+    returnType: float[]
+    parameters:
+      - name: array
+        type: float[]
+  - name: add
+    modifiers:
+      - public
+      - static
     returnType: E[]
     parameters:
       - name: array
         type: E[]
-      - name: val
-        type: E
   - name: arrayAdd
     modifiers:
       - public
@@ -40,8 +46,6 @@ methods:
     returnType: int[]
     parameters:
       - name: in_out_a
-        type: int[]
-      - name: b
         type: int[]
   - name: arrayConvert
     modifiers:
@@ -52,13 +56,44 @@ methods:
       - name: to
         type: L
       - name: from
-        type: List<S>
-      - type: Function<S
-      - name: converter
-        type: E>
+        type: " List"
+        genericType: " List<S>"
     notes: |-
       Convert all elements in the source array, and add them to the target.
        Uses supplied converter function.
+       Clears target before populating.
+  - name: arrayCopy
+    modifiers:
+      - public
+      - static
+    returnType: L
+    parameters:
+      - name: to
+        type: L
+    notes: |-
+      Copies all elements from the source array to the target.
+       Clears target before populating.
+  - name: arrayCopy
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: to
+        type: E[]
+    notes: |-
+      Copies all elements from the source array to the target.
+       Clears target before populating.
+  - name: arrayCopy
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: to
+        type: E[]
+    notes: |-
+      Copies all elements from the source array to the target.
        Clears target before populating.
   - name: arrayCopy
     modifiers:
@@ -69,10 +104,33 @@ methods:
       - name: to
         type: E[]
       - name: from
-        type: S[]
-    notes: |-
-      Copies all elements from the source array to the target.
-       Clears target before populating.
+        type: " S[]"
+      - name: startIdx
+        type: " int"
+  - name: arrayCopy
+    modifiers:
+      - public
+      - static
+    returnType: float[]
+    parameters:
+      - name: to
+        type: float[]
+      - name: from
+        type: " float[]"
+      - name: startIdx
+        type: " int"
+  - name: arrayCopy
+    modifiers:
+      - public
+      - static
+    returnType: int[]
+    parameters:
+      - name: to
+        type: int[]
+      - name: from
+        type: " int[]"
+      - name: startIdx
+        type: " int"
   - name: arrayPopulate
     modifiers:
       - public
@@ -81,8 +139,22 @@ methods:
     parameters:
       - name: arr
         type: E[]
-      - name: supplier
-        type: Supplier<E>
+  - name: arraySet
+    modifiers:
+      - public
+      - static
+    returnType: int[]
+    parameters:
+      - name: arr
+        type: int[]
+  - name: arraySet
+    modifiers:
+      - public
+      - static
+    returnType: float[]
+    parameters:
+      - name: arr
+        type: float[]
   - name: arraySet
     modifiers:
       - public
@@ -91,8 +163,21 @@ methods:
     parameters:
       - name: arr
         type: E[]
-      - name: val
-        type: E
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
   - name: arrayToString
     modifiers:
       - public
@@ -100,24 +185,71 @@ methods:
     returnType: String
     parameters:
       - name: list
-        type: Iterable<E>
-      - type: Function<E
-      - name: toString
-        type: String>
+        type: Iterable
+        genericType: Iterable<E>
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: list
+        type: float[]
       - name: prefix
-        type: String
+        type: " String"
       - name: suffix
-        type: String
-      - name: delimiter
-        type: String
+        type: " String"
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: list
+        type: E[]
+      - name: prefix
+        type: " String"
+      - name: suffix
+        type: " String"
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: list
+        type: Iterable
+        genericType: Iterable<E>
+      - name: prefix
+        type: " String"
+      - name: suffix
+        type: " String"
+  - name: arrayToString
+    modifiers:
+      - public
+      - static
+    returnType: String
+    parameters:
+      - name: list
+        type: Iterable
+        genericType: Iterable<E>
+      - name: toString
+        type: " Function"
+        genericType: " Function<E,String>"
+      - name: prefix
+        type: " String"
+      - name: suffix
+        type: " String"
+  - name: clone
+    modifiers:
+      - public
+      - static
+    returnType: float[]
   - name: clone
     modifiers:
       - public
       - static
     returnType: E[]
-    parameters:
-      - name: src
-        type: E[]
   - name: concat
     modifiers:
       - public
@@ -125,8 +257,6 @@ methods:
     returnType: E[]
     parameters:
       - name: arrayA
-        type: E[]
-      - name: arrayB
         type: E[]
     notes: |-
       Concatenate two arrays.
@@ -137,12 +267,55 @@ methods:
       - static
     returnType: boolean
     parameters:
+      - name: collection
+        type: E[]
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: collection
+        type: List
+        genericType: List<E>
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: it
+        type: Collection
+        genericType: Collection<E>
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: it
+        type: Iterable
+        genericType: Iterable<E>
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: arr
+        type: float[]
+      - name: count
+        type: " int"
+  - name: contains
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
       - name: arr
         type: int[]
       - name: count
-        type: int
-      - name: val
-        type: int
+        type: " int"
   - name: copy
     modifiers:
       - public
@@ -150,11 +323,23 @@ methods:
     returnType: void
     parameters:
       - name: target
-        type: ArrayList<E>
+        type: ArrayList
+        genericType: ArrayList<E>
+    notes: |-
+      Perform a shallow copy of the source array into the target array.
+       The target array's contents are replaced with that of the source array.
+  - name: copy
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: target
+        type: ArrayList
+        genericType: ArrayList<E>
       - name: source
-        type: ArrayList<E>
-      - name: elementCloner
-        type: ICloner<E>
+        type: " ArrayList"
+        genericType: " ArrayList<E>"
     notes: >-
       Perform a copy of the source array into the target array, using the
       supplied ICloner.
@@ -166,9 +351,43 @@ methods:
     returnType: E
     parameters:
       - name: collection
-        type: Iterable<E>
-      - name: comparer
-        type: Predicate<E>
+        type: List
+        genericType: List<E>
+  - name: find
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: collection
+        type: Iterable
+        genericType: Iterable<E>
+  - name: forEach
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: list
+        type: List
+        genericType: List<E>
+    notes: >-
+      Iterate over specified list, invoke supplied consumer on each element.
+        Better GC awareness over List.forEach, avoids use of forEach and iterators.
+        Null-safe
+  - name: forEach
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: it
+        type: Iterable
+        genericType: Iterable<E>
+    notes: >-
+      Iterate over specified Iterable, invoke supplied consumer on each element.
+        Better GC awareness over List.forEach, avoids use of forEach and iterators, if the iterable is of type List.
+        Null-safe
   - name: forEach
     modifiers:
       - public
@@ -177,8 +396,6 @@ methods:
     parameters:
       - name: elements
         type: E[]
-      - name: consumer
-        type: Consumer<? super E>
     notes: |-
       Iterate over specified array, invoke supplied consumer on each element.
         Null-safe
@@ -189,9 +406,8 @@ methods:
     returnType: E
     parameters:
       - name: collection
-        type: Iterable<E>
-      - name: index
-        type: int
+        type: Iterable
+        genericType: Iterable<E>
     notes: Get the specified element from the supplied Iterable.
   - name: getOrCreate
     modifiers:
@@ -199,13 +415,50 @@ methods:
       - static
     returnType: V
     parameters:
-      - type: HashMap<K
       - name: map
-        type: V>
+        type: HashMap
+        genericType: HashMap<K,V>
       - name: key
-        type: K
-      - name: allocator
-        type: Supplier<V>
+        type: " K"
+  - name: getOrDefault
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: list
+        type: List
+        genericType: List<E>
+    notes: |-
+      Get the array value at index.
+       Bounds-safe: Returns null value if out of bounds.
+  - name: getOrDefault
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: list
+        type: List
+        genericType: List<E>
+      - name: i
+        type: " int"
+    notes: |-
+      Get the array value at index.
+       Bounds-safe: Returns default value if out of bounds.
+  - name: getOrDefault
+    modifiers:
+      - public
+      - static
+    returnType: E
+    parameters:
+      - name: list
+        type: E[]
+      - name: i
+        type: " int"
+    notes: |-
+      Get the array value at index.
+       Bounds-safe: Returns default value if out of bounds.
   - name: getOrDefault
     modifiers:
       - public
@@ -215,9 +468,7 @@ methods:
       - name: list
         type: float[]
       - name: i
-        type: int
-      - name: defaultVal
-        type: float
+        type: " int"
     notes: |-
       Get the array value at index.
        Bounds-safe: Returns default value if out of bounds.
@@ -226,10 +477,44 @@ methods:
       - public
       - static
     returnType: int
+    notes: Count the number of elements in the supplied Iterable.
+  - name: indexOf
+    modifiers:
+      - public
+      - static
+    returnType: int
     parameters:
       - name: collection
-        type: Iterable<E>
-    notes: Count the number of elements in the supplied Iterable.
+        type: E[]
+  - name: indexOf
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: collection
+        type: List
+        genericType: List<E>
+  - name: indexOf
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: arr
+        type: E[]
+      - name: count
+        type: " int"
+  - name: indexOf
+    modifiers:
+      - public
+      - static
+    returnType: int
+    parameters:
+      - name: arr
+        type: float[]
+      - name: count
+        type: " int"
   - name: indexOf
     modifiers:
       - public
@@ -239,9 +524,17 @@ methods:
       - name: arr
         type: int[]
       - name: count
-        type: int
-      - name: val
-        type: int
+        type: " int"
+  - name: insertAt
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: arr
+        type: int[]
+      - name: insertAt
+        type: " int"
   - name: insertAt
     modifiers:
       - public
@@ -251,17 +544,32 @@ methods:
       - name: arr
         type: float[]
       - name: insertAt
-        type: int
-      - name: val
-        type: float
+        type: " int"
   - name: isNullOrEmpty
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: it
-        type: Iterable<E>
+  - name: isNullOrEmpty
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isNullOrEmpty
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isNullOrEmpty
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+  - name: isNullOrEmpty
+    modifiers:
+      - public
+      - static
+    returnType: boolean
   - name: itConvert
     modifiers:
       - public
@@ -269,10 +577,8 @@ methods:
     returnType: Iterable
     parameters:
       - name: source
-        type: Iterable<S>
-      - type: Function<S
-      - name: converter
-        type: E>
+        type: Iterable
+        genericType: Iterable<S>
   - name: listConvert
     modifiers:
       - public
@@ -280,15 +586,34 @@ methods:
     returnType: List
     parameters:
       - name: source
-        type: List<S>
+        type: List
+        genericType: List<S>
+  - name: listConvert
+    modifiers:
+      - public
+      - static
+    returnType: List
+    parameters:
+      - name: source
+        type: List
+        genericType: List<S>
       - name: dest
-        type: List<E>
+        type: " List"
+        genericType: " List<E>"
+  - name: listConvert
+    modifiers:
+      - public
+      - static
+    returnType: List
+    parameters:
+      - name: source
+        type: List
+        genericType: List<S>
+      - name: dest
+        type: " List"
+        genericType: " List<E>"
       - name: v1
-        type: T1
-      - type: PZArrayUtil.IListConverter1Param<S
-      - type: E
-      - name: converter
-        type: T1>
+        type: " T1"
   - name: newInstance
     modifiers:
       - public
@@ -296,23 +621,94 @@ methods:
     returnType: E[]
     parameters:
       - name: componentType
-        type: Class<?>
+        type: Class
+        genericType: Class<?>
+  - name: newInstance
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: componentType
+        type: Class
+        genericType: Class<?>
+      - name: length
+        type: " int"
+  - name: newInstance
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: componentType
+        type: Class
+        genericType: Class<?>
       - name: reusableArray
-        type: E[]
+        type: " E[]"
+  - name: newInstance
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: componentType
+        type: Class
+        genericType: Class<?>
+      - name: reusableArray
+        type: " E[]"
       - name: newLength
-        type: int
+        type: " int"
+  - name: newInstance
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: componentType
+        type: Class
+        genericType: Class<?>
+      - name: reusableArray
+        type: " E[]"
+      - name: newLength
+        type: " int"
+  - name: newInstance
+    modifiers:
+      - public
+      - static
+    returnType: E[]
+    parameters:
+      - name: componentType
+        type: Class
+        genericType: Class<?>
+      - name: reusableArray
+        type: " E[]"
+      - name: newLength
+        type: " int"
       - name: growOnly
-        type: boolean
-      - name: newAllocator
-        type: Supplier<E>
+        type: " boolean"
   - name: pickRandom
     modifiers:
       - public
       - static
     returnType: E
-    parameters:
-      - name: collection
-        type: Iterable<E>
+    notes: Pick a random element from the supplied Array.
+  - name: pickRandom
+    modifiers:
+      - public
+      - static
+    returnType: E
+    notes: Pick a random element from the supplied List.
+  - name: pickRandom
+    modifiers:
+      - public
+      - static
+    returnType: E
+    notes: Pick a random element from the supplied Collection.
+  - name: pickRandom
+    modifiers:
+      - public
+      - static
+    returnType: E
     notes: Pick a random element from the supplied Iterable.
   - name: sequenceEqual
     modifiers:
@@ -321,11 +717,39 @@ methods:
     returnType: boolean
     parameters:
       - name: a
-        type: List<? extends E>
+        type: E[]
+  - name: sequenceEqual
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: a
+        type: List
+        genericType: List<? extends E>
+  - name: sequenceEqual
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: a
+        type: E[]
       - name: b
-        type: List<? extends E>
-      - name: comparator
-        type: Comparator<E>
+        type: " List"
+        genericType: " List<? extends E>"
+  - name: sequenceEqual
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: a
+        type: List
+        genericType: List<? extends E>
+      - name: b
+        type: " List"
+        genericType: " List<? extends E>"
   - name: sort
     modifiers:
       - public
@@ -333,14 +757,10 @@ methods:
     returnType: void
     parameters:
       - name: stack
-        type: Stack<E>
-      - name: comparator
-        type: Comparator<E>
+        type: Stack
+        genericType: Stack<E>
   - name: toArray
     modifiers:
       - public
       - static
     returnType: E[]
-    parameters:
-      - name: list
-        type: List<E>

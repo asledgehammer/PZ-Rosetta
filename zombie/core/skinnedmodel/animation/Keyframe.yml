@@ -43,9 +43,7 @@ constructors:
       - name: pos
         type: org.lwjgl.util.vector.Vector3f
       - name: rotation
-        type: org.lwjgl.util.vector.Quaternion
-      - name: scale
-        type: org.lwjgl.util.vector.Vector3f
+        type: " org.lwjgl.util.vector.Quaternion"
 methods:
   - name: clear
     modifiers:
@@ -59,9 +57,19 @@ methods:
       - name: out_pos
         type: org.lwjgl.util.vector.Vector3f
       - name: out_rot
-        type: org.lwjgl.util.vector.Quaternion
-      - name: out_scale
-        type: org.lwjgl.util.vector.Vector3f
+        type: " org.lwjgl.util.vector.Quaternion"
+  - name: lerp
+    modifiers:
+      - public
+      - static
+    returnType: Keyframe
+    parameters:
+      - name: a
+        type: Keyframe
+      - name: b
+        type: " Keyframe"
+      - name: time
+        type: " float"
   - name: lerp
     modifiers:
       - public
@@ -71,22 +79,21 @@ methods:
       - name: a
         type: Keyframe
       - name: b
-        type: Keyframe
+        type: " Keyframe"
       - name: time
-        type: float
+        type: " float"
       - name: out_pos
-        type: org.lwjgl.util.vector.Vector3f
+        type: " org.lwjgl.util.vector.Vector3f"
       - name: out_rot
-        type: org.lwjgl.util.vector.Quaternion
-      - name: out_scale
-        type: org.lwjgl.util.vector.Vector3f
+        type: " org.lwjgl.util.vector.Quaternion"
   - name: set
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: keyframe
-        type: Keyframe
+  - name: setIdentity
+    modifiers:
+      - public
+    returnType: void
   - name: setIdentity
     modifiers:
       - public
@@ -96,10 +103,13 @@ methods:
       - name: out_pos
         type: org.lwjgl.util.vector.Vector3f
       - name: out_rot
-        type: org.lwjgl.util.vector.Quaternion
-      - name: out_scale
-        type: org.lwjgl.util.vector.Vector3f
+        type: " org.lwjgl.util.vector.Quaternion"
   - name: setIdentityIfNotNull
+    modifiers:
+      - public
+      - static
+    returnType: void
+  - name: setIfNotNull
     modifiers:
       - public
       - static
@@ -114,6 +124,22 @@ methods:
     returnType: void
     parameters:
       - name: to
-        type: org.lwjgl.util.vector.Quaternion
+        type: org.lwjgl.util.vector.Vector3f
+      - name: x
+        type: " float"
+      - name: y
+        type: " float"
+  - name: setIfNotNull
+    modifiers:
+      - public
+      - static
+    returnType: void
+    parameters:
+      - name: to
+        type: org.lwjgl.util.vector.Vector3f
       - name: val
-        type: org.lwjgl.util.vector.Quaternion
+        type: " org.lwjgl.util.vector.Vector3f"
+      - name: default_x
+        type: " float"
+      - name: default_y
+        type: " float"

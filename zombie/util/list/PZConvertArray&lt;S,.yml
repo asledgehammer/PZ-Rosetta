@@ -13,9 +13,6 @@ constructors:
     parameters:
       - name: array
         type: S[]
-      - type: Function<S
-      - name: converterST
-        type: T>
     notes: Create a read-only list converter
   - name: PZConvertArray
     modifiers:
@@ -23,42 +20,27 @@ constructors:
     parameters:
       - name: array
         type: S[]
-      - type: Function<S
       - name: converterST
-        type: T>
-      - type: Function<T
-      - name: converterTS
-        type: S>
+        type: " Function"
+        genericType: " Function<S,T>"
     notes: Create a read-write list converter
 methods:
   - name: contains
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: o
-        type: Object
   - name: forEach
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: action
-        type: Consumer<? super T>
   - name: get
     modifiers:
       - public
     returnType: T
-    parameters:
-      - name: index
-        type: int
   - name: indexOf
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: val
-        type: Object
   - name: isReadonly
     modifiers:
       - public
@@ -67,9 +49,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: operator
-        type: UnaryOperator<T>
   - name: set
     modifiers:
       - public
@@ -77,8 +56,6 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: element
-        type: T
   - name: setS
     modifiers:
       - public
@@ -86,8 +63,6 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: element
-        type: S
   - name: size
     modifiers:
       - public
@@ -96,13 +71,11 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: c
-        type: Comparator<? super T>
+  - name: toArray
+    modifiers:
+      - public
+    returnType: Object
   - name: toArray
     modifiers:
       - public
     returnType: R[]
-    parameters:
-      - name: result
-        type: R[]

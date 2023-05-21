@@ -29,10 +29,6 @@ constructors:
   - name: Vector3
     modifiers:
       - public
-    parameters:
-      - name: other
-        type: Vector3
-        notes: The Vector2 to copy
     notes: Create a new vector which is identical to another vector
   - name: Vector3
     modifiers:
@@ -42,45 +38,38 @@ constructors:
         type: float
         notes: The horizontal part
       - name: y
-        type: float
-      - name: z
-        type: float
+        type: " float"
     notes: Create a new vector with specified horizontal and vertical parts
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
+    notes: Returns a string representing this vector
   - name: add
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: other
-        type: Vector2
-        notes: The other Vector2 to add to this one
     notes: Add another vector to this one and return as a new vector
   - name: addToThis
     modifiers:
       - public
     returnType: Vector3
-    parameters:
-      - name: other
-        type: Vector3
+    notes: Add another vector to this one and store the result in this one
+  - name: addToThis
+    modifiers:
+      - public
+    returnType: Vector3
   - name: aimAt
     modifiers:
       - public
     returnType: Vector3
-    parameters:
-      - name: other
-        type: Vector2
-        notes: The Vector2 to point this one at.
     notes: Set the direction of this vector to point to another vector, maintaining
       the length
   - name: angleTo
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: other
-        type: Vector2
-        notes: The second point as vector
     notes: Calculate the angle between this point and another
   - name: clone
     modifiers:
@@ -91,50 +80,41 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: other
-        type: Vector2
-        notes: The second point as vector
     notes: Calculate the distance between this point and another
   - name: div
     modifiers:
       - public
     returnType: Vector3
-    parameters:
-      - name: scalar
-        type: float
   - name: dot
     modifiers:
       - public
     returnType: float
+  - name: dot
+    modifiers:
+      - public
+      - static
+    returnType: float
     parameters:
-      - name: other
-        type: Vector2
+      - name: x
+        type: float
+      - name: y
+        type: " float"
+      - name: tx
+        type: " float"
   - name: dot3d
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: other
-        type: Vector3
   - name: equals
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: other
-        type: Object
-        notes: A Vector2 to compare this one to
     notes: See if this vector is equal to another
   - name: fromAwtPoint
     modifiers:
       - public
       - static
     returnType: Vector2
-    parameters:
-      - name: p
-        type: Point
-        notes: The java.awt.Point to convert
     notes: Create a new vector from an AWT Point
   - name: fromLengthDirection
     modifiers:
@@ -144,9 +124,6 @@ methods:
     parameters:
       - name: length
         type: float
-      - name: direction
-        type: float
-        notes: The direction of the new vector, in radians
     notes: Create a new vector with a specified length and direction
   - name: getDirection
     modifiers:
@@ -171,16 +148,15 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: rad
-        type: float
   - name: rotatey
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: rad
-        type: float
+  - name: set
+    modifiers:
+      - public
+    returnType: Vector3
+    notes: Make this vector identical to another vector
   - name: set
     modifiers:
       - public
@@ -190,27 +166,17 @@ methods:
         type: float
         notes: The horizontal part
       - name: y
-        type: float
-      - name: z
-        type: float
+        type: " float"
     notes: Set the horizontal and vertical parts of this vector
   - name: setDirection
     modifiers:
       - public
     returnType: Vector3
-    parameters:
-      - name: direction
-        type: float
-        notes: The new direction of this vector, in radians
     notes: Set the direction of this vector, maintaining the length
   - name: setLength
     modifiers:
       - public
     returnType: Vector3
-    parameters:
-      - name: length
-        type: float
-        notes: The length of this vector
     notes: Set the length of this vector, maintaining the direction
   - name: setLengthAndDirection
     modifiers:
@@ -220,9 +186,14 @@ methods:
       - name: direction
         type: float
         notes: The direction of this vector, in radians
-      - name: length
-        type: float
     notes: Set the length and direction of this vector
+  - name: sub
+    modifiers:
+      - public
+    returnType: Vector3
+    parameters:
+      - name: val
+        type: Vector3
   - name: sub
     modifiers:
       - public
@@ -232,9 +203,7 @@ methods:
       - name: a
         type: Vector3
       - name: b
-        type: Vector3
-      - name: out
-        type: Vector3
+        type: " Vector3"
   - name: toAwtDimension
     modifiers:
       - public
@@ -245,8 +214,3 @@ methods:
       - public
     returnType: Point
     notes: Convert this vector to an AWT Point
-  - name: toString
-    modifiers:
-      - public
-    returnType: String
-    notes: Returns a string representing this vector

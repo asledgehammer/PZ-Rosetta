@@ -230,9 +230,7 @@ methods:
       - name: host
         type: String
       - name: remotePort
-        type: int
-      - name: password
-        type: String
+        type: " int"
   - name: ConnectToSteamServer
     modifiers:
       - public
@@ -241,8 +239,6 @@ methods:
       - name: steamId
         type: long
         notes: Server steam ID
-      - name: password
-        type: String
   - name: disconnect
     modifiers:
       - public
@@ -250,29 +246,18 @@ methods:
     parameters:
       - name: connectedGUID
         type: long
-      - name: message
-        type: String
   - name: GetAveragePing
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: guid
-        type: long
   - name: GetClientOwnerSteamID
     modifiers:
       - public
     returnType: long
-    parameters:
-      - name: guid
-        type: long
   - name: GetClientSteamID
     modifiers:
       - public
     returnType: long
-    parameters:
-      - name: guid
-        type: long
   - name: GetConnectionsNumber
     modifiers:
       - public
@@ -281,16 +266,10 @@ methods:
     modifiers:
       - public
     returnType: byte
-    parameters:
-      - name: guid
-        type: long
   - name: getGuidFromIndex
     modifiers:
       - public
     returnType: long
-    parameters:
-      - name: id
-        type: int
   - name: getGuidOfPacket
     modifiers:
       - public
@@ -299,37 +278,22 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: guid
-        type: long
   - name: GetLastPing
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: guid
-        type: long
   - name: GetLowestPing
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: guid
-        type: long
   - name: GetMTUSize
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: guid
-        type: long
   - name: GetNetStatistics
     modifiers:
       - public
     returnType: ZNetStatistics
-    parameters:
-      - name: guid
-        type: long
   - name: GetServerIP
     modifiers:
       - public
@@ -343,16 +307,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: steamMode
-        type: boolean
   - name: Receive
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: buffer
-        type: ByteBuffer
   - name: Send
     modifiers:
       - public
@@ -361,15 +319,13 @@ methods:
       - name: data
         type: ByteBuffer
       - name: PacketPriority
-        type: int
+        type: " int"
       - name: PacketReliability
-        type: int
+        type: " int"
       - name: orderingChannel
-        type: byte
+        type: " byte"
       - name: guid
-        type: long
-      - name: broadcast
-        type: boolean
+        type: " long"
   - name: SendRaw
     modifiers:
       - public
@@ -378,50 +334,33 @@ methods:
       - name: data
         type: ByteBuffer
       - name: PacketPriority
-        type: int
+        type: " int"
       - name: PacketReliability
-        type: int
+        type: " int"
       - name: orderingChannel
-        type: byte
+        type: " byte"
       - name: guid
-        type: long
-      - name: broadcast
-        type: boolean
+        type: " long"
   - name: SetClientPort
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: port
-        type: int
   - name: SetIncomingPassword
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: password
-        type: String
   - name: SetMaximumIncomingConnections
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: num
-        type: int
   - name: SetOccasionalPing
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bPing
-        type: boolean
   - name: SetServerIP
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: ip
-        type: String
   - name: SetServerPort
     modifiers:
       - public
@@ -429,22 +368,14 @@ methods:
     parameters:
       - name: port
         type: int
-      - name: UDPPort
-        type: int
   - name: SetTimeoutTime
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: time
-        type: int
   - name: SetUnreliableTimeout
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: timeout
-        type: int
   - name: Shutdown
     modifiers:
       - public
@@ -453,6 +384,3 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: maxConnections
-        type: int

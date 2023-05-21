@@ -24,15 +24,13 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: String
+        type: " String"
       - name: itemType
-        type: String
+        type: " String"
       - name: texName
-        type: String
+        type: " String"
       - name: palette
-        type: String
-      - name: SpriteName
-        type: String
+        type: " String"
   - name: Clothing
     modifiers:
       - public
@@ -40,16 +38,18 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: String
+        type: " String"
       - name: itemType
-        type: String
+        type: " String"
       - name: item
-        type: Item
+        type: " Item"
       - name: palette
-        type: String
-      - name: SpriteName
-        type: String
+        type: " String"
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
   - name: addPatch
     modifiers:
       - public
@@ -58,9 +58,7 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: part
-        type: BloodBodyPartType
-      - name: fabric
-        type: InventoryItem
+        type: " BloodBodyPartType"
   - name: canBe3DRender
     modifiers:
       - public
@@ -73,31 +71,20 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: part
-        type: BloodBodyPartType
-      - name: fabric
-        type: InventoryItem
+        type: " BloodBodyPartType"
   - name: CanStack
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: copyPatchesTo
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newClothing
-        type: Clothing
   - name: CreateFromSprite
     modifiers:
       - public
       - static
     returnType: Clothing
-    parameters:
-      - name: Sprite
-        type: String
   - name: DoTooltip
     modifiers:
       - public
@@ -105,8 +92,6 @@ methods:
     parameters:
       - name: tooltipUI
         type: ObjectTooltip
-      - name: layout
-        type: ObjectTooltip.Layout
   - name: finishupdate
     modifiers:
       - public
@@ -127,8 +112,6 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
-      - name: fabric
-        type: InventoryItem
     notes: Used from lua tooltip when repairing clothing
   - name: getBloodlevel
     modifiers:
@@ -142,16 +125,10 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: part
-        type: BloodBodyPartType
   - name: getBloodLevelForPart
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: part
-        type: BloodBodyPartType
   - name: getBulletDefense
     modifiers:
       - public
@@ -200,9 +177,7 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: bite
-        type: boolean
-      - name: bullet
-        type: boolean
+        type: " boolean"
   - name: getDirtyness
     modifiers:
       - public
@@ -239,9 +214,6 @@ methods:
     modifiers:
       - public
     returnType: Clothing.ClothingPatch
-    parameters:
-      - name: part
-        type: BloodBodyPartType
   - name: getRunSpeedModifier
     modifiers:
       - public
@@ -262,8 +234,6 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
-      - name: fabric
-        type: InventoryItem
     notes: Used from lua tooltip when repairing clothing
   - name: getSpriteName
     modifiers:
@@ -324,15 +294,10 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
-      - name: WorldVersion
-        type: int
   - name: removePatch
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: part
-        type: BloodBodyPartType
   - name: save
     modifiers:
       - public
@@ -340,169 +305,94 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
-      - name: net
-        type: boolean
   - name: setBiteDefense
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: biteDefense
-        type: float
   - name: setBloodLevel
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: delta
-        type: float
   - name: setBulletDefense
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bulletDefense
-        type: float
   - name: setCanHaveHoles
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: canHaveHoles
-        type: Boolean
   - name: setChanceToFall
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: chanceToFall
-        type: int
   - name: setCombatSpeedModifier
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: combatSpeedModifier
-        type: float
   - name: setCondition
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: Condition
-        type: int
-        notes: the Condition to set
   - name: setConditionLowerChance
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: conditionLowerChance
-        type: int
   - name: setDirtyness
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: delta
-        type: float
   - name: setInsulation
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: insulation
-        type: float
   - name: setNeckProtectionModifier
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: neckProtectionModifier
-        type: float
   - name: setPalette
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: palette
-        type: String
-        notes: the palette to set
   - name: setRemoveOnBroken
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: removeOnBroken
-        type: Boolean
   - name: setRunSpeedModifier
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: runSpeedModifier
-        type: float
   - name: setScratchDefense
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: scratchDefense
-        type: float
   - name: setSpriteName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: SpriteName
-        type: String
-        notes: the SpriteName to set
   - name: setStompPower
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: stompPower
-        type: float
   - name: setTemperature
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: temperature
-        type: float
   - name: setWaterResistance
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: waterResistance
-        type: float
   - name: setWeightWet
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: weight
-        type: float
   - name: setWetness
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: percent
-        type: float
   - name: setWindresistance
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: windresistance
-        type: float
-  - name: toString
-    modifiers:
-      - public
-    returnType: String
   - name: Unwear
     modifiers:
       - public
@@ -515,15 +405,14 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bIgnoreEquipped
-        type: boolean
+  - name: updateWetness
+    modifiers:
+      - public
+    returnType: void
   - name: Use
     modifiers:
       - public
     returnType: void
     parameters:
       - name: bCrafting
-        type: boolean
-      - name: bInContainer
         type: boolean

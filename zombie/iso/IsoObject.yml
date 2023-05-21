@@ -192,9 +192,6 @@ constructors:
   - name: IsoObject
     modifiers:
       - public
-    parameters:
-      - name: cell
-        type: IsoCell
   - name: IsoObject
     modifiers:
       - public
@@ -205,9 +202,7 @@ constructors:
       - name: cell
         type: IsoCell
       - name: square
-        type: IsoGridSquare
-      - name: spr
-        type: IsoSprite
+        type: " IsoGridSquare"
   - name: IsoObject
     modifiers:
       - public
@@ -215,9 +210,7 @@ constructors:
       - name: cell
         type: IsoCell
       - name: square
-        type: IsoGridSquare
-      - name: gid
-        type: String
+        type: " IsoGridSquare"
   - name: IsoObject
     modifiers:
       - public
@@ -225,9 +218,17 @@ constructors:
       - name: square
         type: IsoGridSquare
       - name: tile
-        type: String
+        type: " String"
+  - name: IsoObject
+    modifiers:
+      - public
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: tile
+        type: " String"
       - name: name
-        type: String
+        type: " String"
   - name: IsoObject
     modifiers:
       - public
@@ -235,44 +236,22 @@ constructors:
       - name: square
         type: IsoGridSquare
       - name: tile
-        type: String
-      - name: name
-        type: String
-      - name: bShareTilesWithMap
-        type: boolean
+        type: " String"
   - name: IsoObject
     modifiers:
       - public
     parameters:
       - name: square
         type: IsoGridSquare
-      - name: tile
-        type: String
-      - name: bShareTilesWithMap
-        type: boolean
-  - name: IsoObject
-    modifiers:
-      - public
-    parameters:
-      - name: square
-        type: IsoGridSquare
-      - name: tile
-        type: String
 methods:
   - name: addChild
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: child
-        type: IsoObject
   - name: addSecondaryContainer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: container
-        type: ItemContainer
   - name: addSheetRope
     modifiers:
       - public
@@ -280,8 +259,6 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
-      - name: itemType
-        type: String
   - name: addToWorld
     modifiers:
       - public
@@ -294,25 +271,23 @@ methods:
       - name: ObjectName
         type: String
       - name: AnimName
-        type: String
+        type: " String"
       - name: NumFrames
-        type: int
+        type: " int"
       - name: frameIncrease
-        type: float
+        type: " float"
       - name: OffsetX
-        type: int
+        type: " int"
       - name: OffsetY
-        type: int
+        type: " int"
       - name: Looping
-        type: boolean
+        type: " boolean"
       - name: FinishHoldFrameIndex
-        type: int
+        type: " int"
       - name: DeleteWhenFinished
-        type: boolean
+        type: " boolean"
       - name: zBias
-        type: float
-      - name: TintMod
-        type: ColorInfo
+        type: " float"
   - name: AttachExistingAnim
     modifiers:
       - public
@@ -321,24 +296,38 @@ methods:
       - name: spr
         type: IsoSprite
       - name: OffsetX
-        type: int
+        type: " int"
       - name: OffsetY
-        type: int
+        type: " int"
       - name: Looping
-        type: boolean
+        type: " boolean"
       - name: FinishHoldFrameIndex
-        type: int
+        type: " int"
       - name: DeleteWhenFinished
-        type: boolean
-      - name: zBias
-        type: float
-  - name: AttackObject
+        type: " boolean"
+  - name: AttachExistingAnim
     modifiers:
       - public
     returnType: void
     parameters:
-      - name: owner
-        type: IsoGameCharacter
+      - name: spr
+        type: IsoSprite
+      - name: OffsetX
+        type: " int"
+      - name: OffsetY
+        type: " int"
+      - name: Looping
+        type: " boolean"
+      - name: FinishHoldFrameIndex
+        type: " int"
+      - name: DeleteWhenFinished
+        type: " boolean"
+      - name: zBias
+        type: " float"
+  - name: AttackObject
+    modifiers:
+      - public
+    returnType: void
   - name: canAddSheetRope
     modifiers:
       - public
@@ -366,8 +355,6 @@ methods:
     parameters:
       - name: collision
         type: Vector2
-      - name: object
-        type: IsoObject
   - name: countAddSheetRope
     modifiers:
       - public
@@ -384,9 +371,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: amount
-        type: float
   - name: debugPrintout
     modifiers:
       - public
@@ -395,9 +379,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: IsoDirections
   - name: DirtySlice
     modifiers:
       - public
@@ -413,15 +394,10 @@ methods:
     parameters:
       - name: tooltipUI
         type: ObjectTooltip
-      - name: square
-        type: IsoGridSquare
   - name: DoTooltip
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: tooltipUI
-        type: ObjectTooltip
   - name: factoryClassFromFileInput
     modifiers:
       - public
@@ -430,8 +406,6 @@ methods:
     parameters:
       - name: cell
         type: IsoCell
-      - name: classID
-        type: int
   - name: factoryFromFileInput
     modifiers:
       - public
@@ -440,8 +414,14 @@ methods:
     parameters:
       - name: cell
         type: IsoCell
-      - name: b
-        type: ByteBuffer
+  - name: factoryFromFileInput
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: factoryFromFileInput_OLD
     modifiers:
       - public
@@ -450,16 +430,16 @@ methods:
     parameters:
       - name: cell
         type: IsoCell
-      - name: classID
-        type: int
   - name: factoryGetClassID
     modifiers:
       - public
       - static
     returnType: byte
-    parameters:
-      - name: name
-        type: String
+  - name: FindExternalWaterSource
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
   - name: FindExternalWaterSource
     modifiers:
       - public
@@ -469,24 +449,20 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: z
-        type: int
+        type: " int"
   - name: FindWaterSourceOnSquare
     modifiers:
       - public
       - static
     returnType: IsoObject
-    parameters:
-      - name: square
-        type: IsoGridSquare
   - name: getAlpha
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: playerIndex
-        type: int
+  - name: getAlpha
+    modifiers:
+      - public
+    returnType: float
   - name: getAttachedAnimSprite
     modifiers:
       - public
@@ -514,22 +490,14 @@ methods:
     parameters:
       - name: type1
         type: String
-      - name: type2
-        type: String
   - name: getContainerByIndex
     modifiers:
       - public
     returnType: ItemContainer
-    parameters:
-      - name: index
-        type: int
   - name: getContainerByType
     modifiers:
       - public
     returnType: ItemContainer
-    parameters:
-      - name: type
-        type: String
   - name: getContainerCount
     modifiers:
       - public
@@ -538,9 +506,6 @@ methods:
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: container
-        type: ItemContainer
   - name: getCustomColor
     modifiers:
       - public
@@ -557,16 +522,10 @@ methods:
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: pos
-        type: Vector2
   - name: getFacingPositionAlt
     modifiers:
       - public
     returnType: Vector2
-    parameters:
-      - name: pos
-        type: Vector2
   - name: getFactoryVehicle
     modifiers:
       - public
@@ -606,9 +565,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: flip
-        type: boolean
+        type: " int"
   - name: getModData
     modifiers:
       - public
@@ -626,6 +583,18 @@ methods:
       - public
       - static
     returnType: IsoObject
+  - name: getNew
+    modifiers:
+      - public
+      - static
+    returnType: IsoObject
+    parameters:
+      - name: sq
+        type: IsoGridSquare
+      - name: spriteName
+        type: " String"
+      - name: name
+        type: " String"
   - name: getObjectIndex
     modifiers:
       - public
@@ -655,9 +624,11 @@ methods:
       - public
       - final
     returnType: int
-    parameters:
-      - name: playerIndex
-        type: int
+  - name: getOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: int
   - name: getOutlineThickness
     modifiers:
       - public
@@ -714,9 +685,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: result
-        type: ArrayList<IsoObject>
   - name: getSpriteName
     modifiers:
       - public
@@ -749,9 +717,10 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: playerIndex
-        type: int
+  - name: getTargetAlpha
+    modifiers:
+      - public
+    returnType: float
   - name: getTextureName
     modifiers:
       - public
@@ -760,9 +729,6 @@ methods:
     modifiers:
       - public
     returnType: Thumpable
-    parameters:
-      - name: chr
-        type: IsoGameCharacter
   - name: getThumpCondition
     modifiers:
       - public
@@ -783,9 +749,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: vehicle
-        type: BaseVehicle
   - name: getWaterAmount
     modifiers:
       - public
@@ -846,9 +809,7 @@ methods:
       - name: collision
         type: Vector2
       - name: obj
-        type: IsoObject
-      - name: damage
-        type: float
+        type: " IsoObject"
   - name: HitByVehicle
     modifiers:
       - public
@@ -856,22 +817,24 @@ methods:
     parameters:
       - name: vehicle
         type: BaseVehicle
-      - name: amount
-        type: float
   - name: isAlphaAndTargetZero
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
+    notes: Returns TRUE if both Alpha nad TargetAlpha are transparent, or near-zero.
+  - name: isAlphaAndTargetZero
+    modifiers:
+      - public
+    returnType: boolean
   - name: isAlphaZero
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
+    notes: Returns TRUE if Alpha is transparent, or near-zero.
+  - name: isAlphaZero
+    modifiers:
+      - public
+    returnType: boolean
   - name: isBlink
     modifiers:
       - public
@@ -907,8 +870,13 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
-      - name: item
-        type: InventoryItem
+  - name: isMaskClicked
+    modifiers:
+      - public
+    returnType: boolean
+    parameters:
+      - name: x
+        type: int
   - name: isMaskClicked
     modifiers:
       - public
@@ -917,9 +885,7 @@ methods:
       - name: x
         type: int
       - name: y
-        type: int
-      - name: flip
-        type: boolean
+        type: " int"
   - name: isMovedThumpable
     modifiers:
       - public
@@ -937,25 +903,30 @@ methods:
       - public
       - final
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
+  - name: isOutlineHighlight
+    modifiers:
+      - public
+      - final
+    returnType: boolean
   - name: isOutlineHlAttached
     modifiers:
       - public
       - final
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
+  - name: isOutlineHlAttached
+    modifiers:
+      - public
+      - final
+    returnType: boolean
+  - name: isOutlineHlBlink
+    modifiers:
+      - public
+    returnType: boolean
   - name: isOutlineHlBlink
     modifiers:
       - public
       - final
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
   - name: isOutlineOnMouseover
     modifiers:
       - public
@@ -967,8 +938,6 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
-      - name: item
-        type: InventoryItem
   - name: isSpriteInvisible
     modifiers:
       - public
@@ -1001,13 +970,18 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: playerIndex
-        type: int
   - name: isZombie
     modifiers:
       - public
     returnType: boolean
+  - name: load
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: load
     modifiers:
       - public
@@ -1016,9 +990,7 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: int
-      - name: IS_DEBUG_SAVE
-        type: boolean
+        type: " int"
   - name: loadChange
     modifiers:
       - public
@@ -1026,8 +998,10 @@ methods:
     parameters:
       - name: change
         type: String
-      - name: bb
-        type: ByteBuffer
+  - name: loadFromRemoteBuffer
+    modifiers:
+      - public
+    returnType: void
   - name: loadFromRemoteBuffer
     modifiers:
       - public
@@ -1035,15 +1009,10 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
-      - name: addToObjects
-        type: boolean
   - name: loadState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
   - name: onMouseLeftClick
     modifiers:
       - public
@@ -1051,16 +1020,12 @@ methods:
     parameters:
       - name: x
         type: int
-      - name: y
-        type: int
   - name: onMouseRightClick
     modifiers:
       - public
     returnType: void
     parameters:
       - name: lx
-        type: int
-      - name: ly
         type: int
   - name: onMouseRightReleased
     modifiers:
@@ -1074,9 +1039,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: index
-        type: int
   - name: RemoveAttachedAnims
     modifiers:
       - public
@@ -1093,16 +1055,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: o
-        type: ObjectRenderEffects
   - name: removeSheetRope
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: player
-        type: IsoPlayer
   - name: render
     modifiers:
       - public
@@ -1111,17 +1067,15 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoAttached
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
-      - name: shader
-        type: Shader
+        type: " boolean"
   - name: renderAttachedAndOverlaySprites
     modifiers:
       - public
@@ -1130,19 +1084,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoAttached
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
+        type: " boolean"
       - name: shader
-        type: Shader
-      - name: texdModifier
-        type: Consumer<TextureDraw>
+        type: " Shader"
   - name: renderFloorTile
     modifiers:
       - public
@@ -1151,21 +1103,20 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoAttached
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
+        type: " boolean"
       - name: shader
-        type: Shader
+        type: " Shader"
       - name: texdModifier
-        type: Consumer<TextureDraw>
-      - name: attachedAndOverlayModifier
-        type: Consumer<TextureDraw>
+        type: " Consumer"
+        genericType: " Consumer<TextureDraw>"
   - name: renderFxMask
     modifiers:
       - public
@@ -1174,11 +1125,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
-      - name: bDoAttached
-        type: boolean
+        type: " float"
   - name: renderlast
     modifiers:
       - public
@@ -1191,11 +1140,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
-      - name: lightInfo
-        type: ColorInfo
+        type: " float"
   - name: renderWallTile
     modifiers:
       - public
@@ -1204,19 +1151,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoAttached
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
+        type: " boolean"
       - name: shader
-        type: Shader
-      - name: texdModifier
-        type: Consumer<TextureDraw>
+        type: " Shader"
   - name: renderWallTileOnly
     modifiers:
       - public
@@ -1225,22 +1170,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: shader
-        type: Shader
-      - name: texdModifier
-        type: Consumer<TextureDraw>
+        type: " Shader"
   - name: replaceItem
     modifiers:
       - public
     returnType: InventoryItem
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: reset
     modifiers:
       - public
@@ -1252,12 +1192,15 @@ methods:
   - name: save
     modifiers:
       - public
+      - final
+    returnType: void
+  - name: save
+    modifiers:
+      - public
     returnType: void
     parameters:
       - name: output
         type: ByteBuffer
-      - name: IS_DEBUG_SAVE
-        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -1266,16 +1209,15 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: se.krka.kahlua.vm.KahluaTable
-      - name: bb
-        type: ByteBuffer
+        type: " se.krka.kahlua.vm.KahluaTable"
   - name: saveState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBuffer
+  - name: sendObjectChange
+    modifiers:
+      - public
+    returnType: void
   - name: sendObjectChange
     modifiers:
       - public
@@ -1283,8 +1225,13 @@ methods:
     parameters:
       - name: change
         type: String
-      - name: args
-        type: Object...
+  - name: sendObjectChange
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: change
+        type: String
   - name: Serialize
     modifiers:
       - public
@@ -1293,12 +1240,17 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: setAlpha
+    modifiers:
+      - public
+    returnType: void
     parameters:
       - name: playerIndex
         type: int
-      - name: alpha
-        type: float
-        notes: the alpha to set
+  - name: setAlphaAndTarget
+    modifiers:
+      - public
+    returnType: void
   - name: setAlphaAndTarget
     modifiers:
       - public
@@ -1307,47 +1259,30 @@ methods:
       - name: playerIndex
         type: int
         notes: The playerIndex to use
-      - name: alpha
-        type: float
   - name: setAlphaToTarget
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: playerIndex
-        type: int
-        notes: The playerIndex to use
   - name: setAttachedAnimSprite
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: AttachedAnimSprite
-        type: ArrayList<IsoSpriteInstance>
-        notes: the AttachedAnimSprite to set
   - name: setBlink
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: blink
-        type: boolean
   - name: setChildSprites
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: AttachedAnimSprite
-        type: ArrayList<IsoSpriteInstance>
-        notes: the AttachedAnimSprite to set
   - name: setContainer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: container
-        type: ItemContainer
-        notes: the container to set
+  - name: setCustomColor
+    modifiers:
+      - public
+    returnType: void
   - name: setCustomColor
     modifiers:
       - public
@@ -1356,35 +1291,30 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
   - name: setDamage
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: Damage
-        type: short
-        notes: the Damage to set
   - name: setDefaultCondition
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: i
-        type: int
   - name: setDir
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: int
-        notes: the dir to set
+  - name: setDir
+    modifiers:
+      - public
+    returnType: void
+  - name: setHighlightColor
+    modifiers:
+      - public
+    returnType: void
   - name: setHighlightColor
     modifiers:
       - public
@@ -1393,11 +1323,13 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
+  - name: setHighlighted
+    modifiers:
+      - public
+    returnType: void
   - name: setHighlighted
     modifiers:
       - public
@@ -1405,79 +1337,49 @@ methods:
     parameters:
       - name: highlight
         type: boolean
-      - name: renderOnce
-        type: boolean
   - name: setKeyId
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: keyId
-        type: int
   - name: setLastRendered
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: aLastRendered
-        type: IsoObject
-        notes: the lastRendered to set
   - name: setLastRenderedRendered
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: aLastRenderedRendered
-        type: IsoObject
-        notes: the lastRenderedRendered to set
   - name: setMovedThumpable
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: movedThumpable
-        type: boolean
   - name: setName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
-        notes: the name to set
   - name: SetName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setNoPicking
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: NoPicking
-        type: boolean
-        notes: the NoPicking to set
   - name: setOffsetX
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: offsetX
-        type: float
-        notes: the offsetX to set
   - name: setOffsetY
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: offsetY
-        type: float
-        notes: the offsetY to set
+  - name: setOutlineHighlight
+    modifiers:
+      - public
+      - final
+    returnType: void
   - name: setOutlineHighlight
     modifiers:
       - public
@@ -1486,8 +1388,31 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: isOutlineHighlight
-        type: boolean
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: playerIndex
+        type: int
+  - name: setOutlineHighlightCol
+    modifiers:
+      - public
+      - final
+    returnType: void
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: " float"
+      - name: b
+        type: " float"
   - name: setOutlineHighlightCol
     modifiers:
       - public
@@ -1497,13 +1422,15 @@ methods:
       - name: playerIndex
         type: int
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
+  - name: setOutlineHlAttached
+    modifiers:
+      - public
+    returnType: void
   - name: setOutlineHlAttached
     modifiers:
       - public
@@ -1512,8 +1439,10 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: isOutlineHlAttached
-        type: boolean
+  - name: setOutlineHlBlink
+    modifiers:
+      - public
+    returnType: void
   - name: setOutlineHlBlink
     modifiers:
       - public
@@ -1522,23 +1451,38 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: isOutlineHlBlink
-        type: boolean
   - name: setOutlineOnMouseover
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: OutlineOnMouseover
-        type: boolean
-        notes: the OutlineOnMouseover to set
   - name: setOutlineThickness
     modifiers:
       - public
     returnType: void
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: void
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: outlineThickness
-        type: float
+      - name: spriteName
+        type: String
+  - name: setOverlaySprite
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: spriteName
+        type: String
+      - name: r
+        type: " float"
+      - name: g
+        type: " float"
+      - name: b
+        type: " float"
   - name: setOverlaySprite
     modifiers:
       - public
@@ -1547,15 +1491,13 @@ methods:
       - name: spriteName
         type: String
       - name: r
-        type: float
+        type: " float"
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
+        type: " float"
       - name: a
-        type: float
-      - name: bTransmit
-        type: boolean
+        type: " float"
   - name: setOverlaySpriteColor
     modifiers:
       - public
@@ -1564,18 +1506,17 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
   - name: setPipedFuelAmount
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: units
-        type: int
+  - name: setRenderEffect
+    modifiers:
+      - public
+    returnType: void
   - name: setRenderEffect
     modifiers:
       - public
@@ -1583,75 +1524,50 @@ methods:
     parameters:
       - name: type
         type: RenderEffectType
-      - name: reuseEqualType
-        type: boolean
   - name: setRenderYOffset
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: f
-        type: float
   - name: setRerouteCollide
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: rerouteCollide
-        type: IsoObject
-        notes: the rerouteCollide to set
   - name: setRerouteMask
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: rerouteMask
-        type: IsoObject
-        notes: the rerouteMask to set
   - name: setSpecialTooltip
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: specialTooltip
-        type: boolean
   - name: setSprite
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
+  - name: setSprite
+    modifiers:
+      - public
+    returnType: void
   - name: setSpriteFromName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setSquare
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: square
-        type: IsoGridSquare
-        notes: the square to set
   - name: setTable
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: table
-        type: se.krka.kahlua.vm.KahluaTable
-        notes: the table to set
   - name: setTaintedWater
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: tainted
-        type: boolean
+  - name: setTargetAlpha
+    modifiers:
+      - public
+    returnType: void
   - name: setTargetAlpha
     modifiers:
       - public
@@ -1659,30 +1575,18 @@ methods:
     parameters:
       - name: playerIndex
         type: int
-      - name: targetAlpha
-        type: float
-        notes: the targetAlpha to set
   - name: setType
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: type
-        type: IsoObjectType
   - name: setUsesExternalWaterSource
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: boolean
   - name: setWaterAmount
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: units
-        type: int
   - name: softReset
     modifiers:
       - public
@@ -1695,18 +1599,13 @@ methods:
       - name: bRemote
         type: boolean
       - name: val
-        type: byte
+        type: " byte"
       - name: source
-        type: UdpConnection
-      - name: bb
-        type: ByteBuffer
+        type: " UdpConnection"
   - name: syncIsoObjectSend
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bb
-        type: ByteBufferWriter
   - name: TestCollide
     modifiers:
       - public
@@ -1715,9 +1614,7 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: from
-        type: IsoGridSquare
-      - name: to
-        type: IsoGridSquare
+        type: " IsoGridSquare"
   - name: TestPathfindCollide
     modifiers:
       - public
@@ -1726,9 +1623,7 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: from
-        type: IsoGridSquare
-      - name: to
-        type: IsoGridSquare
+        type: " IsoGridSquare"
   - name: TestVision
     modifiers:
       - public
@@ -1736,15 +1631,10 @@ methods:
     parameters:
       - name: from
         type: IsoGridSquare
-      - name: to
-        type: IsoGridSquare
   - name: Thump
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: thumper
-        type: IsoMovingObject
   - name: transmitCompleteItemToClients
     modifiers:
       - public
@@ -1769,6 +1659,10 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: transmitUpdatedSpriteToClients
+    modifiers:
+      - public
+    returnType: void
   - name: transmitUpdatedSpriteToServer
     modifiers:
       - public
@@ -1777,9 +1671,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: object
-        type: IsoObject
   - name: unsetOutlineHighlight
     modifiers:
       - public
@@ -1792,16 +1683,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: useWater
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: amount
-        type: int
   - name: WeaponHit
     modifiers:
       - public
@@ -1809,12 +1694,7 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
-      - name: weapon
-        type: HandWeapon
   - name: writeToRemoteBuffer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: ByteBufferWriter

@@ -11,13 +11,15 @@ constructors:
     modifiers:
       - public
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
+    notes: Return the counter's
   - name: add
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: x
-        type: long
     notes: |-
       Add the given value to current counter value.  Concurrent updates will
        not be lost, but addAndGet or getAndAdd are not implemented because the
@@ -71,14 +73,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: x
-        type: long
     notes: |-
       Atomically set the sum of the striped counters to specified value.
         Rather more expensive than a simple store, in order to remain atomic.
-  - name: toString
-    modifiers:
-      - public
-    returnType: String
-    notes: Return the counter's

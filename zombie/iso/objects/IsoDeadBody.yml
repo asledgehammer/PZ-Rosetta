@@ -29,23 +29,15 @@ constructors:
   - name: IsoDeadBody
     modifiers:
       - public
-    parameters:
-      - name: died
-        type: IsoGameCharacter
   - name: IsoDeadBody
     modifiers:
       - public
     parameters:
       - name: died
         type: IsoGameCharacter
-      - name: wasCorpseAlready
-        type: boolean
   - name: IsoDeadBody
     modifiers:
       - public
-    parameters:
-      - name: cell
-        type: IsoCell
 methods:
   - name: addDeadBodyID
     modifiers:
@@ -55,8 +47,6 @@ methods:
     parameters:
       - name: id
         type: short
-      - name: deadBody
-        type: IsoDeadBody
   - name: addToWorld
     modifiers:
       - public
@@ -69,9 +59,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: removedItem
-        type: InventoryItem
   - name: Collision
     modifiers:
       - public
@@ -79,8 +66,6 @@ methods:
     parameters:
       - name: collision
         type: Vector2
-      - name: object
-        type: IsoObject
   - name: getAngle
     modifiers:
       - public
@@ -94,9 +79,6 @@ methods:
       - public
       - static
     returnType: IsoDeadBody
-    parameters:
-      - name: id
-        type: short
   - name: getHumanVisual
     modifiers:
       - public
@@ -109,9 +91,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: itemVisuals
-        type: ItemVisuals
   - name: getObjectID
     modifiers:
       - public
@@ -165,9 +144,6 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: id
-        type: short
   - name: isFakeDead
     modifiers:
       - public
@@ -186,8 +162,6 @@ methods:
     returnType: boolean
     parameters:
       - name: screenX
-        type: float
-      - name: screenY
         type: float
   - name: isPlayer
     modifiers:
@@ -213,9 +187,7 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: int
-      - name: IS_DEBUG_SAVE
-        type: boolean
+        type: " int"
   - name: loadChange
     modifiers:
       - public
@@ -223,15 +195,10 @@ methods:
     parameters:
       - name: change
         type: String
-      - name: bb
-        type: ByteBuffer
   - name: readInventory
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: b
-        type: ByteBuffer
   - name: reanimate
     modifiers:
       - public
@@ -249,9 +216,6 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: id
-        type: short
   - name: removeFromWorld
     modifiers:
       - public
@@ -264,17 +228,15 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoChild
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
-      - name: shader
-        type: Shader
+        type: " boolean"
   - name: renderlast
     modifiers:
       - public
@@ -287,11 +249,13 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
-      - name: lightInfo
-        type: ColorInfo
+        type: " float"
+  - name: renderShadow
+    modifiers:
+      - public
+    returnType: void
   - name: renderShadow
     modifiers:
       - public
@@ -301,21 +265,19 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: forward
-        type: org.joml.Vector3f
+        type: " org.joml.Vector3f"
       - name: w
-        type: float
+        type: " float"
       - name: fm
-        type: float
+        type: " float"
       - name: bm
-        type: float
+        type: " float"
       - name: lightInfo
-        type: ColorInfo
-      - name: alpha
-        type: float
+        type: " ColorInfo"
   - name: Reset
     modifiers:
       - public
@@ -328,8 +290,6 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
-      - name: IS_DEBUG_SAVE
-        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -338,94 +298,55 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: se.krka.kahlua.vm.KahluaTable
-      - name: bb
-        type: ByteBuffer
+        type: " se.krka.kahlua.vm.KahluaTable"
   - name: Say
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: line
-        type: String
   - name: setAttachedItems
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: AttachedItems
   - name: setContainer
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: container
-        type: ItemContainer
-        notes: the container to set
   - name: setCrawling
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: crawling
-        type: boolean
   - name: setFakeDead
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: fakeDead
-        type: boolean
   - name: setFallOnFront
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: fallOnFront
-        type: boolean
   - name: setObjectID
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: objectID
-        type: short
   - name: setOnlineID
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: onlineID
-        type: short
   - name: setPrimaryHandItem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: setReanimateTime
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hours
-        type: float
   - name: setSecondaryHandItem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: setWornItems
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: WornItems
   - name: softReset
     modifiers:
       - public

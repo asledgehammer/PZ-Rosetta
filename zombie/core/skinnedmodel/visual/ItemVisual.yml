@@ -40,10 +40,11 @@ constructors:
   - name: ItemVisual
     modifiers:
       - public
-    parameters:
-      - name: other
-        type: ItemVisual
 methods:
+  - name: __toString
+    modifiers:
+      - public
+    returnType: String
   - name: clear
     modifiers:
       - public
@@ -52,46 +53,32 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: ItemVisual
   - name: copyDirt
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: ItemVisual
   - name: copyFrom
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: ItemVisual
   - name: copyHoles
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: ItemVisual
   - name: copyPatches
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: other
-        type: ItemVisual
   - name: createLastStandItem
     modifiers:
       - public
       - static
     returnType: InventoryItem
-    parameters:
-      - name: saveStr
-        type: String
   - name: getAlternateModelName
+    modifiers:
+      - public
+    returnType: String
+  - name: getBaseTexture
     modifiers:
       - public
     returnType: String
@@ -103,9 +90,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getBasicPatchesNumber
     modifiers:
       - public
@@ -114,9 +98,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getClothingItem
     modifiers:
       - public
@@ -125,9 +106,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: in_out_mask
-        type: CharacterMask
   - name: getClothingItemName
     modifiers:
       - public
@@ -136,30 +114,18 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: clothingItem
-        type: ClothingItem
   - name: getDenimPatch
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getDirt
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getHole
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getHolesNumber
     modifiers:
       - public
@@ -168,9 +134,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: clothingItem
-        type: ClothingItem
   - name: getInventoryItem
     modifiers:
       - public
@@ -187,9 +150,6 @@ methods:
     modifiers:
       - public
     returnType: float
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: getScriptItem
     modifiers:
       - public
@@ -197,7 +157,15 @@ methods:
   - name: getTextureChoice
     modifiers:
       - public
+    returnType: String
+  - name: getTextureChoice
+    modifiers:
+      - public
     returnType: int
+  - name: getTint
+    modifiers:
+      - public
+    returnType: ImmutableColor
   - name: getTint
     modifiers:
       - public
@@ -213,15 +181,10 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
-      - name: WorldVersion
-        type: int
   - name: pickUninitializedValues
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: clothingItem
-        type: ClothingItem
   - name: removeBlood
     modifiers:
       - public
@@ -234,44 +197,26 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartIndex
-        type: int
   - name: removePatch
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartIndex
-        type: int
   - name: save
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: ByteBuffer
   - name: setAlternateModelName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setBaseTexture
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: baseTexture
-        type: int
   - name: setBasicPatch
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: setBlood
     modifiers:
       - public
@@ -279,29 +224,18 @@ methods:
     parameters:
       - name: bodyPartType
         type: BloodBodyPartType
-      - name: amount
-        type: float
   - name: setClothingItemName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setDecal
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: decalName
-        type: String
   - name: setDenimPatch
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: setDirt
     modifiers:
       - public
@@ -309,65 +243,35 @@ methods:
     parameters:
       - name: bodyPartType
         type: BloodBodyPartType
-      - name: amount
-        type: float
   - name: setHole
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: setHue
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: hue
-        type: float
   - name: setInventoryItem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: inventoryItem
-        type: InventoryItem
   - name: setItemType
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: fullType
-        type: String
   - name: setLeatherPatch
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bodyPartType
-        type: BloodBodyPartType
   - name: setTextureChoice
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: TextureChoice
-        type: int
   - name: setTint
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: tint
-        type: ImmutableColor
   - name: synchWithOutfit
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: itemRef
-        type: ClothingItemReference
-  - name: toString
-    modifiers:
-      - public
-    returnType: String

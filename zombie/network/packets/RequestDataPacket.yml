@@ -32,15 +32,10 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
-      - name: connection
-        type: UdpConnection
   - name: process
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: connection
-        type: UdpConnection
   - name: processServer
     modifiers:
       - public
@@ -48,8 +43,6 @@ methods:
     parameters:
       - name: packetType
         type: PacketTypes.PacketType
-      - name: connection
-        type: UdpConnection
   - name: sendConnectingDetails
     modifiers:
       - public
@@ -57,15 +50,10 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
-      - name: logonResult
-        type: ServerWorldDatabase.LogonResult
   - name: setACK
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: id
-        type: RequestDataPacket.RequestID
   - name: setPartData
     modifiers:
       - public
@@ -73,8 +61,6 @@ methods:
     parameters:
       - name: id
         type: RequestDataPacket.RequestID
-      - name: bb
-        type: ByteBuffer
   - name: setPartDataParameters
     modifiers:
       - public
@@ -82,19 +68,15 @@ methods:
     parameters:
       - name: bytesSent
         type: int
-      - name: partSize
-        type: int
   - name: setRequest
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: id
-        type: RequestDataPacket.RequestID
+  - name: setRequest
+    modifiers:
+      - public
+    returnType: void
   - name: write
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: b
-        type: ByteBufferWriter

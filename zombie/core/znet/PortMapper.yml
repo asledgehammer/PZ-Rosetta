@@ -20,15 +20,27 @@ methods:
       - name: wanPort
         type: int
       - name: lanPort
-        type: int
+        type: " int"
       - name: description
-        type: String
+        type: " String"
       - name: proto
-        type: String
-      - name: leaseTime
+        type: " String"
+  - name: addMapping
+    modifiers:
+      - public
+      - static
+    returnType: boolean
+    parameters:
+      - name: wanPort
         type: int
-      - name: force
-        type: boolean
+      - name: lanPort
+        type: " int"
+      - name: description
+        type: " String"
+      - name: proto
+        type: " String"
+      - name: leaseTime
+        type: " int"
   - name: discover
     modifiers:
       - public
@@ -44,6 +56,11 @@ methods:
       - public
       - static
     returnType: String
+  - name: getExternalAddress
+    modifiers:
+      - public
+      - static
+    returnType: String
   - name: getGatewayInfo
     modifiers:
       - public
@@ -54,9 +71,6 @@ methods:
       - public
       - static
     returnType: PortMappingEntry
-    parameters:
-      - name: index
-        type: int
   - name: igdFound
     modifiers:
       - public
@@ -75,8 +89,6 @@ methods:
     parameters:
       - name: wanPort
         type: int
-      - name: proto
-        type: String
   - name: shutdown
     modifiers:
       - public

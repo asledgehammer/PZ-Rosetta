@@ -22,6 +22,10 @@ methods:
     modifiers:
       - public
     returnType: void
+  - name: addListener
+    modifiers:
+      - public
+    returnType: void
     parameters:
       - name: listener
         type: ICoopServerMessageListener
@@ -33,9 +37,6 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: serverName
-        type: String
   - name: getServerName
     modifiers:
       - public
@@ -44,9 +45,6 @@ methods:
     modifiers:
       - public
     returnType: String
-    parameters:
-      - name: serverName
-        type: String
   - name: invokeServer
     modifiers:
       - public
@@ -55,9 +53,7 @@ methods:
       - name: tag
         type: String
       - name: payload
-        type: String
-      - name: responseHandler
-        type: ICoopServerMessageListener
+        type: " String"
   - name: isRunning
     modifiers:
       - public
@@ -70,9 +66,7 @@ methods:
       - name: serverName
         type: String
       - name: username
-        type: String
-      - name: memory
-        type: int
+        type: " String"
   - name: register
     modifiers:
       - public
@@ -80,15 +74,10 @@ methods:
     parameters:
       - name: platform
         type: se.krka.kahlua.vm.Platform
-      - name: environment
-        type: se.krka.kahlua.vm.KahluaTable
   - name: removeListener
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: listener
-        type: ICoopServerMessageListener
   - name: sendMessage
     modifiers:
       - public
@@ -96,8 +85,15 @@ methods:
     parameters:
       - name: tag
         type: String
-      - name: payload
+  - name: sendMessage
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: tag
         type: String
+      - name: cookie
+        type: " String"
   - name: softreset
     modifiers:
       - public
@@ -106,9 +102,7 @@ methods:
       - name: serverName
         type: String
       - name: username
-        type: String
-      - name: memory
-        type: int
+        type: " String"
   - name: terminationReason
     modifiers:
       - public

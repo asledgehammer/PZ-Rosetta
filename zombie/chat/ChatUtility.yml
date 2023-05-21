@@ -12,33 +12,31 @@ methods:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: type
-        type: ChatType
   - name: findConnection
     modifiers:
       - public
       - static
     returnType: UdpConnection
-    parameters:
-      - name: playerName
-        type: String
+  - name: findConnection
+    modifiers:
+      - public
+      - static
+    returnType: UdpConnection
   - name: findPlayer
     modifiers:
       - public
       - static
     returnType: IsoPlayer
-    parameters:
-      - name: playerNickname
-        type: String
+  - name: findPlayer
+    modifiers:
+      - public
+      - static
+    returnType: IsoPlayer
   - name: findPlayerName
     modifiers:
       - public
       - static
     returnType: String
-    parameters:
-      - name: playerOnlineID
-        type: int
   - name: getAllowedChatStreams
     modifiers:
       - public
@@ -50,12 +48,28 @@ methods:
       - static
     returnType: float
     parameters:
+      - name: source
+        type: IsoObject
+  - name: getDistance
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
       - name: srcX
         type: float
       - name: srcY
-        type: float
+        type: " float"
+  - name: getScrambleValue
+    modifiers:
+      - public
+      - static
+    returnType: float
+    parameters:
+      - name: src
+        type: IsoObject
       - name: dest
-        type: IsoPlayer
+        type: " IsoPlayer"
   - name: getScrambleValue
     modifiers:
       - public
@@ -65,15 +79,13 @@ methods:
       - name: srcX
         type: float
       - name: srcY
-        type: float
+        type: " float"
       - name: srcZ
-        type: float
+        type: " float"
       - name: srcSquare
-        type: IsoGridSquare
+        type: " IsoGridSquare"
       - name: dest
-        type: IsoPlayer
-      - name: baseRange
-        type: float
+        type: " IsoPlayer"
   - name: InitAllowedChatIcons
     modifiers:
       - public
@@ -84,17 +96,21 @@ methods:
       - public
       - static
     returnType: String
-    parameters:
-      - name: str
-        type: String
   - name: parseStringForChatLog
     modifiers:
       - public
       - static
     returnType: String
+  - name: playerWithinBounds
+    modifiers:
+      - public
+      - static
+    returnType: boolean
     parameters:
-      - name: str
-        type: String
+      - name: source
+        type: IsoObject
+      - name: dest
+        type: " IsoObject"
   - name: playerWithinBounds
     modifiers:
       - public
@@ -104,8 +120,6 @@ methods:
       - name: srcX
         type: float
       - name: srcY
-        type: float
+        type: " float"
       - name: dest
-        type: IsoObject
-      - name: dist
-        type: float
+        type: " IsoObject"
