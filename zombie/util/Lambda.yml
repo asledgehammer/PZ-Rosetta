@@ -21,8 +21,6 @@ methods:
     parameters:
       - name: val1
         type: T1
-      - name: captureConsumer
-        type: Stacks.Params1.ICallback
   - name: capture
     modifiers:
       - public
@@ -32,9 +30,7 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
-      - name: captureConsumer
-        type: Stacks.Params2.ICallback
+        type: " T2"
   - name: capture
     modifiers:
       - public
@@ -44,11 +40,9 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
-      - name: captureConsumer
-        type: Stacks.Params3.ICallback
+        type: " T3"
   - name: capture
     modifiers:
       - public
@@ -58,13 +52,11 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
+        type: " T3"
       - name: val4
-        type: T4
-      - name: captureConsumer
-        type: Stacks.Params4.ICallback
+        type: " T4"
   - name: capture
     modifiers:
       - public
@@ -74,15 +66,13 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
+        type: " T3"
       - name: val4
-        type: T4
+        type: " T4"
       - name: val5
-        type: T5
-      - name: captureConsumer
-        type: Stacks.Params5.ICallback
+        type: " T5"
   - name: capture
     modifiers:
       - public
@@ -92,17 +82,15 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
+        type: " T3"
       - name: val4
-        type: T4
+        type: " T4"
       - name: val5
-        type: T5
+        type: " T5"
       - name: val6
-        type: T6
-      - name: captureConsumer
-        type: Stacks.Params6.ICallback
+        type: " T6"
   - name: comparator
     modifiers:
       - public
@@ -111,8 +99,6 @@ methods:
     parameters:
       - name: val1
         type: T1
-      - name: comparator
-        type: Comparators.Params1.ICallback
   - name: comparator
     modifiers:
       - public
@@ -122,9 +108,7 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
-      - name: comparator
-        type: Comparators.Params2.ICallback
+        type: " T2"
   - name: consumer
     modifiers:
       - public
@@ -133,20 +117,6 @@ methods:
     parameters:
       - name: val1
         type: T1
-      - name: consumer
-        type: Consumers.Params1.ICallback
-  - name: consumer
-    modifiers:
-      - public
-      - static
-    returnType: Consumer
-    parameters:
-      - name: val1
-        type: T1
-      - name: val2
-        type: T2
-      - name: consumer
-        type: Consumers.Params2.ICallback
   - name: consumer
     modifiers:
       - public
@@ -156,11 +126,19 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
+  - name: consumer
+    modifiers:
+      - public
+      - static
+    returnType: Consumer
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: " T2"
       - name: val3
-        type: T3
-      - name: consumer
-        type: Consumers.Params3.ICallback
+        type: " T3"
   - name: consumer
     modifiers:
       - public
@@ -170,13 +148,11 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
+        type: " T3"
       - name: val4
-        type: T4
-      - name: consumer
-        type: Consumers.Params4.ICallback
+        type: " T4"
   - name: consumer
     modifiers:
       - public
@@ -186,15 +162,13 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
+        type: " T3"
       - name: val4
-        type: T4
+        type: " T4"
       - name: val5
-        type: T5
-      - name: consumer
-        type: Consumers.Params5.ICallback
+        type: " T5"
   - name: contains
     modifiers:
       - public
@@ -203,10 +177,9 @@ methods:
     parameters:
       - name: findFunction
         type: Predicate
+        genericType: Predicate<Predicate<E>>
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Predicates.Params1.ICallback
+        type: " T1"
     notes: >-
       contains
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -218,12 +191,11 @@ methods:
     parameters:
       - name: findFunction
         type: BiPredicate
+        genericType: BiPredicate<F,Predicate<E>>
       - name: from
-        type: F
+        type: " F"
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Predicates.Params1.ICallback
+        type: " T1"
     notes: >-
       containsFrom
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -235,10 +207,9 @@ methods:
     parameters:
       - name: findFunction
         type: Function
+        genericType: Function<Predicate<E>,R>
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Predicates.Params1.ICallback
+        type: " T1"
     notes: >-
       find
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -250,10 +221,9 @@ methods:
     parameters:
       - name: forEachFunction
         type: Consumer
+        genericType: Consumer<Consumer<E>>
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Consumers.Params1.ICallback
+        type: " T1"
     notes: >-
       forEach
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -265,12 +235,11 @@ methods:
     parameters:
       - name: forEachFunction
         type: Consumer
+        genericType: Consumer<Consumer<E>>
       - name: captureVal1
-        type: T1
+        type: " T1"
       - name: captureVal2
-        type: T2
-      - name: lambdaFunc
-        type: Consumers.Params2.ICallback
+        type: " T2"
     notes: >-
       forEach
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -282,12 +251,12 @@ methods:
     parameters:
       - name: forEachFunction
         type: BiConsumer
+        genericType: BiConsumer<List<E>,Consumer<E>>
       - name: from
-        type: List
+        type: " List"
+        genericType: " List<E>"
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Consumers.Params1.ICallback
+        type: " T1"
     notes: >-
       forEachFrom (List, 1-param)
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -299,12 +268,11 @@ methods:
     parameters:
       - name: forEachFunction
         type: BiConsumer
+        genericType: BiConsumer<F,Consumer<E>>
       - name: from
-        type: F
+        type: " F"
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Consumers.Params1.ICallback
+        type: " T1"
     notes: >-
       forEachFrom (Node, 1-param)
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -316,14 +284,14 @@ methods:
     parameters:
       - name: forEachFunction
         type: BiConsumer
+        genericType: BiConsumer<List<E>,Consumer<E>>
       - name: from
-        type: List
+        type: " List"
+        genericType: " List<E>"
       - name: captureVal1
-        type: T1
+        type: " T1"
       - name: captureVal2
-        type: T2
-      - name: lambdaFunc
-        type: Consumers.Params2.ICallback
+        type: " T2"
     notes: >-
       forEachFrom (List, 2-param)
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -335,14 +303,13 @@ methods:
     parameters:
       - name: forEachFunction
         type: BiConsumer
+        genericType: BiConsumer<F,Consumer<E>>
       - name: from
-        type: F
+        type: " F"
       - name: captureVal1
-        type: T1
+        type: " T1"
       - name: captureVal2
-        type: T2
-      - name: lambdaFunc
-        type: Consumers.Params2.ICallback
+        type: " T2"
     notes: >-
       forEachFrom (Node, 2-param)
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -354,10 +321,9 @@ methods:
     parameters:
       - name: findFunction
         type: IntSupplierFunction
+        genericType: IntSupplierFunction<Predicate<E>>
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Predicates.Params1.ICallback
+        type: " T1"
     notes: >-
       contains
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -369,10 +335,9 @@ methods:
     parameters:
       - name: runFunction
         type: Consumer
+        genericType: Consumer<Runnable>
       - name: captureVal1
-        type: T1
-      - name: lambdaFunc
-        type: Invokers.Params1.ICallback
+        type: " T1"
     notes: >-
       invoke
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -384,12 +349,11 @@ methods:
     parameters:
       - name: runFunction
         type: Consumer
+        genericType: Consumer<Runnable>
       - name: captureVal1
-        type: T1
+        type: " T1"
       - name: captureVal2
-        type: T2
-      - name: lambdaFunc
-        type: Invokers.Params2.ICallback
+        type: " T2"
     notes: >-
       invoke
        A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
@@ -401,8 +365,6 @@ methods:
     parameters:
       - name: val1
         type: T1
-      - name: invoker
-        type: Invokers.Params1.ICallback
   - name: invoker
     modifiers:
       - public
@@ -412,9 +374,7 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
-      - name: invoker
-        type: Invokers.Params2.ICallback
+        type: " T2"
   - name: invoker
     modifiers:
       - public
@@ -424,11 +384,9 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
-      - name: invoker
-        type: Invokers.Params3.ICallback
+        type: " T3"
   - name: invoker
     modifiers:
       - public
@@ -438,13 +396,11 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
+        type: " T3"
       - name: val4
-        type: T4
-      - name: invoker
-        type: Invokers.Params4.ICallback
+        type: " T4"
   - name: predicate
     modifiers:
       - public
@@ -453,20 +409,6 @@ methods:
     parameters:
       - name: val1
         type: T1
-      - name: predicate
-        type: Predicates.Params1.ICallback
-  - name: predicate
-    modifiers:
-      - public
-      - static
-    returnType: Predicate
-    parameters:
-      - name: val1
-        type: T1
-      - name: val2
-        type: T2
-      - name: predicate
-        type: Predicates.Params2.ICallback
   - name: predicate
     modifiers:
       - public
@@ -476,8 +418,16 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: T2
+        type: " T2"
+  - name: predicate
+    modifiers:
+      - public
+      - static
+    returnType: Predicate
+    parameters:
+      - name: val1
+        type: T1
+      - name: val2
+        type: " T2"
       - name: val3
-        type: T3
-      - name: predicate
-        type: Predicates.Params3.ICallback
+        type: " T3"

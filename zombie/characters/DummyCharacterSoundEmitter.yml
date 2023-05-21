@@ -23,9 +23,6 @@ constructors:
   - name: DummyCharacterSoundEmitter
     modifiers:
       - public
-    parameters:
-      - name: chr
-        type: IsoGameCharacter
 methods:
   - name: hasSoundsToStart
     modifiers:
@@ -35,9 +32,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: handle
-        type: long
   - name: isClear
     modifiers:
       - public
@@ -46,16 +40,10 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: channel
-        type: long
   - name: isPlaying
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: alias
-        type: String
   - name: playFootsteps
     modifiers:
       - public
@@ -63,8 +51,10 @@ methods:
     parameters:
       - name: file
         type: String
-      - name: volume
-        type: float
+  - name: playSound
+    modifiers:
+      - public
+    returnType: long
   - name: playSound
     modifiers:
       - public
@@ -72,15 +62,6 @@ methods:
     parameters:
       - name: file
         type: String
-  - name: playSound
-    modifiers:
-      - public
-    returnType: long
-    parameters:
-      - name: file
-        type: String
-      - name: proxy
-        type: IsoObject
   - name: playSoundImpl
     modifiers:
       - public
@@ -88,15 +69,10 @@ methods:
     parameters:
       - name: file
         type: String
-      - name: proxy
-        type: IsoObject
   - name: playVocals
     modifiers:
       - public
     returnType: long
-    parameters:
-      - name: file
-        type: String
   - name: register
     modifiers:
       - public
@@ -109,9 +85,7 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
-      - name: z
-        type: float
+        type: " float"
   - name: setParameterValue
     modifiers:
       - public
@@ -120,9 +94,7 @@ methods:
       - name: soundRef
         type: long
       - name: parameterDescription
-        type: fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION
-      - name: value
-        type: float
+        type: " fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
   - name: setPitch
     modifiers:
       - public
@@ -130,8 +102,6 @@ methods:
     parameters:
       - name: handle
         type: long
-      - name: pitch
-        type: float
   - name: setVolume
     modifiers:
       - public
@@ -139,8 +109,6 @@ methods:
     parameters:
       - name: handle
         type: long
-      - name: volume
-        type: float
   - name: stopAll
     modifiers:
       - public
@@ -149,37 +117,22 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: handle
-        type: long
   - name: stopOrTriggerSoundByName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: stopSound
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: channel
-        type: long
   - name: stopSoundByName
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: soundName
-        type: String
   - name: stopSoundLocal
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: handle
-        type: long
   - name: tick
     modifiers:
       - public

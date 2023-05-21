@@ -45,24 +45,16 @@ methods:
     parameters:
       - name: boneName
         type: String
-      - name: newParentBone
-        type: String
   - name: alloc
     modifiers:
       - public
       - static
     returnType: AnimationPlayer
-    parameters:
-      - name: model
-        type: Model
   - name: calculateAnimPlayerAngle
     modifiers:
       - public
       - static
     returnType: float
-    parameters:
-      - name: dir
-        type: Vector2
   - name: discardRecording
     modifiers:
       - public
@@ -71,9 +63,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bone
-        type: int
   - name: DoAngles
     modifiers:
       - public
@@ -89,8 +78,6 @@ methods:
     parameters:
       - name: boneIdx
         type: int
-      - name: out_modelTransform
-        type: org.lwjgl.util.vector.Matrix4f
     notes: |-
       Get the bone's transform, in the model space.
         That is, relative to the model's origin.
@@ -101,8 +88,6 @@ methods:
     parameters:
       - name: boneIdx
         type: int
-      - name: out_boneTransform
-        type: org.lwjgl.util.vector.Matrix4f
     notes: |-
       Get the bone's transform, in its local space.
         That is, relative to its parent bone.
@@ -118,9 +103,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: out_result
-        type: Vector2
   - name: getDeferredRotationWeight
     modifiers:
       - public
@@ -146,9 +128,6 @@ methods:
     modifiers:
       - public
     returnType: org.lwjgl.util.vector.Matrix4f
-    parameters:
-      - name: bone
-        type: int
   - name: getRecorder
     modifiers:
       - public
@@ -168,8 +147,6 @@ methods:
     parameters:
       - name: boneName
         type: String
-      - name: defaultVal
-        type: int
   - name: getSkinningBoneIndices
     modifiers:
       - public
@@ -182,9 +159,6 @@ methods:
     modifiers:
       - public
     returnType: org.lwjgl.util.vector.Matrix4f[]
-    parameters:
-      - name: skinnedTo
-        type: SkinningData
   - name: getTargetAngle
     modifiers:
       - public
@@ -211,9 +185,7 @@ methods:
       - name: track
         type: AnimationTrack
       - name: boneIdx
-        type: int
-      - name: out_boneTransform
-        type: org.lwjgl.util.vector.Matrix4f
+        type: " int"
   - name: getUnweightedModelTransform
     modifiers:
       - public
@@ -222,9 +194,7 @@ methods:
       - name: track
         type: AnimationTrack
       - name: boneIdx
-        type: int
-      - name: out_modelTransform
-        type: org.lwjgl.util.vector.Matrix4f
+        type: " int"
   - name: hasSkinningData
     modifiers:
       - public
@@ -233,9 +203,6 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: boneIdx
-        type: int
   - name: isBoneTransformsNeedFirstFrame
     modifiers:
       - public
@@ -257,9 +224,7 @@ methods:
       - name: from
         type: float
       - name: to
-        type: float
-      - name: fadeTimeTo1
-        type: float
+        type: " float"
   - name: onReleased
     modifiers:
       - public
@@ -271,16 +236,11 @@ methods:
     parameters:
       - name: animName
         type: String
-      - name: looped
-        type: boolean
   - name: releaseTracks
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: tracks
-        type: List
   - name: reset
     modifiers:
       - public
@@ -293,9 +253,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: angle
-        type: float
   - name: setAngleToTarget
     modifiers:
       - public
@@ -304,66 +261,39 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: boneName
-        type: String
   - name: SetDir
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: Vector2
   - name: SetForceDir
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: dir
-        type: Vector2
   - name: setMaxTwistAngle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: radians
-        type: float
     notes: Set the maximum twist angle, in radians
   - name: setModel
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: model
-        type: Model
   - name: setRecorder
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: recorder
-        type: AnimationPlayerRecorder
   - name: setRecording
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: val
-        type: boolean
   - name: setSharedAnimRepo
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: repo
-        type: SharedSkeleAnimationRepository
   - name: setTargetAngle
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: targetAngle
-        type: float
   - name: setTargetToAngle
     modifiers:
       - public
@@ -372,9 +302,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: bones
-        type: String...
   - name: Update
     modifiers:
       - public
@@ -383,16 +310,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: deltaT
-        type: float
   - name: UpdateDir
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: character
-        type: IsoGameCharacter
   - name: updateMultiTrackBoneTransforms_DeferredMovementOnly
     modifiers:
       - public

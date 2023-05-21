@@ -32,9 +32,6 @@ methods:
       - public
       - static
     returnType: int
-    parameters:
-      - name: chance
-        type: int
   - name: init
     modifiers:
       - public
@@ -45,10 +42,11 @@ methods:
       - public
       - static
     returnType: int
-    parameters:
-      - name: max
-        type: int
-        notes: the upper bound (exclusive).  Must be positive.
+  - name: Next
+    modifiers:
+      - public
+      - static
+    returnType: long
   - name: Next
     modifiers:
       - public
@@ -57,16 +55,6 @@ methods:
     parameters:
       - name: max
         type: long
-  - name: Next
-    modifiers:
-      - public
-      - static
-    returnType: long
-    parameters:
-      - name: max
-        type: long
-      - name: randomizer
-        type: org.uncommons.maths.random.CellularAutomatonRNG
   - name: Next
     modifiers:
       - public
@@ -75,8 +63,6 @@ methods:
     parameters:
       - name: min
         type: int
-      - name: max
-        type: int
   - name: Next
     modifiers:
       - public
@@ -85,8 +71,6 @@ methods:
     parameters:
       - name: min
         type: long
-      - name: max
-        type: long
   - name: Next
     modifiers:
       - public
@@ -94,8 +78,6 @@ methods:
     returnType: float
     parameters:
       - name: min
-        type: float
-      - name: max
         type: float
   - name: Next
     modifiers:
@@ -106,9 +88,7 @@ methods:
       - name: min
         type: int
       - name: max
-        type: int
-      - name: randomizer
-        type: org.uncommons.maths.random.CellularAutomatonRNG
+        type: " int"
   - name: Next
     modifiers:
       - public
@@ -118,9 +98,7 @@ methods:
       - name: min
         type: long
       - name: max
-        type: long
-      - name: randomizer
-        type: org.uncommons.maths.random.CellularAutomatonRNG
+        type: " long"
   - name: Next
     modifiers:
       - public
@@ -130,18 +108,12 @@ methods:
       - name: min
         type: float
       - name: max
-        type: float
-      - name: randomizer
-        type: org.uncommons.maths.random.CellularAutomatonRNG
+        type: " float"
   - name: NextBool
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: invProbability
-        type: int
-        notes: The inverse probability of returning TRUE. The one in- chance.
     notes: >-
       Returns random TRUE or FALSE, based on the inverse probability value
       supplied.

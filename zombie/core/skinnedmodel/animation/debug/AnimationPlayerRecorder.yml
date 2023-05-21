@@ -11,17 +11,11 @@ constructors:
   - name: AnimationPlayerRecorder
     modifiers:
       - public
-    parameters:
-      - name: owner
-        type: IsoGameCharacter
 methods:
   - name: beginLine
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: frameNo
-        type: int
   - name: discardRecording
     modifiers:
       - public
@@ -45,8 +39,6 @@ methods:
     parameters:
       - name: state
         type: ActionState
-      - name: childStates
-        type: List
   - name: logAIState
     modifiers:
       - public
@@ -54,22 +46,14 @@ methods:
     parameters:
       - name: state
         type: State
-      - name: subStates
-        type: List
   - name: logAnimNode
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: liveNode
-        type: LiveAnimNode
   - name: logAnimState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: state
-        type: AnimState
   - name: logAnimWeights
     modifiers:
       - public
@@ -77,12 +61,11 @@ methods:
     parameters:
       - name: tracks
         type: List
+        genericType: List<AnimationTrack>
       - name: animBlendIndices
-        type: int[]
+        type: " int[]"
       - name: animBlendWeights
-        type: float[]
-      - name: deferredMovement
-        type: Vector2
+        type: " float[]"
   - name: logCharacterPos
     modifiers:
       - public
@@ -91,9 +74,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: varSource
-        type: IAnimationVariableSource
   - name: openFileStream
     modifiers:
       - public
@@ -103,13 +83,8 @@ methods:
       - name: key
         type: String
       - name: append
-        type: boolean
-      - name: fileNameConsumer
-        type: Consumer
+        type: " boolean"
   - name: setRecording
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: value
-        type: boolean

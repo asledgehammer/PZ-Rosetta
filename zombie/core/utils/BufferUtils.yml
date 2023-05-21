@@ -16,18 +16,11 @@ methods:
       - public
       - static
     returnType: ByteBuffer
-    parameters:
-      - name: size
-        type: int
   - name: destroyDirectBuffer
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: toBeDestroyed
-        type: Buffer
-        notes: The direct buffer that will be "cleaned". Utilizes reflection.
     notes: >-
       Direct buffers are garbage collected by using a phantom reference and a
        reference queue. Every once a while, the JVM checks the reference queue and
@@ -40,17 +33,11 @@ methods:
       - public
       - static
     returnType: void
-    parameters:
-      - name: store
-        type: StringBuilder
   - name: setTrackDirectMemoryEnabled
     modifiers:
       - public
       - static
     returnType: void
-    parameters:
-      - name: enabled
-        type: boolean
     notes: >-
       Set it to true if you want to enable direct memory tracking for debugging
       purpose.

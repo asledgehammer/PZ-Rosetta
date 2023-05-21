@@ -9,9 +9,6 @@ constructors:
   - name: IsoMannequin
     modifiers:
       - public
-    parameters:
-      - name: cell
-        type: IsoCell
   - name: IsoMannequin
     modifiers:
       - public
@@ -19,9 +16,7 @@ constructors:
       - name: cell
         type: IsoCell
       - name: square
-        type: IsoGridSquare
-      - name: sprite
-        type: IsoSprite
+        type: " IsoGridSquare"
 methods:
   - name: addToWorld
     modifiers:
@@ -31,9 +26,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: removedItem
-        type: InventoryItem
   - name: getAnimSetName
     modifiers:
       - public
@@ -46,9 +38,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: getDirectionFromItem
     modifiers:
       - public
@@ -57,8 +46,6 @@ methods:
     parameters:
       - name: item
         type: Moveable
-      - name: playerIndex
-        type: int
   - name: getHumanVisual
     modifiers:
       - public
@@ -67,9 +54,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: itemVisuals
-        type: ItemVisuals
   - name: getMannequinScriptName
     modifiers:
       - public
@@ -86,9 +70,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: vars
-        type: Map
   - name: isFemale
     modifiers:
       - public
@@ -100,16 +81,11 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
-      - name: item
-        type: InventoryItem
   - name: isMannequinSprite
     modifiers:
       - public
       - static
     returnType: boolean
-    parameters:
-      - name: sprite
-        type: IsoSprite
   - name: isSkeleton
     modifiers:
       - public
@@ -126,9 +102,7 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: int
-      - name: IS_DEBUG_SAVE
-        type: boolean
+        type: " int"
   - name: loadChange
     modifiers:
       - public
@@ -136,15 +110,10 @@ methods:
     parameters:
       - name: change
         type: String
-      - name: bb
-        type: ByteBuffer
   - name: loadState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: input
-        type: ByteBuffer
   - name: render
     modifiers:
       - public
@@ -153,17 +122,15 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
+        type: " float"
       - name: col
-        type: ColorInfo
+        type: " ColorInfo"
       - name: bDoChild
-        type: boolean
+        type: " boolean"
       - name: bWallLightingPass
-        type: boolean
-      - name: shader
-        type: Shader
+        type: " boolean"
   - name: renderFxMask
     modifiers:
       - public
@@ -172,11 +139,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: float
+        type: " float"
       - name: z
-        type: float
-      - name: bDoAttached
-        type: boolean
+        type: " float"
   - name: renderMoveableItem
     modifiers:
       - public
@@ -186,13 +151,11 @@ methods:
       - name: item
         type: Moveable
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
+        type: " int"
       - name: z
-        type: int
-      - name: dir
-        type: IsoDirections
+        type: " int"
   - name: renderMoveableObject
     modifiers:
       - public
@@ -202,20 +165,15 @@ methods:
       - name: mannequin
         type: IsoMannequin
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
+        type: " int"
       - name: z
-        type: int
-      - name: dir
-        type: IsoDirections
+        type: " int"
   - name: rotate
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newDir
-        type: IsoDirections
   - name: save
     modifiers:
       - public
@@ -223,8 +181,6 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
-      - name: IS_DEBUG_SAVE
-        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -233,37 +189,23 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: se.krka.kahlua.vm.KahluaTable
-      - name: bb
-        type: ByteBuffer
+        type: " se.krka.kahlua.vm.KahluaTable"
   - name: saveState
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: output
-        type: ByteBuffer
   - name: setCustomSettingsToItem
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: item
-        type: InventoryItem
   - name: setMannequinScriptName
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: name
-        type: String
   - name: setRenderDirection
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: newDir
-        type: IsoDirections
   - name: wearItem
     modifiers:
       - public
@@ -271,5 +213,3 @@ methods:
     parameters:
       - name: item
         type: InventoryItem
-      - name: chr
-        type: IsoGameCharacter

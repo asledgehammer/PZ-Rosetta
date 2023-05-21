@@ -95,9 +95,6 @@ constructors:
   - name: BaseAction
     modifiers:
       - public
-    parameters:
-      - name: chr
-        type: IsoGameCharacter
 methods:
   - name: finished
     modifiers:
@@ -143,9 +140,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: event
-        type: AnimEvent
   - name: perform
     modifiers:
       - public
@@ -158,9 +152,7 @@ methods:
       - name: name
         type: String
       - name: radius
-        type: int
-      - name: maxGain
-        type: float
+        type: " int"
   - name: reset
     modifiers:
       - public
@@ -173,15 +165,16 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: act
-        type: CharacterActionAnims
   - name: setActionAnim
     modifiers:
       - public
     returnType: void
+  - name: setAnimVariable
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: animNode
+      - name: key
         type: String
   - name: setAnimVariable
     modifiers:
@@ -190,38 +183,25 @@ methods:
     parameters:
       - name: key
         type: String
-      - name: val
-        type: String
-  - name: setAnimVariable
-    modifiers:
-      - public
-    returnType: void
-    parameters:
-      - name: key
-        type: String
-      - name: val
-        type: boolean
   - name: setBlockMovementEtc
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: block
-        type: boolean
   - name: setLoopedAction
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: looped
-        type: boolean
   - name: setOverrideAnimation
     modifiers:
       - public
     returnType: void
+  - name: setOverrideHandModels
+    modifiers:
+      - public
+    returnType: void
     parameters:
-      - name: override
-        type: boolean
+      - name: primaryHand
+        type: InventoryItem
   - name: setOverrideHandModels
     modifiers:
       - public
@@ -230,18 +210,7 @@ methods:
       - name: primaryHand
         type: InventoryItem
       - name: secondaryHand
-        type: InventoryItem
-  - name: setOverrideHandModels
-    modifiers:
-      - public
-    returnType: void
-    parameters:
-      - name: primaryHand
-        type: InventoryItem
-      - name: secondaryHand
-        type: InventoryItem
-      - name: resetModel
-        type: boolean
+        type: " InventoryItem"
   - name: setOverrideHandModelsObject
     modifiers:
       - public
@@ -250,9 +219,14 @@ methods:
       - name: primaryHand
         type: Object
       - name: secondaryHand
-        type: Object
-      - name: resetModel
-        type: boolean
+        type: " Object"
+  - name: setOverrideHandModelsString
+    modifiers:
+      - public
+    returnType: void
+    parameters:
+      - name: primaryHand
+        type: String
   - name: setOverrideHandModelsString
     modifiers:
       - public
@@ -261,25 +235,11 @@ methods:
       - name: primaryHand
         type: String
       - name: secondaryHand
-        type: String
-  - name: setOverrideHandModelsString
-    modifiers:
-      - public
-    returnType: void
-    parameters:
-      - name: primaryHand
-        type: String
-      - name: secondaryHand
-        type: String
-      - name: resetModel
-        type: boolean
+        type: " String"
   - name: setUseProgressBar
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: use
-        type: boolean
   - name: start
     modifiers:
       - public

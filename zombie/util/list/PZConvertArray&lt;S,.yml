@@ -13,8 +13,6 @@ constructors:
     parameters:
       - name: array
         type: S[]
-      - name: converterST
-        type: Function
     notes: Create a read-only list converter
   - name: PZConvertArray
     modifiers:
@@ -23,39 +21,26 @@ constructors:
       - name: array
         type: S[]
       - name: converterST
-        type: Function
-      - name: converterTS
-        type: Function
+        type: " Function"
+        genericType: " Function<S,T>"
     notes: Create a read-write list converter
 methods:
   - name: contains
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: o
-        type: Object
   - name: forEach
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: action
-        type: Consumer
   - name: get
     modifiers:
       - public
     returnType: T
-    parameters:
-      - name: index
-        type: int
   - name: indexOf
     modifiers:
       - public
     returnType: int
-    parameters:
-      - name: val
-        type: Object
   - name: isReadonly
     modifiers:
       - public
@@ -64,9 +49,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: operator
-        type: UnaryOperator
   - name: set
     modifiers:
       - public
@@ -74,8 +56,6 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: element
-        type: T
   - name: setS
     modifiers:
       - public
@@ -83,8 +63,6 @@ methods:
     parameters:
       - name: index
         type: int
-      - name: element
-        type: S
   - name: size
     modifiers:
       - public
@@ -93,9 +71,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: c
-        type: Comparator
   - name: toArray
     modifiers:
       - public
@@ -104,6 +79,3 @@ methods:
     modifiers:
       - public
     returnType: R[]
-    parameters:
-      - name: result
-        type: R[]

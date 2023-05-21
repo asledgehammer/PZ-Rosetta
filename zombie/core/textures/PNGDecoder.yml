@@ -31,17 +31,11 @@ constructors:
     parameters:
       - name: input
         type: InputStream
-      - name: bDoMask
-        type: boolean
 methods:
   - name: decideTextureFormat
     modifiers:
       - public
     returnType: PNGDecoder.Format
-    parameters:
-      - name: fmt
-        type: PNGDecoder.Format
-        notes: the desired format
     notes: Computes the implemented format conversion for the desired format.
   - name: decode
     modifiers:
@@ -52,9 +46,7 @@ methods:
         type: ByteBuffer
         notes: the buffer
       - name: stride
-        type: int
-      - name: fmt
-        type: PNGDecoder.Format
+        type: " int"
     notes: |-
       Decodes the image into the specified buffer. The first line is placed at
        the current position. After decode the buffer position is at the end of
@@ -68,9 +60,7 @@ methods:
         type: ByteBuffer
         notes: the buffer
       - name: stride
-        type: int
-      - name: fmt
-        type: PNGDecoder.Format
+        type: " int"
     notes: |-
       Decodes the image into the specified buffer. The last line is placed at
        the current position. After decode the buffer position is at the end of
@@ -110,7 +100,5 @@ methods:
         type: byte
         notes: the red component of the color to make transparent
       - name: g
-        type: byte
-      - name: b
-        type: byte
+        type: " byte"
     notes: Overwrites the tRNS chunk entry to make a selected color transparent.

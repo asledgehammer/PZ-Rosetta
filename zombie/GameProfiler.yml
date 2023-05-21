@@ -11,9 +11,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: area
-        type: GameProfiler.ProfileArea
   - name: endFrame
     modifiers:
       - public
@@ -40,8 +37,6 @@ methods:
     parameters:
       - name: areaKey
         type: String
-      - name: invoke
-        type: Runnable
     notes: Measure how long it takes to run the supplied invoker.
   - name: invokeAndMeasure
     modifiers:
@@ -51,9 +46,7 @@ methods:
       - name: areaKey
         type: String
       - name: val1
-        type: T1
-      - name: invoker
-        type: Invokers.Params1.ICallback
+        type: " T1"
   - name: invokeAndMeasure
     modifiers:
       - public
@@ -62,11 +55,9 @@ methods:
       - name: areaKey
         type: String
       - name: val1
-        type: T1
+        type: " T1"
       - name: val2
-        type: T2
-      - name: invoker
-        type: Invokers.Params2.ICallback
+        type: " T2"
   - name: invokeAndMeasure
     modifiers:
       - public
@@ -75,13 +66,11 @@ methods:
       - name: areaKey
         type: String
       - name: val1
-        type: T1
+        type: " T1"
       - name: val2
-        type: T2
+        type: " T2"
       - name: val3
-        type: T3
-      - name: invoker
-        type: Invokers.Params3.ICallback
+        type: " T3"
   - name: invokeAndMeasureFrame
     modifiers:
       - public
@@ -89,8 +78,6 @@ methods:
     parameters:
       - name: invokerKey
         type: String
-      - name: invoke
-        type: Runnable
     notes: Perform an entire frame, call startFrame, invoke.run(), endFrame
   - name: isRunning
     modifiers:
@@ -104,22 +91,14 @@ methods:
     parameters:
       - name: x
         type: int
-      - name: y
-        type: int
   - name: start
     modifiers:
       - public
     returnType: GameProfiler.ProfileArea
-    parameters:
-      - name: areaKey
-        type: String
   - name: start
     modifiers:
       - public
     returnType: GameProfiler.ProfileArea
-    parameters:
-      - name: area
-        type: GameProfiler.ProfileArea
   - name: start
     modifiers:
       - public
@@ -127,12 +106,7 @@ methods:
     parameters:
       - name: area
         type: GameProfiler.ProfileArea
-      - name: timeNs
-        type: long
   - name: startFrame
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: frameInvokerKey
-        type: String

@@ -18,9 +18,8 @@ methods:
     parameters:
       - name: entry
         type: FibonacciHeap.Entry
+        genericType: FibonacciHeap.Entry<T>
         notes: The element whose priority should be decreased.
-      - name: newPriority
-        type: double
     notes: |-
       Decreases the key of the specified element to the new priority.  If the
        new priority is greater than the old priority, this function throws an
@@ -34,10 +33,6 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: entry
-        type: FibonacciHeap.Entry
-        notes: The entry to delete.
     notes: |-
       Deletes this Entry from the Fibonacci heap that contains it.
 
@@ -50,8 +45,6 @@ methods:
     parameters:
       - name: threadID
         type: int
-      - name: node
-        type: IsoGridSquare
   - name: dequeueMin
     modifiers:
       - public
@@ -71,8 +64,6 @@ methods:
       - name: value
         type: T
         notes: The value to insert.
-      - name: priority
-        type: double
     notes: |-
       Inserts the specified element into the Fibonacci heap with the specified
        priority.  Its priority must be a valid double, so you cannot set the
@@ -90,9 +81,8 @@ methods:
     parameters:
       - name: one
         type: FibonacciHeap
+        genericType: FibonacciHeap<T>
         notes: The first Fibonacci heap to merge.
-      - name: two
-        type: FibonacciHeap
     notes: |-
       Given two Fibonacci heaps, returns a new Fibonacci heap that contains
        all of the elements of the two heaps.  Each of the input heaps is

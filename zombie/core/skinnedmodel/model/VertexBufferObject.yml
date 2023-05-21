@@ -27,8 +27,6 @@ constructors:
     parameters:
       - name: vertices
         type: VertexPositionNormalTangentTexture[]
-      - name: elements
-        type: int[]
   - name: VertexBufferObject
     modifiers:
       - public
@@ -36,9 +34,13 @@ constructors:
       - name: vertices
         type: VertexPositionNormalTangentTextureSkin[]
       - name: elements
-        type: int[]
-      - name: bReverse
-        type: boolean
+        type: " int[]"
+  - name: VertexBufferObject
+    modifiers:
+      - public
+    parameters:
+      - name: vertices
+        type: VertexBufferObject.VertexArray
   - name: VertexBufferObject
     modifiers:
       - public
@@ -46,17 +48,7 @@ constructors:
       - name: vertices
         type: VertexBufferObject.VertexArray
       - name: elements
-        type: int[]
-  - name: VertexBufferObject
-    modifiers:
-      - public
-    parameters:
-      - name: vertices
-        type: VertexBufferObject.VertexArray
-      - name: elements
-        type: int[]
-      - name: bReverse
-        type: boolean
+        type: " int[]"
 methods:
   - name: clear
     modifiers:
@@ -66,16 +58,10 @@ methods:
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: shader
-        type: Shader
   - name: DrawStrip
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: shader
-        type: Shader
   - name: LoadSoftwareVBO
     modifiers:
       - public
@@ -84,6 +70,4 @@ methods:
       - name: vertices
         type: ByteBuffer
       - name: vbo
-        type: VertexBufferObject.Vbo
-      - name: elements
-        type: int[]
+        type: " VertexBufferObject.Vbo"

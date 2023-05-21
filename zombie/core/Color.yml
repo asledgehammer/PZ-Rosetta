@@ -154,10 +154,6 @@ constructors:
   - name: Color
     modifiers:
       - public
-    parameters:
-      - name: color
-        type: Color
-        notes: The color to copy into the new instance
     notes: Copy constructor
   - name: Color
     modifiers:
@@ -167,9 +163,7 @@ constructors:
         type: float
         notes: The red component of the colour (0.0
       - name: g
-        type: float
-      - name: b
-        type: float
+        type: " float"
     notes: Create a 3 component colour
   - name: Color
     modifiers:
@@ -179,11 +173,9 @@ constructors:
         type: float
         notes: The red component of the colour (0.0
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
     notes: Create a 4 component colour
   - name: Color
     modifiers:
@@ -192,9 +184,7 @@ constructors:
       - name: A
         type: Color
       - name: B
-        type: Color
-      - name: delta
-        type: float
+        type: " Color"
   - name: Color
     modifiers:
       - public
@@ -203,9 +193,7 @@ constructors:
         type: int
         notes: The red component of the colour (0
       - name: g
-        type: int
-      - name: b
-        type: int
+        type: " int"
     notes: Create a 3 component colour
   - name: Color
     modifiers:
@@ -215,19 +203,13 @@ constructors:
         type: int
         notes: The red component of the colour (0
       - name: g
-        type: int
+        type: " int"
       - name: b
-        type: int
-      - name: a
-        type: int
+        type: " int"
     notes: Create a 4 component colour
   - name: Color
     modifiers:
       - public
-    parameters:
-      - name: value
-        type: int
-        notes: The value to interpret for the colour
     notes: |-
       Create a colour from an evil integer packed 0xAARRGGBB. If AA
        is specified as zero then it will be interpreted as unspecified
@@ -245,25 +227,15 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: out_result
-        type: Color
   - name: add
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: c
-        type: Color
-        notes: The colour to add
     notes: Add another colour to this one
   - name: addToCopy
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: c
-        type: Color
-        notes: The colour to add
     notes: Add another colour to this one
   - name: blendABGR
     modifiers:
@@ -273,8 +245,6 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: targetABGR
-        type: int
   - name: blendBGR
     modifiers:
       - public
@@ -282,8 +252,6 @@ methods:
     returnType: int
     parameters:
       - name: valueABGR
-        type: int
-      - name: targetABGR
         type: int
   - name: brighter
     modifiers:
@@ -294,11 +262,6 @@ methods:
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: scale
-        type: float
-        notes: The scale up of RGB (i.e. if you supply 0.03 the colour will be
-          brightened by 3%)
     notes: Make a brighter instance of this colour
   - name: changeHSBValue
     modifiers:
@@ -308,17 +271,12 @@ methods:
       - name: hFactor
         type: float
       - name: sFactor
-        type: float
-      - name: bFactor
-        type: float
+        type: " float"
   - name: colorToABGR
     modifiers:
       - public
       - static
     returnType: int
-    parameters:
-      - name: val
-        type: Color
   - name: colorToABGR
     modifiers:
       - public
@@ -328,11 +286,9 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
   - name: darker
     modifiers:
       - public
@@ -342,21 +298,12 @@ methods:
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: scale
-        type: float
-        notes: The scale down of RGB (i.e. if you supply 0.03 the colour will be
-          darkened by 3%)
     notes: Make a darker instance of this colour
   - name: decode
     modifiers:
       - public
       - static
     returnType: Color
-    parameters:
-      - name: nm
-        type: String
-        notes: The number string to decode
     notes: |-
       Decode a number in a string and process it as a colour
        reference.
@@ -364,16 +311,10 @@ methods:
     modifiers:
       - public
     returnType: boolean
-    parameters:
-      - name: other
-        type: Object
   - name: fromColor
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: valueABGR
-        type: int
     notes: >-
       Converts the supplied binary value into color values, and sets the result
       to this object.
@@ -394,9 +335,6 @@ methods:
       - public
       - static
     returnType: float
-    parameters:
-      - name: valueABGR
-        type: int
   - name: getAlphaFloat
     modifiers:
       - public
@@ -416,9 +354,6 @@ methods:
       - public
       - static
     returnType: float
-    parameters:
-      - name: valueABGR
-        type: int
   - name: getBlueFloat
     modifiers:
       - public
@@ -438,9 +373,6 @@ methods:
       - public
       - static
     returnType: float
-    parameters:
-      - name: valueABGR
-        type: int
   - name: getGreenFloat
     modifiers:
       - public
@@ -460,9 +392,6 @@ methods:
       - public
       - static
     returnType: float
-    parameters:
-      - name: valueABGR
-        type: int
   - name: getRedFloat
     modifiers:
       - public
@@ -480,9 +409,7 @@ methods:
       - name: hue
         type: float
       - name: saturation
-        type: float
-      - name: brightness
-        type: float
+        type: " float"
   - name: HSBtoRGB
     modifiers:
       - public
@@ -492,11 +419,9 @@ methods:
       - name: hue
         type: float
       - name: saturation
-        type: float
+        type: " float"
       - name: brightness
-        type: float
-      - name: result
-        type: Color
+        type: " float"
   - name: interp
     modifiers:
       - public
@@ -505,9 +430,7 @@ methods:
       - name: to
         type: Color
       - name: delta
-        type: float
-      - name: dest
-        type: Color
+        type: " float"
   - name: lerpABGR
     modifiers:
       - public
@@ -517,17 +440,11 @@ methods:
       - name: colA
         type: int
       - name: colB
-        type: int
-      - name: alpha
-        type: float
+        type: " int"
   - name: multiply
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: c
-        type: Color
-        notes: the other color
     notes: Multiply this color by another
   - name: multiplyABGR
     modifiers:
@@ -537,8 +454,6 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: multiplierABGR
-        type: int
   - name: multiplyBGR
     modifiers:
       - public
@@ -546,8 +461,6 @@ methods:
     returnType: int
     parameters:
       - name: valueABGR
-        type: int
-      - name: multiplierABGR
         type: int
   - name: random
     modifiers:
@@ -559,27 +472,16 @@ methods:
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: value
-        type: float
-        notes: The value to scale by
     notes: Scale the components of the colour by the given value
   - name: scaleCopy
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: value
-        type: float
-        notes: The value to scale by
     notes: Scale the components of the colour by the given value
   - name: set
     modifiers:
       - public
     returnType: Color
-    parameters:
-      - name: other
-        type: Color
   - name: set
     modifiers:
       - public
@@ -588,9 +490,7 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
-      - name: b
-        type: float
+        type: " float"
   - name: set
     modifiers:
       - public
@@ -599,18 +499,13 @@ methods:
       - name: r
         type: float
       - name: g
-        type: float
+        type: " float"
       - name: b
-        type: float
-      - name: a
-        type: float
+        type: " float"
   - name: setABGR
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: valueABGR
-        type: int
   - name: setAlphaChannelToABGR
     modifiers:
       - public
@@ -619,8 +514,6 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: a
-        type: float
   - name: setBlueChannelToABGR
     modifiers:
       - public
@@ -629,8 +522,6 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: b
-        type: float
   - name: setColor
     modifiers:
       - public
@@ -639,9 +530,7 @@ methods:
       - name: A
         type: Color
       - name: B
-        type: Color
-      - name: delta
-        type: float
+        type: " Color"
   - name: setGreenChannelToABGR
     modifiers:
       - public
@@ -650,8 +539,6 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: g
-        type: float
   - name: setRedChannelToABGR
     modifiers:
       - public
@@ -660,8 +547,6 @@ methods:
     parameters:
       - name: valueABGR
         type: int
-      - name: r
-        type: float
   - name: tintABGR
     modifiers:
       - public
@@ -669,6 +554,4 @@ methods:
     returnType: int
     parameters:
       - name: targetABGR
-        type: int
-      - name: tintABGR
         type: int

@@ -33,14 +33,9 @@ constructors:
     parameters:
       - name: texture
         type: TextureID
-      - name: bb
-        type: WrappedBuffer
   - name: ImageData
     modifiers:
       - public
-    parameters:
-      - name: path
-        type: String
   - name: ImageData
     modifiers:
       - public
@@ -48,8 +43,6 @@ constructors:
       - name: width
         type: int
         notes: the width of imageData
-      - name: height
-        type: int
     notes: creates a new empty imageData
   - name: ImageData
     modifiers:
@@ -58,9 +51,7 @@ constructors:
       - name: width
         type: int
       - name: height
-        type: int
-      - name: data
-        type: WrappedBuffer
+        type: " int"
   - name: ImageData
     modifiers:
       - public
@@ -68,17 +59,13 @@ constructors:
       - name: b
         type: BufferedInputStream
       - name: bDoMask
-        type: boolean
-      - name: format
-        type: Texture.PZFileformat
+        type: " boolean"
   - name: ImageData
     modifiers:
       - public
     parameters:
       - name: b
         type: InputStream
-      - name: bDoMask
-        type: boolean
 methods:
   - name: calculateNumMips
     modifiers:
@@ -88,16 +75,11 @@ methods:
     parameters:
       - name: widthHW
         type: int
-      - name: heightHW
-        type: int
   - name: createSteamAvatar
     modifiers:
       - public
       - static
     returnType: ImageData
-    parameters:
-      - name: steamID
-        type: long
   - name: dispose
     modifiers:
       - public
@@ -122,17 +104,11 @@ methods:
     modifiers:
       - public
     returnType: MipMapLevel
-    parameters:
-      - name: idx
-        type: int
   - name: getNextMipDimension
     modifiers:
       - public
       - static
     returnType: int
-    parameters:
-      - name: dim
-        type: int
   - name: getPixelClamped
     modifiers:
       - public
@@ -142,15 +118,13 @@ methods:
       - name: dataBuff
         type: ByteBuffer
       - name: width
-        type: int
+        type: " int"
       - name: height
-        type: int
+        type: " int"
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: result
-        type: int[]
+        type: " int"
   - name: getPixelDiscard
     modifiers:
       - public
@@ -160,15 +134,13 @@ methods:
       - name: dataBuff
         type: ByteBuffer
       - name: width
-        type: int
+        type: " int"
       - name: height
-        type: int
+        type: " int"
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: result
-        type: int[]
+        type: " int"
   - name: getWidth
     modifiers:
       - public
@@ -194,9 +166,7 @@ methods:
         type: byte
         notes: the red value (0-255)
       - name: green
-        type: byte
-      - name: blue
-        type: byte
+        type: " byte"
     notes: make the image transparent
   - name: makeTransp
     modifiers:
@@ -207,26 +177,18 @@ methods:
         type: byte
         notes: the red value (0-255)
       - name: green
-        type: byte
+        type: " byte"
       - name: blue
-        type: byte
-      - name: alpha
-        type: byte
+        type: " byte"
     notes: make the image transparent
   - name: setData
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: image
-        type: BufferedImage
   - name: setData
     modifiers:
       - public
     returnType: void
-    parameters:
-      - name: rasterData
-        type: Raster
   - name: setPixel
     modifiers:
       - public
@@ -236,12 +198,10 @@ methods:
       - name: dataBuff
         type: ByteBuffer
       - name: width
-        type: int
+        type: " int"
       - name: height
-        type: int
+        type: " int"
       - name: x
-        type: int
+        type: " int"
       - name: y
-        type: int
-      - name: pixelRGBA
-        type: int[]
+        type: " int"
