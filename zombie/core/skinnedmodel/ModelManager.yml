@@ -11,47 +11,58 @@ fields:
   - name: bCreateSoftwareMeshes
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: bDebugEnableModels
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: bitmap
     modifiers:
       - public
-    returnType: TextureFBO
+    return:
+      type: TextureFBO
   - name: instance
     modifiers:
       - public
       - static
       - final
-    returnType: ModelManager
+    return:
+      type: ModelManager
   - name: m_femaleModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
   - name: m_maleModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
   - name: m_skeletonFemaleModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
   - name: m_skeletonMaleModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
   - name: NoOpenGL
     modifiers:
       - public
       - static
-    returnType: boolean
+    return:
+      type: boolean
   - name: SoftwareMeshAnims
     modifiers:
       - public
       - final
-    returnType: HashMap
+    return:
+      type: HashMap
+      generic: HashMap<String,SoftwareSkinnedModelAnim>
 constructors:
   - name: ModelManager
     modifiers:
@@ -60,19 +71,22 @@ methods:
   - name: Add
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: Add the supplied character to the visible render list.
   - name: addAnimationClip
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: name
         type: String
   - name: addStatic
     modifiers:
       - public
-    returnType: ModelInstance
+    return:
+      type: ModelInstance
     parameters:
       - name: parentInst
         type: ModelInstance
@@ -83,7 +97,8 @@ methods:
   - name: addStatic
     modifiers:
       - public
-    returnType: ModelInstance
+    return:
+      type: ModelInstance
     parameters:
       - name: slot
         type: ModelManager.ModelSlot
@@ -96,7 +111,8 @@ methods:
   - name: addStaticForcedTex
     modifiers:
       - public
-    returnType: ModelInstance
+    return:
+      type: ModelInstance
     parameters:
       - name: parentInst
         type: ModelInstance
@@ -109,60 +125,74 @@ methods:
   - name: addVehicle
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: animationAssetLoaded
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: ContainsChar
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
     notes: Returns TRUE if the character is currently in the visible render list,
       and has not been flagged for removal.
   - name: create
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: derefModelInstance
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: derefModelInstances
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: dressInRandomOutfit
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: getAllAnimationClips
     modifiers:
       - public
-    returnType: Collection
+    return:
+      type: Collection
+      generic: Collection<AnimationClip>
   - name: getAnimationClip
     modifiers:
       - public
-    returnType: AnimationClip
+    return:
+      type: AnimationClip
   - name: getBodyModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
   - name: getClosestThreeLights
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: chr
         type: IsoMovingObject
   - name: getLoadedModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
   - name: getLoadedModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
     parameters:
       - name: meshName
         type: String
@@ -173,27 +203,33 @@ methods:
   - name: getSlot
     modifiers:
       - public
-    returnType: ModelManager.ModelSlot
+    return:
+      type: ModelManager.ModelSlot
   - name: getTextureFlags
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: initAnimationMeshes
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: isCreated
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: isLoadingAnimations
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: loadAdditionalModel
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: meshName
         type: String
@@ -204,11 +240,13 @@ methods:
   - name: loadModAnimations
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: loadStaticModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
     parameters:
       - name: meshName
         type: String
@@ -217,7 +255,8 @@ methods:
   - name: newAdditionalModelInstance
     modifiers:
       - public
-    returnType: ModelInstance
+    return:
+      type: ModelInstance
     parameters:
       - name: meshName
         type: String
@@ -230,7 +269,8 @@ methods:
   - name: newInstance
     modifiers:
       - public
-    returnType: ModelInstance
+    return:
+      type: ModelInstance
     parameters:
       - name: model
         type: Model
@@ -239,7 +279,8 @@ methods:
   - name: newStaticInstance
     modifiers:
       - public
-    returnType: ModelInstance
+    return:
+      type: ModelInstance
     parameters:
       - name: slot
         type: ModelManager.ModelSlot
@@ -252,7 +293,8 @@ methods:
   - name: putLoadedModel
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: name
         type: String
@@ -265,23 +307,28 @@ methods:
   - name: reloadAllOutfits
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: reloadModelsMatching
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: Remove
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: Remove
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: RenderParticles
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: texd
         type: TextureDraw
@@ -290,7 +337,8 @@ methods:
   - name: RenderPuddles
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: shaderID
         type: int
@@ -299,7 +347,8 @@ methods:
   - name: RenderSkyBox
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: texd
         type: TextureDraw
@@ -312,7 +361,8 @@ methods:
   - name: RenderWater
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: texd
         type: TextureDraw
@@ -323,52 +373,61 @@ methods:
   - name: Reset
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: |-
       Reset
        Resets the specified character.
   - name: Reset
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: ResetCharacterEquippedHands
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: ResetEquippedNextFrame
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: resetModelInstance
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: modelInstance
         type: ModelInstance
   - name: resetModelInstanceRecurse
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: modelInstance
         type: ModelInstance
   - name: resetModelInstancesRecurse
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: modelInstances
         type: ArrayList
-        genericType: ArrayList<ModelInstance>
+        generic: ArrayList<ModelInstance>
   - name: ResetNextFrame
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: setModelMetaData
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: meshName
         type: String
@@ -379,7 +438,8 @@ methods:
   - name: setModelMetaData
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: modelId
         type: String
@@ -392,7 +452,8 @@ methods:
   - name: tryGetLoadedModel
     modifiers:
       - public
-    returnType: Model
+    return:
+      type: Model
     parameters:
       - name: meshName
         type: String
@@ -405,4 +466,5 @@ methods:
   - name: update
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void

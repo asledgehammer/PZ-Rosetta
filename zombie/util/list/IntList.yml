@@ -8,7 +8,8 @@ modifiers:
 notes: This interface represents lists of int values.
 methods:
   - name: add
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: index
         type: int
@@ -21,7 +22,12 @@ methods:
         elements from the specified index and forward are pushed
         to their successor's indices.
   - name: addAll
-    returnType: boolean
+    return:
+      type: boolean
+      notes: |-
+        true if this list was modified
+                      as a result of adding the elements of c;
+                      returns false otherwise.
     parameters:
       - name: index
         type: int
@@ -37,15 +43,27 @@ methods:
         All elements from the specified index and forward are pushed
         to their successors' indices (
   - name: get
-    returnType: int
+    return:
+      type: int
+      notes: the element at the specified position.
     notes: Returns the element at a specified position in this list.
   - name: indexOf
-    returnType: int
+    return:
+      type: int
+      notes: |-
+        the index of the first occurance of the specified
+                      element in this list; returns -1, if the
+                      element is not contained in this list.
     notes: |-
       Returns the index of the first occurance of a specified
         element in this list.
   - name: indexOf
-    returnType: int
+    return:
+      type: int
+      notes: |-
+        the index of the first occurance of the specified
+                      element in this list; returns -1, if the
+                      element is not contained in this list.
     parameters:
       - name: index
         type: int
@@ -53,12 +71,22 @@ methods:
       Returns the index of the first occurance of a specified
         element in this list after or at a specified index.
   - name: lastIndexOf
-    returnType: int
+    return:
+      type: int
+      notes: |-
+        the index of the last occurance of the specified
+                      element in this list; returns -1, if the
+                      element is not contained in this list.
     notes: |-
       Returns the index of the last occurance of a specified
         element in this list.
   - name: lastIndexOf
-    returnType: int
+    return:
+      type: int
+      notes: |-
+        the index of the last occurance of the specified
+                      element in this list; returns -1, if the
+                      element is not contained in this list.
     parameters:
       - name: index
         type: int
@@ -66,21 +94,29 @@ methods:
       Returns the index of the last occurance of a specified
         element in this list before a specified index.
   - name: listIterator
-    returnType: IntListIterator
+    return:
+      type: IntListIterator
+      notes: a list iterator over this list.
     notes: Returns a list iterator over this list.
   - name: listIterator
-    returnType: IntListIterator
+    return:
+      type: IntListIterator
+      notes: a list iterator over this list.
     notes: |-
       Returns a list iterator over this list, starting from a
         specified index.
   - name: removeElementAt
-    returnType: int
+    return:
+      type: int
+      notes: the value of the element removed.
     notes: |-
       Removes the element at a specified index in this list. All
         elements following the removed element are pushed to their
         predecessor's indices.
   - name: set
-    returnType: int
+    return:
+      type: int
+      notes: the previous value of the element.
     parameters:
       - name: index
         type: int

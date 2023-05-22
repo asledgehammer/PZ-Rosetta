@@ -10,12 +10,14 @@ fields:
   - name: x
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
     notes: The horizontal part of this vector
   - name: y
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
     notes: The vertical part of this vector
 constructors:
   - name: Vector2
@@ -38,18 +40,24 @@ methods:
   - name: __toString
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
+      notes: A String representing this vector
     notes: Returns a string representing this vector
   - name: add
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
+      notes: this
     notes: Add another vector to this one and return this
   - name: addScaled
     modifiers:
       - public
       - static
-    returnType: Vector2
+    return:
+      type: Vector2
+      notes: The supplied result vector.
     parameters:
       - name: a
         type: Vector2
@@ -61,38 +69,48 @@ methods:
   - name: aimAt
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     notes: Set the direction of this vector to point to another vector, maintaining
       the length
   - name: angleBetween
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: The angle in radians in the range [0,PI]
     notes: Calculate angle between this and other vectors
   - name: angleTo
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: The angle between them, in radians
     notes: Calculate the angle between this point and another
   - name: clone
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     notes: Clone this vector
   - name: distanceTo
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: The distance between them
     notes: Calculate the distance between this point and another
   - name: dot
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: dot
     modifiers:
       - public
       - static
-    returnType: float
+    return:
+      type: float
     parameters:
       - name: x
         type: float
@@ -103,19 +121,24 @@ methods:
   - name: equals
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
+      notes: true if other is a Vector2 equal to this one
     notes: See if this vector is equal to another
   - name: fromAwtPoint
     modifiers:
       - public
       - static
-    returnType: Vector2
+    return:
+      type: Vector2
+      notes: A new Vector2 representing the Point
     notes: Create a new vector from an AWT Point
   - name: fromLengthDirection
     modifiers:
       - public
       - static
-    returnType: Vector2
+    return:
+      type: Vector2
     parameters:
       - name: length
         type: float
@@ -123,67 +146,85 @@ methods:
   - name: getDirection
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: getDirection
     modifiers:
       - public
       - static
-    returnType: float
+    return:
+      type: float
     parameters:
       - name: x
         type: float
   - name: getDirectionNeg
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: The direction in which this vector is pointing in radians
     notes: get the direction in which this vector is pointing
   - name: getLength
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: The length of this vector
     notes: get the length of this vector
   - name: getLengthSquared
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: The squared length of this vector
     notes: get the squared length of this vector
   - name: getX
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: the x
   - name: getY
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
+      notes: the y
   - name: normalize
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: rotate
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: scale
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: scale
     modifiers:
       - public
       - static
-    returnType: Vector2
+    return:
+      type: Vector2
     parameters:
       - name: val
         type: Vector2
   - name: set
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     notes: Make this vector identical to another vector
   - name: set
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     parameters:
       - name: x
         type: float
@@ -192,17 +233,20 @@ methods:
   - name: setDirection
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     notes: Set the direction of this vector, maintaining the length
   - name: setLength
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     notes: Set the length of this vector, maintaining the direction
   - name: setLengthAndDirection
     modifiers:
       - public
-    returnType: Vector2
+    return:
+      type: Vector2
     parameters:
       - name: direction
         type: float
@@ -211,22 +255,29 @@ methods:
   - name: setX
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: setY
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: tangent
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: toAwtDimension
     modifiers:
       - public
-    returnType: Dimension
+    return:
+      type: Dimension
+      notes: a java.awt.Dimension
     notes: Convert this vector to an AWT Dimension
   - name: toAwtPoint
     modifiers:
       - public
-    returnType: Point
+    return:
+      type: Point
+      notes: a java.awt.Point
     notes: Convert this vector to an AWT Point

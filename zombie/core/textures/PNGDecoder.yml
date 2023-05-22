@@ -11,19 +11,23 @@ fields:
   - name: bDoMask
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: mask
     modifiers:
       - public
-    returnType: BooleanGrid
+    return:
+      type: BooleanGrid
   - name: maskID
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: readTotal
     modifiers:
       - public
-    returnType: long
+    return:
+      type: long
 constructors:
   - name: PNGDecoder
     modifiers:
@@ -35,12 +39,15 @@ methods:
   - name: decideTextureFormat
     modifiers:
       - public
-    returnType: PNGDecoder.Format
+    return:
+      type: PNGDecoder.Format
+      notes: format which best matches the desired format
     notes: Computes the implemented format conversion for the desired format.
   - name: decode
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: buffer
         type: ByteBuffer
@@ -54,7 +61,8 @@ methods:
   - name: decodeFlipped
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: buffer
         type: ByteBuffer
@@ -68,33 +76,41 @@ methods:
   - name: getHeight
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: getWidth
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: hasAlpha
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
+      notes: true if the image has transparency
     notes: |-
       Checks if the image has transparency information either from
        an alpha channel or from a tRNS chunk.
   - name: hasAlphaChannel
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
+      notes: true if the image has an alpha channel
     notes: |-
       Checks if the image has a real alpha channel.
        This method does not check for the presence of a tRNS chunk.
   - name: isRGB
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: overwriteTRNS
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: r
         type: byte

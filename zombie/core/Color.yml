@@ -11,141 +11,162 @@ fields:
   - name: a
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
     notes: The alpha component of the colour
   - name: b
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
     notes: The blue component of the colour
   - name: black
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour black
   - name: blue
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour blue
   - name: cyan
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour cyan
   - name: darkGray
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour dark gray
   - name: darkGreen
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour dark green
   - name: g
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
     notes: The green component of the colour
   - name: gray
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour gray
   - name: green
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour green
   - name: lightGray
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour light gray
   - name: lightGreen
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour light green
   - name: magenta
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour dark magenta
   - name: orange
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour dark orange
   - name: pink
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour dark pink
   - name: purple
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour purple
   - name: r
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
     notes: The red component of the colour
   - name: red
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour red
   - name: transparent
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed color transparent
   - name: white
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour white
   - name: yellow
     modifiers:
       - public
       - static
       - final
-    returnType: Color
+    return:
+      type: Color
     notes: The fixed colour yellow
 constructors:
   - name: Color
@@ -218,30 +239,36 @@ methods:
   - name: __toString
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: abgrToColor
     modifiers:
       - public
       - static
-    returnType: Color
+    return:
+      type: Color
     parameters:
       - name: valueABGR
         type: int
   - name: add
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: Add another colour to this one
   - name: addToCopy
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: The copy which has had the color added to it
     notes: Add another colour to this one
   - name: blendABGR
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
@@ -249,24 +276,30 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
   - name: brighter
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: The brighter version of this colour
     notes: Make a brighter instance of this colour
   - name: brighter
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: The brighter version of this colour
     notes: Make a brighter instance of this colour
   - name: changeHSBValue
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: hFactor
         type: float
@@ -276,12 +309,14 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
   - name: colorToABGR
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: r
         type: float
@@ -292,29 +327,37 @@ methods:
   - name: darker
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: The darker version of this colour
     notes: Make a darker instance of this colour
   - name: darker
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: The darker version of this colour
     notes: Make a darker instance of this colour
   - name: decode
     modifiers:
       - public
       - static
-    returnType: Color
+    return:
+      type: Color
+      notes: The color generated from the number read
     notes: |-
       Decode a number in a string and process it as a colour
        reference.
   - name: equals
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: fromColor
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: >-
       Converts the supplied binary value into color values, and sets the result
       to this object.
@@ -323,88 +366,114 @@ methods:
   - name: getAlpha
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The alpha component (range 0-255)
     notes: get the alpha byte component of this colour
   - name: getAlphaByte
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The alpha component (range 0-255)
     notes: get the alpha byte component of this colour
   - name: getAlphaChannelFromABGR
     modifiers:
       - public
       - static
-    returnType: float
+    return:
+      type: float
   - name: getAlphaFloat
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: getBlue
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The blue component (range 0-255)
     notes: get the blue byte component of this colour
   - name: getBlueByte
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The blue component (range 0-255)
     notes: get the blue byte component of this colour
   - name: getBlueChannelFromABGR
     modifiers:
       - public
       - static
-    returnType: float
+    return:
+      type: float
   - name: getBlueFloat
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: getGreen
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The green component (range 0-255)
     notes: get the green byte component of this colour
   - name: getGreenByte
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The green component (range 0-255)
     notes: get the green byte component of this colour
   - name: getGreenChannelFromABGR
     modifiers:
       - public
       - static
-    returnType: float
+    return:
+      type: float
   - name: getGreenFloat
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: getRed
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The red component (range 0-255)
     notes: get the red byte component of this colour
   - name: getRedByte
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The red component (range 0-255)
     notes: get the red byte component of this colour
   - name: getRedChannelFromABGR
     modifiers:
       - public
       - static
-    returnType: float
+    return:
+      type: float
   - name: getRedFloat
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: hashCode
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: HSBtoRGB
     modifiers:
       - public
       - static
-    returnType: Color
+    return:
+      type: Color
     parameters:
       - name: hue
         type: float
@@ -414,7 +483,8 @@ methods:
     modifiers:
       - public
       - static
-    returnType: Color
+    return:
+      type: Color
     parameters:
       - name: hue
         type: float
@@ -425,7 +495,8 @@ methods:
   - name: interp
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: to
         type: Color
@@ -435,7 +506,8 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: colA
         type: int
@@ -444,13 +516,16 @@ methods:
   - name: multiply
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: product of the two colors
     notes: Multiply this color by another
   - name: multiplyABGR
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
@@ -458,7 +533,8 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
@@ -466,26 +542,32 @@ methods:
     modifiers:
       - public
       - static
-    returnType: Color
+    return:
+      type: Color
     notes: Create a random color.
   - name: scale
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
     notes: Scale the components of the colour by the given value
   - name: scaleCopy
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
+      notes: The copy which has been scaled
     notes: Scale the components of the colour by the given value
   - name: set
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
   - name: set
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
     parameters:
       - name: r
         type: float
@@ -494,7 +576,8 @@ methods:
   - name: set
     modifiers:
       - public
-    returnType: Color
+    return:
+      type: Color
     parameters:
       - name: r
         type: float
@@ -505,12 +588,14 @@ methods:
   - name: setABGR
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
   - name: setAlphaChannelToABGR
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
@@ -518,14 +603,16 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
   - name: setColor
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: A
         type: Color
@@ -535,7 +622,8 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
@@ -543,7 +631,8 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: valueABGR
         type: int
@@ -551,7 +640,8 @@ methods:
     modifiers:
       - public
       - static
-    returnType: int
+    return:
+      type: int
     parameters:
       - name: targetABGR
         type: int
