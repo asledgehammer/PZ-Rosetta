@@ -1,0 +1,227 @@
+# zombie.core.Collections.NonBlockingHashtable
+package: zombie.core.Collections
+type: class
+name: NonBlockingHashtable
+generic: NonBlockingHashtable<TypeK,
+extends: Dictionary
+modifiers:
+  - public
+notes: A lock-free alternate implementation of
+constructors:
+  - name: NonBlockingHashtable
+    modifiers:
+      - public
+    notes: |-
+      Create a new NonBlockingHashtable with default minimum size (currently set
+        to 8 K/V pairs or roughly 84 bytes on a standard 32-bit JVM).
+  - name: NonBlockingHashtable
+    modifiers:
+      - public
+    notes: >-
+      Create a new NonBlockingHashtable with initial room for the given number
+      of
+        elements, thus avoiding internal resizing operations to reach an
+        appropriate size.  Large numbers here when used with a small count of
+        elements will sacrifice space for a small amount of time gained.  The
+        initial size will be rounded up internally to the next larger power of 2.
+methods:
+  - name: __toString
+    modifiers:
+      - public
+    return:
+      type: String
+      notes: a string representation of this map
+    notes: |-
+      Returns a string representation of this map.  The string representation
+       consists of a list of key-value mappings in the order returned by the
+       map's
+  - name: clear
+    modifiers:
+      - public
+    return:
+      type: void
+    notes: Removes all of the mappings from this map.
+  - name: clone
+    modifiers:
+      - public
+    return:
+      type: Object
+      notes: a clone of the hashtable.
+    notes: |-
+      Creates a shallow copy of this hashtable. All the structure of the
+       hashtable itself is copied, but the keys and values are not cloned.
+       This is a relatively expensive operation.
+  - name: contains
+    modifiers:
+      - public
+    return:
+      type: boolean
+      notes: true if this map maps one or more keys to the specified value
+    notes: |-
+      Legacy method testing if some key maps into the specified value in this
+        table.  This method is identical in functionality to
+  - name: containsKey
+    modifiers:
+      - public
+    return:
+      type: boolean
+      notes: true if the key is in the table using the equals method
+    notes: Tests if the key in the table using the
+  - name: containsValue
+    modifiers:
+      - public
+    return:
+      type: boolean
+      notes: true if this map maps one or more keys to the specified value
+    notes: Returns
+  - name: elements
+    modifiers:
+      - public
+    return:
+      type: Enumeration
+      generic: Enumeration<TypeV>
+      notes: an enumeration of the values in this table
+    notes: Returns an enumeration of the values in this table.
+  - name: entrySet
+    modifiers:
+      - public
+    return:
+      type: Set
+      generic: Set<Map.Entry<TypeK,TypeV>>
+    notes: Returns a
+  - name: get
+    modifiers:
+      - public
+    return:
+      type: TypeV
+    notes: Returns the value to which the specified key is mapped, or
+  - name: isEmpty
+    modifiers:
+      - public
+    return:
+      type: boolean
+      notes: size() == 0
+    notes: Returns
+  - name: keys
+    modifiers:
+      - public
+    return:
+      type: Enumeration
+      generic: Enumeration<TypeK>
+      notes: an enumeration of the keys in this table
+    notes: Returns an enumeration of the keys in this table.
+  - name: keySet
+    modifiers:
+      - public
+    return:
+      type: Set
+      generic: Set<TypeK>
+    notes: Returns a
+  - name: print
+    modifiers:
+      - public
+      - final
+    return:
+      type: void
+    notes: Verbose printout of table internals, useful for debugging.
+  - name: put
+    modifiers:
+      - public
+    return:
+      type: TypeV
+      notes: |-
+        the previous value associated with key, or
+                  null if there was no mapping for key
+    parameters:
+      - name: key
+        type: TypeK
+        notes: key with which the specified value is to be associated
+    notes: |-
+      Maps the specified key to the specified value in the table.  Neither key
+        nor value can be null.
+  - name: putAll
+    modifiers:
+      - public
+    return:
+      type: void
+    notes: |-
+      Copies all of the mappings from the specified map to this one, replacing
+        any existing mappings.
+  - name: putIfAbsent
+    modifiers:
+      - public
+    return:
+      type: TypeV
+      notes: |-
+        the previous value associated with the specified key,
+                 or null if there was no mapping for the key
+    parameters:
+      - name: key
+        type: TypeK
+    notes: Atomically, do a
+  - name: remove
+    modifiers:
+      - public
+    return:
+      type: TypeV
+      notes: |-
+        the previous value associated with key, or
+                 null if there was no mapping for key
+    notes: |-
+      Removes the key (and its corresponding value) from this map.
+        This method does nothing if the key is not in the map.
+  - name: remove
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: key
+        type: Object
+    notes: Atomically do a
+  - name: replace
+    modifiers:
+      - public
+    return:
+      type: TypeV
+    parameters:
+      - name: key
+        type: TypeK
+    notes: Atomically do a
+  - name: replace
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: key
+        type: TypeK
+      - name: oldValue
+        type: " TypeV"
+    notes: Atomically do a
+  - name: reprobes
+    modifiers:
+      - public
+    return:
+      type: long
+      notes: |-
+        the count of reprobes since the last call to reprobes()
+          or since the table was created.
+    notes: |-
+      Get and clear the current count of reprobes.  Reprobes happen on key
+        collisions, and a high reprobe rate may indicate a poor hash function or
+        weaknesses in the table resizing function.
+  - name: size
+    modifiers:
+      - public
+    return:
+      type: int
+      notes: the number of key-value mappings in this map
+    notes: Returns the number of key-value mappings in this map.
+  - name: values
+    modifiers:
+      - public
+    return:
+      type: Collection
+      generic: Collection<TypeV>
+    notes: Returns a

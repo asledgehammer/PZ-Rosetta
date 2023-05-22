@@ -14,12 +14,14 @@ methods:
   - name: __toString
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
     notes: Return the counter's
   - name: add
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: |-
       Add the given value to current counter value.  Concurrent updates will
        not be lost, but addAndGet or getAndAdd are not implemented because the
@@ -27,17 +29,20 @@ methods:
   - name: decrement
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: add(long)
   - name: estimate_get
     modifiers:
       - public
-    returnType: long
+    return:
+      type: long
     notes: A cheaper
   - name: get
     modifiers:
       - public
-    returnType: long
+    return:
+      type: long
     notes: |-
       Current value of the counter.  Since other threads are updating furiously
        the value is only approximate, but it includes all counts made by the
@@ -45,34 +50,40 @@ methods:
   - name: increment
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: add(long)
   - name: internal_size
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
     notes: |-
       Return the internal counter striping factor.  Useful for diagnosing
        performance problems.
   - name: intValue
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
     notes: Same as
   - name: longValue
     modifiers:
       - public
-    returnType: long
+    return:
+      type: long
     notes: Same as
   - name: print
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: A more verbose print than
   - name: set
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     notes: |-
       Atomically set the sum of the striped counters to specified value.
         Rather more expensive than a simple store, in order to remain atomic.

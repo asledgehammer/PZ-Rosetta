@@ -10,17 +10,26 @@ notes: |-
    resets before and after rendering.
 methods:
   - name: build
-    returnType: GeometryData
+    return:
+      type: GeometryData
+      notes: the vertex data, or null
     notes: If not rendering a sprite, then we perform a build() to create
   - name: getAlphaOp
-    returnType: AlphaOp
+    return:
+      type: AlphaOp
+      notes: the style's alpha operation
   - name: getRenderSprite
-    returnType: boolean
+    return:
+      type: boolean
+      notes: boolean
     notes: Whether to actually render a sprite when using this Style.
   - name: getStyleID
-    returnType: int
+    return:
+      type: int
+      notes: the style's ID, which affects its rendering order
   - name: render
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: vertexOffset
         type: int
@@ -29,8 +38,10 @@ methods:
       a pre-prepared buffer which is pointed to
        already.
   - name: resetState
-    returnType: void
+    return:
+      type: void
     notes: Called to reset GL rendering state after actual drawing is done.
   - name: setupState
-    returnType: void
+    return:
+      type: void
     notes: Called to set up GL rendering state before actual drawing is done.

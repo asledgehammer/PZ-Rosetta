@@ -13,12 +13,15 @@ fields:
   - name: cost
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: stepstore
     modifiers:
       - public
       - static
-    returnType: Stack
+    return:
+      type: Stack
+      generic: Stack<Path.Step>
 constructors:
   - name: Path
     modifiers:
@@ -28,7 +31,8 @@ methods:
   - name: appendStep
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: x
         type: int
@@ -39,7 +43,8 @@ methods:
   - name: contains
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
     parameters:
       - name: x
         type: int
@@ -48,40 +53,52 @@ methods:
   - name: costPerStep
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: createStep
     modifiers:
       - public
       - static
-    returnType: Path.Step
+    return:
+      type: Path.Step
   - name: getLength
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The number of steps in this path
     notes: get the length of the path, i.e. the number of steps
   - name: getStep
     modifiers:
       - public
-    returnType: Path.Step
+    return:
+      type: Path.Step
+      notes: The step information, the position on the map.
     notes: get the step at a given index in the path
   - name: getX
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The x coordinate at the step
     notes: get the x coordinate for the step at the given index
   - name: getY
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
+      notes: The y coordinate at the step
     notes: get the y coordinate for the step at the given index
   - name: getZ
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: prependStep
     modifiers:
       - public
-    returnType: void
+    return:
+      type: void
     parameters:
       - name: x
         type: int

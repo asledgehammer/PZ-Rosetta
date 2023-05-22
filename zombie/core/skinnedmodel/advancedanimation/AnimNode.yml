@@ -10,119 +10,154 @@ fields:
   - name: m_2DBlends
     modifiers:
       - public
-    returnType: List
+    return:
+      type: List
+      generic: List<Anim2DBlend>
   - name: m_2DBlendTri
     modifiers:
       - public
-    returnType: List
+    return:
+      type: List
+      generic: List<Anim2DBlendTriangle>
   - name: m_AnimName
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_AnimReverse
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: m_BlendOutTime
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: m_BlendTime
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: m_Conditions
     modifiers:
       - public
-    returnType: List
+    return:
+      type: List
+      generic: List<AnimCondition>
   - name: m_deferredBoneAxis
     modifiers:
       - public
-    returnType: BoneAxis
+    return:
+      type: BoneAxis
   - name: m_DeferredBoneName
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_EarlyTransitionOut
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: m_Events
     modifiers:
       - public
-    returnType: List
+    return:
+      type: List
+      generic: List<AnimEvent>
   - name: m_Looped
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: m_maxTorsoTwist
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: m_Name
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_picker
     modifiers:
       - public
-    returnType: Anim2DBlendPicker
+    return:
+      type: Anim2DBlendPicker
   - name: m_Priority
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: m_randomAdvanceFraction
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: m_Scalar
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_Scalar2
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_SpeedScale
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_SpeedScaleRandomMultiplierMax
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: m_SpeedScaleRandomMultiplierMin
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: m_SpeedScaleVariable
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: m_State
     modifiers:
       - public
-    returnType: AnimState
+    return:
+      type: AnimState
   - name: m_StopAnimOnExit
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: m_SubStateBoneWeights
     modifiers:
       - public
-    returnType: List
+    return:
+      type: List
+      generic: List<AnimBoneWeight>
   - name: m_SyncTrackingEnabled
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: m_Transitions
     modifiers:
       - public
-    returnType: List
+    return:
+      type: List
+      generic: List<AnimTransition>
   - name: m_useDeferedRotation
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
 constructors:
   - name: AnimNode
     modifiers:
@@ -131,50 +166,61 @@ methods:
   - name: __toString
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: checkConditions
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: findTransitionTo
     modifiers:
       - public
-    returnType: AnimTransition
+    return:
+      type: AnimTransition
     parameters:
       - name: varSource
         type: IAnimationVariableSource
   - name: getBlendOutTime
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: getConditionsString
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: getDeferredBoneAxis
     modifiers:
       - public
-    returnType: BoneAxis
+    return:
+      type: BoneAxis
   - name: getDeferredBoneName
     modifiers:
       - public
-    returnType: String
+    return:
+      type: String
   - name: getPriority
     modifiers:
       - public
-    returnType: int
+    return:
+      type: int
   - name: getSpeedScale
     modifiers:
       - public
-    returnType: float
+    return:
+      type: float
   - name: isAbstract
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
   - name: isIdleAnim
     modifiers:
       - public
-    returnType: boolean
+    return:
+      type: boolean
     notes: |-
       Returns TRUE if this AnimNode represents an Idle animation.
        TODO: Make this a flag in the AnimNode, instead of relying on the name
@@ -182,7 +228,9 @@ methods:
     modifiers:
       - public
       - static
-    returnType: AnimNode
+    return:
+      type: AnimNode
+      notes: The deserialized AnimNode instance, or NULL if failed.
     notes: |-
       Loads an AnimNode from the specified source.
        The source can either be a file path, or a File GUID.
