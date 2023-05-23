@@ -681,12 +681,18 @@ constructors:
   - name: BaseVehicle
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
 methods:
   - name: addDamageFrontHitAChr
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dmg
+        type: int
     notes: >-
       When hitting a character (zombie or player) damage aren't the same as
       hitting a wall.
@@ -696,6 +702,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: dmg
+        type: int
     notes: >-
       When hitting a character (zombie or player) damage aren't the same as
       hitting a wall.
@@ -708,6 +717,8 @@ methods:
     parameters:
       - name: impulse
         type: org.joml.Vector3f
+      - name: rel_pos
+        type: org.joml.Vector3f
   - name: addKeyToGloveBox
     modifiers:
       - public
@@ -718,6 +729,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: addKeyToWorld
     modifiers:
       - public
@@ -732,9 +746,11 @@ methods:
       - name: player
         type: IsoPlayer
       - name: vehicleB
-        type: " BaseVehicle"
+        type: BaseVehicle
       - name: attachmentA
-        type: " String"
+        type: String
+      - name: attachmentB
+        type: String
   - name: addPointConstraint
     modifiers:
       - public
@@ -744,11 +760,13 @@ methods:
       - name: player
         type: IsoPlayer
       - name: vehicleB
-        type: " BaseVehicle"
+        type: BaseVehicle
       - name: attachmentA
-        type: " String"
+        type: String
       - name: attachmentB
-        type: " String"
+        type: String
+      - name: remote
+        type: Boolean
   - name: addRandomDamageFromCrash
     modifiers:
       - public
@@ -757,6 +775,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: damage
+        type: float
   - name: addToWorld
     modifiers:
       - public
@@ -782,6 +802,8 @@ methods:
     parameters:
       - name: obj
         type: IsoObject
+      - name: mul
+        type: float
   - name: ApplyImpulse4Break
     modifiers:
       - public
@@ -790,6 +812,8 @@ methods:
     parameters:
       - name: obj
         type: IsoObject
+      - name: mul
+        type: float
   - name: areAllDoorsLocked
     modifiers:
       - public
@@ -800,6 +824,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: area
+        type: VehicleScript.Area
   - name: areaPositionWorld
     modifiers:
       - public
@@ -808,11 +835,8 @@ methods:
     parameters:
       - name: area
         type: VehicleScript.Area
-  - name: areaPositionWorld4PlayerInteract
-    modifiers:
-      - public
-    return:
-      type: Vector2
+      - name: out
+        type: Vector2
   - name: areaPositionWorld4PlayerInteract
     modifiers:
       - public
@@ -821,21 +845,40 @@ methods:
     parameters:
       - name: area
         type: VehicleScript.Area
+  - name: areaPositionWorld4PlayerInteract
+    modifiers:
+      - public
+    return:
+      type: Vector2
+    parameters:
+      - name: area
+        type: VehicleScript.Area
+      - name: out
+        type: Vector2
   - name: attachmentExist
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: attachmentName
+        type: String
   - name: authorizationChanged
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
   - name: authorizationClientCollide
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: driver
+        type: IsoPlayer
   - name: authorizationServerCollide
     modifiers:
       - public
@@ -844,6 +887,8 @@ methods:
     parameters:
       - name: PlayerID
         type: short
+      - name: isCollide
+        type: boolean
   - name: authorizationServerOnSeat
     modifiers:
       - public
@@ -852,6 +897,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: enter
+        type: boolean
   - name: blocked
     modifiers:
       - public
@@ -861,7 +908,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: breakConstraint
     modifiers:
       - public
@@ -869,6 +918,8 @@ methods:
       type: void
     parameters:
       - name: forgetID
+        type: boolean
+      - name: remote
         type: boolean
   - name: brekingObjects
     modifiers:
@@ -880,6 +931,9 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: canAccessContainer
     modifiers:
       - public
@@ -888,6 +942,8 @@ methods:
     parameters:
       - name: partIndex
         type: int
+      - name: chr
+        type: IsoGameCharacter
   - name: canAttachTrailer
     modifiers:
       - public
@@ -897,19 +953,23 @@ methods:
       - name: vehicleB
         type: BaseVehicle
       - name: attachmentA
-        type: " String"
-  - name: canAttachTrailer
-    modifiers:
-      - public
-    return:
-      type: boolean
-    parameters:
-      - name: vehicleB
-        type: BaseVehicle
-      - name: attachmentA
-        type: " String"
+        type: String
       - name: attachmentB
-        type: " String"
+        type: String
+  - name: canAttachTrailer
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: vehicleB
+        type: BaseVehicle
+      - name: attachmentA
+        type: String
+      - name: attachmentB
+        type: String
+      - name: reconnect
+        type: boolean
   - name: canInstallPart
     modifiers:
       - public
@@ -918,6 +978,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: part
+        type: VehiclePart
   - name: canLockDoor
     modifiers:
       - public
@@ -926,6 +988,8 @@ methods:
     parameters:
       - name: part
         type: VehiclePart
+      - name: chr
+        type: IsoGameCharacter
   - name: canSwitchSeat
     modifiers:
       - public
@@ -933,6 +997,8 @@ methods:
       type: boolean
     parameters:
       - name: seatFrom
+        type: int
+      - name: seatTo
         type: int
   - name: canUninstallPart
     modifiers:
@@ -942,6 +1008,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: part
+        type: VehiclePart
   - name: canUnlockDoor
     modifiers:
       - public
@@ -950,11 +1018,16 @@ methods:
     parameters:
       - name: part
         type: VehiclePart
+      - name: chr
+        type: IsoGameCharacter
   - name: changeTransmission
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: newTransmission
+        type: TransmissionNumber
     notes: Change transmission, slow down the car if you change shift for a superior
       one
   - name: cheatHotwire
@@ -965,11 +1038,16 @@ methods:
     parameters:
       - name: hotwired
         type: boolean
+      - name: broken
+        type: boolean
   - name: checkCollision
     modifiers:
       - public
     return:
       type: BaseVehicle.HitVars
+    parameters:
+      - name: target
+        type: IsoGameCharacter
   - name: checkPhysicsValidWithServer
     modifiers:
       - public
@@ -984,7 +1062,9 @@ methods:
       - name: target
         type: IsoGameCharacter
       - name: attacker
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: worldPos
+        type: org.joml.Vector3f
   - name: circleIntersects
     modifiers:
       - public
@@ -994,14 +1074,19 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: radius
+        type: float
   - name: clearPassenger
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: constraintChanged
     modifiers:
       - public
@@ -1012,6 +1097,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: crash
     modifiers:
       - public
@@ -1020,6 +1108,8 @@ methods:
     parameters:
       - name: delta
         type: float
+      - name: front
+        type: boolean
   - name: createPhysics
     modifiers:
       - public
@@ -1035,16 +1125,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: float
   - name: damageObjects
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: damage
+        type: float
   - name: damagePlayers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: damage
+        type: float
   - name: doBloodOverlay
     modifiers:
       - public
@@ -1055,6 +1154,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoObject
   - name: doDamageOverlay
     modifiers:
       - public
@@ -1074,11 +1176,13 @@ methods:
       - name: dir
         type: Vector2
       - name: length
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: engineDoIdle
     modifiers:
       - public
@@ -1132,6 +1236,8 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: chr
+        type: IsoGameCharacter
   - name: enter
     modifiers:
       - public
@@ -1141,7 +1247,9 @@ methods:
       - name: seat
         type: int
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: offset
+        type: org.joml.Vector3f
   - name: enterRSync
     modifiers:
       - public
@@ -1151,17 +1259,25 @@ methods:
       - name: seat
         type: int
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: v
+        type: BaseVehicle
   - name: exit
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: exitRSync
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: fixLightbarModelLighting
     modifiers:
       - public
@@ -1170,6 +1286,8 @@ methods:
     parameters:
       - name: ls
         type: IsoLightSource
+      - name: lightPos
+        type: org.joml.Vector3f
   - name: flipUpright
     modifiers:
       - public
@@ -1200,6 +1318,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: areaId
+        type: String
   - name: getAreaCenter
     modifiers:
       - public
@@ -1208,6 +1329,8 @@ methods:
     parameters:
       - name: areaId
         type: String
+      - name: out
+        type: Vector2
   - name: getAreaDist
     modifiers:
       - public
@@ -1216,6 +1339,8 @@ methods:
     parameters:
       - name: areaId
         type: String
+      - name: chr
+        type: IsoGameCharacter
   - name: getAttachmentLocalPos
     modifiers:
       - public
@@ -1224,6 +1349,8 @@ methods:
     parameters:
       - name: attachmentName
         type: String
+      - name: v
+        type: org.joml.Vector3f
   - name: getAttachmentWorldPos
     modifiers:
       - public
@@ -1232,6 +1359,8 @@ methods:
     parameters:
       - name: attachmentName
         type: String
+      - name: v
+        type: org.joml.Vector3f
   - name: getAuthorizationDescription
     modifiers:
       - public
@@ -1257,11 +1386,17 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getBloodIntensity
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: id
+        type: String
   - name: getBrakeSpeedBetweenUpdate
     modifiers:
       - public
@@ -1277,6 +1412,9 @@ methods:
       - public
     return:
       type: IsoGameCharacter
+    parameters:
+      - name: seat
+        type: int
   - name: getChoosenParts
     modifiers:
       - public
@@ -1293,6 +1431,9 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getColorHue
     modifiers:
       - public
@@ -1376,6 +1517,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: out
+        type: Vector2
   - name: getFakeSpeedModifier
     modifiers:
       - public
@@ -1397,6 +1540,9 @@ methods:
       - public
     return:
       type: org.joml.Vector3f
+    parameters:
+      - name: out
+        type: org.joml.Vector3f
   - name: getFudgedMass
     modifiers:
       - public
@@ -1462,6 +1608,9 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: index
+        type: int
   - name: getLightCount
     modifiers:
       - public
@@ -1472,6 +1621,9 @@ methods:
       - public
     return:
       type: org.joml.Vector3f
+    parameters:
+      - name: out
+        type: org.joml.Vector3f
   - name: getLocalPos
     modifiers:
       - public
@@ -1479,6 +1631,8 @@ methods:
       type: org.joml.Vector3f
     parameters:
       - name: worldPos
+        type: org.joml.Vector3f
+      - name: localPos
         type: org.joml.Vector3f
   - name: getLocalPos
     modifiers:
@@ -1489,9 +1643,11 @@ methods:
       - name: worldX
         type: float
       - name: worldY
-        type: " float"
+        type: float
       - name: worldZ
-        type: " float"
+        type: float
+      - name: localPos
+        type: org.joml.Vector3f
   - name: getMass
     modifiers:
       - public
@@ -1522,6 +1678,9 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getNetPlayerId
     modifiers:
       - public
@@ -1552,11 +1711,17 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: id
+        type: String
   - name: getPartByIndex
     modifiers:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: index
+        type: int
   - name: getPartCount
     modifiers:
       - public
@@ -1567,11 +1732,17 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: seat
+        type: int
   - name: getPassenger
     modifiers:
       - public
     return:
       type: BaseVehicle.Passenger
+    parameters:
+      - name: seat
+        type: int
   - name: getPassengerAnim
     modifiers:
       - public
@@ -1580,21 +1751,32 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: id
+        type: String
   - name: getPassengerArea
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: seat
+        type: int
   - name: getPassengerDoor
     modifiers:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: seat
+        type: int
   - name: getPassengerDoor2
     modifiers:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: seat
+        type: int
   - name: getPassengerLocalPos
     modifiers:
       - public
@@ -1603,6 +1785,8 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: v
+        type: org.joml.Vector3f
   - name: getPassengerPosition
     modifiers:
       - public
@@ -1611,6 +1795,8 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: id
+        type: String
   - name: getPassengerPositionWorldPos
     modifiers:
       - public
@@ -1619,6 +1805,8 @@ methods:
     parameters:
       - name: posn
         type: VehicleScript.Position
+      - name: out
+        type: org.joml.Vector3f
   - name: getPassengerPositionWorldPos
     modifiers:
       - public
@@ -1628,9 +1816,11 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: out
+        type: org.joml.Vector3f
   - name: getPassengerSwitchSeat
     modifiers:
       - public
@@ -1639,11 +1829,16 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: index
+        type: int
   - name: getPassengerSwitchSeatCount
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: seat
+        type: int
   - name: getPassengerWorldPos
     modifiers:
       - public
@@ -1652,6 +1847,8 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: out
+        type: org.joml.Vector3f
   - name: getPlayerTrailerLocalPos
     modifiers:
       - public
@@ -1661,7 +1858,9 @@ methods:
       - name: attachmentName
         type: String
       - name: left
-        type: " boolean"
+        type: boolean
+      - name: v
+        type: org.joml.Vector3f
   - name: getPlayerTrailerWorldPos
     modifiers:
       - public
@@ -1671,7 +1870,9 @@ methods:
       - name: attachmentName
         type: String
       - name: left
-        type: " boolean"
+        type: boolean
+      - name: v
+        type: org.joml.Vector3f
   - name: getPoly
     modifiers:
       - public
@@ -1712,6 +1913,9 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getShadowTexture
     modifiers:
       - public
@@ -1770,6 +1974,8 @@ methods:
     parameters:
       - name: seatFrom
         type: int
+      - name: seatTo
+        type: int
   - name: getSwitchSeatAnimRate
     modifiers:
       - public
@@ -1777,6 +1983,8 @@ methods:
       type: float
     parameters:
       - name: seatFrom
+        type: int
+      - name: seatTo
         type: int
   - name: getSwitchSeatSound
     modifiers:
@@ -1786,11 +1994,16 @@ methods:
     parameters:
       - name: seatFrom
         type: int
+      - name: seatTo
+        type: int
   - name: getThumpableFor
     modifiers:
       - public
     return:
       type: Thumpable
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getThumpCondition
     modifiers:
       - public
@@ -1814,6 +2027,8 @@ methods:
     parameters:
       - name: attachmentName
         type: String
+      - name: v
+        type: org.joml.Vector3f
   - name: getTowedByWorldPos
     modifiers:
       - public
@@ -1822,6 +2037,8 @@ methods:
     parameters:
       - name: attachmentName
         type: String
+      - name: v
+        type: org.joml.Vector3f
   - name: getTowingLocalPos
     modifiers:
       - public
@@ -1830,6 +2047,8 @@ methods:
     parameters:
       - name: attachmentName
         type: String
+      - name: v
+        type: org.joml.Vector3f
   - name: getTowingWorldPos
     modifiers:
       - public
@@ -1838,6 +2057,8 @@ methods:
     parameters:
       - name: attachmentName
         type: String
+      - name: v
+        type: org.joml.Vector3f
   - name: getTransmissionNumber
     modifiers:
       - public
@@ -1853,6 +2074,9 @@ methods:
       - public
     return:
       type: org.joml.Vector3f
+    parameters:
+      - name: out
+        type: org.joml.Vector3f
   - name: getUpVectorDot
     modifiers:
       - public
@@ -1863,6 +2087,9 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getUseablePart
     modifiers:
       - public
@@ -1871,6 +2098,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: checkDir
+        type: boolean
   - name: getVehicleEngineRPM
     modifiers:
       - public
@@ -1899,6 +2128,8 @@ methods:
     parameters:
       - name: wheelIndex
         type: int
+      - name: out
+        type: org.joml.Vector3f
   - name: getWindowLightsOn
     modifiers:
       - public
@@ -1912,6 +2143,8 @@ methods:
     parameters:
       - name: localPos
         type: org.joml.Vector3f
+      - name: worldPos
+        type: org.joml.Vector3f
   - name: getWorldPos
     modifiers:
       - public
@@ -1921,7 +2154,9 @@ methods:
       - name: localPos
         type: org.joml.Vector3f
       - name: worldPos
-        type: " org.joml.Vector3f"
+        type: org.joml.Vector3f
+      - name: script
+        type: VehicleScript
   - name: getWorldPos
     modifiers:
       - public
@@ -1931,28 +2166,35 @@ methods:
       - name: localX
         type: float
       - name: localY
-        type: " float"
-      - name: localZ
-        type: " float"
-  - name: getWorldPos
-    modifiers:
-      - public
-    return:
-      type: org.joml.Vector3f
-    parameters:
-      - name: localX
         type: float
-      - name: localY
-        type: " float"
       - name: localZ
-        type: " float"
+        type: float
       - name: worldPos
-        type: " org.joml.Vector3f"
+        type: org.joml.Vector3f
+  - name: getWorldPos
+    modifiers:
+      - public
+    return:
+      type: org.joml.Vector3f
+    parameters:
+      - name: localX
+        type: float
+      - name: localY
+        type: float
+      - name: localZ
+        type: float
+      - name: worldPos
+        type: org.joml.Vector3f
+      - name: script
+        type: VehicleScript
   - name: getWorldTransform
     modifiers:
       - public
     return:
       type: Transform
+    parameters:
+      - name: out
+        type: Transform
   - name: getZone
     modifiers:
       - public
@@ -1963,6 +2205,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: hasBackSignal
     modifiers:
       - public
@@ -1988,6 +2233,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: haveOneDoorUnlocked
     modifiers:
       - public
@@ -2002,11 +2250,16 @@ methods:
     parameters:
       - name: vehicle
         type: BaseVehicle
+      - name: amount
+        type: float
   - name: hitCharacter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoZombie
   - name: hitCharacter
     modifiers:
       - public
@@ -2015,6 +2268,8 @@ methods:
     parameters:
       - name: character
         type: IsoGameCharacter
+      - name: vars
+        type: BaseVehicle.HitVars
   - name: hitVehicle
     modifiers:
       - public
@@ -2023,6 +2278,8 @@ methods:
     parameters:
       - name: attacker
         type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
   - name: isAlarmed
     modifiers:
       - public
@@ -2058,11 +2315,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: isCollided
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: character
+        type: IsoGameCharacter
   - name: isDoColor
     modifiers:
       - public
@@ -2083,6 +2346,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: isEngineRunning
     modifiers:
       - public
@@ -2106,6 +2372,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: seat
+        type: int
   - name: isEnterBlocked2
     modifiers:
       - public
@@ -2114,11 +2382,16 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: seat
+        type: int
   - name: isExitBlocked
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: isExitBlocked
     modifiers:
       - public
@@ -2127,11 +2400,16 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: seat
+        type: int
   - name: isExitBlocked2
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: isGoodCar
     modifiers:
       - public
@@ -2155,6 +2433,8 @@ methods:
     parameters:
       - name: areaId
         type: String
+      - name: chr
+        type: IsoGameCharacter
   - name: isInBounds
     modifiers:
       - public
@@ -2162,6 +2442,8 @@ methods:
       type: boolean
     parameters:
       - name: worldX
+        type: float
+      - name: worldY
         type: float
   - name: isInForest
     modifiers:
@@ -2177,7 +2459,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: isIntersectingSquareWithShadow
     modifiers:
       - public
@@ -2187,7 +2471,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: isInvalidChunkAhead
     modifiers:
       - public
@@ -2207,9 +2493,11 @@ methods:
       - name: moveW
         type: boolean
       - name: moveE
-        type: " boolean"
+        type: boolean
       - name: moveN
-        type: " boolean"
+        type: boolean
+      - name: moveS
+        type: boolean
   - name: isInvalidChunkBehind
     modifiers:
       - public
@@ -2245,11 +2533,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: netPlayerAuthorization
+        type: BaseVehicle.Authorization
   - name: isNetPlayerId
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: netPlayerId
+        type: short
   - name: isOperational
     modifiers:
       - public
@@ -2263,6 +2557,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: seat
+        type: int
   - name: isPositionOnLeftOrRight
     modifiers:
       - public
@@ -2270,6 +2566,8 @@ methods:
       type: boolean
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: isRegulator
     modifiers:
@@ -2286,11 +2584,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: isSeatOccupied
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: isStarting
     modifiers:
       - public
@@ -2315,7 +2619,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: LoadAllVehicleTextures
     modifiers:
       - public
@@ -2330,12 +2636,8 @@ methods:
     parameters:
       - name: change
         type: String
-  - name: LoadVehicleTexture
-    modifiers:
-      - public
-      - static
-    return:
-      type: Texture
+      - name: bb
+        type: ByteBuffer
   - name: LoadVehicleTexture
     modifiers:
       - public
@@ -2345,17 +2647,34 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: LoadVehicleTexture
+    modifiers:
+      - public
+      - static
+    return:
+      type: Texture
+    parameters:
+      - name: name
+        type: String
+      - name: flags
+        type: int
   - name: LoadVehicleTextures
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: script
+        type: VehicleScript
   - name: lockServerUpdate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lockTimeMs
+        type: long
   - name: needPartsUpdate
     modifiers:
       - public
@@ -2369,11 +2688,16 @@ methods:
     parameters:
       - name: authorization
         type: BaseVehicle.Authorization
+      - name: authorizationPlayer
+        type: short
   - name: netPlayerServerSendAuthorisation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: onBackMoveSignalStart
     modifiers:
       - public
@@ -2408,7 +2732,9 @@ methods:
       - name: part
         type: VehiclePart
       - name: animId
-        type: " String"
+        type: String
+      - name: chr
+        type: IsoGameCharacter
   - name: playPartAnim
     modifiers:
       - public
@@ -2417,6 +2743,8 @@ methods:
     parameters:
       - name: part
         type: VehiclePart
+      - name: animId
+        type: String
   - name: playPartSound
     modifiers:
       - public
@@ -2426,15 +2754,9 @@ methods:
       - name: part
         type: VehiclePart
       - name: player
-        type: " IsoPlayer"
-  - name: playPassengerAnim
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: seat
-        type: int
+        type: IsoPlayer
+      - name: animId
+        type: String
   - name: playPassengerAnim
     modifiers:
       - public
@@ -2444,7 +2766,19 @@ methods:
       - name: seat
         type: int
       - name: animId
-        type: " String"
+        type: String
+  - name: playPassengerAnim
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: seat
+        type: int
+      - name: animId
+        type: String
+      - name: chr
+        type: IsoGameCharacter
   - name: playPassengerSound
     modifiers:
       - public
@@ -2453,11 +2787,16 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: animId
+        type: String
   - name: playSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sound
+        type: String
   - name: playSoundImpl
     modifiers:
       - public
@@ -2466,6 +2805,8 @@ methods:
     parameters:
       - name: file
         type: String
+      - name: parent
+        type: IsoObject
   - name: playSwitchSeatAnim
     modifiers:
       - public
@@ -2474,11 +2815,16 @@ methods:
     parameters:
       - name: seatFrom
         type: int
+      - name: seatTo
+        type: int
   - name: positionTrailer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: trailer
+        type: BaseVehicle
   - name: postupdate
     modifiers:
       - public
@@ -2489,11 +2835,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: key
+        type: InventoryItem
   - name: putKeyOnDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: key
+        type: InventoryItem
   - name: putKeyToContainer
     modifiers:
       - public
@@ -2503,17 +2855,25 @@ methods:
       - name: container
         type: ItemContainer
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: obj
+        type: IsoObject
   - name: putKeyToWorld
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: putKeyToZombie
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
   - name: releaseAnimationPlayers
     modifiers:
       - public
@@ -2525,12 +2885,18 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: v
+        type: Vector2
   - name: releaseVector3f
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: vector3f
+        type: org.joml.Vector3f
   - name: removeFromWorld
     modifiers:
       - public
@@ -2555,15 +2921,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: col
-        type: " ColorInfo"
+        type: ColorInfo
       - name: bDoAttached
-        type: " boolean"
+        type: boolean
       - name: bWallLightingPass
-        type: " boolean"
+        type: boolean
+      - name: shader
+        type: Shader
   - name: renderlast
     modifiers:
       - public
@@ -2592,6 +2960,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -2601,7 +2971,9 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
   - name: scriptReloaded
     modifiers:
       - public
@@ -2617,6 +2989,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: active
+        type: boolean
     notes: >-
       Used in mechanics UI, we enable the vehicle in Bullet when starting
       mechanics so physic will be updated. When
@@ -2627,11 +3002,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: add
+        type: boolean
   - name: setAlarmed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alarmed
+        type: boolean
   - name: setAngles
     modifiers:
       - public
@@ -2641,12 +3022,17 @@ methods:
       - name: degreesX
         type: float
       - name: degreesY
-        type: " float"
+        type: float
+      - name: degreesZ
+        type: float
   - name: setBaseQuality
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: baseQuality
+        type: float
   - name: setBloodIntensity
     modifiers:
       - public
@@ -2655,16 +3041,24 @@ methods:
     parameters:
       - name: id
         type: String
+      - name: intensity
+        type: float
   - name: setBraking
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isBraking
+        type: boolean
   - name: setBrakingForce
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: brakingForce
+        type: float
   - name: setCharacterPosition
     modifiers:
       - public
@@ -2674,7 +3068,9 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: seat
-        type: " int"
+        type: int
+      - name: positionId
+        type: String
   - name: setCharacterPositionToAnim
     modifiers:
       - public
@@ -2684,12 +3080,17 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: seat
-        type: " int"
+        type: int
+      - name: animId
+        type: String
   - name: setClientForce
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: force
+        type: float
   - name: setColor
     modifiers:
       - public
@@ -2699,7 +3100,9 @@ methods:
       - name: value
         type: float
       - name: saturation
-        type: " float"
+        type: float
+      - name: hue
+        type: float
   - name: setColorHSV
     modifiers:
       - public
@@ -2709,27 +3112,41 @@ methods:
       - name: hue
         type: float
       - name: saturation
-        type: " float"
+        type: float
+      - name: value
+        type: float
   - name: setCurrentKey
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentKey
+        type: InventoryItem
   - name: setCurrentSteering
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentSteering
+        type: float
   - name: setDebugZ
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: z
+        type: float
   - name: setDoColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: doColor
+        type: boolean
   - name: setEngineFeature
     modifiers:
       - public
@@ -2739,7 +3156,9 @@ methods:
       - name: quality
         type: int
       - name: loudness
-        type: " int"
+        type: int
+      - name: engineForce
+        type: int
   - name: setForceBrake
     modifiers:
       - public
@@ -2753,76 +3172,120 @@ methods:
     parameters:
       - name: baseQuality
         type: float
+      - name: chanceToSpawnDamaged
+        type: float
   - name: setGoodCar
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isGoodCar
+        type: boolean
   - name: setHeadlightsOn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: __on
+        type: boolean
   - name: setHotwired
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hotwired
+        type: boolean
   - name: setHotwiredBroken
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hotwiredBroken
+        type: boolean
   - name: setInitialMass
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: initialMass
+        type: float
   - name: setKeyIsOnDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: keyIsOnDoor
+        type: boolean
   - name: setKeysInIgnition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: keysOnContact
+        type: boolean
   - name: setLightbarLightsMode
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mode
+        type: int
   - name: setLightbarSirenMode
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mode
+        type: int
   - name: setMass
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mass
+        type: float
   - name: setMaxSpeed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxSpeed
+        type: float
   - name: setMechanicalID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mechanicalID
+        type: int
   - name: setMechanicUIOpen
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mechanicUIOpen
+        type: boolean
   - name: setNeedPartsUpdate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: needPartsUpdate
+        type: boolean
   - name: setNetPlayerAuthorization
     modifiers:
       - public
@@ -2831,6 +3294,8 @@ methods:
     parameters:
       - name: netPlayerAuthorization
         type: BaseVehicle.Authorization
+      - name: netPlayerId
+        type: int
   - name: setPassenger
     modifiers:
       - public
@@ -2840,27 +3305,41 @@ methods:
       - name: seat
         type: int
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: offset
+        type: org.joml.Vector3f
   - name: setPhysicsActive
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: active
+        type: boolean
   - name: setRegulator
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: regulator
+        type: boolean
   - name: setRegulatorSpeed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: regulatorSpeed
+        type: float
   - name: setRust
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: rust
+        type: float
   - name: setScript
     modifiers:
       - public
@@ -2871,26 +3350,33 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setScriptName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setSirenStartTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldAgeHours
+        type: double
   - name: setSkinIndex
     modifiers:
       - public
     return:
       type: void
-  - name: setSmashed
-    modifiers:
-      - public
-    return:
-      type: BaseVehicle
+    parameters:
+      - name: index
+        type: int
   - name: setSmashed
     modifiers:
       - public
@@ -2899,11 +3385,24 @@ methods:
     parameters:
       - name: location
         type: String
+  - name: setSmashed
+    modifiers:
+      - public
+    return:
+      type: BaseVehicle
+    parameters:
+      - name: location
+        type: String
+      - name: flipped
+        type: boolean
   - name: setStoplightsOn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: __on
+        type: boolean
   - name: setTireInflation
     modifiers:
       - public
@@ -2912,6 +3411,8 @@ methods:
     parameters:
       - name: wheelIndex
         type: int
+      - name: inflation
+        type: float
   - name: setTireRemoved
     modifiers:
       - public
@@ -2920,11 +3421,16 @@ methods:
     parameters:
       - name: wheelIndex
         type: int
+      - name: removed
+        type: boolean
   - name: setTrunkLocked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: locked
+        type: boolean
   - name: setVehicleTowedBy
     modifiers:
       - public
@@ -2934,7 +3440,9 @@ methods:
       - name: vehicleA
         type: BaseVehicle
       - name: attachmentA
-        type: " String"
+        type: String
+      - name: attachmentB
+        type: String
   - name: setVehicleTowing
     modifiers:
       - public
@@ -2944,27 +3452,41 @@ methods:
       - name: vehicleB
         type: BaseVehicle
       - name: attachmentA
-        type: " String"
+        type: String
+      - name: attachmentB
+        type: String
   - name: setVehicleType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: setWindowLightsOn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: __on
+        type: boolean
   - name: setWorldTransform
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: __in
+        type: Transform
   - name: setZone
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: shouldCollideWithCharacters
     modifiers:
       - public
@@ -2980,11 +3502,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: seat
+        type: int
   - name: showPassenger
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: shutOff
     modifiers:
       - public
@@ -3009,7 +3537,9 @@ methods:
       - name: eventInstance
         type: long
       - name: clip
-        type: " GameSoundClip"
+        type: GameSoundClip
+      - name: parameterSet
+        type: BitSet
   - name: stopEvent
     modifiers:
       - public
@@ -3019,12 +3549,17 @@ methods:
       - name: eventInstance
         type: long
       - name: clip
-        type: " GameSoundClip"
+        type: GameSoundClip
+      - name: parameterSet
+        type: BitSet
   - name: stopSound
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: channel
+        type: long
   - name: switchSeat
     modifiers:
       - public
@@ -3033,6 +3568,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: seatTo
+        type: int
   - name: syncKeyInIgnition
     modifiers:
       - public
@@ -3042,7 +3579,9 @@ methods:
       - name: inIgnition
         type: boolean
       - name: onDoor
-        type: " boolean"
+        type: boolean
+      - name: key
+        type: InventoryItem
   - name: testCollisionWithCharacter
     modifiers:
       - public
@@ -3052,7 +3591,9 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: circleRadius
-        type: " float"
+        type: float
+      - name: out
+        type: Vector2
   - name: testCollisionWithCorpse
     modifiers:
       - public
@@ -3061,6 +3602,8 @@ methods:
     parameters:
       - name: body
         type: IsoDeadBody
+      - name: doSound
+        type: boolean
   - name: testCollisionWithObject
     modifiers:
       - public
@@ -3070,7 +3613,9 @@ methods:
       - name: obj
         type: IsoObject
       - name: circleRadius
-        type: " float"
+        type: float
+      - name: out
+        type: Vector2
   - name: testCollisionWithProneCharacter
     modifiers:
       - public
@@ -3079,6 +3624,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: doSound
+        type: boolean
   - name: testCollisionWithProneCharacter
     modifiers:
       - public
@@ -3088,19 +3635,27 @@ methods:
       - name: chr
         type: IsoMovingObject
       - name: angleX
-        type: " float"
+        type: float
       - name: angleY
-        type: " float"
+        type: float
+      - name: doSound
+        type: boolean
   - name: testCollisionWithVehicle
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: obj
+        type: BaseVehicle
   - name: Thump
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: thumper
+        type: IsoMovingObject
   - name: toggleLockedDoor
     modifiers:
       - public
@@ -3110,7 +3665,9 @@ methods:
       - name: part
         type: VehiclePart
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: locked
+        type: boolean
   - name: transmitBlood
     modifiers:
       - public
@@ -3124,6 +3681,8 @@ methods:
     parameters:
       - name: seat
         type: int
+      - name: positionId
+        type: String
   - name: transmitColorHSV
     modifiers:
       - public
@@ -3139,31 +3698,49 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: transmitPartDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: transmitPartItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: transmitPartModData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: transmitPartUsedDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: transmitPartWindow
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: transmitRust
     modifiers:
       - public
@@ -3184,6 +3761,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: electricityLevel
+        type: int
     notes: >-
       Try to hotwire a car Calcul is: 100-Engine quality (capped to 5) + Skill
       modifier: electricityLvl * 4 % of
@@ -3203,6 +3783,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: haveKey
+        type: boolean
   - name: update
     modifiers:
       - public
@@ -3226,26 +3809,40 @@ methods:
     parameters:
       - name: eventInstance
         type: long
+      - name: clip
+        type: GameSoundClip
   - name: updateHasExtendOffset
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: updateHasExtendOffsetForExit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: updateHasExtendOffsetForExitEnd
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: updateHitByVehicle
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: target
+        type: IsoGameCharacter
   - name: updateLights
     modifiers:
       - public
@@ -3295,6 +3892,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
   - name: windowsOpen
     modifiers:
       - public

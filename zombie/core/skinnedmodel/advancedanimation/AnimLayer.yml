@@ -13,6 +13,8 @@ constructors:
     parameters:
       - name: character
         type: IAnimatable
+      - name: animEventsCallback
+        type: IAnimEventCallback
   - name: AnimLayer
     modifiers:
       - public
@@ -20,7 +22,9 @@ constructors:
       - name: parentLayer
         type: AnimLayer
       - name: character
-        type: " IAnimatable"
+        type: IAnimatable
+      - name: animEventsCallback
+        type: IAnimEventCallback
 methods:
   - name: findTransitionToNewNode
     modifiers:
@@ -30,6 +34,8 @@ methods:
     parameters:
       - name: newNode
         type: LiveAnimNode
+      - name: isSubNode
+        type: boolean
   - name: getAnimationTrack
     modifiers:
       - public
@@ -88,6 +94,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: stateName
+        type: String
   - name: isRecording
     modifiers:
       - public
@@ -108,26 +117,41 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: track
+        type: AnimationTrack
   - name: onLoopedAnim
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: track
+        type: AnimationTrack
   - name: onNonLoopedAnimFadeOut
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: track
+        type: AnimationTrack
   - name: onNonLoopedAnimFinished
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: track
+        type: AnimationTrack
   - name: onTrackDestroyed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: track
+        type: AnimationTrack
   - name: removeFadedOutNodes
     modifiers:
       - public
@@ -151,6 +175,8 @@ methods:
     parameters:
       - name: newState
         type: AnimState
+      - name: force
+        type: boolean
   - name: Update
     modifiers:
       - public

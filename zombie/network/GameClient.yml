@@ -289,6 +289,8 @@ methods:
     parameters:
       - name: faction
         type: Faction
+      - name: host
+        type: String
   - name: acceptSafehouseInvite
     modifiers:
       - public
@@ -298,6 +300,8 @@ methods:
     parameters:
       - name: safehouse
         type: SafeHouse
+      - name: host
+        type: String
   - name: acceptTrading
     modifiers:
       - public
@@ -307,12 +311,17 @@ methods:
       - name: you
         type: IsoPlayer
       - name: other
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: accept
+        type: boolean
   - name: addDisconnectPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: packet
+        type: int
   - name: addIncoming
     modifiers:
       - public
@@ -321,6 +330,8 @@ methods:
     parameters:
       - name: id
         type: short
+      - name: bb
+        type: ByteBuffer
   - name: addTicket
     modifiers:
       - public
@@ -331,7 +342,9 @@ methods:
       - name: author
         type: String
       - name: message
-        type: " String"
+        type: String
+      - name: ticketID
+        type: int
   - name: addToItemRemoveSendBuffer
     modifiers:
       - public
@@ -341,7 +354,9 @@ methods:
       - name: parent
         type: IsoObject
       - name: container
-        type: " ItemContainer"
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
   - name: addToItemSendBuffer
     modifiers:
       - public
@@ -351,7 +366,9 @@ methods:
       - name: parent
         type: IsoObject
       - name: container
-        type: " ItemContainer"
+        type: ItemContainer
+      - name: item
+        type: InventoryItem
   - name: addUserlog
     modifiers:
       - public
@@ -361,7 +378,9 @@ methods:
       - name: user
         type: String
       - name: type
-        type: " String"
+        type: String
+      - name: text
+        type: String
   - name: addWarningPoint
     modifiers:
       - public
@@ -371,7 +390,9 @@ methods:
       - name: user
         type: String
       - name: reason
-        type: " String"
+        type: String
+      - name: amount
+        type: int
   - name: canConnect
     modifiers:
       - public
@@ -394,6 +415,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: aboutToRemove
+        type: IsoObject
   - name: checksumServer
     modifiers:
       - public
@@ -411,6 +435,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: obj
+        type: IsoObject
   - name: disconnect
     modifiers:
       - public
@@ -425,25 +452,33 @@ methods:
       - name: user
         type: String
       - name: pass
-        type: " String"
+        type: String
       - name: serverIP
-        type: " String"
+        type: String
       - name: localIP
-        type: " String"
+        type: String
       - name: port
-        type: " String"
+        type: String
       - name: serverPassword
-        type: " String"
+        type: String
+      - name: serverName
+        type: String
   - name: doConnectCoop
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: serverSteamID
+        type: String
   - name: doDisconnect
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: string
+        type: String
   - name: drink
     modifiers:
       - public
@@ -452,6 +487,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: drink
+        type: float
   - name: eatFood
     modifiers:
       - public
@@ -461,7 +498,9 @@ methods:
       - name: player
         type: IsoPlayer
       - name: food
-        type: " Food"
+        type: Food
+      - name: percentage
+        type: float
   - name: equip
     modifiers:
       - public
@@ -470,6 +509,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: i
+        type: int
   - name: executeQuery
     modifiers:
       - public
@@ -478,6 +519,8 @@ methods:
     parameters:
       - name: query
         type: String
+      - name: params
+        type: se.krka.kahlua.vm.KahluaTable
   - name: GameLoadingRequestData
     modifiers:
       - public
@@ -505,11 +548,17 @@ methods:
       - public
     return:
       type: IsoPlayer
+    parameters:
+      - name: id
+        type: short
   - name: getPlayerFromUsername
     modifiers:
       - public
     return:
       type: IsoPlayer
+    parameters:
+      - name: username
+        type: String
   - name: getPlayers
     modifiers:
       - public
@@ -540,18 +589,26 @@ methods:
     parameters:
       - name: tableName
         type: String
+      - name: numberPerPages
+        type: int
   - name: getTickets
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: author
+        type: String
   - name: getZombie
     modifiers:
       - public
       - static
     return:
       type: IsoZombie
+    parameters:
+      - name: id
+        type: short
   - name: heartBeat
     modifiers:
       - public
@@ -572,7 +629,9 @@ methods:
       - name: itemId
         type: int
       - name: itemType
-        type: " String"
+        type: String
+      - name: player
+        type: IsoPlayer
   - name: invMngRequestRemoveItem
     modifiers:
       - public
@@ -582,6 +641,8 @@ methods:
     parameters:
       - name: itemId
         type: int
+      - name: player
+        type: IsoPlayer
   - name: IsClientPaused
     modifiers:
       - public
@@ -602,7 +663,9 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: object
+        type: IsoMovingObject
   - name: PlayWorldSound
     modifiers:
       - public
@@ -612,9 +675,11 @@ methods:
       - name: name
         type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: byte
   - name: receiveEatBody
     modifiers:
       - public
@@ -624,17 +689,25 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receivePlayerConnectWhileLoading
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: receivePlayerTimeout
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: receiveRadioDeviceDataState
     modifiers:
       - public
@@ -644,6 +717,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveRadioPostSilence
     modifiers:
       - public
@@ -653,6 +728,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveRadioServerData
     modifiers:
       - public
@@ -662,6 +739,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveSyncCustomLightSettings
     modifiers:
       - public
@@ -671,6 +750,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveSyncRadioData
     modifiers:
       - public
@@ -680,6 +761,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveThump
     modifiers:
       - public
@@ -689,6 +772,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveWaveSignal
     modifiers:
       - public
@@ -698,6 +783,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: registerZone
     modifiers:
       - public
@@ -707,12 +794,17 @@ methods:
     parameters:
       - name: zone
         type: IsoMetaGrid.Zone
+      - name: transmitToOthers
+        type: boolean
   - name: removeTicket
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: ticketID
+        type: int
   - name: removeUserlog
     modifiers:
       - public
@@ -722,12 +814,17 @@ methods:
       - name: user
         type: String
       - name: type
-        type: " String"
+        type: String
+      - name: text
+        type: String
   - name: removeZombieFromCache
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: z
+        type: IsoZombie
   - name: requestPacketCounts
     modifiers:
       - public
@@ -741,11 +838,16 @@ methods:
     parameters:
       - name: you
         type: IsoPlayer
+      - name: other
+        type: IsoPlayer
   - name: requestUserlog
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: user
+        type: String
   - name: resetDisconnectTimer
     modifiers:
       - public
@@ -765,11 +867,16 @@ methods:
     parameters:
       - name: action
         type: BaseAction
+      - name: operation
+        type: boolean
   - name: sendAddedRemovedItems
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: force
+        type: boolean
   - name: sendAdditionalPain
     modifiers:
       - public
@@ -779,7 +886,9 @@ methods:
       - name: onlineID
         type: int
       - name: i
-        type: " int"
+        type: int
+      - name: level
+        type: float
   - name: sendAddXp
     modifiers:
       - public
@@ -789,7 +898,9 @@ methods:
       - name: otherPlayer
         type: IsoPlayer
       - name: perk
-        type: " PerkFactory.Perk"
+        type: PerkFactory.Perk
+      - name: amount
+        type: int
   - name: sendAttachedItem
     modifiers:
       - public
@@ -799,7 +910,9 @@ methods:
       - name: player
         type: IsoPlayer
       - name: location
-        type: " String"
+        type: String
+      - name: item
+        type: InventoryItem
   - name: sendBandage
     modifiers:
       - public
@@ -809,19 +922,24 @@ methods:
       - name: onlineID
         type: int
       - name: i
-        type: " int"
+        type: int
       - name: bandaged
-        type: " boolean"
+        type: boolean
       - name: bandageLife
-        type: " float"
+        type: float
       - name: isAlcoholic
-        type: " boolean"
+        type: boolean
+      - name: bandageType
+        type: String
   - name: sendBuildingStashToDo
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: stashName
+        type: String
   - name: sendBurnCorpse
     modifiers:
       - public
@@ -830,6 +948,8 @@ methods:
       type: void
     parameters:
       - name: playerId
+        type: short
+      - name: objectId
         type: short
   - name: sendCataplasm
     modifiers:
@@ -840,22 +960,30 @@ methods:
       - name: onlineID
         type: int
       - name: i
-        type: " int"
+        type: int
       - name: plantainFactor
-        type: " float"
+        type: float
       - name: comfreyFactor
-        type: " float"
+        type: float
+      - name: garlicFactor
+        type: float
   - name: sendChangedPlayerStats
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: otherPlayer
+        type: IsoPlayer
   - name: sendChangeSafety
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: safety
+        type: Safety
   - name: sendCleanBurn
     modifiers:
       - public
@@ -865,9 +993,11 @@ methods:
       - name: _wielder
         type: IsoGameCharacter
       - name: _target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: bodyPart
-        type: " BodyPart"
+        type: BodyPart
+      - name: _bandage
+        type: InventoryItem
   - name: sendClientCommand
     modifiers:
       - public
@@ -877,9 +1007,11 @@ methods:
       - name: player
         type: IsoPlayer
       - name: module
-        type: " String"
+        type: String
       - name: command
-        type: " String"
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
   - name: sendClientCommandV
     modifiers:
       - public
@@ -889,9 +1021,11 @@ methods:
       - name: player
         type: IsoPlayer
       - name: module
-        type: " String"
+        type: String
       - name: command
-        type: " String"
+        type: String
+      - name: objects
+        type: Object...
   - name: sendClothing
     modifiers:
       - public
@@ -901,24 +1035,35 @@ methods:
       - name: player
         type: IsoPlayer
       - name: location
-        type: " String"
+        type: String
+      - name: item
+        type: InventoryItem
   - name: SendCommandToServer
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: command
+        type: String
   - name: sendCompost
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: isoCompost
+        type: IsoCompost
   - name: sendCustomColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: IsoObject
   - name: sendDisinfect
     modifiers:
       - public
@@ -928,9 +1073,11 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: bodyPart
-        type: " BodyPart"
+        type: BodyPart
+      - name: alcohol
+        type: InventoryItem
   - name: sendEatBody
     modifiers:
       - public
@@ -940,12 +1087,17 @@ methods:
     parameters:
       - name: zombie
         type: IsoZombie
+      - name: target
+        type: IsoMovingObject
   - name: sendEquippedRadioFreq
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: plyr
+        type: IsoPlayer
   - name: sendEvent
     modifiers:
       - public
@@ -955,6 +1107,8 @@ methods:
     parameters:
       - name: isoPlayer
         type: IsoPlayer
+      - name: event
+        type: String
   - name: sendFaction
     modifiers:
       - public
@@ -964,6 +1118,8 @@ methods:
     parameters:
       - name: faction
         type: Faction
+      - name: remove
+        type: boolean
   - name: sendFactionInvite
     modifiers:
       - public
@@ -974,19 +1130,27 @@ methods:
       - name: faction
         type: Faction
       - name: host
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: invited
+        type: String
   - name: sendFurnaceChange
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: furnace
+        type: BSFurnace
   - name: sendGetItemInvMng
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: itemId
+        type: long
   - name: sendHitCharacter
     modifiers:
       - public
@@ -997,19 +1161,21 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: target
-        type: " IsoMovingObject"
+        type: IsoMovingObject
       - name: weapon
-        type: " HandWeapon"
+        type: HandWeapon
       - name: damage
-        type: " float"
+        type: float
       - name: ignoreDamage
-        type: " boolean"
+        type: boolean
       - name: range
-        type: " float"
+        type: float
       - name: isCriticalHit
-        type: " boolean"
+        type: boolean
       - name: helmetFall
-        type: " boolean"
+        type: boolean
+      - name: hitHead
+        type: boolean
   - name: sendHitVehicle
     modifiers:
       - public
@@ -1020,17 +1186,19 @@ methods:
       - name: wielder
         type: IsoPlayer
       - name: target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: vehicle
-        type: " BaseVehicle"
+        type: BaseVehicle
       - name: damage
-        type: " float"
+        type: float
       - name: isTargetHitFromBehind
-        type: " boolean"
+        type: boolean
       - name: vehicleDamage
-        type: " int"
+        type: int
       - name: vehicleSpeed
-        type: " float"
+        type: float
+      - name: isVehicleHitFromBehind
+        type: boolean
   - name: sendIsoRegionDataRequest
     modifiers:
       - public
@@ -1047,23 +1215,25 @@ methods:
       - name: sourceX
         type: int
       - name: sourceY
-        type: " int"
+        type: int
       - name: channel
-        type: " int"
+        type: int
       - name: msg
-        type: " String"
+        type: String
       - name: guid
-        type: " String"
+        type: String
       - name: codes
-        type: " String"
+        type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: signalStrength
-        type: " int"
+        type: int
+      - name: isTV
+        type: boolean
   - name: sendItemListNet
     modifiers:
       - public
@@ -1074,28 +1244,39 @@ methods:
       - name: sender
         type: IsoPlayer
       - name: items
-        type: " ArrayList"
-        generic: " ArrayList<InventoryItem>"
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
       - name: receiver
-        type: " IsoPlayer"
+        type: IsoPlayer
       - name: sessionID
-        type: " String"
+        type: String
+      - name: custom
+        type: String
   - name: sendItemStats
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: sendKickOutOfSafehouse
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendLoginQueueDone2
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dt
+        type: long
   - name: sendLoginQueueRequest2
     modifiers:
       - public
@@ -1110,17 +1291,25 @@ methods:
     parameters:
       - name: nonPvpZone
         type: NonPvpZone
+      - name: remove
+        type: boolean
   - name: sendPerks
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendPersonalColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendPing
     modifiers:
       - public
@@ -1132,40 +1321,61 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: isoPlayer
+        type: IsoPlayer
   - name: sendPlayer2
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isoPlayer
+        type: IsoPlayer
   - name: sendPlayerConnect
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendPlayerDamage
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendPlayerDeath
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendPlayerExtraInfo
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: p
+        type: IsoPlayer
   - name: sendPlayerInjuries
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendPlayerListensChannel
     modifiers:
       - public
@@ -1176,12 +1386,17 @@ methods:
       - name: channel
         type: int
       - name: listenmode
-        type: " boolean"
+        type: boolean
+      - name: isTV
+        type: boolean
   - name: sendPlayerSave
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendRadioServerDataRequest
     modifiers:
       - public
@@ -1197,13 +1412,18 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: bodyPart
+        type: BodyPart
   - name: sendRemoveCorpseFromMap
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: deadBody
+        type: IsoDeadBody
   - name: sendRemoveGlass
     modifiers:
       - public
@@ -1213,20 +1433,28 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: bodyPart
-        type: " BodyPart"
+        type: BodyPart
+      - name: handPain
+        type: boolean
   - name: sendReplaceOnCooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: sendRequestInventory
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendSafehouse
     modifiers:
       - public
@@ -1236,6 +1464,8 @@ methods:
     parameters:
       - name: safehouse
         type: SafeHouse
+      - name: remove
+        type: boolean
   - name: sendSafehouseInvite
     modifiers:
       - public
@@ -1246,18 +1476,26 @@ methods:
       - name: safehouse
         type: SafeHouse
       - name: host
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: invited
+        type: String
   - name: sendSandboxOptionsToServer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: options
+        type: SandboxOptions
   - name: sendServerPing
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: timestamp
+        type: long
   - name: sendSneezingCoughing
     modifiers:
       - public
@@ -1268,7 +1506,9 @@ methods:
       - name: playerId
         type: short
       - name: sneezingCoughing
-        type: " int"
+        type: int
+      - name: sneezeVar
+        type: byte
   - name: sendSplint
     modifiers:
       - public
@@ -1278,11 +1518,13 @@ methods:
       - name: onlineID
         type: int
       - name: i
-        type: " int"
+        type: int
       - name: doIt
-        type: " boolean"
+        type: boolean
       - name: factor
-        type: " float"
+        type: float
+      - name: splintItem
+        type: String
   - name: sendStitch
     modifiers:
       - public
@@ -1292,28 +1534,39 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: bodyPart
-        type: " BodyPart"
+        type: BodyPart
       - name: item
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: doIt
+        type: boolean
   - name: sendStopFire
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: sendStopFire
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: sendSyncXp
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendTeleport
     modifiers:
       - public
@@ -1324,9 +1577,11 @@ methods:
       - name: player
         type: IsoPlayer
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: sendThump
     modifiers:
       - public
@@ -1336,22 +1591,33 @@ methods:
     parameters:
       - name: zombie
         type: IsoGameCharacter
+      - name: thumpable
+        type: Thumpable
   - name: sendTransactionID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendValidatePacket
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: packet
+        type: ValidatePacket
   - name: sendVisual
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendWeaponHit
     modifiers:
       - public
@@ -1361,23 +1627,34 @@ methods:
       - name: player
         type: IsoPlayer
       - name: weapon
-        type: " HandWeapon"
+        type: HandWeapon
+      - name: object
+        type: IsoObject
   - name: sendWeight
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: sendWorldMessage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: line
+        type: String
   - name: sendWorldSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sound
+        type: WorldSoundManager.WorldSound
   - name: sendWorldSound
     modifiers:
       - public
@@ -1387,19 +1664,21 @@ methods:
       - name: source
         type: Object
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: radius
-        type: " int"
+        type: int
       - name: volume
-        type: " int"
+        type: int
       - name: stressHumans
-        type: " boolean"
+        type: boolean
       - name: zombieIgnoreDist
-        type: " float"
+        type: float
+      - name: stressMod
+        type: float
   - name: sendWoundInfection
     modifiers:
       - public
@@ -1409,13 +1688,18 @@ methods:
       - name: onlineID
         type: int
       - name: i
-        type: " int"
+        type: int
+      - name: infected
+        type: boolean
   - name: sendZombieDeath
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
   - name: sendZombieHelmetFall
     modifiers:
       - public
@@ -1426,23 +1710,34 @@ methods:
       - name: player
         type: IsoPlayer
       - name: zombie
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: item
+        type: InventoryItem
   - name: setRequest
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: request
+        type: GameClient.RequestState
   - name: setResetID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: resetID
+        type: int
   - name: setServerStatisticEnable
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: enable
+        type: boolean
   - name: Shutdown
     modifiers:
       - public
@@ -1456,6 +1751,8 @@ methods:
     parameters:
       - name: isoWindow
         type: IsoWindow
+      - name: action
+        type: int
   - name: startClient
     modifiers:
       - public
@@ -1475,7 +1772,9 @@ methods:
       - name: object
         type: IsoMovingObject
       - name: soundName
-        type: " String"
+        type: String
+      - name: trigger
+        type: boolean
   - name: tradingUISendAddItem
     modifiers:
       - public
@@ -1485,7 +1784,9 @@ methods:
       - name: you
         type: IsoPlayer
       - name: other
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: item
+        type: InventoryItem
   - name: tradingUISendRemoveItem
     modifiers:
       - public
@@ -1495,7 +1796,9 @@ methods:
       - name: you
         type: IsoPlayer
       - name: other
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: index
+        type: int
   - name: tradingUISendUpdateState
     modifiers:
       - public
@@ -1505,7 +1808,9 @@ methods:
       - name: you
         type: IsoPlayer
       - name: other
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: state
+        type: int
   - name: update
     modifiers:
       - public
@@ -1516,6 +1821,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoPlayer
   - name: writePlayerConnectData
     modifiers:
       - public
@@ -1524,3 +1832,5 @@ methods:
     parameters:
       - name: b
         type: ByteBufferWriter
+      - name: player
+        type: IsoPlayer

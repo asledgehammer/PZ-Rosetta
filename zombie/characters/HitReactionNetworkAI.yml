@@ -39,6 +39,9 @@ constructors:
   - name: HitReactionNetworkAI
     modifiers:
       - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
 methods:
   - name: CalcHitReactionVehicle
     modifiers:
@@ -49,6 +52,8 @@ methods:
     parameters:
       - name: target
         type: IsoGameCharacter
+      - name: vehicle
+        type: BaseVehicle
   - name: CalcHitReactionWeapon
     modifiers:
       - public
@@ -59,7 +64,9 @@ methods:
       - name: wielder
         type: IsoGameCharacter
       - name: target
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
   - name: finish
     modifiers:
       - public
@@ -104,9 +111,11 @@ methods:
       - name: dropPositionX
         type: float
       - name: dropPositionY
-        type: " float"
+        type: float
       - name: dropPositionZ
-        type: " float"
+        type: float
+      - name: dropDirection
+        type: float
   - name: setup
     modifiers:
       - public
@@ -116,9 +125,11 @@ methods:
       - name: dropPositionX
         type: float
       - name: dropPositionY
-        type: " float"
+        type: float
       - name: dropPositionZ
-        type: " byte"
+        type: byte
+      - name: angle
+        type: Float
   - name: start
     modifiers:
       - public

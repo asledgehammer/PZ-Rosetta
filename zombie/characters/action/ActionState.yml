@@ -24,6 +24,9 @@ constructors:
   - name: ActionState
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: canBeSubstate
     modifiers:
@@ -37,6 +40,9 @@ methods:
       - final
     return:
       type: boolean
+    parameters:
+      - name: child
+        type: ActionState
   - name: canHaveSubState
     modifiers:
       - public
@@ -45,6 +51,8 @@ methods:
       type: boolean
     parameters:
       - name: parent
+        type: ActionState
+      - name: child
         type: ActionState
     notes: >-
       Returns TRUE if the supplied child state can be a child of this state.
@@ -66,11 +74,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: stateFolderPath
+        type: String
   - name: parse
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: file
+        type: File
   - name: resetForReload
     modifiers:
       - public
@@ -89,4 +103,6 @@ methods:
       type: boolean
     parameters:
       - name: parentTags
+        type: String[]
+      - name: childTags
         type: String[]

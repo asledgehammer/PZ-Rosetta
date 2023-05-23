@@ -20,15 +20,9 @@ methods:
       - name: musicTrack
         type: fmod.fmod.Audio
       - name: f
-        type: " float"
-  - name: BlendVolume
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: audio
-        type: fmod.fmod.Audio
+        type: float
+      - name: PrefMusic
+        type: String
   - name: BlendVolume
     modifiers:
       - public
@@ -38,12 +32,27 @@ methods:
       - name: audio
         type: fmod.fmod.Audio
       - name: targetVolume
-        type: " float"
+        type: float
+  - name: BlendVolume
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: audio
+        type: fmod.fmod.Audio
+      - name: targetVolume
+        type: float
+      - name: blendSpeedAlpha
+        type: float
   - name: CacheSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: file
+        type: String
   - name: CheckDoMusic
     modifiers:
       - public
@@ -62,6 +71,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: bLoop
+        type: boolean
   - name: FadeOutMusic
     modifiers:
       - public
@@ -70,6 +81,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: milli
+        type: int
   - name: getAmbientPieces
     modifiers:
       - public
@@ -120,7 +133,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: range
+        type: float
   - name: IsMusicPlaying
     modifiers:
       - public
@@ -136,11 +151,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: isPlayingUISound
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: eventInstance
+        type: long
   - name: isRemastered
     modifiers:
       - public
@@ -156,6 +177,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: PlayAsMusic
     modifiers:
       - public
@@ -165,9 +189,11 @@ methods:
       - name: name
         type: String
       - name: musicTrack
-        type: " fmod.fmod.Audio"
+        type: fmod.fmod.Audio
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: volume
+        type: float
   - name: PlayAsMusic
     modifiers:
       - public
@@ -177,9 +203,11 @@ methods:
       - name: name
         type: String
       - name: musicTrack
-        type: " fmod.fmod.Audio"
+        type: fmod.fmod.Audio
       - name: volume
-        type: " float"
+        type: float
+      - name: bloop
+        type: boolean
   - name: PlayJukeboxSound
     modifiers:
       - public
@@ -189,12 +217,17 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: maxGain
+        type: float
   - name: playMusic
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: PlayMusic
     modifiers:
       - public
@@ -204,9 +237,11 @@ methods:
       - name: n
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: maxGain
+        type: float
   - name: playMusicNonTriggered
     modifiers:
       - public
@@ -215,11 +250,16 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: gain
+        type: float
   - name: playNightAmbient
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: choice
+        type: String
   - name: PlaySound
     modifiers:
       - public
@@ -229,7 +269,9 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: maxGain
+        type: float
   - name: PlaySound
     modifiers:
       - public
@@ -239,9 +281,11 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
       - name: pitchVar
-        type: " float"
+        type: float
+      - name: maxGain
+        type: float
   - name: PlaySoundEvenSilent
     modifiers:
       - public
@@ -251,7 +295,9 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: maxGain
+        type: float
   - name: PlaySoundWav
     modifiers:
       - public
@@ -261,7 +307,9 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: maxGain
+        type: float
   - name: PlaySoundWav
     modifiers:
       - public
@@ -271,9 +319,11 @@ methods:
       - name: name
         type: String
       - name: variations
-        type: " int"
+        type: int
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: maxGain
+        type: float
   - name: PlaySoundWav
     modifiers:
       - public
@@ -283,14 +333,19 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
       - name: maxGain
-        type: " float"
+        type: float
+      - name: pitchVar
+        type: float
   - name: playUISound
     modifiers:
       - public
     return:
       type: long
+    parameters:
+      - name: name
+        type: String
   - name: PlayWorldSound
     modifiers:
       - public
@@ -300,13 +355,15 @@ methods:
       - name: name
         type: String
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSound
     modifiers:
       - public
@@ -316,15 +373,17 @@ methods:
       - name: name
         type: String
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
       - name: choices
-        type: " int"
+        type: int
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSound
     modifiers:
       - public
@@ -334,15 +393,17 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSoundImpl
     modifiers:
       - public
@@ -352,19 +413,21 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
       - name: sx
-        type: " int"
+        type: int
       - name: sy
-        type: " int"
+        type: int
       - name: sz
-        type: " int"
+        type: int
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSoundWav
     modifiers:
       - public
@@ -374,13 +437,15 @@ methods:
       - name: name
         type: String
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSoundWav
     modifiers:
       - public
@@ -390,15 +455,17 @@ methods:
       - name: name
         type: String
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
       - name: choices
-        type: " int"
+        type: int
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSoundWav
     modifiers:
       - public
@@ -408,15 +475,17 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PlayWorldSoundWavImpl
     modifiers:
       - public
@@ -426,20 +495,25 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
       - name: source
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: pitchVar
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: maxGain
-        type: " float"
+        type: float
+      - name: ignoreOutside
+        type: boolean
   - name: PrepareMusic
     modifiers:
       - public
     return:
       type: fmod.fmod.Audio
+    parameters:
+      - name: name
+        type: String
   - name: Purge
     modifiers:
       - public
@@ -450,6 +524,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
   - name: resumeSoundAndMusic
     modifiers:
       - public
@@ -460,16 +537,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: volume
+        type: float
   - name: setMusicState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: stateName
+        type: String
   - name: setMusicVolume
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: volume
+        type: float
   - name: setMusicWakeState
     modifiers:
       - public
@@ -478,16 +564,24 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: stateName
+        type: String
   - name: setSoundVolume
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: volume
+        type: float
   - name: setVehicleEngineVolume
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: volume
+        type: float
   - name: Start
     modifiers:
       - public
@@ -497,7 +591,9 @@ methods:
       - name: musicTrack
         type: fmod.fmod.Audio
       - name: f
-        type: " float"
+        type: float
+      - name: PrefMusic
+        type: String
   - name: stop
     modifiers:
       - public
@@ -508,6 +604,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: StopMusic
     modifiers:
       - public
@@ -518,16 +617,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: SoundEffect
+        type: fmod.fmod.Audio
   - name: stopUISound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: eventInstance
+        type: long
   - name: unregisterEmitter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
   - name: Update
     modifiers:
       - public

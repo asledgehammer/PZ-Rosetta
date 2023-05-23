@@ -75,7 +75,9 @@ constructors:
       - name: path
         type: AssetPath
       - name: manager
-        type: " AssetManager"
+        type: AssetManager
+      - name: params
+        type: ModelMesh.MeshAssetParams
 methods:
   - name: clear
     modifiers:
@@ -87,6 +89,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: shader
+        type: Shader
   - name: getType
     modifiers:
       - public
@@ -107,8 +112,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: params
+        type: AssetManager.AssetParams
   - name: SetVertexBuffer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: vb
+        type: VertexBufferObject

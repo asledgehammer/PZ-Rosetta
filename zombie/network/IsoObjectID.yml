@@ -18,6 +18,10 @@ constructors:
   - name: IsoObjectID
     modifiers:
       - public
+    parameters:
+      - name: cls
+        type: Class
+        generic: Class<T>
 methods:
   - name: allocateID
     modifiers:
@@ -34,11 +38,18 @@ methods:
       - public
     return:
       type: T
+    parameters:
+      - name: id
+        type: short
   - name: getObjects
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: out
+        type: Collection
+        generic: Collection<T>
   - name: iterator
     modifiers:
       - public
@@ -53,16 +64,24 @@ methods:
     parameters:
       - name: id
         type: short
+      - name: obj
+        type: T
   - name: remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: id
+        type: short
   - name: remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: obj
+        type: T
   - name: size
     modifiers:
       - public

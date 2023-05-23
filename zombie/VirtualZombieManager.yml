@@ -38,6 +38,8 @@ methods:
     parameters:
       - name: nSize
         type: int
+      - name: chk
+        type: IsoChunk
   - name: addDeadZombiesToMap
     modifiers:
       - public
@@ -46,14 +48,8 @@ methods:
     parameters:
       - name: nSize
         type: int
-  - name: addIndoorZombiesToChunk
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: chunk
-        type: IsoChunk
+      - name: room
+        type: RoomDef
   - name: addIndoorZombiesToChunk
     modifiers:
       - public
@@ -63,23 +59,30 @@ methods:
       - name: chunk
         type: IsoChunk
       - name: room
-        type: " IsoRoom"
+        type: IsoRoom
+  - name: addIndoorZombiesToChunk
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
+      - name: room
+        type: IsoRoom
       - name: zombieCountForRoom
-        type: " int"
+        type: int
+      - name: zombies
+        type: ArrayList
+        generic: ArrayList<IsoZombie>
   - name: addToReusable
     modifiers:
       - public
     return:
       type: void
-  - name: addZombiesToMap
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<IsoZombie>
     parameters:
-      - name: nSize
-        type: int
+      - name: z
+        type: IsoZombie
   - name: addZombiesToMap
     modifiers:
       - public
@@ -90,7 +93,20 @@ methods:
       - name: nSize
         type: int
       - name: room
-        type: " RoomDef"
+        type: RoomDef
+  - name: addZombiesToMap
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<IsoZombie>
+    parameters:
+      - name: nSize
+        type: int
+      - name: room
+        type: RoomDef
+      - name: bAllowDead
+        type: boolean
   - name: canSpawnAt
     modifiers:
       - public
@@ -100,7 +116,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: createEatingZombies
     modifiers:
       - public
@@ -109,6 +127,8 @@ methods:
     parameters:
       - name: target
         type: IsoDeadBody
+      - name: nb
+        type: int
   - name: createHordeFromTo
     modifiers:
       - public
@@ -118,11 +138,13 @@ methods:
       - name: spawnX
         type: float
       - name: spawnY
-        type: " float"
+        type: float
       - name: targetX
-        type: " float"
+        type: float
       - name: targetY
-        type: " float"
+        type: float
+      - name: count
+        type: int
   - name: createRealZombie
     modifiers:
       - public
@@ -132,25 +154,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
-  - name: createRealZombieAlways
-    modifiers:
-      - public
-    return:
-      type: IsoZombie
-    parameters:
-      - name: ZombieDir
-        type: int
-  - name: createRealZombieAlways
-    modifiers:
-      - public
-    return:
-      type: IsoZombie
-    parameters:
-      - name: descriptorID
-        type: int
-      - name: ZombieDir
-        type: " int"
+        type: float
+      - name: z
+        type: float
   - name: createRealZombieAlways
     modifiers:
       - public
@@ -160,7 +166,31 @@ methods:
       - name: ZombieDir
         type: int
       - name: bDead
-        type: " boolean"
+        type: boolean
+  - name: createRealZombieAlways
+    modifiers:
+      - public
+    return:
+      type: IsoZombie
+    parameters:
+      - name: descriptorID
+        type: int
+      - name: ZombieDir
+        type: int
+      - name: bDead
+        type: boolean
+  - name: createRealZombieAlways
+    modifiers:
+      - public
+    return:
+      type: IsoZombie
+    parameters:
+      - name: ZombieDir
+        type: int
+      - name: bDead
+        type: boolean
+      - name: outfitID
+        type: int
   - name: createRealZombieNow
     modifiers:
       - public
@@ -170,7 +200,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: init
     modifiers:
       - public
@@ -181,16 +213,25 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: z
+        type: IsoZombie
   - name: RemoveZombie
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: obj
+        type: IsoZombie
   - name: removeZombieFromWorld
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: z
+        type: IsoZombie
   - name: Reset
     modifiers:
       - public
@@ -206,6 +247,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: room
+        type: IsoRoom
   - name: tryAddIndoorZombies
     modifiers:
       - public
@@ -214,6 +258,8 @@ methods:
     parameters:
       - name: room
         type: RoomDef
+      - name: bAllowDead
+        type: boolean
   - name: update
     modifiers:
       - public

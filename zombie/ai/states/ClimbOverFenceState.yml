@@ -55,21 +55,32 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
   - name: enter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: execute
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: exit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: getDeltaModifiers
     modifiers:
       - public
@@ -78,6 +89,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: modifiers
+        type: MoveDeltaModifiers
   - name: instance
     modifiers:
       - public
@@ -93,15 +106,17 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: fromX
-        type: " int"
+        type: int
       - name: fromY
-        type: " int"
+        type: int
       - name: fromZ
-        type: " int"
+        type: int
       - name: toX
-        type: " int"
+        type: int
       - name: toY
-        type: " int"
+        type: int
+      - name: toZ
+        type: int
     notes: "Description copied from class: State"
   - name: setParams
     modifiers:
@@ -111,3 +126,5 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: dir
+        type: IsoDirections

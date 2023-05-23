@@ -28,6 +28,8 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: process
     modifiers:
       - public
@@ -42,9 +44,14 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: name
-        type: " String"
+        type: String
+      - name: trigger
+        type: boolean
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

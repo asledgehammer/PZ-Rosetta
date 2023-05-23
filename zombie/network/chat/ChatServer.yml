@@ -11,6 +11,9 @@ methods:
       - public
     return:
       type: FactionChat
+    parameters:
+      - name: name
+        type: String
   - name: createRadiostationMessage
     modifiers:
       - public
@@ -19,16 +22,24 @@ methods:
     parameters:
       - name: text
         type: String
+      - name: radioChannel
+        type: int
   - name: createSafehouseChat
     modifiers:
       - public
     return:
       type: SafehouseChat
+    parameters:
+      - name: safehouseID
+        type: String
   - name: disconnectPlayer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: getInstance
     modifiers:
       - public
@@ -45,6 +56,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: isInited
     modifiers:
       - public
@@ -56,31 +70,49 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: leaveAdminChat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: processMessageFromPlayerPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: processPlayerStartWhisperChatPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: removeFactionChat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: factionName
+        type: String
   - name: removeSafehouseChat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: safehouseName
+        type: String
   - name: sendMessageFromDiscordToGeneralChat
     modifiers:
       - public
@@ -89,16 +121,24 @@ methods:
     parameters:
       - name: author
         type: String
+      - name: msg
+        type: String
   - name: sendMessageToAdminChat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: String
   - name: sendMessageToServerChat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: String
   - name: sendMessageToServerChat
     modifiers:
       - public
@@ -107,11 +147,16 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
+      - name: msg
+        type: String
   - name: sendServerAlertMessageToServerChat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: String
   - name: sendServerAlertMessageToServerChat
     modifiers:
       - public
@@ -119,6 +164,8 @@ methods:
       type: void
     parameters:
       - name: author
+        type: String
+      - name: msg
         type: String
   - name: syncFactionChatMembers
     modifiers:
@@ -129,7 +176,10 @@ methods:
       - name: factionName
         type: String
       - name: factionOwner
-        type: " String"
+        type: String
+      - name: players
+        type: ArrayList
+        generic: ArrayList<String>
   - name: syncSafehouseChatMembers
     modifiers:
       - public
@@ -139,9 +189,15 @@ methods:
       - name: safehouseID
         type: String
       - name: safehouseOwner
-        type: " String"
+        type: String
+      - name: players
+        type: ArrayList
+        generic: ArrayList<String>
   - name: unpackChatMessage
     modifiers:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

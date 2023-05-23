@@ -24,11 +24,9 @@ methods:
       - public
     return:
       type: void
-  - name: addLocale
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: word
+        type: String
   - name: addLocale
     modifiers:
       - public
@@ -37,21 +35,40 @@ methods:
     parameters:
       - name: l
         type: Locale
+  - name: addLocale
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: l
+        type: Locale
+      - name: setDefault
+        type: boolean
   - name: addWhiteListWord
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: word
+        type: String
   - name: enable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: filterString
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: str
+        type: String
   - name: getFilterWordsCount
     modifiers:
       - public
@@ -79,26 +96,41 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: str
+        type: String
   - name: removeFilterWord
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: word
+        type: String
   - name: removeWhiteListWord
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: word
+        type: String
   - name: setLocale
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: locale
+        type: String
   - name: validateString
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: str
+        type: String
   - name: validateString
     modifiers:
       - public
@@ -108,6 +140,8 @@ methods:
       - name: str
         type: String
       - name: includePhonetics
-        type: " boolean"
+        type: boolean
       - name: includeContains
-        type: " boolean"
+        type: boolean
+      - name: includeSpacedWords
+        type: boolean

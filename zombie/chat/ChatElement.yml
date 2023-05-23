@@ -29,7 +29,9 @@ constructors:
       - name: chatowner
         type: ChatElementOwner
       - name: numberoflines
-        type: " int"
+        type: int
+      - name: talkertype
+        type: String
 methods:
   - name: addChatLine
     modifiers:
@@ -40,9 +42,11 @@ methods:
       - name: msg
         type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: addChatLine
     modifiers:
       - public
@@ -52,52 +56,62 @@ methods:
       - name: msg
         type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
-  - name: addChatLine
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: msg
-        type: String
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-      - name: font
-        type: " UIFont"
+        type: float
       - name: baseRange
-        type: " float"
+        type: float
+  - name: addChatLine
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: msg
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: font
+        type: UIFont
+      - name: baseRange
+        type: float
       - name: customTag
-        type: " String"
+        type: String
       - name: bbcode
-        type: " boolean"
+        type: boolean
       - name: img
-        type: " boolean"
+        type: boolean
       - name: icons
-        type: " boolean"
+        type: boolean
       - name: colors
-        type: " boolean"
+        type: boolean
       - name: fonts
-        type: " boolean"
+        type: boolean
+      - name: equalizeHeights
+        type: boolean
   - name: addNoLogText
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: text
+        type: String
   - name: clear
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: getHasChatToDisplay
     modifiers:
       - public
@@ -134,12 +148,18 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: playerNum
+        type: int
   - name: RenderBatch
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: playerNum
+        type: int
   - name: renderBatched
     modifiers:
       - public
@@ -149,24 +169,31 @@ methods:
       - name: playerNum
         type: int
       - name: x
-        type: " int"
-  - name: renderBatched
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: playerNum
         type: int
-      - name: x
-        type: " int"
       - name: y
-        type: " int"
+        type: int
+  - name: renderBatched
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: playerNum
+        type: int
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: ignoreRadioLines
+        type: boolean
   - name: Say
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: line
+        type: String
   - name: SayDebug
     modifiers:
       - public
@@ -175,31 +202,48 @@ methods:
     parameters:
       - name: n
         type: int
+      - name: text
+        type: String
   - name: setHistoryRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: range
+        type: float
   - name: setMaxCharsPerLine
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxChars
+        type: int
   - name: setMaxChatLines
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: num
+        type: int
   - name: setTalkerType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: setUseEuclidean
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: update
     modifiers:
       - public

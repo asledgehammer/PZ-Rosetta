@@ -24,6 +24,8 @@ methods:
     parameters:
       - name: size
         type: BitHeader.HeaderSize
+      - name: buffer
+        type: ByteBuffer
   - name: allocRead
     modifiers:
       - public
@@ -34,16 +36,9 @@ methods:
       - name: size
         type: BitHeader.HeaderSize
       - name: buffer
-        type: " ByteBuffer"
-  - name: allocWrite
-    modifiers:
-      - public
-      - static
-    return:
-      type: BitHeaderWrite
-    parameters:
-      - name: size
-        type: BitHeader.HeaderSize
+        type: ByteBuffer
+      - name: allocOnly
+        type: boolean
   - name: allocWrite
     modifiers:
       - public
@@ -54,7 +49,20 @@ methods:
       - name: size
         type: BitHeader.HeaderSize
       - name: buffer
-        type: " ByteBuffer"
+        type: ByteBuffer
+  - name: allocWrite
+    modifiers:
+      - public
+      - static
+    return:
+      type: BitHeaderWrite
+    parameters:
+      - name: size
+        type: BitHeader.HeaderSize
+      - name: buffer
+        type: ByteBuffer
+      - name: allocOnly
+        type: boolean
   - name: debug_print
     modifiers:
       - public

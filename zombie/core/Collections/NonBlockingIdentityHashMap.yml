@@ -17,6 +17,9 @@ constructors:
   - name: NonBlockingIdentityHashMap
     modifiers:
       - public
+    parameters:
+      - name: initial_sz
+        type: int
     notes: >-
       Create a new NonBlockingHashMap with initial room for the given number of
         elements, thus avoiding internal resizing operations to reach an
@@ -56,6 +59,10 @@ methods:
     return:
       type: boolean
       notes: true if this map maps one or more keys to the specified value
+    parameters:
+      - name: val
+        type: Object
+        notes: a value to search for
     notes: |-
       Legacy method testing if some key maps into the specified value in this
         table.  This method is identical in functionality to
@@ -65,6 +72,9 @@ methods:
     return:
       type: boolean
       notes: true if the key is in the table using the equals method
+    parameters:
+      - name: key
+        type: Object
     notes: Tests if the key in the table using the
   - name: containsValue
     modifiers:
@@ -72,6 +82,10 @@ methods:
     return:
       type: boolean
       notes: true if this map maps one or more keys to the specified value
+    parameters:
+      - name: val
+        type: Object
+        notes: value whose presence in this map is to be tested
     notes: Returns
   - name: elements
     modifiers:
@@ -93,6 +107,9 @@ methods:
       - public
     return:
       type: TypeV
+    parameters:
+      - name: key
+        type: Object
     notes: Returns the value to which the specified key is mapped, or
   - name: isEmpty
     modifiers:
@@ -135,6 +152,8 @@ methods:
       - name: key
         type: TypeK
         notes: key with which the specified value is to be associated
+      - name: val
+        type: TypeV
     notes: |-
       Maps the specified key to the specified value in the table.  Neither key
         nor value can be null.
@@ -143,6 +162,11 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: m
+        type: Map
+        generic: Map<? extends TypeK,? extends TypeV>
+        notes: mappings to be stored in this map
     notes: |-
       Copies all of the mappings from the specified map to this one, replacing
         any existing mappings.
@@ -157,6 +181,8 @@ methods:
     parameters:
       - name: key
         type: TypeK
+      - name: val
+        type: TypeV
     notes: Atomically, do a
   - name: remove
     modifiers:
@@ -166,6 +192,9 @@ methods:
       notes: |-
         the previous value associated with key, or
                  null if there was no mapping for key
+    parameters:
+      - name: key
+        type: Object
     notes: |-
       Removes the key (and its corresponding value) from this map.
         This method does nothing if the key is not in the map.
@@ -177,6 +206,8 @@ methods:
     parameters:
       - name: key
         type: Object
+      - name: val
+        type: Object
     notes: Atomically do a
   - name: replace
     modifiers:
@@ -186,6 +217,8 @@ methods:
     parameters:
       - name: key
         type: TypeK
+      - name: val
+        type: TypeV
     notes: Atomically do a
   - name: replace
     modifiers:
@@ -196,7 +229,9 @@ methods:
       - name: key
         type: TypeK
       - name: oldValue
-        type: " TypeV"
+        type: TypeV
+      - name: newValue
+        type: TypeV
     notes: Atomically do a
   - name: reprobes
     modifiers:

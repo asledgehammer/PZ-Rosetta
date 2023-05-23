@@ -67,6 +67,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: dialog
+        type: String
   - name: ActivateGameOverlayToUser
     modifiers:
       - public
@@ -76,12 +79,17 @@ methods:
     parameters:
       - name: dialog
         type: String
+      - name: steamID
+        type: long
   - name: ActivateGameOverlayToWebPage
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: url
+        type: String
   - name: CreateSteamAvatar
     modifiers:
       - public
@@ -91,12 +99,17 @@ methods:
     parameters:
       - name: steamID
         type: long
+      - name: data
+        type: ByteBuffer
   - name: GetFriendByIndex
     modifiers:
       - public
       - static
     return:
       type: long
+    parameters:
+      - name: index
+        type: int
   - name: GetFriendCount
     modifiers:
       - public
@@ -116,12 +129,18 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: steamID
+        type: long
   - name: GetFriendPersonaState
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: steamID
+        type: long
   - name: GetPersonaName
     modifiers:
       - public
@@ -143,6 +162,8 @@ methods:
     parameters:
       - name: friendSteamID
         type: long
+      - name: connectString
+        type: String
   - name: n_Init
     modifiers:
       - public
@@ -161,6 +182,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: steamID
+        type: long
   - name: shutdown
     modifiers:
       - public
@@ -175,4 +199,6 @@ methods:
       type: void
     parameters:
       - name: status
+        type: String
+      - name: connectString
         type: String

@@ -96,6 +96,8 @@ methods:
     parameters:
       - name: test
         type: IsoGridSquare
+      - name: player
+        type: IsoPlayer
   - name: call
     modifiers:
       - public
@@ -105,12 +107,17 @@ methods:
     parameters:
       - name: func
         type: String
+      - name: param1
+        type: Object
   - name: copyTable
     modifiers:
       - public
       - static
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: from
+        type: se.krka.kahlua.vm.KahluaTable
   - name: copyTable
     modifiers:
       - public
@@ -120,12 +127,17 @@ methods:
     parameters:
       - name: to
         type: se.krka.kahlua.vm.KahluaTable
+      - name: from
+        type: se.krka.kahlua.vm.KahluaTable
   - name: dropItem
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: i
+        type: InventoryItem
   - name: fillContainer
     modifiers:
       - public
@@ -135,6 +147,8 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
+      - name: isoPlayer
+        type: IsoPlayer
   - name: finishChecksum
     modifiers:
       - public
@@ -147,18 +161,27 @@ methods:
       - static
     return:
       type: Object
+    parameters:
+      - name: key
+        type: Object
   - name: getDotDelimitedClosure
     modifiers:
       - public
       - static
     return:
       type: se.krka.kahlua.vm.LuaClosure
+    parameters:
+      - name: path
+        type: String
   - name: getFunctionObject
     modifiers:
       - public
       - static
     return:
       type: Object
+    parameters:
+      - name: functionName
+        type: String
   - name: getHourMinuteJava
     modifiers:
       - public
@@ -195,12 +218,9 @@ methods:
       - static
     return:
       type: void
-  - name: LoadDirBase
-    modifiers:
-      - public
-      - static
-    return:
-      type: void
+    parameters:
+      - name: path
+        type: String
   - name: LoadDirBase
     modifiers:
       - public
@@ -216,6 +236,17 @@ methods:
     parameters:
       - name: sub
         type: String
+  - name: LoadDirBase
+    modifiers:
+      - public
+      - static
+    return:
+      type: void
+    parameters:
+      - name: sub
+        type: String
+      - name: onlyChecksum
+        type: boolean
   - name: outputTable
     modifiers:
       - public
@@ -225,12 +256,8 @@ methods:
     parameters:
       - name: t
         type: se.krka.kahlua.vm.KahluaTable
-  - name: RunLua
-    modifiers:
-      - public
-      - static
-    return:
-      type: Object
+      - name: nTabs
+        type: int
   - name: RunLua
     modifiers:
       - public
@@ -240,6 +267,17 @@ methods:
     parameters:
       - name: filename
         type: String
+  - name: RunLua
+    modifiers:
+      - public
+      - static
+    return:
+      type: Object
+    parameters:
+      - name: filename
+        type: String
+      - name: bRewriteEvents
+        type: boolean
   - name: searchFolders
     modifiers:
       - public
@@ -249,6 +287,8 @@ methods:
     parameters:
       - name: base
         type: URI
+      - name: fo
+        type: File
   - name: Test
     modifiers:
       - public
@@ -265,12 +305,17 @@ methods:
       - name: character
         type: IsoGameCharacter
       - name: item
-        type: " InventoryItem"
+        type: InventoryItem
       - name: src
-        type: " ItemContainer"
+        type: ItemContainer
+      - name: dest
+        type: ItemContainer
   - name: updateOverlaySprite
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: obj
+        type: IsoObject

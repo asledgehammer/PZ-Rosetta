@@ -43,11 +43,17 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
   - name: collectTableNames
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: list
+        type: List
+        generic: List<String>
   - name: create
     modifiers:
       - public
@@ -58,21 +64,33 @@ methods:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
   - name: exists
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: tag
+        type: String
   - name: get
     modifiers:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
   - name: getOrCreate
     modifiers:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
   - name: init
     modifiers:
       - public
@@ -88,6 +106,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: receiveRequest
     modifiers:
       - public
@@ -96,16 +117,24 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: requesterConnection
+        type: UdpConnection
   - name: remove
     modifiers:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: tag
+        type: String
   - name: request
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tag
+        type: String
   - name: reset
     modifiers:
       - public
@@ -121,3 +150,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: tag
+        type: String

@@ -20,6 +20,8 @@ methods:
     parameters:
       - name: vehicle
         type: BaseVehicle
+      - name: data
+        type: VehicleInterpolationData
   - name: interpolationDataAdd
     modifiers:
       - public
@@ -29,13 +31,15 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: time
-        type: " long"
+        type: long
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: currentTime
+        type: long
   - name: interpolationDataGet
     modifiers:
       - public
@@ -43,6 +47,8 @@ methods:
       type: boolean
     parameters:
       - name: buf1
+        type: float[]
+      - name: buf2
         type: float[]
   - name: interpolationDataGet
     modifiers:
@@ -53,7 +59,9 @@ methods:
       - name: buf1
         type: float[]
       - name: buf2
-        type: " float[]"
+        type: float[]
+      - name: time
+        type: long
   - name: reset
     modifiers:
       - public
@@ -64,3 +72,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: time
+        type: long

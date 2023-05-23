@@ -68,6 +68,8 @@ constructors:
       - name: fntFile
         type: String
         notes: The location of the font defnition file
+      - name: image
+        type: Texture
     notes: |-
       Create a new font based on a font definition from AngelCode's tool and
        the font image generated from the tool.
@@ -78,6 +80,8 @@ constructors:
       - name: fntFile
         type: String
         notes: The location of the font defnition file
+      - name: imgFile
+        type: String
     notes: |-
       Create a new font based on a font definition from AngelCode's tool and
        the font image generated from the tool.
@@ -97,7 +101,9 @@ methods:
         type: float
         notes: The x location at which to draw the string
       - name: y
-        type: " float"
+        type: float
+      - name: text
+        type: String
     notes: "Description copied from interface: Font"
   - name: drawString
     modifiers:
@@ -109,27 +115,31 @@ methods:
         type: float
         notes: The x location at which to draw the string
       - name: y
-        type: " float"
-      - name: text
-        type: " String"
-    notes: "Description copied from interface: Font"
-  - name: drawString
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: x
         type: float
-        notes: The x location at which to draw the string
-      - name: y
-        type: " float"
       - name: text
-        type: " String"
+        type: String
       - name: col
-        type: " Color"
+        type: Color
+    notes: "Description copied from interface: Font"
+  - name: drawString
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: x
+        type: float
+        notes: The x location at which to draw the string
+      - name: y
+        type: float
+      - name: text
+        type: String
+      - name: col
+        type: Color
       - name: startIndex
-        type: " int"
+        type: int
+      - name: endIndex
+        type: int
     notes: "Description copied from interface: Font"
   - name: drawString
     modifiers:
@@ -140,57 +150,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
-      - name: text
-        type: " String"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-  - name: drawString
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: x
         type: float
-      - name: y
-        type: " float"
-      - name: scale
-        type: " float"
       - name: text
-        type: " String"
+        type: String
       - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-  - name: drawString
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: x
         type: float
-      - name: y
-        type: " float"
-      - name: text
-        type: " String"
-      - name: r
-        type: " float"
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
-      - name: startIndex
-        type: " int"
+        type: float
   - name: drawString
     modifiers:
       - public
@@ -200,27 +170,79 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: scale
-        type: " float"
+        type: float
       - name: text
-        type: " String"
+        type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+  - name: drawString
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: text
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
       - name: startIndex
-        type: " int"
+        type: int
+      - name: endIndex
+        type: int
+  - name: drawString
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: scale
+        type: float
+      - name: text
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: startIndex
+        type: int
+      - name: endIndex
+        type: int
   - name: getHeight
     modifiers:
       - public
     return:
       type: int
       notes: The width of the given string
+    parameters:
+      - name: text
+        type: String
+        notes: The string to obtain the rendered with of
     notes: "Description copied from interface: Font"
   - name: getLineHeight
     modifiers:
@@ -235,6 +257,10 @@ methods:
     return:
       type: int
       notes: The width of the given string
+    parameters:
+      - name: text
+        type: String
+        notes: The string to obtain the rendered with of
     notes: "Description copied from interface: Font"
   - name: getWidth
     modifiers:
@@ -244,6 +270,8 @@ methods:
     parameters:
       - name: text
         type: String
+      - name: xAdvance
+        type: boolean
   - name: getWidth
     modifiers:
       - public
@@ -253,25 +281,33 @@ methods:
       - name: text
         type: String
       - name: start
-        type: " int"
-  - name: getWidth
-    modifiers:
-      - public
-    return:
-      type: int
-    parameters:
-      - name: text
-        type: String
-      - name: start
-        type: " int"
+        type: int
       - name: __end
-        type: " int"
+        type: int
+  - name: getWidth
+    modifiers:
+      - public
+    return:
+      type: int
+    parameters:
+      - name: text
+        type: String
+      - name: start
+        type: int
+      - name: __end
+        type: int
+      - name: xadvance
+        type: boolean
   - name: getYOffset
     modifiers:
       - public
     return:
       type: int
       notes: The yoffset from the y draw location at which text will start
+    parameters:
+      - name: text
+        type: String
+        notes: The text that is to be tested
     notes: Returns the distance from the y drawing location to the top most pixel of
       the specified text.
   - name: isEmpty
@@ -288,4 +324,6 @@ methods:
       - name: oldState
         type: Asset.State
       - name: newState
-        type: " Asset.State"
+        type: Asset.State
+      - name: asset
+        type: Asset

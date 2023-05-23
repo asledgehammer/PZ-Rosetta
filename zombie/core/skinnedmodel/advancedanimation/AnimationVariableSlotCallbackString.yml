@@ -13,6 +13,8 @@ constructors:
     parameters:
       - name: key
         type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
   - name: AnimationVariableSlotCallbackString
     modifiers:
       - public
@@ -20,7 +22,9 @@ constructors:
       - name: key
         type: String
       - name: callbackGet
-        type: " AnimationVariableSlotCallbackString.CallbackGetStrongTyped"
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
   - name: AnimationVariableSlotCallbackString
     modifiers:
       - public
@@ -28,23 +32,30 @@ constructors:
       - name: key
         type: String
       - name: defaultVal
-        type: " String"
-  - name: AnimationVariableSlotCallbackString
-    modifiers:
-      - public
-    parameters:
-      - name: key
         type: String
-      - name: defaultVal
-        type: " String"
       - name: callbackGet
-        type: " AnimationVariableSlotCallbackString.CallbackGetStrongTyped"
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+  - name: AnimationVariableSlotCallbackString
+    modifiers:
+      - public
+    parameters:
+      - name: key
+        type: String
+      - name: defaultVal
+        type: String
+      - name: callbackGet
+        type: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+      - name: callbackSet
+        type: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
 methods:
   - name: canConvertFrom
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: val
+        type: String
     notes: "Description copied from interface: IAnimationVariableSlot"
   - name: getDefaultValue
     modifiers:
@@ -80,16 +91,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: String
     notes: "Description copied from interface: IAnimationVariableSlot"
   - name: setValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: float
     notes: "Description copied from interface: IAnimationVariableSlot"
   - name: setValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: boolean
     notes: "Description copied from interface: IAnimationVariableSlot"

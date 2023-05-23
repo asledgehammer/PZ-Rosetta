@@ -37,12 +37,18 @@ constructors:
   - name: Shader
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: callback
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sender
+        type: ShaderProgram
   - name: destroy
     modifiers:
       - public
@@ -73,11 +79,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: texd
+        type: TextureDraw
   - name: setTexture
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tex
+        type: Texture
   - name: Start
     modifiers:
       - public
@@ -91,8 +103,13 @@ methods:
     parameters:
       - name: texd
         type: TextureDraw
+      - name: playerIndex
+        type: int
   - name: startRenderThread
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tex
+        type: TextureDraw

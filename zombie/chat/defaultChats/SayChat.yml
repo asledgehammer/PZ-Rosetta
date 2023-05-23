@@ -13,13 +13,17 @@ constructors:
       - name: bb
         type: ByteBuffer
       - name: tab
-        type: " ChatTab"
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
   - name: SayChat
     modifiers:
       - public
     parameters:
       - name: id
         type: int
+      - name: tab
+        type: ChatTab
   - name: SayChat
     modifiers:
       - public
@@ -29,11 +33,17 @@ methods:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: text
+        type: String
   - name: createInfoMessage
     modifiers:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: text
+        type: String
   - name: getDefaultSettings
     modifiers:
       - public
@@ -45,3 +55,6 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage

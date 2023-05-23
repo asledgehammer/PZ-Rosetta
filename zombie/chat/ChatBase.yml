@@ -15,9 +15,11 @@ constructors:
         type: ByteBuffer
         notes: package from server that describe how chat should look and work
       - name: type
-        type: " ChatType"
+        type: ChatType
       - name: tab
-        type: " ChatTab"
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
     notes: Should called only on client side of chat system
   - name: ChatBase
     modifiers:
@@ -28,7 +30,9 @@ constructors:
         notes: unique id of chat. It will be used to identify chat in client-server
           communication
       - name: type
-        type: " ChatType"
+        type: ChatType
+      - name: tab
+        type: ChatTab
     notes: Should be called only on server side of chat system
 methods:
   - name: addMember
@@ -36,6 +40,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: close
     modifiers:
       - public
@@ -47,12 +54,19 @@ methods:
     return:
       type: ChatMessage
       notes: corresponding object to message
+    parameters:
+      - name: text
+        type: String
+        notes: text of the message
     notes: Message creator. Every chat know how to create its own message
   - name: createServerMessage
     modifiers:
       - public
     return:
       type: ServerChatMessage
+    parameters:
+      - name: text
+        type: String
   - name: getColor
     modifiers:
       - public
@@ -80,11 +94,17 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: getMessageTextWithPrefix
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: getMode
     modifiers:
       - public
@@ -130,6 +150,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: Short
   - name: packMessage
     modifiers:
       - public
@@ -138,21 +161,32 @@ methods:
     parameters:
       - name: b
         type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
   - name: removeMember
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: Short
   - name: sendMessageToChatMembers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: sendMessageToChatMembers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ServerChatMessage
   - name: sendMessageToPlayer
     modifiers:
       - public
@@ -161,6 +195,8 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
+      - name: msg
+        type: ChatMessage
   - name: sendMessageToPlayer
     modifiers:
       - public
@@ -169,21 +205,32 @@ methods:
     parameters:
       - name: playerID
         type: short
+      - name: msg
+        type: ChatMessage
   - name: sendPlayerJoinChatPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerConnection
+        type: UdpConnection
   - name: sendPlayerLeaveChatPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerID
+        type: short
   - name: sendPlayerLeaveChatPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: sendToServer
     modifiers:
       - public
@@ -192,31 +239,48 @@ methods:
     parameters:
       - name: msg
         type: ChatMessage
+      - name: deviceData
+        type: DeviceData
   - name: setFontSize
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fontSize
+        type: String
   - name: setSettings
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: settings
+        type: ChatSettings
   - name: setShowTimestamp
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: showTimestamp
+        type: boolean
   - name: setShowTitle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: showTitle
+        type: boolean
   - name: showMessage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: showMessage
     modifiers:
       - public
@@ -225,13 +289,22 @@ methods:
     parameters:
       - name: text
         type: String
+      - name: author
+        type: String
   - name: syncMembersByUsernames
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: players
+        type: ArrayList
+        generic: ArrayList<String>
   - name: unpackMessage
     modifiers:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

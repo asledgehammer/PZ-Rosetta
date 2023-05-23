@@ -20,6 +20,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: frequency
+        type: int
   - name: clearPresets
     modifiers:
       - public
@@ -35,11 +37,17 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: id
+        type: int
   - name: getPresetName
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: id
+        type: int
   - name: getPresets
     modifiers:
       - public
@@ -60,12 +68,17 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: net
+        type: boolean
   - name: removePreset
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: id
+        type: int
   - name: save
     modifiers:
       - public
@@ -74,11 +87,16 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: setMaxPresets
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: m
+        type: int
   - name: setPreset
     modifiers:
       - public
@@ -88,7 +106,9 @@ methods:
       - name: id
         type: int
       - name: name
-        type: " String"
+        type: String
+      - name: frequency
+        type: int
   - name: setPresetFreq
     modifiers:
       - public
@@ -96,6 +116,8 @@ methods:
       type: void
     parameters:
       - name: id
+        type: int
+      - name: frequency
         type: int
   - name: setPresetName
     modifiers:
@@ -105,8 +127,14 @@ methods:
     parameters:
       - name: id
         type: int
+      - name: name
+        type: String
   - name: setPresets
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: p
+        type: ArrayList
+        generic: ArrayList<PresetEntry>

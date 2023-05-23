@@ -13,6 +13,9 @@ constructors:
   - name: IntList
     modifiers:
       - public
+    parameters:
+      - name: size
+        type: int
     notes: FloatList constructor comment.
   - name: IntList
     modifiers:
@@ -20,6 +23,8 @@ constructors:
     parameters:
       - name: fastExpand
         type: boolean
+      - name: size
+        type: int
     notes: FloatList constructor comment.
 methods:
   - name: add
@@ -27,18 +32,27 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: f
+        type: short
     notes: add method comment.
   - name: addAll
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: short[]
     notes: add method comment.
   - name: addAll
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: IntList
     notes: add method comment.
   - name: array
     modifiers:
@@ -62,12 +76,18 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: size
+        type: int
     notes: Ensure the list is at least 'size' elements big.
   - name: get
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
     notes: get method comment.
   - name: isEmpty
     modifiers:
@@ -81,6 +101,10 @@ methods:
     return:
       type: int
       notes: the removed value
+    parameters:
+      - name: idx
+        type: int
+        notes: The index of the element to remove
     notes: Remove an element and return it.
   - name: size
     modifiers:
@@ -93,6 +117,9 @@ methods:
       - public
     return:
       type: short[]
+    parameters:
+      - name: dest
+        type: short[]
     notes: Stash everything in an array.
   - name: trimToSize
     modifiers:

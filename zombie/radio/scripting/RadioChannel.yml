@@ -14,7 +14,9 @@ constructors:
       - name: n
         type: String
       - name: freq
-        type: " int"
+        type: int
+      - name: c
+        type: ChannelCategory
   - name: RadioChannel
     modifiers:
       - public
@@ -22,15 +24,20 @@ constructors:
       - name: n
         type: String
       - name: freq
-        type: " int"
+        type: int
       - name: c
-        type: " ChannelCategory"
+        type: ChannelCategory
+      - name: guid
+        type: String
 methods:
   - name: AddRadioScript
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: script
+        type: RadioScript
   - name: getAirCounterMultiplier
     modifiers:
       - public
@@ -101,6 +108,9 @@ methods:
       - public
     return:
       type: RadioScript
+    parameters:
+      - name: script
+        type: String
   - name: isTimeSynced
     modifiers:
       - public
@@ -124,14 +134,8 @@ methods:
     parameters:
       - name: guid
         type: String
-  - name: setActiveScript
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: scriptName
-        type: String
+      - name: line
+        type: int
   - name: setActiveScript
     modifiers:
       - public
@@ -141,9 +145,21 @@ methods:
       - name: scriptName
         type: String
       - name: day
-        type: " int"
+        type: int
+  - name: setActiveScript
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: scriptName
+        type: String
+      - name: day
+        type: int
       - name: loop
-        type: " int"
+        type: int
+      - name: maxloops
+        type: int
   - name: setActiveScriptNull
     modifiers:
       - public
@@ -154,31 +170,49 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: airCounterMultiplier
+        type: float
   - name: setAiringBroadcast
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bc
+        type: RadioBroadCast
   - name: setLouisvilleObfuscate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: SetPlayerIsListening
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isListening
+        type: boolean
   - name: setRadioData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: radioData
+        type: RadioData
   - name: setTimeSynced
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isTimeSynced
+        type: boolean
   - name: update
     modifiers:
       - public
@@ -191,4 +225,6 @@ methods:
       type: void
     parameters:
       - name: timestamp
+        type: int
+      - name: day
         type: int

@@ -36,6 +36,9 @@ constructors:
   - name: IsoPushableObject
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoPushableObject
     modifiers:
       - public
@@ -43,9 +46,11 @@ constructors:
       - name: cell
         type: IsoCell
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: IsoPushableObject
     modifiers:
       - public
@@ -53,7 +58,9 @@ constructors:
       - name: cell
         type: IsoCell
       - name: square
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: spr
+        type: IsoSprite
 methods:
   - name: DoCollideNorS
     modifiers:
@@ -78,6 +85,8 @@ methods:
     parameters:
       - name: x
         type: float
+      - name: y
+        type: float
   - name: load
     modifiers:
       - public
@@ -87,7 +96,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: save
     modifiers:
       - public
@@ -96,6 +107,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: Serialize
     modifiers:
       - public

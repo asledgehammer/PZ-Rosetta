@@ -10,6 +10,9 @@ constructors:
   - name: AnimationNodeRecordingFrame
     modifiers:
       - public
+    parameters:
+      - name: fileKey
+        type: String
 methods:
   - name: logActionState
     modifiers:
@@ -19,6 +22,9 @@ methods:
     parameters:
       - name: state
         type: ActionState
+      - name: childStates
+        type: List
+        generic: List<ActionState>
   - name: logAIState
     modifiers:
       - public
@@ -27,18 +33,30 @@ methods:
     parameters:
       - name: state
         type: State
+      - name: subStates
+        type: List
+        generic: List<StateMachine.SubstateSlot>
   - name: logAnimState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: state
+        type: AnimState
   - name: logCharacterToPlayerDiff
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: diff
+        type: Vector3
   - name: writeHeader
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: logLine
+        type: StringBuilder

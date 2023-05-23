@@ -724,6 +724,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: option
+        type: ServerOptions.ServerOption
   - name: changeOption
     modifiers:
       - public
@@ -732,11 +735,16 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: String
   - name: getBoolean
     modifiers:
       - public
     return:
       type: Boolean
+    parameters:
+      - name: key
+        type: String
   - name: getClientCommandList
     modifiers:
       - public
@@ -744,16 +752,25 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<String>
+    parameters:
+      - name: doLine
+        type: boolean
   - name: getDouble
     modifiers:
       - public
     return:
       type: Double
+    parameters:
+      - name: key
+        type: String
   - name: getFloat
     modifiers:
       - public
     return:
       type: Float
+    parameters:
+      - name: key
+        type: String
   - name: getInstance
     modifiers:
       - public
@@ -765,6 +782,9 @@ methods:
       - public
     return:
       type: Integer
+    parameters:
+      - name: key
+        type: String
   - name: getMaxPlayers
     modifiers:
       - public
@@ -780,16 +800,25 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: key
+        type: String
   - name: getOptionByIndex
     modifiers:
       - public
     return:
       type: ServerOptions.ServerOption
+    parameters:
+      - name: index
+        type: int
   - name: getOptionByName
     modifiers:
       - public
     return:
       type: ServerOptions.ServerOption
+    parameters:
+      - name: name
+        type: String
   - name: getOptions
     modifiers:
       - public
@@ -824,6 +853,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: serverName
+        type: String
   - name: putOption
     modifiers:
       - public
@@ -832,6 +864,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: String
   - name: putSaveOption
     modifiers:
       - public
@@ -839,6 +873,8 @@ methods:
       type: void
     parameters:
       - name: key
+        type: String
+      - name: value
         type: String
   - name: resetRegionFile
     modifiers:
@@ -850,3 +886,6 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: serverName
+        type: String

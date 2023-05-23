@@ -17,12 +17,16 @@ constructors:
       - name: predicate
         type: Predicate
         generic: Predicate<String>
+      - name: callback
+        type: PredicatedFileWatcher.IPredicatedFileWatcherCallback
   - name: PredicatedFileWatcher
     modifiers:
       - public
     parameters:
       - name: path
         type: String
+      - name: callback
+        type: PredicatedFileWatcher.IPredicatedFileWatcherCallback
   - name: PredicatedFileWatcher
     modifiers:
       - public
@@ -30,8 +34,11 @@ constructors:
       - name: path
         type: String
       - name: clazz
-        type: " Class"
-        generic: " Class<T>"
+        type: Class
+        generic: Class<T>
+      - name: callback
+        type: PredicatedFileWatcher.IPredicatedDataPacketFileWatcherCallback
+        generic: PredicatedFileWatcher.IPredicatedDataPacketFileWatcherCallback<T>
   - name: PredicatedFileWatcher
     modifiers:
       - public
@@ -39,8 +46,10 @@ constructors:
       - name: path
         type: String
       - name: predicate
-        type: " Predicate"
-        generic: " Predicate<String>"
+        type: Predicate
+        generic: Predicate<String>
+      - name: callback
+        type: PredicatedFileWatcher.IPredicatedFileWatcherCallback
 methods:
   - name: getPath
     modifiers:
@@ -52,3 +61,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: entryKey
+        type: String

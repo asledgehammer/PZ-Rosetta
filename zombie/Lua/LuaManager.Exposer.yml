@@ -14,7 +14,9 @@ constructors:
       - name: manager
         type: se.krka.kahlua.converter.KahluaConverterManager
       - name: platform
-        type: " se.krka.kahlua.vm.Platform"
+        type: se.krka.kahlua.vm.Platform
+      - name: environment
+        type: se.krka.kahlua.vm.KahluaTable
 methods:
   - name: exposeAll
     modifiers:
@@ -26,8 +28,16 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: clazz
+        type: Class
+        generic: Class<?>
   - name: shouldExpose
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: clazz
+        type: Class
+        generic: Class<?>

@@ -10,6 +10,9 @@ constructors:
   - name: CGlobalObjectSystem
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: receiveNewLuaObjectAt
     modifiers:
@@ -20,9 +23,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
   - name: receiveRemoveLuaObjectAt
     modifiers:
       - public
@@ -32,7 +37,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: receiveServerCommand
     modifiers:
       - public
@@ -41,6 +48,8 @@ methods:
     parameters:
       - name: command
         type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
   - name: receiveUpdateLuaObjectAt
     modifiers:
       - public
@@ -50,9 +59,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
   - name: Reset
     modifiers:
       - public
@@ -67,4 +78,6 @@ methods:
       - name: command
         type: String
       - name: player
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable

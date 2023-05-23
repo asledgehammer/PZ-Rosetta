@@ -10,12 +10,18 @@ constructors:
   - name: VehicleDoor
     modifiers:
       - public
+    parameters:
+      - name: part
+        type: VehiclePart
 methods:
   - name: init
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: scriptDoor
+        type: VehicleScript.Door
   - name: isLockBroken
     modifiers:
       - public
@@ -39,23 +45,37 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setLockBroken
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: broken
+        type: boolean
   - name: setLocked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: locked
+        type: boolean
   - name: setOpen
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: open
+        type: boolean

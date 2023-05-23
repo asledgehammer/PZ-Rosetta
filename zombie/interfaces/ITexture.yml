@@ -13,6 +13,10 @@ methods:
   - name: bind
     return:
       type: void
+    parameters:
+      - name: unit
+        type: int
+        notes: the texture unit in witch the current TextureObject will be binded
     notes: bind the current texture object in the specified texture unit
   - name: getData
     return:
@@ -77,7 +81,9 @@ methods:
         type: int
         notes: color used in the test
       - name: green
-        type: " int"
+        type: int
+      - name: blue
+        type: int
     notes: sets transparent each pixel that it's equal to the red, green blue value
       specified
   - name: setAlphaForeach
@@ -88,14 +94,20 @@ methods:
         type: int
         notes: color used in the test
       - name: green
-        type: " int"
+        type: int
       - name: blue
-        type: " int"
+        type: int
+      - name: alpha
+        type: int
     notes: sets the specified alpha for each pixel that it's equal to the red, green
       blue value specified
   - name: setData
     return:
       type: void
+    parameters:
+      - name: data
+        type: ByteBuffer
+        notes: texture's pixel data
     notes: |-
       sets the texture's pixel from a ByteBuffer
 
@@ -103,6 +115,9 @@ methods:
   - name: setMask
     return:
       type: void
+    parameters:
+      - name: mask
+        type: Mask
     notes: Pixel collision mask of texture
   - name: setRegion
     return:
@@ -112,7 +127,9 @@ methods:
         type: int
         notes: xstart position
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
     notes: sets the region of the image

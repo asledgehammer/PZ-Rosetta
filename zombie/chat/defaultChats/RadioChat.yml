@@ -13,13 +13,17 @@ constructors:
       - name: bb
         type: ByteBuffer
       - name: tab
-        type: " ChatTab"
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
   - name: RadioChat
     modifiers:
       - public
     parameters:
       - name: id
         type: int
+      - name: tab
+        type: ChatTab
   - name: RadioChat
     modifiers:
       - public
@@ -32,18 +36,27 @@ methods:
     parameters:
       - name: text
         type: String
+      - name: channel
+        type: int
   - name: createMessage
     modifiers:
       - public
     return:
       type: ChatMessage
       notes: corresponding object to message
+    parameters:
+      - name: text
+        type: String
+        notes: text of the message
     notes: "Description copied from class: ChatBase"
   - name: createStaticSoundMessage
     modifiers:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: text
+        type: String
   - name: getDefaultSettings
     modifiers:
       - public
@@ -55,6 +68,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: packMessage
     modifiers:
       - public
@@ -63,6 +79,8 @@ methods:
     parameters:
       - name: b
         type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
   - name: sendToServer
     modifiers:
       - public
@@ -71,13 +89,21 @@ methods:
     parameters:
       - name: msg
         type: ChatMessage
+      - name: deviceData
+        type: DeviceData
   - name: showMessage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: unpackMessage
     modifiers:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

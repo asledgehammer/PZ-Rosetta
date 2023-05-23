@@ -34,13 +34,15 @@ methods:
       - name: id
         type: String
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: direction
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
+      - name: height
+        type: float
   - name: clear
     modifiers:
       - public
@@ -55,13 +57,15 @@ methods:
       - name: centerX
         type: float
       - name: centerY
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: angleRadians
-        type: " float"
+        type: float
+      - name: aabb
+        type: int[]
   - name: getInstance
     modifiers:
       - public
@@ -76,26 +80,41 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: clazz
+        type: Class
+        generic: Class<E>
   - name: getParameterBoolean
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: key
+        type: String
   - name: getParameterFloat
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: key
+        type: String
   - name: getParameterInteger
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: key
+        type: String
   - name: getParameterString
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: key
+        type: String
   - name: render
     modifiers:
       - public
@@ -105,13 +124,15 @@ methods:
       - name: centerX
         type: float
       - name: centerY
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
+      - name: angleRadians
+        type: float
   - name: rotate
     modifiers:
       - public
@@ -121,9 +142,11 @@ methods:
       - name: centerX
         type: float
       - name: centerY
-        type: " float"
+        type: float
       - name: v
-        type: " Vector2"
+        type: Vector2
+      - name: angleRadians
+        type: float
   - name: setParameter
     modifiers:
       - public
@@ -132,6 +155,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: boolean
   - name: setParameter
     modifiers:
       - public
@@ -140,6 +165,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: float
   - name: setParameter
     modifiers:
       - public
@@ -148,6 +175,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: int
   - name: setParameter
     modifiers:
       - public
@@ -156,6 +185,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: Object
   - name: spawn
     modifiers:
       - public
@@ -165,8 +196,10 @@ methods:
       - name: worldX
         type: float
       - name: worldY
-        type: " float"
+        type: float
       - name: worldZ
-        type: " float"
+        type: float
       - name: angleRadians
-        type: " float"
+        type: float
+      - name: spawner
+        type: VehicleStorySpawner.IElementSpawner

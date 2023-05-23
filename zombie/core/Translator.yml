@@ -33,6 +33,9 @@ methods:
     parameters:
       - name: language
         type: Language
+      - name: languages
+        type: ArrayList
+        generic: ArrayList<Language>
   - name: debugItemEvolvedRecipeNames
     modifiers:
       - public
@@ -89,18 +92,27 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: trim
+        type: String
   - name: getItemEvolvedRecipeName
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: fullType
+        type: String
   - name: getItemNameFromFullType
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: fullType
+        type: String
   - name: getLanguage
     modifiers:
       - public
@@ -113,18 +125,27 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getMoveableDisplayNameOrNull
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getMultiStageBuild
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getNewsVersions
     modifiers:
       - public
@@ -138,18 +159,27 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: s
+        type: String
   - name: getRecipeName
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getText
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: desc
+        type: String
     notes: >-
       Return the translated text for the selected language
        If we don't fnid any translation for the selected language, we return the default text (in English)
@@ -162,6 +192,8 @@ methods:
     parameters:
       - name: desc
         type: String
+      - name: arg1
+        type: Object
   - name: getText
     modifiers:
       - public
@@ -172,20 +204,9 @@ methods:
       - name: desc
         type: String
       - name: arg1
-        type: " Object"
-  - name: getText
-    modifiers:
-      - public
-      - static
-    return:
-      type: String
-    parameters:
-      - name: desc
-        type: String
-      - name: arg1
-        type: " Object"
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
   - name: getText
     modifiers:
       - public
@@ -196,29 +217,34 @@ methods:
       - name: desc
         type: String
       - name: arg1
-        type: " Object"
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
       - name: arg3
-        type: " Object"
+        type: Object
+  - name: getText
+    modifiers:
+      - public
+      - static
+    return:
+      type: String
+    parameters:
+      - name: desc
+        type: String
+      - name: arg1
+        type: Object
+      - name: arg2
+        type: Object
+      - name: arg3
+        type: Object
+      - name: arg4
+        type: Object
   - name: getTextMediaEN
     modifiers:
       - public
       - static
     return:
       type: String
-  - name: getTextOrNull
-    modifiers:
-      - public
-      - static
-    return:
-      type: String
-  - name: getTextOrNull
-    modifiers:
-      - public
-      - static
-    return:
-      type: String
     parameters:
       - name: desc
         type: String
@@ -231,8 +257,6 @@ methods:
     parameters:
       - name: desc
         type: String
-      - name: arg1
-        type: " Object"
   - name: getTextOrNull
     modifiers:
       - public
@@ -243,9 +267,20 @@ methods:
       - name: desc
         type: String
       - name: arg1
-        type: " Object"
+        type: Object
+  - name: getTextOrNull
+    modifiers:
+      - public
+      - static
+    return:
+      type: String
+    parameters:
+      - name: desc
+        type: String
+      - name: arg1
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
   - name: getTextOrNull
     modifiers:
       - public
@@ -256,11 +291,28 @@ methods:
       - name: desc
         type: String
       - name: arg1
-        type: " Object"
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
       - name: arg3
-        type: " Object"
+        type: Object
+  - name: getTextOrNull
+    modifiers:
+      - public
+      - static
+    return:
+      type: String
+    parameters:
+      - name: desc
+        type: String
+      - name: arg1
+        type: Object
+      - name: arg2
+        type: Object
+      - name: arg3
+        type: Object
+      - name: arg4
+        type: Object
   - name: loadFiles
     modifiers:
       - public
@@ -276,15 +328,23 @@ methods:
     parameters:
       - name: fullType
         type: String
+      - name: english
+        type: String
   - name: setLanguage
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: newlanguage
+        type: Language
   - name: setLanguage
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: languageId
+        type: int

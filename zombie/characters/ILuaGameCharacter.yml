@@ -12,6 +12,9 @@ methods:
   - name: addKnownMediaLine
     return:
       type: void
+    parameters:
+      - name: guid
+        type: String
   - name: addWorldSoundUnlessInvisible
     return:
       type: void
@@ -19,7 +22,9 @@ methods:
       - name: radius
         type: int
       - name: volume
-        type: " int"
+        type: int
+      - name: bStressHumans
+        type: boolean
   - name: Callout
     return:
       type: void
@@ -29,15 +34,24 @@ methods:
   - name: canClimbDownSheetRope
     return:
       type: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: canClimbDownSheetRopeInCurrentSquare
     return:
       type: boolean
   - name: canClimbSheetRope
     return:
       type: boolean
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: changeState
     return:
       type: void
+    parameters:
+      - name: state
+        type: State
   - name: clearKnownMediaLines
     return:
       type: void
@@ -47,13 +61,10 @@ methods:
   - name: climbOverFence
     return:
       type: void
+    parameters:
+      - name: dir
+        type: IsoDirections
   - name: climbSheetRope
-    return:
-      type: void
-  - name: climbThroughWindow
-    return:
-      type: void
-  - name: climbThroughWindow
     return:
       type: void
   - name: climbThroughWindow
@@ -68,27 +79,60 @@ methods:
     parameters:
       - name: w
         type: IsoThumpable
+  - name: climbThroughWindow
+    return:
+      type: void
+    parameters:
+      - name: w
+        type: IsoWindow
+      - name: startingFrame
+        type: Integer
+  - name: climbThroughWindow
+    return:
+      type: void
+    parameters:
+      - name: w
+        type: IsoThumpable
+      - name: startingFrame
+        type: Integer
   - name: climbThroughWindowFrame
     return:
       type: void
+    parameters:
+      - name: obj
+        type: IsoObject
   - name: closeWindow
     return:
       type: void
+    parameters:
+      - name: w
+        type: IsoWindow
   - name: facePosition
     return:
       type: void
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: faceThisObject
     return:
       type: void
+    parameters:
+      - name: object
+        type: IsoObject
   - name: faceThisObjectAlt
     return:
       type: void
+    parameters:
+      - name: object
+        type: IsoObject
   - name: getAlreadyReadPages
     return:
       type: int
+    parameters:
+      - name: fullType
+        type: String
   - name: getBed
     return:
       type: IsoObject
@@ -151,9 +195,15 @@ methods:
   - name: getPerkInfo
     return:
       type: IsoGameCharacter.PerkInfo
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
   - name: getPerkLevel
     return:
       type: int
+    parameters:
+      - name: perks
+        type: PerkFactory.Perk
   - name: getPrimaryHandItem
     return:
       type: InventoryItem
@@ -193,24 +243,38 @@ methods:
   - name: getXpForLevel
     return:
       type: int
+    parameters:
+      - name: level
+        type: int
   - name: getZombieKills
     return:
       type: int
   - name: hasEquipped
     return:
       type: boolean
+    parameters:
+      - name: String
+        type: String
   - name: hasEquippedTag
     return:
       type: boolean
+    parameters:
+      - name: tag
+        type: String
   - name: hasItems
     return:
       type: boolean
     parameters:
       - name: type
         type: String
+      - name: count
+        type: int
   - name: HasTrait
     return:
       type: boolean
+    parameters:
+      - name: trait
+        type: String
   - name: initSpritePartsEmpty
     return:
       type: void
@@ -226,21 +290,33 @@ methods:
   - name: isAttachedItem
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isBuildCheat
     return:
       type: boolean
   - name: isCurrentState
     return:
       type: boolean
+    parameters:
+      - name: state
+        type: State
   - name: isDriving
     return:
       type: boolean
   - name: isEquipped
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isEquippedClothing
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isFarmingCheat
     return:
       type: boolean
@@ -253,6 +329,9 @@ methods:
   - name: isHandItem
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isHealthCheat
     return:
       type: boolean
@@ -265,12 +344,21 @@ methods:
   - name: isItemInBothHands
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isKnownMediaLine
     return:
       type: boolean
+    parameters:
+      - name: guid
+        type: String
   - name: isKnownPoison
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isMechanicsCheat
     return:
       type: boolean
@@ -283,6 +371,9 @@ methods:
   - name: isPrimaryHandItem
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isRangedWeaponEmpty
     return:
       type: boolean
@@ -292,12 +383,21 @@ methods:
   - name: isRecipeKnown
     return:
       type: boolean
+    parameters:
+      - name: recipe
+        type: Recipe
   - name: isRecipeKnown
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: isSecondaryHandItem
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isShowAdminTag
     return:
       type: boolean
@@ -322,18 +422,29 @@ methods:
   - name: LevelPerk
     return:
       type: void
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
   - name: LevelPerk
     return:
       type: void
     parameters:
       - name: perk
         type: PerkFactory.Perk
+      - name: removePick
+        type: boolean
   - name: LoseLevel
     return:
       type: void
+    parameters:
+      - name: perk
+        type: PerkFactory.Perk
   - name: openWindow
     return:
       type: void
+    parameters:
+      - name: w
+        type: IsoWindow
   - name: pathToLocation
     return:
       type: void
@@ -341,7 +452,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: pathToLocationF
     return:
       type: void
@@ -349,37 +462,65 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: PlayAnim
     return:
       type: void
+    parameters:
+      - name: string
+        type: String
   - name: PlayAnimUnlooped
     return:
       type: void
+    parameters:
+      - name: string
+        type: String
   - name: PlayAnimWithSpeed
     return:
       type: void
     parameters:
       - name: string
         type: String
+      - name: framesSpeedPerFrame
+        type: float
   - name: playSound
     return:
       type: long
+    parameters:
+      - name: file
+        type: String
   - name: playSoundLocal
     return:
       type: long
+    parameters:
+      - name: file
+        type: String
   - name: ReadLiterature
     return:
       type: void
+    parameters:
+      - name: literature
+        type: Literature
   - name: removeFromHands
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: removeKnownMediaLine
     return:
       type: void
+    parameters:
+      - name: guid
+        type: String
   - name: reportEvent
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: resetBeardGrowingTime
     return:
       type: void
@@ -395,6 +536,9 @@ methods:
   - name: Say
     return:
       type: void
+    parameters:
+      - name: line
+        type: String
   - name: Say
     return:
       type: void
@@ -402,63 +546,105 @@ methods:
       - name: line
         type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: font
-        type: " UIFont"
+        type: UIFont
       - name: baseRange
-        type: " float"
+        type: float
+      - name: customTag
+        type: String
   - name: setAlreadyReadPages
     return:
       type: void
     parameters:
       - name: fullType
         type: String
+      - name: pages
+        type: int
   - name: setAsleep
     return:
       type: void
+    parameters:
+      - name: Asleep
+        type: boolean
   - name: setBed
     return:
       type: void
+    parameters:
+      - name: bed
+        type: IsoObject
   - name: setBedType
     return:
       type: void
+    parameters:
+      - name: bedType
+        type: String
   - name: setBuildCheat
     return:
       type: void
+    parameters:
+      - name: buildCheat
+        type: boolean
   - name: setDebugMonitor
     return:
       type: void
+    parameters:
+      - name: monitor
+        type: AnimatorDebugMonitor
   - name: setDescriptor
     return:
       type: void
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
   - name: setDir
     return:
       type: void
+    parameters:
+      - name: directions
+        type: IsoDirections
   - name: setFarmingCheat
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setFemale
     return:
       type: void
+    parameters:
+      - name: isFemale
+        type: boolean
   - name: setForceWakeUpTime
     return:
       type: void
+    parameters:
+      - name: ForceWakeUpTime
+        type: float
   - name: setGodMod
     return:
       type: void
-  - name: setHaloNote
-    return:
-      type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setHaloNote
     return:
       type: void
     parameters:
       - name: str
         type: String
+  - name: setHaloNote
+    return:
+      type: void
+    parameters:
+      - name: str
+        type: String
+      - name: dispTime
+        type: float
   - name: setHaloNote
     return:
       type: void
@@ -466,88 +652,160 @@ methods:
       - name: str
         type: String
       - name: r
-        type: " int"
+        type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: dispTime
+        type: float
   - name: setHealthCheat
     return:
       type: void
+    parameters:
+      - name: healthCheat
+        type: boolean
   - name: setInvisible
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setMechanicsCheat
     return:
       type: void
+    parameters:
+      - name: mechanicsCheat
+        type: boolean
   - name: setMeleeDelay
     return:
       type: void
+    parameters:
+      - name: delay
+        type: float
   - name: setMovablesCheat
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setPath2
     return:
       type: void
+    parameters:
+      - name: path
+        type: PolygonalMap2.Path
   - name: setPerkLevelDebug
     return:
       type: void
     parameters:
       - name: perks
         type: PerkFactory.Perk
+      - name: level
+        type: int
   - name: setPrimaryHandItem
     return:
       type: void
+    parameters:
+      - name: leftHandItem
+        type: InventoryItem
   - name: setRangedWeaponEmpty
     return:
       type: void
+    parameters:
+      - name: val
+        type: boolean
   - name: setReading
     return:
       type: void
+    parameters:
+      - name: isReading
+        type: boolean
   - name: setRecoilDelay
     return:
       type: void
+    parameters:
+      - name: recoilDelay
+        type: float
   - name: setSafety
     return:
       type: void
+    parameters:
+      - name: safety
+        type: Safety
   - name: setSecondaryHandItem
     return:
       type: void
+    parameters:
+      - name: rightHandItem
+        type: InventoryItem
   - name: setShowAdminTag
     return:
       type: void
+    parameters:
+      - name: showAdminTag
+        type: boolean
   - name: setSpeakColourInfo
     return:
       type: void
+    parameters:
+      - name: info
+        type: ColorInfo
   - name: setTimedActionInstantCheat
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setTimeSinceLastSmoke
     return:
       type: void
+    parameters:
+      - name: timeSinceLastSmoke
+        type: float
   - name: setUnlimitedCarry
     return:
       type: void
+    parameters:
+      - name: unlimitedCarry
+        type: boolean
   - name: setVehicle
     return:
       type: void
+    parameters:
+      - name: v
+        type: BaseVehicle
   - name: smashCarWindow
     return:
       type: void
+    parameters:
+      - name: part
+        type: VehiclePart
   - name: smashWindow
     return:
       type: void
+    parameters:
+      - name: w
+        type: IsoWindow
   - name: StartAction
     return:
       type: void
-  - name: StartTimedActionAnim
-    return:
-      type: void
+    parameters:
+      - name: act
+        type: BaseAction
   - name: StartTimedActionAnim
     return:
       type: void
     parameters:
       - name: event
+        type: String
+  - name: StartTimedActionAnim
+    return:
+      type: void
+    parameters:
+      - name: event
+        type: String
+      - name: type
         type: String
   - name: StopAllActionQueue
     return:
@@ -555,6 +813,9 @@ methods:
   - name: stopOrTriggerSound
     return:
       type: void
+    parameters:
+      - name: eventInstance
+        type: long
   - name: StopTimedActionAnim
     return:
       type: void

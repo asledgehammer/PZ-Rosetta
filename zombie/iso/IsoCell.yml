@@ -165,17 +165,25 @@ constructors:
     parameters:
       - name: width
         type: int
+      - name: height
+        type: int
 methods:
   - name: addHeatSource
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: heatSource
+        type: IsoHeatSource
   - name: addLamppost
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: light
+        type: IsoLightSource
   - name: addLamppost
     modifiers:
       - public
@@ -185,70 +193,107 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: rad
+        type: int
   - name: addMovingObject
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: o
+        type: IsoMovingObject
   - name: addToProcessIsoObject
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: object
+        type: IsoObject
   - name: addToProcessIsoObjectRemove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: object
+        type: IsoObject
   - name: addToProcessItems
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: addToProcessItems
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: items
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: addToProcessItemsRemove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: addToProcessItemsRemove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: items
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: addToProcessWorldItems
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldItem
+        type: IsoWorldInventoryObject
   - name: addToProcessWorldItemsRemove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldItem
+        type: IsoWorldInventoryObject
   - name: addToStaticUpdaterObjectList
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: object
+        type: IsoObject
   - name: addToWindowList
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: window
+        type: IsoWindow
   - name: blocked
     modifiers:
       - public
@@ -258,15 +303,17 @@ methods:
       - name: mover
         type: Mover
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: lx
-        type: " int"
+        type: int
       - name: ly
-        type: " int"
+        type: int
+      - name: lz
+        type: int
   - name: CalculateVertColoursForTile
     modifiers:
       - public
@@ -276,11 +323,13 @@ methods:
       - name: sqThis
         type: IsoGridSquare
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: zz
-        type: " int"
+        type: int
+      - name: playerIndex
+        type: int
   - name: CanBuildingSquareOccludePlayer
     modifiers:
       - public
@@ -289,6 +338,8 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: playerIndex
+        type: int
   - name: checkHaveRoof
     modifiers:
       - public
@@ -297,11 +348,16 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: clearCacheGridSquare
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: ConnectNewSquare
     modifiers:
       - public
@@ -310,6 +366,8 @@ methods:
     parameters:
       - name: newSquare
         type: IsoGridSquare
+      - name: bDoSurrounds
+        type: boolean
   - name: createNewGridSquare
     modifiers:
       - public
@@ -319,9 +377,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: recalcAll
+        type: boolean
   - name: DeleteAllMovingObjects
     modifiers:
       - public
@@ -341,7 +401,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: DoBuilding
     modifiers:
       - public
@@ -350,6 +412,8 @@ methods:
     parameters:
       - name: player
         type: int
+      - name: bRender
+        type: boolean
   - name: DoGridNav
     modifiers:
       - public
@@ -358,6 +422,8 @@ methods:
     parameters:
       - name: newSquare
         type: IsoGridSquare
+      - name: getter
+        type: IsoGridSquare.GetSquare
   - name: DrawStencilMask
     modifiers:
       - public
@@ -372,7 +438,9 @@ methods:
       - name: xx
         type: int
       - name: yy
-        type: " int"
+        type: int
+      - name: zz
+        type: int
   - name: FromMouseTile
     modifiers:
       - public
@@ -392,6 +460,9 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: col
+        type: int
   - name: getBestBuildings
     modifiers:
       - public
@@ -401,6 +472,8 @@ methods:
     parameters:
       - name: criteria
         type: IsoCell.BuildingSearchCriteria
+      - name: count
+        type: int
   - name: getBuildingList
     modifiers:
       - public
@@ -431,6 +504,8 @@ methods:
     parameters:
       - name: wx
         type: int
+      - name: wy
+        type: int
   - name: getChunkForGridSquare
     modifiers:
       - public
@@ -440,12 +515,17 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getChunkMap
     modifiers:
       - public
     return:
       type: IsoChunkMap
+    parameters:
+      - name: pl
+        type: int
   - name: getClosestBuildingExcept
     modifiers:
       - public
@@ -454,6 +534,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: except
+        type: IsoRoom
   - name: getCurrentLightX
     modifiers:
       - public
@@ -485,6 +567,8 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: getDangerUpdate
     modifiers:
       - public
@@ -496,6 +580,9 @@ methods:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: player
+        type: int
   - name: GetEffectivePlayerRoomId
     modifiers:
       - public
@@ -511,12 +598,18 @@ methods:
       - public
     return:
       type: IsoGridSquare
+    parameters:
+      - name: def
+        type: RoomDef
   - name: getGComponent
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: col
+        type: int
   - name: getGridSquare
     modifiers:
       - public
@@ -526,7 +619,9 @@ methods:
       - name: x
         type: double
       - name: y
-        type: " double"
+        type: double
+      - name: z
+        type: double
   - name: getGridSquare
     modifiers:
       - public
@@ -536,7 +631,9 @@ methods:
       - name: x
         type: Double
       - name: y
-        type: " Double"
+        type: Double
+      - name: z
+        type: Double
   - name: getGridSquare
     modifiers:
       - public
@@ -546,7 +643,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getGridSquareDirect
     modifiers:
       - public
@@ -556,9 +655,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: playerIndex
+        type: int
   - name: getHeatSourceHighestTemperature
     modifiers:
       - public
@@ -568,9 +669,11 @@ methods:
       - name: surroundingAirTemperature
         type: float
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getHeatSourceTemperature
     modifiers:
       - public
@@ -580,7 +683,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getHeight
     modifiers:
       - public
@@ -620,7 +725,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getLuaObjectList
     modifiers:
       - public
@@ -679,11 +786,17 @@ methods:
       - public
     return:
       type: IsoZombie
+    parameters:
+      - name: playerIndex
+        type: int
   - name: getNetworkPlayer
     modifiers:
       - public
     return:
       type: IsoSurvivor
+    parameters:
+      - name: RemoteID
+        type: int
   - name: getObjectList
     modifiers:
       - public
@@ -700,7 +813,9 @@ methods:
       - name: x
         type: double
       - name: y
-        type: " double"
+        type: double
+      - name: z
+        type: double
   - name: getProcessIsoObjectRemove
     modifiers:
       - public
@@ -756,6 +871,9 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: col
+        type: int
   - name: getRelativeGridSquare
     modifiers:
       - public
@@ -765,7 +883,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getRemoteSurvivorList
     modifiers:
       - public
@@ -785,6 +905,9 @@ methods:
       - public
     return:
       type: IsoRoom
+    parameters:
+      - name: ID
+        type: int
   - name: getRoomList
     modifiers:
       - public
@@ -813,7 +936,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getStencilValue2z
     modifiers:
       - public
@@ -823,7 +948,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getSurvivorList
     modifiers:
       - public
@@ -886,12 +1013,17 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: invalidatePeekedRoom
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: isInChunkMap
     modifiers:
       - public
@@ -899,6 +1031,8 @@ methods:
       type: boolean
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: isNull
     modifiers:
@@ -909,12 +1043,17 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: IsPlayerWindowPeeking
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: playerIndex
+        type: int
   - name: isSafeToAdd
     modifiers:
       - public
@@ -926,6 +1065,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: WorldVersion
+        type: int
   - name: PlaceLot
     modifiers:
       - public
@@ -935,11 +1077,13 @@ methods:
       - name: filename
         type: String
       - name: sx
-        type: " int"
+        type: int
       - name: sy
-        type: " int"
+        type: int
       - name: sz
-        type: " int"
+        type: int
+      - name: bClearExisting
+        type: boolean
   - name: PlaceLot
     modifiers:
       - public
@@ -949,11 +1093,13 @@ methods:
       - name: lot
         type: IsoLot
       - name: sx
-        type: " int"
+        type: int
       - name: sy
-        type: " int"
+        type: int
       - name: sz
-        type: " int"
+        type: int
+      - name: bClearExisting
+        type: boolean
   - name: PlaceLot
     modifiers:
       - public
@@ -963,15 +1109,17 @@ methods:
       - name: lot
         type: IsoLot
       - name: sx
-        type: " int"
+        type: int
       - name: sy
-        type: " int"
+        type: int
       - name: sz
-        type: " int"
+        type: int
       - name: ch
-        type: " IsoChunk"
+        type: IsoChunk
       - name: WX
-        type: " int"
+        type: int
+      - name: WY
+        type: int
   - name: ProcessSpottedRooms
     modifiers:
       - public
@@ -982,6 +1130,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: reloadRainTextures
     modifiers:
       - public
@@ -992,21 +1143,33 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: obj
+        type: IsoMovingObject
   - name: removeFromWindowList
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: window
+        type: IsoWindow
   - name: removeHeatSource
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: heatSource
+        type: IsoHeatSource
   - name: removeLamppost
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: light
+        type: IsoLightSource
   - name: removeLamppost
     modifiers:
       - public
@@ -1016,7 +1179,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: render
     modifiers:
       - public
@@ -1027,21 +1192,33 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: zza
+        type: int
   - name: RenderTiles
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MaxHeight
+        type: int
   - name: resumeVehicleSounds
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: roomSpotted
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: room
+        type: IsoRoom
   - name: save
     modifiers:
       - public
@@ -1050,6 +1227,8 @@ methods:
     parameters:
       - name: output
         type: DataOutputStream
+      - name: bDoChars
+        type: boolean
   - name: savePlayer
     modifiers:
       - public
@@ -1061,11 +1240,10 @@ methods:
       - static
     return:
       type: void
-  - name: setCacheChunk
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: scores
+        type: Stack
+        generic: Stack<BuildingScore>
   - name: setCacheChunk
     modifiers:
       - public
@@ -1074,6 +1252,16 @@ methods:
     parameters:
       - name: chunk
         type: IsoChunk
+  - name: setCacheChunk
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
+      - name: playerIndex
+        type: int
   - name: setCacheGridSquare
     modifiers:
       - public
@@ -1083,9 +1271,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: square
+        type: IsoGridSquare
   - name: setCacheGridSquareLocal
     modifiers:
       - public
@@ -1095,31 +1285,49 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: square
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: playerIndex
+        type: int
   - name: setCurrentLightX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentLX
+        type: int
+        notes: the currentLX to set
   - name: setCurrentLightY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentLY
+        type: int
+        notes: the currentLY to set
   - name: setCurrentLightZ
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentLZ
+        type: int
+        notes: the currentLZ to set
   - name: setDangerUpdate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dangerUpdate
+        type: OnceEvery
+        notes: the dangerUpdate to set
   - name: setDrag
     modifiers:
       - public
@@ -1128,71 +1336,121 @@ methods:
     parameters:
       - name: item
         type: se.krka.kahlua.vm.KahluaTable
+      - name: player
+        type: int
   - name: setHeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: height
+        type: int
+        notes: the height to set
   - name: setLightInfoUpdate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: LightInfoUpdate
+        type: Thread
+        notes: the LightInfoUpdate to set
   - name: setMaxX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxX
+        type: int
+        notes: the maxX to set
   - name: setMaxY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxY
+        type: int
+        notes: the maxY to set
   - name: setMaxZ
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxZ
+        type: int
+        notes: the maxZ to set
   - name: setMinX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: minX
+        type: int
+        notes: the minX to set
   - name: setMinY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: minY
+        type: int
+        notes: the minY to set
   - name: setMinZ
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: minZ
+        type: int
+        notes: the minZ to set
   - name: setRainAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alpha
+        type: int
   - name: setRainIntensity
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: intensity
+        type: int
   - name: setRainSpeed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: speed
+        type: int
   - name: setSafeToAdd
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: safeToAdd
+        type: boolean
+        notes: the safeToAdd to set
   - name: setSnowTarget
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: target
+        type: int
   - name: setStencilValue
     modifiers:
       - public
@@ -1202,9 +1460,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: stencil
+        type: int
   - name: setStencilValue2z
     modifiers:
       - public
@@ -1214,24 +1474,38 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: stencil
+        type: int
   - name: setWidth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: width
+        type: int
+        notes: the width to set
   - name: setWorldX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldX
+        type: int
+        notes: the worldX to set
   - name: setWorldY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldY
+        type: int
+        notes: the worldY to set
   - name: toIntColor
     modifiers:
       - public
@@ -1242,9 +1516,11 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: update
     modifiers:
       - public

@@ -10,12 +10,18 @@ constructors:
   - name: VehiclePart
     modifiers:
       - public
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
 methods:
   - name: addChild
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: child
+        type: VehiclePart
   - name: AddDeviceText
     modifiers:
       - public
@@ -25,15 +31,17 @@ methods:
       - name: line
         type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: guid
-        type: " String"
+        type: String
       - name: codes
-        type: " String"
+        type: String
+      - name: distance
+        type: int
   - name: createSignalDevice
     modifiers:
       - public
@@ -48,18 +56,23 @@ methods:
       - name: xOffset
         type: float
       - name: yOffset
-        type: " float"
+        type: float
       - name: dist
-        type: " float"
+        type: float
       - name: intensity
-        type: " float"
+        type: float
       - name: dot
-        type: " float"
+        type: float
+      - name: focusing
+        type: int
   - name: damage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: int
   - name: doInventoryItemStats
     modifiers:
       - public
@@ -68,6 +81,8 @@ methods:
     parameters:
       - name: newItem
         type: InventoryItem
+      - name: mechanicSkill
+        type: int
   - name: findWindow
     modifiers:
       - public
@@ -78,6 +93,9 @@ methods:
       - public
     return:
       type: VehicleScript.Anim
+    parameters:
+      - name: id
+        type: String
   - name: getArea
     modifiers:
       - public
@@ -98,6 +116,9 @@ methods:
       - public
     return:
       type: VehiclePart
+    parameters:
+      - name: index
+        type: int
   - name: getChildCount
     modifiers:
       - public
@@ -123,6 +144,9 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getContainerContentAmount
     modifiers:
       - public
@@ -214,6 +238,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getMechanicSkillInstaller
     modifiers:
       - public
@@ -234,7 +261,9 @@ methods:
       - name: number
         type: float
       - name: cond
-        type: " float"
+        type: float
+      - name: min
+        type: float
   - name: getParent
     modifiers:
       - public
@@ -265,6 +294,9 @@ methods:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: id
+        type: String
   - name: getVehicle
     modifiers:
       - public
@@ -343,6 +375,8 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: repair
     modifiers:
       - public
@@ -353,31 +387,49 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setAllModelsVisible
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: visible
+        type: boolean
   - name: setCategory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: category
+        type: String
   - name: setCondition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: condition
+        type: int
   - name: setContainerCapacity
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: cap
+        type: int
   - name: setContainerContentAmount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: float
   - name: setContainerContentAmount
     modifiers:
       - public
@@ -387,22 +439,33 @@ methods:
       - name: amount
         type: float
       - name: force
-        type: " boolean"
+        type: boolean
+      - name: noUpdateMass
+        type: boolean
   - name: setDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: d
+        type: float
   - name: setDeviceData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: data
+        type: DeviceData
   - name: setEngineLoudness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: engineLoudness
+        type: float
   - name: setGeneralCondition
     modifiers:
       - public
@@ -412,12 +475,9 @@ methods:
       - name: item
         type: InventoryItem
       - name: baseQuality
-        type: " float"
-  - name: setInventoryItem
-    modifiers:
-      - public
-    return:
-      type: void
+        type: float
+      - name: chanceToSpawnDamaged
+        type: float
   - name: setInventoryItem
     modifiers:
       - public
@@ -426,26 +486,48 @@ methods:
     parameters:
       - name: item
         type: InventoryItem
+  - name: setInventoryItem
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: mechanicSkill
+        type: int
   - name: setItemContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: container
+        type: ItemContainer
   - name: setLastUpdated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hours
+        type: float
   - name: setLightActive
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: active
+        type: boolean
   - name: setMechanicSkillInstaller
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mechanicSkillInstaller
+        type: int
   - name: setModelVisible
     modifiers:
       - public
@@ -454,36 +536,56 @@ methods:
     parameters:
       - name: id
         type: String
+      - name: visible
+        type: boolean
   - name: setRandomCondition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: setScriptPart
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: scriptPart
+        type: VehicleScript.Part
   - name: setSpecificItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: specificItem
+        type: boolean
   - name: setSuspensionCompression
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: suspensionCompression
+        type: float
   - name: setSuspensionDamping
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: suspensionDamping
+        type: float
   - name: setWheelFriction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: wheelFriction
+        type: float
   - name: updateSignalDevice
     modifiers:
       - public

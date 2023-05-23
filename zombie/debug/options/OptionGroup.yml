@@ -16,18 +16,26 @@ constructors:
   - name: OptionGroup
     modifiers:
       - public
+    parameters:
+      - name: groupName
+        type: String
   - name: OptionGroup
     modifiers:
       - public
     parameters:
       - name: parentGroup
         type: IDebugOptionGroup
+      - name: groupName
+        type: String
 methods:
   - name: addChild
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: childOption
+        type: IDebugOption
   - name: getChildren
     modifiers:
       - public
@@ -53,6 +61,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: defaultValue
+        type: boolean
   - name: newDebugOnlyOption
     modifiers:
       - public
@@ -63,7 +73,9 @@ methods:
       - name: parentGroup
         type: IDebugOptionGroup
       - name: name
-        type: " String"
+        type: String
+      - name: defaultValue
+        type: boolean
   - name: newOption
     modifiers:
       - public
@@ -73,6 +85,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: defaultValue
+        type: boolean
   - name: newOption
     modifiers:
       - public
@@ -83,19 +97,30 @@ methods:
       - name: parentGroup
         type: IDebugOptionGroup
       - name: name
-        type: " String"
+        type: String
+      - name: defaultValue
+        type: boolean
   - name: onChildAdded
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: newOption
+        type: IDebugOption
   - name: onDescendantAdded
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: newOption
+        type: IDebugOption
   - name: setParent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: parent
+        type: IDebugOptionGroup

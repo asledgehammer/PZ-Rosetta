@@ -60,11 +60,13 @@ constructors:
       - name: _sprites
         type: ErosionObjSprites
       - name: _cycleTime
-        type: " int"
+        type: int
       - name: _bloomstart
-        type: " float"
+        type: float
       - name: _bloomend
-        type: " float"
+        type: float
+      - name: _noSeasonBase
+        type: boolean
 methods:
   - name: createObject
     modifiers:
@@ -75,9 +77,11 @@ methods:
       - name: _sq
         type: IsoGridSquare
       - name: _stage
-        type: " int"
+        type: int
       - name: _bTree
-        type: " boolean"
+        type: boolean
+      - name: _season
+        type: int
   - name: getObject
     modifiers:
       - public
@@ -86,6 +90,8 @@ methods:
     parameters:
       - name: _sq
         type: IsoGridSquare
+      - name: _bRemove
+        type: boolean
   - name: placeObject
     modifiers:
       - public
@@ -95,16 +101,21 @@ methods:
       - name: _sq
         type: IsoGridSquare
       - name: _stage
-        type: " int"
+        type: int
       - name: _bTree
-        type: " boolean"
+        type: boolean
       - name: _season
-        type: " int"
+        type: int
+      - name: _bloom
+        type: boolean
   - name: removeObject
     modifiers:
       - public
     return:
       type: IsoObject
+    parameters:
+      - name: _sq
+        type: IsoGridSquare
   - name: setStage
     modifiers:
       - public
@@ -114,9 +125,11 @@ methods:
       - name: _sq
         type: IsoGridSquare
       - name: _stage
-        type: " int"
+        type: int
       - name: _season
-        type: " int"
+        type: int
+      - name: _bloom
+        type: boolean
   - name: setStageObject
     modifiers:
       - public
@@ -126,6 +139,8 @@ methods:
       - name: _stage
         type: int
       - name: _object
-        type: " IsoObject"
+        type: IsoObject
       - name: _season
-        type: " int"
+        type: int
+      - name: _bloom
+        type: boolean

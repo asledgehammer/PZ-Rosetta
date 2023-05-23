@@ -28,6 +28,9 @@ constructors:
   - name: NetworkCharacterAI
     modifiers:
       - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
 methods:
   - name: addTeleportData
     modifiers:
@@ -37,6 +40,8 @@ methods:
     parameters:
       - name: time
         type: int
+      - name: prediction
+        type: String
   - name: checkPosition
     modifiers:
       - public
@@ -46,9 +51,11 @@ methods:
       - name: connection
         type: UdpConnection
       - name: character
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: x
-        type: " float"
+        type: float
+      - name: y
+        type: float
   - name: clearTeleportDebug
     modifiers:
       - public
@@ -124,21 +131,33 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: action
+        type: BaseAction
   - name: setDeadBody
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: packet
+        type: DeadCharacterPacket
   - name: setLocal
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: wasLocal
+        type: boolean
   - name: setNoCollision
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: interval
+        type: long
   - name: setOverride
     modifiers:
       - public
@@ -148,22 +167,33 @@ methods:
       - name: override
         type: boolean
       - name: primaryHandModel
-        type: " String"
+        type: String
+      - name: secondaryHandModel
+        type: String
   - name: setPerformingAction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: animation
+        type: String
   - name: setTeleportDebug
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: teleportDebug
+        type: NetworkTeleport.NetworkTeleportDebug
   - name: setVehicleHit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: packet
+        type: VehicleHitPacket
   - name: startAction
     modifiers:
       - public

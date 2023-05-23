@@ -16,11 +16,13 @@ methods:
       - name: zoom
         type: float
       - name: r
-        type: " int"
+        type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: a
+        type: int
   - name: addScale
     modifiers:
       - public
@@ -28,6 +30,8 @@ methods:
       type: void
     parameters:
       - name: zoom
+        type: float
+      - name: scale
         type: float
   - name: addTexture
     modifiers:
@@ -37,26 +41,40 @@ methods:
     parameters:
       - name: zoom
         type: float
+      - name: texturePath
+        type: String
   - name: getFillAlpha
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
   - name: getFillBlue
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
   - name: getFillGreen
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
   - name: getFillRed
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
   - name: getFillStops
     modifiers:
       - public
@@ -67,6 +85,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: index
+        type: int
   - name: getFilterKey
     modifiers:
       - public
@@ -82,11 +103,17 @@ methods:
       - public
     return:
       type: Texture
+    parameters:
+      - name: index
+        type: int
   - name: getTexturePath
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: index
+        type: int
   - name: getTextureStops
     modifiers:
       - public
@@ -97,6 +124,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: index
+        type: int
   - name: moveFill
     modifiers:
       - public
@@ -104,6 +134,8 @@ methods:
       type: void
     parameters:
       - name: indexFrom
+        type: int
+      - name: indexTo
         type: int
   - name: moveTexture
     modifiers:
@@ -113,16 +145,24 @@ methods:
     parameters:
       - name: indexFrom
         type: int
+      - name: indexTo
+        type: int
   - name: removeFill
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: index
+        type: int
   - name: removeTexture
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: index
+        type: int
   - name: setFillRGBA
     modifiers:
       - public
@@ -132,11 +172,13 @@ methods:
       - name: index
         type: int
       - name: r
-        type: " int"
+        type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: a
+        type: int
   - name: setFillZoom
     modifiers:
       - public
@@ -145,6 +187,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: zoom
+        type: float
   - name: setFilter
     modifiers:
       - public
@@ -152,6 +196,8 @@ methods:
       type: void
     parameters:
       - name: key
+        type: String
+      - name: value
         type: String
   - name: setTexturePath
     modifiers:
@@ -161,6 +207,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: texturePath
+        type: String
   - name: setTextureZoom
     modifiers:
       - public
@@ -169,3 +217,5 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: zoom
+        type: float

@@ -27,6 +27,9 @@ constructors:
   - name: StaticAnimation
     modifiers:
       - public
+    parameters:
+      - name: clip
+        type: AnimationClip
 methods:
   - name: Create
     modifiers:
@@ -38,6 +41,10 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: frames
+        type: List
+        generic: List<Keyframe>
   - name: getPose
     modifiers:
       - public
@@ -51,6 +58,8 @@ methods:
     parameters:
       - name: out
         type: org.lwjgl.util.vector.Vector3f
+      - name: bone
+        type: int
   - name: getRotation
     modifiers:
       - public
@@ -59,11 +68,17 @@ methods:
     parameters:
       - name: out
         type: org.lwjgl.util.vector.Quaternion
+      - name: bone
+        type: int
   - name: interpolate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: frames
+        type: List
+        generic: List<Keyframe>
   - name: interpolate
     modifiers:
       - public
@@ -73,3 +88,5 @@ methods:
       - name: frames
         type: List
         generic: List<Keyframe>
+      - name: time
+        type: float

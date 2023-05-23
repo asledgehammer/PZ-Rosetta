@@ -51,7 +51,9 @@ constructors:
       - name: anims
         type: StaticAnimation[]
       - name: model
-        type: " SoftwareModelMesh"
+        type: SoftwareModelMesh
+      - name: skinning
+        type: SkinningData
 methods:
   - name: Draw
     modifiers:
@@ -62,7 +64,9 @@ methods:
       - name: frame
         type: int
       - name: offset
-        type: " int"
+        type: int
+      - name: name
+        type: String
   - name: updateSkin
     modifiers:
       - public
@@ -72,12 +76,17 @@ methods:
       - name: matrixPalette
         type: org.lwjgl.util.vector.Matrix4f[]
       - name: vertices
-        type: " VertexPositionNormalTangentTextureSkin[]"
+        type: VertexPositionNormalTangentTextureSkin[]
+      - name: n
+        type: int
   - name: UpdateSkinTransforms
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: skinningDataValue
+        type: SkinningData
   - name: UpdateWorldTransforms
     modifiers:
       - public
@@ -87,4 +96,6 @@ methods:
       - name: rootTransform
         type: org.lwjgl.util.vector.Matrix4f
       - name: angle
-        type: " float"
+        type: float
+      - name: skinningDataValue
+        type: SkinningData

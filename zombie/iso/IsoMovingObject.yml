@@ -91,12 +91,17 @@ constructors:
   - name: IsoMovingObject
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoMovingObject
     modifiers:
       - public
     parameters:
       - name: cell
         type: IsoCell
+      - name: bObjectListAdd
+        type: boolean
   - name: IsoMovingObject
     modifiers:
       - public
@@ -104,9 +109,11 @@ constructors:
       - name: cell
         type: IsoCell
       - name: square
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: spr
-        type: " IsoSprite"
+        type: IsoSprite
+      - name: bObjectListAdd
+        type: boolean
   - name: IsoMovingObject
     modifiers:
       - public
@@ -124,11 +131,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: obj
+        type: IsoObject
   - name: compareToY
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: other
+        type: IsoMovingObject
   - name: Despawn
     modifiers:
       - public
@@ -139,6 +152,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: other
+        type: IsoMovingObject
   - name: DistTo
     modifiers:
       - public
@@ -146,6 +162,8 @@ methods:
       type: float
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: distToNearestCamCharacter
     modifiers:
@@ -157,11 +175,17 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: other
+        type: IsoObject
   - name: DistToSquared
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: other
+        type: IsoMovingObject
   - name: DistToSquared
     modifiers:
       - public
@@ -169,6 +193,8 @@ methods:
       type: float
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: DoCollideNorS
     modifiers:
@@ -200,6 +226,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: bumped
+        type: IsoGameCharacter
   - name: getCollidedObject
     modifiers:
       - public
@@ -232,6 +261,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: other
+        type: IsoMovingObject
   - name: getEatingZombies
     modifiers:
       - public
@@ -243,6 +275,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: pos
+        type: Vector2
   - name: getFeelersize
     modifiers:
       - public
@@ -254,6 +289,9 @@ methods:
       - public
     return:
       type: IsoGridSquare
+    parameters:
+      - name: dist
+        type: float
   - name: getFuturWalkedSquare
     modifiers:
       - public
@@ -269,6 +307,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: bDoNoises
+        type: boolean
   - name: getHitDir
     modifiers:
       - public
@@ -403,6 +444,9 @@ methods:
     return:
       type: Vector3
       notes: The out parameter.
+    parameters:
+      - name: out
+        type: Vector3
     notes: Get the object's position. Stored in the supplied parameter.
   - name: getScreenX
     modifiers:
@@ -459,6 +503,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: moveForwardVec
+        type: Vector2
   - name: getVectorFromDirection
     modifiers:
       - public
@@ -468,6 +515,8 @@ methods:
     parameters:
       - name: moveForwardVec
         type: Vector2
+      - name: dir
+        type: IsoDirections
   - name: getWeight
     modifiers:
       - public
@@ -480,6 +529,8 @@ methods:
       type: float
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: getWidth
     modifiers:
@@ -511,11 +562,13 @@ methods:
       - name: weapon
         type: HandWeapon
       - name: wielder
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: damageSplit
-        type: " float"
+        type: float
       - name: bIgnoreDamage
-        type: " boolean"
+        type: boolean
+      - name: modDelta
+        type: float
   - name: isbAltCollide
     modifiers:
       - public
@@ -595,6 +648,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: other
+        type: IsoMovingObject
   - name: isFirstUpdate
     modifiers:
       - public
@@ -616,6 +672,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: other
+        type: IsoMovingObject
   - name: isShootable
     modifiers:
       - public
@@ -647,17 +706,25 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: Move
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dir
+        type: Vector2
   - name: MoveUnmodded
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dir
+        type: Vector2
   - name: onMouseRightClick
     modifiers:
       - public
@@ -665,6 +732,8 @@ methods:
       type: void
     parameters:
       - name: lx
+        type: int
+      - name: ly
         type: int
   - name: onMouseRightReleased
     modifiers:
@@ -704,6 +773,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: separate
     modifiers:
       - public
@@ -715,162 +786,287 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bAltCollide
+        type: boolean
+        notes: the bAltCollide to set
   - name: setCloseKilled
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: closeKilled
+        type: boolean
   - name: setCollidable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Collidable
+        type: boolean
+        notes: the Collidable to set
   - name: setCollidedE
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collidedE
+        type: boolean
+        notes: the collidedE to set
   - name: setCollidedN
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collidedN
+        type: boolean
+        notes: the collidedN to set
   - name: setCollidedObject
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CollidedObject
+        type: IsoObject
+        notes: the CollidedObject to set
   - name: setCollidedS
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collidedS
+        type: boolean
+        notes: the collidedS to set
   - name: setCollidedThisFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collidedThisFrame
+        type: boolean
+        notes: the collidedThisFrame to set
   - name: setCollidedW
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collidedW
+        type: boolean
+        notes: the collidedW to set
   - name: setCollidedWithDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CollidedWithDoor
+        type: boolean
+        notes: the CollidedWithDoor to set
   - name: setCollideType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collideType
+        type: String
   - name: setCurrent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: current
+        type: IsoGridSquare
+        notes: the current to set
   - name: setDestroyed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: destroyed
+        type: boolean
+        notes: the destroyed to set
   - name: setEatingZombies
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: zeds
+        type: ArrayList
+        generic: ArrayList<IsoZombie>
   - name: setFeelersize
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: feelersize
+        type: float
+        notes: the feelersize to set
   - name: setFirstUpdate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: firstUpdate
+        type: boolean
+        notes: the firstUpdate to set
   - name: setHitDir
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hitDir
+        type: Vector2
+        notes: the hitDir to set
   - name: setHitForce
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hitForce
+        type: float
+        notes: the hitForce to set
   - name: setHitFromAngle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hitFromAngle
+        type: float
+        notes: the hitFromAngle to set
   - name: setID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ID
+        type: int
+        notes: the ID to set
   - name: setIDCount
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: aIDCount
+        type: int
+        notes: the IDCount to set
   - name: setImpulsex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: impulsex
+        type: float
+        notes: the impulsex to set
   - name: setImpulsey
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: impulsey
+        type: float
+        notes: the impulsey to set
   - name: setLast
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: last
+        type: IsoGridSquare
+        notes: the last to set
   - name: setLastCollideTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lastCollideTime
+        type: float
   - name: setLastTargettedBy
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lastTargettedBy
+        type: IsoZombie
+        notes: the lastTargettedBy to set
   - name: setLimpulsex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: limpulsex
+        type: float
+        notes: the limpulsex to set
   - name: setLimpulsey
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: limpulsey
+        type: float
+        notes: the limpulsey to set
   - name: setLx
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lx
+        type: float
+        notes: the lx to set
   - name: setLy
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ly
+        type: float
+        notes: the ly to set
   - name: setLz
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lz
+        type: float
+        notes: the lz to set
   - name: setMovementLastFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: movementLastFrame
+        type: Vector2
+        notes: the movementLastFrame to set
   - name: setMovingSquareNow
     modifiers:
       - public
@@ -881,96 +1077,170 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: dmg
+        type: boolean
+        notes: whether the object should take damage.
   - name: setNx
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: nx
+        type: float
+        notes: the nx to set
   - name: setNy
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ny
+        type: float
+        notes: the ny to set
   - name: setOnFloor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bOnFloor
+        type: boolean
   - name: setPathFindIndex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: PathFindIndex
+        type: int
+        notes: the PathFindIndex to set
   - name: setScriptModule
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ScriptModule
+        type: String
+        notes: the ScriptModule to set
   - name: setScriptnx
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: scriptnx
+        type: float
+        notes: the scriptnx to set
   - name: setScriptny
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: scriptny
+        type: float
+        notes: the scriptny to set
   - name: setShootable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: shootable
+        type: boolean
+        notes: the shootable to set
   - name: setSolid
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: solid
+        type: boolean
+        notes: the solid to set
   - name: setStateEventDelayTimer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StateEventDelayTimer
+        type: float
+        notes: the StateEventDelayTimer to set
   - name: setThumpTarget
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: thumpTarget
+        type: Thumpable
+        notes: the thumpTarget to set
   - name: setTimeSinceZombieAttack
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: TimeSinceZombieAttack
+        type: int
+        notes: the TimeSinceZombieAttack to set
   - name: setWeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weight
+        type: float
+        notes: the weight to set
   - name: setWidth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: width
+        type: float
+        notes: the width to set
   - name: setX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: x
+        type: float
+        notes: the x to set
   - name: setY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: y
+        type: float
+        notes: the y to set
   - name: setZ
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: z
+        type: float
+        notes: the z to set
   - name: setZombiesDontAttack
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: spotted
     modifiers:
       - public
@@ -979,6 +1249,8 @@ methods:
     parameters:
       - name: other
         type: IsoMovingObject
+      - name: bForced
+        type: boolean
   - name: update
     modifiers:
       - public

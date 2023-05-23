@@ -73,6 +73,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
     notes: Add the supplied character to the visible render list.
   - name: addAnimationClip
     modifiers:
@@ -82,6 +85,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: clip
+        type: AnimationClip
   - name: addStatic
     modifiers:
       - public
@@ -91,9 +96,11 @@ methods:
       - name: parentInst
         type: ModelInstance
       - name: modelName
-        type: " String"
+        type: String
       - name: attachNameSelf
-        type: " String"
+        type: String
+      - name: attachNameParent
+        type: String
   - name: addStatic
     modifiers:
       - public
@@ -103,11 +110,13 @@ methods:
       - name: slot
         type: ModelManager.ModelSlot
       - name: meshName
-        type: " String"
+        type: String
       - name: texName
-        type: " String"
+        type: String
       - name: boneName
-        type: " String"
+        type: String
+      - name: shaderName
+        type: String
   - name: addStaticForcedTex
     modifiers:
       - public
@@ -117,26 +126,37 @@ methods:
       - name: parentInst
         type: ModelInstance
       - name: modelName
-        type: " String"
+        type: String
       - name: attachNameSelf
-        type: " String"
+        type: String
       - name: attachNameParent
-        type: " String"
+        type: String
+      - name: forcedTex
+        type: String
   - name: addVehicle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
   - name: animationAssetLoaded
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: animationAsset
+        type: AnimationAsset
   - name: ContainsChar
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
     notes: Returns TRUE if the character is currently in the visible render list,
       and has not been flagged for removal.
   - name: create
@@ -149,16 +169,26 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: modelInstance
+        type: ModelInstance
   - name: derefModelInstances
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: modelInstances
+        type: ArrayList
+        generic: ArrayList<ModelInstance>
   - name: dressInRandomOutfit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getAllAnimationClips
     modifiers:
       - public
@@ -170,11 +200,17 @@ methods:
       - public
     return:
       type: AnimationClip
+    parameters:
+      - name: name
+        type: String
   - name: getBodyModel
     modifiers:
       - public
     return:
       type: Model
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getClosestThreeLights
     modifiers:
       - public
@@ -183,11 +219,16 @@ methods:
     parameters:
       - name: chr
         type: IsoMovingObject
+      - name: ret
+        type: IsoLightSource[]
   - name: getLoadedModel
     modifiers:
       - public
     return:
       type: Model
+    parameters:
+      - name: meshName
+        type: String
   - name: getLoadedModel
     modifiers:
       - public
@@ -197,14 +238,19 @@ methods:
       - name: meshName
         type: String
       - name: tex
-        type: " String"
+        type: String
       - name: isStatic
-        type: " boolean"
+        type: boolean
+      - name: shaderName
+        type: String
   - name: getSlot
     modifiers:
       - public
     return:
       type: ModelManager.ModelSlot
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getTextureFlags
     modifiers:
       - public
@@ -215,6 +261,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bReloading
+        type: boolean
   - name: isCreated
     modifiers:
       - public
@@ -234,9 +283,11 @@ methods:
       - name: meshName
         type: String
       - name: tex
-        type: " String"
+        type: String
       - name: bStatic
-        type: " boolean"
+        type: boolean
+      - name: shaderName
+        type: String
   - name: loadModAnimations
     modifiers:
       - public
@@ -251,7 +302,9 @@ methods:
       - name: meshName
         type: String
       - name: tex
-        type: " String"
+        type: String
+      - name: shaderName
+        type: String
   - name: newAdditionalModelInstance
     modifiers:
       - public
@@ -261,11 +314,13 @@ methods:
       - name: meshName
         type: String
       - name: tex
-        type: " String"
+        type: String
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: animPlayer
-        type: " AnimationPlayer"
+        type: AnimationPlayer
+      - name: shaderName
+        type: String
   - name: newInstance
     modifiers:
       - public
@@ -275,7 +330,9 @@ methods:
       - name: model
         type: Model
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: player
+        type: AnimationPlayer
   - name: newStaticInstance
     modifiers:
       - public
@@ -285,11 +342,13 @@ methods:
       - name: slot
         type: ModelManager.ModelSlot
       - name: meshName
-        type: " String"
+        type: String
       - name: texName
-        type: " String"
+        type: String
       - name: boneName
-        type: " String"
+        type: String
+      - name: shaderName
+        type: String
   - name: putLoadedModel
     modifiers:
       - public
@@ -299,11 +358,13 @@ methods:
       - name: name
         type: String
       - name: tex
-        type: " String"
+        type: String
       - name: isStatic
-        type: " boolean"
+        type: boolean
       - name: shaderName
-        type: " String"
+        type: String
+      - name: model
+        type: Model
   - name: reloadAllOutfits
     modifiers:
       - public
@@ -314,16 +375,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: meshName
+        type: String
   - name: Remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: Remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
   - name: RenderParticles
     modifiers:
       - public
@@ -333,7 +403,9 @@ methods:
       - name: texd
         type: TextureDraw
       - name: userId
-        type: " int"
+        type: int
+      - name: va11
+        type: int
   - name: RenderPuddles
     modifiers:
       - public
@@ -343,7 +415,9 @@ methods:
       - name: shaderID
         type: int
       - name: userId
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: RenderSkyBox
     modifiers:
       - public
@@ -353,11 +427,13 @@ methods:
       - name: texd
         type: TextureDraw
       - name: shaderID
-        type: " int"
+        type: int
       - name: userId
-        type: " int"
+        type: int
       - name: apiId
-        type: " int"
+        type: int
+      - name: bufferId
+        type: int
   - name: RenderWater
     modifiers:
       - public
@@ -367,32 +443,44 @@ methods:
       - name: texd
         type: TextureDraw
       - name: shaderID
-        type: " int"
+        type: int
       - name: userId
-        type: " int"
+        type: int
+      - name: bShore
+        type: boolean
   - name: Reset
     modifiers:
       - public
     return:
       type: void
+  - name: Reset
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
+        notes: the character to reset
     notes: |-
       Reset
        Resets the specified character.
-  - name: Reset
-    modifiers:
-      - public
-    return:
-      type: void
   - name: ResetCharacterEquippedHands
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: ResetEquippedNextFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isoGameCharacter
+        type: IsoGameCharacter
   - name: resetModelInstance
     modifiers:
       - public
@@ -401,6 +489,8 @@ methods:
     parameters:
       - name: modelInstance
         type: ModelInstance
+      - name: expectedOwner
+        type: Object
   - name: resetModelInstanceRecurse
     modifiers:
       - public
@@ -409,6 +499,8 @@ methods:
     parameters:
       - name: modelInstance
         type: ModelInstance
+      - name: expectedOwner
+        type: Object
   - name: resetModelInstancesRecurse
     modifiers:
       - public
@@ -418,11 +510,16 @@ methods:
       - name: modelInstances
         type: ArrayList
         generic: ArrayList<ModelInstance>
+      - name: expectedOwner
+        type: Object
   - name: ResetNextFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isoGameCharacter
+        type: IsoGameCharacter
   - name: setModelMetaData
     modifiers:
       - public
@@ -432,9 +529,11 @@ methods:
       - name: meshName
         type: String
       - name: texName
-        type: " String"
+        type: String
       - name: shaderName
-        type: " String"
+        type: String
+      - name: bStatic
+        type: boolean
   - name: setModelMetaData
     modifiers:
       - public
@@ -444,11 +543,13 @@ methods:
       - name: modelId
         type: String
       - name: meshName
-        type: " String"
+        type: String
       - name: texName
-        type: " String"
+        type: String
       - name: shaderName
-        type: " String"
+        type: String
+      - name: bStatic
+        type: boolean
   - name: tryGetLoadedModel
     modifiers:
       - public
@@ -458,11 +559,13 @@ methods:
       - name: meshName
         type: String
       - name: tex
-        type: " String"
+        type: String
       - name: isStatic
-        type: " boolean"
+        type: boolean
       - name: shaderName
-        type: " String"
+        type: String
+      - name: logError
+        type: boolean
   - name: update
     modifiers:
       - public

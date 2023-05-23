@@ -9,6 +9,9 @@ constructors:
   - name: SafetyPacket
     modifiers:
       - public
+    parameters:
+      - name: safety
+        type: Safety
   - name: SafetyPacket
     modifiers:
       - public
@@ -36,6 +39,8 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
+      - name: tag
+        type: String
   - name: parse
     modifiers:
       - public
@@ -44,6 +49,8 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: process
     modifiers:
       - public
@@ -54,3 +61,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

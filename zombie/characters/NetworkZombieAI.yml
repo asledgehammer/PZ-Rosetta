@@ -57,6 +57,9 @@ constructors:
   - name: NetworkZombieAI
     modifiers:
       - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
 methods:
   - name: extraUpdate
     modifiers:
@@ -73,14 +76,19 @@ methods:
       - name: character
         type: IsoGameCharacter
       - name: packet
-        type: " ZombiePacket"
+        type: ZombiePacket
       - name: currentTime
-        type: " int"
+        type: int
+      - name: next
+        type: long
   - name: parse
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: packet
+        type: ZombiePacket
   - name: preupdate
     modifiers:
       - public
@@ -96,8 +104,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: packet
+        type: ZombiePacket
   - name: setUpdateTimer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: time
+        type: float

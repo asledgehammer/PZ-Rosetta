@@ -31,24 +31,32 @@ constructors:
       - name: chr
         type: IsoGameCharacter
       - name: type
-        type: " NetworkTeleport.Type"
+        type: NetworkTeleport.Type
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " byte"
+        type: byte
+      - name: _duration
+        type: float
 methods:
   - name: process
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: stop
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: teleport
     modifiers:
       - public
@@ -59,7 +67,9 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: packet
-        type: " PlayerPacket"
+        type: PlayerPacket
+      - name: _duration
+        type: float
   - name: teleport
     modifiers:
       - public
@@ -70,13 +80,15 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: type
-        type: " NetworkTeleport.Type"
+        type: NetworkTeleport.Type
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " byte"
+        type: byte
+      - name: _duration
+        type: float
   - name: update
     modifiers:
       - public
@@ -86,3 +98,5 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: packet
+        type: PlayerPacket

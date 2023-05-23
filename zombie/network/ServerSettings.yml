@@ -9,6 +9,9 @@ constructors:
   - name: ServerSettings
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: addSpawnRegion
     modifiers:
@@ -17,6 +20,8 @@ methods:
       type: void
     parameters:
       - name: name
+        type: String
+      - name: file
         type: String
   - name: clearSpawnRegions
     modifiers:
@@ -33,6 +38,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: newName
+        type: String
   - name: getErrorMsg
     modifiers:
       - public
@@ -63,11 +71,17 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: index
+        type: int
   - name: getSpawnRegionName
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: index
+        type: int
   - name: isValid
     modifiers:
       - public
@@ -83,16 +97,25 @@ methods:
       - public
     return:
       type: se.krka.kahlua.vm.KahluaTable
+    parameters:
+      - name: file
+        type: String
   - name: removeSpawnRegion
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: index
+        type: int
   - name: rename
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: newName
+        type: String
   - name: resetToDefault
     modifiers:
       - public
@@ -111,3 +134,5 @@ methods:
     parameters:
       - name: file
         type: String
+      - name: professionsTable
+        type: se.krka.kahlua.vm.KahluaTable

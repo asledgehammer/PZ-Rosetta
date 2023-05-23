@@ -17,12 +17,18 @@ constructors:
   - name: WorldMapBaseSymbol
     modifiers:
       - public
+    parameters:
+      - name: owner
+        type: WorldMapSymbols
 methods:
   - name: getDisplayScale
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: ui
+        type: UIWorldMap
   - name: getType
     modifiers:
       - public
@@ -34,6 +40,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: ui
+        type: UIWorldMap
   - name: isVisible
     modifiers:
       - public
@@ -48,9 +57,11 @@ methods:
       - name: ui
         type: UIWorldMap
       - name: collisions
-        type: " WorldMapSymbolCollisions"
+        type: WorldMapSymbolCollisions
       - name: rox
-        type: " float"
+        type: float
+      - name: roy
+        type: float
   - name: load
     modifiers:
       - public
@@ -60,7 +71,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: SymbolsVersion
+        type: int
   - name: release
     modifiers:
       - public
@@ -77,12 +90,17 @@ methods:
       - name: ui
         type: UIWorldMap
       - name: rox
-        type: " float"
+        type: float
+      - name: roy
+        type: float
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setAnchor
     modifiers:
       - public
@@ -91,11 +109,16 @@ methods:
     parameters:
       - name: x
         type: float
+      - name: y
+        type: float
   - name: setCollide
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: collide
+        type: boolean
   - name: setPosition
     modifiers:
       - public
@@ -103,6 +126,8 @@ methods:
       type: void
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: setRGBA
     modifiers:
@@ -113,21 +138,32 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setScale
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: scale
+        type: float
   - name: setVisible
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: visible
+        type: boolean
   - name: widthScaled
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: ui
+        type: UIWorldMap

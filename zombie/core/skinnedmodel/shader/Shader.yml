@@ -24,6 +24,8 @@ constructors:
     parameters:
       - name: name
         type: String
+      - name: bStatic
+        type: boolean
 methods:
   - name: End
     modifiers:
@@ -55,11 +57,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: alpha
+        type: float
   - name: setAmbient
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: amb
+        type: float
   - name: setAmbient
     modifiers:
       - public
@@ -69,17 +77,25 @@ methods:
       - name: ambr
         type: float
       - name: ambg
-        type: " float"
+        type: float
+      - name: ambb
+        type: float
   - name: setDepthBias
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bias
+        type: float
   - name: setHueShift
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hue
+        type: float
   - name: setLight
     modifiers:
       - public
@@ -89,21 +105,23 @@ methods:
       - name: index
         type: int
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: rad
-        type: " float"
+        type: float
       - name: animPlayerAngle
-        type: " float"
+        type: float
+      - name: inst
+        type: ModelInstance
   - name: setLight
     modifiers:
       - public
@@ -113,32 +131,37 @@ methods:
       - name: index
         type: int
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: rad
-        type: " float"
+        type: float
       - name: animPlayerAngle
-        type: " float"
+        type: float
       - name: offsetX
-        type: " float"
+        type: float
       - name: offsetY
-        type: " float"
+        type: float
       - name: offsetZ
-        type: " float"
+        type: float
+      - name: instObject
+        type: IsoMovingObject
   - name: setLightingAmount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lighting
+        type: float
   - name: setMatrix
     modifiers:
       - public
@@ -147,6 +170,8 @@ methods:
     parameters:
       - name: location
         type: int
+      - name: matrix4f
+        type: org.joml.Matrix4f
   - name: setMatrix
     modifiers:
       - public
@@ -155,6 +180,8 @@ methods:
     parameters:
       - name: location
         type: int
+      - name: matrix4f
+        type: float[]
   - name: setMatrixBlood1
     modifiers:
       - public
@@ -162,6 +189,8 @@ methods:
       type: void
     parameters:
       - name: matrix1
+        type: float[]
+      - name: matrix2
         type: float[]
   - name: setMatrixBlood2
     modifiers:
@@ -171,21 +200,16 @@ methods:
     parameters:
       - name: matrix1
         type: float[]
+      - name: matrix2
+        type: float[]
   - name: setMatrixPalette
     modifiers:
       - public
     return:
       type: void
-  - name: setMatrixPalette
-    modifiers:
-      - public
-    return:
-      type: void
-  - name: setMatrixPalette
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: skin
+        type: org.lwjgl.util.vector.Matrix4f[]
   - name: setMatrixPalette
     modifiers:
       - public
@@ -194,6 +218,24 @@ methods:
     parameters:
       - name: matrixPalette
         type: FloatBuffer
+  - name: setMatrixPalette
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: skin
+        type: org.joml.Matrix4f[]
+  - name: setMatrixPalette
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: matrixPalette
+        type: FloatBuffer
+      - name: transpose
+        type: boolean
   - name: setReflectionParam
     modifiers:
       - public
@@ -203,12 +245,17 @@ methods:
       - name: timesOfDay
         type: float
       - name: refWindows
-        type: " float"
+        type: float
+      - name: refBody
+        type: float
   - name: setShaderAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: float
   - name: setTexture
     modifiers:
       - public
@@ -218,42 +265,65 @@ methods:
       - name: tex
         type: Texture
       - name: unitName
-        type: " String"
+        type: String
+      - name: textureUnit
+        type: int
   - name: setTextureDamage1Enables1
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTextureDamage1Enables2
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTextureDamage2Enables1
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTextureDamage2Enables2
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTextureLightsEnables1
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTextureLightsEnables2
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTexturePainColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: vec
+        type: org.joml.Vector4f
   - name: setTexturePainColor
     modifiers:
       - public
@@ -262,6 +332,8 @@ methods:
     parameters:
       - name: vec
         type: org.joml.Vector3f
+      - name: a
+        type: float
   - name: setTexturePainColor
     modifiers:
       - public
@@ -271,24 +343,35 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setTextureRustA
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: float
   - name: setTextureUninstall1
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTextureUninstall2
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: matrix4f
+        type: float[]
   - name: setTint
     modifiers:
       - public
@@ -298,7 +381,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: setTransformMatrix
     modifiers:
       - public
@@ -307,6 +392,8 @@ methods:
     parameters:
       - name: matrix4f
         type: org.lwjgl.util.vector.Matrix4f
+      - name: transpose
+        type: boolean
   - name: setTransformMatrix
     modifiers:
       - public
@@ -315,6 +402,8 @@ methods:
     parameters:
       - name: matrix4f
         type: org.joml.Matrix4f
+      - name: transpose
+        type: boolean
   - name: Start
     modifiers:
       - public
@@ -328,6 +417,8 @@ methods:
     parameters:
       - name: slotData
         type: ModelSlotRenderData
+      - name: instData
+        type: ModelInstanceRenderData
   - name: updateAlpha
     modifiers:
       - public
@@ -336,6 +427,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: playerIndex
+        type: int
   - name: updateParams
     modifiers:
       - public

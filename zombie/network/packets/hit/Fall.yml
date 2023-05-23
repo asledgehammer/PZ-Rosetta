@@ -23,16 +23,24 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: process
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
   - name: set
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hitReaction
+        type: HitReactionNetworkAI
   - name: set
     modifiers:
       - public
@@ -42,11 +50,16 @@ methods:
       - name: dropPositionX
         type: float
       - name: dropPositionY
-        type: " float"
+        type: float
       - name: dropPositionZ
-        type: " byte"
+        type: byte
+      - name: dropDirection
+        type: float
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

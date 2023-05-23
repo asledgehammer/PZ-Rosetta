@@ -10,6 +10,9 @@ constructors:
   - name: WorldMapTextSymbol
     modifiers:
       - public
+    parameters:
+      - name: owner
+        type: WorldMapSymbols
 methods:
   - name: getTranslatedText
     modifiers:
@@ -40,7 +43,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: SymbolsVersion
+        type: int
   - name: release
     modifiers:
       - public
@@ -55,19 +60,30 @@ methods:
       - name: ui
         type: UIWorldMap
       - name: rox
-        type: " float"
+        type: float
+      - name: roy
+        type: float
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setTranslatedText
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: text
+        type: String
   - name: setUntranslatedText
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: text
+        type: String

@@ -15,7 +15,9 @@ constructors:
       - name: id
         type: String
       - name: itemDisplayName
-        type: " String"
+        type: String
+      - name: spawning
+        type: int
 methods:
   - name: addLine
     modifiers:
@@ -26,11 +28,13 @@ methods:
       - name: text
         type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: codes
+        type: String
   - name: getAuthorEN
     modifiers:
       - public
@@ -61,6 +65,9 @@ methods:
       - public
     return:
       type: MediaData.MediaLineData
+    parameters:
+      - name: index
+        type: int
   - name: getLineCount
     modifiers:
       - public
@@ -136,18 +143,30 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: author
+        type: String
   - name: setExtra
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: extra
+        type: String
   - name: setSubtitle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: subtitle
+        type: String
   - name: setTitle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: title
+        type: String

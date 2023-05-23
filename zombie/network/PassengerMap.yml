@@ -17,6 +17,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: isChunkLoaded
     modifiers:
       - public
@@ -27,13 +30,18 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: wx
-        type: " int"
+        type: int
+      - name: wy
+        type: int
   - name: render
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: Reset
     modifiers:
       - public
@@ -49,9 +57,14 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: updatePassenger
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer

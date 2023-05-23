@@ -16,6 +16,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: getDescription
     modifiers:
       - public
@@ -28,6 +31,9 @@ methods:
       - static
     return:
       type: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: receiveClientLoginQueueRequest
     modifiers:
       - public
@@ -37,12 +43,17 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: packetType
+        type: short
   - name: receiveLogin
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: receiveLoginQueueDone
     modifiers:
       - public
@@ -53,7 +64,9 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: packetType
+        type: short
   - name: receiveServerLoginQueueRequest
     modifiers:
       - public
@@ -64,7 +77,9 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: connection
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: packetType
+        type: short
   - name: update
     modifiers:
       - public

@@ -38,9 +38,11 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: itemType
-        type: " String"
+        type: String
+      - name: texName
+        type: String
   - name: Food
     modifiers:
       - public
@@ -48,9 +50,11 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: itemType
-        type: " String"
+        type: String
+      - name: item
+        type: Item
 methods:
   - name: canBeFrozen
     modifiers:
@@ -62,6 +66,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: DoTooltip
     modifiers:
       - public
@@ -70,6 +77,8 @@ methods:
     parameters:
       - name: tooltipUI
         type: ObjectTooltip
+      - name: layout
+        type: ObjectTooltip.Layout
   - name: finishupdate
     modifiers:
       - public
@@ -279,6 +288,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: getSpices
     modifiers:
       - public
@@ -427,11 +439,16 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: multiplyFoodValues
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: percentage
+        type: float
   - name: save
     modifiers:
       - public
@@ -440,6 +457,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: setAutoAge
     modifiers:
       - public
@@ -450,211 +469,339 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bBadCold
+        type: boolean
   - name: setBadInMicrowave
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: badInMicrowave
+        type: boolean
   - name: setBaseHunger
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: baseHunger
+        type: float
   - name: setbDangerousUncooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bDangerousUncooked
+        type: boolean
   - name: setCalories
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: calories
+        type: float
   - name: setCanBeFrozen
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: canBeFrozen
+        type: boolean
   - name: setCarbohydrates
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: carbohydrates
+        type: float
   - name: setChef
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chef
+        type: String
   - name: setCompostTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: compostTime
+        type: float
   - name: setCookedInMicrowave
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setCustomEatSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: customEatSound
+        type: String
   - name: setEndChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: endChange
+        type: float
   - name: setEnduranceChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: endChange
+        type: float
   - name: setFluReduction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fluReduction
+        type: int
   - name: setFoodType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: foodType
+        type: String
   - name: setFreezingTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: freezingTime
+        type: float
   - name: setFrozen
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: frozen
+        type: boolean
   - name: setGoodHot
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bGoodHot
+        type: boolean
   - name: setHeat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Heat
+        type: float
   - name: setHerbalistType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: setHungChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hungChange
+        type: float
   - name: setLastCookMinute
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: LastCookMinute
+        type: int
   - name: setLipids
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lipids
+        type: float
   - name: setOnCooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: onCooked
+        type: String
   - name: setOnEat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: onEat
+        type: String
   - name: setPackaged
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: packaged
+        type: boolean
   - name: setPainReduction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: painReduction
+        type: float
   - name: setPoisonDetectionLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: poisonDetectionLevel
+        type: int
   - name: setPoisonLevelForRecipe
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: poisonLevelForRecipe
+        type: Integer
   - name: setPoisonPower
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: poisonPower
+        type: int
   - name: setProteins
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: proteins
+        type: float
   - name: setReduceFoodSickness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ReduceFoodSickness
+        type: int
   - name: setRemoveNegativeEffectOnCooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: removeNegativeEffectOnCooked
+        type: boolean
   - name: setReplaceOnCooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: replaceOnCooked
+        type: List
+        generic: List<String>
   - name: setReplaceOnRotten
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: replaceOnRotten
+        type: String
   - name: setRotten
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: rotten
+        type: boolean
   - name: setRottenTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: time
+        type: float
   - name: setSpice
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isSpice
+        type: boolean
   - name: setSpices
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: spices
+        type: ArrayList
+        generic: ArrayList<String>
   - name: setThirstChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: thirstChange
+        type: float
   - name: setUseForPoison
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: useForPoison
+        type: int
   - name: setUseOnConsume
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: useOnConsume
+        type: String
   - name: shouldUpdateInWorld
     modifiers:
       - public
@@ -675,8 +822,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: outermostContainer
+        type: ItemContainer
   - name: updateSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter

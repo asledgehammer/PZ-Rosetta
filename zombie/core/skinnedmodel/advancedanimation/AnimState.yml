@@ -48,12 +48,18 @@ methods:
     parameters:
       - name: varSource
         type: IAnimationVariableSource
+      - name: nodes
+        type: List
+        generic: List<AnimNode>
   - name: getStateName
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: state
+        type: AnimState
     notes: |-
       Null-safe function that returns a given state's name.
        If null, returns a null
@@ -65,4 +71,6 @@ methods:
       type: AnimState
     parameters:
       - name: name
+        type: String
+      - name: statePath
         type: String

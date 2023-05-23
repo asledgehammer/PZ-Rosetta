@@ -9,17 +9,26 @@ constructors:
   - name: UIWorldMapV1
     modifiers:
       - public
+    parameters:
+      - name: ui
+        type: UIWorldMap
 methods:
   - name: addData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fileName
+        type: String
   - name: addImages
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: directory
+        type: String
   - name: centerOn
     modifiers:
       - public
@@ -27,6 +36,8 @@ methods:
       type: void
     parameters:
       - name: worldX
+        type: float
+      - name: worldY
         type: float
   - name: clearData
     modifiers:
@@ -48,6 +59,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: getCenterWorldX
     modifiers:
       - public
@@ -68,6 +82,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: index
+        type: int
   - name: getDouble
     modifiers:
       - public
@@ -76,6 +93,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: defaultValue
+        type: double
   - name: getHeightInCells
     modifiers:
       - public
@@ -146,6 +165,9 @@ methods:
       - public
     return:
       type: ConfigOption
+    parameters:
+      - name: index
+        type: int
   - name: getOptionCount
     modifiers:
       - public
@@ -209,6 +231,8 @@ methods:
     parameters:
       - name: dx
         type: float
+      - name: dy
+        type: float
   - name: resetView
     modifiers:
       - public
@@ -223,9 +247,11 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setBoolean
     modifiers:
       - public
@@ -234,6 +260,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: boolean
   - name: setBoundsFromData
     modifiers:
       - public
@@ -253,9 +281,11 @@ methods:
       - name: minX
         type: int
       - name: minY
-        type: " int"
+        type: int
       - name: maxX
-        type: " int"
+        type: int
+      - name: maxY
+        type: int
   - name: setBoundsInSquares
     modifiers:
       - public
@@ -265,9 +295,11 @@ methods:
       - name: minX
         type: int
       - name: minY
-        type: " int"
+        type: int
       - name: maxX
-        type: " int"
+        type: int
+      - name: maxY
+        type: int
   - name: setDouble
     modifiers:
       - public
@@ -276,16 +308,24 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: double
   - name: setDropShadowWidth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: width
+        type: int
   - name: setMapItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mapItem
+        type: MapItem
   - name: setUnvisitedGridRGBA
     modifiers:
       - public
@@ -295,9 +335,11 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setUnvisitedRGBA
     modifiers:
       - public
@@ -307,21 +349,18 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setZoom
     modifiers:
       - public
     return:
       type: void
-  - name: uiToWorldX
-    modifiers:
-      - public
-    return:
-      type: float
     parameters:
-      - name: uiX
+      - name: zoom
         type: float
   - name: uiToWorldX
     modifiers:
@@ -332,18 +371,22 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
-      - name: zoomF
-        type: " float"
-      - name: centerWorldX
-        type: " float"
-  - name: uiToWorldY
+        type: float
+  - name: uiToWorldX
     modifiers:
       - public
     return:
       type: float
     parameters:
       - name: uiX
+        type: float
+      - name: uiY
+        type: float
+      - name: zoomF
+        type: float
+      - name: centerWorldX
+        type: float
+      - name: centerWorldY
         type: float
   - name: uiToWorldY
     modifiers:
@@ -354,11 +397,23 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
+  - name: uiToWorldY
+    modifiers:
+      - public
+    return:
+      type: float
+    parameters:
+      - name: uiX
+        type: float
+      - name: uiY
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
+      - name: centerWorldY
+        type: float
   - name: worldOriginX
     modifiers:
       - public
@@ -377,6 +432,8 @@ methods:
     parameters:
       - name: worldX
         type: float
+      - name: worldY
+        type: float
   - name: worldToUIY
     modifiers:
       - public
@@ -384,6 +441,8 @@ methods:
       type: float
     parameters:
       - name: worldX
+        type: float
+      - name: worldY
         type: float
   - name: zoomAt
     modifiers:
@@ -394,4 +453,6 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
+      - name: delta
+        type: float

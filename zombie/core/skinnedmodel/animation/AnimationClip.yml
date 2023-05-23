@@ -32,10 +32,12 @@ constructors:
       - name: duration
         type: float
       - name: keyframes
-        type: " List"
-        generic: " List<Keyframe>"
+        type: List
+        generic: List<Keyframe>
       - name: name
-        type: " String"
+        type: String
+      - name: bKeepLastFrame
+        type: boolean
 methods:
   - name: getBoneFramesAt
     modifiers:
@@ -43,6 +45,9 @@ methods:
     return:
       type: Keyframe
       generic: Keyframe[]
+    parameters:
+      - name: idx
+        type: int
   - name: getKeyframes
     modifiers:
       - public
@@ -54,6 +59,9 @@ methods:
       - public
     return:
       type: Keyframe
+    parameters:
+      - name: idx
+        type: int
   - name: getRootMotionFrameCount
     modifiers:
       - public
@@ -64,3 +72,6 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: deferredBoneAxis
+        type: BoneAxis

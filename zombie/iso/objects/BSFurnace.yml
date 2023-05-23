@@ -50,6 +50,9 @@ constructors:
   - name: BSFurnace
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: BSFurnace
     modifiers:
       - public
@@ -57,15 +60,20 @@ constructors:
       - name: cell
         type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: sprite
-        type: " String"
+        type: String
+      - name: litSprite
+        type: String
 methods:
   - name: addFuel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: float
   - name: addToWorld
     modifiers:
       - public
@@ -101,6 +109,9 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: meltItem
+        type: InventoryItem
   - name: getObjectName
     modifiers:
       - public
@@ -120,7 +131,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: removeFromWorld
     modifiers:
       - public
@@ -134,36 +147,56 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: setFireStarted
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fireStarted
+        type: boolean
   - name: setFuelAmount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: float
   - name: setFuelDecrease
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fuelDecrease
+        type: float
   - name: setHeat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: heat
+        type: float
   - name: setHeatDecrease
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: heatDecrease
+        type: float
   - name: setHeatIncrease
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: heatIncrease
+        type: float
   - name: syncFurnace
     modifiers:
       - public

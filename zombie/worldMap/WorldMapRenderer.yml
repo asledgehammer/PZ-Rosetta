@@ -25,6 +25,8 @@ methods:
     parameters:
       - name: worldX
         type: float
+      - name: worldY
+        type: float
   - name: getAbsoluteX
     modifiers:
       - public
@@ -45,6 +47,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: getCenterWorldX
     modifiers:
       - public
@@ -68,6 +73,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: defaultValue
+        type: double
   - name: getHeight
     modifiers:
       - public
@@ -83,11 +90,17 @@ methods:
       - public
     return:
       type: ConfigOption
+    parameters:
+      - name: index
+        type: int
   - name: getOptionByName
     modifiers:
       - public
     return:
       type: ConfigOption
+    parameters:
+      - name: name
+        type: String
   - name: getOptionCount
     modifiers:
       - public
@@ -113,6 +126,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: zoomF
+        type: float
   - name: getZoom
     modifiers:
       - public
@@ -128,6 +144,9 @@ methods:
       - public
     return:
       type: double
+    parameters:
+      - name: x
+        type: double
   - name: moveView
     modifiers:
       - public
@@ -136,11 +155,16 @@ methods:
     parameters:
       - name: dx
         type: int
+      - name: dy
+        type: int
   - name: render
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ui
+        type: UIWorldMap
   - name: resetView
     modifiers:
       - public
@@ -155,13 +179,15 @@ methods:
       - name: sceneX
         type: float
       - name: sceneY
-        type: " float"
+        type: float
       - name: sceneZ
-        type: " float"
+        type: float
       - name: projection
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
       - name: modelView
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
+      - name: out
+        type: org.joml.Vector3f
   - name: setBoolean
     modifiers:
       - public
@@ -170,6 +196,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: boolean
   - name: setDouble
     modifiers:
       - public
@@ -178,11 +206,16 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: double
   - name: setDropShadowWidth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: width
+        type: int
   - name: setMap
     modifiers:
       - public
@@ -192,21 +225,29 @@ methods:
       - name: worldMap
         type: WorldMap
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: setVisited
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: visited
+        type: WorldMapVisited
   - name: setZoom
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: zoom
+        type: float
   - name: uiToScene
     modifiers:
       - public
@@ -216,11 +257,13 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: projection
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
       - name: modelView
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
+      - name: out
+        type: org.joml.Vector3f
   - name: uiToWorldX
     modifiers:
       - public
@@ -230,11 +273,13 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
+      - name: centerWorldY
+        type: float
   - name: uiToWorldX
     modifiers:
       - public
@@ -244,15 +289,17 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
       - name: centerWorldY
-        type: " float"
+        type: float
       - name: projection
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
+      - name: modelView
+        type: org.joml.Matrix4f
   - name: uiToWorldY
     modifiers:
       - public
@@ -262,11 +309,13 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
+      - name: centerWorldY
+        type: float
   - name: uiToWorldY
     modifiers:
       - public
@@ -276,15 +325,17 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
       - name: centerWorldY
-        type: " float"
+        type: float
       - name: projection
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
+      - name: modelView
+        type: org.joml.Matrix4f
   - name: updateView
     modifiers:
       - public
@@ -298,6 +349,8 @@ methods:
     parameters:
       - name: zoomF
         type: float
+      - name: centerWorldX
+        type: float
   - name: worldOriginUIY
     modifiers:
       - public
@@ -305,6 +358,8 @@ methods:
       type: float
     parameters:
       - name: zoomF
+        type: float
+      - name: centerWorldY
         type: float
   - name: worldToUIX
     modifiers:
@@ -315,15 +370,17 @@ methods:
       - name: worldX
         type: float
       - name: worldY
-        type: " float"
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
       - name: centerWorldY
-        type: " float"
+        type: float
       - name: projection
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
+      - name: modelView
+        type: org.joml.Matrix4f
   - name: worldToUIY
     modifiers:
       - public
@@ -333,15 +390,17 @@ methods:
       - name: worldX
         type: float
       - name: worldY
-        type: " float"
+        type: float
       - name: zoomF
-        type: " float"
+        type: float
       - name: centerWorldX
-        type: " float"
+        type: float
       - name: centerWorldY
-        type: " float"
+        type: float
       - name: projection
-        type: " org.joml.Matrix4f"
+        type: org.joml.Matrix4f
+      - name: modelView
+        type: org.joml.Matrix4f
   - name: zoomAt
     modifiers:
       - public
@@ -351,7 +410,9 @@ methods:
       - name: mouseX
         type: int
       - name: mouseY
-        type: " int"
+        type: int
+      - name: delta
+        type: int
   - name: zoomMult
     modifiers:
       - public
@@ -362,3 +423,6 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: zoomF
+        type: float

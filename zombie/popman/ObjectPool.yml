@@ -13,6 +13,10 @@ constructors:
   - name: ObjectPool
     modifiers:
       - public
+    parameters:
+      - name: alloc
+        type: ObjectPool.Allocator
+        generic: ObjectPool.Allocator<T>
 methods:
   - name: alloc
     modifiers:
@@ -29,28 +33,50 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: consumer
+        type: Consumer
+        generic: Consumer<T>
   - name: release
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: obj
+        type: T
   - name: release
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: objs
+        type: List
+        generic: List<T>
   - name: release
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: objs
+        type: Iterable
+        generic: Iterable<T>
   - name: release
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: objs
+        type: T[]
   - name: releaseAll
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: objs
+        type: List
+        generic: List<T>

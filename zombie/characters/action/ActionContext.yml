@@ -18,6 +18,9 @@ constructors:
   - name: ActionContext
     modifiers:
       - public
+    parameters:
+      - name: owner
+        type: IAnimatable
 methods:
   - name: childStateCount
     modifiers:
@@ -30,18 +33,28 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: eventName
+        type: String
   - name: foreachChildState
     modifiers:
       - public
       - final
     return:
       type: void
+    parameters:
+      - name: consumer
+        type: Consumer
+        generic: Consumer<ActionState>
   - name: getChildStateAt
     modifiers:
       - public
       - final
     return:
       type: ActionState
+    parameters:
+      - name: idx
+        type: int
   - name: getChildStates
     modifiers:
       - public
@@ -94,6 +107,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: eventName
+        type: String
     notes: Returns TRUE if an event has occurred on any layer.
   - name: hasEventOccurred
     modifiers:
@@ -103,6 +119,8 @@ methods:
     parameters:
       - name: eventName
         type: String
+      - name: layerIdx
+        type: int
     notes: Returns TRUE if an event has occurred on the specified layer.
   - name: indexOfChildState
     modifiers:
@@ -110,6 +128,10 @@ methods:
       - final
     return:
       type: int
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<ActionState>
   - name: logCurrentState
     modifiers:
       - public
@@ -120,6 +142,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: event
+        type: String
   - name: reportEvent
     modifiers:
       - public
@@ -128,16 +153,24 @@ methods:
     parameters:
       - name: animLayer
         type: int
+      - name: event
+        type: String
   - name: setGroup
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: group
+        type: ActionGroup
   - name: setPlaybackStateSnapshot
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: snapshot
+        type: ActionStateSnapshot
   - name: update
     modifiers:
       - public

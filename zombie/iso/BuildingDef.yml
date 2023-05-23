@@ -113,6 +113,10 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: tempRooms
+        type: ArrayList
+        generic: ArrayList<RoomDef>
   - name: calculateMetaID
     modifiers:
       - public
@@ -121,11 +125,16 @@ methods:
     parameters:
       - name: cellX
         type: int
+      - name: cellY
+        type: int
   - name: containsRoom
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: Dispose
     modifiers:
       - public
@@ -150,7 +159,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: closestXY
+        type: org.joml.Vector2f
   - name: getFirstRoom
     modifiers:
       - public
@@ -186,11 +197,17 @@ methods:
       - public
     return:
       type: RoomDef
+    parameters:
+      - name: minArea
+        type: int
   - name: getRoom
     modifiers:
       - public
     return:
       type: RoomDef
+    parameters:
+      - name: roomName
+        type: String
   - name: getRooms
     modifiers:
       - public
@@ -265,6 +282,8 @@ methods:
     parameters:
       - name: wx
         type: int
+      - name: wy
+        type: int
   - name: recalculate
     modifiers:
       - public
@@ -280,23 +299,38 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: alarm
+        type: boolean
   - name: setAllExplored
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setHasBeenVisited
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hasBeenVisited
+        type: boolean
   - name: setKeyId
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: keyId
+        type: int
   - name: setKeySpawned
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: keySpawned
+        type: int

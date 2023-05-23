@@ -39,6 +39,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
     notes: check if the spawned item could be a stash item (map or note...)
   - name: doBuildingStash
     modifiers:
@@ -46,6 +49,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: def
+        type: BuildingDef
     notes: Fetch our list of building in which we'll spawn stash, if this building
       correspond, we do the necessary stuff
   - name: doStashItem
@@ -57,6 +63,8 @@ methods:
     parameters:
       - name: stash
         type: Stash
+      - name: item
+        type: InventoryItem
     notes: Public for lua debug stash map
   - name: getPossibleStashes
     modifiers:
@@ -71,6 +79,9 @@ methods:
       - static
     return:
       type: Stash
+    parameters:
+      - name: stashName
+        type: String
   - name: init
     modifiers:
       - public
@@ -94,12 +105,17 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: prepareBuildingStash
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: stashName
+        type: String
     notes: Used when you read an annoted map
   - name: reinit
     modifiers:
@@ -119,11 +135,17 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: visitedBuilding
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: def
+        type: BuildingDef
     notes: Check if the visited building is in one of our random stash, in that case
       we won't spawn any stash for this building

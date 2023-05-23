@@ -20,18 +20,26 @@ methods:
     parameters:
       - name: wx
         type: int
+      - name: wy
+        type: int
   - name: getSystemByIndex
     modifiers:
       - public
       - static
     return:
       type: SGlobalObjectSystem
+    parameters:
+      - name: index
+        type: int
   - name: getSystemByName
     modifiers:
       - public
       - static
     return:
       type: SGlobalObjectSystem
+    parameters:
+      - name: name
+        type: String
   - name: getSystemCount
     modifiers:
       - public
@@ -56,12 +64,18 @@ methods:
       - static
     return:
       type: SGlobalObjectSystem
+    parameters:
+      - name: name
+        type: String
   - name: noise
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: message
+        type: String
   - name: OnIsoObjectChangedItself
     modifiers:
       - public
@@ -71,6 +85,8 @@ methods:
     parameters:
       - name: systemName
         type: String
+      - name: isoObject
+        type: IsoObject
   - name: receiveClientCommand
     modifiers:
       - public
@@ -81,15 +97,20 @@ methods:
       - name: systemName
         type: String
       - name: command
-        type: " String"
+        type: String
       - name: playerObj
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
   - name: registerSystem
     modifiers:
       - public
       - static
     return:
       type: SGlobalObjectSystem
+    parameters:
+      - name: name
+        type: String
   - name: Reset
     modifiers:
       - public
@@ -108,6 +129,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: update
     modifiers:
       - public

@@ -12,7 +12,9 @@ methods:
       - name: format
         type: ISoundSystem.SoundFormat
       - name: path
-        type: " String"
+        type: String
+      - name: rootName
+        type: String
   - name: cacheSound
     return:
       type: void
@@ -20,18 +22,26 @@ methods:
       - name: format
         type: ISoundSystem.SoundFormat
       - name: path
-        type: " String"
+        type: String
       - name: rootName
-        type: " String"
+        type: String
+      - name: nVariants
+        type: int
   - name: clearSoundCache
     return:
       type: void
   - name: countInstances
     return:
       type: int
+    parameters:
+      - name: rootName
+        type: String
   - name: fadeOutAll
     return:
       type: void
+    parameters:
+      - name: fSeconds
+        type: float
   - name: init
     return:
       type: void
@@ -42,13 +52,15 @@ methods:
       - name: format
         type: ISoundSystem.SoundFormat
       - name: path
-        type: " String"
+        type: String
       - name: rootName
-        type: " String"
+        type: String
       - name: bStreaming
-        type: " boolean"
+        type: boolean
       - name: bLooped
-        type: " boolean"
+        type: boolean
+      - name: fVolume
+        type: float
   - name: playSound
     return:
       type: ISoundSystem.ISoundInstance
@@ -56,15 +68,17 @@ methods:
       - name: format
         type: ISoundSystem.SoundFormat
       - name: path
-        type: " String"
+        type: String
       - name: rootName
-        type: " String"
+        type: String
       - name: nVariants
-        type: " int"
+        type: int
       - name: bStreaming
-        type: " boolean"
+        type: boolean
       - name: bLooped
-        type: " boolean"
+        type: boolean
+      - name: fVolume
+        type: float
   - name: playSound
     return:
       type: ISoundSystem.ISoundInstance
@@ -72,51 +86,17 @@ methods:
       - name: format
         type: ISoundSystem.SoundFormat
       - name: path
-        type: " String"
+        type: String
       - name: rootName
-        type: " String"
+        type: String
       - name: bStreaming
-        type: " boolean"
+        type: boolean
       - name: bLooped
-        type: " boolean"
+        type: boolean
       - name: fVolume
-        type: " float"
-  - name: playSound
-    return:
-      type: ISoundSystem.ISoundInstance
-    parameters:
-      - name: format
-        type: ISoundSystem.SoundFormat
-      - name: path
-        type: " String"
-      - name: rootName
-        type: " String"
-      - name: nVariants
-        type: " int"
-      - name: bStreaming
-        type: " boolean"
-      - name: bLooped
-        type: " boolean"
-      - name: fVolume
-        type: " float"
-  - name: playSound
-    return:
-      type: ISoundSystem.ISoundInstance
-    parameters:
-      - name: format
-        type: ISoundSystem.SoundFormat
-      - name: path
-        type: " String"
-      - name: rootName
-        type: " String"
-      - name: bStreaming
-        type: " boolean"
-      - name: bLooped
-        type: " boolean"
-      - name: fVolume
-        type: " float"
+        type: float
       - name: fPanning
-        type: " float"
+        type: float
   - name: playSound
     return:
       type: ISoundSystem.ISoundInstance
@@ -124,19 +104,61 @@ methods:
       - name: format
         type: ISoundSystem.SoundFormat
       - name: path
-        type: " String"
+        type: String
       - name: rootName
-        type: " String"
+        type: String
       - name: nVariants
-        type: " int"
+        type: int
       - name: bStreaming
-        type: " boolean"
+        type: boolean
       - name: bLooped
-        type: " boolean"
+        type: boolean
       - name: fVolume
-        type: " float"
+        type: float
       - name: fPanning
-        type: " float"
+        type: float
+  - name: playSound
+    return:
+      type: ISoundSystem.ISoundInstance
+    parameters:
+      - name: format
+        type: ISoundSystem.SoundFormat
+      - name: path
+        type: String
+      - name: rootName
+        type: String
+      - name: bStreaming
+        type: boolean
+      - name: bLooped
+        type: boolean
+      - name: fVolume
+        type: float
+      - name: fPanning
+        type: float
+      - name: fPitch
+        type: float
+  - name: playSound
+    return:
+      type: ISoundSystem.ISoundInstance
+    parameters:
+      - name: format
+        type: ISoundSystem.SoundFormat
+      - name: path
+        type: String
+      - name: rootName
+        type: String
+      - name: nVariants
+        type: int
+      - name: bStreaming
+        type: boolean
+      - name: bLooped
+        type: boolean
+      - name: fVolume
+        type: float
+      - name: fPanning
+        type: float
+      - name: fPitch
+        type: float
   - name: purge
     return:
       type: void
@@ -147,7 +169,9 @@ methods:
       - name: rootName
         type: String
       - name: limit
-        type: " int"
+        type: int
+      - name: onFail
+        type: ISoundSystem.InstanceFailAction
   - name: update
     return:
       type: void

@@ -10,15 +10,24 @@ constructors:
   - name: WornItems
     modifiers:
       - public
+    parameters:
+      - name: group
+        type: BodyLocationGroup
   - name: WornItems
     modifiers:
       - public
+    parameters:
+      - name: other
+        type: WornItems
 methods:
   - name: addItemsToItemContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: container
+        type: ItemContainer
   - name: clear
     modifiers:
       - public
@@ -29,21 +38,34 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: copyFrom
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: WornItems
   - name: forEach
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: c
+        type: Consumer
+        generic: Consumer<WornItem>
   - name: get
     modifiers:
       - public
     return:
       type: WornItem
+    parameters:
+      - name: index
+        type: int
   - name: getBodyLocationGroup
     modifiers:
       - public
@@ -54,21 +76,33 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: location
+        type: String
   - name: getItemByIndex
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: index
+        type: int
   - name: getItemVisuals
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemVisuals
+        type: ItemVisuals
   - name: getLocation
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isEmpty
     modifiers:
       - public
@@ -79,11 +113,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: setFromItemVisuals
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemVisuals
+        type: ItemVisuals
   - name: setItem
     modifiers:
       - public
@@ -92,6 +132,8 @@ methods:
     parameters:
       - name: location
         type: String
+      - name: item
+        type: InventoryItem
   - name: size
     modifiers:
       - public

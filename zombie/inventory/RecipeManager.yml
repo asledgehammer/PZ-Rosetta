@@ -20,6 +20,8 @@ methods:
     parameters:
       - name: itemToUse
         type: String
+      - name: recipe
+        type: Recipe
   - name: DoesWipeUseDelta
     modifiers:
       - public
@@ -28,6 +30,8 @@ methods:
       type: boolean
     parameters:
       - name: itemToUse
+        type: String
+      - name: itemToMake
         type: String
   - name: getAllEvolvedRecipes
     modifiers:
@@ -47,12 +51,15 @@ methods:
       - name: recipe
         type: Recipe
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAvailableItemsNeeded
     modifiers:
       - public
@@ -64,18 +71,24 @@ methods:
       - name: recipe
         type: Recipe
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getDismantleRecipeFor
     modifiers:
       - public
       - static
     return:
       type: Recipe
+    parameters:
+      - name: item
+        type: String
   - name: getEvolvedRecipe
     modifiers:
       - public
@@ -87,16 +100,21 @@ methods:
       - name: baseItem
         type: InventoryItem
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
+      - name: need1ingredient
+        type: boolean
   - name: getKnownRecipesNumber
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: GetMovableRecipeTool
     modifiers:
       - public
@@ -107,11 +125,14 @@ methods:
       - name: isPrimary
         type: boolean
       - name: recipe
-        type: " Recipe"
+        type: Recipe
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
   - name: getNumberOfTimesRecipeCanBeDone
     modifiers:
       - public
@@ -122,10 +143,12 @@ methods:
       - name: recipe
         type: Recipe
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
+      - name: selectedItem
+        type: InventoryItem
   - name: getSourceItemsAll
     modifiers:
       - public
@@ -137,14 +160,17 @@ methods:
       - name: recipe
         type: Recipe
       - name: sourceIndex
-        type: " int"
+        type: int
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSourceItemsNeeded
     modifiers:
       - public
@@ -156,14 +182,17 @@ methods:
       - name: recipe
         type: Recipe
       - name: sourceIndex
-        type: " int"
+        type: int
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: ignoreItems
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getUniqueRecipeItems
     modifiers:
       - public
@@ -175,7 +204,10 @@ methods:
       - name: item
         type: InventoryItem
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
   - name: HasAllRequiredItems
     modifiers:
       - public
@@ -186,9 +218,12 @@ methods:
       - name: recipe
         type: Recipe
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
   - name: hasHeat
     modifiers:
       - public
@@ -199,10 +234,12 @@ methods:
       - name: recipe
         type: Recipe
       - name: item
-        type: " InventoryItem"
+        type: InventoryItem
       - name: containers
-        type: " ArrayList"
-        generic: " ArrayList<ItemContainer>"
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
+      - name: chr
+        type: IsoGameCharacter
   - name: IsItemDestroyed
     modifiers:
       - public
@@ -212,6 +249,8 @@ methods:
     parameters:
       - name: itemToUse
         type: String
+      - name: recipe
+        type: Recipe
   - name: IsRecipeValid
     modifiers:
       - public
@@ -222,9 +261,12 @@ methods:
       - name: recipe
         type: Recipe
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: item
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
   - name: Loaded
     modifiers:
       - public
@@ -247,9 +289,12 @@ methods:
       - name: recipe
         type: Recipe
       - name: selectedItem
-        type: " InventoryItem"
+        type: InventoryItem
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
   - name: UseAmount
     modifiers:
       - public
@@ -260,4 +305,6 @@ methods:
       - name: sourceFullType
         type: String
       - name: recipe
-        type: " Recipe"
+        type: Recipe
+      - name: chr
+        type: IsoGameCharacter

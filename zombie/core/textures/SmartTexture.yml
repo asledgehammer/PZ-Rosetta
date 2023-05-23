@@ -29,21 +29,9 @@ methods:
       - public
     return:
       type: void
-  - name: add
-    modifiers:
-      - public
-    return:
-      type: void
-  - name: add
-    modifiers:
-      - public
-    return:
-      type: void
     parameters:
       - name: tex
         type: String
-      - name: shader
-        type: " SmartShader"
   - name: add
     modifiers:
       - public
@@ -52,28 +40,6 @@ methods:
     parameters:
       - name: tex
         type: Texture
-      - name: shader
-        type: " SmartShader"
-  - name: add
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: String
-      - name: srcBlend
-        type: " int"
-  - name: add
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: Texture
-      - name: srcBlend
-        type: " int"
   - name: add
     modifiers:
       - public
@@ -83,42 +49,10 @@ methods:
       - name: tex
         type: String
       - name: shader
-        type: " SmartShader"
-      - name: maskTex
-        type: " String"
-      - name: srcBlend
-        type: " int"
-  - name: add
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: Texture
-      - name: shader
-        type: " SmartShader"
-      - name: maskTex
-        type: " Texture"
-      - name: srcBlend
-        type: " int"
-  - name: add
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: String
-      - name: shader
-        type: " SmartShader"
-      - name: maskTex
-        type: " String"
+        type: SmartShader
       - name: params
-        type: " ArrayList"
-        generic: " ArrayList<TextureCombinerShaderParam>"
-      - name: srcBlend
-        type: " int"
+        type: ArrayList
+        generic: ArrayList<TextureCombinerShaderParam>
   - name: add
     modifiers:
       - public
@@ -128,14 +62,104 @@ methods:
       - name: tex
         type: Texture
       - name: shader
-        type: " SmartShader"
-      - name: maskTex
-        type: " Texture"
+        type: SmartShader
       - name: params
-        type: " ArrayList"
-        generic: " ArrayList<TextureCombinerShaderParam>"
+        type: ArrayList
+        generic: ArrayList<TextureCombinerShaderParam>
+  - name: add
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: String
       - name: srcBlend
-        type: " int"
+        type: int
+      - name: destBlend
+        type: int
+  - name: add
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: srcBlend
+        type: int
+      - name: destBlend
+        type: int
+  - name: add
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: String
+      - name: shader
+        type: SmartShader
+      - name: maskTex
+        type: String
+      - name: srcBlend
+        type: int
+      - name: destBlend
+        type: int
+  - name: add
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: shader
+        type: SmartShader
+      - name: maskTex
+        type: Texture
+      - name: srcBlend
+        type: int
+      - name: destBlend
+        type: int
+  - name: add
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: String
+      - name: shader
+        type: SmartShader
+      - name: maskTex
+        type: String
+      - name: params
+        type: ArrayList
+        generic: ArrayList<TextureCombinerShaderParam>
+      - name: srcBlend
+        type: int
+      - name: destBlend
+        type: int
+  - name: add
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: shader
+        type: SmartShader
+      - name: maskTex
+        type: Texture
+      - name: params
+        type: ArrayList
+        generic: ArrayList<TextureCombinerShaderParam>
+      - name: srcBlend
+        type: int
+      - name: destBlend
+        type: int
   - name: addDirtOverlay
     modifiers:
       - public
@@ -145,14 +169,19 @@ methods:
       - name: tex
         type: String
       - name: mask
-        type: " String"
+        type: String
       - name: intensity
-        type: " float"
+        type: float
+      - name: category
+        type: int
   - name: addHole
     modifiers:
       - public
     return:
       type: Texture
+    parameters:
+      - name: part
+        type: BloodBodyPartType
   - name: addHue
     modifiers:
       - public
@@ -162,7 +191,9 @@ methods:
       - name: tex
         type: String
       - name: category
-        type: " int"
+        type: int
+      - name: h
+        type: float
   - name: addHue
     modifiers:
       - public
@@ -172,7 +203,9 @@ methods:
       - name: tex
         type: Texture
       - name: category
-        type: " int"
+        type: int
+      - name: h
+        type: float
   - name: addMaskedTexture
     modifiers:
       - public
@@ -182,13 +215,15 @@ methods:
       - name: mask
         type: CharacterMask
       - name: masksFolder
-        type: " String"
+        type: String
       - name: base
-        type: " String"
+        type: String
       - name: category
-        type: " int"
+        type: int
       - name: tint
-        type: " ImmutableColor"
+        type: ImmutableColor
+      - name: hue
+        type: float
   - name: addMaskedTexture
     modifiers:
       - public
@@ -198,18 +233,23 @@ methods:
       - name: mask
         type: CharacterMask
       - name: masksFolder
-        type: " String"
+        type: String
       - name: base
-        type: " Texture"
+        type: Texture
       - name: category
-        type: " int"
+        type: int
       - name: tint
-        type: " ImmutableColor"
+        type: ImmutableColor
+      - name: hue
+        type: float
   - name: addOverlay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tex
+        type: String
   - name: addOverlay
     modifiers:
       - public
@@ -219,9 +259,11 @@ methods:
       - name: tex
         type: String
       - name: mask
-        type: " String"
+        type: String
       - name: intensity
-        type: " float"
+        type: float
+      - name: category
+        type: int
   - name: addOverlayPatches
     modifiers:
       - public
@@ -231,7 +273,9 @@ methods:
       - name: tex
         type: String
       - name: mask
-        type: " String"
+        type: String
+      - name: category
+        type: int
   - name: addRect
     modifiers:
       - public
@@ -241,11 +285,13 @@ methods:
       - name: tex
         type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
   - name: addSeparate
     modifiers:
       - public
@@ -255,11 +301,13 @@ methods:
       - name: tex
         type: String
       - name: srcBlend
-        type: " int"
+        type: int
       - name: destBlend
-        type: " int"
+        type: int
       - name: srcBlendA
-        type: " int"
+        type: int
+      - name: destBlendA
+        type: int
   - name: addSeparate
     modifiers:
       - public
@@ -269,11 +317,13 @@ methods:
       - name: tex
         type: Texture
       - name: srcBlend
-        type: " int"
+        type: int
       - name: destBlend
-        type: " int"
+        type: int
       - name: srcBlendA
-        type: " int"
+        type: int
+      - name: destBlendA
+        type: int
   - name: addSeparate
     modifiers:
       - public
@@ -283,18 +333,20 @@ methods:
       - name: tex
         type: String
       - name: shader
-        type: " SmartShader"
+        type: SmartShader
       - name: maskTex
-        type: " String"
+        type: String
       - name: params
-        type: " ArrayList"
-        generic: " ArrayList<TextureCombinerShaderParam>"
+        type: ArrayList
+        generic: ArrayList<TextureCombinerShaderParam>
       - name: srcBlend
-        type: " int"
+        type: int
       - name: destBlend
-        type: " int"
+        type: int
       - name: srcBlendA
-        type: " int"
+        type: int
+      - name: destBlendA
+        type: int
   - name: addSeparate
     modifiers:
       - public
@@ -304,18 +356,20 @@ methods:
       - name: tex
         type: Texture
       - name: shader
-        type: " SmartShader"
+        type: SmartShader
       - name: maskTex
-        type: " Texture"
+        type: Texture
       - name: params
-        type: " ArrayList"
-        generic: " ArrayList<TextureCombinerShaderParam>"
+        type: ArrayList
+        generic: ArrayList<TextureCombinerShaderParam>
       - name: srcBlend
-        type: " int"
+        type: int
       - name: destBlend
-        type: " int"
+        type: int
       - name: srcBlendA
-        type: " int"
+        type: int
+      - name: destBlendA
+        type: int
   - name: addTexture
     modifiers:
       - public
@@ -325,9 +379,11 @@ methods:
       - name: base
         type: String
       - name: category
-        type: " int"
+        type: int
       - name: tint
-        type: " ImmutableColor"
+        type: ImmutableColor
+      - name: hue
+        type: float
   - name: addTint
     modifiers:
       - public
@@ -337,11 +393,13 @@ methods:
       - name: tex
         type: String
       - name: category
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: addTint
     modifiers:
       - public
@@ -351,11 +409,13 @@ methods:
       - name: tex
         type: Texture
       - name: category
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: bind
     modifiers:
       - public
@@ -389,6 +449,9 @@ methods:
       - public
     return:
       type: TextureCombinerCommand
+    parameters:
+      - name: cat
+        type: int
   - name: getID
     modifiers:
       - public
@@ -420,7 +483,9 @@ methods:
       - name: tex
         type: String
       - name: maskTex
-        type: " String"
+        type: String
+      - name: category
+        type: int
   - name: mask
     modifiers:
       - public
@@ -430,7 +495,9 @@ methods:
       - name: tex
         type: Texture
       - name: maskTex
-        type: " Texture"
+        type: Texture
+      - name: category
+        type: int
   - name: maskHue
     modifiers:
       - public
@@ -440,9 +507,11 @@ methods:
       - name: tex
         type: String
       - name: maskTex
-        type: " String"
+        type: String
       - name: category
-        type: " int"
+        type: int
+      - name: h
+        type: float
   - name: maskHue
     modifiers:
       - public
@@ -452,9 +521,11 @@ methods:
       - name: tex
         type: Texture
       - name: maskTex
-        type: " Texture"
+        type: Texture
       - name: category
-        type: " int"
+        type: int
+      - name: h
+        type: float
   - name: maskTint
     modifiers:
       - public
@@ -464,13 +535,15 @@ methods:
       - name: tex
         type: String
       - name: maskTex
-        type: " String"
+        type: String
       - name: category
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: maskTint
     modifiers:
       - public
@@ -480,13 +553,15 @@ methods:
       - name: tex
         type: Texture
       - name: maskTex
-        type: " Texture"
+        type: Texture
       - name: category
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: removeHole
     modifiers:
       - public
@@ -495,6 +570,8 @@ methods:
     parameters:
       - name: bodyTex
         type: String
+      - name: part
+        type: BloodBodyPartType
   - name: removeHole
     modifiers:
       - public
@@ -503,6 +580,8 @@ methods:
     parameters:
       - name: bodyTex
         type: Texture
+      - name: part
+        type: BloodBodyPartType
   - name: removeHole
     modifiers:
       - public
@@ -512,9 +591,14 @@ methods:
       - name: bodyTex
         type: Texture
       - name: maskTex
-        type: " Texture"
+        type: Texture
+      - name: part
+        type: BloodBodyPartType
   - name: saveOnRenderThread
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: filename
+        type: String

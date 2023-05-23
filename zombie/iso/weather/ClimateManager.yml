@@ -270,9 +270,11 @@ methods:
       - name: year
         type: int
       - name: month
-        type: " int"
+        type: int
       - name: day
-        type: " int"
+        type: int
+      - name: front
+        type: ClimateManager.AirFront
   - name: clamp
     modifiers:
       - public
@@ -283,7 +285,9 @@ methods:
       - name: min
         type: float
       - name: max
-        type: " float"
+        type: float
+      - name: val
+        type: float
   - name: clamp
     modifiers:
       - public
@@ -294,13 +298,18 @@ methods:
       - name: min
         type: int
       - name: max
-        type: " int"
+        type: int
+      - name: val
+        type: int
   - name: clamp01
     modifiers:
       - public
       - static
     return:
       type: float
+    parameters:
+      - name: val
+        type: float
   - name: clerp
     modifiers:
       - public
@@ -311,12 +320,17 @@ methods:
       - name: t
         type: float
       - name: a
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: CopyClimateValues
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: copy
+        type: ClimateValues
   - name: execute_Simulation
     modifiers:
       - public
@@ -327,6 +341,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: RainModOverride
+        type: int
   - name: forceDayInfoUpdate
     modifiers:
       - public
@@ -352,6 +369,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: plr
+        type: IsoGameCharacter
   - name: getAirTemperatureForCharacter
     modifiers:
       - public
@@ -360,11 +380,8 @@ methods:
     parameters:
       - name: plr
         type: IsoGameCharacter
-  - name: getAirTemperatureForSquare
-    modifiers:
-      - public
-    return:
-      type: float
+      - name: doWindChill
+        type: boolean
   - name: getAirTemperatureForSquare
     modifiers:
       - public
@@ -382,7 +399,19 @@ methods:
       - name: square
         type: IsoGridSquare
       - name: vehicle
-        type: " BaseVehicle"
+        type: BaseVehicle
+  - name: getAirTemperatureForSquare
+    modifiers:
+      - public
+    return:
+      type: float
+    parameters:
+      - name: square
+        type: IsoGridSquare
+      - name: vehicle
+        type: BaseVehicle
+      - name: doWindChill
+        type: boolean
   - name: getAmbient
     modifiers:
       - public
@@ -403,16 +432,25 @@ methods:
       - public
     return:
       type: ClimateManager.ClimateBool
+    parameters:
+      - name: id
+        type: int
   - name: getClimateColor
     modifiers:
       - public
     return:
       type: ClimateManager.ClimateColor
+    parameters:
+      - name: id
+        type: int
   - name: getClimateFloat
     modifiers:
       - public
     return:
       type: ClimateManager.ClimateFloat
+    parameters:
+      - name: id
+        type: int
   - name: getClimateForecaster
     modifiers:
       - public
@@ -628,7 +666,9 @@ methods:
       - name: segment
         type: int
       - name: temperature
-        type: " int"
+        type: int
+      - name: season
+        type: int
   - name: getSeasonName
     modifiers:
       - public
@@ -725,6 +765,9 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: angle
+        type: float
   - name: getWindForceMovement
     modifiers:
       - public
@@ -733,6 +776,8 @@ methods:
     parameters:
       - name: character
         type: IsoGameCharacter
+      - name: angle
+        type: float
   - name: getWindIntensity
     modifiers:
       - public
@@ -781,6 +826,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: metaGrid
+        type: IsoMetaGrid
   - name: isRaining
     modifiers:
       - public
@@ -811,7 +859,9 @@ methods:
       - name: t
         type: float
       - name: a
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: load
     modifiers:
       - public
@@ -820,6 +870,8 @@ methods:
     parameters:
       - name: input
         type: DataInputStream
+      - name: worldVersion
+        type: int
   - name: normalizeRange
     modifiers:
       - public
@@ -828,6 +880,8 @@ methods:
       type: float
     parameters:
       - name: v
+        type: float
+      - name: n
         type: float
   - name: postCellLoadSetSnow
     modifiers:
@@ -840,6 +894,9 @@ methods:
       - static
     return:
       type: float
+    parameters:
+      - name: v
+        type: float
   - name: receiveClimatePacket
     modifiers:
       - public
@@ -849,6 +906,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: ignoreConnection
+        type: UdpConnection
   - name: resetAdmin
     modifiers:
       - public
@@ -869,58 +928,91 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: DataOutputStream
     notes: IO
   - name: sendInitialState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: setAmbient
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: setDayLightStrength
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: setDesaturation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: desaturation
+        type: float
   - name: setEnabledFxUpdate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setEnabledSimulation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setEnabledWeatherGeneration
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setInstance
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: inst
+        type: ClimateManager
   - name: setNightStrength
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: float
   - name: setPrecipitationIsSnow
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setSeasonColorDawn
     modifiers:
       - public
@@ -930,15 +1022,17 @@ methods:
       - name: temperature
         type: int
       - name: season
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: exterior
+        type: boolean
   - name: setSeasonColorDay
     modifiers:
       - public
@@ -948,15 +1042,17 @@ methods:
       - name: temperature
         type: int
       - name: season
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: exterior
+        type: boolean
   - name: setSeasonColorDusk
     modifiers:
       - public
@@ -966,20 +1062,25 @@ methods:
       - name: temperature
         type: int
       - name: season
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: exterior
+        type: boolean
   - name: setViewDistance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: stopWeatherAndThunder
     modifiers:
       - public
@@ -991,12 +1092,18 @@ methods:
       - static
     return:
       type: float
+    parameters:
+      - name: val
+        type: float
   - name: ToMph
     modifiers:
       - public
       - static
     return:
       type: float
+    parameters:
+      - name: val
+        type: float
   - name: transmitClientChangeAdminVars
     modifiers:
       - public
@@ -1010,6 +1117,8 @@ methods:
     parameters:
       - name: strength
         type: float
+      - name: front
+        type: int
   - name: transmitRequestAdminVars
     modifiers:
       - public
@@ -1020,6 +1129,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: intensity
+        type: float
   - name: transmitServerStopRain
     modifiers:
       - public
@@ -1039,16 +1151,21 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: doStrike
-        type: " boolean"
+        type: boolean
       - name: doLightning
-        type: " boolean"
+        type: boolean
+      - name: doRumble
+        type: boolean
   - name: transmitServerTriggerStorm
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: duration
+        type: float
   - name: transmitStopWeather
     modifiers:
       - public
@@ -1059,16 +1176,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: duration
+        type: float
   - name: transmitTriggerStorm
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: duration
+        type: float
   - name: transmitTriggerTropical
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: duration
+        type: float
   - name: triggerCustomWeather
     modifiers:
       - public
@@ -1077,6 +1203,8 @@ methods:
     parameters:
       - name: strength
         type: float
+      - name: warmFront
+        type: boolean
   - name: triggerCustomWeatherStage
     modifiers:
       - public
@@ -1085,6 +1213,8 @@ methods:
     parameters:
       - name: stage
         type: int
+      - name: duration
+        type: float
   - name: triggerKateBobIntroStorm
     modifiers:
       - public
@@ -1094,35 +1224,39 @@ methods:
       - name: centerX
         type: int
       - name: centerY
-        type: " int"
-      - name: duration
-        type: " double"
-      - name: strength
-        type: " float"
-      - name: initialProgress
-        type: " float"
-      - name: angle
-        type: " float"
-  - name: triggerKateBobIntroStorm
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: centerX
         type: int
-      - name: centerY
-        type: " int"
       - name: duration
-        type: " double"
+        type: double
       - name: strength
-        type: " float"
+        type: float
       - name: initialProgress
-        type: " float"
+        type: float
       - name: angle
-        type: " float"
+        type: float
       - name: initialPuddles
-        type: " float"
+        type: float
+  - name: triggerKateBobIntroStorm
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: centerX
+        type: int
+      - name: centerY
+        type: int
+      - name: duration
+        type: double
+      - name: strength
+        type: float
+      - name: initialProgress
+        type: float
+      - name: angle
+        type: float
+      - name: initialPuddles
+        type: float
+      - name: cloudcolor
+        type: ClimateColorInfo
   - name: triggerWinterIsComingStorm
     modifiers:
       - public

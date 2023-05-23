@@ -12,6 +12,9 @@ methods:
       - public
     return:
       type: Probe
+    parameters:
+      - name: layerIdx
+        type: int
   - name: construct
     modifiers:
       - public
@@ -22,6 +25,8 @@ methods:
     parameters:
       - name: prefix
         type: String
+      - name: count
+        type: int
   - name: construct
     modifiers:
       - public
@@ -33,10 +38,13 @@ methods:
       - name: prefix
         type: String
       - name: count
-        type: " int"
+        type: int
       - name: type
-        type: " Class"
-        generic: " Class<Probe>"
+        type: Class
+        generic: Class<Probe>
+      - name: ctor
+        type: PerformanceProfileProbeList.Constructor
+        generic: PerformanceProfileProbeList.Constructor<Probe>
   - name: count
     modifiers:
       - public
@@ -47,3 +55,6 @@ methods:
       - public
     return:
       type: Probe
+    parameters:
+      - name: layerIdx
+        type: int

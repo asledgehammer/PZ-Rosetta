@@ -10,6 +10,9 @@ constructors:
   - name: WorldMapTextureSymbol
     modifiers:
       - public
+    parameters:
+      - name: owner
+        type: WorldMapSymbols
 methods:
   - name: checkTexture
     modifiers:
@@ -35,9 +38,11 @@ methods:
       - name: ui
         type: UIWorldMap
       - name: collisions
-        type: " WorldMapSymbolCollisions"
+        type: WorldMapSymbolCollisions
       - name: rox
-        type: " float"
+        type: float
+      - name: roy
+        type: float
   - name: load
     modifiers:
       - public
@@ -47,7 +52,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: SymbolsVersion
+        type: int
   - name: release
     modifiers:
       - public
@@ -62,14 +69,22 @@ methods:
       - name: ui
         type: UIWorldMap
       - name: rox
-        type: " float"
+        type: float
+      - name: roy
+        type: float
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setSymbolID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: symbolID
+        type: String

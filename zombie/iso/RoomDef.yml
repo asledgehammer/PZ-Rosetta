@@ -103,6 +103,8 @@ constructors:
     parameters:
       - name: ID
         type: int
+      - name: name
+        type: String
 methods:
   - name: CalculateBounds
     modifiers:
@@ -117,6 +119,8 @@ methods:
     parameters:
       - name: cellX
         type: int
+      - name: cellY
+        type: int
   - name: Dispose
     modifiers:
       - public
@@ -127,6 +131,10 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: consumer
+        type: BiConsumer
+        generic: BiConsumer<RoomDef,IsoChunk>
   - name: getArea
     modifiers:
       - public
@@ -137,6 +145,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: getAreaOverlapping
     modifiers:
       - public
@@ -146,9 +157,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
   - name: getBuilding
     modifiers:
       - public
@@ -163,7 +176,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: closestXY
+        type: org.joml.Vector2f
   - name: getFreeSquare
     modifiers:
       - public
@@ -212,6 +227,10 @@ methods:
       - public
     return:
       type: IsoGridSquare
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<IsoGridSquare>
   - name: getRects
     modifiers:
       - public
@@ -257,9 +276,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
   - name: isEmptyOutside
     modifiers:
       - public
@@ -279,7 +300,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: isRoofFixed
     modifiers:
       - public
@@ -295,13 +318,22 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: def
+        type: BuildingDef
   - name: setExplored
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: explored
+        type: boolean
   - name: setRoofFixed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean

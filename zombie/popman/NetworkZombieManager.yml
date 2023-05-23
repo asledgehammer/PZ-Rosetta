@@ -16,6 +16,9 @@ methods:
       - static
     return:
       type: boolean
+    parameters:
+      - name: zombie
+        type: IsoZombie
   - name: clearTargetAuth
     modifiers:
       - public
@@ -24,11 +27,16 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
+      - name: player
+        type: IsoPlayer
   - name: getAuthorizedZombieCount
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: con
+        type: UdpConnection
   - name: getInstance
     modifiers:
       - public
@@ -48,12 +56,17 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
+      - name: bb
+        type: ByteBuffer
   - name: getZombieList
     modifiers:
       - public
     return:
       type: LinkedList
       generic: LinkedList<IsoZombie>
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: moveZombie
     modifiers:
       - public
@@ -63,20 +76,31 @@ methods:
       - name: zombie
         type: IsoZombie
       - name: to
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: player
+        type: IsoPlayer
   - name: recheck
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: removeZombies
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: updateAuth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie

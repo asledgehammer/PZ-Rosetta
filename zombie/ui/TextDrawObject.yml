@@ -17,9 +17,11 @@ constructors:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: allowBBcode
+        type: boolean
   - name: TextDrawObject
     modifiers:
       - public
@@ -27,19 +29,21 @@ constructors:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
       - name: allowBBcode
-        type: " boolean"
+        type: boolean
       - name: allowImages
-        type: " boolean"
+        type: boolean
       - name: allowChatIcons
-        type: " boolean"
+        type: boolean
       - name: allowColors
-        type: " boolean"
+        type: boolean
       - name: allowFonts
-        type: " boolean"
+        type: boolean
+      - name: equalizeLineHeights
+        type: boolean
 methods:
   - name: AddBatchedDraw
     modifiers:
@@ -49,6 +53,8 @@ methods:
     parameters:
       - name: x
         type: double
+      - name: y
+        type: double
   - name: AddBatchedDraw
     modifiers:
       - public
@@ -58,19 +64,9 @@ methods:
       - name: x
         type: double
       - name: y
-        type: " double"
-  - name: AddBatchedDraw
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: x
         type: double
-      - name: y
-        type: " double"
       - name: drawOutlines
-        type: " boolean"
+        type: boolean
   - name: AddBatchedDraw
     modifiers:
       - public
@@ -80,15 +76,31 @@ methods:
       - name: x
         type: double
       - name: y
-        type: " double"
+        type: double
+      - name: drawOutlines
+        type: boolean
+      - name: alpha
+        type: float
+  - name: AddBatchedDraw
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: x
+        type: double
+      - name: y
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
       - name: a
-        type: " double"
+        type: double
+      - name: drawOutlines
+        type: boolean
   - name: AddBatchedDraw
     modifiers:
       - public
@@ -98,17 +110,19 @@ methods:
       - name: horz
         type: TextDrawHorizontal
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
       - name: a
-        type: " double"
+        type: double
+      - name: drawOutlines
+        type: boolean
   - name: calculateDimensions
     modifiers:
       - public
@@ -127,6 +141,8 @@ methods:
     parameters:
       - name: x
         type: double
+      - name: y
+        type: double
   - name: Draw
     modifiers:
       - public
@@ -136,19 +152,9 @@ methods:
       - name: x
         type: double
       - name: y
-        type: " double"
-  - name: Draw
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: x
         type: double
-      - name: y
-        type: " double"
       - name: drawOutlines
-        type: " boolean"
+        type: boolean
   - name: Draw
     modifiers:
       - public
@@ -158,15 +164,31 @@ methods:
       - name: x
         type: double
       - name: y
-        type: " double"
+        type: double
+      - name: drawOutlines
+        type: boolean
+      - name: alpha
+        type: float
+  - name: Draw
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: x
+        type: double
+      - name: y
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
       - name: a
-        type: " double"
+        type: double
+      - name: drawOutlines
+        type: boolean
   - name: Draw
     modifiers:
       - public
@@ -176,17 +198,19 @@ methods:
       - name: horz
         type: TextDrawHorizontal
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
       - name: a
-        type: " double"
+        type: double
+      - name: drawOutlines
+        type: boolean
   - name: DrawRaw
     modifiers:
       - public
@@ -196,17 +220,19 @@ methods:
       - name: horz
         type: TextDrawHorizontal
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: drawOutlines
+        type: boolean
   - name: getCustomTag
     modifiers:
       - public
@@ -278,11 +304,9 @@ methods:
       - static
     return:
       type: void
-  - name: ReadString
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: playerNum
+        type: int
   - name: ReadString
     modifiers:
       - public
@@ -297,61 +321,103 @@ methods:
     return:
       type: void
     parameters:
+      - name: str
+        type: String
+      - name: maxLineWidth
+        type: int
+  - name: ReadString
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
       - name: font
         type: UIFont
       - name: str
-        type: " String"
+        type: String
+      - name: maxLineWidth
+        type: int
   - name: RenderBatch
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: playerNum
+        type: int
   - name: setAllowAnyImage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowAnyImage
+        type: boolean
   - name: setAllowBBcode
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowBBcode
+        type: boolean
   - name: setAllowChatIcons
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowChatIcons
+        type: boolean
   - name: setAllowColors
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowColors
+        type: boolean
   - name: setAllowFonts
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowFonts
+        type: boolean
   - name: setAllowImages
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowImages
+        type: boolean
   - name: setAllowLineBreaks
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allowLineBreaks
+        type: boolean
   - name: setCustomImageMaxDimensions
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dim
+        type: int
   - name: setCustomTag
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tag
+        type: String
   - name: setDefaultColors
     modifiers:
       - public
@@ -361,7 +427,9 @@ methods:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
+      - name: b
+        type: int
   - name: setDefaultColors
     modifiers:
       - public
@@ -371,7 +439,9 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: setDefaultColors
     modifiers:
       - public
@@ -381,9 +451,11 @@ methods:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: a
+        type: int
   - name: setDefaultColors
     modifiers:
       - public
@@ -393,54 +465,83 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setDefaultFont
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: UIFont
   - name: setDrawBackground
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: draw
+        type: boolean
   - name: setEnabled
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: enabled
+        type: boolean
   - name: setEqualizeLineHeights
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: equalizeLineHeights
+        type: boolean
   - name: setHearRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: range
+        type: int
   - name: setHorizontalAlign
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: horz
+        type: String
   - name: setHorizontalAlign
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: horz
+        type: TextDrawHorizontal
   - name: setInternalTickClock
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ticks
+        type: float
   - name: setMaxCharsPerLine
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: charsperline
+        type: int
   - name: setOutlineColors
     modifiers:
       - public
@@ -450,7 +551,9 @@ methods:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
+      - name: b
+        type: int
   - name: setOutlineColors
     modifiers:
       - public
@@ -460,7 +563,9 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: setOutlineColors
     modifiers:
       - public
@@ -470,9 +575,11 @@ methods:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: a
+        type: int
   - name: setOutlineColors
     modifiers:
       - public
@@ -482,14 +589,19 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setScrambleVal
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: value
+        type: float
   - name: setSettings
     modifiers:
       - public
@@ -499,28 +611,39 @@ methods:
       - name: allowBBcode
         type: boolean
       - name: allowImages
-        type: " boolean"
+        type: boolean
       - name: allowChatIcons
-        type: " boolean"
+        type: boolean
       - name: allowColors
-        type: " boolean"
+        type: boolean
       - name: allowFonts
-        type: " boolean"
+        type: boolean
+      - name: equalizeLineHeights
+        type: boolean
   - name: setValidFonts
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: list
+        type: String[]
   - name: setValidImages
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: list
+        type: String[]
   - name: setVisibleRadius
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: radius
+        type: int
   - name: updateInternalTickClock
     modifiers:
       - public
@@ -531,3 +654,6 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: delta
+        type: float

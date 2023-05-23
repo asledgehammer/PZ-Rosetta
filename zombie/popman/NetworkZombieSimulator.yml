@@ -23,6 +23,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: onlineId
+        type: short
   - name: added
     modifiers:
       - public
@@ -33,6 +36,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
   - name: anyUnknownZombies
     modifiers:
       - public
@@ -43,11 +49,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: z
+        type: IsoZombie
   - name: becomeRemote
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: z
+        type: IsoZombie
   - name: clear
     modifiers:
       - public
@@ -58,6 +70,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: getAuthorizedZombieCount
     modifiers:
       - public
@@ -79,6 +94,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: zombieId
+        type: Short
   - name: receivePacket
     modifiers:
       - public
@@ -87,11 +105,16 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
   - name: send
     modifiers:
       - public

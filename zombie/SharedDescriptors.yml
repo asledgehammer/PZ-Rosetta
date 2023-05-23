@@ -21,13 +21,18 @@ methods:
       - name: outfitID
         type: int
       - name: outfitName
-        type: " String"
+        type: String
+      - name: chr
+        type: IsoGameCharacter
   - name: createPlayerZombieDescriptor
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie
   - name: getPlayerZombieDescriptors
     modifiers:
       - public
@@ -47,9 +52,15 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: desc
+        type: SharedDescriptors.Descriptor
   - name: releasePlayerZombieDescriptor
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: zombie
+        type: IsoZombie

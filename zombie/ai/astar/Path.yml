@@ -38,7 +38,9 @@ methods:
         type: int
         notes: The x coordinate of the new step
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
     notes: Append a step to the path.
   - name: contains
     modifiers:
@@ -49,7 +51,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: costPerStep
     modifiers:
       - public
@@ -74,6 +78,12 @@ methods:
     return:
       type: Path.Step
       notes: The step information, the position on the map.
+    parameters:
+      - name: index
+        type: int
+        notes: |-
+          The index of the step to retrieve. Note this should
+           be >= 0 and &lt; getLength();
     notes: get the step at a given index in the path
   - name: getX
     modifiers:
@@ -81,6 +91,10 @@ methods:
     return:
       type: int
       notes: The x coordinate at the step
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the step whose x coordinate should be retrieved
     notes: get the x coordinate for the step at the given index
   - name: getY
     modifiers:
@@ -88,12 +102,19 @@ methods:
     return:
       type: int
       notes: The y coordinate at the step
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the step whose y coordinate should be retrieved
     notes: get the y coordinate for the step at the given index
   - name: getZ
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
   - name: prependStep
     modifiers:
       - public
@@ -104,5 +125,7 @@ methods:
         type: int
         notes: The x coordinate of the new step
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
     notes: Prepend a step to the path.

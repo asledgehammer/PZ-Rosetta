@@ -154,9 +154,15 @@ constructors:
   - name: ImmutableColor
     modifiers:
       - public
+    parameters:
+      - name: color
+        type: ImmutableColor
   - name: ImmutableColor
     modifiers:
       - public
+    parameters:
+      - name: color
+        type: Color
   - name: ImmutableColor
     modifiers:
       - public
@@ -164,17 +170,21 @@ constructors:
       - name: r
         type: float
       - name: g
-        type: " float"
-  - name: ImmutableColor
-    modifiers:
-      - public
-    parameters:
-      - name: r
         type: float
-      - name: g
-        type: " float"
       - name: b
-        type: " float"
+        type: float
+  - name: ImmutableColor
+    modifiers:
+      - public
+    parameters:
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
   - name: ImmutableColor
     modifiers:
       - public
@@ -182,7 +192,9 @@ constructors:
       - name: A
         type: Color
       - name: B
-        type: " Color"
+        type: Color
+      - name: delta
+        type: float
   - name: ImmutableColor
     modifiers:
       - public
@@ -190,20 +202,27 @@ constructors:
       - name: r
         type: int
       - name: g
-        type: " int"
-  - name: ImmutableColor
-    modifiers:
-      - public
-    parameters:
-      - name: r
         type: int
-      - name: g
-        type: " int"
       - name: b
-        type: " int"
+        type: int
   - name: ImmutableColor
     modifiers:
       - public
+    parameters:
+      - name: r
+        type: int
+      - name: g
+        type: int
+      - name: b
+        type: int
+      - name: a
+        type: int
+  - name: ImmutableColor
+    modifiers:
+      - public
+    parameters:
+      - name: value
+        type: int
 methods:
   - name: __toString
     modifiers:
@@ -215,6 +234,9 @@ methods:
       - public
     return:
       type: ImmutableColor
+    parameters:
+      - name: c
+        type: ImmutableColor
   - name: brighter
     modifiers:
       - public
@@ -225,6 +247,9 @@ methods:
       - public
     return:
       type: ImmutableColor
+    parameters:
+      - name: scale
+        type: float
   - name: darker
     modifiers:
       - public
@@ -235,17 +260,26 @@ methods:
       - public
     return:
       type: ImmutableColor
+    parameters:
+      - name: scale
+        type: float
   - name: decode
     modifiers:
       - public
       - static
     return:
       type: ImmutableColor
+    parameters:
+      - name: nm
+        type: String
   - name: equals
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: other
+        type: Object
   - name: getAlphaByte
     modifiers:
       - public
@@ -322,7 +356,9 @@ methods:
       - name: hue
         type: float
       - name: saturation
-        type: " float"
+        type: float
+      - name: brightness
+        type: float
   - name: interp
     modifiers:
       - public
@@ -331,11 +367,16 @@ methods:
     parameters:
       - name: to
         type: ImmutableColor
+      - name: delta
+        type: float
   - name: multiply
     modifiers:
       - public
     return:
       type: ImmutableColor
+    parameters:
+      - name: c
+        type: Color
   - name: random
     modifiers:
       - public
@@ -347,6 +388,9 @@ methods:
       - public
     return:
       type: ImmutableColor
+    parameters:
+      - name: value
+        type: float
   - name: toMutableColor
     modifiers:
       - public

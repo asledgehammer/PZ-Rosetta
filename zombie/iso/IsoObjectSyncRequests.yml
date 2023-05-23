@@ -33,6 +33,8 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: obj
+        type: IsoObject
   - name: putRequest
     modifiers:
       - public
@@ -42,14 +44,19 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: objIndex
+        type: byte
   - name: putRequestLoad
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: receiveIsoSync
     modifiers:
       - public
@@ -59,11 +66,16 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: objIndex
+        type: byte
   - name: sendRequests
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection

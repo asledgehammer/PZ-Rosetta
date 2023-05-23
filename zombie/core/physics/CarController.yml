@@ -66,17 +66,26 @@ constructors:
   - name: CarController
     modifiers:
       - public
+    parameters:
+      - name: vehicleObject
+        type: BaseVehicle
 methods:
   - name: accelerator
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: apply
+        type: boolean
   - name: brake
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: apply
+        type: boolean
   - name: checkShouldBeActive
     modifiers:
       - public
@@ -101,7 +110,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: radius
+        type: float
   - name: drawCircle
     modifiers:
       - public
@@ -111,15 +122,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: drawRect
     modifiers:
       - public
@@ -129,36 +142,43 @@ methods:
       - name: vec
         type: org.joml.Vector3f
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: w
-        type: " float"
-  - name: drawRect
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: vec
-        type: org.joml.Vector3f
-      - name: x
-        type: " float"
-      - name: y
-        type: " float"
-      - name: w
-        type: " float"
+        type: float
       - name: h
-        type: " float"
+        type: float
+  - name: drawRect
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: vec
+        type: org.joml.Vector3f
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: w
+        type: float
+      - name: h
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
+      - name: b
+        type: float
   - name: findGear
     modifiers:
       - public
     return:
       type: CarController.GearInfo
+    parameters:
+      - name: speed
+        type: float
   - name: getClientControls
     modifiers:
       - public

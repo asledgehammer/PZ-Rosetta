@@ -18,6 +18,9 @@ constructors:
   - name: IsoDirectionFrame
     modifiers:
       - public
+    parameters:
+      - name: tex
+        type: Texture
   - name: IsoDirectionFrame
     modifiers:
       - public
@@ -28,11 +31,13 @@ constructors:
       - name: nw
         type: Texture
       - name: n
-        type: " Texture"
+        type: Texture
       - name: ne
-        type: " Texture"
+        type: Texture
       - name: e
-        type: " Texture"
+        type: Texture
+      - name: se
+        type: Texture
   - name: IsoDirectionFrame
     modifiers:
       - public
@@ -40,17 +45,19 @@ constructors:
       - name: n
         type: Texture
       - name: nw
-        type: " Texture"
+        type: Texture
       - name: w
-        type: " Texture"
+        type: Texture
       - name: sw
-        type: " Texture"
+        type: Texture
       - name: s
-        type: " Texture"
+        type: Texture
       - name: se
-        type: " Texture"
+        type: Texture
       - name: e
-        type: " Texture"
+        type: Texture
+      - name: ne
+        type: Texture
   - name: IsoDirectionFrame
     modifiers:
       - public
@@ -58,15 +65,20 @@ constructors:
       - name: n
         type: Texture
       - name: s
-        type: " Texture"
+        type: Texture
       - name: e
-        type: " Texture"
+        type: Texture
+      - name: w
+        type: Texture
 methods:
   - name: getTexture
     modifiers:
       - public
     return:
       type: Texture
+    parameters:
+      - name: dir
+        type: IsoDirections
   - name: render
     modifiers:
       - public
@@ -76,13 +88,16 @@ methods:
       - name: sx
         type: float
       - name: sy
-        type: " float"
+        type: float
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
       - name: info
-        type: " ColorInfo"
+        type: ColorInfo
       - name: Flip
-        type: " boolean"
+        type: boolean
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderexplicit
     modifiers:
       - public
@@ -92,28 +107,35 @@ methods:
       - name: sx
         type: int
       - name: sy
-        type: " int"
-      - name: dir
-        type: " IsoDirections"
-  - name: renderexplicit
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: sx
         type: int
-      - name: sy
-        type: " int"
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
       - name: scale
-        type: " float"
+        type: float
+  - name: renderexplicit
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: sx
+        type: int
+      - name: sy
+        type: int
+      - name: dir
+        type: IsoDirections
+      - name: scale
+        type: float
+      - name: color
+        type: ColorInfo
   - name: SetAllDirections
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tex
+        type: Texture
   - name: SetDirection
     modifiers:
       - public
@@ -122,3 +144,5 @@ methods:
     parameters:
       - name: tex
         type: Texture
+      - name: dir
+        type: IsoDirections

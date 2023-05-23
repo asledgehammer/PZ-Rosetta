@@ -32,6 +32,9 @@ constructors:
   - name: WorldMapStyleV1
     modifiers:
       - public
+    parameters:
+      - name: ui
+        type: UIWorldMap
 methods:
   - name: clear
     modifiers:
@@ -43,11 +46,17 @@ methods:
       - public
     return:
       type: WorldMapStyleV1.WorldMapStyleLayerV1
+    parameters:
+      - name: index
+        type: int
   - name: getLayerByName
     modifiers:
       - public
     return:
       type: WorldMapStyleV1.WorldMapStyleLayerV1
+    parameters:
+      - name: id
+        type: String
   - name: getLayerCount
     modifiers:
       - public
@@ -58,6 +67,9 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: id
+        type: String
   - name: moveLayer
     modifiers:
       - public
@@ -66,34 +78,54 @@ methods:
     parameters:
       - name: indexFrom
         type: int
+      - name: indexTo
+        type: int
   - name: newLineLayer
     modifiers:
       - public
     return:
       type: WorldMapStyleV1.WorldMapStyleLayerV1
+    parameters:
+      - name: id
+        type: String
   - name: newPolygonLayer
     modifiers:
       - public
     return:
       type: WorldMapStyleV1.WorldMapStyleLayerV1
+    parameters:
+      - name: id
+        type: String
   - name: newTextureLayer
     modifiers:
       - public
     return:
       type: WorldMapStyleV1.WorldMapStyleLayerV1
+    parameters:
+      - name: id
+        type: String
   - name: removeLayerById
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: id
+        type: String
   - name: removeLayerByIndex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: index
+        type: int
   - name: setExposed
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: exposer
+        type: LuaManager.Exposer

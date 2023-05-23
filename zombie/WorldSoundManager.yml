@@ -35,13 +35,15 @@ methods:
       - name: source
         type: Object
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: radius
-        type: " int"
+        type: int
+      - name: volume
+        type: int
   - name: addSound
     modifiers:
       - public
@@ -51,37 +53,17 @@ methods:
       - name: source
         type: Object
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: radius
-        type: " int"
+        type: int
       - name: volume
-        type: " int"
-  - name: addSound
-    modifiers:
-      - public
-    return:
-      type: WorldSoundManager.WorldSound
-    parameters:
-      - name: source
-        type: Object
-      - name: x
-        type: " int"
-      - name: y
-        type: " int"
-      - name: z
-        type: " int"
-      - name: radius
-        type: " int"
-      - name: volume
-        type: " int"
+        type: int
       - name: stressHumans
-        type: " boolean"
-      - name: zombieIgnoreDist
-        type: " float"
+        type: boolean
   - name: addSound
     modifiers:
       - public
@@ -91,25 +73,51 @@ methods:
       - name: source
         type: Object
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: radius
-        type: " int"
+        type: int
       - name: volume
-        type: " int"
+        type: int
       - name: stressHumans
-        type: " boolean"
+        type: boolean
       - name: zombieIgnoreDist
-        type: " float"
+        type: float
       - name: stressMod
-        type: " float"
+        type: float
+  - name: addSound
+    modifiers:
+      - public
+    return:
+      type: WorldSoundManager.WorldSound
+    parameters:
+      - name: source
+        type: Object
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: z
+        type: int
+      - name: radius
+        type: int
+      - name: volume
+        type: int
+      - name: stressHumans
+        type: boolean
+      - name: zombieIgnoreDist
+        type: float
+      - name: stressMod
+        type: float
       - name: sourceIsZombie
-        type: " boolean"
+        type: boolean
       - name: doSend
-        type: " boolean"
+        type: boolean
+      - name: remote
+        type: boolean
   - name: addSoundRepeating
     modifiers:
       - public
@@ -119,15 +127,17 @@ methods:
       - name: source
         type: Object
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: radius
-        type: " int"
+        type: int
       - name: volume
-        type: " int"
+        type: int
+      - name: StressHumans
+        type: boolean
   - name: getBiggestSoundZomb
     modifiers:
       - public
@@ -137,11 +147,13 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: ignoreBySameType
-        type: " boolean"
+        type: boolean
+      - name: zom
+        type: IsoZombie
   - name: getNew
     modifiers:
       - public
@@ -155,11 +167,16 @@ methods:
     parameters:
       - name: sound
         type: WorldSoundManager.WorldSound
+      - name: zom
+        type: IsoZombie
   - name: getSoundZomb
     modifiers:
       - public
     return:
       type: WorldSoundManager.WorldSound
+    parameters:
+      - name: zom
+        type: IsoZombie
   - name: getStressFromSounds
     modifiers:
       - public
@@ -169,12 +186,17 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: init
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: initFrame
     modifiers:
       - public

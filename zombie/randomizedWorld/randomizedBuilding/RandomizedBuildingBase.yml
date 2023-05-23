@@ -18,6 +18,8 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
+      - name: numPlanks
+        type: int
   - name: addRandomRangedWeapon
     modifiers:
       - public
@@ -27,9 +29,11 @@ methods:
       - name: container
         type: ItemContainer
       - name: addBulletsInGun
-        type: " boolean"
+        type: boolean
       - name: addBoxInContainer
-        type: " boolean"
+        type: boolean
+      - name: attachPart
+        type: boolean
   - name: addWorldItem
     modifiers:
       - public
@@ -39,7 +43,9 @@ methods:
       - name: item
         type: String
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: obj
+        type: IsoObject
   - name: addWorldItem
     modifiers:
       - public
@@ -49,27 +55,31 @@ methods:
       - name: item
         type: String
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: xoffset
-        type: " float"
+        type: float
       - name: yoffset
-        type: " float"
-  - name: addWorldItem
-    modifiers:
-      - public
-    return:
-      type: InventoryItem
-    parameters:
-      - name: item
-        type: String
-      - name: sq
-        type: " IsoGridSquare"
-      - name: xoffset
-        type: " float"
-      - name: yoffset
-        type: " float"
+        type: float
       - name: zoffset
-        type: " float"
+        type: float
+  - name: addWorldItem
+    modifiers:
+      - public
+    return:
+      type: InventoryItem
+    parameters:
+      - name: item
+        type: String
+      - name: sq
+        type: IsoGridSquare
+      - name: xoffset
+        type: float
+      - name: yoffset
+        type: float
+      - name: zoffset
+        type: float
+      - name: worldZ
+        type: int
   - name: addZombies
     modifiers:
       - public
@@ -81,11 +91,13 @@ methods:
         type: BuildingDef
         notes: buildingDef
       - name: totalZombies
-        type: " int"
+        type: int
       - name: outfit
-        type: " String"
+        type: String
       - name: femaleChance
-        type: " Integer"
+        type: Integer
+      - name: room
+        type: RoomDef
     notes: |-
       If you specify a outfit, make sure it works for both gender! (or force
        femaleChance to 0 or 1 if it's gender-specific)
@@ -99,15 +111,20 @@ methods:
       - name: totalZombies
         type: int
       - name: outfit
-        type: " String"
+        type: String
       - name: femaleChance
-        type: " Integer"
+        type: Integer
+      - name: square
+        type: IsoGridSquare
   - name: ChunkLoaded
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: building
+        type: IsoBuilding
   - name: getChance
     modifiers:
       - public
@@ -118,6 +135,9 @@ methods:
       - public
     return:
       type: IsoDoor
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: getMinimumDays
     modifiers:
       - public
@@ -133,6 +153,9 @@ methods:
       - public
     return:
       type: IsoWindow
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: init
     modifiers:
       - public
@@ -157,6 +180,8 @@ methods:
     parameters:
       - name: obj
         type: IsoObject
+      - name: sq
+        type: IsoGridSquare
   - name: isValid
     modifiers:
       - public
@@ -165,6 +190,8 @@ methods:
     parameters:
       - name: def
         type: BuildingDef
+      - name: force
+        type: boolean
     notes: >-
       Don't do any building change in a player's building Also check if the
        building have a bathroom, a kitchen and a bedroom
@@ -174,26 +201,41 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: def
+        type: BuildingDef
   - name: setAlwaysDo
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alwaysDo
+        type: boolean
   - name: setChance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chance
+        type: int
   - name: setMinimumDays
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: minimumDays
+        type: int
   - name: setMinimumRooms
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: minimumRooms
+        type: int
   - name: spawnItemsInContainers
     modifiers:
       - public
@@ -203,4 +245,6 @@ methods:
       - name: def
         type: BuildingDef
       - name: distribName
-        type: " String"
+        type: String
+      - name: chance
+        type: int

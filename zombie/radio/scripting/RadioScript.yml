@@ -15,7 +15,9 @@ constructors:
       - name: n
         type: String
       - name: loopmin
-        type: " int"
+        type: int
+      - name: loopmax
+        type: int
   - name: RadioScript
     modifiers:
       - public
@@ -23,15 +25,12 @@ constructors:
       - name: n
         type: String
       - name: loopmin
-        type: " int"
+        type: int
       - name: loopmax
-        type: " int"
+        type: int
+      - name: guid
+        type: String
 methods:
-  - name: AddBroadcast
-    modifiers:
-      - public
-    return:
-      type: void
   - name: AddBroadcast
     modifiers:
       - public
@@ -40,6 +39,16 @@ methods:
     parameters:
       - name: broadcast
         type: RadioBroadCast
+  - name: AddBroadcast
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: broadcast
+        type: RadioBroadCast
+      - name: ignoreTimestamps
+        type: boolean
   - name: AddExitOption
     modifiers:
       - public
@@ -49,7 +58,9 @@ methods:
       - name: scriptname
         type: String
       - name: chance
-        type: " int"
+        type: int
+      - name: startdelay
+        type: int
   - name: clearExitOptions
     modifiers:
       - public
@@ -66,6 +77,9 @@ methods:
       - public
     return:
       type: RadioBroadCast
+    parameters:
+      - name: guid
+        type: String
   - name: getCurrentBroadcast
     modifiers:
       - public
@@ -132,8 +146,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: day
+        type: int
   - name: UpdateScript
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: timeStamp
+        type: int

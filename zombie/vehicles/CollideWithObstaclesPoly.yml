@@ -19,19 +19,21 @@ methods:
       - name: x0
         type: float
       - name: y0
-        type: " float"
+        type: float
       - name: x1
-        type: " float"
+        type: float
       - name: y1
-        type: " float"
+        type: float
       - name: z
-        type: " int"
+        type: int
       - name: render
-        type: " boolean"
+        type: boolean
       - name: ignoreVehicle
-        type: " BaseVehicle"
+        type: BaseVehicle
       - name: ignoreDoors
-        type: " boolean"
+        type: boolean
+      - name: closeToWalls
+        type: boolean
   - name: render
     modifiers:
       - public
@@ -46,9 +48,11 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: nx
-        type: " float"
+        type: float
       - name: ny
-        type: " float"
+        type: float
+      - name: finalPos
+        type: org.joml.Vector2f
   - name: vehicleMoved
     modifiers:
       - public
@@ -56,4 +60,6 @@ methods:
       type: void
     parameters:
       - name: oldPolyPlusRadius
+        type: PolygonalMap2.VehiclePoly
+      - name: newPolyPlusRadius
         type: PolygonalMap2.VehiclePoly

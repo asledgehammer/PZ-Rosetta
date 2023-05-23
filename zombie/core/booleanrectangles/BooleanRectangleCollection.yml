@@ -16,6 +16,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: rect
+        type: org.lwjgl.util.Rectangle
   - name: doIt
     modifiers:
       - public
@@ -25,6 +28,8 @@ methods:
       - name: rectsToCut
         type: ArrayList
         generic: ArrayList<org.lwjgl.util.Rectangle>
+      - name: rectToKeep
+        type: org.lwjgl.util.Rectangle
   - name: doIt
     modifiers:
       - public
@@ -34,6 +39,8 @@ methods:
     parameters:
       - name: a
         type: org.lwjgl.util.Rectangle
+      - name: b
+        type: org.lwjgl.util.Rectangle
   - name: Intersects
     modifiers:
       - public
@@ -42,6 +49,8 @@ methods:
     parameters:
       - name: rect1
         type: org.lwjgl.util.Rectangle
+      - name: rect2
+        type: org.lwjgl.util.Rectangle
   - name: IntesectsLine
     modifiers:
       - public
@@ -49,6 +58,8 @@ methods:
       type: int
     parameters:
       - name: Line1
+        type: BooleanRectangleCollection.Line
+      - name: Line2
         type: BooleanRectangleCollection.Line
   - name: IsPointInRect
     modifiers:
@@ -59,7 +70,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: rect
+        type: org.lwjgl.util.Rectangle
   - name: optimize
     modifiers:
       - public

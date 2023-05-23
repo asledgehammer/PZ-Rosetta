@@ -9,6 +9,9 @@ constructors:
   - name: AnimationBoneWeightBinding
     modifiers:
       - public
+    parameters:
+      - name: boneWeight
+        type: AnimBoneWeight
   - name: AnimationBoneWeightBinding
     modifiers:
       - public
@@ -16,13 +19,19 @@ constructors:
       - name: boneName
         type: String
       - name: weight
-        type: " float"
+        type: float
+      - name: includeDescendants
+        type: boolean
 methods:
   - name: forEachDescendant
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: consumer
+        type: Consumer
+        generic: Consumer<SkinningBone>
   - name: getIncludeDescendants
     modifiers:
       - public
@@ -38,8 +47,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: set
+        type: boolean
   - name: setWeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weight
+        type: float

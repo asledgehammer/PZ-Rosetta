@@ -37,6 +37,9 @@ constructors:
   - name: AttachedModelName
     modifiers:
       - public
+    parameters:
+      - name: other
+        type: AttachedModelName
   - name: AttachedModelName
     modifiers:
       - public
@@ -44,7 +47,9 @@ constructors:
       - name: attachmentName
         type: String
       - name: modelName
-        type: " String"
+        type: String
+      - name: bloodLevel
+        type: float
   - name: AttachedModelName
     modifiers:
       - public
@@ -52,20 +57,28 @@ constructors:
       - name: attachmentNameSelf
         type: String
       - name: attachmentNameParent
-        type: " String"
+        type: String
       - name: modelName
-        type: " String"
+        type: String
+      - name: bloodLevel
+        type: float
 methods:
   - name: addChild
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: child
+        type: AttachedModelName
   - name: getChildByIndex
     modifiers:
       - public
     return:
       type: AttachedModelName
+    parameters:
+      - name: index
+        type: int
   - name: getChildCount
     modifiers:
       - public

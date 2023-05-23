@@ -29,7 +29,9 @@ methods:
       - name: id
         type: short
       - name: bb
-        type: " ByteBuffer"
+        type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: Reset
     modifiers:
       - public
@@ -46,7 +48,9 @@ methods:
       - name: o
         type: IsoObject
       - name: change
-        type: " String"
+        type: String
+      - name: tbl
+        type: se.krka.kahlua.vm.KahluaTable
   - name: sendObjectChange
     modifiers:
       - public
@@ -57,7 +61,9 @@ methods:
       - name: o
         type: IsoObject
       - name: change
-        type: " String"
+        type: String
+      - name: objects
+        type: Object...
   - name: sendServerCommand
     modifiers:
       - public
@@ -68,20 +74,24 @@ methods:
       - name: module
         type: String
       - name: command
-        type: " String"
-  - name: sendServerCommand
-    modifiers:
-      - public
-      - static
-    return:
-      type: void
-    parameters:
-      - name: module
         type: String
-      - name: command
-        type: " String"
       - name: args
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
+  - name: sendServerCommand
+    modifiers:
+      - public
+      - static
+    return:
+      type: void
+    parameters:
+      - name: module
+        type: String
+      - name: command
+        type: String
+      - name: args
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: c
+        type: UdpConnection
   - name: update
     modifiers:
       - public

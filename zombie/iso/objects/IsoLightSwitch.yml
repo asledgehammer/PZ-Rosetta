@@ -32,6 +32,9 @@ constructors:
   - name: IsoLightSwitch
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoLightSwitch
     modifiers:
       - public
@@ -39,9 +42,11 @@ constructors:
       - name: cell
         type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: gid
-        type: " IsoSprite"
+        type: IsoSprite
+      - name: RoomID
+        type: int
 methods:
   - name: addBattery
     modifiers:
@@ -51,6 +56,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: battery
+        type: InventoryItem
   - name: addLightBulb
     modifiers:
       - public
@@ -59,6 +66,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: bulb
+        type: InventoryItem
   - name: addLightSourceFromSprite
     modifiers:
       - public
@@ -80,6 +89,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: getBulbItem
     modifiers:
       - public
@@ -95,6 +107,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: getDelta
     modifiers:
       - public
@@ -160,7 +175,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: onMouseLeftClick
     modifiers:
       - public
@@ -168,6 +185,8 @@ methods:
       type: boolean
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: receiveSyncCustomizedSettings
     modifiers:
@@ -177,11 +196,16 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: removeBattery
     modifiers:
       - public
     return:
       type: DrainableComboItem
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: removeFromWorld
     modifiers:
       - public
@@ -192,6 +216,9 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: save
     modifiers:
       - public
@@ -200,11 +227,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
-  - name: setActive
-    modifiers:
-      - public
-    return:
-      type: boolean
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: setActive
     modifiers:
       - public
@@ -222,89 +246,141 @@ methods:
       - name: active
         type: boolean
       - name: setActiveBoolOnly
-        type: " boolean"
+        type: boolean
+  - name: setActive
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: active
+        type: boolean
+      - name: setActiveBoolOnly
+        type: boolean
+      - name: ignoreSwitchCheck
+        type: boolean
   - name: setBulbItemRaw
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: String
   - name: setCustomSettingsToItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: setDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: delta
+        type: float
   - name: setHasBatteryRaw
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setPower
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: power
+        type: float
   - name: setPrimaryB
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: float
   - name: setPrimaryG
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: g
+        type: float
   - name: setPrimaryR
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: r
+        type: float
   - name: setUseBattery
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: switchLight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Activated
+        type: boolean
   - name: syncCustomizedSettings
     modifiers:
       - public
     return:
       type: void
-  - name: syncIsoObject
-    modifiers:
-      - public
-    return:
-      type: void
     parameters:
-      - name: bRemote
-        type: boolean
-      - name: val
-        type: " byte"
-  - name: syncIsoObject
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: bRemote
-        type: boolean
-      - name: val
-        type: " byte"
       - name: source
-        type: " UdpConnection"
+        type: UdpConnection
+  - name: syncIsoObject
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+  - name: syncIsoObject
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: bRemote
+        type: boolean
+      - name: val
+        type: byte
+      - name: source
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
   - name: syncIsoObjectSend
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
   - name: toggle
     modifiers:
       - public

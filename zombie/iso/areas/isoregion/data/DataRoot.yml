@@ -30,21 +30,34 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: mr
+        type: IsoWorldRegion
   - name: EnqueueDirtyDataChunk
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: DataChunk
   - name: EnqueueDirtyIsoWorldRegion
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mr
+        type: IsoWorldRegion
   - name: getAllChunks
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: list
+        type: List
+        generic: List<DataChunk>
   - name: getDataChunk
     modifiers:
       - public
@@ -52,6 +65,8 @@ methods:
       type: DataChunk
     parameters:
       - name: chunkx
+        type: int
+      - name: chunky
         type: int
   - name: getIsoChunkRegion
     modifiers:
@@ -62,7 +77,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getIsoWorldRegion
     modifiers:
       - public
@@ -72,7 +89,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getSquareFlags
     modifiers:
       - public
@@ -82,7 +101,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: processDirtyChunks
     modifiers:
       - public
@@ -102,6 +123,8 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: flags
+        type: byte

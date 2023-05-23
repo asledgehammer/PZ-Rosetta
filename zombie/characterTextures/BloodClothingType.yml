@@ -175,6 +175,10 @@ methods:
     return:
       type: BloodClothingType
       notes: the enum constant with the specified name
+    parameters:
+      - name: name
+        type: String
+        notes: the name of the enum constant to be returned.
     notes: |-
       Returns the enum constant of this class with the specified name.
       The string must match
@@ -188,7 +192,10 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
+      - name: itemVisuals
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
     notes: Should be used only for debug, use Clothing.addPatch for gameplay stuff
   - name: addBlood
     modifiers:
@@ -200,10 +207,12 @@ methods:
       - name: count
         type: int
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
       - name: itemVisuals
-        type: " ArrayList"
-        generic: " ArrayList<ItemVisual>"
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
+      - name: allLayers
+        type: boolean
   - name: addBlood
     modifiers:
       - public
@@ -214,10 +223,12 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
       - name: itemVisuals
-        type: " ArrayList"
-        generic: " ArrayList<ItemVisual>"
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
+      - name: allLayers
+        type: boolean
   - name: addBlood
     modifiers:
       - public
@@ -228,12 +239,14 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: intensity
-        type: " float"
+        type: float
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
       - name: itemVisuals
-        type: " ArrayList"
-        generic: " ArrayList<ItemVisual>"
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
+      - name: allLayers
+        type: boolean
   - name: addDirt
     modifiers:
       - public
@@ -244,10 +257,12 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
       - name: itemVisuals
-        type: " ArrayList"
-        generic: " ArrayList<ItemVisual>"
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
+      - name: allLayers
+        type: boolean
   - name: addDirt
     modifiers:
       - public
@@ -258,12 +273,14 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: intensity
-        type: " float"
+        type: float
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
       - name: itemVisuals
-        type: " ArrayList"
-        generic: " ArrayList<ItemVisual>"
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
+      - name: allLayers
+        type: boolean
   - name: addHole
     modifiers:
       - public
@@ -274,7 +291,10 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
+      - name: itemVisuals
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
   - name: addHole
     modifiers:
       - public
@@ -285,41 +305,49 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: humanVisual
-        type: " HumanVisual"
+        type: HumanVisual
       - name: itemVisuals
-        type: " ArrayList"
-        generic: " ArrayList<ItemVisual>"
+        type: ArrayList
+        generic: ArrayList<ItemVisual>
+      - name: allLayers
+        type: boolean
   - name: calcTotalBloodLevel
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: clothing
+        type: Clothing
   - name: calcTotalDirtLevel
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: clothing
+        type: Clothing
   - name: fromString
     modifiers:
       - public
       - static
     return:
       type: BloodClothingType
+    parameters:
+      - name: str
+        type: String
   - name: getCoveredPartCount
     modifiers:
       - public
       - static
     return:
       type: int
-  - name: getCoveredParts
-    modifiers:
-      - public
-      - static
-    return:
-      type: ArrayList
-      generic: ArrayList<BloodBodyPartType>
+    parameters:
+      - name: bloodClothingType
+        type: ArrayList
+        generic: ArrayList<BloodClothingType>
   - name: getCoveredParts
     modifiers:
       - public
@@ -331,6 +359,20 @@ methods:
       - name: bloodClothingType
         type: ArrayList
         generic: ArrayList<BloodClothingType>
+  - name: getCoveredParts
+    modifiers:
+      - public
+      - static
+    return:
+      type: ArrayList
+      generic: ArrayList<BloodBodyPartType>
+    parameters:
+      - name: bloodClothingType
+        type: ArrayList
+        generic: ArrayList<BloodClothingType>
+      - name: result
+        type: ArrayList
+        generic: ArrayList<BloodBodyPartType>
   - name: values
     modifiers:
       - public

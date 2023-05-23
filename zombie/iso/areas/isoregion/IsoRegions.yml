@@ -224,6 +224,8 @@ methods:
     parameters:
       - name: chunkX
         type: int
+      - name: chunkY
+        type: int
   - name: getChunkRegion
     modifiers:
       - public
@@ -235,7 +237,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
     notes: >-
       Returns a IChunkRegion for the square.
        Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
@@ -248,6 +252,8 @@ methods:
       notes: can be null.
     parameters:
       - name: chunkx
+        type: int
+      - name: chunky
         type: int
     notes: >-
       Returns a DataChunk for the square.
@@ -275,7 +281,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
     notes: >-
       Returns a IWorldRegion for the square.
        Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
@@ -292,6 +300,9 @@ methods:
       - static
     return:
       type: byte
+    parameters:
+      - name: dir
+        type: byte
   - name: getSquareFlags
     modifiers:
       - public
@@ -302,7 +313,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: hash
     modifiers:
       - public
@@ -311,6 +324,8 @@ methods:
       type: int
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: init
     modifiers:
@@ -330,6 +345,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: str
+        type: String
   - name: log
     modifiers:
       - public
@@ -339,6 +357,8 @@ methods:
     parameters:
       - name: str
         type: String
+      - name: col
+        type: Color
   - name: receiveClientRequestFullDataChunks
     modifiers:
       - public
@@ -348,12 +368,17 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: conn
+        type: UdpConnection
   - name: receiveServerUpdatePacket
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: reset
     modifiers:
       - public
@@ -372,12 +397,18 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setPreviousFlags
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: gs
+        type: IsoGridSquare
     notes: >-
       Needs to be called before a player manipulates the grid.
        Records bitFlags for the state of the square that are compared to bitFlags for the state of the square after manipulation to detect relevant changes.
@@ -387,6 +418,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: gs
+        type: IsoGridSquare
     notes: >-
       Called after the grid has been manipulated by a player.
        NOTE: setPreviousFlags needs to be called prior to the grid being manipulated by a player.
@@ -399,6 +433,8 @@ methods:
     parameters:
       - name: gs
         type: IsoGridSquare
+      - name: isRemoval
+        type: boolean
     notes: >-
       Called after the grid has been manipulated by a player.
        NOTE: setPreviousFlags needs to be called prior to the grid being manipulated by a player.
@@ -414,3 +450,6 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: str
+        type: String

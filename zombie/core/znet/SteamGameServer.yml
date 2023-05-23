@@ -40,13 +40,18 @@ methods:
       - name: steamID
         type: long
       - name: playerName
-        type: " String"
+        type: String
+      - name: score
+        type: int
   - name: EnableHeartBeats
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: bActive
+        type: boolean
   - name: GetSteamID
     modifiers:
       - public
@@ -69,11 +74,13 @@ methods:
       - name: ip
         type: String
       - name: gamePort
-        type: " int"
+        type: int
       - name: UDPPort
-        type: " int"
+        type: int
       - name: serverMode
-        type: " int"
+        type: int
+      - name: version
+        type: String
   - name: LogOnAnonymous
     modifiers:
       - public
@@ -86,18 +93,27 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: dedicated
+        type: boolean
   - name: SetGameDescription
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: description
+        type: String
   - name: SetGameTags
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: gameTags
+        type: String
   - name: SetKeyValue
     modifiers:
       - public
@@ -107,39 +123,59 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: String
   - name: SetMapName
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: mapName
+        type: String
   - name: SetMaxPlayerCount
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: playersMax
+        type: int
   - name: SetModDir
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: modDir
+        type: String
   - name: SetProduct
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: product
+        type: String
   - name: SetRegion
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: region
+        type: String
   - name: SetServerName
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: serverName
+        type: String

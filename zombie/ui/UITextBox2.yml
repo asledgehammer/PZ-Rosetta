@@ -156,15 +156,17 @@ constructors:
       - name: font
         type: UIFont
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
       - name: text
-        type: " String"
+        type: String
+      - name: HasFrame
+        type: boolean
 methods:
   - name: ClearHighlights
     modifiers:
@@ -274,6 +276,8 @@ methods:
     parameters:
       - name: x
         type: double
+      - name: y
+        type: double
   - name: onMouseMove
     modifiers:
       - public
@@ -281,6 +285,8 @@ methods:
       type: Boolean
     parameters:
       - name: dx
+        type: double
+      - name: dy
         type: double
   - name: onMouseMoveOutside
     modifiers:
@@ -290,6 +296,8 @@ methods:
     parameters:
       - name: dx
         type: double
+      - name: dy
+        type: double
   - name: onMouseUp
     modifiers:
       - public
@@ -297,6 +305,8 @@ methods:
       type: Boolean
     parameters:
       - name: x
+        type: double
+      - name: y
         type: double
   - name: onMouseUpOutside
     modifiers:
@@ -306,11 +316,16 @@ methods:
     parameters:
       - name: x
         type: double
+      - name: y
+        type: double
   - name: onOtherKey
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: key
+        type: int
   - name: onPressDown
     modifiers:
       - public
@@ -351,81 +366,129 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: hasButton
+        type: boolean
   - name: setCursorLine
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: line
+        type: int
   - name: setCursorPos
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: charIndex
+        type: int
   - name: setEditable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setForceUpperCase
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: forceUpperCase
+        type: boolean
   - name: setFrameAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alpha
+        type: float
   - name: setHasFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hasFrame
+        type: boolean
   - name: setMasked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setMaxLines
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxLines
+        type: int
   - name: setMaxTextLength
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxtextLength
+        type: int
   - name: setMultipleLine
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: multiple
+        type: boolean
   - name: setOnlyNumbers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: onlyNumbers
+        type: boolean
   - name: setSelectable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: SetText
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: text
+        type: String
   - name: setTextColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: newColor
+        type: ColorInfo
   - name: toDisplayLine
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: textOffset
+        type: int
   - name: unfocus
     modifiers:
       - public

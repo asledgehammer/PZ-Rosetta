@@ -106,6 +106,9 @@ constructors:
   - name: IsoBuilding
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
 methods:
   - name: addDoor
     modifiers:
@@ -115,6 +118,8 @@ methods:
     parameters:
       - name: obj
         type: IsoDoor
+      - name: bOtherTile
+        type: boolean
   - name: addDoor
     modifiers:
       - public
@@ -124,22 +129,19 @@ methods:
       - name: obj
         type: IsoDoor
       - name: bOtherTile
-        type: " boolean"
+        type: boolean
       - name: from
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: building
+        type: IsoBuilding
   - name: AddRoom
     modifiers:
       - public
     return:
       type: void
-  - name: addWindow
-    modifiers:
-      - public
-    return:
-      type: void
     parameters:
-      - name: obj
-        type: IsoWindow
+      - name: room
+        type: IsoRoom
   - name: addWindow
     modifiers:
       - public
@@ -149,9 +151,21 @@ methods:
       - name: obj
         type: IsoWindow
       - name: bOtherTile
-        type: " boolean"
+        type: boolean
+  - name: addWindow
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: obj
+        type: IsoWindow
+      - name: bOtherTile
+        type: boolean
       - name: from
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: building
+        type: IsoBuilding
   - name: CalculateExits
     modifiers:
       - public
@@ -167,11 +181,18 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: items
+        type: Stack
+        generic: Stack<String>
   - name: containsRoom
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: room
+        type: String
   - name: CreateFrom
     modifiers:
       - public
@@ -180,6 +201,8 @@ methods:
     parameters:
       - name: building
         type: BuildingDef
+      - name: info
+        type: LotHeader
   - name: FillContainers
     modifiers:
       - public
@@ -196,6 +219,9 @@ methods:
       - public
     return:
       type: ItemContainer
+    parameters:
+      - name: itemType
+        type: ItemType
   - name: getDef
     modifiers:
       - public
@@ -216,6 +242,9 @@ methods:
       - public
     return:
       type: ItemContainer
+    parameters:
+      - name: type
+        type: String
   - name: getRandomFirstFloorWindow
     modifiers:
       - public
@@ -231,6 +260,9 @@ methods:
       - public
     return:
       type: IsoRoom
+    parameters:
+      - name: room
+        type: String
   - name: getRoomsNumber
     modifiers:
       - public
@@ -264,16 +296,24 @@ methods:
     parameters:
       - name: desc
         type: SurvivorDesc
+      - name: bFarGood
+        type: boolean
   - name: setAllExplored
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setToxic
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isToxic
+        type: boolean
   - name: TriggerAlarm
     modifiers:
       - public

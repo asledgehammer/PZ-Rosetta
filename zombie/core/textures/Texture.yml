@@ -35,7 +35,9 @@ fields:
       - static
     return:
       type: int
-    notes: indicates if all the texture will auto create the masks on load
+    notes: |-
+      indicates if all the texture will auto create the masks on load
+       The auto creation works only with the getTexture() methods
   - name: flip
     modifiers:
       - public
@@ -112,25 +114,33 @@ fields:
       - public
     return:
       type: float
-    notes: internal texture coordinates
+    notes: |-
+      internal texture coordinates
+       it's used to get the max border of texture...
   - name: xStart
     modifiers:
       - public
     return:
       type: float
-    notes: internal texture coordinates
+    notes: |-
+      internal texture coordinates
+       it's used to get the max border of texture...
   - name: yEnd
     modifiers:
       - public
     return:
       type: float
-    notes: internal texture coordinates
+    notes: |-
+      internal texture coordinates
+       it's used to get the max border of texture...
   - name: yStart
     modifiers:
       - public
     return:
       type: float
-    notes: internal texture coordinates
+    notes: |-
+      internal texture coordinates
+       it's used to get the max border of texture...
 constructors:
   - name: Texture
     modifiers:
@@ -139,53 +149,15 @@ constructors:
       - name: path
         type: AssetPath
       - name: manager
-        type: " AssetManager"
+        type: AssetManager
+      - name: params
+        type: Texture.TextureAssetParams
   - name: Texture
     modifiers:
       - public
     parameters:
       - name: data
         type: TextureID
-  - name: Texture
-    modifiers:
-      - public
-    notes: LOADS and crete a texture from a file
-  - name: Texture
-    modifiers:
-      - public
-    parameters:
-      - name: name
-        type: String
-      - name: b
-        type: " BufferedInputStream"
-      - name: bDoMask
-        type: " boolean"
-  - name: Texture
-    modifiers:
-      - public
-    parameters:
-      - name: name
-        type: String
-      - name: b
-        type: " BufferedInputStream"
-  - name: Texture
-    modifiers:
-      - public
-    parameters:
-      - name: file
-        type: String
-      - name: bDelete
-        type: " boolean"
-  - name: Texture
-    modifiers:
-      - public
-    parameters:
-      - name: name
-        type: String
-  - name: Texture
-    modifiers:
-      - public
-    parameters:
       - name: name
         type: String
   - name: Texture
@@ -200,13 +172,73 @@ constructors:
     modifiers:
       - public
     parameters:
+      - name: name
+        type: String
+      - name: b
+        type: BufferedInputStream
+      - name: bDoMask
+        type: boolean
+      - name: format
+        type: Texture.PZFileformat
+  - name: Texture
+    modifiers:
+      - public
+    parameters:
+      - name: name
+        type: String
+      - name: b
+        type: BufferedInputStream
+      - name: bDoMask
+        type: boolean
+  - name: Texture
+    modifiers:
+      - public
+    parameters:
+      - name: file
+        type: String
+      - name: bDelete
+        type: boolean
+      - name: bUseAlpha
+        type: boolean
+  - name: Texture
+    modifiers:
+      - public
+    parameters:
+      - name: name
+        type: String
+      - name: palette
+        type: String
+  - name: Texture
+    modifiers:
+      - public
+    parameters:
+      - name: name
+        type: String
+      - name: palette
+        type: int[]
+  - name: Texture
+    modifiers:
+      - public
+    parameters:
+      - name: file
+        type: String
+        notes: relative path
+      - name: useAlphaChannel
+        type: boolean
+    notes: LOADS and crete a texture from a file
+  - name: Texture
+    modifiers:
+      - public
+    parameters:
       - name: width
         type: int
         notes: size of texture
       - name: height
-        type: " int"
+        type: int
       - name: name
-        type: " String"
+        type: String
+      - name: flags
+        type: int
     notes: create a new empty texture.
   - name: Texture
     modifiers:
@@ -216,7 +248,9 @@ constructors:
         type: int
         notes: size of texture
       - name: height
-        type: " int"
+        type: int
+      - name: flags
+        type: int
     notes: create a new empty texture.
   - name: Texture
     modifiers:
@@ -226,9 +260,11 @@ constructors:
         type: String
         notes: relative path
       - name: red
-        type: " int"
+        type: int
       - name: green
-        type: " int"
+        type: int
+      - name: blue
+        type: int
     notes: >-
       loads and create a texture from a file and cretes as trasparent the
       section that have the color equal to the
@@ -237,6 +273,10 @@ constructors:
   - name: Texture
     modifiers:
       - public
+    parameters:
+      - name: t
+        type: Texture
+        notes: original texture
     notes: creates a copy of an existent texture
   - name: Texture
     modifiers:
@@ -259,6 +299,10 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: unit
+        type: int
+        notes: the texture unit in witch the current TextureObject will be binded
     notes: "Description copied from interface: ITexture"
   - name: bindNone
     modifiers:
@@ -282,6 +326,9 @@ methods:
       - name: map
         type: HashMap
         generic: HashMap<String,String>
+      - name: mapFull
+        type: HashMap
+        generic: HashMap<String,String>
   - name: copyMaskRegion
     modifiers:
       - public
@@ -291,11 +338,13 @@ methods:
       - name: from
         type: Texture
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: createMask
     modifiers:
       - public
@@ -307,16 +356,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: mask
+        type: boolean[]
   - name: createMask
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mask
+        type: BooleanGrid
   - name: createMask
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: buf
+        type: WrappedBuffer
   - name: destroy
     modifiers:
       - public
@@ -328,6 +386,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: other
+        type: Texture
   - name: flipPixels
     modifiers:
       - public
@@ -338,13 +399,18 @@ methods:
       - name: imgPixels
         type: int[]
       - name: imgw
-        type: " int"
+        type: int
+      - name: imgh
+        type: int
   - name: forgetTexture
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: getData
     modifiers:
       - public
@@ -426,12 +492,6 @@ methods:
       - static
     return:
       type: Texture
-  - name: getSharedTexture
-    modifiers:
-      - public
-      - static
-    return:
-      type: Texture
     parameters:
       - name: name
         type: String
@@ -443,6 +503,19 @@ methods:
       type: Texture
     parameters:
       - name: name
+        type: String
+      - name: flags
+        type: int
+  - name: getSharedTexture
+    modifiers:
+      - public
+      - static
+    return:
+      type: Texture
+    parameters:
+      - name: name
+        type: String
+      - name: palette
         type: String
   - name: getSharedTexture
     modifiers:
@@ -454,13 +527,18 @@ methods:
       - name: name
         type: String
       - name: palette
-        type: " int[]"
+        type: int[]
+      - name: paletteName
+        type: String
   - name: getSteamAvatar
     modifiers:
       - public
       - static
     return:
       type: Texture
+    parameters:
+      - name: steamID
+        type: long
   - name: getTexture
     modifiers:
       - public
@@ -468,6 +546,10 @@ methods:
     return:
       type: Texture
       notes: returns the texture from the given name
+    parameters:
+      - name: name
+        type: String
+        notes: the name of texture
     notes: gets a texture from it's name; If the texture isn't already loaded this
       method will load it.
   - name: getTextureId
@@ -492,6 +574,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: uvScale
+        type: Vector2
   - name: getWhite
     modifiers:
       - public
@@ -573,6 +658,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: cache
+        type: ByteBuffer
   - name: makeTransp
     modifiers:
       - public
@@ -583,7 +671,9 @@ methods:
         type: int
         notes: color used in the test
       - name: green
-        type: " int"
+        type: int
+      - name: blue
+        type: int
     notes: "Description copied from interface: ITexture"
   - name: onBeforeReady
     modifiers:
@@ -602,17 +692,26 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: filePath
+        type: String
   - name: reload
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: reloadFromFile
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: render
     modifiers:
       - public
@@ -620,6 +719,8 @@ methods:
       type: void
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: render
     modifiers:
@@ -630,31 +731,36 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
-      - name: width
-        type: " float"
-  - name: render
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: x
         type: float
-      - name: y
-        type: " float"
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
+  - name: render
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: width
+        type: float
+      - name: height
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: render
     modifiers:
       - public
@@ -664,21 +770,24 @@ methods:
       - name: dr
         type: ObjectRenderEffects
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderdiamond
     modifiers:
       - public
@@ -688,17 +797,19 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: l
-        type: " int"
+        type: int
       - name: u
-        type: " int"
+        type: int
       - name: r
-        type: " int"
+        type: int
+      - name: d
+        type: int
   - name: rendershader2
     modifiers:
       - public
@@ -708,25 +819,27 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: texx
-        type: " int"
+        type: int
       - name: texy
-        type: " int"
+        type: int
       - name: texWidth
-        type: " int"
+        type: int
       - name: texHeight
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: renderstrip
     modifiers:
       - public
@@ -736,19 +849,22 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderwalln
     modifiers:
       - public
@@ -758,17 +874,19 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: u
-        type: " int"
+        type: int
       - name: d
-        type: " int"
+        type: int
       - name: u2
-        type: " int"
+        type: int
+      - name: d2
+        type: int
   - name: renderwallnw
     modifiers:
       - public
@@ -778,21 +896,23 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: u
-        type: " int"
+        type: int
       - name: d
-        type: " int"
+        type: int
       - name: u2
-        type: " int"
+        type: int
       - name: d2
-        type: " int"
+        type: int
       - name: r
-        type: " int"
+        type: int
+      - name: r2
+        type: int
   - name: renderwallw
     modifiers:
       - public
@@ -802,42 +922,59 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: u
-        type: " int"
+        type: int
       - name: d
-        type: " int"
+        type: int
       - name: u2
-        type: " int"
+        type: int
+      - name: d2
+        type: int
   - name: saveMask
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: saveMaskRegion
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: cache
+        type: ByteBuffer
   - name: saveOnRenderThread
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: filename
+        type: String
   - name: saveToCurrentSavefileDirectory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: filename
+        type: String
   - name: saveToZomboidDirectory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: filename
+        type: String
   - name: setAlphaForeach
     modifiers:
       - public
@@ -848,9 +985,11 @@ methods:
         type: int
         notes: color used in the test
       - name: green
-        type: " int"
+        type: int
       - name: blue
-        type: " int"
+        type: int
+      - name: alpha
+        type: int
     notes: "Description copied from interface: ITexture"
   - name: setCustomizedTexture
     modifiers:
@@ -862,48 +1001,77 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: data
+        type: ByteBuffer
+        notes: texture's pixel data
     notes: sets the texture's pixel from a ByteBuffer
   - name: setHeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: height
+        type: int
   - name: setMask
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mask
+        type: Mask
+        notes: the mask of collisions to set
     notes: sets the mask of collisions
   - name: setName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setNameOnly
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setOffsetX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: offset
+        type: int
   - name: setOffsetY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: offset
+        type: int
   - name: setRealHeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: realHeight
+        type: int
   - name: setRealWidth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: realWidth
+        type: int
   - name: setRegion
     modifiers:
       - public
@@ -914,21 +1082,30 @@ methods:
         type: int
         notes: xstart position
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
     notes: "Description copied from interface: ITexture"
   - name: setUseAlphaChannel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: value
+        type: boolean
+        notes: if true, the image will use the alpha channel
     notes: indicates if the texture contains the alpha channel or not
   - name: setWidth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: width
+        type: int
   - name: split
     modifiers:
       - public
@@ -938,9 +1115,11 @@ methods:
       - name: xOffset
         type: int
       - name: yOffset
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: split
     modifiers:
       - public
@@ -950,11 +1129,13 @@ methods:
       - name: name
         type: String
       - name: xOffset
-        type: " int"
+        type: int
       - name: yOffset
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: split
     modifiers:
       - public
@@ -965,17 +1146,19 @@ methods:
       - name: xOffset
         type: int
       - name: yOffset
-        type: " int"
+        type: int
       - name: row
-        type: " int"
+        type: int
       - name: coloumn
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
       - name: spaceX
-        type: " int"
+        type: int
+      - name: spaceY
+        type: int
   - name: split2D
     modifiers:
       - public
@@ -984,6 +1167,8 @@ methods:
       generic: Texture[][]
     parameters:
       - name: xstep
+        type: int[]
+      - name: ystep
         type: int[]
   - name: splitIcon
     modifiers:
@@ -996,9 +1181,15 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: steamID
+        type: long
   - name: trygetTexture
     modifiers:
       - public
       - static
     return:
       type: Texture
+    parameters:
+      - name: name
+        type: String

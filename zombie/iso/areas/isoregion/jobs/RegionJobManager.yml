@@ -18,6 +18,9 @@ methods:
       - static
     return:
       type: JobApplyChanges
+    parameters:
+      - name: saveToDisk
+        type: boolean
   - name: allocChunkUpdate
     modifiers:
       - public
@@ -36,6 +39,9 @@ methods:
       - static
     return:
       type: JobServerSendFullData
+    parameters:
+      - name: conn
+        type: UdpConnection
   - name: allocSquareUpdate
     modifiers:
       - public
@@ -46,12 +52,17 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: flags
+        type: byte
   - name: release
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: job
+        type: RegionJob

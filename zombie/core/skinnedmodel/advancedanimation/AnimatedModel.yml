@@ -16,16 +16,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: sender
+        type: ActionContext
   - name: clothingItemChanged
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemGuid
+        type: String
   - name: DoRender
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: camera
+        type: ModelCamera
   - name: DoRender
     modifiers:
       - public
@@ -35,13 +44,15 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
       - name: h
-        type: " int"
+        type: int
       - name: sizeV
-        type: " float"
+        type: float
+      - name: animPlayerAngle
+        type: float
   - name: DoRenderToWorld
     modifiers:
       - public
@@ -51,9 +62,11 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: animPlayerAngle
+        type: float
   - name: getActionContext
     modifiers:
       - public
@@ -89,6 +102,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: itemVisuals
+        type: ItemVisuals
   - name: getModelInstance
     modifiers:
       - public
@@ -152,11 +168,16 @@ methods:
     parameters:
       - name: sender
         type: AnimLayer
+      - name: event
+        type: AnimEvent
   - name: postRender
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bRendered
+        type: boolean
   - name: releaseAnimationPlayer
     modifiers:
       - public
@@ -172,6 +193,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: alpha
+        type: float
   - name: setAmbient
     modifiers:
       - public
@@ -181,42 +205,65 @@ methods:
       - name: ambient
         type: ColorInfo
       - name: outside
-        type: " boolean"
+        type: boolean
+      - name: room
+        type: boolean
   - name: setAngle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: angle
+        type: Vector2
   - name: setAnimate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: animate
+        type: boolean
   - name: setAnimSetName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setAttachedModelNames
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachedModelNames
+        type: AttachedModelNames
   - name: setCharacter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
   - name: setFlipY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: flip
+        type: boolean
   - name: setIsometric
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: iso
+        type: boolean
   - name: setLights
     modifiers:
       - public
@@ -226,9 +273,11 @@ methods:
       - name: lights
         type: IsoGridSquare.ResultLight[]
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: setModelData
     modifiers:
       - public
@@ -237,6 +286,8 @@ methods:
     parameters:
       - name: baseVisual
         type: HumanVisual
+      - name: itemVisuals
+        type: ItemVisuals
   - name: setOffset
     modifiers:
       - public
@@ -246,7 +297,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: setOutfitName
     modifiers:
       - public
@@ -256,37 +309,57 @@ methods:
       - name: name
         type: String
       - name: female
-        type: " boolean"
+        type: boolean
+      - name: zombie
+        type: boolean
   - name: setPrimaryHandModelName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setSecondaryHandModelName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: state
+        type: String
   - name: setSurvivorDesc
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: survivorDesc
+        type: SurvivorDesc
   - name: setTrackTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: trackTime
+        type: float
   - name: setVisual
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: baseVisual
+        type: HumanVisual
   - name: update
     modifiers:
       - public

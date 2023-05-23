@@ -9,6 +9,9 @@ constructors:
   - name: IsoStackedWasherDryer
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoStackedWasherDryer
     modifiers:
       - public
@@ -16,7 +19,9 @@ constructors:
       - name: cell
         type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: gid
+        type: IsoSprite
 methods:
   - name: addToWorld
     modifiers:
@@ -46,6 +51,8 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
+      - name: item
+        type: InventoryItem
   - name: isRemoveItemAllowedFromContainer
     modifiers:
       - public
@@ -54,6 +61,8 @@ methods:
     parameters:
       - name: container
         type: ItemContainer
+      - name: item
+        type: InventoryItem
   - name: isWasherActivated
     modifiers:
       - public
@@ -68,7 +77,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: loadChange
     modifiers:
       - public
@@ -77,6 +88,8 @@ methods:
     parameters:
       - name: change
         type: String
+      - name: bb
+        type: ByteBuffer
   - name: removeFromWorld
     modifiers:
       - public
@@ -90,6 +103,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -99,17 +114,25 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
   - name: setDryerActivated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: activated
+        type: boolean
   - name: setWasherActivated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: activated
+        type: boolean
   - name: update
     modifiers:
       - public

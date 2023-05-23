@@ -35,6 +35,9 @@ constructors:
   - name: ThunderStorm
     modifiers:
       - public
+    parameters:
+      - name: climmgr
+        type: ClimateManager
 methods:
   - name: applyLightningForPlayer
     modifiers:
@@ -45,7 +48,9 @@ methods:
       - name: renderSettings
         type: RenderSettings.PlayerRenderSettings
       - name: plrIndex
-        type: " int"
+        type: int
+      - name: player
+        type: IsoPlayer
   - name: enqueueThunderEvent
     modifiers:
       - public
@@ -55,11 +60,13 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: doStrike
-        type: " boolean"
+        type: boolean
       - name: doLightning
-        type: " boolean"
+        type: boolean
+      - name: doRumble
+        type: boolean
   - name: getClouds
     modifiers:
       - public
@@ -87,21 +94,33 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: DataInputStream
   - name: noise
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: s
+        type: String
   - name: readNetThunderEvent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: DataOutputStream
     notes: IO
   - name: startThunderCloud
     modifiers:
@@ -112,15 +131,17 @@ methods:
       - name: str
         type: float
       - name: angle
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: eventFreq
-        type: " float"
+        type: float
       - name: thunderRatio
-        type: " float"
+        type: float
       - name: duration
-        type: " double"
+        type: double
+      - name: targetRandomPlayer
+        type: boolean
   - name: startThunderCloud
     modifiers:
       - public
@@ -130,17 +151,19 @@ methods:
       - name: str
         type: float
       - name: angle
-        type: " float"
+        type: float
       - name: radius
-        type: " float"
+        type: float
       - name: eventFreq
-        type: " float"
+        type: float
       - name: thunderRatio
-        type: " float"
+        type: float
       - name: duration
-        type: " double"
+        type: double
       - name: targetRandomPlayer
-        type: " boolean"
+        type: boolean
+      - name: percentageOffset
+        type: float
   - name: stopAllClouds
     modifiers:
       - public
@@ -151,6 +174,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: id
+        type: int
   - name: triggerThunderEvent
     modifiers:
       - public
@@ -160,18 +186,26 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: doStrike
-        type: " boolean"
+        type: boolean
       - name: doLightning
-        type: " boolean"
+        type: boolean
+      - name: doRumble
+        type: boolean
   - name: update
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentTime
+        type: double
   - name: writeNetThunderEvent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer

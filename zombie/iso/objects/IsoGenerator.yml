@@ -30,6 +30,9 @@ constructors:
   - name: IsoGenerator
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoGenerator
     modifiers:
       - public
@@ -37,17 +40,21 @@ constructors:
       - name: item
         type: InventoryItem
       - name: cell
-        type: " IsoCell"
-  - name: IsoGenerator
-    modifiers:
-      - public
-    parameters:
-      - name: item
-        type: InventoryItem
-      - name: cell
-        type: " IsoCell"
+        type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+  - name: IsoGenerator
+    modifiers:
+      - public
+    parameters:
+      - name: item
+        type: InventoryItem
+      - name: cell
+        type: IsoCell
+      - name: sq
+        type: IsoGridSquare
+      - name: remote
+        type: boolean
 methods:
   - name: addToWorld
     modifiers:
@@ -60,6 +67,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: failToStart
     modifiers:
       - public
@@ -111,13 +121,15 @@ methods:
       - name: generatorX
         type: int
       - name: generatorY
-        type: " int"
+        type: int
       - name: generatorZ
-        type: " int"
+        type: int
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: load
     modifiers:
       - public
@@ -127,7 +139,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: remove
     modifiers:
       - public
@@ -152,31 +166,48 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: setActivated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: activated
+        type: boolean
   - name: setCondition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: condition
+        type: int
   - name: setConnected
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connected
+        type: boolean
   - name: setFuel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fuel
+        type: float
   - name: setInfoFromItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: setSurroundingElectricity
     modifiers:
       - public
@@ -187,6 +218,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: totalPowerUsing
+        type: float
   - name: sync
     modifiers:
       - public
@@ -196,9 +230,11 @@ methods:
       - name: fuel
         type: float
       - name: condition
-        type: " int"
+        type: int
       - name: connected
-        type: " boolean"
+        type: boolean
+      - name: activated
+        type: boolean
   - name: syncIsoObject
     modifiers:
       - public
@@ -208,14 +244,19 @@ methods:
       - name: bRemote
         type: boolean
       - name: val
-        type: " byte"
+        type: byte
       - name: source
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
   - name: syncIsoObjectSend
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
   - name: update
     modifiers:
       - public
@@ -227,6 +268,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: updateSurroundingNow
     modifiers:
       - public

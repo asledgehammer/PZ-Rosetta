@@ -23,6 +23,9 @@ methods:
       - abstract
     return:
       type: boolean
+    parameters:
+      - name: handle
+        type: long
   - name: isEmpty
     modifiers:
       - public
@@ -35,24 +38,36 @@ methods:
       - abstract
     return:
       type: boolean
+    parameters:
+      - name: channel
+        type: long
   - name: isPlaying
     modifiers:
       - public
       - abstract
     return:
       type: boolean
+    parameters:
+      - name: alias
+        type: String
   - name: playAmbientLoopedImpl
     modifiers:
       - public
       - abstract
     return:
       type: long
+    parameters:
+      - name: file
+        type: String
   - name: playAmbientSound
     modifiers:
       - public
       - abstract
     return:
       type: long
+    parameters:
+      - name: name
+        type: String
   - name: playClip
     modifiers:
       - public
@@ -62,21 +77,8 @@ methods:
     parameters:
       - name: clip
         type: GameSoundClip
-  - name: playSound
-    modifiers:
-      - public
-      - abstract
-    return:
-      type: long
-  - name: playSound
-    modifiers:
-      - public
-      - abstract
-    return:
-      type: long
-    parameters:
-      - name: file
-        type: String
+      - name: parent
+        type: IsoObject
   - name: playSound
     modifiers:
       - public
@@ -95,6 +97,8 @@ methods:
     parameters:
       - name: file
         type: String
+      - name: character
+        type: IsoGameCharacter
   - name: playSound
     modifiers:
       - public
@@ -104,6 +108,30 @@ methods:
     parameters:
       - name: file
         type: String
+      - name: square
+        type: IsoGridSquare
+  - name: playSound
+    modifiers:
+      - public
+      - abstract
+    return:
+      type: long
+    parameters:
+      - name: file
+        type: String
+      - name: doWorldSound
+        type: boolean
+  - name: playSound
+    modifiers:
+      - public
+      - abstract
+    return:
+      type: long
+    parameters:
+      - name: file
+        type: String
+      - name: parent
+        type: IsoObject
   - name: playSound
     modifiers:
       - public
@@ -114,9 +142,11 @@ methods:
       - name: file
         type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: playSoundImpl
     modifiers:
       - public
@@ -126,6 +156,8 @@ methods:
     parameters:
       - name: file
         type: String
+      - name: square
+        type: IsoGridSquare
   - name: playSoundImpl
     modifiers:
       - public
@@ -135,6 +167,8 @@ methods:
     parameters:
       - name: file
         type: String
+      - name: parent
+        type: IsoObject
   - name: playSoundImpl
     modifiers:
       - public
@@ -145,19 +179,27 @@ methods:
       - name: file
         type: String
       - name: doWorldSound
-        type: " boolean"
+        type: boolean
+      - name: parent
+        type: IsoObject
   - name: playSoundLooped
     modifiers:
       - public
       - abstract
     return:
       type: long
+    parameters:
+      - name: file
+        type: String
   - name: playSoundLoopedImpl
     modifiers:
       - public
       - abstract
     return:
       type: long
+    parameters:
+      - name: file
+        type: String
   - name: randomStart
     modifiers:
       - public
@@ -170,6 +212,9 @@ methods:
       - abstract
     return:
       type: boolean
+    parameters:
+      - name: handle
+        type: long
   - name: set3D
     modifiers:
       - public
@@ -179,6 +224,8 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: is3D
+        type: boolean
   - name: setParameterValue
     modifiers:
       - public
@@ -189,7 +236,9 @@ methods:
       - name: handle
         type: long
       - name: parameterDescription
-        type: " fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
+        type: fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION
+      - name: value
+        type: float
   - name: setPitch
     modifiers:
       - public
@@ -199,6 +248,8 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: pitch
+        type: float
   - name: setPos
     modifiers:
       - public
@@ -209,7 +260,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: setTimelinePosition
     modifiers:
       - public
@@ -219,6 +272,8 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: positionName
+        type: String
   - name: setVolume
     modifiers:
       - public
@@ -228,12 +283,17 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: volume
+        type: float
   - name: setVolumeAll
     modifiers:
       - public
       - abstract
     return:
       type: void
+    parameters:
+      - name: volume
+        type: float
   - name: stopAll
     modifiers:
       - public
@@ -246,30 +306,45 @@ methods:
       - abstract
     return:
       type: void
+    parameters:
+      - name: handle
+        type: long
   - name: stopOrTriggerSoundByName
     modifiers:
       - public
       - abstract
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: stopSound
     modifiers:
       - public
       - abstract
     return:
       type: int
+    parameters:
+      - name: channel
+        type: long
   - name: stopSoundByName
     modifiers:
       - public
       - abstract
     return:
       type: int
+    parameters:
+      - name: name
+        type: String
   - name: stopSoundLocal
     modifiers:
       - public
       - abstract
     return:
       type: void
+    parameters:
+      - name: handle
+        type: long
   - name: tick
     modifiers:
       - public
@@ -282,3 +357,6 @@ methods:
       - abstract
     return:
       type: void
+    parameters:
+      - name: handle
+        type: long

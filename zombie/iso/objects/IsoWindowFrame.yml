@@ -19,6 +19,8 @@ methods:
     parameters:
       - name: o
         type: IsoObject
+      - name: chr
+        type: IsoGameCharacter
   - name: addSheetRope
     modifiers:
       - public
@@ -29,13 +31,18 @@ methods:
       - name: o
         type: IsoObject
       - name: player
-        type: " IsoPlayer"
+        type: IsoPlayer
+      - name: itemType
+        type: String
   - name: canAddSheetRope
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: o
+        type: IsoObject
   - name: canClimbThrough
     modifiers:
       - public
@@ -45,12 +52,17 @@ methods:
     parameters:
       - name: o
         type: IsoObject
+      - name: chr
+        type: IsoGameCharacter
   - name: countAddSheetRope
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: o
+        type: IsoObject
   - name: getAddSheetSquare
     modifiers:
       - public
@@ -60,36 +72,44 @@ methods:
     parameters:
       - name: o
         type: IsoObject
+      - name: chr
+        type: IsoGameCharacter
   - name: getCurtain
     modifiers:
       - public
       - static
     return:
       type: IsoCurtain
+    parameters:
+      - name: o
+        type: IsoObject
   - name: getIndoorSquare
     modifiers:
       - public
       - static
     return:
       type: IsoGridSquare
+    parameters:
+      - name: o
+        type: IsoObject
   - name: getOppositeSquare
     modifiers:
       - public
       - static
     return:
       type: IsoGridSquare
+    parameters:
+      - name: o
+        type: IsoObject
   - name: haveSheetRope
     modifiers:
       - public
       - static
     return:
       type: boolean
-  - name: isWindowFrame
-    modifiers:
-      - public
-      - static
-    return:
-      type: boolean
+    parameters:
+      - name: o
+        type: IsoObject
   - name: isWindowFrame
     modifiers:
       - public
@@ -99,6 +119,17 @@ methods:
     parameters:
       - name: o
         type: IsoObject
+  - name: isWindowFrame
+    modifiers:
+      - public
+      - static
+    return:
+      type: boolean
+    parameters:
+      - name: o
+        type: IsoObject
+      - name: north
+        type: boolean
   - name: removeSheetRope
     modifiers:
       - public
@@ -108,3 +139,5 @@ methods:
     parameters:
       - name: o
         type: IsoObject
+      - name: player
+        type: IsoPlayer

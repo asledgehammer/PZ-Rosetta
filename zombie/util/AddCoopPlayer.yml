@@ -10,6 +10,9 @@ constructors:
   - name: AddCoopPlayer
     modifiers:
       - public
+    parameters:
+      - name: player
+        type: IsoPlayer
 methods:
   - name: accessDenied
     modifiers:
@@ -19,11 +22,16 @@ methods:
     parameters:
       - name: playerIndex
         type: int
+      - name: reason
+        type: String
   - name: accessGranted
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: isFinished
     modifiers:
       - public
@@ -37,11 +45,16 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: receivePlayerConnect
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: update
     modifiers:
       - public

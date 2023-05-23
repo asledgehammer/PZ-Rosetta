@@ -73,18 +73,27 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: callback
+        type: IJoinRequestCallback
   - name: convertSteamIDToString
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: steamID
+        type: long
   - name: convertStringToSteamID
     modifiers:
       - public
       - static
     return:
       type: long
+    parameters:
+      - name: s
+        type: String
   - name: init
     modifiers:
       - public
@@ -121,12 +130,18 @@ methods:
       - static
     return:
       type: boolean
+    parameters:
+      - name: s
+        type: String
   - name: removeJoinRequestCallback
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: callback
+        type: IJoinRequestCallback
   - name: runLoop
     modifiers:
       - public
@@ -143,11 +158,13 @@ methods:
       - name: multipleLines
         type: boolean
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: showGamepadTextInput
     modifiers:
       - public
@@ -158,11 +175,13 @@ methods:
       - name: password
         type: boolean
       - name: multipleLines
-        type: " boolean"
+        type: boolean
       - name: description
-        type: " String"
+        type: String
       - name: maxChars
-        type: " int"
+        type: int
+      - name: existingText
+        type: String
   - name: shutdown
     modifiers:
       - public

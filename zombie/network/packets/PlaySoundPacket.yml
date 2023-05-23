@@ -43,6 +43,8 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: process
     modifiers:
       - public
@@ -57,9 +59,14 @@ methods:
       - name: name
         type: String
       - name: loop
-        type: " boolean"
+        type: boolean
+      - name: source
+        type: IsoMovingObject
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

@@ -96,6 +96,8 @@ methods:
     parameters:
       - name: sourceLocation
         type: File
+      - name: targetLocation
+        type: File
   - name: copyWorld
     modifiers:
       - public
@@ -105,12 +107,17 @@ methods:
     parameters:
       - name: src
         type: String
+      - name: dest
+        type: String
   - name: createWorld
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: worldName
+        type: String
   - name: debugFullyStreamedIn
     modifiers:
       - public
@@ -118,6 +125,8 @@ methods:
       type: void
     parameters:
       - name: squareX
+        type: int
+      - name: squareY
         type: int
   - name: enter
     modifiers:
@@ -139,9 +148,11 @@ methods:
       - name: x
         type: float
       - name: camX
-        type: " float"
+        type: float
       - name: zoom
-        type: " float"
+        type: float
+      - name: offx
+        type: float
   - name: invTranslatePointY
     modifiers:
       - public
@@ -152,9 +163,11 @@ methods:
       - name: y
         type: float
       - name: camY
-        type: " float"
+        type: float
       - name: zoom
-        type: " float"
+        type: float
+      - name: offy
+        type: float
   - name: redirectState
     modifiers:
       - public
@@ -180,11 +193,13 @@ methods:
       - name: cell
         type: IsoCell
       - name: drawFloor
-        type: " int"
+        type: int
       - name: tilew
-        type: " int"
+        type: int
       - name: offx
-        type: " int"
+        type: int
+      - name: offy
+        type: int
   - name: renderDebugOverhead2
     modifiers:
       - public
@@ -195,29 +210,37 @@ methods:
       - name: cell
         type: IsoCell
       - name: drawFloor
-        type: " int"
+        type: int
       - name: zoom
-        type: " float"
+        type: float
       - name: offx
-        type: " int"
+        type: int
       - name: offy
-        type: " int"
+        type: int
       - name: xPos
-        type: " float"
+        type: float
       - name: yPos
-        type: " float"
+        type: float
       - name: draww
-        type: " int"
+        type: int
+      - name: drawh
+        type: int
   - name: renderframe
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: nPlayer
+        type: int
   - name: renderframetext
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: nPlayer
+        type: int
   - name: renderframeui
     modifiers:
       - public
@@ -233,17 +256,19 @@ methods:
       - name: x1
         type: float
       - name: y1
-        type: " float"
+        type: float
       - name: x2
-        type: " float"
+        type: float
       - name: y2
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: renderRect
     modifiers:
       - public
@@ -254,17 +279,19 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: w
-        type: " float"
+        type: float
       - name: h
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: translatePointX
     modifiers:
       - public
@@ -275,9 +302,11 @@ methods:
       - name: x
         type: float
       - name: camX
-        type: " float"
+        type: float
       - name: zoom
-        type: " float"
+        type: float
+      - name: offx
+        type: float
   - name: translatePointY
     modifiers:
       - public
@@ -288,9 +317,11 @@ methods:
       - name: y
         type: float
       - name: camY
-        type: " float"
+        type: float
       - name: zoom
-        type: " float"
+        type: float
+      - name: offy
+        type: float
   - name: update
     modifiers:
       - public

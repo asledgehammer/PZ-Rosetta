@@ -297,6 +297,9 @@ constructors:
   - name: BodyDamage
     modifiers:
       - public
+    parameters:
+      - name: ParentCharacter
+        type: IsoGameCharacter
 methods:
   - name: AddDamage
     modifiers:
@@ -306,6 +309,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
+      - name: Val
+        type: float
   - name: AddDamage
     modifiers:
       - public
@@ -314,11 +319,16 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: val
+        type: float
   - name: AddGeneralHealth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Val
+        type: float
   - name: AddRandomDamage
     modifiers:
       - public
@@ -332,6 +342,8 @@ methods:
     parameters:
       - name: zombie
         type: IsoZombie
+      - name: hitReaction
+        type: String
     notes: |-
       This gonna decide the strength of the damage you'll get.
        Getting surrounded can also trigger an instant death animation.
@@ -343,23 +355,34 @@ methods:
     parameters:
       - name: partA
         type: BodyPartType
+      - name: partB
+        type: BodyPartType
     notes: Returns TRUE if either body part is bleeding. ie. A OR B
   - name: DamageFromWeapon
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weapon
+        type: HandWeapon
     notes: When hit by another player in MP
   - name: decreaseBodyWetness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: float
   - name: DisableFakeInfection
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: doBodyPartsHaveInjuries
     modifiers:
       - public
@@ -368,12 +391,17 @@ methods:
     parameters:
       - name: partA
         type: BodyPartType
+      - name: partB
+        type: BodyPartType
     notes: Returns TRUE if either body part is injured. ie. A OR B
   - name: doesBodyPartHaveInjury
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: part
+        type: BodyPartType
   - name: DrawUntexturedQuad
     modifiers:
       - public
@@ -383,17 +411,19 @@ methods:
       - name: X
         type: int
       - name: Y
-        type: " int"
+        type: int
       - name: Width
-        type: " int"
+        type: int
       - name: Height
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: getApparentInfectionLevel
     modifiers:
       - public
@@ -404,26 +434,41 @@ methods:
       - public
     return:
       type: BodyPart
+    parameters:
+      - name: type
+        type: BodyPartType
   - name: getBodyPartHealth
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: getBodyPartHealth
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: getBodyPartName
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: getBodyPartName
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: getBodyParts
     modifiers:
       - public
@@ -436,6 +481,9 @@ methods:
       - public
     return:
       type: BodyPartLast
+    parameters:
+      - name: type
+        type: BodyPartType
   - name: getBoredomDecreaseFromReading
     modifiers:
       - public
@@ -708,6 +756,9 @@ methods:
       - static
     return:
       type: float
+    parameters:
+      - name: corpseCount
+        type: int
   - name: getSleepingHealthAddition
     modifiers:
       - public
@@ -792,61 +843,97 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: amount
+        type: float
   - name: IncreasePanic
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NumNewZombiesSeen
+        type: int
   - name: IncreasePanicFloat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: delta
+        type: float
   - name: IsBandaged
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsBandaged
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: IsBitten
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsBitten
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: IsBleeding
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsBleeding
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: IsBleedingStemmed
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsBleedingStemmed
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: isBodyPartBleeding
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: part
+        type: BodyPartType
     notes: Returns TRUE if the specified body part's bleeding time is greater than 0.
   - name: isBurntToDeath
     modifiers:
@@ -859,21 +946,33 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsCortorised
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: IsCut
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsDeepWounded
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsFakeInfected
     modifiers:
       - public
@@ -884,6 +983,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: isHasACold
     modifiers:
       - public
@@ -911,11 +1013,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsInfected
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: isIsFakeInfected
     modifiers:
       - public
@@ -943,11 +1051,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsScratched
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: IsSneezingCoughing
     modifiers:
       - public
@@ -958,26 +1072,33 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsStitched
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: IsWounded
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: BodyPart
+        type: BodyPartType
   - name: IsWounded
     modifiers:
       - public
     return:
       type: boolean
-  - name: JustAteFood
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: BodyPartIndex
+        type: int
   - name: JustAteFood
     modifiers:
       - public
@@ -986,6 +1107,16 @@ methods:
     parameters:
       - name: NewFood
         type: Food
+  - name: JustAteFood
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: NewFood
+        type: Food
+      - name: percentage
+        type: float
   - name: JustDrankBooze
     modifiers:
       - public
@@ -994,11 +1125,16 @@ methods:
     parameters:
       - name: food
         type: Food
+      - name: percentage
+        type: float
   - name: JustReadSomething
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lit
+        type: Literature
   - name: JustTookPainMeds
     modifiers:
       - public
@@ -1009,6 +1145,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: Pill
+        type: InventoryItem
   - name: load
     modifiers:
       - public
@@ -1017,11 +1156,16 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: OnFire
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: OnFire
+        type: boolean
   - name: pickMortalityDuration
     modifiers:
       - public
@@ -1032,6 +1176,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: Val
+        type: float
   - name: ReducePanic
     modifiers:
       - public
@@ -1047,6 +1194,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: SetBandaged
     modifiers:
       - public
@@ -1056,11 +1206,13 @@ methods:
       - name: BodyPartIndex
         type: int
       - name: Bandaged
-        type: " boolean"
+        type: boolean
       - name: bandageLife
-        type: " float"
+        type: float
       - name: isAlcoholic
-        type: " boolean"
+        type: boolean
+      - name: bandageType
+        type: String
   - name: SetBitten
     modifiers:
       - public
@@ -1069,14 +1221,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
-  - name: SetBitten
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: BodyPartIndex
-        type: int
+      - name: Bitten
+        type: boolean
   - name: SetBitten
     modifiers:
       - public
@@ -1086,7 +1232,19 @@ methods:
       - name: BodyPartIndex
         type: int
       - name: Bitten
-        type: " boolean"
+        type: boolean
+  - name: SetBitten
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: BodyPartIndex
+        type: int
+      - name: Bitten
+        type: boolean
+      - name: Infected
+        type: boolean
   - name: SetBleeding
     modifiers:
       - public
@@ -1095,6 +1253,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
+      - name: Bleeding
+        type: boolean
   - name: SetBleeding
     modifiers:
       - public
@@ -1103,6 +1263,8 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: Bleeding
+        type: boolean
   - name: SetBleedingStemmed
     modifiers:
       - public
@@ -1111,6 +1273,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
+      - name: BleedingStemmed
+        type: boolean
   - name: SetBleedingStemmed
     modifiers:
       - public
@@ -1119,6 +1283,8 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: BleedingStemmed
+        type: boolean
   - name: setBodyPartsLastState
     modifiers:
       - public
@@ -1129,56 +1295,98 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: BoredomDecreaseFromReading
+        type: float
+        notes: the BoredomDecreaseFromReading to set
   - name: setBoredomLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: BoredomLevel
+        type: float
+        notes: the BoredomLevel to set
   - name: setBurntToDeath
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: BurntToDeath
+        type: boolean
+        notes: the BurntToDeath to set
   - name: setCatchACold
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CatchACold
+        type: float
+        notes: the CatchACold to set
   - name: setColdDamageStage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: coldDamageStage
+        type: float
   - name: setColdProgressionRate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ColdProgressionRate
+        type: float
+        notes: the ColdProgressionRate to set
   - name: setColdReduction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: coldReduction
+        type: float
   - name: setColdSneezeTimerMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ColdSneezeTimerMax
+        type: int
+        notes: the ColdSneezeTimerMax to set
   - name: setColdSneezeTimerMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ColdSneezeTimerMin
+        type: int
+        notes: the ColdSneezeTimerMin to set
   - name: setColdStrength
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ColdStrength
+        type: float
+        notes: the ColdStrength to set
   - name: setContinualPainIncrease
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ContinualPainIncrease
+        type: float
+        notes: the ContinualPainIncrease to set
   - name: SetCortorised
     modifiers:
       - public
@@ -1187,6 +1395,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
+      - name: Cortorised
+        type: boolean
   - name: SetCortorised
     modifiers:
       - public
@@ -1195,11 +1405,17 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: Cortorised
+        type: boolean
   - name: setCurrentNumZombiesVisible
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CurrentNumZombiesVisible
+        type: int
+        notes: the CurrentNumZombiesVisible to set
   - name: SetCut
     modifiers:
       - public
@@ -1208,186 +1424,324 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: Cut
+        type: boolean
   - name: setDamageModCount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: DamageModCount
+        type: int
+        notes: the DamageModCount to set
   - name: setDrunkIncreaseValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: DrunkIncreaseValue
+        type: float
+        notes: the DrunkIncreaseValue to set
   - name: setDrunkReductionValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: DrunkReductionValue
+        type: float
+        notes: the DrunkReductionValue to set
   - name: setFakeInfectionLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: FakeInfectionLevel
+        type: float
+        notes: the FakeInfectionLevel to set
   - name: setFoodSicknessLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: foodSicknessLevel
+        type: float
   - name: setHasACold
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: HasACold
+        type: boolean
+        notes: the HasACold to set
   - name: setHealthFromFood
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: HealthFromFood
+        type: float
+        notes: the HealthFromFood to set
   - name: setHealthFromFoodTimer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: HealthFromFoodTimer
+        type: float
+        notes: the HealthFromFoodTimer to set
   - name: setHealthReductionFromSevereBadMoodles
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: HealthReductionFromSevereBadMoodles
+        type: float
+        notes: the HealthReductionFromSevereBadMoodles to set
   - name: setInf
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: inf
+        type: boolean
+        notes: the inf to set
   - name: setInfected
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: infected
+        type: boolean
   - name: setInfectionGrowthRate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InfectionGrowthRate
+        type: float
+        notes: the InfectionGrowthRate to set
   - name: setInfectionLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InfectionLevel
+        type: float
+        notes: the InfectionLevel to set
   - name: setInfectionMortalityDuration
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldHours
+        type: float
   - name: setInfectionTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worldHours
+        type: float
   - name: setInitialBitePain
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InitialBitePain
+        type: float
+        notes: the InitialBitePain to set
   - name: setInitialScratchPain
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InitialScratchPain
+        type: float
+        notes: the InitialScratchPain to set
   - name: setInitialThumpPain
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InitialThumpPain
+        type: float
+        notes: the InitialThumpPain to set
   - name: setInitialWoundPain
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InitialWoundPain
+        type: float
+        notes: the InitialWoundPain to set
   - name: setIsFakeInfected
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: IsFakeInfected
+        type: boolean
+        notes: the IsFakeInfected to set
   - name: setIsOnFire
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: IsOnFire
+        type: boolean
+        notes: the IsOnFire to set
   - name: setMildColdSneezeTimerMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MildColdSneezeTimerMax
+        type: int
+        notes: the MildColdSneezeTimerMax to set
   - name: setMildColdSneezeTimerMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MildColdSneezeTimerMin
+        type: int
+        notes: the MildColdSneezeTimerMin to set
   - name: setNastyColdSneezeTimerMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NastyColdSneezeTimerMax
+        type: int
+        notes: the NastyColdSneezeTimerMax to set
   - name: setNastyColdSneezeTimerMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NastyColdSneezeTimerMin
+        type: int
+        notes: the NastyColdSneezeTimerMin to set
   - name: setOldNumZombiesVisible
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: OldNumZombiesVisible
+        type: int
+        notes: the OldNumZombiesVisible to set
   - name: setOverallBodyHealth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: OverallBodyHealth
+        type: float
+        notes: the OverallBodyHealth to set
   - name: setPainReduction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: painReduction
+        type: float
   - name: setPainReductionFromMeds
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: PainReductionFromMeds
+        type: float
+        notes: the PainReductionFromMeds to set
   - name: setPanicIncreaseValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: PanicIncreaseValue
+        type: float
+        notes: the PanicIncreaseValue to set
   - name: setPanicReductionValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: PanicReductionValue
+        type: float
+        notes: the PanicReductionValue to set
   - name: setParentChar
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ParentChar
+        type: IsoGameCharacter
+        notes: the ParentChar to set
   - name: setPoisonLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: poisonLevel
+        type: float
   - name: setReducedHealthAddition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ReducedHealthAddition
+        type: float
+        notes: the ReducedHealthAddition to set
   - name: setReduceFakeInfection
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: reduceFakeInfection
+        type: boolean
   - name: setRemotePainLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: painLevel
+        type: int
   - name: SetScratched
     modifiers:
       - public
@@ -1396,6 +1750,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
+      - name: Scratched
+        type: boolean
   - name: SetScratched
     modifiers:
       - public
@@ -1404,6 +1760,8 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: Scratched
+        type: boolean
   - name: SetScratchedFromWeapon
     modifiers:
       - public
@@ -1412,6 +1770,8 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: Scratched
+        type: boolean
   - name: setScratchedWindow
     modifiers:
       - public
@@ -1422,61 +1782,108 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: SeverlyReducedHealthAddition
+        type: float
+        notes: the SeverlyReducedHealthAddition to set
   - name: setSleepingHealthAddition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: SleepingHealthAddition
+        type: float
+        notes: the SleepingHealthAddition to set
   - name: setSneezeCoughActive
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: SneezeCoughActive
+        type: int
+        notes: the SneezeCoughActive to set
   - name: setSneezeCoughDelay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: SneezeCoughDelay
+        type: int
+        notes: the SneezeCoughDelay to set
   - name: setSneezeCoughTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: SneezeCoughTime
+        type: int
+        notes: the SneezeCoughTime to set
   - name: setStandardHealthAddition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StandardHealthAddition
+        type: float
+        notes: the StandardHealthAddition to set
   - name: setStandardHealthFromFoodTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StandardHealthFromFoodTime
+        type: int
+        notes: the StandardHealthFromFoodTime to set
   - name: setStandardPainReductionWhenWell
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StandardPainReductionWhenWell
+        type: float
+        notes: the StandardPainReductionWhenWell to set
   - name: setTemperature
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: t
+        type: float
   - name: setTimeToSneezeOrCough
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: TimeToSneezeOrCough
+        type: int
+        notes: the TimeToSneezeOrCough to set
   - name: setUnhappynessLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: UnhappynessLevel
+        type: float
+        notes: the UnhappynessLevel to set
   - name: setWetness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Wetness
+        type: float
+        notes: the Wetness to set
   - name: SetWounded
     modifiers:
       - public
@@ -1485,6 +1892,8 @@ methods:
     parameters:
       - name: BodyPart
         type: BodyPartType
+      - name: Wounded
+        type: boolean
   - name: SetWounded
     modifiers:
       - public
@@ -1493,6 +1902,8 @@ methods:
     parameters:
       - name: BodyPartIndex
         type: int
+      - name: Wounded
+        type: boolean
   - name: ShowDebugInfo
     modifiers:
       - public

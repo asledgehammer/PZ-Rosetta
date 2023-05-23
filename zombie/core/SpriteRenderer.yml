@@ -50,6 +50,9 @@ methods:
       - public
     return:
       type: SpriteRenderState
+    parameters:
+      - name: waitCallback
+        type: BooleanSupplier
   - name: clearCutawayTexture
     modifiers:
       - public
@@ -78,16 +81,24 @@ methods:
     parameters:
       - name: id
         type: int
+      - name: val
+        type: float
   - name: drawGeneric
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: gd
+        type: TextureDraw.GenericDrawer
   - name: drawModel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: model
+        type: ModelManager.ModelSlot
   - name: drawParticles
     modifiers:
       - public
@@ -97,7 +108,9 @@ methods:
       - name: playerIndex
         type: int
       - name: var1
-        type: " int"
+        type: int
+      - name: var2
+        type: int
   - name: drawPuddles
     modifiers:
       - public
@@ -107,9 +120,11 @@ methods:
       - name: shader
         type: Shader
       - name: playerIndex
-        type: " int"
+        type: int
       - name: apiId
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: drawSkyBox
     modifiers:
       - public
@@ -119,9 +134,11 @@ methods:
       - name: shader
         type: Shader
       - name: playerIndex
-        type: " int"
+        type: int
       - name: apiId
-        type: " int"
+        type: int
+      - name: bufferId
+        type: int
   - name: drawWater
     modifiers:
       - public
@@ -131,9 +148,11 @@ methods:
       - name: shader
         type: Shader
       - name: playerIndex
-        type: " int"
+        type: int
       - name: apiId
-        type: " int"
+        type: int
+      - name: bShore
+        type: boolean
   - name: EndShader
     modifiers:
       - public
@@ -174,6 +193,9 @@ methods:
       - public
     return:
       type: PlayerCamera
+    parameters:
+      - name: userId
+        type: int
   - name: getRenderingPlayerIndex
     modifiers:
       - public
@@ -197,16 +219,24 @@ methods:
     parameters:
       - name: a
         type: int
+      - name: b
+        type: float
   - name: glBind
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glBlendEquation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glBlendFunc
     modifiers:
       - public
@@ -214,6 +244,8 @@ methods:
       type: void
     parameters:
       - name: a
+        type: int
+      - name: b
         type: int
   - name: glBlendFuncSeparate
     modifiers:
@@ -224,9 +256,11 @@ methods:
       - name: a
         type: int
       - name: b
-        type: " int"
+        type: int
       - name: c
-        type: " int"
+        type: int
+      - name: d
+        type: int
   - name: glBuffer
     modifiers:
       - public
@@ -235,11 +269,16 @@ methods:
     parameters:
       - name: i
         type: int
+      - name: p
+        type: int
   - name: glClear
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glClearColor
     modifiers:
       - public
@@ -249,9 +288,11 @@ methods:
       - name: r
         type: int
       - name: g
-        type: " int"
+        type: int
       - name: b
-        type: " int"
+        type: int
+      - name: a
+        type: int
   - name: glColorMask
     modifiers:
       - public
@@ -261,19 +302,27 @@ methods:
       - name: a
         type: int
       - name: b
-        type: " int"
+        type: int
       - name: c
-        type: " int"
+        type: int
+      - name: d
+        type: int
   - name: glDepthMask
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: glDisable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glDoEndFrame
     modifiers:
       - public
@@ -284,32 +333,39 @@ methods:
       - public
     return:
       type: void
-  - name: glDoStartFrame
-    modifiers:
-      - public
-    return:
-      type: void
     parameters:
-      - name: w
-        type: int
-      - name: h
-        type: " int"
-      - name: zoom
-        type: " float"
-  - name: glDoStartFrame
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: w
-        type: int
-      - name: h
-        type: " int"
-      - name: zoom
-        type: " float"
       - name: player
-        type: " int"
+        type: int
+  - name: glDoStartFrame
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: zoom
+        type: float
+      - name: player
+        type: int
+  - name: glDoStartFrame
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: w
+        type: int
+      - name: h
+        type: int
+      - name: zoom
+        type: float
+      - name: player
+        type: int
+      - name: isTextFrame
+        type: boolean
   - name: glDoStartFrameFx
     modifiers:
       - public
@@ -319,22 +375,33 @@ methods:
       - name: w
         type: int
       - name: h
-        type: " int"
+        type: int
+      - name: player
+        type: int
   - name: glEnable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glGenerateMipMaps
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glIgnoreStyles
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: glLoadIdentity
     modifiers:
       - public
@@ -349,12 +416,17 @@ methods:
       - name: a
         type: int
       - name: b
-        type: " int"
+        type: int
+      - name: c
+        type: int
   - name: glStencilMask
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: int
   - name: glStencilOp
     modifiers:
       - public
@@ -364,7 +436,9 @@ methods:
       - name: a
         type: int
       - name: b
-        type: " int"
+        type: int
+      - name: c
+        type: int
   - name: glTexParameteri
     modifiers:
       - public
@@ -374,7 +448,9 @@ methods:
       - name: a
         type: int
       - name: b
-        type: " int"
+        type: int
+      - name: c
+        type: int
   - name: glViewport
     modifiers:
       - public
@@ -384,14 +460,19 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: initFromIsoCamera
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: nPlayer
+        type: int
   - name: isMaxZoomLevel
     modifiers:
       - public
@@ -436,21 +517,24 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: render
     modifiers:
       - public
@@ -460,27 +544,29 @@ methods:
       - name: tex
         type: Texture
       - name: x1
-        type: " float"
+        type: float
       - name: y1
-        type: " float"
+        type: float
       - name: x2
-        type: " float"
+        type: float
       - name: y2
-        type: " float"
+        type: float
       - name: x3
-        type: " float"
+        type: float
       - name: y3
-        type: " float"
+        type: float
       - name: x4
-        type: " float"
+        type: float
       - name: y4
-        type: " float"
+        type: float
       - name: c1
-        type: " int"
+        type: int
       - name: c2
-        type: " int"
+        type: int
       - name: c3
-        type: " int"
+        type: int
+      - name: c4
+        type: int
   - name: render
     modifiers:
       - public
@@ -490,29 +576,32 @@ methods:
       - name: tex
         type: Texture
       - name: x1
-        type: " double"
+        type: double
       - name: y1
-        type: " double"
+        type: double
       - name: x2
-        type: " double"
+        type: double
       - name: y2
-        type: " double"
+        type: double
       - name: x3
-        type: " double"
+        type: double
       - name: y3
-        type: " double"
+        type: double
       - name: x4
-        type: " double"
+        type: double
       - name: y4
-        type: " double"
+        type: double
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: render
     modifiers:
       - public
@@ -522,75 +611,80 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
       - name: u1
-        type: " float"
+        type: float
       - name: v1
-        type: " float"
+        type: float
       - name: u2
-        type: " float"
+        type: float
       - name: v2
-        type: " float"
+        type: float
       - name: u3
-        type: " float"
+        type: float
       - name: v3
-        type: " float"
+        type: float
       - name: u4
-        type: " float"
-  - name: render
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: Texture
-      - name: x
-        type: " float"
-      - name: y
-        type: " float"
-      - name: width
-        type: " float"
-      - name: height
-        type: " float"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-      - name: a
-        type: " float"
-      - name: u1
-        type: " float"
-      - name: v1
-        type: " float"
-      - name: u2
-        type: " float"
-      - name: v2
-        type: " float"
-      - name: u3
-        type: " float"
-      - name: v3
-        type: " float"
-      - name: u4
-        type: " float"
+        type: float
       - name: v4
-        type: " float"
+        type: float
+  - name: render
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: width
+        type: float
+      - name: height
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+      - name: u1
+        type: float
+      - name: v1
+        type: float
+      - name: u2
+        type: float
+      - name: v2
+        type: float
+      - name: u3
+        type: float
+      - name: v3
+        type: float
+      - name: u4
+        type: float
+      - name: v4
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: render
     modifiers:
       - public
@@ -600,53 +694,56 @@ methods:
       - name: tex
         type: Texture
       - name: x1
-        type: " double"
+        type: double
       - name: y1
-        type: " double"
+        type: double
       - name: x2
-        type: " double"
+        type: double
       - name: y2
-        type: " double"
+        type: double
       - name: x3
-        type: " double"
+        type: double
       - name: y3
-        type: " double"
+        type: double
       - name: x4
-        type: " double"
+        type: double
       - name: y4
-        type: " double"
+        type: double
       - name: r1
-        type: " float"
+        type: float
       - name: g1
-        type: " float"
+        type: float
       - name: b1
-        type: " float"
+        type: float
       - name: a1
-        type: " float"
+        type: float
       - name: r2
-        type: " float"
+        type: float
       - name: g2
-        type: " float"
+        type: float
       - name: b2
-        type: " float"
+        type: float
       - name: a2
-        type: " float"
+        type: float
       - name: r3
-        type: " float"
+        type: float
       - name: g3
-        type: " float"
+        type: float
       - name: b3
-        type: " float"
+        type: float
       - name: a3
-        type: " float"
+        type: float
       - name: r4
-        type: " float"
+        type: float
       - name: g4
-        type: " float"
+        type: float
       - name: b4
-        type: " float"
+        type: float
       - name: a4
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderClamped
     modifiers:
       - public
@@ -656,29 +753,32 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
       - name: clampX
-        type: " int"
+        type: int
       - name: clampY
-        type: " int"
+        type: int
       - name: clampW
-        type: " int"
+        type: int
       - name: clampH
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderdebug
     modifiers:
       - public
@@ -688,53 +788,56 @@ methods:
       - name: tex
         type: Texture
       - name: x1
-        type: " float"
+        type: float
       - name: y1
-        type: " float"
+        type: float
       - name: x2
-        type: " float"
+        type: float
       - name: y2
-        type: " float"
+        type: float
       - name: x3
-        type: " float"
+        type: float
       - name: y3
-        type: " float"
+        type: float
       - name: x4
-        type: " float"
+        type: float
       - name: y4
-        type: " float"
+        type: float
       - name: r1
-        type: " float"
+        type: float
       - name: g1
-        type: " float"
+        type: float
       - name: b1
-        type: " float"
+        type: float
       - name: a1
-        type: " float"
+        type: float
       - name: r2
-        type: " float"
+        type: float
       - name: g2
-        type: " float"
+        type: float
       - name: b2
-        type: " float"
+        type: float
       - name: a2
-        type: " float"
+        type: float
       - name: r3
-        type: " float"
+        type: float
       - name: g3
-        type: " float"
+        type: float
       - name: b3
-        type: " float"
+        type: float
       - name: a3
-        type: " float"
+        type: float
       - name: r4
-        type: " float"
+        type: float
       - name: g4
-        type: " float"
+        type: float
       - name: b4
-        type: " float"
+        type: float
       - name: a4
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderflipped
     modifiers:
       - public
@@ -744,21 +847,24 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderi
     modifiers:
       - public
@@ -768,21 +874,24 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: texdModifier
+        type: Consumer
+        generic: Consumer<TextureDraw>
   - name: renderline
     modifiers:
       - public
@@ -792,19 +901,21 @@ methods:
       - name: tex
         type: Texture
       - name: x1
-        type: " int"
+        type: int
       - name: y1
-        type: " int"
+        type: int
       - name: x2
-        type: " int"
+        type: int
       - name: y2
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: renderline
     modifiers:
       - public
@@ -814,21 +925,23 @@ methods:
       - name: tex
         type: Texture
       - name: x1
-        type: " int"
+        type: int
       - name: y1
-        type: " int"
+        type: int
       - name: x2
-        type: " int"
+        type: int
       - name: y2
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+      - name: thickness
+        type: int
   - name: renderPoly
     modifiers:
       - public
@@ -838,101 +951,107 @@ methods:
       - name: x1
         type: float
       - name: y1
-        type: " float"
+        type: float
       - name: x2
-        type: " float"
+        type: float
       - name: y2
-        type: " float"
+        type: float
       - name: x3
-        type: " float"
+        type: float
       - name: y3
-        type: " float"
+        type: float
       - name: x4
-        type: " float"
+        type: float
       - name: y4
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
-  - name: renderPoly
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: Texture
-      - name: x1
-        type: " float"
-      - name: y1
-        type: " float"
-      - name: x2
-        type: " float"
-      - name: y2
-        type: " float"
-      - name: x3
-        type: " float"
-      - name: y3
-        type: " float"
-      - name: x4
-        type: " float"
-      - name: y4
-        type: " float"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-  - name: renderPoly
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: tex
-        type: Texture
-      - name: x1
-        type: " float"
-      - name: y1
-        type: " float"
-      - name: x2
-        type: " float"
-      - name: y2
-        type: " float"
-      - name: x3
-        type: " float"
-      - name: y3
-        type: " float"
-      - name: x4
-        type: " float"
-      - name: y4
-        type: " float"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+  - name: renderPoly
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x1
+        type: float
+      - name: y1
+        type: float
+      - name: x2
+        type: float
+      - name: y2
+        type: float
+      - name: x3
+        type: float
+      - name: y3
+        type: float
+      - name: x4
+        type: float
+      - name: y4
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
+  - name: renderPoly
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tex
+        type: Texture
+      - name: x1
+        type: float
+      - name: y1
+        type: float
+      - name: x2
+        type: float
+      - name: y2
+        type: float
+      - name: x3
+        type: float
+      - name: y3
+        type: float
+      - name: x4
+        type: float
+      - name: y4
+        type: float
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
       - name: u1
-        type: " float"
+        type: float
       - name: v1
-        type: " float"
+        type: float
       - name: u2
-        type: " float"
+        type: float
       - name: v2
-        type: " float"
+        type: float
       - name: u3
-        type: " float"
+        type: float
       - name: v3
-        type: " float"
+        type: float
       - name: u4
-        type: " float"
+        type: float
+      - name: v4
+        type: float
   - name: renderRect
     modifiers:
       - public
@@ -942,17 +1061,19 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setCutawayTexture
     modifiers:
       - public
@@ -962,31 +1083,45 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
   - name: setDefaultStyle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: style
+        type: AbstractStyle
   - name: setDoAdditive
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bDoAdditive
+        type: boolean
   - name: setExtraWallShaderParams
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: wallTexRender
+        type: SpriteRenderer.WallShaderTexRender
   - name: setRenderingPlayerIndex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: int
   - name: setUseVertColorsArray
     modifiers:
       - public
@@ -996,11 +1131,13 @@ methods:
       - name: whichShader
         type: byte
       - name: c0
-        type: " int"
+        type: int
       - name: c1
-        type: " int"
+        type: int
       - name: c2
-        type: " int"
+        type: int
+      - name: c3
+        type: int
   - name: ShaderUpdate1f
     modifiers:
       - public
@@ -1010,7 +1147,9 @@ methods:
       - name: shaderID
         type: int
       - name: uniform
-        type: " int"
+        type: int
+      - name: uniformValue
+        type: float
   - name: ShaderUpdate1i
     modifiers:
       - public
@@ -1020,7 +1159,9 @@ methods:
       - name: shaderID
         type: int
       - name: uniform
-        type: " int"
+        type: int
+      - name: uniformValue
+        type: int
   - name: ShaderUpdate2f
     modifiers:
       - public
@@ -1030,9 +1171,11 @@ methods:
       - name: shaderID
         type: int
       - name: uniform
-        type: " int"
+        type: int
       - name: value1
-        type: " float"
+        type: float
+      - name: value2
+        type: float
   - name: ShaderUpdate3f
     modifiers:
       - public
@@ -1042,11 +1185,13 @@ methods:
       - name: shaderID
         type: int
       - name: uniform
-        type: " int"
+        type: int
       - name: value1
-        type: " float"
+        type: float
       - name: value2
-        type: " float"
+        type: float
+      - name: value3
+        type: float
   - name: ShaderUpdate4f
     modifiers:
       - public
@@ -1056,13 +1201,15 @@ methods:
       - name: shaderID
         type: int
       - name: uniform
-        type: " int"
+        type: int
       - name: value1
-        type: " float"
+        type: float
       - name: value2
-        type: " float"
+        type: float
       - name: value3
-        type: " float"
+        type: float
+      - name: value4
+        type: float
   - name: startOffscreenUI
     modifiers:
       - public
@@ -1075,6 +1222,8 @@ methods:
       type: void
     parameters:
       - name: iD
+        type: int
+      - name: playerIndex
         type: int
   - name: stopOffscreenUI
     modifiers:

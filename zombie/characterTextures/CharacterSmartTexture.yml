@@ -90,7 +90,9 @@ methods:
       - name: bodyPart
         type: BloodBodyPartType
       - name: intensity
-        type: " float"
+        type: float
+      - name: chr
+        type: IsoGameCharacter
   - name: addDirt
     modifiers:
       - public
@@ -100,12 +102,17 @@ methods:
       - name: bodyPart
         type: BloodBodyPartType
       - name: intensity
-        type: " float"
+        type: float
+      - name: chr
+        type: IsoGameCharacter
   - name: addShirtDecal
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dec
+        type: String
   - name: removeBlood
     modifiers:
       - public
@@ -116,6 +123,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bodyPart
+        type: BloodBodyPartType
   - name: setBlood
     modifiers:
       - public
@@ -124,6 +134,8 @@ methods:
     parameters:
       - name: bodyPart
         type: BloodBodyPartType
+      - name: intensity
+        type: float
   - name: setDirt
     modifiers:
       - public
@@ -132,3 +144,5 @@ methods:
     parameters:
       - name: bodyPart
         type: BloodBodyPartType
+      - name: intensity
+        type: float

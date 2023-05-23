@@ -168,11 +168,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: modelName
+        type: String
   - name: clearOwner
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: expectedOwner
+        type: Object
   - name: destroySmartTextures
     modifiers:
       - public
@@ -183,16 +189,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bone
+        type: int
   - name: getAttachment
     modifiers:
       - public
     return:
       type: ModelAttachment
+    parameters:
+      - name: index
+        type: int
   - name: getAttachmentById
     modifiers:
       - public
     return:
       type: ModelAttachment
+    parameters:
+      - name: id
+        type: String
   - name: getAttachmentMatrix
     modifiers:
       - public
@@ -201,6 +216,8 @@ methods:
     parameters:
       - name: attachment
         type: ModelAttachment
+      - name: out
+        type: org.joml.Matrix4f
   - name: getAttachmentMatrix
     modifiers:
       - public
@@ -209,6 +226,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: out
+        type: org.joml.Matrix4f
   - name: getAttachmentMatrixById
     modifiers:
       - public
@@ -217,6 +236,8 @@ methods:
     parameters:
       - name: id
         type: String
+      - name: out
+        type: org.joml.Matrix4f
   - name: getItemVisual
     modifiers:
       - public
@@ -246,7 +267,9 @@ methods:
       - name: model
         type: Model
       - name: character
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: player
+        type: AnimationPlayer
   - name: isRendering
     modifiers:
       - public
@@ -257,6 +280,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: reset
     modifiers:
       - public
@@ -267,26 +293,41 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: dir
+        type: Vector2
   - name: setInstanceSkip
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: c
+        type: int
   - name: setItemVisual
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemVisual
+        type: ItemVisual
   - name: setOwner
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: Object
   - name: setTextureInitializer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: textureInitializer
+        type: ModelInstanceTextureInitializer
   - name: Update
     modifiers:
       - public

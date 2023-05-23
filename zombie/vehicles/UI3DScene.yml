@@ -10,12 +10,18 @@ constructors:
   - name: UI3DScene
     modifiers:
       - public
+    parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
 methods:
   - name: fromLua0
     modifiers:
       - public
     return:
       type: Object
+    parameters:
+      - name: func
+        type: String
   - name: fromLua1
     modifiers:
       - public
@@ -24,6 +30,8 @@ methods:
     parameters:
       - name: func
         type: String
+      - name: arg0
+        type: Object
   - name: fromLua2
     modifiers:
       - public
@@ -33,7 +41,9 @@ methods:
       - name: func
         type: String
       - name: arg0
-        type: " Object"
+        type: Object
+      - name: arg1
+        type: Object
   - name: fromLua3
     modifiers:
       - public
@@ -43,9 +53,11 @@ methods:
       - name: func
         type: String
       - name: arg0
-        type: " Object"
+        type: Object
       - name: arg1
-        type: " Object"
+        type: Object
+      - name: arg2
+        type: Object
   - name: fromLua4
     modifiers:
       - public
@@ -55,11 +67,13 @@ methods:
       - name: func
         type: String
       - name: arg0
-        type: " Object"
+        type: Object
       - name: arg1
-        type: " Object"
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
+      - name: arg3
+        type: Object
   - name: fromLua6
     modifiers:
       - public
@@ -69,15 +83,17 @@ methods:
       - name: func
         type: String
       - name: arg0
-        type: " Object"
+        type: Object
       - name: arg1
-        type: " Object"
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
       - name: arg3
-        type: " Object"
+        type: Object
       - name: arg4
-        type: " Object"
+        type: Object
+      - name: arg5
+        type: Object
   - name: fromLua9
     modifiers:
       - public
@@ -87,21 +103,23 @@ methods:
       - name: func
         type: String
       - name: arg0
-        type: " Object"
+        type: Object
       - name: arg1
-        type: " Object"
+        type: Object
       - name: arg2
-        type: " Object"
+        type: Object
       - name: arg3
-        type: " Object"
+        type: Object
       - name: arg4
-        type: " Object"
+        type: Object
       - name: arg5
-        type: " Object"
+        type: Object
       - name: arg6
-        type: " Object"
+        type: Object
       - name: arg7
-        type: " Object"
+        type: Object
+      - name: arg8
+        type: Object
   - name: intersect_ray_plane
     modifiers:
       - public
@@ -112,7 +130,9 @@ methods:
       - name: Pn
         type: UI3DScene.Plane
       - name: S
-        type: " UI3DScene.Ray"
+        type: UI3DScene.Ray
+      - name: out
+        type: org.joml.Vector3f
   - name: render
     modifiers:
       - public
@@ -127,7 +147,9 @@ methods:
       - name: sceneX
         type: float
       - name: sceneY
-        type: " float"
+        type: float
+      - name: sceneZ
+        type: float
   - name: sceneToUIY
     modifiers:
       - public
@@ -137,7 +159,9 @@ methods:
       - name: sceneX
         type: float
       - name: sceneY
-        type: " float"
+        type: float
+      - name: sceneZ
+        type: float
   - name: uiToScene
     modifiers:
       - public
@@ -147,9 +171,11 @@ methods:
       - name: uiX
         type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: uiZ
-        type: " float"
+        type: float
+      - name: out
+        type: org.joml.Vector3f
   - name: uiToScene
     modifiers:
       - public
@@ -159,11 +185,13 @@ methods:
       - name: modelTransform
         type: org.joml.Matrix4f
       - name: uiX
-        type: " float"
+        type: float
       - name: uiY
-        type: " float"
+        type: float
       - name: uiZ
-        type: " float"
+        type: float
+      - name: out
+        type: org.joml.Vector3f
   - name: uiToSceneX
     modifiers:
       - public
@@ -172,6 +200,8 @@ methods:
     parameters:
       - name: uiX
         type: float
+      - name: uiY
+        type: float
   - name: uiToSceneY
     modifiers:
       - public
@@ -179,4 +209,6 @@ methods:
       type: float
     parameters:
       - name: uiX
+        type: float
+      - name: uiY
         type: float

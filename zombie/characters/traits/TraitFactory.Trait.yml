@@ -57,13 +57,15 @@ constructors:
       - name: tr
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: cost
-        type: " int"
+        type: int
       - name: desc
-        type: " String"
+        type: String
       - name: prof
-        type: " boolean"
+        type: boolean
+      - name: removeInMP
+        type: boolean
 methods:
   - name: addXPBoost
     modifiers:
@@ -73,6 +75,8 @@ methods:
     parameters:
       - name: perk
         type: PerkFactory.Perk
+      - name: level
+        type: int
   - name: getCost
     modifiers:
       - public
@@ -141,13 +145,23 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: desc
+        type: String
   - name: setFreeRecipes
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: freeRecipes
+        type: List
+        generic: List<String>
   - name: setRemoveInMP
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: removeInMP
+        type: boolean

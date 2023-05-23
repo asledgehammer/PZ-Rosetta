@@ -12,6 +12,8 @@ constructors:
     parameters:
       - name: tabID
         type: short
+      - name: titleID
+        type: String
   - name: ChatTab
     modifiers:
       - public
@@ -19,7 +21,9 @@ constructors:
       - name: tabID
         type: short
       - name: titleID
-        type: " String"
+        type: String
+      - name: chatID
+        type: int
 methods:
   - name: getID
     modifiers:
@@ -46,18 +50,30 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chatID
+        type: int
   - name: sendAddTabPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: sendRemoveTabPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: setEnabled
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: enabled
+        type: boolean

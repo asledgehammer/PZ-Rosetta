@@ -53,28 +53,37 @@ constructors:
         type: HashMap
         generic: HashMap<String,AnimationClip>
       - name: bindPose
-        type: " List"
-        generic: " List<org.lwjgl.util.vector.Matrix4f>"
+        type: List
+        generic: List<org.lwjgl.util.vector.Matrix4f>
       - name: inverseBindPose
-        type: " List"
-        generic: " List<org.lwjgl.util.vector.Matrix4f>"
+        type: List
+        generic: List<org.lwjgl.util.vector.Matrix4f>
       - name: skinOffset
-        type: " List"
-        generic: " List<org.lwjgl.util.vector.Matrix4f>"
+        type: List
+        generic: List<org.lwjgl.util.vector.Matrix4f>
       - name: skeletonHierarchy
-        type: " List"
-        generic: " List<Integer>"
+        type: List
+        generic: List<Integer>
+      - name: boneIndices
+        type: HashMap
+        generic: HashMap<String,Integer>
 methods:
   - name: getBone
     modifiers:
       - public
     return:
       type: SkinningBone
+    parameters:
+      - name: boneName
+        type: String
   - name: getBoneAt
     modifiers:
       - public
     return:
       type: SkinningBone
+    parameters:
+      - name: boneIdx
+        type: int
   - name: getBoneHieararchy
     modifiers:
       - public
@@ -85,11 +94,17 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: boneIdx
+        type: int
   - name: getRootBoneAt
     modifiers:
       - public
     return:
       type: SkinningBone
+    parameters:
+      - name: idx
+        type: int
   - name: numBones
     modifiers:
       - public

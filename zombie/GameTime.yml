@@ -93,6 +93,8 @@ methods:
     parameters:
       - name: year
         type: int
+      - name: month
+        type: int
   - name: getAmbient
     modifiers:
       - public
@@ -149,6 +151,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: playerObj
+        type: IsoPlayer
   - name: getDeltaMinutesPerDay
     modifiers:
       - public
@@ -380,6 +385,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: playerObj
+        type: IsoPlayer
   - name: getTrueMultiplier
     modifiers:
       - public
@@ -424,6 +432,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: playerObj
+        type: IsoPlayer
   - name: init
     modifiers:
       - public
@@ -455,7 +466,9 @@ methods:
       - name: start
         type: float
       - name: __end
-        type: " float"
+        type: float
+      - name: delta
+        type: float
   - name: load
     modifiers:
       - public
@@ -466,11 +479,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: DataInputStream
   - name: load
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: receiveTimeSync
     modifiers:
       - public
@@ -480,11 +499,16 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: RemoveZombiesIndiscriminate
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: i
+        type: int
   - name: save
     modifiers:
       - public
@@ -495,203 +519,349 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: DataOutputStream
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: saveToPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: setAmbient
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Ambient
+        type: float
+        notes: the Ambient to set
   - name: setAmbientMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: AmbientMax
+        type: float
+        notes: the AmbientMax to set
   - name: setAmbientMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: AmbientMin
+        type: float
+        notes: the AmbientMin to set
   - name: setCalender
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Calender
+        type: PZCalendar
+        notes: the Calender to set
   - name: setDawn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dawn
+        type: int
   - name: setDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Day
+        type: int
+        notes: the Day to set
   - name: setDusk
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dusk
+        type: int
   - name: setHelicopterDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: day
+        type: int
   - name: setHelicopterEndHour
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hour
+        type: int
   - name: setHelicopterStartHour
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hour
+        type: int
   - name: setHoursSurvived
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: HoursSurvived
+        type: double
+        notes: the HoursSurvived to set
   - name: setInstance
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: aInstance
+        type: GameTime
   - name: setLastTimeOfDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: LastTimeOfDay
+        type: float
+        notes: the LastTimeOfDay to set
   - name: setMaxZombieCount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MaxZombieCount
+        type: float
+        notes: the MaxZombieCount to set
   - name: setMaxZombieCountStart
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MaxZombieCountStart
+        type: float
+        notes: the MaxZombieCountStart to set
   - name: setMinutesPerDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MinutesPerDay
+        type: float
+        notes: the MinutesPerDay to set
   - name: setMinZombieCount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MinZombieCount
+        type: float
+        notes: the MinZombieCount to set
   - name: setMinZombieCountStart
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MinZombieCountStart
+        type: float
+        notes: the MinZombieCountStart to set
   - name: setMonth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Month
+        type: int
+        notes: the Month to set
   - name: setMoon
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: moon
+        type: float
   - name: setMultiplier
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Multiplier
+        type: float
+        notes: the Multiplier to set
   - name: setNight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NightTint
+        type: float
+        notes: the NightTint to set
   - name: setNightMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: max
+        type: float
   - name: setNightMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: min
+        type: float
   - name: setNightsSurvived
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NightsSurvived
+        type: int
+        notes: the NightsSurvived to set
   - name: setNightTint
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NightTint
+        type: float
+        notes: the NightTint to set
   - name: setServerTimeShift
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: tshift
+        type: long
   - name: setStartDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StartDay
+        type: int
+        notes: the StartDay to set
   - name: setStartMonth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StartMonth
+        type: int
+        notes: the StartMonth to set
   - name: setStartTimeOfDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StartTimeOfDay
+        type: float
+        notes: the StartTimeOfDay to set
   - name: setStartYear
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: StartYear
+        type: int
+        notes: the StartYear to set
   - name: setTargetZombies
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: TargetZombies
+        type: int
+        notes: the TargetZombies to set
   - name: setThunderDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: thunderDay
+        type: boolean
   - name: setTimeOfDay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: TimeOfDay
+        type: float
+        notes: the TimeOfDay to set
   - name: setViewDistMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ViewDistMax
+        type: float
+        notes: the ViewDistMax to set
   - name: setViewDistMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ViewDistMin
+        type: float
+        notes: the ViewDistMin to set
   - name: setYear
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Year
+        type: int
+        notes: the Year to set
   - name: syncServerTime
     modifiers:
       - public
@@ -702,7 +872,9 @@ methods:
       - name: timeClientSend
         type: long
       - name: timeServer
-        type: " long"
+        type: long
+      - name: timeClientReceive
+        type: long
   - name: TimeLerp
     modifiers:
       - public
@@ -712,14 +884,19 @@ methods:
       - name: startVal
         type: float
       - name: endVal
-        type: " float"
+        type: float
       - name: startTime
-        type: " float"
+        type: float
+      - name: endTime
+        type: float
   - name: update
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bSleeping
+        type: boolean
   - name: updateCalendar
     modifiers:
       - public
@@ -729,8 +906,10 @@ methods:
       - name: year
         type: int
       - name: month
-        type: " int"
+        type: int
       - name: dayOfMonth
-        type: " int"
+        type: int
       - name: hourOfDay
-        type: " int"
+        type: int
+      - name: minute
+        type: int

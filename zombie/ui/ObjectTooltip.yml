@@ -51,6 +51,8 @@ methods:
     parameters:
       - name: textX
         type: int
+      - name: text
+        type: String
   - name: beginLayout
     modifiers:
       - public
@@ -71,19 +73,21 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
       - name: h
-        type: " int"
+        type: int
       - name: f
-        type: " float"
+        type: float
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
+      - name: a
+        type: double
   - name: DrawText
     modifiers:
       - public
@@ -93,17 +97,19 @@ methods:
       - name: font
         type: UIFont
       - name: text
-        type: " String"
+        type: String
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
+      - name: alpha
+        type: double
   - name: DrawTextCentre
     modifiers:
       - public
@@ -113,17 +119,19 @@ methods:
       - name: font
         type: UIFont
       - name: text
-        type: " String"
+        type: String
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
+      - name: alpha
+        type: double
   - name: DrawTextRight
     modifiers:
       - public
@@ -133,17 +141,19 @@ methods:
       - name: font
         type: UIFont
       - name: text
-        type: " String"
+        type: String
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
+      - name: alpha
+        type: double
   - name: DrawTextureScaled
     modifiers:
       - public
@@ -153,13 +163,15 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: width
-        type: " double"
+        type: double
       - name: height
-        type: " double"
+        type: double
+      - name: alpha
+        type: double
   - name: DrawTextureScaledAspect
     modifiers:
       - public
@@ -169,19 +181,21 @@ methods:
       - name: tex
         type: Texture
       - name: x
-        type: " double"
+        type: double
       - name: y
-        type: " double"
+        type: double
       - name: width
-        type: " double"
+        type: double
       - name: height
-        type: " double"
+        type: double
       - name: r
-        type: " double"
+        type: double
       - name: g
-        type: " double"
+        type: double
       - name: b
-        type: " double"
+        type: double
+      - name: alpha
+        type: double
   - name: DrawValueRight
     modifiers:
       - public
@@ -191,9 +205,11 @@ methods:
       - name: value
         type: int
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: highGood
+        type: boolean
   - name: DrawValueRightNoPlus
     modifiers:
       - public
@@ -203,7 +219,9 @@ methods:
       - name: value
         type: int
       - name: x
-        type: " int"
+        type: int
+      - name: y
+        type: int
   - name: DrawValueRightNoPlus
     modifiers:
       - public
@@ -213,12 +231,17 @@ methods:
       - name: value
         type: float
       - name: x
-        type: " int"
+        type: int
+      - name: y
+        type: int
   - name: endLayout
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: layout
+        type: ObjectTooltip.Layout
   - name: getCharacter
     modifiers:
       - public
@@ -262,6 +285,8 @@ methods:
     parameters:
       - name: dx
         type: double
+      - name: dy
+        type: double
   - name: onMouseMoveOutside
     modifiers:
       - public
@@ -269,6 +294,8 @@ methods:
       type: void
     parameters:
       - name: dx
+        type: double
+      - name: dy
         type: double
   - name: render
     modifiers:
@@ -280,16 +307,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: setMeasureOnly
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setWeightOfStack
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weight
+        type: float
   - name: show
     modifiers:
       - public
@@ -299,7 +335,9 @@ methods:
       - name: obj
         type: IsoObject
       - name: x
-        type: " double"
+        type: double
+      - name: y
+        type: double
   - name: update
     modifiers:
       - public

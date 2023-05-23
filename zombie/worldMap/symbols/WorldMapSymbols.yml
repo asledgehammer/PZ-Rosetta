@@ -40,25 +40,27 @@ methods:
       - name: text
         type: String
       - name: translated
-        type: " boolean"
+        type: boolean
       - name: font
-        type: " UIFont"
+        type: UIFont
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: anchorX
-        type: " float"
+        type: float
       - name: anchorY
-        type: " float"
+        type: float
       - name: scale
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: addTexture
     modifiers:
       - public
@@ -68,15 +70,17 @@ methods:
       - name: symbolID
         type: String
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: addTexture
     modifiers:
       - public
@@ -86,21 +90,23 @@ methods:
       - name: symbolID
         type: String
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: anchorX
-        type: " float"
+        type: float
       - name: anchorY
-        type: " float"
+        type: float
       - name: scale
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: addTranslatedText
     modifiers:
       - public
@@ -110,17 +116,19 @@ methods:
       - name: text
         type: String
       - name: font
-        type: " UIFont"
+        type: UIFont
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: addUntranslatedText
     modifiers:
       - public
@@ -130,17 +138,19 @@ methods:
       - name: text
         type: String
       - name: font
-        type: " UIFont"
+        type: UIFont
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: clear
     modifiers:
       - public
@@ -161,6 +171,9 @@ methods:
       - public
     return:
       type: WorldMapBaseSymbol
+    parameters:
+      - name: index
+        type: int
   - name: getSymbolCount
     modifiers:
       - public
@@ -179,18 +192,29 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: removeSymbolByIndex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: index
+        type: int
   - name: render
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ui
+        type: UIWorldMap
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer

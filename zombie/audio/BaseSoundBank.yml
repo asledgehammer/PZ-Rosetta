@@ -28,11 +28,13 @@ methods:
       - name: alias
         type: String
       - name: grass
-        type: " String"
+        type: String
       - name: wood
-        type: " String"
+        type: String
       - name: concrete
-        type: " String"
+        type: String
+      - name: upstairs
+        type: String
   - name: addVoice
     modifiers:
       - public
@@ -43,16 +45,24 @@ methods:
       - name: alias
         type: String
       - name: sound
-        type: " String"
+        type: String
+      - name: priority
+        type: float
   - name: getFootstep
     modifiers:
       - public
       - abstract
     return:
       type: fmod.fmod.FMODFootstep
+    parameters:
+      - name: alias
+        type: String
   - name: getVoice
     modifiers:
       - public
       - abstract
     return:
       type: fmod.fmod.FMODVoice
+    parameters:
+      - name: alias
+        type: String

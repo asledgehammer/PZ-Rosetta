@@ -21,7 +21,9 @@ methods:
       - name: x
         type: float
       - name: minVal
-        type: " float"
+        type: float
+      - name: maxVal
+        type: float
   - name: DistanceManhatten
     modifiers:
       - public
@@ -32,26 +34,30 @@ methods:
       - name: fromX
         type: float
       - name: fromY
-        type: " float"
-      - name: toX
-        type: " float"
-  - name: DistanceManhatten
-    modifiers:
-      - public
-      - static
-    return:
-      type: float
-    parameters:
-      - name: fromX
         type: float
-      - name: fromY
-        type: " float"
       - name: toX
-        type: " float"
+        type: float
       - name: toY
-        type: " float"
+        type: float
+  - name: DistanceManhatten
+    modifiers:
+      - public
+      - static
+    return:
+      type: float
+    parameters:
+      - name: fromX
+        type: float
+      - name: fromY
+        type: float
+      - name: toX
+        type: float
+      - name: toY
+        type: float
       - name: fromZ
-        type: " float"
+        type: float
+      - name: toZ
+        type: float
   - name: DistanceManhattenSquare
     modifiers:
       - public
@@ -62,39 +68,45 @@ methods:
       - name: fromX
         type: float
       - name: fromY
-        type: " float"
-      - name: toX
-        type: " float"
-  - name: DistanceTo
-    modifiers:
-      - public
-      - static
-    return:
-      type: float
-    parameters:
-      - name: fromX
         type: float
-      - name: fromY
-        type: " float"
       - name: toX
-        type: " float"
-  - name: DistanceTo
-    modifiers:
-      - public
-      - static
-    return:
-      type: float
-    parameters:
-      - name: fromX
         type: float
-      - name: fromY
-        type: " float"
-      - name: fromZ
-        type: " float"
-      - name: toX
-        type: " float"
       - name: toY
-        type: " float"
+        type: float
+  - name: DistanceTo
+    modifiers:
+      - public
+      - static
+    return:
+      type: float
+    parameters:
+      - name: fromX
+        type: float
+      - name: fromY
+        type: float
+      - name: toX
+        type: float
+      - name: toY
+        type: float
+  - name: DistanceTo
+    modifiers:
+      - public
+      - static
+    return:
+      type: float
+    parameters:
+      - name: fromX
+        type: float
+      - name: fromY
+        type: float
+      - name: fromZ
+        type: float
+      - name: toX
+        type: float
+      - name: toY
+        type: float
+      - name: toZ
+        type: float
   - name: DistanceTo2D
     modifiers:
       - public
@@ -105,39 +117,45 @@ methods:
       - name: fromX
         type: float
       - name: fromY
-        type: " float"
-      - name: toX
-        type: " float"
-  - name: DistanceToSquared
-    modifiers:
-      - public
-      - static
-    return:
-      type: float
-    parameters:
-      - name: fromX
         type: float
-      - name: fromY
-        type: " float"
       - name: toX
-        type: " float"
-  - name: DistanceToSquared
-    modifiers:
-      - public
-      - static
-    return:
-      type: float
-    parameters:
-      - name: fromX
         type: float
-      - name: fromY
-        type: " float"
-      - name: fromZ
-        type: " float"
-      - name: toX
-        type: " float"
       - name: toY
-        type: " float"
+        type: float
+  - name: DistanceToSquared
+    modifiers:
+      - public
+      - static
+    return:
+      type: float
+    parameters:
+      - name: fromX
+        type: float
+      - name: fromY
+        type: float
+      - name: toX
+        type: float
+      - name: toY
+        type: float
+  - name: DistanceToSquared
+    modifiers:
+      - public
+      - static
+    return:
+      type: float
+    parameters:
+      - name: fromX
+        type: float
+      - name: fromY
+        type: float
+      - name: fromZ
+        type: float
+      - name: toX
+        type: float
+      - name: toY
+        type: float
+      - name: toZ
+        type: float
   - name: isSimilarDirection
     modifiers:
       - public
@@ -148,13 +166,15 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: xA
-        type: " float"
+        type: float
       - name: yA
-        type: " float"
+        type: float
       - name: xB
-        type: " float"
+        type: float
       - name: yB
-        type: " float"
+        type: float
+      - name: similar
+        type: float
   - name: lerp
     modifiers:
       - public
@@ -165,7 +185,9 @@ methods:
       - name: val
         type: float
       - name: min
-        type: " float"
+        type: float
+      - name: max
+        type: float
   - name: smoothstep
     modifiers:
       - public
@@ -176,7 +198,9 @@ methods:
       - name: edge0
         type: float
       - name: edge1
-        type: " float"
+        type: float
+      - name: x
+        type: float
   - name: XToIso
     modifiers:
       - public
@@ -187,7 +211,9 @@ methods:
       - name: screenX
         type: float
       - name: screenY
-        type: " float"
+        type: float
+      - name: floor
+        type: float
   - name: XToIsoTrue
     modifiers:
       - public
@@ -198,7 +224,9 @@ methods:
       - name: screenX
         type: float
       - name: screenY
-        type: " float"
+        type: float
+      - name: floor
+        type: int
   - name: XToScreen
     modifiers:
       - public
@@ -209,9 +237,11 @@ methods:
       - name: objectX
         type: float
       - name: objectY
-        type: " float"
+        type: float
       - name: objectZ
-        type: " float"
+        type: float
+      - name: screenZ
+        type: int
   - name: XToScreenExact
     modifiers:
       - public
@@ -222,9 +252,11 @@ methods:
       - name: objectX
         type: float
       - name: objectY
-        type: " float"
+        type: float
       - name: objectZ
-        type: " float"
+        type: float
+      - name: screenZ
+        type: int
   - name: XToScreenInt
     modifiers:
       - public
@@ -235,9 +267,11 @@ methods:
       - name: objectX
         type: int
       - name: objectY
-        type: " int"
+        type: int
       - name: objectZ
-        type: " int"
+        type: int
+      - name: screenZ
+        type: int
   - name: YToIso
     modifiers:
       - public
@@ -248,7 +282,9 @@ methods:
       - name: screenX
         type: float
       - name: screenY
-        type: " float"
+        type: float
+      - name: floor
+        type: float
   - name: YToScreen
     modifiers:
       - public
@@ -259,9 +295,11 @@ methods:
       - name: objectX
         type: float
       - name: objectY
-        type: " float"
+        type: float
       - name: objectZ
-        type: " float"
+        type: float
+      - name: screenZ
+        type: int
   - name: YToScreenExact
     modifiers:
       - public
@@ -272,9 +310,11 @@ methods:
       - name: objectX
         type: float
       - name: objectY
-        type: " float"
+        type: float
       - name: objectZ
-        type: " float"
+        type: float
+      - name: screenZ
+        type: int
   - name: YToScreenInt
     modifiers:
       - public
@@ -285,6 +325,8 @@ methods:
       - name: objectX
         type: int
       - name: objectY
-        type: " int"
+        type: int
       - name: objectZ
-        type: " int"
+        type: int
+      - name: screenZ
+        type: int

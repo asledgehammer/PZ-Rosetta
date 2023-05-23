@@ -604,6 +604,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: trait
+        type: String
   - name: checkVehiclesZones
     modifiers:
       - public
@@ -618,7 +621,9 @@ methods:
       - name: desc
         type: SurvivorDesc
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: player
+        type: IsoPlayer
   - name: CreateSwarm
     modifiers:
       - public
@@ -628,11 +633,13 @@ methods:
       - name: num
         type: int
       - name: x1
-        type: " int"
+        type: int
       - name: y1
-        type: " int"
+        type: int
       - name: x2
-        type: " int"
+        type: int
+      - name: y2
+        type: int
   - name: ForceKillAllZombies
     modifiers:
       - public
@@ -650,6 +657,9 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<String>
+    parameters:
+      - name: filename
+        type: String
   - name: getAllTilesName
     modifiers:
       - public
@@ -690,7 +700,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: getGameMode
     modifiers:
       - public
@@ -708,6 +720,9 @@ methods:
       - public
     return:
       type: IsoObject
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: getLuaPlayerDesc
     modifiers:
       - public
@@ -757,6 +772,8 @@ methods:
     parameters:
       - name: wx
         type: int
+      - name: wy
+        type: int
   - name: getMetaChunkFromTile
     modifiers:
       - public
@@ -764,6 +781,8 @@ methods:
       type: IsoMetaChunk
     parameters:
       - name: wx
+        type: int
+      - name: wy
         type: int
   - name: getMetaGrid
     modifiers:
@@ -786,6 +805,9 @@ methods:
       - public
     return:
       type: RandomizedVehicleStoryBase
+    parameters:
+      - name: name
+        type: String
   - name: getRandomizedVehicleStoryList
     modifiers:
       - public
@@ -894,7 +916,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: KillCell
     modifiers:
       - public
@@ -914,7 +938,9 @@ methods:
       - name: sprMan
         type: IsoSpriteManager
       - name: filename
-        type: " String"
+        type: String
+      - name: fileNumber
+        type: int
   - name: LoadTileDefinitionsPropertyStrings
     modifiers:
       - public
@@ -924,31 +950,45 @@ methods:
       - name: sprMan
         type: IsoSpriteManager
       - name: filename
-        type: " String"
+        type: String
+      - name: fileNumber
+        type: int
   - name: readInt
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: __in
+        type: RandomAccessFile
   - name: readInt
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: __in
+        type: InputStream
   - name: readString
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: __in
+        type: RandomAccessFile
   - name: readString
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: __in
+        type: InputStream
   - name: registerMannequinZone
     modifiers:
       - public
@@ -958,17 +998,19 @@ methods:
       - name: name
         type: String
       - name: type
-        type: " String"
+        type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
   - name: registerRoomTone
     modifiers:
       - public
@@ -978,17 +1020,19 @@ methods:
       - name: name
         type: String
       - name: type
-        type: " String"
+        type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
   - name: registerSpawnOrigin
     modifiers:
       - public
@@ -998,11 +1042,13 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
   - name: registerVehiclesZone
     modifiers:
       - public
@@ -1012,17 +1058,19 @@ methods:
       - name: name
         type: String
       - name: type
-        type: " String"
+        type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
   - name: registerWaterFlow
     modifiers:
       - public
@@ -1032,9 +1080,11 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: flow
-        type: " float"
+        type: float
+      - name: speed
+        type: float
   - name: registerWaterZone
     modifiers:
       - public
@@ -1044,13 +1094,15 @@ methods:
       - name: x1
         type: float
       - name: y1
-        type: " float"
+        type: float
       - name: x2
-        type: " float"
+        type: float
       - name: y2
-        type: " float"
+        type: float
       - name: shore
-        type: " float"
+        type: float
+      - name: water_ground
+        type: float
   - name: registerZone
     modifiers:
       - public
@@ -1060,15 +1112,17 @@ methods:
       - name: name
         type: String
       - name: type
-        type: " String"
+        type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: registerZoneNoOverlap
     modifiers:
       - public
@@ -1078,20 +1132,25 @@ methods:
       - name: name
         type: String
       - name: type
-        type: " String"
+        type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
+      - name: height
+        type: int
   - name: removeZonesForLotDirectory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lotDir
+        type: String
   - name: render
     modifiers:
       - public
@@ -1107,6 +1166,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
   - name: sceneCullZombies
     modifiers:
       - public
@@ -1117,11 +1179,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: difficulty
+        type: String
   - name: setDrawWorld
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setEmitterOwner
     modifiers:
       - public
@@ -1130,16 +1198,24 @@ methods:
     parameters:
       - name: emitter
         type: BaseSoundEmitter
+      - name: object
+        type: IsoObject
   - name: setGameMode
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mode
+        type: String
   - name: setGlobalTemperature
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: globalTemperature
+        type: float
     notes: >-
       setGlobalTemperature is now deprecated. Does nothing.
 
@@ -1149,61 +1225,97 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: __on
+        type: boolean
   - name: setLuaPlayerDesc
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: setLuaPosX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: luaPosX
+        type: int
   - name: setLuaPosY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: luaPosY
+        type: int
   - name: setLuaPosZ
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: luaPosZ
+        type: int
   - name: setLuaSpawnCellX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: luaSpawnCellX
+        type: int
   - name: setLuaSpawnCellY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: luaSpawnCellY
+        type: int
   - name: setMap
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: world
+        type: String
   - name: setTimeSinceLastSurvivorInHorde
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: timeSinceLastSurvivorInHorde
+        type: int
   - name: setWeather
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weather
+        type: String
   - name: setWorld
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: world
+        type: String
   - name: takeOwnershipOfEmitter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
   - name: transmitWeather
     modifiers:
       - public

@@ -13,13 +13,17 @@ constructors:
       - name: bb
         type: ByteBuffer
       - name: tab
-        type: " ChatTab"
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
   - name: ServerChat
     modifiers:
       - public
     parameters:
       - name: id
         type: int
+      - name: tab
+        type: ChatTab
 methods:
   - name: createMessage
     modifiers:
@@ -30,7 +34,9 @@ methods:
       - name: author
         type: String
       - name: text
-        type: " String"
+        type: String
+      - name: isAlert
+        type: boolean
   - name: createServerMessage
     modifiers:
       - public
@@ -39,6 +45,8 @@ methods:
     parameters:
       - name: text
         type: String
+      - name: isAlert
+        type: boolean
   - name: getDefaultSettings
     modifiers:
       - public
@@ -50,11 +58,17 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: getMessageTextWithPrefix
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: getTabID
     modifiers:
       - public
@@ -68,18 +82,29 @@ methods:
     parameters:
       - name: b
         type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
   - name: sendMessageToChatMembers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: showMessage
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: unpackMessage
     modifiers:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

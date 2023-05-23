@@ -17,12 +17,6 @@ methods:
       - static
     return:
       type: String
-  - name: Build
-    modifiers:
-      - public
-      - static
-    return:
-      type: String
     parameters:
       - name: input
         type: String
@@ -35,6 +29,19 @@ methods:
     parameters:
       - name: input
         type: String
+      - name: replaceProvider
+        type: IReplaceProvider
+  - name: Build
+    modifiers:
+      - public
+      - static
+    return:
+      type: String
+    parameters:
+      - name: input
+        type: String
+      - name: table
+        type: se.krka.kahlua.j2se.KahluaTableImpl
   - name: Initialize
     modifiers:
       - public
@@ -47,12 +54,18 @@ methods:
       - static
     return:
       type: float
+    parameters:
+      - name: bound
+        type: float
   - name: RandNext
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: bound
+        type: int
   - name: RandNext
     modifiers:
       - public
@@ -61,6 +74,8 @@ methods:
       type: float
     parameters:
       - name: min
+        type: float
+      - name: max
         type: float
   - name: RandNext
     modifiers:
@@ -71,6 +86,8 @@ methods:
     parameters:
       - name: min
         type: int
+      - name: max
+        type: int
   - name: RegisterKey
     modifiers:
       - public
@@ -80,6 +97,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: table
+        type: se.krka.kahlua.j2se.KahluaTableImpl
   - name: RegisterKey
     modifiers:
       - public
@@ -89,6 +108,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: replace
+        type: IReplace
   - name: Reset
     modifiers:
       - public

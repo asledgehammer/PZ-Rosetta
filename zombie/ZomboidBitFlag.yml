@@ -10,9 +10,15 @@ constructors:
   - name: ZomboidBitFlag
     modifiers:
       - public
+    parameters:
+      - name: size
+        type: int
   - name: ZomboidBitFlag
     modifiers:
       - public
+    parameters:
+      - name: fl
+        type: ZomboidBitFlag
 methods:
   - name: clear
     modifiers:
@@ -24,36 +30,57 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: l
+        type: long
   - name: isSet
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: __off
+        type: int
   - name: isSet
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: flag
+        type: IsoFlagType
   - name: isSet
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: flag
+        type: IsoObjectType
   - name: load
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: DataInputStream
   - name: Or
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: SpriteFlags
+        type: ZomboidBitFlag
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: DataOutputStream
   - name: set
     modifiers:
       - public
@@ -62,6 +89,8 @@ methods:
     parameters:
       - name: __off
         type: int
+      - name: b
+        type: boolean
   - name: set
     modifiers:
       - public
@@ -70,6 +99,8 @@ methods:
     parameters:
       - name: flag
         type: IsoFlagType
+      - name: b
+        type: boolean
   - name: set
     modifiers:
       - public
@@ -78,3 +109,5 @@ methods:
     parameters:
       - name: flag
         type: IsoObjectType
+      - name: b
+        type: boolean

@@ -15,12 +15,17 @@ methods:
       - name: part
         type: BloodBodyPartType
       - name: scratched
-        type: " boolean"
+        type: boolean
       - name: bitten
-        type: " boolean"
+        type: boolean
+      - name: allLayers
+        type: boolean
   - name: addHole
     return:
       type: boolean
+    parameters:
+      - name: part
+        type: BloodBodyPartType
   - name: getBodyDamage
     return:
       type: BodyDamage
@@ -43,11 +48,13 @@ methods:
       - name: vehicle
         type: BaseVehicle
       - name: speed
-        type: " float"
+        type: float
       - name: isHitFromBehind
-        type: " boolean"
+        type: boolean
       - name: hitDirX
-        type: " float"
+        type: float
+      - name: hitDirY
+        type: float
   - name: Hit
     return:
       type: float
@@ -55,25 +62,29 @@ methods:
       - name: weapon
         type: HandWeapon
       - name: wielder
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: damageSplit
-        type: " float"
+        type: float
       - name: bIgnoreDamage
-        type: " boolean"
-  - name: Hit
-    return:
-      type: float
-    parameters:
-      - name: weapon
-        type: HandWeapon
-      - name: wielder
-        type: " IsoGameCharacter"
-      - name: damageSplit
-        type: " float"
-      - name: bIgnoreDamage
-        type: " boolean"
+        type: boolean
       - name: modDelta
-        type: " float"
+        type: float
+  - name: Hit
+    return:
+      type: float
+    parameters:
+      - name: weapon
+        type: HandWeapon
+      - name: wielder
+        type: IsoGameCharacter
+      - name: damageSplit
+        type: float
+      - name: bIgnoreDamage
+        type: boolean
+      - name: modDelta
+        type: float
+      - name: bRemote
+        type: boolean
   - name: isBumped
     return:
       type: boolean
@@ -98,21 +109,39 @@ methods:
   - name: setDeathDragDown
     return:
       type: void
+    parameters:
+      - name: dragDown
+        type: boolean
   - name: setHealth
     return:
       type: void
+    parameters:
+      - name: Health
+        type: float
   - name: setLastHitCount
     return:
       type: void
+    parameters:
+      - name: hitCount
+        type: int
   - name: setOnDeathDone
     return:
       type: void
+    parameters:
+      - name: done
+        type: boolean
   - name: setOnKillDone
     return:
       type: void
+    parameters:
+      - name: done
+        type: boolean
   - name: setPlayingDeathSound
     return:
       type: void
+    parameters:
+      - name: playing
+        type: boolean
   - name: StopBurning
     return:
       type: void

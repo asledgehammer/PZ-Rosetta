@@ -28,15 +28,20 @@ methods:
       - name: chr
         type: IsoZombie
       - name: zombieZone
-        type: " IsoMetaGrid.Zone"
+        type: IsoMetaGrid.Zone
       - name: zombieToSpawn
-        type: " zombie.characters.ZombiesZoneDefinition.ZZDOutfit"
+        type: zombie.characters.ZombiesZoneDefinition.ZZDOutfit
+      - name: bFemale
+        type: boolean
   - name: dressInRandomOutfit
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoZombie
   - name: getDefinitionZoneAt
     modifiers:
       - public
@@ -47,7 +52,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getRandomDefaultOutfit
     modifiers:
       - public
@@ -57,6 +64,8 @@ methods:
     parameters:
       - name: bFemale
         type: boolean
+      - name: roomName
+        type: String
   - name: getRandomOutfitInSetList
     modifiers:
       - public
@@ -67,6 +76,8 @@ methods:
       - name: list
         type: ArrayList
         generic: ArrayList<zombie.characters.ZombiesZoneDefinition.ZZDOutfit>
+      - name: doTotalChance100
+        type: boolean
   - name: pickDefinition
     modifiers:
       - public
@@ -77,15 +88,20 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: bFemale
+        type: boolean
   - name: pickPersistentOutfit
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: registerCustomOutfits
     modifiers:
       - public

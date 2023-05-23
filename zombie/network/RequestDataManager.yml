@@ -41,7 +41,9 @@ methods:
       - name: id
         type: RequestDataPacket.RequestID
       - name: connection
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: bytesTransmitted
+        type: int
   - name: clear
     modifiers:
       - public
@@ -52,6 +54,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: getInstance
     modifiers:
       - public
@@ -67,7 +72,9 @@ methods:
       - name: id
         type: RequestDataPacket.RequestID
       - name: connection
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
   - name: receiveClientData
     modifiers:
       - public
@@ -77,6 +84,8 @@ methods:
       - name: id
         type: RequestDataPacket.RequestID
       - name: bb
-        type: " ByteBuffer"
+        type: ByteBuffer
       - name: fileSize
-        type: " int"
+        type: int
+      - name: bytesTransmitted
+        type: int

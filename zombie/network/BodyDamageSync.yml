@@ -309,16 +309,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: serverPacket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: startReceivingUpdates
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: remoteID
+        type: short
   - name: startSendingUpdates
     modifiers:
       - public
@@ -327,11 +336,16 @@ methods:
     parameters:
       - name: localIndex
         type: short
+      - name: remoteID
+        type: short
   - name: stopReceivingUpdates
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: remoteID
+        type: short
   - name: stopSendingUpdates
     modifiers:
       - public
@@ -339,6 +353,8 @@ methods:
       type: void
     parameters:
       - name: localIndex
+        type: short
+      - name: remoteID
         type: short
   - name: update
     modifiers:

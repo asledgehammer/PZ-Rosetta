@@ -61,6 +61,9 @@ methods:
     parameters:
       - name: outfit
         type: String
+      - name: beardList
+        type: ArrayList
+        generic: ArrayList<BeardStyle>
   - name: getRandomHaircut
     modifiers:
       - public
@@ -69,11 +72,17 @@ methods:
     parameters:
       - name: outfit
         type: String
+      - name: hairList
+        type: ArrayList
+        generic: ArrayList<HairStyle>
   - name: getRandomHaircutColor
     modifiers:
       - public
     return:
       type: ImmutableColor
+    parameters:
+      - name: outfit
+        type: String
   - name: getValidHairStylesForOutfit
     modifiers:
       - public
@@ -83,8 +92,11 @@ methods:
       - name: outfit
         type: String
       - name: hairStyles
-        type: " ArrayList"
-        generic: " ArrayList<HairStyle>"
+        type: ArrayList
+        generic: ArrayList<HairStyle>
+      - name: result
+        type: ArrayList
+        generic: ArrayList<HairStyle>
   - name: isHaircutValid
     modifiers:
       - public
@@ -92,4 +104,6 @@ methods:
       type: boolean
     parameters:
       - name: outfit
+        type: String
+      - name: haircut
         type: String

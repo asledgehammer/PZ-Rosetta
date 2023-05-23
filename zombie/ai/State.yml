@@ -19,21 +19,32 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
   - name: enter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: execute
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: exit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: getDeltaModifiers
     modifiers:
       - public
@@ -42,6 +53,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: modifiers
+        type: MoveDeltaModifiers
   - name: getName
     modifiers:
       - public
@@ -57,6 +70,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
     notes: |-
       Return TRUE if the owner is currently attacking.
         Defaults to FALSE
@@ -76,15 +92,17 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: fromX
-        type: " int"
+        type: int
       - name: fromY
-        type: " int"
+        type: int
       - name: fromZ
-        type: " int"
+        type: int
       - name: toX
-        type: " int"
+        type: int
       - name: toY
-        type: " int"
+        type: int
+      - name: toZ
+        type: int
     notes: >-
       Return TRUE if the owner should ignore collisions when passing between two
       squares.
@@ -94,6 +112,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
     notes: |-
       Return TRUE if the owner is currently moving.
         Defaults to FALSE

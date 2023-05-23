@@ -14,9 +14,11 @@ constructors:
       - name: owner
         type: SandboxOptions
       - name: name
-        type: " String"
+        type: String
       - name: numValues
-        type: " int"
+        type: int
+      - name: defaultValue
+        type: int
 methods:
   - name: asConfigOption
     modifiers:
@@ -28,6 +30,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
   - name: getPageName
     modifiers:
       - public
@@ -63,11 +68,17 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: index
+        type: int
   - name: getValueTranslationByIndexOrNull
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: index
+        type: int
   - name: isCustom
     modifiers:
       - public
@@ -83,18 +94,30 @@ methods:
       - public
     return:
       type: SandboxOptions.SandboxOption
+    parameters:
+      - name: pageName
+        type: String
   - name: setTranslation
     modifiers:
       - public
     return:
       type: SandboxOptions.SandboxOption
+    parameters:
+      - name: translation
+        type: String
   - name: setValueTranslation
     modifiers:
       - public
     return:
       type: SandboxOptions.EnumSandboxOption
+    parameters:
+      - name: translation
+        type: String
   - name: toTable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable

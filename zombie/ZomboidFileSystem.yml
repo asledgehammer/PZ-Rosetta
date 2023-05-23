@@ -49,23 +49,35 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: filePath
+        type: String
   - name: ensureFolderExists
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: path
+        type: String
   - name: ensureFolderExists
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: directory
+        type: File
   - name: getAbsolutePath
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: rel
+        type: String
   - name: getAbsoluteWorkDir
     modifiers:
       - public
@@ -81,12 +93,10 @@ methods:
       - public
     return:
       type: void
-  - name: getAllPathsContaining
-    modifiers:
-      - public
-    return:
-      type: Object
-      generic: Object[]
+    parameters:
+      - name: out
+        type: List
+        generic: List<String>
   - name: getAllPathsContaining
     modifiers:
       - public
@@ -96,6 +106,17 @@ methods:
     parameters:
       - name: str
         type: String
+  - name: getAllPathsContaining
+    modifiers:
+      - public
+    return:
+      type: Object
+      generic: Object[]
+    parameters:
+      - name: str
+        type: String
+      - name: str2
+        type: String
   - name: getAnimName
     modifiers:
       - public
@@ -104,6 +125,8 @@ methods:
     parameters:
       - name: mediaURI
         type: URI
+      - name: file
+        type: File
   - name: getAnimSetsPath
     modifiers:
       - public
@@ -123,6 +146,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: subPath
+        type: String
     notes: |-
       Returns the subPath, relative to the CacheDir path.
         NOTE: Does not create the subPath, nor ensure that it exists.
@@ -131,26 +157,41 @@ methods:
       - public
     return:
       type: File
+    parameters:
+      - name: file
+        type: File
   - name: getCanonicalFile
     modifiers:
       - public
     return:
       type: File
+    parameters:
+      - name: path
+        type: String
   - name: getCanonicalPath
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: file
+        type: File
   - name: getCanonicalPath
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: path
+        type: String
   - name: getCanonicalURI
     modifiers:
       - public
     return:
       type: URI
+    parameters:
+      - name: path
+        type: String
   - name: getCurrentSaveDir
     modifiers:
       - public
@@ -166,6 +207,9 @@ methods:
       - public
     return:
       type: File
+    parameters:
+      - name: fileName
+        type: String
   - name: getFileInCurrentSave
     modifiers:
       - public
@@ -173,6 +217,8 @@ methods:
       type: File
     parameters:
       - name: subDir
+        type: String
+      - name: fileName
         type: String
   - name: getFileInCurrentSave
     modifiers:
@@ -183,12 +229,17 @@ methods:
       - name: subDir1
         type: String
       - name: subDir2
-        type: " String"
+        type: String
+      - name: fileName
+        type: String
   - name: getFileNameInCurrentSave
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: fileName
+        type: String
   - name: getFileNameInCurrentSave
     modifiers:
       - public
@@ -196,6 +247,8 @@ methods:
       type: String
     parameters:
       - name: subDir
+        type: String
+      - name: fileName
         type: String
   - name: getFileNameInCurrentSave
     modifiers:
@@ -206,12 +259,17 @@ methods:
       - name: subDir1
         type: String
       - name: subDir2
-        type: " String"
+        type: String
+      - name: fileName
+        type: String
   - name: getFilePathFromGuid
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: guid
+        type: String
   - name: getGameModeCacheDir
     modifiers:
       - public
@@ -222,11 +280,18 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: path
+        type: String
   - name: getInstalledItemModsFolders
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: out
+        type: ArrayList
+        generic: ArrayList<String>
   - name: getLocalWorkDir
     modifiers:
       - public
@@ -237,16 +302,25 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: subPath
+        type: String
   - name: getMediaFile
     modifiers:
       - public
     return:
       type: File
+    parameters:
+      - name: subPath
+        type: String
   - name: getMediaPath
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: subPath
+        type: String
   - name: getMediaRootFile
     modifiers:
       - public
@@ -271,6 +345,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: subPath
+        type: String
     notes: >-
       Returns the messaging folder. Used for writing Trigger files for
       communicating with the game.
@@ -280,6 +357,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: modId
+        type: String
   - name: getModIDs
     modifiers:
       - public
@@ -291,16 +371,25 @@ methods:
       - public
     return:
       type: ChooseGameInfo.Mod
+    parameters:
+      - name: modDir
+        type: String
   - name: getRelativeFile
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: file
+        type: File
   - name: getRelativeFile
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: string
+        type: String
   - name: getRelativeFile
     modifiers:
       - public
@@ -309,6 +398,8 @@ methods:
     parameters:
       - name: root
         type: URI
+      - name: file
+        type: File
   - name: getRelativeFile
     modifiers:
       - public
@@ -317,6 +408,8 @@ methods:
     parameters:
       - name: root
         type: URI
+      - name: string
+        type: String
   - name: getSaveDir
     modifiers:
       - public
@@ -327,6 +420,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: subPath
+        type: String
     notes: |-
       Returns the subPath, relative to the SaveDir path.
         NOTE: Does not create the subPath, nor ensure that it exists.
@@ -340,6 +436,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: subPath
+        type: String
     notes: |-
       Returns the subPath, relative to the ScreenshotDir path.
         NOTE: Does not create the subPath, nor ensure that it exists.
@@ -348,17 +447,27 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: out
+        type: ArrayList
+        generic: ArrayList<String>
   - name: getString
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: str
+        type: String
   - name: getWorkshopItemMods
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<ChooseGameInfo.Mod>
+    parameters:
+      - name: itemID
+        type: long
   - name: init
     modifiers:
       - public
@@ -369,6 +478,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: source
+        type: String
   - name: listAllDirectories
     modifiers:
       - public
@@ -380,7 +492,9 @@ methods:
       - name: rootPath
         type: String
       - name: filter
-        type: " FileFilter"
+        type: FileFilter
+      - name: recursive
+        type: boolean
   - name: listAllDirectories
     modifiers:
       - public
@@ -392,7 +506,9 @@ methods:
       - name: root
         type: File
       - name: filter
-        type: " FileFilter"
+        type: FileFilter
+      - name: recursive
+        type: boolean
   - name: listAllFiles
     modifiers:
       - public
@@ -404,7 +520,9 @@ methods:
       - name: folderPath
         type: String
       - name: filter
-        type: " FileFilter"
+        type: FileFilter
+      - name: recursive
+        type: boolean
   - name: listAllFiles
     modifiers:
       - public
@@ -416,7 +534,9 @@ methods:
       - name: folder
         type: File
       - name: filter
-        type: " FileFilter"
+        type: FileFilter
+      - name: recursive
+        type: boolean
   - name: loadFileGuidTable
     modifiers:
       - public
@@ -427,6 +547,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: path
+        type: String
   - name: loadModPackFiles
     modifiers:
       - public
@@ -437,11 +560,18 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: activeMods
+        type: String
   - name: loadMods
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: toLoad
+        type: ArrayList
+        generic: ArrayList<String>
   - name: loadModsAux
     modifiers:
       - public
@@ -449,6 +579,9 @@ methods:
       type: String
     parameters:
       - name: toLoad
+        type: ArrayList
+        generic: ArrayList<String>
+      - name: ordered
         type: ArrayList
         generic: ArrayList<String>
   - name: loadModTileDefPropertyStrings
@@ -466,6 +599,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: path
+        type: String
   - name: processFilePath
     modifiers:
       - public
@@ -475,6 +611,8 @@ methods:
     parameters:
       - name: filePath
         type: String
+      - name: separatorChar
+        type: char
   - name: Reset
     modifiers:
       - public
@@ -485,6 +623,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: versionStr
+        type: String
   - name: resetModFolders
     modifiers:
       - public
@@ -500,7 +641,9 @@ methods:
       - name: relPath
         type: String
       - name: filter
-        type: " FileFilter"
+        type: FileFilter
+      - name: recursive
+        type: boolean
   - name: resolveAllFiles
     modifiers:
       - public
@@ -511,12 +654,17 @@ methods:
       - name: relPath
         type: String
       - name: filter
-        type: " FileFilter"
+        type: FileFilter
+      - name: recursive
+        type: boolean
   - name: resolveFileOrGUID
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: source
+        type: String
     notes: >-
       Takes a string source, which is either a GUID or a file path. Returns a
       file
@@ -529,6 +677,8 @@ methods:
     parameters:
       - name: srcFilePath
         type: String
+      - name: relativePath
+        type: String
   - name: saveModsFile
     modifiers:
       - public
@@ -539,6 +689,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: fo
+        type: File
   - name: searchForModInfo
     modifiers:
       - public
@@ -548,12 +701,18 @@ methods:
       - name: path
         type: File
       - name: modSearched
-        type: " String"
+        type: String
+      - name: mods
+        type: ArrayList
+        generic: ArrayList<ChooseGameInfo.Mod>
   - name: setCacheDir
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dir
+        type: String
     notes: >-
       Specify root cache folder. Used for all save/settings/etc. files in the
       user directory.
@@ -563,11 +722,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: s
+        type: String
   - name: tryDeleteFile
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: filePath
+        type: String
   - name: update
     modifiers:
       - public
@@ -582,4 +747,6 @@ methods:
       - name: relPath
         type: String
       - name: recursive
-        type: " boolean"
+        type: boolean
+      - name: consumer
+        type: ZomboidFileSystem.IWalkFilesVisitor

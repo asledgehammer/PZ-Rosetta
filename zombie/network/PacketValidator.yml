@@ -24,6 +24,9 @@ constructors:
   - name: PacketValidator
     modifiers:
       - public
+    parameters:
+      - name: connection
+        type: UdpConnection
 methods:
   - name: checkDamage
     modifiers:
@@ -35,7 +38,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: hit
-        type: " Hit"
+        type: Hit
+      - name: issuedBy
+        type: String
   - name: checkLongDistance
     modifiers:
       - public
@@ -46,9 +51,11 @@ methods:
       - name: connection
         type: UdpConnection
       - name: wielder
-        type: " IPositional"
+        type: IPositional
       - name: target
-        type: " IPositional"
+        type: IPositional
+      - name: issuedBy
+        type: String
   - name: checkOwner
     modifiers:
       - public
@@ -59,7 +66,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: wielder
-        type: " Zombie"
+        type: Zombie
+      - name: issuedBy
+        type: String
   - name: checkPVP
     modifiers:
       - public
@@ -70,9 +79,11 @@ methods:
       - name: connection
         type: UdpConnection
       - name: wielder
-        type: " Character"
+        type: Character
       - name: target
-        type: " Character"
+        type: Character
+      - name: issuedBy
+        type: String
   - name: checkSafehouseAuth
     modifiers:
       - public
@@ -83,7 +94,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: playerName
-        type: " String"
+        type: String
+      - name: issuedBy
+        type: String
   - name: checkShortDistance
     modifiers:
       - public
@@ -94,9 +107,11 @@ methods:
       - name: connection
         type: UdpConnection
       - name: wielder
-        type: " IPositional"
+        type: IPositional
       - name: target
-        type: " IPositional"
+        type: IPositional
+      - name: issuedBy
+        type: String
   - name: checkSpeed
     modifiers:
       - public
@@ -107,7 +122,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: movable
-        type: " IMovable"
+        type: IMovable
+      - name: issuedBy
+        type: String
   - name: checkTarget
     modifiers:
       - public
@@ -118,13 +135,18 @@ methods:
       - name: connection
         type: UdpConnection
       - name: target
-        type: " Player"
+        type: Player
+      - name: issuedBy
+        type: String
   - name: checkUser
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: doAntiCheatProtection
     modifiers:
       - public
@@ -141,7 +163,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: issuedBy
-        type: " String"
+        type: String
+      - name: reason
+        type: String
   - name: doKickUser
     modifiers:
       - public
@@ -152,7 +176,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: issuedBy
-        type: " String"
+        type: String
+      - name: reason
+        type: String
   - name: doLogUser
     modifiers:
       - public
@@ -163,7 +189,9 @@ methods:
       - name: connection
         type: UdpConnection
       - name: issuedBy
-        type: " String"
+        type: String
+      - name: reason
+        type: String
   - name: failChecksum
     modifiers:
       - public
@@ -174,6 +202,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: multiplier
+        type: float
   - name: getDescription
     modifiers:
       - public
@@ -203,7 +234,9 @@ methods:
       - name: queued
         type: boolean
       - name: done
-        type: " boolean"
+        type: boolean
+      - name: details
+        type: boolean
   - name: successChecksum
     modifiers:
       - public

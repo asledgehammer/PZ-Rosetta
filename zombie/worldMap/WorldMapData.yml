@@ -68,6 +68,8 @@ constructors:
     parameters:
       - name: path
         type: AssetPath
+      - name: manager
+        type: AssetManager
   - name: WorldMapData
     modifiers:
       - public
@@ -75,7 +77,9 @@ constructors:
       - name: path
         type: AssetPath
       - name: manager
-        type: " AssetManager"
+        type: AssetManager
+      - name: params
+        type: AssetManager.AssetParams
 methods:
   - name: clear
     modifiers:
@@ -89,6 +93,8 @@ methods:
       type: WorldMapCell
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: getHeightInCells
     modifiers:
@@ -106,6 +112,9 @@ methods:
       - static
     return:
       type: WorldMapData
+    parameters:
+      - name: fileName
+        type: String
   - name: getType
     modifiers:
       - public
@@ -130,7 +139,10 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: features
+        type: ArrayList
+        generic: ArrayList<WorldMapFeature>
   - name: onLoaded
     modifiers:
       - public

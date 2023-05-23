@@ -13,10 +13,15 @@ constructors:
       - name: cell
         type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: gid
+        type: IsoSprite
   - name: IsoStove
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
 methods:
   - name: Activated
     modifiers:
@@ -82,7 +87,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: save
     modifiers:
       - public
@@ -91,26 +98,40 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: setActivated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setBroken
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: broken
+        type: boolean
   - name: setMaxTemperature
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxTemperature
+        type: float
   - name: setTimer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: seconds
+        type: int
   - name: sync
     modifiers:
       - public
@@ -125,14 +146,19 @@ methods:
       - name: bRemote
         type: boolean
       - name: val
-        type: " byte"
+        type: byte
       - name: source
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
   - name: syncIsoObjectSend
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
   - name: syncSpriteGridObjects
     modifiers:
       - public
@@ -140,6 +166,8 @@ methods:
       type: void
     parameters:
       - name: toggle
+        type: boolean
+      - name: network
         type: boolean
   - name: Toggle
     modifiers:

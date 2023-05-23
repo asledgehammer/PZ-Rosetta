@@ -20,17 +20,22 @@ constructors:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
       - name: h
-        type: " int"
+        type: int
+      - name: player
+        type: String
 methods:
   - name: addPlayer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: String
   - name: addSafeHouse
     modifiers:
       - public
@@ -40,6 +45,8 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: player
+        type: IsoPlayer
   - name: addSafeHouse
     modifiers:
       - public
@@ -50,29 +57,40 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
       - name: h
-        type: " int"
+        type: int
       - name: player
-        type: " String"
+        type: String
+      - name: remote
+        type: boolean
   - name: allowSafeHouse
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: alreadyHaveSafehouse
     modifiers:
       - public
     return:
       type: SafeHouse
+    parameters:
+      - name: username
+        type: String
   - name: alreadyHaveSafehouse
     modifiers:
       - public
     return:
       type: SafeHouse
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: canBeSafehouse
     modifiers:
       - public
@@ -82,11 +100,16 @@ methods:
     parameters:
       - name: clickedSquare
         type: IsoGridSquare
+      - name: player
+        type: IsoPlayer
   - name: checkTrespass
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: clearSafehouseList
     modifiers:
       - public
@@ -100,6 +123,8 @@ methods:
       type: boolean
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: getH
     modifiers:
@@ -143,6 +168,9 @@ methods:
       - static
     return:
       type: SafeHouse
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: getSafeHouse
     modifiers:
       - public
@@ -153,9 +181,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
   - name: getSafehouseList
     modifiers:
       - public
@@ -199,12 +229,18 @@ methods:
       - static
     return:
       type: SafeHouse
+    parameters:
+      - name: username
+        type: String
   - name: hasSafehouse
     modifiers:
       - public
       - static
     return:
       type: SafeHouse
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: init
     modifiers:
       - public
@@ -216,6 +252,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: isPlayerAllowedOnSquare
     modifiers:
       - public
@@ -225,11 +264,16 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: sq
+        type: IsoGridSquare
   - name: isRespawnInSafehouse
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: username
+        type: String
   - name: isSafeHouse
     modifiers:
       - public
@@ -240,7 +284,9 @@ methods:
       - name: square
         type: IsoGridSquare
       - name: username
-        type: " String"
+        type: String
+      - name: doDisableSafehouse
+        type: boolean
     notes: >-
       Return if the square is a safehouse non allowed for the player You need to
       be
@@ -252,6 +298,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: load
     modifiers:
       - public
@@ -261,26 +310,32 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: playerAllowed
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: playerAllowed
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: removePlayer
     modifiers:
       - public
     return:
       type: void
-  - name: removeSafeHouse
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: player
+        type: String
   - name: removeSafeHouse
     modifiers:
       - public
@@ -289,41 +344,73 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+  - name: removeSafeHouse
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: force
+        type: boolean
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setH
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: h
+        type: int
   - name: setLastVisited
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lastVisited
+        type: long
   - name: setOpenTimer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: openTimer
+        type: int
   - name: setOwner
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: String
   - name: setPlayerConnected
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: playerConnected
+        type: int
   - name: setPlayers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: players
+        type: ArrayList
+        generic: ArrayList<String>
   - name: setRespawnInSafehouse
     modifiers:
       - public
@@ -332,26 +419,40 @@ methods:
     parameters:
       - name: b
         type: boolean
+      - name: username
+        type: String
   - name: setTitle
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: title
+        type: String
   - name: setW
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: w
+        type: int
   - name: setX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: x
+        type: int
   - name: setY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: y
+        type: int
   - name: syncSafehouse
     modifiers:
       - public
@@ -367,6 +468,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
     notes: >-
       Update the last visited value everytime someone is in this safehouse If
       it's

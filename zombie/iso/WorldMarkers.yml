@@ -25,19 +25,21 @@ methods:
       - name: player
         type: IsoPlayer
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: texname
-        type: " String"
+        type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: addGridSquareMarker
     modifiers:
       - public
@@ -47,59 +49,65 @@ methods:
       - name: gs
         type: IsoGridSquare
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: doAlpha
-        type: " boolean"
-  - name: addGridSquareMarker
-    modifiers:
-      - public
-    return:
-      type: WorldMarkers.GridSquareMarker
-    parameters:
-      - name: texid
-        type: String
-      - name: overlay
-        type: " String"
-      - name: gs
-        type: " IsoGridSquare"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-      - name: doAlpha
-        type: " boolean"
-  - name: addGridSquareMarker
-    modifiers:
-      - public
-    return:
-      type: WorldMarkers.GridSquareMarker
-    parameters:
-      - name: texid
-        type: String
-      - name: overlay
-        type: " String"
-      - name: gs
-        type: " IsoGridSquare"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
-      - name: doAlpha
-        type: " boolean"
+        type: boolean
       - name: size
-        type: " float"
+        type: float
+  - name: addGridSquareMarker
+    modifiers:
+      - public
+    return:
+      type: WorldMarkers.GridSquareMarker
+    parameters:
+      - name: texid
+        type: String
+      - name: overlay
+        type: String
+      - name: gs
+        type: IsoGridSquare
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: doAlpha
+        type: boolean
+      - name: size
+        type: float
+  - name: addGridSquareMarker
+    modifiers:
+      - public
+    return:
+      type: WorldMarkers.GridSquareMarker
+    parameters:
+      - name: texid
+        type: String
+      - name: overlay
+        type: String
+      - name: gs
+        type: IsoGridSquare
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: doAlpha
+        type: boolean
+      - name: size
+        type: float
       - name: fadeSpeed
-        type: " float"
+        type: float
       - name: fadeMin
-        type: " float"
+        type: float
+      - name: fadeMax
+        type: float
   - name: addPlayerHomingPoint
     modifiers:
       - public
@@ -109,25 +117,9 @@ methods:
       - name: player
         type: IsoPlayer
       - name: x
-        type: " int"
-  - name: addPlayerHomingPoint
-    modifiers:
-      - public
-    return:
-      type: WorldMarkers.PlayerHomingPoint
-    parameters:
-      - name: player
-        type: IsoPlayer
-      - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
-      - name: r
-        type: " float"
-      - name: g
-        type: " float"
-      - name: b
-        type: " float"
+        type: int
   - name: addPlayerHomingPoint
     modifiers:
       - public
@@ -137,21 +129,43 @@ methods:
       - name: player
         type: IsoPlayer
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
-      - name: texname
-        type: " String"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
+  - name: addPlayerHomingPoint
+    modifiers:
+      - public
+    return:
+      type: WorldMarkers.PlayerHomingPoint
+    parameters:
+      - name: player
+        type: IsoPlayer
+      - name: x
+        type: int
+      - name: y
+        type: int
+      - name: texname
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: a
+        type: float
       - name: homeOnTarget
-        type: " boolean"
+        type: boolean
+      - name: homeOnDist
+        type: int
   - name: debugRender
     modifiers:
       - public
@@ -162,16 +176,25 @@ methods:
       - public
     return:
       type: WorldMarkers.DirectionArrow
+    parameters:
+      - name: id
+        type: int
   - name: getGridSquareMarker
     modifiers:
       - public
     return:
       type: WorldMarkers.GridSquareMarker
+    parameters:
+      - name: id
+        type: int
   - name: getHomingPoint
     modifiers:
       - public
     return:
       type: WorldMarkers.PlayerHomingPoint
+    parameters:
+      - name: id
+        type: int
   - name: init
     modifiers:
       - public
@@ -187,47 +210,73 @@ methods:
       - name: l1
         type: zombie.iso.WorldMarkers.Line
       - name: l2
-        type: " zombie.iso.WorldMarkers.Line"
+        type: zombie.iso.WorldMarkers.Line
+      - name: intersection
+        type: zombie.iso.WorldMarkers.Point
   - name: removeAllDirectionArrows
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: removeAllHomingPoints
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: removeDirectionArrow
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: arrow
+        type: WorldMarkers.DirectionArrow
   - name: removeDirectionArrow
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: id
+        type: int
   - name: removeGridSquareMarker
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: marker
+        type: WorldMarkers.GridSquareMarker
   - name: removeGridSquareMarker
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: id
+        type: int
   - name: removeHomingPoint
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: point
+        type: WorldMarkers.PlayerHomingPoint
   - name: removeHomingPoint
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: id
+        type: int
   - name: removePlayerDirectionArrow
     modifiers:
       - public
@@ -236,6 +285,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: arrow
+        type: WorldMarkers.DirectionArrow
   - name: removePlayerDirectionArrow
     modifiers:
       - public
@@ -244,6 +295,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: id
+        type: int
   - name: removePlayerHomingPoint
     modifiers:
       - public
@@ -252,6 +305,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: point
+        type: WorldMarkers.PlayerHomingPoint
   - name: removePlayerHomingPoint
     modifiers:
       - public
@@ -260,6 +315,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: id
+        type: int
   - name: render
     modifiers:
       - public
@@ -270,6 +327,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: worldDraw
+        type: boolean
   - name: renderGridSquareMarkers
     modifiers:
       - public
@@ -279,7 +339,9 @@ methods:
       - name: perPlayerRender
         type: IsoCell.PerPlayerRender
       - name: zLayer
-        type: " int"
+        type: int
+      - name: playerIndex
+        type: int
   - name: renderHomingPoint
     modifiers:
       - public

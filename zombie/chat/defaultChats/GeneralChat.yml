@@ -13,7 +13,9 @@ constructors:
       - name: bb
         type: ByteBuffer
       - name: tab
-        type: " ChatTab"
+        type: ChatTab
+      - name: owner
+        type: IsoPlayer
   - name: GeneralChat
     modifiers:
       - public
@@ -21,7 +23,9 @@ constructors:
       - name: id
         type: int
       - name: tab
-        type: " ChatTab"
+        type: ChatTab
+      - name: discordEnabled
+        type: boolean
   - name: GeneralChat
     modifiers:
       - public
@@ -37,6 +41,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: packMessage
     modifiers:
       - public
@@ -45,11 +52,16 @@ methods:
     parameters:
       - name: b
         type: ByteBufferWriter
+      - name: msg
+        type: ChatMessage
   - name: sendMessageToChatMembers
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: msg
+        type: ChatMessage
   - name: sendToDiscordGeneralChatDisabled
     modifiers:
       - public
@@ -60,3 +72,6 @@ methods:
       - public
     return:
       type: ChatMessage
+    parameters:
+      - name: bb
+        type: ByteBuffer

@@ -97,6 +97,9 @@ constructors:
   - name: IsoThumpable
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoThumpable
     modifiers:
       - public
@@ -104,13 +107,15 @@ constructors:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: closedSprite
-        type: " String"
+        type: String
       - name: openSprite
-        type: " String"
+        type: String
       - name: north
-        type: " boolean"
+        type: boolean
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
     notes: >-
       Create an object than can be interacted by you, survivor or zombie
       (destroy, barricade, etc.) This one have a closed/openSprite so it can be
@@ -123,11 +128,13 @@ constructors:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: sprite
-        type: " String"
+        type: String
       - name: north
-        type: " boolean"
+        type: boolean
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
     notes: Create an object than can be interacted by you, survivor or zombie
       (destroy, barricade, etc.) This one can be a wall, a fence, etc.
 methods:
@@ -136,6 +143,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: addSheetRope
     modifiers:
       - public
@@ -144,6 +154,8 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: itemType
+        type: String
   - name: addToWorld
     modifiers:
       - public
@@ -169,11 +181,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: canClimbThrough
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: countAddSheetRope
     modifiers:
       - public
@@ -188,17 +206,19 @@ methods:
       - name: radius
         type: int
       - name: offsetX
-        type: " int"
+        type: int
       - name: offsetY
-        type: " int"
+        type: int
       - name: offsetZ
-        type: " int"
+        type: int
       - name: life
-        type: " int"
+        type: int
       - name: lightSourceFuel
-        type: " String"
+        type: String
       - name: baseItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
   - name: destroy
     modifiers:
       - public
@@ -209,11 +229,17 @@ methods:
       - public
     return:
       type: IsoGridSquare
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getBarricadeForCharacter
     modifiers:
       - public
     return:
       type: IsoBarricade
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getBarricadeOnOppositeSquare
     modifiers:
       - public
@@ -229,6 +255,9 @@ methods:
       - public
     return:
       type: IsoBarricade
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getBreakSound
     modifiers:
       - public
@@ -250,6 +279,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: pos
+        type: Vector2
   - name: getHealth
     modifiers:
       - public
@@ -350,6 +382,9 @@ methods:
       - public
     return:
       type: IsoGridSquare
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getRenderEffectMaster
     modifiers:
       - public
@@ -360,6 +395,9 @@ methods:
       - public
     return:
       type: IsoDirections
+    parameters:
+      - name: ignoreOpen
+        type: boolean
   - name: getTable
     modifiers:
       - public
@@ -371,6 +409,9 @@ methods:
       - public
     return:
       type: Thumpable
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getThumpCondition
     modifiers:
       - public
@@ -414,11 +455,16 @@ methods:
     parameters:
       - name: item
         type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
   - name: isAdjacentToSquare
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: square2
+        type: IsoGridSquare
   - name: isBarricadeAllowed
     modifiers:
       - public
@@ -501,6 +547,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: isObstructed
     modifiers:
       - public
@@ -545,7 +594,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: loadChange
     modifiers:
       - public
@@ -554,6 +605,8 @@ methods:
     parameters:
       - name: change
         type: String
+      - name: bb
+        type: ByteBuffer
   - name: onMouseLeftClick
     modifiers:
       - public
@@ -562,11 +615,16 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: removeCurrentFuel
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: removeFromWorld
     modifiers:
       - public
@@ -577,6 +635,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: save
     modifiers:
       - public
@@ -585,6 +646,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -594,124 +657,187 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
   - name: setBlockAllTheSquare
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: blockAllTheSquare
+        type: boolean
   - name: setBreakSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pBreakSound
+        type: String
     notes: The sound that be played if this object is broken default "BreakDoor"
   - name: setCanBarricade
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pCanBarricade
+        type: boolean
     notes: Can you barricade/unbarricade the item default true
   - name: setCanBeLockByPadlock
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: canBeLockByPadlock
+        type: boolean
   - name: setCanBePlastered
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: canBePlastered
+        type: boolean
   - name: setCanPassThrough
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pCanPassThrough
+        type: boolean
   - name: setClosedSprite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
   - name: setCorner
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pCorner
+        type: boolean
   - name: setCrossSpeed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pCrossSpeed
+        type: float
   - name: setHaveFuel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: haveFuel
+        type: boolean
   - name: setHealth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: health
+        type: int
   - name: setHoppable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isHoppable
+        type: boolean
   - name: setIsContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pIsContainer
+        type: boolean
   - name: setIsDismantable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dismantable
+        type: boolean
   - name: setIsDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pIsDoor
+        type: boolean
   - name: setIsDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pIsDoor
+        type: Boolean
   - name: setIsDoorFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pIsDoorFrame
+        type: boolean
   - name: setIsFloor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pIsFloor
+        type: boolean
   - name: setIsHoppable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isHoppable
+        type: boolean
   - name: setIsLocked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lock
+        type: boolean
   - name: setIsStairs
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pStairs
+        type: boolean
   - name: setIsThumpable
     modifiers:
       - public
     return:
       type: void
-  - name: setKeyId
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: thumpable
+        type: boolean
   - name: setKeyId
     modifiers:
       - public
@@ -720,112 +846,186 @@ methods:
     parameters:
       - name: keyId
         type: int
+  - name: setKeyId
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: keyId
+        type: int
+      - name: doNetwork
+        type: boolean
   - name: setLifeDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lifeDelta
+        type: float
   - name: setLifeLeft
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lifeLeft
+        type: float
   - name: setLightSource
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSource
+        type: IsoLightSource
   - name: setLightSourceFuel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSourceFuel
+        type: String
   - name: setLightSourceLife
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSourceLife
+        type: int
   - name: setLightSourceOn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSourceOn
+        type: boolean
   - name: setLightSourceRadius
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSourceRadius
+        type: int
   - name: setLightSourceXOffset
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSourceXOffset
+        type: int
   - name: setLightSourceYOffset
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightSourceYOffset
+        type: int
   - name: setLockedByCode
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lockedByCode
+        type: int
   - name: setLockedByKey
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lockedByKey
+        type: boolean
   - name: setLockedByPadlock
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lockedByPadlock
+        type: boolean
   - name: setMaxHealth
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxHealth
+        type: int
   - name: setModData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: modData
+        type: se.krka.kahlua.vm.KahluaTable
   - name: setOpenSprite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
   - name: setPaintable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: paintable
+        type: boolean
   - name: setSprite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sprite
+        type: String
   - name: setSpriteFromName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setTable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: table
+        type: se.krka.kahlua.vm.KahluaTable
+        notes: the table to set
   - name: setThumpDmg
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pThumpDmg
+        type: Integer
     notes: Numbers of zeds need to hurt the object default 8
   - name: setThumpSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: thumpSound
+        type: String
   - name: syncIsoObject
     modifiers:
       - public
@@ -835,14 +1035,19 @@ methods:
       - name: bRemote
         type: boolean
       - name: val
-        type: " byte"
+        type: byte
       - name: source
-        type: " UdpConnection"
+        type: UdpConnection
+      - name: bb
+        type: ByteBuffer
   - name: syncIsoObjectSend
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter
   - name: syncIsoThumpable
     modifiers:
       - public
@@ -857,7 +1062,9 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: from
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
   - name: TestPathfindCollide
     modifiers:
       - public
@@ -867,7 +1074,9 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: from
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
   - name: TestVision
     modifiers:
       - public
@@ -876,21 +1085,32 @@ methods:
     parameters:
       - name: from
         type: IsoGridSquare
+      - name: to
+        type: IsoGridSquare
   - name: Thump
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: thumper
+        type: IsoMovingObject
   - name: ToggleDoor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: ToggleDoorActual
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: ToggleDoorSilent
     modifiers:
       - public
@@ -901,6 +1121,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: toggle
+        type: boolean
   - name: update
     modifiers:
       - public
@@ -914,3 +1137,5 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon

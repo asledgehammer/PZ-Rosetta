@@ -9,12 +9,17 @@ constructors:
   - name: IsoCompost
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoCompost
     modifiers:
       - public
     parameters:
       - name: cell
         type: IsoCell
+      - name: sq
+        type: IsoGridSquare
 methods:
   - name: addToWorld
     modifiers:
@@ -36,6 +41,9 @@ methods:
       - public
     return:
       type: Thumpable
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: load
     modifiers:
       - public
@@ -45,7 +53,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: remove
     modifiers:
       - public
@@ -59,11 +69,16 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: setCompost
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: compost
+        type: float
   - name: syncCompost
     modifiers:
       - public

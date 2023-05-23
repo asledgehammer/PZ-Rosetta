@@ -23,6 +23,9 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: max
+        type: int
   - name: Next
     modifiers:
       - public
@@ -31,6 +34,8 @@ methods:
       type: int
     parameters:
       - name: min
+        type: int
+      - name: max
         type: int
   - name: Next
     modifiers:
@@ -41,18 +46,27 @@ methods:
     parameters:
       - name: min
         type: float
+      - name: max
+        type: float
   - name: NextBool
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: invProbability
+        type: int
   - name: pickRandom
     modifiers:
       - public
       - static
     return:
       type: E
+    parameters:
+      - name: collection
+        type: List
+        generic: List<E>
   - name: randomImmutableColor
     modifiers:
       - public
@@ -65,3 +79,6 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: seed
+        type: long

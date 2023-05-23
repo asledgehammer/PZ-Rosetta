@@ -16,22 +16,34 @@ constructors:
   - name: DeviceData
     modifiers:
       - public
+    parameters:
+      - name: parent
+        type: WaveSignalDevice
 methods:
   - name: addBattery
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bat
+        type: DrainableComboItem
   - name: addHeadphones
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: headphones
+        type: InventoryItem
   - name: addMediaItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: media
+        type: InventoryItem
   - name: canBePoweredHere
     modifiers:
       - public
@@ -47,16 +59,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: p
+        type: DevicePresets
   - name: doReceiveMPSignal
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: distance
+        type: float
   - name: doReceiveSignal
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: distance
+        type: int
   - name: generatePresets
     modifiers:
       - public
@@ -72,6 +93,9 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: inventory
+        type: ItemContainer
   - name: getChannel
     modifiers:
       - public
@@ -122,6 +146,9 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: inventory
+        type: ItemContainer
   - name: getHeadphoneType
     modifiers:
       - public
@@ -261,7 +288,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: net
+        type: boolean
   - name: playSound
     modifiers:
       - public
@@ -271,7 +300,9 @@ methods:
       - name: soundname
         type: String
       - name: volume
-        type: " float"
+        type: float
+      - name: transmit
+        type: boolean
   - name: playSoundLocal
     modifiers:
       - public
@@ -280,6 +311,8 @@ methods:
     parameters:
       - name: soundname
         type: String
+      - name: useDeviceVolume
+        type: boolean
   - name: playSoundSend
     modifiers:
       - public
@@ -288,6 +321,8 @@ methods:
     parameters:
       - name: soundname
         type: String
+      - name: useDeviceVolume
+        type: boolean
   - name: receiveDeviceDataStatePacket
     modifiers:
       - public
@@ -296,11 +331,16 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: ignoreConnection
+        type: UdpConnection
   - name: removeMediaItem
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: inventory
+        type: ItemContainer
   - name: save
     modifiers:
       - public
@@ -309,16 +349,24 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: setBaseVolumeRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: setChannel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: c
+        type: int
   - name: setChannel
     modifiers:
       - public
@@ -327,41 +375,64 @@ methods:
     parameters:
       - name: chan
         type: int
+      - name: setislistening
+        type: boolean
   - name: setChannelRaw
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chan
+        type: int
   - name: setDeviceName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setDevicePresets
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: p
+        type: DevicePresets
   - name: setDeviceVolume
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: setDeviceVolumeRaw
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: setHasBattery
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setHeadphoneType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: i
+        type: int
   - name: setInitialPower
     modifiers:
       - public
@@ -372,76 +443,121 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setIsHighTier
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setIsPortable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setIsTelevision
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setIsTurnedOn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setIsTwoWay
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setMaxChannelRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: i
+        type: int
   - name: setMediaIndex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mediaIndex
+        type: short
   - name: setMediaType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: mediaType
+        type: byte
   - name: setMicIsMuted
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setMicRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: i
+        type: int
   - name: setMinChannelRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: i
+        type: int
   - name: setNoTransmit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: noTransmit
+        type: boolean
   - name: setParent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: p
+        type: WaveSignalDevice
   - name: setPower
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: p
+        type: float
   - name: setRandomChannel
     modifiers:
       - public
@@ -452,16 +568,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: range
+        type: int
   - name: setTurnedOnRaw
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setUseDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: StartPlayMedia
     modifiers:
       - public
@@ -487,6 +612,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: listening
+        type: boolean
   - name: update
     modifiers:
       - public
@@ -494,6 +622,8 @@ methods:
       type: void
     parameters:
       - name: isIso
+        type: boolean
+      - name: playerInRange
         type: boolean
   - name: updateMediaPlaying
     modifiers:

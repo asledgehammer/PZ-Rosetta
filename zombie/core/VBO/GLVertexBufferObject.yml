@@ -21,13 +21,17 @@ constructors:
       - name: size
         type: long
       - name: type
-        type: " int"
+        type: int
+      - name: usage
+        type: int
     notes: C'tor
   - name: GLVertexBufferObject
     modifiers:
       - public
     parameters:
       - name: type
+        type: int
+      - name: usage
         type: int
     notes: C'tor
 methods:
@@ -51,6 +55,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: data
+        type: ByteBuffer
   - name: clear
     modifiers:
       - public
@@ -73,6 +80,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: index
+        type: int
   - name: getID
     modifiers:
       - public
@@ -99,6 +109,9 @@ methods:
       - public
     return:
       type: ByteBuffer
+    parameters:
+      - name: size
+        type: int
   - name: orphan
     modifiers:
       - public

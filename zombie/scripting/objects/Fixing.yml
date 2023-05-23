@@ -16,6 +16,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: require
+        type: String
   - name: countUses
     modifiers:
       - public
@@ -25,7 +28,9 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: fixer
-        type: " Fixing.Fixer"
+        type: Fixing.Fixer
+      - name: brokenObject
+        type: InventoryItem
   - name: getConditionModifier
     modifiers:
       - public
@@ -57,9 +62,12 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: fixer
-        type: " Fixing.Fixer"
+        type: Fixing.Fixer
       - name: brokenItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: items
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getRequiredItem
     modifiers:
       - public
@@ -76,12 +84,17 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: fixer
-        type: " Fixing.Fixer"
+        type: Fixing.Fixer
+      - name: brokenItem
+        type: InventoryItem
   - name: haveGlobalItem
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: haveThisFixer
     modifiers:
       - public
@@ -91,7 +104,9 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: fixer
-        type: " Fixing.Fixer"
+        type: Fixing.Fixer
+      - name: brokenObject
+        type: InventoryItem
   - name: Load
     modifiers:
       - public
@@ -100,21 +115,32 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: strArray
+        type: String[]
   - name: setConditionModifier
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: conditionModifier
+        type: float
   - name: setGlobalItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: globalItem
+        type: Fixing.Fixer
   - name: setName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: usedInFixer
     modifiers:
       - public
@@ -123,3 +149,5 @@ methods:
     parameters:
       - name: itemType
         type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter

@@ -127,16 +127,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: CreateBuilding
     modifiers:
       - public
     return:
       type: IsoBuilding
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: createLights
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: active
+        type: boolean
   - name: getBuilding
     modifiers:
       - public
@@ -223,7 +232,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: onSee
     modifiers:
       - public
@@ -239,11 +250,19 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: setWaterSources
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: WaterSources
+        type: ArrayList
+        generic: ArrayList<IsoObject>
+        notes: the WaterSources to set
   - name: spawnZombies
     modifiers:
       - public

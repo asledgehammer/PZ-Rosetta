@@ -18,6 +18,8 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
+      - name: nbr
+        type: int
   - name: addItemOnGround
     modifiers:
       - public
@@ -26,6 +28,8 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: type
+        type: String
   - name: addItemOnGround
     modifiers:
       - public
@@ -34,6 +38,8 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: item
+        type: InventoryItem
   - name: addRandomItemOnGround
     modifiers:
       - public
@@ -42,6 +48,9 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: types
+        type: ArrayList
+        generic: ArrayList<String>
   - name: addRandomItemsOnGround
     modifiers:
       - public
@@ -51,7 +60,9 @@ methods:
       - name: room
         type: RoomDef
       - name: type
-        type: " String"
+        type: String
+      - name: count
+        type: int
   - name: addRandomItemsOnGround
     modifiers:
       - public
@@ -61,8 +72,10 @@ methods:
       - name: room
         type: RoomDef
       - name: types
-        type: " ArrayList"
-        generic: " ArrayList<String>"
+        type: ArrayList
+        generic: ArrayList<String>
+      - name: count
+        type: int
   - name: addTentNorthSouth
     modifiers:
       - public
@@ -72,7 +85,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: addTentWestEast
     modifiers:
       - public
@@ -82,7 +97,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: addTileObject
     modifiers:
       - public
@@ -91,6 +108,8 @@ methods:
     parameters:
       - name: sq
         type: IsoGridSquare
+      - name: spriteName
+        type: String
   - name: addTileObject
     modifiers:
       - public
@@ -100,9 +119,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: spriteName
+        type: String
   - name: addTrailer
     modifiers:
       - public
@@ -112,13 +133,15 @@ methods:
       - name: v
         type: BaseVehicle
       - name: zone
-        type: " IsoMetaGrid.Zone"
+        type: IsoMetaGrid.Zone
       - name: chunk
-        type: " IsoChunk"
+        type: IsoChunk
       - name: zoneName
-        type: " String"
+        type: String
       - name: vehicleDistrib
-        type: " String"
+        type: String
+      - name: trailerName
+        type: String
   - name: addTrailOfBlood
     modifiers:
       - public
@@ -128,11 +151,13 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: direction
-        type: " float"
+        type: float
+      - name: count
+        type: int
   - name: addTraitOfBlood
     modifiers:
       - public
@@ -142,11 +167,13 @@ methods:
       - name: dir
         type: IsoDirections
       - name: time
-        type: " int"
+        type: int
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: addVehicle
     modifiers:
       - public
@@ -156,33 +183,37 @@ methods:
       - name: zone
         type: IsoMetaGrid.Zone
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: chunk
-        type: " IsoChunk"
+        type: IsoChunk
       - name: zoneName
-        type: " String"
+        type: String
       - name: scriptName
-        type: " String"
-  - name: addVehicle
-    modifiers:
-      - public
-    return:
-      type: BaseVehicle
-    parameters:
-      - name: zone
-        type: IsoMetaGrid.Zone
-      - name: sq
-        type: " IsoGridSquare"
-      - name: chunk
-        type: " IsoChunk"
-      - name: zoneName
-        type: " String"
-      - name: scriptName
-        type: " String"
-      - name: skinIndex
-        type: " Integer"
+        type: String
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
+  - name: addVehicle
+    modifiers:
+      - public
+    return:
+      type: BaseVehicle
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
+      - name: sq
+        type: IsoGridSquare
+      - name: chunk
+        type: IsoChunk
+      - name: zoneName
+        type: String
+      - name: scriptName
+        type: String
+      - name: skinIndex
+        type: Integer
+      - name: dir
+        type: IsoDirections
+      - name: specificContainer
+        type: String
   - name: addVehicle
     modifiers:
       - public
@@ -192,19 +223,21 @@ methods:
       - name: zone
         type: IsoMetaGrid.Zone
       - name: vehicleX
-        type: " float"
+        type: float
       - name: vehicleY
-        type: " float"
+        type: float
       - name: vehicleZ
-        type: " float"
+        type: float
       - name: direction
-        type: " float"
+        type: float
       - name: zoneName
-        type: " String"
+        type: String
       - name: scriptName
-        type: " String"
+        type: String
       - name: skinIndex
-        type: " Integer"
+        type: Integer
+      - name: specificContainer
+        type: String
   - name: addVehicleFlipped
     modifiers:
       - public
@@ -214,17 +247,19 @@ methods:
       - name: zone
         type: IsoMetaGrid.Zone
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: chunk
-        type: " IsoChunk"
+        type: IsoChunk
       - name: zoneName
-        type: " String"
+        type: String
       - name: scriptName
-        type: " String"
+        type: String
       - name: skinIndex
-        type: " Integer"
+        type: Integer
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
+      - name: specificContainer
+        type: String
   - name: addVehicleFlipped
     modifiers:
       - public
@@ -234,19 +269,21 @@ methods:
       - name: zone
         type: IsoMetaGrid.Zone
       - name: vehicleX
-        type: " float"
+        type: float
       - name: vehicleY
-        type: " float"
+        type: float
       - name: vehicleZ
-        type: " float"
+        type: float
       - name: direction
-        type: " float"
+        type: float
       - name: zoneName
-        type: " String"
+        type: String
       - name: scriptName
-        type: " String"
+        type: String
       - name: skinIndex
-        type: " Integer"
+        type: Integer
+      - name: specificContainer
+        type: String
   - name: addWeapon
     modifiers:
       - public
@@ -255,6 +292,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: addRandomBullets
+        type: boolean
     notes: Create and return a weapon, if it's ranged you can ask for some bullets
       in it
   - name: addZombiesOnSquare
@@ -267,9 +306,11 @@ methods:
       - name: totalZombies
         type: int
       - name: outfit
-        type: " String"
+        type: String
       - name: femaleChance
-        type: " Integer"
+        type: Integer
+      - name: square
+        type: IsoGridSquare
   - name: addZombiesOnVehicle
     modifiers:
       - public
@@ -280,9 +321,11 @@ methods:
       - name: totalZombies
         type: int
       - name: outfit
-        type: " String"
+        type: String
       - name: femaleChance
-        type: " Integer"
+        type: Integer
+      - name: vehicle
+        type: BaseVehicle
     notes: >-
       Add zombies near the vehicles, around a 4x4 square around it, avoiding
       being
@@ -296,12 +339,17 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: square
+        type: IsoGridSquare
   - name: createBodyFromZombie
     modifiers:
       - public
       - static
     return:
       type: IsoDeadBody
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: createRandomDeadBody
     modifiers:
       - public
@@ -311,6 +359,8 @@ methods:
     parameters:
       - name: room
         type: RoomDef
+      - name: blood
+        type: int
   - name: createRandomDeadBody
     modifiers:
       - public
@@ -321,11 +371,13 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
+      - name: blood
+        type: int
   - name: createRandomDeadBody
     modifiers:
       - public
@@ -336,11 +388,13 @@ methods:
       - name: sq
         type: IsoGridSquare
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
       - name: blood
-        type: " int"
+        type: int
       - name: crawlerChance
-        type: " int"
+        type: int
+      - name: outfit
+        type: String
   - name: createRandomDeadBody
     modifiers:
       - public
@@ -351,13 +405,15 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
       - name: blood
-        type: " int"
+        type: int
+      - name: crawlerChance
+        type: int
   - name: createRandomDeadBody
     modifiers:
       - public
@@ -368,23 +424,28 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: direction
-        type: " float"
+        type: float
       - name: alignToSquare
-        type: " boolean"
+        type: boolean
       - name: blood
-        type: " int"
+        type: int
       - name: crawlerChance
-        type: " int"
+        type: int
+      - name: outfit
+        type: String
   - name: createRandomZombie
     modifiers:
       - public
       - static
     return:
       type: IsoGameCharacter
+    parameters:
+      - name: room
+        type: RoomDef
   - name: createRandomZombie
     modifiers:
       - public
@@ -395,18 +456,26 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: createRandomZombieForCorpse
     modifiers:
       - public
       - static
     return:
       type: IsoGameCharacter
+    parameters:
+      - name: room
+        type: RoomDef
   - name: createSkeletonCorpse
     modifiers:
       - public
     return:
       type: IsoDeadBody
+    parameters:
+      - name: room
+        type: RoomDef
   - name: getDebugLine
     modifiers:
       - public
@@ -417,6 +486,9 @@ methods:
       - public
     return:
       type: RoomDef
+    parameters:
+      - name: bDef
+        type: BuildingDef
     notes: Get either the living room or kitchen (in this order)
   - name: getMaximumDays
     modifiers:
@@ -436,6 +508,8 @@ methods:
     parameters:
       - name: bDef
         type: BuildingDef
+      - name: minArea
+        type: int
     notes: Get a random room in the building
   - name: getRandomSpawnSquare
     modifiers:
@@ -443,12 +517,18 @@ methods:
       - static
     return:
       type: IsoGridSquare
+    parameters:
+      - name: roomDef
+        type: RoomDef
   - name: getRandomSquareForCorpse
     modifiers:
       - public
       - static
     return:
       type: IsoGridSquare
+    parameters:
+      - name: roomDef
+        type: RoomDef
   - name: getRoom
     modifiers:
       - public
@@ -457,6 +537,8 @@ methods:
     parameters:
       - name: bDef
         type: BuildingDef
+      - name: roomName
+        type: String
     notes: Return the wanted room
   - name: getSq
     modifiers:
@@ -467,36 +549,53 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: is1x2AreaClear
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: is2x1AreaClear
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: is2x1or1x2AreaClear
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: is2x2AreaClear
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: square
+        type: IsoGridSquare
   - name: isTimeValid
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: force
+        type: boolean
     notes: Check if the world age is correct for our definition
   - name: isUnique
     modifiers:
@@ -509,6 +608,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: zone
+        type: IsoMetaGrid.Zone
   - name: setAttachedItem
     modifiers:
       - public
@@ -518,24 +620,35 @@ methods:
       - name: zombie
         type: IsoZombie
       - name: location
-        type: " String"
+        type: String
       - name: item
-        type: " String"
+        type: String
+      - name: ensureItem
+        type: String
   - name: setDebugLine
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: debugLine
+        type: String
   - name: setMaximumDays
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maximumDays
+        type: int
   - name: setUnique
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: unique
+        type: boolean
   - name: spawnCarOnNearestNav
     modifiers:
       - public
@@ -544,3 +657,5 @@ methods:
     parameters:
       - name: carName
         type: String
+      - name: def
+        type: BuildingDef

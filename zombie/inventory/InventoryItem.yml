@@ -115,9 +115,11 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: type
-        type: " String"
+        type: String
+      - name: tex
+        type: String
   - name: InventoryItem
     modifiers:
       - public
@@ -125,15 +127,20 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: type
-        type: " String"
+        type: String
+      - name: item
+        type: Item
 methods:
   - name: addExtraItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: allowRandomTint
     modifiers:
       - public
@@ -159,6 +166,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: canStoreWater
     modifiers:
       - public
@@ -169,22 +179,26 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: InventoryItem
   - name: copyModData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: modData
+        type: se.krka.kahlua.vm.KahluaTable
   - name: CopyModData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: DefaultModData
+        type: se.krka.kahlua.vm.KahluaTable
   - name: doBuildingStash
-    modifiers:
-      - public
-    return:
-      type: void
-  - name: DoTooltip
     modifiers:
       - public
     return:
@@ -197,6 +211,16 @@ methods:
     parameters:
       - name: tooltipUI
         type: ObjectTooltip
+  - name: DoTooltip
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
+      - name: layout
+        type: ObjectTooltip.Layout
   - name: finishupdate
     modifiers:
       - public
@@ -280,6 +304,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: bodyPartType
+        type: BloodBodyPartType
   - name: getBloodClothingType
     modifiers:
       - public
@@ -344,6 +371,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: weight
+        type: float
   - name: getClothingItem
     modifiers:
       - public
@@ -498,6 +528,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: bodyPartType
+        type: BloodBodyPartType
   - name: getDisplayCategory
     modifiers:
       - public
@@ -861,6 +894,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: key
+        type: String
   - name: getReplaceTypes
     modifiers:
       - public
@@ -894,6 +930,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: getScriptItem
     modifiers:
       - public
@@ -905,11 +944,17 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: ID
+        type: String
   - name: getSoundParameter
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: parameterName
+        type: String
   - name: getStashChance
     modifiers:
       - public
@@ -1094,11 +1139,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: key
+        type: String
   - name: hasTag
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: tag
+        type: String
   - name: haveExtraItems
     modifiers:
       - public
@@ -1360,6 +1411,8 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: loadItem
     modifiers:
       - public
@@ -1369,6 +1422,8 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: loadItem
     modifiers:
       - public
@@ -1381,7 +1436,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: doSaveTypeCheck
+        type: boolean
     notes: >-
       Attempts loading the item including creation, uppon failure bytes might be
       skipped or the buffer position may be set to end item position.
@@ -1391,6 +1448,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: save
     modifiers:
       - public
@@ -1399,6 +1459,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: saveWithSize
     modifiers:
       - public
@@ -1408,71 +1470,115 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: setActivated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: activated
+        type: boolean
   - name: setActivatedRemote
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: activated
+        type: boolean
   - name: setActualWeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ActualWeight
+        type: float
+        notes: the ActualWeight to set
   - name: setAge
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Age
+        type: float
+        notes: the Age to set
   - name: setAlcoholic
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alcoholic
+        type: boolean
   - name: setAlcoholPower
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alcoholPower
+        type: float
   - name: setAmmoType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ammoType
+        type: String
   - name: setAttachedSlot
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachedSlot
+        type: int
   - name: setAttachedSlotType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachedSlotType
+        type: String
   - name: setAttachedToModel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachedToModel
+        type: String
   - name: setAttachmentReplacement
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachementReplacement
+        type: String
   - name: setAttachmentsProvided
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachmentsProvided
+        type: ArrayList
+        generic: ArrayList<String>
   - name: setAttachmentType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: attachmentType
+        type: String
   - name: setAutoAge
     modifiers:
       - public
@@ -1483,11 +1589,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: bandagePower
+        type: float
   - name: setBeingFilled
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: v
+        type: boolean
   - name: setBlood
     modifiers:
       - public
@@ -1496,86 +1608,133 @@ methods:
     parameters:
       - name: bodyPartType
         type: BloodBodyPartType
+      - name: amount
+        type: float
   - name: setBloodClothingType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bloodClothingType
+        type: ArrayList
+        generic: ArrayList<BloodClothingType>
   - name: setBoredomChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: boredomChange
+        type: float
+        notes: the boredomChange to set
   - name: setBrakeForce
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: brakeForce
+        type: float
   - name: setBreakSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: breakSound
+        type: String
   - name: setBroken
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: broken
+        type: boolean
   - name: setBurnt
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Burnt
+        type: boolean
+        notes: the Burnt to set
   - name: setBurntString
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: BurntString
+        type: String
+        notes: the BurntString to set
   - name: setCanBeActivated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: activatedItem
+        type: boolean
   - name: setCanBeRemote
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: canBeRemote
+        type: boolean
   - name: setCat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: cat
+        type: ItemType
+        notes: the cat to set
   - name: setChanceToSpawnDamaged
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chanceToSpawnDamaged
+        type: int
   - name: setColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: color
+        type: Color
   - name: setColorBlue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: colorBlue
+        type: float
   - name: setColorGreen
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: colorGreen
+        type: float
   - name: setColorRed
     modifiers:
       - public
     return:
       type: void
-  - name: setCondition
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: colorRed
+        type: float
   - name: setCondition
     modifiers:
       - public
@@ -1584,31 +1743,59 @@ methods:
     parameters:
       - name: Condition
         type: int
+        notes: the Condition to set
+  - name: setCondition
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: Condition
+        type: int
+      - name: doSound
+        type: boolean
   - name: setConditionFromModData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: InventoryItem
   - name: setConditionLowerNormal
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: conditionLowerNormal
+        type: float
   - name: setConditionLowerOffroad
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: conditionLowerOffroad
+        type: float
   - name: setConditionMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ConditionMax
+        type: int
+        notes: the ConditionMax to set
   - name: setContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: container
+        type: ItemContainer
+        notes: the container to set
   - name: SetContainerPosition
     modifiers:
       - public
@@ -1617,71 +1804,118 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: setContainerX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: containerX
+        type: int
+        notes: the containerX to set
   - name: setContainerY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: containerY
+        type: int
+        notes: the containerY to set
   - name: setCooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Cooked
+        type: boolean
+        notes: the Cooked to set
   - name: setCookedString
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CookedString
+        type: String
+        notes: the CookedString to set
   - name: setCookingTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CookingTime
+        type: float
+        notes: the CookingTime to set
   - name: setCount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: count
+        type: int
   - name: setCountDownSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sound
+        type: String
   - name: setCurrentAmmoCount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ammo
+        type: int
   - name: setCustomColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: customColor
+        type: boolean
   - name: setCustomMenuOption
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: customMenuOption
+        type: String
   - name: setCustomName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: customName
+        type: boolean
   - name: setCustomWeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: custom
+        type: boolean
   - name: setDescription
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Description
+        type: String
+        notes: the Description to set
   - name: setDirt
     modifiers:
       - public
@@ -1690,396 +1924,661 @@ methods:
     parameters:
       - name: bodyPartType
         type: BloodBodyPartType
+      - name: amount
+        type: float
   - name: setDisplayCategory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: displayCategory
+        type: String
   - name: setEngineLoudness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: engineLoudness
+        type: float
   - name: setEquipParent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: parent
+        type: IsoGameCharacter
   - name: setEvolvedRecipeName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: evolvedRecipeName
+        type: String
   - name: setExplosionSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: explosionSound
+        type: String
   - name: setFatigueChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fatigueChange
+        type: float
   - name: setFavorite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: favorite
+        type: boolean
   - name: setGunType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: gunType
+        type: String
   - name: setHaveBeenRepaired
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: haveBeenRepaired
+        type: int
   - name: setIconsForTexture
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: iconsForTexture
+        type: ArrayList
+        generic: ArrayList<String>
   - name: setID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemId
+        type: int
   - name: setInfected
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: infected
+        type: boolean
   - name: setInitialised
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: initialised
+        type: boolean
   - name: setIsCookable
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: IsCookable
+        type: boolean
+        notes: the IsCookable to set
   - name: setIsWaterSource
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: IsWaterSource
+        type: boolean
   - name: setItemCapacity
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: capacity
+        type: float
   - name: setItemHeat
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemHeat
+        type: float
   - name: setItemWhenDry
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemWhenDry
+        type: String
   - name: setJobDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: delta
+        type: float
   - name: setJobType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: setKeyId
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: keyId
+        type: int
   - name: setLastAged
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: time
+        type: float
   - name: setLightDistance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightDistance
+        type: int
   - name: setLightStrength
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightStrength
+        type: float
   - name: setMaxAmmo
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxAmmoCount
+        type: int
   - name: setMaxCapacity
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: maxCapacity
+        type: int
   - name: setMediaType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: byte
   - name: setMeltingTime
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: meltingTime
+        type: float
   - name: setMetalValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: metalValue
+        type: float
   - name: setMinutesToBurn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MinutesToBurn
+        type: float
+        notes: the MinutesToBurn to set
   - name: setMinutesToCook
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: MinutesToCook
+        type: float
+        notes: the MinutesToCook to set
   - name: setModule
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: module
+        type: String
+        notes: the module to set
   - name: setName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
+        notes: the name to set
   - name: setNewPlaceDir
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: newPlaceDir
+        type: IsoDirections
+        notes: the newPlaceDir to set
   - name: setOffAge
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: OffAge
+        type: int
+        notes: the OffAge to set
   - name: setOffAgeMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: OffAgeMax
+        type: int
+        notes: the OffAgeMax to set
   - name: setOffString
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: OffString
+        type: String
+        notes: the OffString to set
   - name: setPlaceDir
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: placeDir
+        type: IsoDirections
+        notes: the placeDir to set
   - name: setPreviousOwner
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: previousOwner
+        type: IsoGameCharacter
+        notes: the previousOwner to set
   - name: setRecordedMediaData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: data
+        type: MediaData
   - name: setRecordedMediaIndex
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: id
+        type: short
   - name: setRecordedMediaIndexInteger
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: id
+        type: int
   - name: setReduceInfectionPower
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: reduceInfectionPower
+        type: float
   - name: setRegistry_id
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemscript
+        type: Item
   - name: setRemoteControlID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: remoteControlID
+        type: int
   - name: setRemoteController
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: remoteController
+        type: boolean
   - name: setRemoteRange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: remoteRange
+        type: int
   - name: setReplaceOnUse
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: replaceOnUse
+        type: String
+        notes: the replaceOnUse to set
   - name: setReplaceOnUseOn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ReplaceOnUseOn
+        type: String
   - name: setRequireInHandOrInventory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: requireInHandOrInventory
+        type: ArrayList
+        generic: ArrayList<String>
   - name: setRightClickContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: rightClickContainer
+        type: ItemContainer
+        notes: the rightClickContainer to set
   - name: setScriptItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ScriptItem
+        type: Item
+        notes: the ScriptItem to set
   - name: setStashChance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: stashChance
+        type: int
   - name: setStashMap
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: stashMap
+        type: String
   - name: setStressChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: stressChange
+        type: float
+        notes: the stressChange to set
   - name: setSuspensionCompression
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: suspensionCompression
+        type: float
   - name: setSuspensionDamping
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: suspensionDamping
+        type: float
   - name: setTaintedWater
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: taintedWater
+        type: boolean
   - name: setTaken
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Taken
+        type: ArrayList
+        generic: ArrayList<IsoObject>
+        notes: the Taken to set
   - name: setTexture
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: texture
+        type: Texture
+        notes: the texture to set
   - name: setTextureBurnt
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: textureBurnt
+        type: Texture
+        notes: the textureBurnt to set
   - name: setTextureCooked
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: textureCooked
+        type: Texture
+        notes: the textureCooked to set
   - name: setTexturerotten
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: texturerotten
+        type: Texture
+        notes: the texturerotten to set
   - name: setTooltip
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tooltip
+        type: String
   - name: setTorchCone
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isTorchCone
+        type: boolean
   - name: setType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
+        notes: the type to set
   - name: setUnCookedString
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: UnCookedString
+        type: String
+        notes: the UnCookedString to set
   - name: setUnhappyChange
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: unhappyChange
+        type: float
+        notes: the unhappyChange to set
   - name: setUses
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: uses
+        type: int
+        notes: the uses to set
   - name: setWeight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Weight
+        type: float
+        notes: the Weight to set
   - name: setWet
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isWet
+        type: boolean
   - name: setWetCooldown
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: wetCooldown
+        type: float
   - name: setWheelFriction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: wheelFriction
+        type: float
   - name: setWorker
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: worker
+        type: String
   - name: setWorldItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: w
+        type: IsoWorldInventoryObject
   - name: setWorldScale
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: scale
+        type: float
   - name: setWorldTexture
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: WorldTexture
+        type: String
+        notes: the WorldTexture to set
   - name: setWorldZRotation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: rot
+        type: int
   - name: shouldUpdateInWorld
     modifiers:
       - public
@@ -2090,6 +2589,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: o
+        type: IsoObject
   - name: synchWithVisual
     modifiers:
       - public
@@ -2110,11 +2612,9 @@ methods:
       - public
     return:
       type: void
-  - name: Use
-    modifiers:
-      - public
-    return:
-      type: void
+    parameters:
+      - name: emitter
+        type: BaseSoundEmitter
   - name: Use
     modifiers:
       - public
@@ -2127,6 +2627,16 @@ methods:
       type: void
     parameters:
       - name: bCrafting
+        type: boolean
+  - name: Use
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: bCrafting
+        type: boolean
+      - name: bInContainer
         type: boolean
   - name: UseItem
     modifiers:

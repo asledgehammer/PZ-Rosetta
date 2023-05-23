@@ -14,9 +14,11 @@ constructors:
       - name: playerIndex
         type: int
       - name: squareX
-        type: " int"
+        type: int
       - name: squareY
-        type: " int"
+        type: int
+      - name: chunkGridWidth
+        type: int
 methods:
   - name: characterIn
     modifiers:
@@ -27,6 +29,8 @@ methods:
     parameters:
       - name: connection
         type: UdpConnection
+      - name: playerIndex
+        type: int
   - name: getMaxX
     modifiers:
       - public
@@ -56,6 +60,8 @@ methods:
     parameters:
       - name: wx
         type: int
+      - name: wy
+        type: int
   - name: isValidCell
     modifiers:
       - public
@@ -64,18 +70,26 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: receivePacket
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: render
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: playerIndex
+        type: int
   - name: Reset
     modifiers:
       - public
@@ -87,6 +101,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: setLoaded
     modifiers:
       - public
@@ -99,4 +116,6 @@ methods:
       type: boolean
     parameters:
       - name: squareX
+        type: int
+      - name: squareY
         type: int

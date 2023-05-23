@@ -14,9 +14,11 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: type
-        type: " String"
+        type: String
+      - name: tex
+        type: String
   - name: Moveable
     modifiers:
       - public
@@ -24,9 +26,11 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: type
-        type: " String"
+        type: String
+      - name: item
+        type: Item
 methods:
   - name: CanBeDroppedOnFloor
     modifiers:
@@ -127,11 +131,16 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: ReadFromWorldSprite
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: sprite
+        type: String
   - name: save
     modifiers:
       - public
@@ -140,53 +149,85 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: setLight
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isLight
+        type: boolean
   - name: setLightB
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightB
+        type: float
   - name: setLightBulbItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightBulbItem
+        type: String
   - name: setLightDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightDelta
+        type: float
   - name: setLightG
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightG
+        type: float
   - name: setLightHasBattery
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightHasBattery
+        type: boolean
   - name: setLightPower
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightPower
+        type: float
   - name: setLightR
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightR
+        type: float
   - name: setLightUseBattery
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: lightUseBattery
+        type: boolean
   - name: setWorldSprite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: WorldSprite
+        type: String

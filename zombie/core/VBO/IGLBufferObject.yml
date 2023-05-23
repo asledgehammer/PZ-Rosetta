@@ -29,6 +29,8 @@ methods:
     parameters:
       - name: target
         type: int
+      - name: buffer
+        type: int
   - name: glBufferData
     return:
       type: void
@@ -36,7 +38,9 @@ methods:
       - name: target
         type: int
       - name: data
-        type: " ByteBuffer"
+        type: ByteBuffer
+      - name: usage
+        type: int
   - name: glBufferData
     return:
       type: void
@@ -44,10 +48,15 @@ methods:
       - name: target
         type: int
       - name: data_size
-        type: " long"
+        type: long
+      - name: usage
+        type: int
   - name: glDeleteBuffers
     return:
       type: void
+    parameters:
+      - name: buffers
+        type: int
   - name: glGenBuffers
     return:
       type: int
@@ -58,7 +67,9 @@ methods:
       - name: target
         type: int
       - name: pname
-        type: " int"
+        type: int
+      - name: params
+        type: IntBuffer
   - name: glMapBuffer
     return:
       type: ByteBuffer
@@ -66,9 +77,14 @@ methods:
       - name: target
         type: int
       - name: access
-        type: " int"
+        type: int
       - name: length
-        type: " long"
+        type: long
+      - name: old_buffer
+        type: ByteBuffer
   - name: glUnmapBuffer
     return:
       type: boolean
+    parameters:
+      - name: target
+        type: int

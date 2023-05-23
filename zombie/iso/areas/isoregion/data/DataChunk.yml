@@ -27,7 +27,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getLastUpdateStamp
     modifiers:
       - public
@@ -42,7 +44,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getSquare
     modifiers:
       - public
@@ -52,9 +56,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: ignoreCoordCheck
+        type: boolean
   - name: load
     modifiers:
       - public
@@ -64,18 +70,26 @@ methods:
       - name: bb
         type: ByteBuffer
       - name: worldVersion
-        type: " int"
+        type: int
+      - name: readLength
+        type: boolean
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
     notes: SAVE/LOAD
   - name: selectedHasFlags
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: flags
+        type: byte
   - name: setDirtyAllActive
     modifiers:
       - public
@@ -86,6 +100,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: lastUpdateStamp
+        type: long
   - name: setRegion
     modifiers:
       - public
@@ -95,9 +112,11 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: regionIndex
+        type: byte
   - name: setSelectedFlags
     modifiers:
       - public
@@ -107,7 +126,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: squareGetFlags
     modifiers:
       - public
@@ -117,4 +138,6 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int

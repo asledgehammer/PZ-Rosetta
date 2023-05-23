@@ -189,6 +189,10 @@ methods:
     return:
       type: MoodleType
       notes: the enum constant with the specified name
+    parameters:
+      - name: name
+        type: String
+        notes: the name of the enum constant to be returned.
     notes: |-
       Returns the enum constant of this class with the specified name.
       The string must match
@@ -198,12 +202,18 @@ methods:
       - static
     return:
       type: MoodleType
+    parameters:
+      - name: index
+        type: int
   - name: FromString
     modifiers:
       - public
       - static
     return:
       type: MoodleType
+    parameters:
+      - name: str
+        type: String
   - name: getDescriptionText
     modifiers:
       - public
@@ -213,6 +223,8 @@ methods:
     parameters:
       - name: MT
         type: MoodleType
+      - name: Level
+        type: int
   - name: getDisplayName
     modifiers:
       - public
@@ -222,18 +234,26 @@ methods:
     parameters:
       - name: MT
         type: MoodleType
+      - name: Level
+        type: int
   - name: GoodBadNeutral
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: MT
+        type: MoodleType
   - name: ToIndex
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: MT
+        type: MoodleType
   - name: values
     modifiers:
       - public

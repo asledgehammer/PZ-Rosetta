@@ -42,18 +42,27 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: forename
+        type: String
   - name: addMaleForename
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: forename
+        type: String
   - name: addSurname
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: surName
+        type: String
   - name: CreateFamily
     modifiers:
       - public
@@ -61,12 +70,9 @@ methods:
     return:
       type: SurvivorDesc
       generic: SurvivorDesc[]
-  - name: CreateSurvivor
-    modifiers:
-      - public
-      - static
-    return:
-      type: SurvivorDesc
+    parameters:
+      - name: nCount
+        type: int
   - name: CreateSurvivor
     modifiers:
       - public
@@ -82,6 +88,17 @@ methods:
     parameters:
       - name: survivorType
         type: SurvivorFactory.SurvivorType
+  - name: CreateSurvivor
+    modifiers:
+      - public
+      - static
+    return:
+      type: SurvivorDesc
+    parameters:
+      - name: survivorType
+        type: SurvivorFactory.SurvivorType
+      - name: bFemale
+        type: boolean
   - name: CreateSurvivorGroup
     modifiers:
       - public
@@ -89,12 +106,18 @@ methods:
     return:
       type: SurvivorDesc
       generic: SurvivorDesc[]
+    parameters:
+      - name: nCount
+        type: int
   - name: getRandomForename
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: bFemale
+        type: boolean
   - name: getRandomSurname
     modifiers:
       - public
@@ -111,17 +134,22 @@ methods:
       - name: desc
         type: SurvivorDesc
       - name: cell
-        type: " IsoCell"
+        type: IsoCell
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: randomName
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: Reset
     modifiers:
       - public
@@ -134,3 +162,6 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: survivor
+        type: SurvivorDesc

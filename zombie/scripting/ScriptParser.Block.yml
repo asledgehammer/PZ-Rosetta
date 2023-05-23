@@ -51,6 +51,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: id
+        type: String
   - name: addValue
     modifiers:
       - public
@@ -58,6 +60,8 @@ methods:
       type: ScriptParser.Value
     parameters:
       - name: key
+        type: String
+      - name: value
         type: String
   - name: asBlock
     modifiers:
@@ -77,11 +81,16 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: id
+        type: String
   - name: getValue
     modifiers:
       - public
     return:
       type: ScriptParser.Value
+    parameters:
+      - name: key
+        type: String
   - name: isEmpty
     modifiers:
       - public
@@ -95,6 +104,8 @@ methods:
     parameters:
       - name: keyMove
         type: String
+      - name: keyAfter
+        type: String
   - name: prettyPrint
     modifiers:
       - public
@@ -104,7 +115,9 @@ methods:
       - name: indent
         type: int
       - name: sb
-        type: " StringBuilder"
+        type: StringBuilder
+      - name: eol
+        type: String
   - name: prettyPrintElements
     modifiers:
       - public
@@ -114,7 +127,9 @@ methods:
       - name: indent
         type: int
       - name: sb
-        type: " StringBuilder"
+        type: StringBuilder
+      - name: eol
+        type: String
   - name: setValue
     modifiers:
       - public
@@ -122,4 +137,6 @@ methods:
       type: void
     parameters:
       - name: key
+        type: String
+      - name: value
         type: String

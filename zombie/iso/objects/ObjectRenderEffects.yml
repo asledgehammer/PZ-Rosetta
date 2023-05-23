@@ -60,6 +60,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: ObjectRenderEffects
   - name: alloc
     modifiers:
       - public
@@ -71,6 +74,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: ObjectRenderEffects
   - name: getNew
     modifiers:
       - public
@@ -81,20 +87,24 @@ methods:
       - name: parent
         type: IsoObject
       - name: t
-        type: " RenderEffectType"
-  - name: getNew
-    modifiers:
-      - public
-      - static
-    return:
-      type: ObjectRenderEffects
-    parameters:
-      - name: parent
-        type: IsoObject
-      - name: t
-        type: " RenderEffectType"
+        type: RenderEffectType
       - name: reuseEqualType
-        type: " boolean"
+        type: boolean
+  - name: getNew
+    modifiers:
+      - public
+      - static
+    return:
+      type: ObjectRenderEffects
+    parameters:
+      - name: parent
+        type: IsoObject
+      - name: t
+        type: RenderEffectType
+      - name: reuseEqualType
+        type: boolean
+      - name: dontAdd
+        type: boolean
   - name: getNextWindEffect
     modifiers:
       - public
@@ -104,6 +114,8 @@ methods:
     parameters:
       - name: windType
         type: int
+      - name: isTreeLike
+        type: boolean
   - name: init
     modifiers:
       - public
@@ -116,6 +128,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: o
+        type: ObjectRenderEffects
   - name: update
     modifiers:
       - public

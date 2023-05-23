@@ -24,6 +24,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: invoke
+        type: Runnable
   - name: invokeAndMeasure
     modifiers:
       - public
@@ -32,6 +35,9 @@ methods:
     parameters:
       - name: val1
         type: T1
+      - name: invoker
+        type: Invokers.Params1.ICallback
+        generic: Invokers.Params1.ICallback<T1>
   - name: invokeAndMeasure
     modifiers:
       - public
@@ -41,7 +47,10 @@ methods:
       - name: val1
         type: T1
       - name: val2
-        type: " T2"
+        type: T2
+      - name: invoker
+        type: Invokers.Params2.ICallback
+        generic: Invokers.Params2.ICallback<T1,T2>
   - name: isEnabled
     modifiers:
       - public
@@ -52,6 +61,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: boolean
   - name: start
     modifiers:
       - public

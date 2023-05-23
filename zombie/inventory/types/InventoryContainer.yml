@@ -14,9 +14,11 @@ constructors:
       - name: module
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: itemType
-        type: " String"
+        type: String
+      - name: texName
+        type: String
 methods:
   - name: canBeEquipped
     modifiers:
@@ -28,6 +30,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
   - name: DoTooltip
     modifiers:
       - public
@@ -36,6 +41,8 @@ methods:
     parameters:
       - name: tooltipUI
         type: ObjectTooltip
+      - name: layout
+        type: ObjectTooltip.Layout
   - name: getBloodLevel
     modifiers:
       - public
@@ -66,6 +73,9 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getEquippedWeight
     modifiers:
       - public
@@ -109,6 +119,8 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: save
     modifiers:
       - public
@@ -117,31 +129,48 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: net
+        type: boolean
   - name: setBloodLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: delta
+        type: float
   - name: setCanBeEquipped
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: canBeEquipped
+        type: String
   - name: setCapacity
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: capacity
+        type: int
   - name: setItemContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: cont
+        type: ItemContainer
   - name: setWeightReduction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weightReduction
+        type: int
   - name: updateAge
     modifiers:
       - public

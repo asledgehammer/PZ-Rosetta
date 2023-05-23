@@ -73,6 +73,9 @@ constructors:
   - name: EvolvedRecipe
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: addItem
     modifiers:
@@ -83,7 +86,9 @@ methods:
       - name: baseItem
         type: InventoryItem
       - name: usedItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: chr
+        type: IsoGameCharacter
   - name: getAddIngredientSound
     modifiers:
       - public
@@ -104,6 +109,9 @@ methods:
       - public
     return:
       type: ItemRecipe
+    parameters:
+      - name: usedItem
+        type: InventoryItem
   - name: getItemsCanBeUse
     modifiers:
       - public
@@ -114,7 +122,10 @@ methods:
       - name: chr
         type: IsoGameCharacter
       - name: baseItem
-        type: " InventoryItem"
+        type: InventoryItem
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
   - name: getItemsList
     modifiers:
       - public
@@ -172,6 +183,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isSpiceAdded
     modifiers:
       - public
@@ -179,6 +193,8 @@ methods:
       type: boolean
     parameters:
       - name: baseItem
+        type: InventoryItem
+      - name: spiceItem
         type: InventoryItem
   - name: Load
     modifiers:
@@ -188,18 +204,29 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: strArray
+        type: String[]
   - name: needToBeCooked
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: itemTest
+        type: InventoryItem
   - name: setAllowFrozenItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: allow
+        type: boolean
   - name: setIsHidden
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hide
+        type: boolean

@@ -36,6 +36,9 @@ constructors:
   - name: WorldMapStyleLayer
     modifiers:
       - public
+    parameters:
+      - name: id
+        type: String
 methods:
   - name: filter
     modifiers:
@@ -45,6 +48,8 @@ methods:
     parameters:
       - name: feature
         type: WorldMapFeature
+      - name: args
+        type: WorldMapStyleLayer.FilterArgs
   - name: getTypeString
     modifiers:
       - public
@@ -60,8 +65,13 @@ methods:
     parameters:
       - name: feature
         type: WorldMapFeature
+      - name: args
+        type: WorldMapStyleLayer.RenderArgs
   - name: renderCell
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: args
+        type: WorldMapStyleLayer.RenderArgs

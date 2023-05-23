@@ -27,6 +27,10 @@ methods:
     return:
       type: int
       notes: The number of axis available on the controller
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the controller to check
     notes: get the number of axis that are avaiable on a given controller
   - name: getAxisName
     modifiers:
@@ -38,6 +42,8 @@ methods:
       - name: index
         type: int
         notes: The index of the controller to check
+      - name: axis
+        type: int
     notes: get the name of the axis with the given index
   - name: getAxisValue
     modifiers:
@@ -49,12 +55,17 @@ methods:
       - name: index
         type: int
         notes: The index of the controller to check
+      - name: axis
+        type: int
     notes: get the value of the axis with the given index
   - name: getButtonCount
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: index
+        type: int
   - name: getButtonName
     modifiers:
       - public
@@ -63,11 +74,16 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: button
+        type: int
   - name: getController
     modifiers:
       - public
     return:
       type: org.lwjglx.input.Controller
+    parameters:
+      - name: index
+        type: int
   - name: getControllerCount
     modifiers:
       - public
@@ -81,6 +97,9 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: keyName
+        type: String
   - name: getKeyName
     modifiers:
       - public
@@ -88,6 +107,10 @@ methods:
     return:
       type: String
       notes: The name or character representation of the key requested
+    parameters:
+      - name: code
+        type: int
+        notes: The key code of the key to retrieve the name of
     notes: get the character representation of the key identified by the specified
       code
   - name: initControllers
@@ -105,6 +128,9 @@ methods:
     parameters:
       - name: button
         type: int
+      - name: index
+        type: int
+        notes: The index of the controller to check
     notes: Check if controller button is pressed
   - name: isButtonReleasePress
     modifiers:
@@ -114,6 +140,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: button
+        type: int
   - name: isButtonStartPress
     modifiers:
       - public
@@ -122,12 +150,18 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: button
+        type: int
   - name: isControllerDownD
     modifiers:
       - public
     return:
       type: boolean
       notes: True if the controller is pressed to the down
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the controller to check
     notes: Check if the controller has the down direction pressed
   - name: isControllerLeftD
     modifiers:
@@ -135,6 +169,10 @@ methods:
     return:
       type: boolean
       notes: True if the controller is pressed to the left
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the controller to check
     notes: Check if the controller has the left direction pressed
   - name: isControllerRightD
     modifiers:
@@ -142,6 +180,10 @@ methods:
     return:
       type: boolean
       notes: True if the controller is pressed to the right
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the controller to check
     notes: Check if the controller has the right direction pressed
   - name: isControllerUpD
     modifiers:
@@ -149,6 +191,10 @@ methods:
     return:
       type: boolean
       notes: True if the controller is pressed to the up
+    parameters:
+      - name: index
+        type: int
+        notes: The index of the controller to check
     notes: Check if the controller has the up direction pressed
   - name: poll
     modifiers:
@@ -177,4 +223,6 @@ methods:
       - name: index
         type: int
         notes: The controller index.
+      - name: button
+        type: int
     notes: Check if a controller button was pressed the previous frame.

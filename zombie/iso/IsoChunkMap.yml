@@ -137,6 +137,9 @@ constructors:
   - name: IsoChunkMap
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
 methods:
   - name: CalcChunkWidth
     modifiers:
@@ -159,6 +162,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: from
+        type: IsoChunkMap
   - name: Dispose
     modifiers:
       - public
@@ -177,6 +183,8 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: getChunkCurrent
     modifiers:
       - public
@@ -185,6 +193,8 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: getChunkForGridSquare
     modifiers:
       - public
@@ -192,6 +202,8 @@ methods:
       type: IsoChunk
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: getGridSquare
     modifiers:
@@ -202,7 +214,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getGridSquareDirect
     modifiers:
       - public
@@ -212,12 +226,17 @@ methods:
       - name: tileX
         type: int
       - name: tileY
-        type: " int"
+        type: int
+      - name: tileZ
+        type: int
   - name: getRoom
     modifiers:
       - public
     return:
       type: IsoRoom
+    parameters:
+      - name: iD
+        type: int
   - name: getWidthInTiles
     modifiers:
       - public
@@ -262,9 +281,11 @@ methods:
       - name: wx
         type: int
       - name: wy
-        type: " int"
+        type: int
       - name: x
-        type: " int"
+        type: int
+      - name: y
+        type: int
   - name: LoadChunkForLater
     modifiers:
       - public
@@ -274,9 +295,11 @@ methods:
       - name: wx
         type: int
       - name: wy
-        type: " int"
+        type: int
       - name: x
-        type: " int"
+        type: int
+      - name: y
+        type: int
   - name: processAllLoadGridSquare
     modifiers:
       - public
@@ -287,11 +310,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: renderBloodForChunks
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: zza
+        type: int
   - name: Save
     modifiers:
       - public
@@ -305,6 +334,8 @@ methods:
     parameters:
       - name: c
         type: IsoChunk
+      - name: bRequireLock
+        type: boolean
   - name: setGridSquare
     modifiers:
       - public
@@ -314,9 +345,11 @@ methods:
       - name: square
         type: IsoGridSquare
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: setInitialPos
     modifiers:
       - public
@@ -324,6 +357,8 @@ methods:
       type: void
     parameters:
       - name: wx
+        type: int
+      - name: wy
         type: int
   - name: setWorldStartPos
     modifiers:
@@ -333,6 +368,8 @@ methods:
       type: void
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: SwapChunkBuffers
     modifiers:

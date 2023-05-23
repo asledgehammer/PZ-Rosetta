@@ -44,13 +44,18 @@ constructors:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: CanSee
+        type: boolean
 methods:
   - name: ChangeTintMod
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: NewTintMod
+        type: ColorInfo
   - name: getObjectName
     modifiers:
       - public
@@ -74,6 +79,8 @@ methods:
     parameters:
       - name: obj
         type: IsoMovingObject
+      - name: PassedObjectSquare
+        type: IsoGridSquare
   - name: TestVision
     modifiers:
       - public
@@ -81,6 +88,8 @@ methods:
       type: IsoObject.VisionResult
     parameters:
       - name: from
+        type: IsoGridSquare
+      - name: to
         type: IsoGridSquare
   - name: update
     modifiers:

@@ -117,6 +117,9 @@ constructors:
   - name: IsoSpriteInstance
     modifiers:
       - public
+    parameters:
+      - name: spr
+        type: IsoSprite
 methods:
   - name: add
     modifiers:
@@ -124,6 +127,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: isoSpriteInstance
+        type: IsoSpriteInstance
   - name: Dispose
     modifiers:
       - public
@@ -135,6 +141,9 @@ methods:
       - static
     return:
       type: IsoSpriteInstance
+    parameters:
+      - name: spr
+        type: IsoSprite
   - name: getAlpha
     modifiers:
       - public
@@ -214,17 +223,19 @@ methods:
       - name: obj
         type: IsoObject
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: dir
-        type: " IsoDirections"
+        type: IsoDirections
       - name: offsetX
-        type: " float"
+        type: float
       - name: offsetY
-        type: " float"
+        type: float
+      - name: info2
+        type: ColorInfo
   - name: RenderGhostTileColor
     modifiers:
       - public
@@ -234,15 +245,17 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: scaleAspect
     modifiers:
       - public
@@ -252,19 +265,27 @@ methods:
       - name: texW
         type: float
       - name: texH
-        type: " float"
+        type: float
       - name: width
-        type: " float"
+        type: float
+      - name: height
+        type: float
   - name: SetAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: f
+        type: float
   - name: setFrameSpeedPerFrame
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: perSecond
+        type: float
   - name: setScale
     modifiers:
       - public
@@ -273,11 +294,16 @@ methods:
     parameters:
       - name: scaleX
         type: float
+      - name: scaleY
+        type: float
   - name: SetTargetAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: targetAlpha
+        type: float
   - name: update
     modifiers:
       - public

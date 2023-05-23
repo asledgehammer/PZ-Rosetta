@@ -25,6 +25,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: listener
+        type: ICoopServerMessageListener
   - name: addListener
     modifiers:
       - public
@@ -33,6 +36,8 @@ methods:
     parameters:
       - name: listener
         type: ICoopServerMessageListener
+      - name: options
+        type: CoopMaster.ListenerOptions
   - name: getMessage
     modifiers:
       - public
@@ -43,6 +48,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: serverName
+        type: String
   - name: getServerName
     modifiers:
       - public
@@ -53,6 +61,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: serverName
+        type: String
   - name: invokeServer
     modifiers:
       - public
@@ -62,7 +73,9 @@ methods:
       - name: tag
         type: String
       - name: payload
-        type: " String"
+        type: String
+      - name: responseHandler
+        type: ICoopServerMessageListener
   - name: isRunning
     modifiers:
       - public
@@ -77,7 +90,9 @@ methods:
       - name: serverName
         type: String
       - name: username
-        type: " String"
+        type: String
+      - name: memory
+        type: int
   - name: register
     modifiers:
       - public
@@ -86,11 +101,16 @@ methods:
     parameters:
       - name: platform
         type: se.krka.kahlua.vm.Platform
+      - name: environment
+        type: se.krka.kahlua.vm.KahluaTable
   - name: removeListener
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: listener
+        type: ICoopServerMessageListener
   - name: sendMessage
     modifiers:
       - public
@@ -98,6 +118,8 @@ methods:
       type: void
     parameters:
       - name: tag
+        type: String
+      - name: payload
         type: String
   - name: sendMessage
     modifiers:
@@ -108,7 +130,9 @@ methods:
       - name: tag
         type: String
       - name: cookie
-        type: " String"
+        type: String
+      - name: payload
+        type: String
   - name: softreset
     modifiers:
       - public
@@ -118,7 +142,9 @@ methods:
       - name: serverName
         type: String
       - name: username
-        type: " String"
+        type: String
+      - name: memory
+        type: int
   - name: terminationReason
     modifiers:
       - public

@@ -92,9 +92,11 @@ constructors:
       - name: ID
         type: int
       - name: containerName
-        type: " String"
+        type: String
       - name: square
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: parent
+        type: IsoObject
   - name: ItemContainer
     modifiers:
       - public
@@ -102,10 +104,15 @@ constructors:
       - name: containerName
         type: String
       - name: square
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: parent
+        type: IsoObject
   - name: ItemContainer
     modifiers:
       - public
+    parameters:
+      - name: ID
+        type: int
   - name: ItemContainer
     modifiers:
       - public
@@ -115,16 +122,25 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: AddItem
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: AddItem
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: AddItem
     modifiers:
       - public
@@ -133,16 +149,24 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: useDelta
+        type: float
   - name: AddItemBlind
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: addItemOnServer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: AddItems
     modifiers:
       - public
@@ -152,6 +176,8 @@ methods:
     parameters:
       - name: item
         type: String
+      - name: use
+        type: int
   - name: AddItems
     modifiers:
       - public
@@ -160,6 +186,8 @@ methods:
     parameters:
       - name: item
         type: InventoryItem
+      - name: use
+        type: int
   - name: addItemsToProcessItems
     modifiers:
       - public
@@ -175,18 +203,8 @@ methods:
       - public
     return:
       type: boolean
-  - name: contains
-    modifiers:
-      - public
-    return:
-      type: boolean
-  - name: contains
-    modifiers:
-      - public
-    return:
-      type: boolean
     parameters:
-      - name: itemToFind
+      - name: item
         type: InventoryItem
   - name: contains
     modifiers:
@@ -202,15 +220,40 @@ methods:
     return:
       type: boolean
     parameters:
+      - name: itemToFind
+        type: InventoryItem
+      - name: doInv
+        type: boolean
+  - name: contains
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
       - name: type
         type: String
       - name: doInv
-        type: " boolean"
+        type: boolean
+  - name: contains
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: type
+        type: String
+      - name: doInv
+        type: boolean
+      - name: ignoreBroken
+        type: boolean
   - name: containsEval
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: containsEvalArg
     modifiers:
       - public
@@ -219,6 +262,8 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: containsEvalArgRecurse
     modifiers:
       - public
@@ -227,26 +272,40 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: containsEvalRecurse
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: containsID
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: id
+        type: int
   - name: containsRecursive
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: containsTag
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: tag
+        type: String
   - name: containsTagEval
     modifiers:
       - public
@@ -255,6 +314,8 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: containsTagEvalArgRecurse
     modifiers:
       - public
@@ -264,7 +325,9 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: containsTagEvalRecurse
     modifiers:
       - public
@@ -273,16 +336,24 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: containsTagRecurse
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: tag
+        type: String
   - name: containsType
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: type
+        type: String
   - name: containsTypeEvalArgRecurse
     modifiers:
       - public
@@ -292,7 +363,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: containsTypeEvalRecurse
     modifiers:
       - public
@@ -301,16 +374,16 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: containsTypeRecurse
     modifiers:
       - public
     return:
       type: boolean
-  - name: containsWithModule
-    modifiers:
-      - public
-    return:
-      type: boolean
+    parameters:
+      - name: type
+        type: String
   - name: containsWithModule
     modifiers:
       - public
@@ -319,21 +392,40 @@ methods:
     parameters:
       - name: moduleType
         type: String
+  - name: containsWithModule
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: moduleType
+        type: String
+      - name: withDeltaLeft
+        type: boolean
   - name: DoAddItem
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: DoAddItemBlind
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: DoRemoveItem
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: emptyIt
     modifiers:
       - public
@@ -344,17 +436,26 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: itemType
+        type: ItemType
   - name: FindAll
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
   - name: FindAndReturn
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: FindAndReturn
     modifiers:
       - public
@@ -364,6 +465,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: count
+        type: int
   - name: FindAndReturn
     modifiers:
       - public
@@ -372,26 +475,41 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: itemToCheck
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: FindAndReturnCategory
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: category
+        type: String
   - name: FindAndReturnStack
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: FindAndReturnStack
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: itemlike
+        type: InventoryItem
   - name: FindAndReturnWaterItem
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: uses
+        type: int
   - name: FindWaterSource
     modifiers:
       - public
@@ -403,6 +521,9 @@ methods:
       - static
     return:
       type: float
+    parameters:
+      - name: val
+        type: float
   - name: getAcceptItemFunction
     modifiers:
       - public
@@ -420,6 +541,10 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getAll
     modifiers:
       - public
@@ -430,12 +555,9 @@ methods:
       - name: predicate
         type: Predicate
         generic: Predicate<InventoryItem>
-  - name: getAllCategory
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllCategory
     modifiers:
       - public
@@ -445,6 +567,18 @@ methods:
     parameters:
       - name: category
         type: String
+  - name: getAllCategory
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: category
+        type: String
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllCategoryRecurse
     modifiers:
       - public
@@ -454,12 +588,9 @@ methods:
     parameters:
       - name: category
         type: String
-  - name: getAllEval
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllEval
     modifiers:
       - public
@@ -469,7 +600,7 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
-  - name: getAllEvalArg
+  - name: getAllEval
     modifiers:
       - public
     return:
@@ -478,6 +609,9 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllEvalArg
     modifiers:
       - public
@@ -488,8 +622,8 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
-  - name: getAllEvalArgRecurse
+        type: Object
+  - name: getAllEvalArg
     modifiers:
       - public
     return:
@@ -498,6 +632,11 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllEvalArgRecurse
     modifiers:
       - public
@@ -508,13 +647,21 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
-  - name: getAllEvalRecurse
+        type: Object
+  - name: getAllEvalArgRecurse
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllEvalRecurse
     modifiers:
       - public
@@ -524,6 +671,18 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllEvalRecurse
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllItems
     modifiers:
       - public
@@ -534,6 +693,8 @@ methods:
       - name: items
         type: LinkedHashMap
         generic: LinkedHashMap<String,InventoryItem>
+      - name: inInv
+        type: boolean
   - name: getAllRecurse
     modifiers:
       - public
@@ -544,6 +705,9 @@ methods:
       - name: predicate
         type: Predicate
         generic: Predicate<InventoryItem>
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTag
     modifiers:
       - public
@@ -553,6 +717,9 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTagEval
     modifiers:
       - public
@@ -562,6 +729,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getAllTagEval
     modifiers:
       - public
@@ -572,7 +741,10 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTagEvalArg
     modifiers:
       - public
@@ -583,20 +755,25 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
-  - name: getAllTagEvalArg
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: tag
-        type: String
-      - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+  - name: getAllTagEvalArg
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: tag
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTagEvalArgRecurse
     modifiers:
       - public
@@ -607,9 +784,12 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTagEvalRecurse
     modifiers:
       - public
@@ -620,7 +800,10 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTagRecurse
     modifiers:
       - public
@@ -630,12 +813,9 @@ methods:
     parameters:
       - name: tag
         type: String
-  - name: getAllType
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllType
     modifiers:
       - public
@@ -645,7 +825,7 @@ methods:
     parameters:
       - name: type
         type: String
-  - name: getAllTypeEval
+  - name: getAllType
     modifiers:
       - public
     return:
@@ -654,6 +834,9 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTypeEval
     modifiers:
       - public
@@ -664,7 +847,21 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllTypeEval
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTypeEvalArg
     modifiers:
       - public
@@ -675,7 +872,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getAllTypeEvalArg
     modifiers:
       - public
@@ -686,9 +885,12 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTypeEvalArgRecurse
     modifiers:
       - public
@@ -699,7 +901,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getAllTypeEvalArgRecurse
     modifiers:
       - public
@@ -710,18 +914,12 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
-  - name: getAllTypeEvalRecurse
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: type
-        type: String
+        type: Object
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTypeEvalRecurse
     modifiers:
       - public
@@ -732,13 +930,21 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
-  - name: getAllTypeRecurse
+        type: se.krka.kahlua.vm.LuaClosure
+  - name: getAllTypeEvalRecurse
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllTypeRecurse
     modifiers:
       - public
@@ -748,6 +954,18 @@ methods:
     parameters:
       - name: type
         type: String
+  - name: getAllTypeRecurse
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getAllWaterFillables
     modifiers:
       - public
@@ -763,26 +981,42 @@ methods:
       - name: predicate
         type: Predicate
         generic: Predicate<InventoryItem>
+      - name: comparator
+        type: Comparator
+        generic: Comparator<InventoryItem>
   - name: getBestBandage
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
   - name: getBestCondition
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getBestCondition
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: getBestConditionEval
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getBestConditionEvalArg
     modifiers:
       - public
@@ -791,6 +1025,8 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getBestConditionEvalArgRecurse
     modifiers:
       - public
@@ -799,21 +1035,33 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getBestConditionEvalRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getBestConditionRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getBestConditionRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: getBestEval
     modifiers:
       - public
@@ -821,6 +1069,8 @@ methods:
       type: InventoryItem
     parameters:
       - name: predicateObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: comparatorObj
         type: se.krka.kahlua.vm.LuaClosure
   - name: getBestEvalArg
     modifiers:
@@ -831,7 +1081,9 @@ methods:
       - name: predicateObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: comparatorObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getBestEvalArgRecurse
     modifiers:
       - public
@@ -841,7 +1093,9 @@ methods:
       - name: predicateObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: comparatorObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getBestEvalRecurse
     modifiers:
       - public
@@ -850,11 +1104,16 @@ methods:
     parameters:
       - name: predicateObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getBestFood
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
   - name: getBestRecurse
     modifiers:
       - public
@@ -864,6 +1123,9 @@ methods:
       - name: predicate
         type: Predicate
         generic: Predicate<InventoryItem>
+      - name: comparator
+        type: Comparator
+        generic: Comparator<InventoryItem>
   - name: getBestType
     modifiers:
       - public
@@ -872,6 +1134,9 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: comparator
+        type: Comparator
+        generic: Comparator<InventoryItem>
   - name: getBestTypeEval
     modifiers:
       - public
@@ -880,6 +1145,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getBestTypeEvalArg
     modifiers:
       - public
@@ -889,7 +1156,9 @@ methods:
       - name: type
         type: String
       - name: comparatorObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getBestTypeEvalArgRecurse
     modifiers:
       - public
@@ -899,7 +1168,9 @@ methods:
       - name: type
         type: String
       - name: comparatorObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getBestTypeEvalRecurse
     modifiers:
       - public
@@ -908,6 +1179,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: comparatorObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getBestTypeRecurse
     modifiers:
       - public
@@ -916,6 +1189,9 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: comparator
+        type: Comparator
+        generic: Comparator<InventoryItem>
   - name: getBestWeapon
     modifiers:
       - public
@@ -926,6 +1202,9 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: getCapacity
     modifiers:
       - public
@@ -972,11 +1251,18 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getCountEval
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getCountEvalArg
     modifiers:
       - public
@@ -985,6 +1271,8 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getCountEvalArgRecurse
     modifiers:
       - public
@@ -993,21 +1281,33 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getCountEvalRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getCountRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getCountTag
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: tag
+        type: String
   - name: getCountTagEval
     modifiers:
       - public
@@ -1016,6 +1316,8 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getCountTagEvalArg
     modifiers:
       - public
@@ -1025,7 +1327,9 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getCountTagEvalArgRecurse
     modifiers:
       - public
@@ -1035,7 +1339,9 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getCountTagEvalRecurse
     modifiers:
       - public
@@ -1044,16 +1350,24 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getCountTagRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: tag
+        type: String
   - name: getCountType
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: type
+        type: String
   - name: getCountTypeEval
     modifiers:
       - public
@@ -1062,6 +1376,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getCountTypeEvalArg
     modifiers:
       - public
@@ -1071,7 +1387,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getCountTypeEvalArgRecurse
     modifiers:
       - public
@@ -1081,7 +1399,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getCountTypeEvalRecurse
     modifiers:
       - public
@@ -1090,11 +1410,16 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getCountTypeRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: type
+        type: String
   - name: getCustomTemperature
     modifiers:
       - public
@@ -1105,26 +1430,42 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: getFirst
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getFirstCategory
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: category
+        type: String
   - name: getFirstCategoryRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: category
+        type: String
   - name: getFirstEval
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getFirstEvalArg
     modifiers:
       - public
@@ -1133,6 +1474,8 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getFirstEvalArgRecurse
     modifiers:
       - public
@@ -1141,21 +1484,33 @@ methods:
     parameters:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getFirstEvalRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getFirstRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getFirstTag
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: tag
+        type: String
   - name: getFirstTagEval
     modifiers:
       - public
@@ -1164,6 +1519,8 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getFirstTagEvalArgRecurse
     modifiers:
       - public
@@ -1173,7 +1530,9 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getFirstTagEvalRecurse
     modifiers:
       - public
@@ -1182,16 +1541,24 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getFirstTagRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: tag
+        type: String
   - name: getFirstType
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: getFirstTypeEval
     modifiers:
       - public
@@ -1200,6 +1567,8 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getFirstTypeEvalArgRecurse
     modifiers:
       - public
@@ -1209,7 +1578,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: arg
+        type: Object
   - name: getFirstTypeEvalRecurse
     modifiers:
       - public
@@ -1218,11 +1589,16 @@ methods:
     parameters:
       - name: type
         type: String
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
   - name: getFirstTypeRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: getFreezerPosition
     modifiers:
       - public
@@ -1233,11 +1609,9 @@ methods:
       - public
     return:
       type: InventoryItem
-  - name: getItemCount
-    modifiers:
-      - public
-    return:
-      type: int
+    parameters:
+      - name: id
+        type: long
   - name: getItemCount
     modifiers:
       - public
@@ -1246,21 +1620,40 @@ methods:
     parameters:
       - name: type
         type: String
+  - name: getItemCount
+    modifiers:
+      - public
+    return:
+      type: int
+    parameters:
+      - name: type
+        type: String
+      - name: doBags
+        type: boolean
   - name: getItemCountFromTypeRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: type
+        type: String
   - name: getItemCountRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: type
+        type: String
   - name: getItemFromType
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: getItemFromType
     modifiers:
       - public
@@ -1270,7 +1663,9 @@ methods:
       - name: type
         type: String
       - name: ignoreBroken
-        type: " boolean"
+        type: boolean
+      - name: includeInv
+        type: boolean
   - name: getItemFromType
     modifiers:
       - public
@@ -1280,16 +1675,21 @@ methods:
       - name: type
         type: String
       - name: chr
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
       - name: notEquipped
-        type: " boolean"
+        type: boolean
       - name: ignoreBroken
-        type: " boolean"
+        type: boolean
+      - name: includeInv
+        type: boolean
   - name: getItemFromTypeRecurse
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: type
+        type: String
   - name: getItems
     modifiers:
       - public
@@ -1309,13 +1709,30 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: category
+        type: String
   - name: getItemsFromFullType
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
   - name: getItemsFromFullType
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
+      - name: includeInv
+        type: boolean
+  - name: getItemsFromType
     modifiers:
       - public
     return:
@@ -1330,25 +1747,27 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
-  - name: getItemsFromType
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
     parameters:
       - name: type
         type: String
+      - name: includeInv
+        type: boolean
   - name: getItemWithID
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: id
+        type: int
   - name: getItemWithIDRecursiv
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: id
+        type: int
   - name: getMaxWeight
     modifiers:
       - public
@@ -1359,11 +1778,6 @@ methods:
       - public
     return:
       type: int
-  - name: getNumberOfItem
-    modifiers:
-      - public
-    return:
-      type: int
     parameters:
       - name: findItem
         type: String
@@ -1376,7 +1790,7 @@ methods:
       - name: findItem
         type: String
       - name: includeReplaceOnDeplete
-        type: " boolean"
+        type: boolean
   - name: getNumberOfItem
     modifiers:
       - public
@@ -1386,12 +1800,30 @@ methods:
       - name: findItem
         type: String
       - name: includeReplaceOnDeplete
-        type: " boolean"
+        type: boolean
+      - name: containers
+        type: ArrayList
+        generic: ArrayList<ItemContainer>
+  - name: getNumberOfItem
+    modifiers:
+      - public
+    return:
+      type: int
+    parameters:
+      - name: findItem
+        type: String
+      - name: includeReplaceOnDeplete
+        type: boolean
+      - name: insideInv
+        type: boolean
   - name: getNumItems
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: item
+        type: String
   - name: getOnlyAcceptCategory
     modifiers:
       - public
@@ -1424,16 +1856,10 @@ methods:
         type: Predicate
         generic: Predicate<InventoryItem>
       - name: count
-        type: " int"
-  - name: getSomeCategory
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: category
-        type: String
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeCategory
     modifiers:
       - public
@@ -1444,7 +1870,21 @@ methods:
       - name: category
         type: String
       - name: count
-        type: " int"
+        type: int
+  - name: getSomeCategory
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: category
+        type: String
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeCategoryRecurse
     modifiers:
       - public
@@ -1455,16 +1895,10 @@ methods:
       - name: category
         type: String
       - name: count
-        type: " int"
-  - name: getSomeEval
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: functionObj
-        type: se.krka.kahlua.vm.LuaClosure
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeEval
     modifiers:
       - public
@@ -1475,7 +1909,21 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: count
-        type: " int"
+        type: int
+  - name: getSomeEval
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeEvalArg
     modifiers:
       - public
@@ -1486,7 +1934,9 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: count
+        type: int
   - name: getSomeEvalArg
     modifiers:
       - public
@@ -1497,9 +1947,12 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeEvalArgRecurse
     modifiers:
       - public
@@ -1510,7 +1963,9 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: count
+        type: int
   - name: getSomeEvalArgRecurse
     modifiers:
       - public
@@ -1521,18 +1976,12 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
       - name: count
-        type: " int"
-  - name: getSomeEvalRecurse
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: functionObj
-        type: se.krka.kahlua.vm.LuaClosure
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeEvalRecurse
     modifiers:
       - public
@@ -1543,7 +1992,21 @@ methods:
       - name: functionObj
         type: se.krka.kahlua.vm.LuaClosure
       - name: count
-        type: " int"
+        type: int
+  - name: getSomeEvalRecurse
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: functionObj
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeRecurse
     modifiers:
       - public
@@ -1555,16 +2018,10 @@ methods:
         type: Predicate
         generic: Predicate<InventoryItem>
       - name: count
-        type: " int"
-  - name: getSomeTag
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: tag
-        type: String
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTag
     modifiers:
       - public
@@ -1575,7 +2032,21 @@ methods:
       - name: tag
         type: String
       - name: count
-        type: " int"
+        type: int
+  - name: getSomeTag
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: tag
+        type: String
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTagEval
     modifiers:
       - public
@@ -1586,9 +2057,12 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTagEvalArg
     modifiers:
       - public
@@ -1599,11 +2073,14 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTagEvalArgRecurse
     modifiers:
       - public
@@ -1614,9 +2091,11 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: count
+        type: int
   - name: getSomeTagEvalArgRecurse
     modifiers:
       - public
@@ -1627,11 +2106,14 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTagEvalRecurse
     modifiers:
       - public
@@ -1642,7 +2124,9 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
   - name: getSomeTagEvalRecurse
     modifiers:
       - public
@@ -1653,9 +2137,12 @@ methods:
       - name: tag
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTagRecurse
     modifiers:
       - public
@@ -1665,6 +2152,8 @@ methods:
     parameters:
       - name: tag
         type: String
+      - name: count
+        type: int
   - name: getSomeTagRecurse
     modifiers:
       - public
@@ -1675,16 +2164,10 @@ methods:
       - name: tag
         type: String
       - name: count
-        type: " int"
-  - name: getSomeType
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: type
-        type: String
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeType
     modifiers:
       - public
@@ -1695,7 +2178,21 @@ methods:
       - name: type
         type: String
       - name: count
-        type: " int"
+        type: int
+  - name: getSomeType
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTypeEval
     modifiers:
       - public
@@ -1706,7 +2203,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
   - name: getSomeTypeEval
     modifiers:
       - public
@@ -1717,9 +2216,12 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTypeEvalArg
     modifiers:
       - public
@@ -1730,9 +2232,11 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: count
+        type: int
   - name: getSomeTypeEvalArg
     modifiers:
       - public
@@ -1743,11 +2247,14 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTypeEvalArgRecurse
     modifiers:
       - public
@@ -1758,9 +2265,11 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
+      - name: count
+        type: int
   - name: getSomeTypeEvalArgRecurse
     modifiers:
       - public
@@ -1771,11 +2280,14 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: arg
-        type: " Object"
+        type: Object
       - name: count
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTypeEvalRecurse
     modifiers:
       - public
@@ -1786,7 +2298,9 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
+      - name: count
+        type: int
   - name: getSomeTypeEvalRecurse
     modifiers:
       - public
@@ -1797,18 +2311,12 @@ methods:
       - name: type
         type: String
       - name: functionObj
-        type: " se.krka.kahlua.vm.LuaClosure"
+        type: se.krka.kahlua.vm.LuaClosure
       - name: count
-        type: " int"
-  - name: getSomeTypeRecurse
-    modifiers:
-      - public
-    return:
-      type: ArrayList
-      generic: ArrayList<InventoryItem>
-    parameters:
-      - name: type
-        type: String
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSomeTypeRecurse
     modifiers:
       - public
@@ -1819,7 +2327,21 @@ methods:
       - name: type
         type: String
       - name: count
-        type: " int"
+        type: int
+  - name: getSomeTypeRecurse
+    modifiers:
+      - public
+    return:
+      type: ArrayList
+      generic: ArrayList<InventoryItem>
+    parameters:
+      - name: type
+        type: String
+      - name: count
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: getSourceGrid
     modifiers:
       - public
@@ -1836,11 +2358,17 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: getTotalWeaponScore
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: getType
     modifiers:
       - public
@@ -1852,16 +2380,26 @@ methods:
       - public
     return:
       type: int
+    parameters:
+      - name: predicate
+        type: Predicate
+        generic: Predicate<InventoryItem>
   - name: getUsesType
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: type
+        type: String
   - name: getUsesTypeRecurse
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: type
+        type: String
   - name: getVehiclePart
     modifiers:
       - public
@@ -1890,6 +2428,8 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: item
+        type: InventoryItem
   - name: hasRoomFor
     modifiers:
       - public
@@ -1898,16 +2438,24 @@ methods:
     parameters:
       - name: chr
         type: IsoGameCharacter
+      - name: weightVal
+        type: float
   - name: HasType
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: itemType
+        type: ItemType
   - name: haveThisKeyId
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: keyId
+        type: int
   - name: isActive
     modifiers:
       - public
@@ -1950,11 +2498,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chr
+        type: IsoGameCharacter
   - name: isInside
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isIsDevice
     modifiers:
       - public
@@ -1966,6 +2520,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isMicrowave
     modifiers:
       - public
@@ -1981,6 +2538,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isTemperatureChanging
     modifiers:
       - public
@@ -1995,26 +2555,40 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: Remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: Remove
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemTypes
+        type: String
   - name: Remove
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: itemType
+        type: ItemType
   - name: RemoveAll
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemType
+        type: String
     notes: |-
       Remove all the item of the type in parameter inside the container Ex of
        itemType : Broccoli (no need the module like Base.Broccoli)
@@ -2028,6 +2602,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: removeItemsFromProcessItems
     modifiers:
       - public
@@ -2038,16 +2615,25 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: id
+        type: int
   - name: removeItemWithIDRecurse
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: id
+        type: int
   - name: RemoveOneOf
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: String
+        type: String
   - name: RemoveOneOf
     modifiers:
       - public
@@ -2056,6 +2642,8 @@ methods:
     parameters:
       - name: String
         type: String
+      - name: insideInv
+        type: boolean
   - name: requestServerItemsForContainer
     modifiers:
       - public
@@ -2072,6 +2660,9 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<InventoryItem>
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: save
     modifiers:
       - public
@@ -2081,6 +2672,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: noCompress
+        type: IsoGameCharacter
   - name: sendContentsToRemoteContainer
     modifiers:
       - public
@@ -2091,108 +2684,184 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: setAcceptItemFunction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: functionName
+        type: String
   - name: setActive
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: active
+        type: boolean
+        notes: the active to set
   - name: setAgeFactor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ageFactor
+        type: float
+        notes: the ageFactor to set
   - name: setCloseSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: closeSound
+        type: String
   - name: setContainerPosition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: containerPosition
+        type: String
   - name: setCookingFactor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: CookingFactor
+        type: float
+        notes: the CookingFactor to set
   - name: setCustomTemperature
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: newTemp
+        type: float
   - name: setDirty
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dirty
+        type: boolean
+        notes: the dirty to set
   - name: setDrawDirty
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setExplored
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setFreezerPosition
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: freezerPosition
+        type: String
   - name: setHasBeenLooted
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: hasBeenLooted
+        type: boolean
   - name: setIsDevice
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: IsDevice
+        type: boolean
+        notes: the IsDevice to set
   - name: setItems
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Items
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
+        notes: the Items to set
   - name: setOnlyAcceptCategory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: onlyAcceptCategory
+        type: String
   - name: setOpenSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: openSound
+        type: String
   - name: setParent
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: parent
+        type: IsoObject
+        notes: the parent to set
   - name: setPutSound
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: putSound
+        type: String
   - name: setSourceGrid
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: SourceGrid
+        type: IsoGridSquare
+        notes: the SourceGrid to set
   - name: setType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
+        notes: the type to set
   - name: setWeightReduction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: weightReduction
+        type: int

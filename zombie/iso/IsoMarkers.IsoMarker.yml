@@ -17,6 +17,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: tempObject
+        type: IsoObject
   - name: getA
     modifiers:
       - public
@@ -96,13 +99,15 @@ methods:
       - name: textureTable
         type: se.krka.kahlua.vm.KahluaTable
       - name: textureOverlayTable
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: gs
+        type: IsoGridSquare
   - name: init
     modifiers:
       - public
@@ -112,13 +117,15 @@ methods:
       - name: spriteName
         type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: gs
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: doTempIsoObject
+        type: boolean
   - name: init
     modifiers:
       - public
@@ -128,15 +135,17 @@ methods:
       - name: textureTable
         type: se.krka.kahlua.vm.KahluaTable
       - name: textureOverlayTable
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: gs
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: doTempIsoObject
+        type: boolean
   - name: isActive
     modifiers:
       - public
@@ -167,46 +176,73 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: a
+        type: float
   - name: setActive
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: active
+        type: boolean
   - name: setAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alpha
+        type: float
   - name: setAlphaMax
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alphaMax
+        type: float
   - name: setAlphaMin
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: alphaMin
+        type: float
   - name: setB
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: float
   - name: setDoAlpha
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: doAlpha
+        type: boolean
   - name: setFadeSpeed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fadeSpeed
+        type: float
   - name: setG
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: g
+        type: float
   - name: setPos
     modifiers:
       - public
@@ -216,14 +252,22 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: setR
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: r
+        type: float
   - name: setSquare
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: square
+        type: IsoGridSquare

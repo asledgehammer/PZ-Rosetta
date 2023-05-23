@@ -20,6 +20,8 @@ methods:
     parameters:
       - name: existingItem
         type: InventoryItem
+      - name: newItem
+        type: InventoryItem
   - name: CreateItem
     modifiers:
       - public
@@ -29,18 +31,27 @@ methods:
     parameters:
       - name: fullType
         type: String
+      - name: result
+        type: ArrayList
+        generic: ArrayList<InventoryItem>
   - name: RemoveItem
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: UseItem
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: UseItem
     modifiers:
       - public
@@ -51,4 +62,6 @@ methods:
       - name: item
         type: InventoryItem
       - name: bCrafting
-        type: " boolean"
+        type: boolean
+      - name: bInContainer
+        type: boolean

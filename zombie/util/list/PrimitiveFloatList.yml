@@ -9,47 +9,76 @@ constructors:
   - name: PrimitiveFloatList
     modifiers:
       - public
+    parameters:
+      - name: array
+        type: float[]
 methods:
   - name: contains
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: o
+        type: Object
   - name: contains
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: val
+        type: float
   - name: forEach
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: action
+        type: Consumer
+        generic: Consumer<? super Float>
   - name: forEach
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: action
+        type: FloatConsumer
   - name: get
     modifiers:
       - public
     return:
       type: Float
+    parameters:
+      - name: index
+        type: int
   - name: indexOf
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: o
+        type: Object
   - name: indexOf
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: val
+        type: float
   - name: replaceAll
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: operator
+        type: UnaryOperator
+        generic: UnaryOperator<Float>
   - name: set
     modifiers:
       - public
@@ -58,6 +87,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: element
+        type: Float
   - name: set
     modifiers:
       - public
@@ -66,6 +97,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: element
+        type: float
   - name: size
     modifiers:
       - public
@@ -81,6 +114,10 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: unused
+        type: Comparator
+        generic: Comparator<? super Float>
   - name: toArray
     modifiers:
       - public
@@ -92,3 +129,6 @@ methods:
       - public
     return:
       type: T[]
+    parameters:
+      - name: result
+        type: T[]

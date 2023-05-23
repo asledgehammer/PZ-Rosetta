@@ -47,7 +47,9 @@ methods:
       - name: author
         type: String
       - name: message
-        type: " String"
+        type: String
+      - name: ticketID
+        type: int
   - name: addUser
     modifiers:
       - public
@@ -55,6 +57,8 @@ methods:
       type: String
     parameters:
       - name: user
+        type: String
+      - name: pass
         type: String
   - name: addUserlog
     modifiers:
@@ -65,11 +69,13 @@ methods:
       - name: username
         type: String
       - name: type
-        type: " Userlog.UserlogType"
+        type: Userlog.UserlogType
       - name: text
-        type: " String"
+        type: String
       - name: issuedBy
-        type: " String"
+        type: String
+      - name: amount
+        type: int
   - name: addWarningPoint
     modifiers:
       - public
@@ -79,14 +85,19 @@ methods:
       - name: username
         type: String
       - name: reason
-        type: " String"
+        type: String
       - name: amount
-        type: " int"
+        type: int
+      - name: issuedBy
+        type: String
   - name: authClient
     modifiers:
       - public
     return:
       type: ServerWorldDatabase.LogonResult
+    parameters:
+      - name: steamID
+        type: long
   - name: authClient
     modifiers:
       - public
@@ -96,9 +107,11 @@ methods:
       - name: user
         type: String
       - name: pass
-        type: " String"
+        type: String
       - name: ip
-        type: " String"
+        type: String
+      - name: steamID
+        type: long
   - name: authOwner
     modifiers:
       - public
@@ -106,6 +119,8 @@ methods:
       type: ServerWorldDatabase.LogonResult
     parameters:
       - name: steamID
+        type: long
+      - name: ownerID
         type: long
   - name: banIp
     modifiers:
@@ -116,9 +131,11 @@ methods:
       - name: ip
         type: String
       - name: username
-        type: " String"
+        type: String
       - name: reason
-        type: " String"
+        type: String
+      - name: ban
+        type: boolean
   - name: banSteamID
     modifiers:
       - public
@@ -128,7 +145,9 @@ methods:
       - name: steamID
         type: String
       - name: reason
-        type: " String"
+        type: String
+      - name: ban
+        type: boolean
   - name: banUser
     modifiers:
       - public
@@ -137,6 +156,8 @@ methods:
     parameters:
       - name: username
         type: String
+      - name: ban
+        type: boolean
   - name: changePwd
     modifiers:
       - public
@@ -146,7 +167,9 @@ methods:
       - name: username
         type: String
       - name: previousPwd
-        type: " String"
+        type: String
+      - name: newPwd
+        type: String
   - name: changeUsername
     modifiers:
       - public
@@ -154,6 +177,8 @@ methods:
       type: String
     parameters:
       - name: user
+        type: String
+      - name: newUsername
         type: String
   - name: close
     modifiers:
@@ -165,11 +190,17 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: user
+        type: String
   - name: containsUser
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: user
+        type: String
   - name: create
     modifiers:
       - public
@@ -181,6 +212,9 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: previousPwd
+        type: String
   - name: executeQuery
     modifiers:
       - public
@@ -189,6 +223,8 @@ methods:
     parameters:
       - name: query
         type: String
+      - name: params
+        type: se.krka.kahlua.vm.KahluaTable
   - name: getDBSchema
     modifiers:
       - public
@@ -199,24 +235,36 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: username
+        type: String
   - name: getTableResult
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<DBResult>
+    parameters:
+      - name: table
+        type: String
   - name: getTickets
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<DBTicket>
+    parameters:
+      - name: playerName
+        type: String
   - name: getUserlog
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<Userlog>
+    parameters:
+      - name: username
+        type: String
   - name: grantAdmin
     modifiers:
       - public
@@ -225,22 +273,33 @@ methods:
     parameters:
       - name: username
         type: String
+      - name: setAdmin
+        type: boolean
   - name: isValidUserName
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: user
+        type: String
   - name: removeTicket
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ticketID
+        type: int
   - name: removeUser
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: username
+        type: String
   - name: removeUserLog
     modifiers:
       - public
@@ -250,12 +309,18 @@ methods:
       - name: username
         type: String
       - name: type
-        type: " String"
+        type: String
+      - name: text
+        type: String
   - name: saveAllTransactionsID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: map
+        type: HashMap
+        generic: HashMap<String,Integer>
   - name: saveTransactionID
     modifiers:
       - public
@@ -264,6 +329,8 @@ methods:
     parameters:
       - name: username
         type: String
+      - name: transactionID
+        type: Integer
   - name: setAccessLevel
     modifiers:
       - public
@@ -271,6 +338,8 @@ methods:
       type: String
     parameters:
       - name: username
+        type: String
+      - name: accessLevel
         type: String
   - name: setPassword
     modifiers:
@@ -280,6 +349,8 @@ methods:
     parameters:
       - name: username
         type: String
+      - name: password
+        type: String
   - name: setUserSteamID
     modifiers:
       - public
@@ -287,6 +358,8 @@ methods:
       type: String
     parameters:
       - name: user
+        type: String
+      - name: steamID
         type: String
   - name: updateDisplayName
     modifiers:
@@ -296,6 +369,8 @@ methods:
     parameters:
       - name: user
         type: String
+      - name: displayName
+        type: String
   - name: updateLastConnectionDate
     modifiers:
       - public
@@ -303,4 +378,6 @@ methods:
       type: void
     parameters:
       - name: u
+        type: String
+      - name: p
         type: String

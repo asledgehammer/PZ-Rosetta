@@ -85,11 +85,13 @@ constructors:
       - name: _stages
         type: int
       - name: _name
-        type: " String"
+        type: String
       - name: _hasSnow
-        type: " boolean"
+        type: boolean
       - name: _hasFlower
-        type: " boolean"
+        type: boolean
+      - name: _hasChildsprite
+        type: boolean
 methods:
   - name: getBase
     modifiers:
@@ -99,6 +101,8 @@ methods:
     parameters:
       - name: _stage
         type: int
+      - name: _season
+        type: int
   - name: getChildSprite
     modifiers:
       - public
@@ -107,11 +111,16 @@ methods:
     parameters:
       - name: _stage
         type: int
+      - name: _season
+        type: int
   - name: getFlower
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: _stage
+        type: int
   - name: setBase
     modifiers:
       - public
@@ -121,7 +130,9 @@ methods:
       - name: _stage
         type: int
       - name: _sprite
-        type: " String"
+        type: String
+      - name: _season
+        type: int
   - name: setBase
     modifiers:
       - public
@@ -131,8 +142,10 @@ methods:
       - name: _stage
         type: int
       - name: _sprites
-        type: " ArrayList"
-        generic: " ArrayList<String>"
+        type: ArrayList
+        generic: ArrayList<String>
+      - name: _season
+        type: int
   - name: setChildSprite
     modifiers:
       - public
@@ -142,7 +155,9 @@ methods:
       - name: _stage
         type: int
       - name: _sprite
-        type: " String"
+        type: String
+      - name: _season
+        type: int
   - name: setChildSprite
     modifiers:
       - public
@@ -152,15 +167,9 @@ methods:
       - name: _stage
         type: int
       - name: _sprites
-        type: " ArrayList"
-        generic: " ArrayList<String>"
-  - name: setFlower
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: _stage
+        type: ArrayList
+        generic: ArrayList<String>
+      - name: _season
         type: int
   - name: setFlower
     modifiers:
@@ -170,3 +179,16 @@ methods:
     parameters:
       - name: _stage
         type: int
+      - name: _sprite
+        type: String
+  - name: setFlower
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: _stage
+        type: int
+      - name: _sprites
+        type: ArrayList
+        generic: ArrayList<String>

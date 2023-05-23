@@ -27,11 +27,18 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: rhs
+        type: CharacterMask
   - name: forEachVisible
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: action
+        type: Consumer
+        generic: Consumer<CharacterMask.Part>
   - name: isAllVisible
     modifiers:
       - public
@@ -42,6 +49,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: bpt
+        type: BloodBodyPartType
   - name: isNothingVisible
     modifiers:
       - public
@@ -52,6 +62,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: part
+        type: CharacterMask.Part
   - name: isTorsoVisible
     modifiers:
       - public
@@ -62,6 +75,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: isVisible
+        type: boolean
   - name: setPartsVisible
     modifiers:
       - public
@@ -71,6 +87,8 @@ methods:
       - name: parts
         type: ArrayList
         generic: ArrayList<Integer>
+      - name: isVisible
+        type: boolean
   - name: setPartVisible
     modifiers:
       - public
@@ -79,3 +97,5 @@ methods:
     parameters:
       - name: part
         type: CharacterMask.Part
+      - name: isVisible
+        type: boolean

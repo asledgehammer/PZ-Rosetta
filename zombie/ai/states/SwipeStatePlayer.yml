@@ -27,6 +27,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
   - name: CalcAttackVars
     modifiers:
       - public
@@ -35,6 +37,8 @@ methods:
     parameters:
       - name: owner
         type: IsoLivingCharacter
+      - name: vars
+        type: AttackVars
   - name: CalcHitChance
     modifiers:
       - public
@@ -44,7 +48,9 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: weapon
-        type: " HandWeapon"
+        type: HandWeapon
+      - name: hitInfo
+        type: HitInfo
   - name: CalcHitList
     modifiers:
       - public
@@ -54,9 +60,12 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: extraRange
-        type: " boolean"
+        type: boolean
       - name: attackVars
-        type: " AttackVars"
+        type: AttackVars
+      - name: hitList
+        type: ArrayList
+        generic: ArrayList<HitInfo>
   - name: calcValidTargets
     modifiers:
       - public
@@ -66,12 +75,15 @@ methods:
       - name: owner
         type: IsoLivingCharacter
       - name: weapon
-        type: " HandWeapon"
+        type: HandWeapon
       - name: extraRange
-        type: " boolean"
+        type: boolean
       - name: targetsProne
-        type: " ArrayList"
-        generic: " ArrayList<HitInfo>"
+        type: ArrayList
+        generic: ArrayList<HitInfo>
+      - name: targetsStanding
+        type: ArrayList
+        generic: ArrayList<HitInfo>
   - name: changeWeapon
     modifiers:
       - public
@@ -80,6 +92,8 @@ methods:
     parameters:
       - name: weapon
         type: HandWeapon
+      - name: owner
+        type: IsoGameCharacter
   - name: checkPVP
     modifiers:
       - public
@@ -89,6 +103,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: obj
+        type: IsoMovingObject
   - name: ConnectSwing
     modifiers:
       - public
@@ -97,21 +113,32 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: weapon
+        type: HandWeapon
   - name: enter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: execute
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: exit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: getBoneWorldPos
     modifiers:
       - public
@@ -122,7 +149,9 @@ methods:
       - name: target
         type: IsoMovingObject
       - name: boneName
-        type: " String"
+        type: String
+      - name: bonePos
+        type: Vector3
   - name: instance
     modifiers:
       - public
@@ -135,6 +164,9 @@ methods:
       - static
     return:
       type: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
   - name: isProneTargetBetter
     modifiers:
       - public
@@ -144,13 +176,18 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: bestStanding
-        type: " HitInfo"
+        type: HitInfo
+      - name: bestProne
+        type: HitInfo
   - name: isStanding
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: obj
+        type: IsoMovingObject
   - name: splash
     modifiers:
       - public
@@ -161,7 +198,9 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: weapon
-        type: " HandWeapon"
+        type: HandWeapon
+      - name: owner
+        type: IsoGameCharacter
   - name: WeaponLowerCondition
     modifiers:
       - public
@@ -171,3 +210,5 @@ methods:
     parameters:
       - name: weapon
         type: HandWeapon
+      - name: owner
+        type: IsoGameCharacter

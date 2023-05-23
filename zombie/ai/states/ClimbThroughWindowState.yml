@@ -19,21 +19,32 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
   - name: enter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: execute
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: exit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: getDeltaModifiers
     modifiers:
       - public
@@ -42,11 +53,16 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: modifiers
+        type: MoveDeltaModifiers
   - name: getWindow
     modifiers:
       - public
     return:
       type: IsoObject
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: instance
     modifiers:
       - public
@@ -62,15 +78,17 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: fromX
-        type: " int"
+        type: int
       - name: fromY
-        type: " int"
+        type: int
       - name: fromZ
-        type: " int"
+        type: int
       - name: toX
-        type: " int"
+        type: int
       - name: toY
-        type: " int"
+        type: int
+      - name: toZ
+        type: int
     notes: "Description copied from class: State"
   - name: isPastInnerEdgeOfSquare
     modifiers:
@@ -81,9 +99,11 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: moveDir
+        type: IsoDirections
   - name: isPastOuterEdgeOfSquare
     modifiers:
       - public
@@ -93,14 +113,19 @@ methods:
       - name: owner
         type: IsoGameCharacter
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: moveDir
+        type: IsoDirections
   - name: isWindowClosing
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: setParams
     modifiers:
       - public
@@ -109,6 +134,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: obj
+        type: IsoObject
   - name: slideX
     modifiers:
       - public
@@ -117,6 +144,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: x
+        type: float
   - name: slideY
     modifiers:
       - public
@@ -125,3 +154,5 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: y
+        type: float

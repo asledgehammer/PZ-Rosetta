@@ -19,9 +19,15 @@ constructors:
   - name: Matrix4
     modifiers:
       - public
+    parameters:
+      - name: m
+        type: float[]
   - name: Matrix4
     modifiers:
       - public
+    parameters:
+      - name: m
+        type: Matrix4
 methods:
   - name: clear
     modifiers:
@@ -42,13 +48,15 @@ methods:
       - name: left
         type: float
       - name: right
-        type: " float"
+        type: float
       - name: bottom
-        type: " float"
+        type: float
       - name: top
-        type: " float"
+        type: float
       - name: near
-        type: " float"
+        type: float
+      - name: far
+        type: float
   - name: clearToPerspective
     modifiers:
       - public
@@ -58,16 +66,21 @@ methods:
       - name: fovRad
         type: float
       - name: width
-        type: " float"
+        type: float
       - name: height
-        type: " float"
+        type: float
       - name: near
-        type: " float"
+        type: float
+      - name: far
+        type: float
   - name: get
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: index
+        type: int
   - name: getBuffer
     modifiers:
       - public
@@ -78,21 +91,33 @@ methods:
       - public
     return:
       type: Matrix4
+    parameters:
+      - name: m
+        type: float[]
   - name: mult
     modifiers:
       - public
     return:
       type: Matrix4
+    parameters:
+      - name: m
+        type: Matrix4
   - name: put
     modifiers:
       - public
     return:
       type: Matrix4
+    parameters:
+      - name: m
+        type: float[]
   - name: put
     modifiers:
       - public
     return:
       type: Matrix4
+    parameters:
+      - name: m
+        type: Matrix4
   - name: put
     modifiers:
       - public
@@ -101,6 +126,8 @@ methods:
     parameters:
       - name: index
         type: int
+      - name: f
+        type: float
   - name: put
     modifiers:
       - public
@@ -110,14 +137,8 @@ methods:
       - name: index
         type: int
       - name: v
-        type: " Vector3"
-  - name: rotate
-    modifiers:
-      - public
-    return:
-      type: Matrix4
-    parameters:
-      - name: angle
+        type: Vector3
+      - name: w
         type: float
   - name: rotate
     modifiers:
@@ -127,15 +148,30 @@ methods:
     parameters:
       - name: angle
         type: float
+      - name: vec
+        type: Vector3
+  - name: rotate
+    modifiers:
+      - public
+    return:
+      type: Matrix4
+    parameters:
+      - name: angle
+        type: float
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: scale
     modifiers:
       - public
     return:
       type: Matrix4
+    parameters:
+      - name: vec
+        type: Vector3
   - name: scale
     modifiers:
       - public
@@ -145,12 +181,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: translate
     modifiers:
       - public
     return:
       type: Matrix4
+    parameters:
+      - name: vec
+        type: Vector3
   - name: translate
     modifiers:
       - public
@@ -160,7 +201,9 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: transpose
     modifiers:
       - public

@@ -38,11 +38,16 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: parsePlayer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: set
     modifiers:
       - public
@@ -51,8 +56,13 @@ methods:
     parameters:
       - name: player
         type: IsoPlayer
+      - name: isCriticalHit
+        type: boolean
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

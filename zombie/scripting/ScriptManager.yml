@@ -74,6 +74,9 @@ methods:
       - public
     return:
       type: Item
+    parameters:
+      - name: name
+        type: String
   - name: FindItem
     modifiers:
       - public
@@ -82,6 +85,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: moduleDefaultsToBase
+        type: boolean
   - name: getAllAnimationsMeshes
     modifiers:
       - public
@@ -100,6 +105,10 @@ methods:
     return:
       type: List
       generic: List<Fixing>
+    parameters:
+      - name: result
+        type: List
+        generic: List<Fixing>
   - name: getAllGameSounds
     modifiers:
       - public
@@ -136,6 +145,9 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<Recipe>
+    parameters:
+      - name: result
+        type: String
   - name: getAllRuntimeAnimationScripts
     modifiers:
       - public
@@ -159,6 +171,9 @@ methods:
       - public
     return:
       type: AnimationsMesh
+    parameters:
+      - name: name
+        type: String
   - name: getChecksum
     modifiers:
       - public
@@ -181,49 +196,68 @@ methods:
       - public
     return:
       type: Item
+    parameters:
+      - name: name
+        type: String
   - name: getItemForClothingItem
     modifiers:
       - public
     return:
       type: Item
+    parameters:
+      - name: clothingName
+        type: String
   - name: getItemName
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getItemsByType
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<Item>
+    parameters:
+      - name: type
+        type: String
   - name: getItemsTag
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<Item>
+    parameters:
+      - name: tag
+        type: String
   - name: getItemTypeForClothingItem
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: clothingItem
+        type: String
   - name: getMannequinScript
     modifiers:
       - public
     return:
       type: MannequinScript
+    parameters:
+      - name: name
+        type: String
   - name: getModelScript
     modifiers:
       - public
     return:
       type: ModelScript
-  - name: getModule
-    modifiers:
-      - public
-    return:
-      type: ScriptModule
+    parameters:
+      - name: name
+        type: String
   - name: getModule
     modifiers:
       - public
@@ -232,26 +266,48 @@ methods:
     parameters:
       - name: name
         type: String
+  - name: getModule
+    modifiers:
+      - public
+    return:
+      type: ScriptModule
+    parameters:
+      - name: name
+        type: String
+      - name: defaultToBase
+        type: boolean
   - name: getModuleNoDisableCheck
     modifiers:
       - public
     return:
       type: ScriptModule
+    parameters:
+      - name: name
+        type: String
   - name: getRecipe
     modifiers:
       - public
     return:
       type: Recipe
+    parameters:
+      - name: name
+        type: String
   - name: getSoundTimeline
     modifiers:
       - public
     return:
       type: SoundTimelineScript
+    parameters:
+      - name: eventName
+        type: String
   - name: getSpecificItem
     modifiers:
       - public
     return:
       type: Item
+    parameters:
+      - name: name
+        type: String
     notes: Attempts to get the specific item of "module.type" without defaulting to
       module "Base".
   - name: getVehicle
@@ -259,16 +315,25 @@ methods:
       - public
     return:
       type: VehicleScript
+    parameters:
+      - name: name
+        type: String
   - name: getVehicleEngineRPM
     modifiers:
       - public
     return:
       type: VehicleEngineRPM
+    parameters:
+      - name: name
+        type: String
   - name: getVehicleTemplate
     modifiers:
       - public
     return:
       type: VehicleTemplate
+    parameters:
+      - name: name
+        type: String
   - name: getZedDmgMap
     modifiers:
       - public
@@ -280,6 +345,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: itemType
+        type: String
   - name: Load
     modifiers:
       - public
@@ -293,11 +361,16 @@ methods:
     parameters:
       - name: filename
         type: String
+      - name: bLoadJar
+        type: boolean
   - name: ParseScript
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: totalFile
+        type: String
   - name: Reset
     modifiers:
       - public
@@ -311,6 +384,8 @@ methods:
     parameters:
       - name: module
         type: ScriptModule
+      - name: itemType
+        type: String
   - name: resolveModelScript
     modifiers:
       - public
@@ -319,6 +394,8 @@ methods:
     parameters:
       - name: module
         type: ScriptModule
+      - name: modelScriptName
+        type: String
   - name: searchFolders
     modifiers:
       - public
@@ -328,7 +405,10 @@ methods:
       - name: base
         type: URI
       - name: fo
-        type: " File"
+        type: File
+      - name: loadList
+        type: ArrayList
+        generic: ArrayList<String>
   - name: update
     modifiers:
       - public

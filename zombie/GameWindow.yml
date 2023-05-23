@@ -143,12 +143,18 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: text
+        type: String
   - name: doRenderEvent
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: getCoopServerHome
     modifiers:
       - public
@@ -176,6 +182,8 @@ methods:
     parameters:
       - name: pack
         type: String
+      - name: flags
+        type: int
   - name: LoadTexturePack
     modifiers:
       - public
@@ -186,43 +194,63 @@ methods:
       - name: pack
         type: String
       - name: flags
-        type: " int"
+        type: int
+      - name: modID
+        type: String
   - name: LoadTexturePackDDS
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: pack
+        type: String
   - name: readInt
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: __in
+        type: DataInputStream
   - name: readLong
     modifiers:
       - public
       - static
     return:
       type: long
+    parameters:
+      - name: __in
+        type: DataInputStream
   - name: ReadString
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: ReadString
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: input
+        type: DataInputStream
   - name: ReadStringUTF
     modifiers:
       - public
       - static
     return:
       type: String
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: render
     modifiers:
       - public
@@ -235,6 +263,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: bDoChars
+        type: boolean
   - name: setTexturePackLookup
     modifiers:
       - public
@@ -250,6 +281,8 @@ methods:
     parameters:
       - name: thread
         type: Thread
+      - name: e
+        type: Throwable
   - name: WriteString
     modifiers:
       - public
@@ -259,6 +292,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: str
+        type: String
   - name: WriteString
     modifiers:
       - public
@@ -268,6 +303,8 @@ methods:
     parameters:
       - name: output
         type: DataOutputStream
+      - name: str
+        type: String
   - name: WriteStringUTF
     modifiers:
       - public
@@ -277,3 +314,5 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: str
+        type: String

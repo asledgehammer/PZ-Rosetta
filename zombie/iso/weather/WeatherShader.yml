@@ -15,17 +15,26 @@ constructors:
   - name: WeatherShader
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: onCompileSuccess
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sender
+        type: ShaderProgram
   - name: postRender
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: texd
+        type: TextureDraw
   - name: startMainThread
     modifiers:
       - public
@@ -34,8 +43,13 @@ methods:
     parameters:
       - name: texd
         type: TextureDraw
+      - name: playerIndex
+        type: int
   - name: startRenderThread
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: texd
+        type: TextureDraw

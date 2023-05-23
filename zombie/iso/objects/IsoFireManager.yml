@@ -159,24 +159,36 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: NewFire
+        type: IsoFire
   - name: AddBurningCharacter
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: BurningCharacter
+        type: IsoGameCharacter
   - name: addCharacterOnFire
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
   - name: deleteCharacterOnFire
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: character
+        type: IsoGameCharacter
   - name: explode
     modifiers:
       - public
@@ -187,7 +199,9 @@ methods:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: power
+        type: int
   - name: Fire_LightCalc
     modifiers:
       - public
@@ -198,13 +212,18 @@ methods:
       - name: FireSquare
         type: IsoGridSquare
       - name: TestSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: playerIndex
+        type: int
   - name: LightTileWithFire
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: TestSquare
+        type: IsoGridSquare
   - name: MolotovSmash
     modifiers:
       - public
@@ -214,24 +233,35 @@ methods:
     parameters:
       - name: cell
         type: IsoCell
+      - name: gridSquare
+        type: IsoGridSquare
   - name: Remove
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: DyingFire
+        type: IsoFire
   - name: RemoveAllOn
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: RemoveBurningCharacter
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: BurningCharacter
+        type: IsoGameCharacter
   - name: Reset
     modifiers:
       - public
@@ -248,9 +278,11 @@ methods:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: IgniteOnAny
-        type: " boolean"
+        type: boolean
+      - name: FireStartingEnergy
+        type: int
   - name: StartFire
     modifiers:
       - public
@@ -261,11 +293,13 @@ methods:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: IgniteOnAny
-        type: " boolean"
+        type: boolean
       - name: FireStartingEnergy
-        type: " int"
+        type: int
+      - name: Life
+        type: int
   - name: StartSmoke
     modifiers:
       - public
@@ -276,17 +310,22 @@ methods:
       - name: cell
         type: IsoCell
       - name: gridSquare
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: IgniteOnAny
-        type: " boolean"
+        type: boolean
       - name: FireStartingEnergy
-        type: " int"
+        type: int
+      - name: Life
+        type: int
   - name: stopSound
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: fire
+        type: IsoFire
   - name: Update
     modifiers:
       - public
@@ -299,3 +338,6 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: fire
+        type: IsoFire

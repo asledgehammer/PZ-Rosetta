@@ -64,16 +64,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: listener
+        type: IAnimListener
   - name: advance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: advanceAmount
+        type: float
   - name: advanceFraction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: advanceFraction
+        type: float
   - name: alloc
     modifiers:
       - public
@@ -89,6 +98,9 @@ methods:
     parameters:
       - name: source
         type: AnimationTrack
+      - name: allocator
+        type: Supplier
+        generic: Supplier<AnimationTrack>
   - name: get
     modifiers:
       - public
@@ -98,14 +110,19 @@ methods:
       - name: bone
         type: int
       - name: out_pos
-        type: " org.lwjgl.util.vector.Vector3f"
+        type: org.lwjgl.util.vector.Vector3f
       - name: out_rot
-        type: " org.lwjgl.util.vector.Quaternion"
+        type: org.lwjgl.util.vector.Quaternion
+      - name: out_scale
+        type: org.lwjgl.util.vector.Vector3f
   - name: getBoneWeight
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: boneIdx
+        type: int
   - name: getClampedBlendDelta
     modifiers:
       - public
@@ -121,11 +138,17 @@ methods:
       - public
     return:
       type: org.lwjgl.util.vector.Vector3f
+    parameters:
+      - name: out_result
+        type: org.lwjgl.util.vector.Vector3f
   - name: getCurrentDeferredPosition
     modifiers:
       - public
     return:
       type: org.lwjgl.util.vector.Vector3f
+    parameters:
+      - name: out_result
+        type: org.lwjgl.util.vector.Vector3f
   - name: getCurrentDeferredRotation
     modifiers:
       - public
@@ -159,6 +182,8 @@ methods:
     parameters:
       - name: bonePos
         type: org.lwjgl.util.vector.Vector3f
+      - name: out_deferredPos
+        type: Vector2
   - name: getDeferredMovementBoneIdx
     modifiers:
       - public
@@ -169,6 +194,9 @@ methods:
       - public
     return:
       type: Vector2
+    parameters:
+      - name: out_result
+        type: Vector2
   - name: getDeferredRotationDiff
     modifiers:
       - public
@@ -179,6 +207,9 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: boneRotation
+        type: org.lwjgl.util.vector.Quaternion
   - name: getDuration
     modifiers:
       - public
@@ -224,6 +255,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: skinningData
+        type: SkinningData
   - name: isFinished
     modifiers:
       - public
@@ -239,11 +273,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: target
+        type: float
   - name: moveCurrentTimeValueToFraction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: fraction
+        type: float
   - name: onReleased
     modifiers:
       - public
@@ -257,6 +297,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: listener
+        type: IAnimListener
   - name: reset
     modifiers:
       - public
@@ -267,26 +310,42 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: rewindAmount
+        type: float
   - name: scaledAdvance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: advanceAmount
+        type: float
   - name: scaledRewind
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: rewindAmount
+        type: float
   - name: setBoneWeights
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: boneWeights
+        type: List
+        generic: List<AnimBoneWeight>
   - name: setCurrentTimeValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: currentTimeValue
+        type: float
   - name: setDeferredBone
     modifiers:
       - public
@@ -295,21 +354,32 @@ methods:
     parameters:
       - name: bone
         type: SkinningBone
+      - name: axis
+        type: BoneAxis
   - name: setLayerIdx
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: layerIdx
+        type: int
   - name: setPreviousTimeValue
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: previousTimeValue
+        type: float
   - name: setUseDeferredRotation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: boolean
   - name: startClip
     modifiers:
       - public
@@ -318,13 +388,21 @@ methods:
     parameters:
       - name: clip
         type: AnimationClip
+      - name: loop
+        type: boolean
   - name: Update
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: time
+        type: float
   - name: UpdateKeyframes
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: dt
+        type: float

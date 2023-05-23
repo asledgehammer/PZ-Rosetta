@@ -13,6 +13,8 @@ constructors:
     parameters:
       - name: ChosenType
         type: MoodleType
+      - name: parent
+        type: IsoGameCharacter
   - name: Moodle
     modifiers:
       - public
@@ -20,7 +22,9 @@ constructors:
       - name: ChosenType
         type: MoodleType
       - name: parent
-        type: " IsoGameCharacter"
+        type: IsoGameCharacter
+      - name: maxChevrons
+        type: int
 methods:
   - name: chevronDifference
     modifiers:
@@ -31,7 +35,9 @@ methods:
       - name: count
         type: int
       - name: isup
-        type: " boolean"
+        type: boolean
+      - name: col
+        type: Color
   - name: getChevronColor
     modifiers:
       - public
@@ -61,12 +67,17 @@ methods:
       - name: count
         type: int
       - name: isup
-        type: " boolean"
+        type: boolean
+      - name: col
+        type: Color
   - name: SetLevel
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: int
   - name: Update
     modifiers:
       - public

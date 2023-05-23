@@ -52,16 +52,29 @@ constructors:
   - name: IntKeyOpenHashMap
     modifiers:
       - public
+    parameters:
+      - name: map
+        type: IntKeyMap
+        generic: IntKeyMap<V>
+        notes: the map whose mappings to put into the new map.
     notes: Creates a new hash map with the same mappings as a specified map.
   - name: IntKeyOpenHashMap
     modifiers:
       - public
+    parameters:
+      - name: capacity
+        type: int
+        notes: the initial capacity of the map.
     notes: |-
       Creates a new hash map with a specified capacity, a relative
         growth factor of 1.0, and a load factor of 75%.
   - name: IntKeyOpenHashMap
     modifiers:
       - public
+    parameters:
+      - name: loadFactor
+        type: double
+        notes: the load factor of the map.
     notes: |-
       Creates a new hash map with a capacity of 11, a relative
         growth factor of 1.0, and a specified load factor.
@@ -72,6 +85,8 @@ constructors:
       - name: capacity
         type: int
         notes: the initial capacity of the map.
+      - name: loadFactor
+        type: double
     notes: |-
       Creates a new hash map with a specified capacity and
         load factor, and a relative growth factor of 1.0.
@@ -83,7 +98,9 @@ constructors:
         type: int
         notes: the initial capacity of the map.
       - name: loadFactor
-        type: " double"
+        type: double
+      - name: growthFactor
+        type: double
     notes: |-
       Creates a new hash map with a specified capacity,
         load factor, and relative growth factor.
@@ -95,13 +112,19 @@ constructors:
         type: int
         notes: the initial capacity of the map.
       - name: loadFactor
-        type: " double"
+        type: double
+      - name: growthChunk
+        type: int
     notes: |-
       Creates a new hash map with a specified capacity,
         load factor, and absolute growth factor.
   - name: IntKeyOpenHashMap
     modifiers:
       - public
+    parameters:
+      - name: keyhash
+        type: IntHashFunction
+        notes: the hash function to use when hashing keys.
     notes: |-
       Creates a new hash map with capacity 11, a relative
         growth factor of 1.0, and a load factor of 75%.
@@ -112,6 +135,8 @@ constructors:
       - name: keyhash
         type: IntHashFunction
         notes: the hash function to use when hashing keys.
+      - name: capacity
+        type: int
     notes: |-
       Creates a new hash map with a specified capacity, a relative
         growth factor of 1.0, and a load factor of 75%.
@@ -122,6 +147,8 @@ constructors:
       - name: keyhash
         type: IntHashFunction
         notes: the hash function to use when hashing keys.
+      - name: loadFactor
+        type: double
     notes: |-
       Creates a new hash map with a capacity of 11, a relative
         growth factor of 1.0, and a specified load factor.
@@ -133,7 +160,9 @@ constructors:
         type: IntHashFunction
         notes: the hash function to use when hashing keys.
       - name: capacity
-        type: " int"
+        type: int
+      - name: loadFactor
+        type: double
     notes: |-
       Creates a new hash map with a specified capacity and
         load factor, and a relative growth factor of 1.0.
@@ -145,9 +174,11 @@ constructors:
         type: IntHashFunction
         notes: the hash function to use when hashing keys.
       - name: capacity
-        type: " int"
+        type: int
       - name: loadFactor
-        type: " double"
+        type: double
+      - name: growthFactor
+        type: double
     notes: |-
       Creates a new hash map with a specified capacity,
         load factor, and relative growth factor.
@@ -159,9 +190,11 @@ constructors:
         type: IntHashFunction
         notes: the hash function to use when hashing keys.
       - name: capacity
-        type: " int"
+        type: int
       - name: loadFactor
-        type: " double"
+        type: double
+      - name: growthChunk
+        type: int
     notes: |-
       Creates a new hash map with a specified capacity,
         load factor, and absolute growth factor.
@@ -188,6 +221,10 @@ methods:
         true if this map contains a mapping from
                       the specified key; returns false
                       otherwise.
+    parameters:
+      - name: key
+        type: int
+        notes: the key to test for.
     notes: "Description copied from interface: IntKeyMap"
   - name: containsValue
     modifiers:
@@ -198,6 +235,10 @@ methods:
         true if this map contains at least one
                       mapping to the specified value; returns
                       false otherwise.
+    parameters:
+      - name: value
+        type: Object
+        notes: the value to test for.
     notes: "Description copied from interface: IntKeyMap"
   - name: entries
     modifiers:
@@ -216,6 +257,10 @@ methods:
         the value that the specified key maps to; returns
                       null, if no mapping exists for the
                       specified key.
+    parameters:
+      - name: key
+        type: int
+        notes: the key to map to a value.
     notes: "Description copied from interface: IntKeyMap"
   - name: isEmpty
     modifiers:
@@ -246,6 +291,8 @@ methods:
       - name: key
         type: int
         notes: the key of the mapping to add to this map.
+      - name: value
+        type: V
     notes: "Description copied from interface: IntKeyMap"
   - name: remove
     modifiers:
@@ -256,6 +303,10 @@ methods:
         the old value (which can be null) if a
                       mapping from the specified key already existed
                       in this map; returns null otherwise.
+    parameters:
+      - name: key
+        type: int
+        notes: the key whose mapping to remove from this map.
     notes: "Description copied from interface: IntKeyMap"
   - name: size
     modifiers:

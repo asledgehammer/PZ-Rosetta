@@ -19,6 +19,8 @@ methods:
     parameters:
       - name: owner
         type: IsoGameCharacter
+      - name: event
+        type: AnimEvent
   - name: calculateTargetLocation
     modifiers:
       - public
@@ -27,21 +29,32 @@ methods:
     parameters:
       - name: zomb
         type: IsoZombie
+      - name: location
+        type: Vector2
   - name: enter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: execute
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: exit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
   - name: instance
     modifiers:
       - public
@@ -53,6 +66,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
     notes: |-
       Return TRUE if the owner is currently moving.
        Defaults to FALSE

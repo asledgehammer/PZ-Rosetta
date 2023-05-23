@@ -21,9 +21,11 @@ constructors:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: ClimateColorInfo
     modifiers:
       - public
@@ -31,17 +33,19 @@ constructors:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: a
-        type: " float"
+        type: float
       - name: r2
-        type: " float"
+        type: float
       - name: g2
-        type: " float"
+        type: float
       - name: b2
-        type: " float"
+        type: float
+      - name: a2
+        type: float
 methods:
   - name: getExterior
     modifiers:
@@ -62,7 +66,9 @@ methods:
       - name: to
         type: ClimateColorInfo
       - name: t
-        type: " float"
+        type: float
+      - name: result
+        type: ClimateColorInfo
   - name: interp
     modifiers:
       - public
@@ -73,9 +79,11 @@ methods:
       - name: source
         type: ClimateColorInfo
       - name: target
-        type: " ClimateColorInfo"
+        type: ClimateColorInfo
       - name: t
-        type: " float"
+        type: float
+      - name: resultColorInfo
+        type: ClimateColorInfo
   - name: load
     modifiers:
       - public
@@ -84,26 +92,40 @@ methods:
     parameters:
       - name: input
         type: DataInputStream
+      - name: worldVersion
+        type: int
   - name: read
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: DataOutputStream
   - name: scale
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: val
+        type: float
   - name: setExterior
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: Color
   - name: setExterior
     modifiers:
       - public
@@ -113,14 +135,19 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setInterior
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: Color
   - name: setInterior
     modifiers:
       - public
@@ -130,19 +157,27 @@ methods:
       - name: r
         type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
+      - name: a
+        type: float
   - name: setTo
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: ClimateColorInfo
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: writeColorInfoConfig
     modifiers:
       - public

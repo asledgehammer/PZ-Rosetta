@@ -75,7 +75,9 @@ methods:
       - name: obj
         type: IsoWindow
       - name: dot
-        type: " float"
+        type: float
+      - name: distSq
+        type: float
   - name: init
     modifiers:
       - public
@@ -85,13 +87,15 @@ methods:
       - name: obj
         type: IsoMovingObject
       - name: dot
-        type: " float"
+        type: float
       - name: distSq
-        type: " float"
+        type: float
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
+      - name: z
+        type: float
   - name: parse
     modifiers:
       - public
@@ -100,8 +104,13 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

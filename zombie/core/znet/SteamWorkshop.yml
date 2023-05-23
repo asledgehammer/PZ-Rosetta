@@ -26,11 +26,16 @@ methods:
     parameters:
       - name: itemIDs
         type: long[]
+      - name: callback
+        type: ISteamWorkshopCallback
   - name: CreateWorkshopItem
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: SteamWorkshopItem
   - name: DownloadItem
     modifiers:
       - public
@@ -40,12 +45,17 @@ methods:
       - name: itemID
         type: long
       - name: bHighPriority
-        type: " boolean"
+        type: boolean
+      - name: callback
+        type: ISteamWorkshopCallback
   - name: getIDFromItemInstallFolder
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: dir
+        type: String
   - name: GetInstalledItemFolders
     modifiers:
       - public
@@ -60,26 +70,40 @@ methods:
     parameters:
       - name: itemID
         type: long
+      - name: progress
+        type: long[]
   - name: GetItemInstallFolder
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: itemID
+        type: long
   - name: GetItemInstallTimeStamp
     modifiers:
       - public
     return:
       type: long
+    parameters:
+      - name: itemID
+        type: long
   - name: GetItemState
     modifiers:
       - public
     return:
       type: long
+    parameters:
+      - name: itemID
+        type: long
   - name: GetItemUpdateProgress
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: progress
+        type: long[]
   - name: GetQueryUGCChildren
     modifiers:
       - public
@@ -88,6 +112,8 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: index
+        type: int
   - name: GetQueryUGCResult
     modifiers:
       - public
@@ -96,6 +122,8 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: index
+        type: int
   - name: getStageFolders
     modifiers:
       - public
@@ -127,16 +155,24 @@ methods:
     parameters:
       - name: itemID
         type: long
+      - name: bUserNeedsToAcceptWorkshopLegalAgreement
+        type: boolean
   - name: onItemDownloaded
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemID
+        type: long
   - name: onItemNotCreated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: result
+        type: int
   - name: onItemNotDownloaded
     modifiers:
       - public
@@ -145,6 +181,8 @@ methods:
     parameters:
       - name: itemID
         type: long
+      - name: result
+        type: int
   - name: onItemNotSubscribed
     modifiers:
       - public
@@ -153,11 +191,16 @@ methods:
     parameters:
       - name: itemID
         type: long
+      - name: result
+        type: int
   - name: onItemNotUpdated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: result
+        type: int
   - name: onItemQueryCompleted
     modifiers:
       - public
@@ -166,6 +209,8 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: numResults
+        type: int
   - name: onItemQueryNotCompleted
     modifiers:
       - public
@@ -174,26 +219,40 @@ methods:
     parameters:
       - name: handle
         type: long
+      - name: result
+        type: int
   - name: onItemSubscribed
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: itemID
+        type: long
   - name: onItemUpdated
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bUserNeedsToAcceptWorkshopLegalAgreement
+        type: boolean
   - name: ReleaseQueryUGCRequest
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: handle
+        type: long
   - name: RemoveCallback
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: callback
+        type: ISteamWorkshopCallback
   - name: shutdown
     modifiers:
       - public
@@ -205,6 +264,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: SteamWorkshopItem
   - name: SubscribeItem
     modifiers:
       - public
@@ -213,3 +275,5 @@ methods:
     parameters:
       - name: itemID
         type: long
+      - name: callback
+        type: ISteamWorkshopCallback

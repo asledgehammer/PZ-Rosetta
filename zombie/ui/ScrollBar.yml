@@ -38,13 +38,15 @@ constructors:
       - name: name
         type: String
       - name: messages
-        type: " UIEventHandler"
+        type: UIEventHandler
       - name: x_pos
-        type: " int"
+        type: int
       - name: y_pos
-        type: " int"
+        type: int
       - name: Length
-        type: " int"
+        type: int
+      - name: IsVertical
+        type: boolean
 methods:
   - name: onMouseDown
     modifiers:
@@ -54,6 +56,8 @@ methods:
     parameters:
       - name: x
         type: double
+      - name: y
+        type: double
   - name: onMouseMove
     modifiers:
       - public
@@ -61,6 +65,8 @@ methods:
       type: Boolean
     parameters:
       - name: dx
+        type: double
+      - name: dy
         type: double
   - name: onMouseMoveOutside
     modifiers:
@@ -70,6 +76,8 @@ methods:
     parameters:
       - name: dx
         type: double
+      - name: dy
+        type: double
   - name: onMouseUp
     modifiers:
       - public
@@ -77,6 +85,8 @@ methods:
       type: Boolean
     parameters:
       - name: x
+        type: double
+      - name: y
         type: double
   - name: render
     modifiers:
@@ -93,11 +103,18 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: height
+        type: double
+        notes: the height to set
   - name: SetParentTextBox
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Parent
+        type: UITextBox2
   - name: update
     modifiers:
       - public

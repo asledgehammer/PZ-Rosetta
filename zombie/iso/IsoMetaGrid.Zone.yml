@@ -143,21 +143,26 @@ constructors:
       - name: name
         type: String
       - name: type
-        type: " String"
+        type: String
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
 methods:
   - name: addSquare
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: contains
     modifiers:
       - public
@@ -167,7 +172,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: difference
     modifiers:
       - public
@@ -177,13 +184,16 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
       - name: h
-        type: " int"
+        type: int
+      - name: result
+        type: ArrayList
+        generic: ArrayList<IsoMetaGrid.Zone>
   - name: Dispose
     modifiers:
       - public
@@ -198,11 +208,13 @@ methods:
       - name: clipX1
         type: int
       - name: clipY1
-        type: " int"
+        type: int
       - name: clipX2
-        type: " int"
+        type: int
       - name: clipY2
-        type: " int"
+        type: int
+      - name: t1t2
+        type: double[]
   - name: getHeight
     modifiers:
       - public
@@ -308,11 +320,13 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
       - name: w
-        type: " int"
+        type: int
+      - name: h
+        type: int
   - name: isPoint
     modifiers:
       - public
@@ -338,11 +352,17 @@ methods:
       - public
     return:
       type: IsoGameCharacter.Location
+    parameters:
+      - name: location
+        type: IsoGameCharacter.Location
   - name: removeSquare
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: sendToServer
     modifiers:
       - public
@@ -353,11 +373,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: h
+        type: int
   - name: setHaveConstruction
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: have
+        type: boolean
   - name: setHourSeenToCurrent
     modifiers:
       - public
@@ -368,43 +394,70 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: lastActionTimestamp
+        type: int
   - name: setName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
   - name: setOriginalName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: originalName
+        type: String
   - name: setPickedXForZoneStory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pickedXForZoneStory
+        type: int
   - name: setPickedYForZoneStory
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: pickedYForZoneStory
+        type: int
   - name: setType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: setW
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: w
+        type: int
   - name: setX
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: x
+        type: int
   - name: setY
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: y
+        type: int

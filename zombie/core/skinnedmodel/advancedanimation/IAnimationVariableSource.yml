@@ -8,6 +8,9 @@ methods:
   - name: containsVariable
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: getGameVariables
     return:
       type: Iterable
@@ -16,14 +19,23 @@ methods:
   - name: getVariable
     return:
       type: IAnimationVariableSlot
+    parameters:
+      - name: handle
+        type: AnimationVariableHandle
     notes: Returns the specified variable slot. Or NULL if not found.
   - name: getVariable
     return:
       type: IAnimationVariableSlot
+    parameters:
+      - name: key
+        type: String
     notes: Returns the specified variable slot. Or NULL if not found.
   - name: getVariableBoolean
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
     notes: |-
       Returns the specified variable, as a boolean.
         Attempts to convert the string variable to a boolean.
@@ -34,6 +46,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: defaultVal
+        type: boolean
     notes: |-
       Returns the specified variable, as a boolean.
        Attempts to convert the string variable to a boolean.
@@ -44,6 +58,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: defaultVal
+        type: float
     notes: |-
       Returns the specified variable, as a float.
         Attempts to convert the string variable to a float.
@@ -51,12 +67,17 @@ methods:
   - name: getVariableString
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
     notes: Returns the specified variable. Or an empty string "" if not found.
   - name: isVariable
     return:
       type: boolean
     parameters:
       - name: name
+        type: String
+      - name: val
         type: String
     notes: |-
       Compares (ignoring case) the value of the specified variable.

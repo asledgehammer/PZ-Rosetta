@@ -78,11 +78,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: fileName
+        type: String
   - name: addImages
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: directory
+        type: String
   - name: clearData
     modifiers:
       - public
@@ -101,11 +107,16 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: getDataByIndex
     modifiers:
       - public
     return:
       type: WorldMapData
+    parameters:
+      - name: index
+        type: int
   - name: getDataCount
     modifiers:
       - public
@@ -146,6 +157,9 @@ methods:
       - public
     return:
       type: WorldMapImages
+    parameters:
+      - name: index
+        type: int
   - name: getImagesCount
     modifiers:
       - public
@@ -216,6 +230,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: data
+        type: WorldMapData
   - name: onStateChanged
     modifiers:
       - public
@@ -225,7 +242,9 @@ methods:
       - name: oldState
         type: Asset.State
       - name: newState
-        type: " Asset.State"
+        type: Asset.State
+      - name: asset
+        type: Asset
   - name: Reset
     modifiers:
       - public
@@ -251,9 +270,11 @@ methods:
       - name: minX
         type: int
       - name: minY
-        type: " int"
+        type: int
       - name: maxX
-        type: " int"
+        type: int
+      - name: maxY
+        type: int
   - name: setBoundsInSquares
     modifiers:
       - public
@@ -263,6 +284,8 @@ methods:
       - name: minX
         type: int
       - name: minY
-        type: " int"
+        type: int
       - name: maxX
-        type: " int"
+        type: int
+      - name: maxY
+        type: int

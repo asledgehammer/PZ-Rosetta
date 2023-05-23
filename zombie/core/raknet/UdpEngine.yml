@@ -26,11 +26,13 @@ constructors:
       - name: port
         type: int
       - name: UDPPort
-        type: " int"
+        type: int
       - name: maxConnections
-        type: " int"
+        type: int
       - name: serverPassword
-        type: " String"
+        type: String
+      - name: bListen
+        type: boolean
 methods:
   - name: Connect
     modifiers:
@@ -41,7 +43,9 @@ methods:
       - name: hostname
         type: String
       - name: port
-        type: " int"
+        type: int
+      - name: serverPassword
+        type: String
   - name: connected
     modifiers:
       - public
@@ -52,6 +56,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: packetType
+        type: PacketTypes.PacketType
   - name: endPacketBroadcastExcept
     modifiers:
       - public
@@ -61,7 +68,9 @@ methods:
       - name: priority
         type: int
       - name: reliability
-        type: " int"
+        type: int
+      - name: connection
+        type: UdpConnection
   - name: forceDisconnect
     modifiers:
       - public
@@ -70,21 +79,32 @@ methods:
     parameters:
       - name: connectedGUID
         type: long
+      - name: message
+        type: String
   - name: getActiveConnection
     modifiers:
       - public
     return:
       type: UdpConnection
+    parameters:
+      - name: connection
+        type: long
   - name: getClientOwnerSteamID
     modifiers:
       - public
     return:
       type: long
+    parameters:
+      - name: guid
+        type: long
   - name: getClientSteamID
     modifiers:
       - public
     return:
       type: long
+    parameters:
+      - name: guid
+        type: long
   - name: getDescription
     modifiers:
       - public
@@ -110,6 +130,9 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: password
+        type: String
   - name: Receive
     modifiers:
       - public
@@ -120,6 +143,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: password
+        type: String
   - name: Shutdown
     modifiers:
       - public

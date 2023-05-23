@@ -9,6 +9,9 @@ constructors:
   - name: IsoTelevision
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoTelevision
     modifiers:
       - public
@@ -16,13 +19,18 @@ constructors:
       - name: cell
         type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: spr
+        type: IsoSprite
 methods:
   - name: addTvScreenSprite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
   - name: clearTvScreenSprites
     modifiers:
       - public
@@ -38,6 +46,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: load
     modifiers:
       - public
@@ -47,12 +58,17 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: removeTvScreenSprite
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sprite
+        type: IsoSprite
   - name: renderlast
     modifiers:
       - public
@@ -66,6 +82,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: update
     modifiers:
       - public

@@ -12,6 +12,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: listener
+        type: IShaderProgramListener
   - name: addShader
     modifiers:
       - public
@@ -20,6 +23,8 @@ methods:
     parameters:
       - name: fileName
         type: String
+      - name: unitType
+        type: ShaderUnit.Type
   - name: compile
     modifiers:
       - public
@@ -32,6 +37,9 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: fileName
+        type: String
     notes: |-
       Creates a fragment shader unit.
        Deprecated: Use ShaderProgram.createShaderProgram instead.
@@ -48,7 +56,9 @@ methods:
         type: String
         notes: The program name.
       - name: isStatic
-        type: " boolean"
+        type: boolean
+      - name: compile
+        type: boolean
     notes: >-
       createShaderProgram
        Creates and Compiles a Shader Program, using the specified program name.
@@ -59,6 +69,9 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: fileName
+        type: String
     notes: |-
       Creates a vertex shader unit.
        Deprecated: Use ShaderProgram.createShaderProgram instead.
@@ -78,6 +91,9 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: obj
+        type: int
   - name: getName
     modifiers:
       - public
@@ -97,6 +113,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: type
+        type: int
   - name: getUniform
     modifiers:
       - public
@@ -106,7 +124,9 @@ methods:
       - name: loc
         type: String
       - name: type
-        type: " int"
+        type: int
+      - name: bWarn
+        type: boolean
   - name: isCompiled
     modifiers:
       - public
@@ -118,11 +138,17 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: obj
+        type: int
   - name: removeCompileListener
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: listener
+        type: IShaderProgramListener
   - name: setSamplerUnit
     modifiers:
       - public
@@ -131,6 +157,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: textureUnit
+        type: int
   - name: setValue
     modifiers:
       - public
@@ -139,6 +167,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: val
+        type: float
   - name: setValue
     modifiers:
       - public
@@ -147,6 +177,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: val
+        type: int
   - name: setValue
     modifiers:
       - public
@@ -155,6 +187,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: val
+        type: Vector3
   - name: setValue
     modifiers:
       - public
@@ -163,6 +197,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: val
+        type: Vector2
   - name: setValue
     modifiers:
       - public
@@ -171,6 +207,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: matrix4f
+        type: org.lwjgl.util.vector.Matrix4f
   - name: setValue
     modifiers:
       - public
@@ -180,7 +218,9 @@ methods:
       - name: loc
         type: String
       - name: tex
-        type: " Texture"
+        type: Texture
+      - name: samplerUnit
+        type: int
   - name: setValueColor
     modifiers:
       - public
@@ -189,6 +229,8 @@ methods:
     parameters:
       - name: loc
         type: String
+      - name: rgba
+        type: int
   - name: setValueColorRGB
     modifiers:
       - public
@@ -197,27 +239,9 @@ methods:
     parameters:
       - name: loc
         type: String
-  - name: setVector2
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: loc
-        type: String
-      - name: val_x
-        type: " float"
-  - name: setVector2
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: id
+      - name: rgb
         type: int
-      - name: x
-        type: " float"
-  - name: setVector3
+  - name: setVector2
     modifiers:
       - public
     return:
@@ -226,10 +250,10 @@ methods:
       - name: loc
         type: String
       - name: val_x
-        type: " float"
+        type: float
       - name: val_y
-        type: " float"
-  - name: setVector3
+        type: float
+  - name: setVector2
     modifiers:
       - public
     return:
@@ -238,10 +262,10 @@ methods:
       - name: id
         type: int
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
-  - name: setVector4
+        type: float
+  - name: setVector3
     modifiers:
       - public
     return:
@@ -250,11 +274,41 @@ methods:
       - name: loc
         type: String
       - name: val_x
-        type: " float"
+        type: float
       - name: val_y
-        type: " float"
+        type: float
       - name: val_z
-        type: " float"
+        type: float
+  - name: setVector3
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: id
+        type: int
+      - name: x
+        type: float
+      - name: y
+        type: float
+      - name: z
+        type: float
+  - name: setVector4
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: loc
+        type: String
+      - name: val_x
+        type: float
+      - name: val_y
+        type: float
+      - name: val_z
+        type: float
+      - name: val_w
+        type: float
   - name: setVector4
     modifiers:
       - public
@@ -264,11 +318,13 @@ methods:
       - name: id
         type: int
       - name: x
-        type: " float"
+        type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: w
+        type: float
   - name: Start
     modifiers:
       - public

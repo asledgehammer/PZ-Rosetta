@@ -10,6 +10,9 @@ constructors:
   - name: IsoWaveSignal
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
   - name: IsoWaveSignal
     modifiers:
       - public
@@ -17,7 +20,9 @@ constructors:
       - name: cell
         type: IsoCell
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
+      - name: spr
+        type: IsoSprite
 methods:
   - name: AddDeviceText
     modifiers:
@@ -28,53 +33,17 @@ methods:
       - name: line
         type: String
       - name: r
-        type: " float"
+        type: float
       - name: g
-        type: " float"
+        type: float
       - name: b
-        type: " float"
+        type: float
       - name: guid
-        type: " String"
-      - name: codes
-        type: " String"
-  - name: AddDeviceText
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: line
         type: String
-      - name: r
-        type: " int"
-      - name: g
-        type: " int"
-      - name: b
-        type: " int"
-      - name: guid
-        type: " String"
       - name: codes
-        type: " String"
-  - name: AddDeviceText
-    modifiers:
-      - public
-    return:
-      type: void
-    parameters:
-      - name: line
         type: String
-      - name: r
-        type: " int"
-      - name: g
-        type: " int"
-      - name: b
-        type: " int"
-      - name: guid
-        type: " String"
-      - name: codes
-        type: " String"
       - name: distance
-        type: " int"
+        type: int
   - name: AddDeviceText
     modifiers:
       - public
@@ -84,17 +53,61 @@ methods:
       - name: line
         type: String
       - name: r
-        type: " float"
+        type: int
       - name: g
-        type: " float"
+        type: int
       - name: b
-        type: " float"
+        type: int
       - name: guid
-        type: " String"
+        type: String
       - name: codes
-        type: " String"
+        type: String
       - name: distance
-        type: " int"
+        type: int
+  - name: AddDeviceText
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: line
+        type: String
+      - name: r
+        type: int
+      - name: g
+        type: int
+      - name: b
+        type: int
+      - name: guid
+        type: String
+      - name: codes
+        type: String
+      - name: distance
+        type: int
+      - name: attractZombies
+        type: boolean
+  - name: AddDeviceText
+    modifiers:
+      - public
+    return:
+      type: void
+    parameters:
+      - name: line
+        type: String
+      - name: r
+        type: float
+      - name: g
+        type: float
+      - name: b
+        type: float
+      - name: guid
+        type: String
+      - name: codes
+        type: String
+      - name: distance
+        type: int
+      - name: attractZombies
+        type: boolean
   - name: addToWorld
     modifiers:
       - public
@@ -105,6 +118,9 @@ methods:
       - public
     return:
       type: DeviceData
+    parameters:
+      - name: itemfull
+        type: String
   - name: getChatElement
     modifiers:
       - public
@@ -154,12 +170,17 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: loadState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: removeFromSquare
     modifiers:
       - public
@@ -194,31 +215,48 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: saveState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: Say
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: line
+        type: String
   - name: setDelta
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: delta
+        type: float
   - name: setDeviceData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: data
+        type: DeviceData
   - name: setTalkerType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
   - name: update
     modifiers:
       - public

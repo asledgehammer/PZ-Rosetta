@@ -10,6 +10,9 @@ constructors:
   - name: ActiveMods
     modifiers:
       - public
+    parameters:
+      - name: id
+        type: String
 methods:
   - name: checkMissingMaps
     modifiers:
@@ -31,18 +34,27 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: ActiveMods
   - name: getById
     modifiers:
       - public
       - static
     return:
       type: ActiveMods
+    parameters:
+      - name: id
+        type: String
   - name: getByIndex
     modifiers:
       - public
       - static
     return:
       type: ActiveMods
+    parameters:
+      - name: index
+        type: int
   - name: getMapOrder
     modifiers:
       - public
@@ -61,21 +73,33 @@ methods:
       - static
     return:
       type: int
+    parameters:
+      - name: id
+        type: String
   - name: isModActive
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: modID
+        type: String
   - name: removeMapOrder
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: folder
+        type: String
   - name: removeMod
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: modID
+        type: String
   - name: renderUI
     modifiers:
       - public
@@ -88,6 +112,9 @@ methods:
       - static
     return:
       type: boolean
+    parameters:
+      - name: activeMods
+        type: ActiveMods
   - name: Reset
     modifiers:
       - public
@@ -100,6 +127,9 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: activeMods
+        type: ActiveMods
   - name: setModActive
     modifiers:
       - public
@@ -108,3 +138,5 @@ methods:
     parameters:
       - name: modID
         type: String
+      - name: active
+        type: boolean

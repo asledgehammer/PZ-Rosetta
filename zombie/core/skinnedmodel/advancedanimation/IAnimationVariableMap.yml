@@ -9,18 +9,27 @@ methods:
   - name: clearVariable
     return:
       type: void
+    parameters:
+      - name: key
+        type: String
   - name: clearVariables
     return:
       type: void
   - name: getOrCreateVariable
     return:
       type: IAnimationVariableSlot
+    parameters:
+      - name: key
+        type: String
     notes: |-
       Returns the specified variable slot.
         Creates a new slot if not found.
   - name: setVariable
     return:
       type: void
+    parameters:
+      - name: slot
+        type: IAnimationVariableSlot
     notes: Set the specified animation variable slot. Overwriting an existing slot
       if necessary.
   - name: setVariable
@@ -29,11 +38,7 @@ methods:
     parameters:
       - name: key
         type: String
-  - name: setVariable
-    return:
-      type: void
-    parameters:
-      - name: key
+      - name: value
         type: String
   - name: setVariable
     return:
@@ -41,3 +46,13 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: boolean
+  - name: setVariable
+    return:
+      type: void
+    parameters:
+      - name: key
+        type: String
+      - name: value
+        type: float

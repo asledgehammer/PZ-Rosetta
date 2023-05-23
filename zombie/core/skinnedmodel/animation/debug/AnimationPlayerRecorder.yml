@@ -11,12 +11,18 @@ constructors:
   - name: AnimationPlayerRecorder
     modifiers:
       - public
+    parameters:
+      - name: owner
+        type: IsoGameCharacter
 methods:
   - name: beginLine
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: frameNo
+        type: int
   - name: discardRecording
     modifiers:
       - public
@@ -45,6 +51,9 @@ methods:
     parameters:
       - name: state
         type: ActionState
+      - name: childStates
+        type: List
+        generic: List<ActionState>
   - name: logAIState
     modifiers:
       - public
@@ -53,16 +62,25 @@ methods:
     parameters:
       - name: state
         type: State
+      - name: subStates
+        type: List
+        generic: List<StateMachine.SubstateSlot>
   - name: logAnimNode
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: liveNode
+        type: LiveAnimNode
   - name: logAnimState
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: state
+        type: AnimState
   - name: logAnimWeights
     modifiers:
       - public
@@ -73,9 +91,11 @@ methods:
         type: List
         generic: List<AnimationTrack>
       - name: animBlendIndices
-        type: " int[]"
+        type: int[]
       - name: animBlendWeights
-        type: " float[]"
+        type: float[]
+      - name: deferredMovement
+        type: Vector2
   - name: logCharacterPos
     modifiers:
       - public
@@ -86,6 +106,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: varSource
+        type: IAnimationVariableSource
   - name: openFileStream
     modifiers:
       - public
@@ -96,9 +119,15 @@ methods:
       - name: key
         type: String
       - name: append
-        type: " boolean"
+        type: boolean
+      - name: fileNameConsumer
+        type: Consumer
+        generic: Consumer<String>
   - name: setRecording
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: value
+        type: boolean

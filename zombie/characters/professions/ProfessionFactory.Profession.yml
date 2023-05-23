@@ -57,17 +57,22 @@ constructors:
       - name: type
         type: String
       - name: name
-        type: " String"
+        type: String
       - name: IconPathname
-        type: " String"
+        type: String
       - name: cost
-        type: " int"
+        type: int
+      - name: desc
+        type: String
 methods:
   - name: addFreeTrait
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: trait
+        type: String
   - name: addXPBoost
     modifiers:
       - public
@@ -76,6 +81,8 @@ methods:
     parameters:
       - name: perk
         type: PerkFactory.Perk
+      - name: level
+        type: int
   - name: getCost
     modifiers:
       - public
@@ -155,33 +162,62 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: cost
+        type: int
+        notes: the cost to set
   - name: setDescription
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: description
+        type: String
+        notes: the description to set
   - name: setFreeRecipes
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: freeRecipes
+        type: List
+        generic: List<String>
   - name: setFreeTraitStack
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: FreeTraitStack
+        type: Stack
+        generic: Stack<String>
+        notes: the FreeTraitStack to set
   - name: setIconPath
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: IconPath
+        type: String
+        notes: the IconPath to set
   - name: setName
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: name
+        type: String
+        notes: the name to set
   - name: setType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: String
+        notes: the type to set

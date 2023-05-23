@@ -49,14 +49,19 @@ constructors:
       - name: item
         type: InventoryItem
       - name: sq
-        type: " IsoGridSquare"
+        type: IsoGridSquare
       - name: xoff
-        type: " float"
+        type: float
       - name: yoff
-        type: " float"
+        type: float
+      - name: zoff
+        type: float
   - name: IsoWorldInventoryObject
     modifiers:
       - public
+    parameters:
+      - name: cell
+        type: IsoCell
 methods:
   - name: addToWorld
     modifiers:
@@ -68,6 +73,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: tooltipUI
+        type: ObjectTooltip
   - name: finishupdate
     modifiers:
       - public
@@ -88,11 +96,17 @@ methods:
       - public
     return:
       type: float
+    parameters:
+      - name: playerIndex
+        type: int
   - name: getScreenPosY
     modifiers:
       - public
     return:
       type: float
+    parameters:
+      - name: playerIndex
+        type: int
   - name: getSurfaceAlpha
     modifiers:
       - public
@@ -102,6 +116,8 @@ methods:
     parameters:
       - name: square
         type: IsoGridSquare
+      - name: zoff
+        type: float
   - name: getWaterAmount
     modifiers:
       - public
@@ -151,7 +167,9 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: loadChange
     modifiers:
       - public
@@ -160,6 +178,8 @@ methods:
     parameters:
       - name: change
         type: String
+      - name: bb
+        type: ByteBuffer
   - name: onMouseLeftClick
     modifiers:
       - public
@@ -167,6 +187,8 @@ methods:
       type: boolean
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: removeFromSquare
     modifiers:
@@ -187,15 +209,17 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
       - name: col
-        type: " ColorInfo"
+        type: ColorInfo
       - name: bDoChild
-        type: " boolean"
+        type: boolean
       - name: bWallLightingPass
-        type: " boolean"
+        type: boolean
+      - name: shader
+        type: Shader
   - name: renderObjectPicker
     modifiers:
       - public
@@ -205,9 +229,11 @@ methods:
       - name: x
         type: float
       - name: y
-        type: " float"
+        type: float
       - name: z
-        type: " float"
+        type: float
+      - name: lightInfo
+        type: ColorInfo
   - name: save
     modifiers:
       - public
@@ -216,6 +242,8 @@ methods:
     parameters:
       - name: output
         type: ByteBuffer
+      - name: IS_DEBUG_SAVE
+        type: boolean
   - name: saveChange
     modifiers:
       - public
@@ -225,7 +253,9 @@ methods:
       - name: change
         type: String
       - name: tbl
-        type: " se.krka.kahlua.vm.KahluaTable"
+        type: se.krka.kahlua.vm.KahluaTable
+      - name: bb
+        type: ByteBuffer
   - name: Serialize
     modifiers:
       - public
@@ -236,16 +266,25 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setTaintedWater
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tainted
+        type: boolean
   - name: setWaterAmount
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: units
+        type: int
   - name: softReset
     modifiers:
       - public
@@ -256,6 +295,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: newItem
+        type: InventoryItem
   - name: update
     modifiers:
       - public

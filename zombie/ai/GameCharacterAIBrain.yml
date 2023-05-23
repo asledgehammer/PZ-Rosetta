@@ -95,6 +95,9 @@ constructors:
   - name: GameCharacterAIBrain
     modifiers:
       - public
+    parameters:
+      - name: character
+        type: IsoGameCharacter
 methods:
   - name: AddBlockedMemory
     modifiers:
@@ -105,7 +108,9 @@ methods:
       - name: ttx
         type: int
       - name: tty
-        type: " int"
+        type: int
+      - name: ttz
+        type: int
   - name: getCharacter
     modifiers:
       - public
@@ -121,12 +126,18 @@ methods:
       - public
     return:
       type: IsoZombie
+    parameters:
+      - name: recurse
+        type: boolean
   - name: getClosestChasingZombies
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<IsoZombie>
+    parameters:
+      - name: num
+        type: int
   - name: getCloseZombieCount
     modifiers:
       - public
@@ -151,18 +162,23 @@ methods:
       - name: lx
         type: int
       - name: ly
-        type: " int"
+        type: int
       - name: lz
-        type: " int"
+        type: int
       - name: x
-        type: " int"
+        type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: postUpdateHuman
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: isoPlayer
+        type: IsoPlayer
   - name: renderlast
     modifiers:
       - public
@@ -173,6 +189,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: order
+        type: String
   - name: update
     modifiers:
       - public

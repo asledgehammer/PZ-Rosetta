@@ -36,6 +36,10 @@ methods:
       - public
     return:
       type: Texture
+    parameters:
+      - name: cmdList
+        type: ArrayList
+        generic: ArrayList<TextureCombinerCommand>
   - name: combine
     modifiers:
       - public
@@ -43,6 +47,8 @@ methods:
       type: Texture
     parameters:
       - name: tex1
+        type: Texture
+      - name: tex2
         type: Texture
   - name: combineEnd
     modifiers:
@@ -64,19 +70,29 @@ methods:
       - name: imgPixels
         type: int[]
       - name: imgw
-        type: " int"
+        type: int
+      - name: imgh
+        type: int
   - name: getResultingHeight
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: cmdList
+        type: ArrayList
+        generic: ArrayList<TextureCombinerCommand>
   - name: getResultingWidth
     modifiers:
       - public
       - static
     return:
       type: int
+    parameters:
+      - name: cmdList
+        type: ArrayList
+        generic: ArrayList<TextureCombinerCommand>
   - name: init
     modifiers:
       - public
@@ -87,8 +103,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: tex2
+        type: Texture
   - name: releaseTexture
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: tex
+        type: Texture

@@ -10,9 +10,15 @@ constructors:
   - name: AttachedItems
     modifiers:
       - public
+    parameters:
+      - name: group
+        type: AttachedLocationGroup
   - name: AttachedItems
     modifiers:
       - public
+    parameters:
+      - name: other
+        type: AttachedItems
 methods:
   - name: clear
     modifiers:
@@ -24,21 +30,34 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: copyFrom
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: other
+        type: AttachedItems
   - name: forEach
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: c
+        type: Consumer
+        generic: Consumer<AttachedItem>
   - name: get
     modifiers:
       - public
     return:
       type: AttachedItem
+    parameters:
+      - name: index
+        type: int
   - name: getGroup
     modifiers:
       - public
@@ -49,16 +68,25 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: location
+        type: String
   - name: getItemByIndex
     modifiers:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: index
+        type: int
   - name: getLocation
     modifiers:
       - public
     return:
       type: String
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: isEmpty
     modifiers:
       - public
@@ -69,6 +97,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: item
+        type: InventoryItem
   - name: setItem
     modifiers:
       - public
@@ -77,6 +108,8 @@ methods:
     parameters:
       - name: location
         type: String
+      - name: item
+        type: InventoryItem
   - name: size
     modifiers:
       - public

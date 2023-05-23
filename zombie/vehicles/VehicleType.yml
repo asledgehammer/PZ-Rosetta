@@ -90,6 +90,9 @@ constructors:
   - name: VehicleType
     modifiers:
       - public
+    parameters:
+      - name: name
+        type: String
 methods:
   - name: getBaseVehicleQuality
     modifiers:
@@ -112,6 +115,9 @@ methods:
       - static
     return:
       type: VehicleType
+    parameters:
+      - name: zoneName
+        type: String
   - name: getRandomVehicleType
     modifiers:
       - public
@@ -121,18 +127,26 @@ methods:
     parameters:
       - name: zoneName
         type: String
+      - name: doNormalWhenSpecific
+        type: Boolean
   - name: getTypeFromName
     modifiers:
       - public
       - static
     return:
       type: VehicleType
+    parameters:
+      - name: name
+        type: String
   - name: hasTypeForZone
     modifiers:
       - public
       - static
     return:
       type: boolean
+    parameters:
+      - name: zoneName
+        type: String
   - name: init
     modifiers:
       - public
@@ -150,3 +164,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chanceToSpawnKey
+        type: int

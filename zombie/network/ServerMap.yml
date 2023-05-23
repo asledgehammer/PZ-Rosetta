@@ -93,6 +93,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: p
+        type: IsoPlayer
   - name: characterIn
     modifiers:
       - public
@@ -102,12 +105,17 @@ methods:
       - name: wx
         type: int
       - name: wy
-        type: " int"
+        type: int
+      - name: chunkGridWidth
+        type: int
   - name: clearSoftResetChunk
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: getCell
     modifiers:
       - public
@@ -116,6 +124,8 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: getChunk
     modifiers:
       - public
@@ -123,6 +133,8 @@ methods:
       type: IsoChunk
     parameters:
       - name: wx
+        type: int
+      - name: wy
         type: int
   - name: getGridSquare
     modifiers:
@@ -133,7 +145,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getMaxX
     modifiers:
       - public
@@ -159,6 +173,9 @@ methods:
       - public
     return:
       type: Vector3
+    parameters:
+      - name: r
+        type: ServerWorldDatabase.LogonResult
   - name: getUniqueZombieId
     modifiers:
       - public
@@ -169,6 +186,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: metaGrid
+        type: IsoMetaGrid
   - name: isInLoaded
     modifiers:
       - public
@@ -176,6 +196,8 @@ methods:
       type: boolean
     parameters:
       - name: x
+        type: float
+      - name: y
         type: float
   - name: isValidCell
     modifiers:
@@ -185,6 +207,8 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: loadMapChunk
     modifiers:
       - public
@@ -192,6 +216,8 @@ methods:
       type: void
     parameters:
       - name: ix
+        type: int
+      - name: iy
         type: int
   - name: loadOrKeepRelevent
     modifiers:
@@ -201,6 +227,8 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: physicsCheck
     modifiers:
       - public
@@ -208,6 +236,8 @@ methods:
       type: void
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: postupdate
     modifiers:
@@ -239,6 +269,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: playerOID
+        type: short
   - name: setGridSquare
     modifiers:
       - public
@@ -248,31 +281,48 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: sq
+        type: IsoGridSquare
   - name: setSoftResetChunk
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: toServerCellX
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: x
+        type: int
   - name: toServerCellY
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: y
+        type: int
   - name: toWorldCellX
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: x
+        type: int
   - name: toWorldCellY
     modifiers:
       - public
     return:
       type: int
+    parameters:
+      - name: y
+        type: int

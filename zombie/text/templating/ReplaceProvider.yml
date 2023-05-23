@@ -22,6 +22,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: value
+        type: String
   - name: addKey
     modifiers:
       - public
@@ -30,6 +32,8 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: table
+        type: se.krka.kahlua.j2se.KahluaTableImpl
   - name: addReplacer
     modifiers:
       - public
@@ -38,13 +42,21 @@ methods:
     parameters:
       - name: key
         type: String
+      - name: replace
+        type: IReplace
   - name: getReplacer
     modifiers:
       - public
     return:
       type: IReplace
+    parameters:
+      - name: key
+        type: String
   - name: hasReplacer
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: key
+        type: String

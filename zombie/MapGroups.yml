@@ -17,6 +17,9 @@ methods:
       - static
     return:
       type: String
+    parameters:
+      - name: mapName
+        type: String
   - name: checkMapConflicts
     modifiers:
       - public
@@ -35,6 +38,8 @@ methods:
     parameters:
       - name: activeMods
         type: ActiveMods
+      - name: includeVanilla
+        type: boolean
   - name: createGroups
     modifiers:
       - public
@@ -44,7 +49,9 @@ methods:
       - name: activeMods
         type: ActiveMods
       - name: includeVanilla
-        type: " boolean"
+        type: boolean
+      - name: includeChallenges
+        type: boolean
   - name: getAllMapsInOrder
     modifiers:
       - public
@@ -57,12 +64,18 @@ methods:
     return:
       type: ArrayList
       generic: ArrayList<String>
+    parameters:
+      - name: mapName
+        type: String
   - name: getMapDirectoriesInGroup
     modifiers:
       - public
     return:
       type: ArrayList
       generic: ArrayList<String>
+    parameters:
+      - name: groupIndex
+        type: int
   - name: getNumberOfGroups
     modifiers:
       - public
@@ -73,3 +86,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: groupIndex
+        type: int

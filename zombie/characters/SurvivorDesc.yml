@@ -59,9 +59,15 @@ constructors:
   - name: SurvivorDesc
     modifiers:
       - public
+    parameters:
+      - name: bNew
+        type: boolean
   - name: SurvivorDesc
     modifiers:
       - public
+    parameters:
+      - name: other
+        type: SurvivorDesc
 methods:
   - name: addHairColor
     modifiers:
@@ -69,22 +75,34 @@ methods:
       - static
     return:
       type: void
+    parameters:
+      - name: color
+        type: ColorInfo
   - name: addObservation
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: obv
+        type: String
   - name: addTrouserColor
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: color
+        type: ColorInfo
   - name: dressInNamedOutfit
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: outfitName
+        type: String
   - name: getAggressiveness
     modifiers:
       - public
@@ -178,6 +196,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: itemVisuals
+        type: ItemVisuals
   - name: getLoner
     modifiers:
       - public
@@ -199,14 +220,17 @@ methods:
     modifiers:
       - public
     return:
-      type: int
+      type: HashMap
+      generic: HashMap<Integer,Integer>
+      notes: the MetCount
   - name: getMetCount
     modifiers:
       - public
     return:
-      type: HashMap
-      generic: HashMap<Integer,Integer>
-      notes: the MetCount
+      type: int
+    parameters:
+      - name: descriptor
+        type: SurvivorDesc
   - name: getObservations
     modifiers:
       - public
@@ -253,6 +277,9 @@ methods:
       - public
     return:
       type: InventoryItem
+    parameters:
+      - name: bodyLocation
+        type: String
   - name: getWornItems
     modifiers:
       - public
@@ -269,6 +296,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: o
+        type: String
   - name: isAggressive
     modifiers:
       - public
@@ -313,123 +343,210 @@ methods:
       - name: input
         type: ByteBuffer
       - name: WorldVersion
-        type: " int"
+        type: int
+      - name: chr
+        type: IsoGameCharacter
   - name: loadCompact
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: meet
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: desc
+        type: SurvivorDesc
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: saveCompact
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setAggressiveness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: aggressiveness
+        type: float
+        notes: the aggressiveness to set
   - name: setBravery
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bravery
+        type: float
+        notes: the bravery to set
   - name: setCompassion
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: compassion
+        type: float
+        notes: the compassion to set
   - name: setFavourindoors
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: favourindoors
+        type: float
+        notes: the favourindoors to set
   - name: setFemale
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bFemale
+        type: boolean
   - name: setForename
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: forename
+        type: String
+        notes: the forename to set
   - name: setFriendliness
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: friendliness
+        type: float
+        notes: the friendliness to set
   - name: setID
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ID
+        type: int
+        notes: the ID to set
   - name: setIDCount
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: aIDCount
+        type: int
+        notes: the IDCount to set
   - name: setInstance
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Instance
+        type: IsoGameCharacter
+        notes: the Instance to set
   - name: setInventoryScript
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: InventoryScript
+        type: String
+        notes: the InventoryScript to set
   - name: setLoner
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: loner
+        type: float
+        notes: the loner to set
   - name: setLoyalty
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: loyalty
+        type: float
+        notes: the loyalty to set
   - name: setProfession
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: Profession
+        type: String
+        notes: the Profession to set
   - name: setProfessionSkills
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: profession
+        type: ProfessionFactory.Profession
   - name: setSurname
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: surname
+        type: String
+        notes: the surname to set
   - name: setTemper
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: temper
+        type: float
+        notes: the temper to set
   - name: setTorso
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: torso
+        type: String
+        notes: the torso to set
   - name: setType
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: type
+        type: SurvivorFactory.SurvivorType
   - name: setWornItem
     modifiers:
       - public
@@ -438,3 +555,5 @@ methods:
     parameters:
       - name: bodyLocation
         type: String
+      - name: item
+        type: InventoryItem

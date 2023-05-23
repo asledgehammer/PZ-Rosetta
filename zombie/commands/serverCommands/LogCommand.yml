@@ -13,9 +13,11 @@ constructors:
       - name: username
         type: String
       - name: userAccessLevel
-        type: " String"
+        type: String
       - name: command
-        type: " String"
+        type: String
+      - name: connection
+        type: UdpConnection
 methods:
   - name: getDebugType
     modifiers:
@@ -23,9 +25,15 @@ methods:
       - static
     return:
       type: DebugType
+    parameters:
+      - name: debugType
+        type: String
   - name: getLogSeverity
     modifiers:
       - public
       - static
     return:
       type: LogSeverity
+    parameters:
+      - name: logSeverity
+        type: String

@@ -12,16 +12,25 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: chunk
+        type: DataChunk
   - name: addChunkFromFile
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: addChunkFromIsoChunk
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: isoChunk
+        type: IsoChunk
   - name: canAddChunk
     modifiers:
       - public
@@ -55,6 +64,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: serverTimeStamp
+        type: long
   - name: readChunksPacket
     modifiers:
       - public
@@ -63,6 +74,9 @@ methods:
     parameters:
       - name: root
         type: DataRoot
+      - name: knownChunks
+        type: List
+        generic: List<Integer>
   - name: saveChunksToDisk
     modifiers:
       - public
@@ -73,13 +87,22 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: setNetTimeStamp
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: netTimeStamp
+        type: long
   - name: setTargetConn
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: conn
+        type: UdpConnection

@@ -64,7 +64,9 @@ constructors:
       - name: path
         type: AssetPath
       - name: manager
-        type: " AssetManager"
+        type: AssetManager
+      - name: params
+        type: TextureID.TextureIDAssetParams
   - name: TextureID
     modifiers:
       - public
@@ -72,15 +74,22 @@ constructors:
       - name: width
         type: int
       - name: height
-        type: " int"
+        type: int
+      - name: flags
+        type: int
   - name: TextureID
     modifiers:
       - public
+    parameters:
+      - name: image
+        type: ImageData
   - name: TextureID
     modifiers:
       - public
     parameters:
       - name: pcx
+        type: String
+      - name: palette
         type: String
   - name: TextureID
     modifiers:
@@ -88,6 +97,8 @@ constructors:
     parameters:
       - name: pcx
         type: String
+      - name: palette
+        type: int[]
   - name: TextureID
     modifiers:
       - public
@@ -95,12 +106,17 @@ constructors:
       - name: path
         type: String
       - name: red
-        type: " int"
+        type: int
       - name: green
-        type: " int"
+        type: int
+      - name: blue
+        type: int
   - name: TextureID
     modifiers:
       - public
+    parameters:
+      - name: path
+        type: String
   - name: TextureID
     modifiers:
       - public
@@ -108,9 +124,11 @@ constructors:
       - name: b
         type: BufferedInputStream
       - name: path
-        type: " String"
+        type: String
       - name: bDoMask
-        type: " boolean"
+        type: boolean
+      - name: format
+        type: Texture.PZFileformat
   - name: TextureID
     modifiers:
       - public
@@ -118,7 +136,9 @@ constructors:
       - name: b
         type: BufferedInputStream
       - name: path
-        type: " String"
+        type: String
+      - name: bDoMask
+        type: boolean
 methods:
   - name: bind
     modifiers:
@@ -137,6 +157,9 @@ methods:
       - static
     return:
       type: TextureID
+    parameters:
+      - name: steamID
+        type: long
   - name: destroy
     modifiers:
       - public
@@ -195,11 +218,17 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: params
+        type: AssetManager.AssetParams
   - name: setData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bdata
+        type: ByteBuffer
     notes: if the data is null will be free the memory from the RAM but not from the
       VRAM
   - name: setImageData
@@ -207,13 +236,22 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: data
+        type: ImageData
   - name: setMagFilter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: filter
+        type: int
   - name: setMinFilter
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: filter
+        type: int

@@ -28,6 +28,8 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: set
     modifiers:
       - public
@@ -37,16 +39,24 @@ methods:
       - name: wielder
         type: IsoPlayer
       - name: vehicle
-        type: " BaseVehicle"
+        type: BaseVehicle
       - name: weapon
-        type: " HandWeapon"
+        type: HandWeapon
+      - name: isCriticalHit
+        type: boolean
   - name: validate
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

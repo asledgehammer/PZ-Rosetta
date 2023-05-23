@@ -20,6 +20,9 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: parse
     modifiers:
       - public
@@ -28,6 +31,8 @@ methods:
     parameters:
       - name: b
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: process
     modifiers:
       - public
@@ -38,8 +43,14 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: vehicle
+        type: BaseVehicle
   - name: write
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: ByteBufferWriter

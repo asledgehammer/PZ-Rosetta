@@ -10,12 +10,18 @@ constructors:
   - name: GlobalObjectLookup
     modifiers:
       - public
+    parameters:
+      - name: system
+        type: GlobalObjectSystem
 methods:
   - name: addObject
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: object
+        type: GlobalObject
   - name: getObjectAt
     modifiers:
       - public
@@ -25,7 +31,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: getObjectsAdjacentTo
     modifiers:
       - public
@@ -36,9 +44,12 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: objects
+        type: ArrayList
+        generic: ArrayList<GlobalObject>
   - name: getObjectsInChunk
     modifiers:
       - public
@@ -49,7 +60,10 @@ methods:
       - name: wx
         type: int
       - name: wy
-        type: " int"
+        type: int
+      - name: objects
+        type: ArrayList
+        generic: ArrayList<GlobalObject>
   - name: hasObjectsInChunk
     modifiers:
       - public
@@ -58,17 +72,25 @@ methods:
     parameters:
       - name: wx
         type: int
+      - name: wy
+        type: int
   - name: init
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: metaGrid
+        type: IsoMetaGrid
   - name: removeObject
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: object
+        type: GlobalObject
   - name: Reset
     modifiers:
       - public

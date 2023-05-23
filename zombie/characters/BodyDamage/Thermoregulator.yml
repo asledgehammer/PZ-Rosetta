@@ -13,6 +13,9 @@ constructors:
   - name: Thermoregulator
     modifiers:
       - public
+    parameters:
+      - name: parent
+        type: BodyDamage
 methods:
   - name: getBodyFluids
     modifiers:
@@ -169,16 +172,25 @@ methods:
       - public
     return:
       type: Thermoregulator.ThermalNode
+    parameters:
+      - name: index
+        type: int
   - name: getNodeForBloodType
     modifiers:
       - public
     return:
       type: Thermoregulator.ThermalNode
+    parameters:
+      - name: type
+        type: BloodBodyPartType
   - name: getNodeForType
     modifiers:
       - public
     return:
       type: Thermoregulator.ThermalNode
+    parameters:
+      - name: type
+        type: BodyPartType
   - name: getNodeSize
     modifiers:
       - public
@@ -245,6 +257,8 @@ methods:
     parameters:
       - name: input
         type: ByteBuffer
+      - name: WorldVersion
+        type: int
   - name: reset
     modifiers:
       - public
@@ -255,22 +269,34 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer
   - name: setMetabolicTarget
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: meta
+        type: Metabolics
   - name: setMetabolicTarget
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: target
+        type: float
   - name: setSimulationMultiplier
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: multiplier
+        type: float
   - name: thermalChevronCount
     modifiers:
       - public

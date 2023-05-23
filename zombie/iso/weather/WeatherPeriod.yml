@@ -112,6 +112,8 @@ constructors:
     parameters:
       - name: climmgr
         type: ClimateManager
+      - name: ts
+        type: ThunderStorm
 methods:
   - name: createAndAddModdedStage
     modifiers:
@@ -121,6 +123,8 @@ methods:
     parameters:
       - name: moddedID
         type: String
+      - name: duration
+        type: double
   - name: createAndAddStage
     modifiers:
       - public
@@ -129,6 +133,8 @@ methods:
     parameters:
       - name: typeid
         type: int
+      - name: duration
+        type: double
   - name: endCreateModdedPeriod
     modifiers:
       - public
@@ -225,6 +231,9 @@ methods:
       - public
     return:
       type: WeatherPeriod.WeatherStage
+    parameters:
+      - name: worldAgeHours
+        type: double
   - name: getStageProgress
     modifiers:
       - public
@@ -284,6 +293,8 @@ methods:
     parameters:
       - name: front
         type: ClimateManager.AirFront
+      - name: hoursSinceStart
+        type: double
   - name: initSimulationDebug
     modifiers:
       - public
@@ -293,9 +304,11 @@ methods:
       - name: front
         type: ClimateManager.AirFront
       - name: hoursSinceStart
-        type: " double"
+        type: double
       - name: doThisStageOnly
-        type: " int"
+        type: int
+      - name: singleStageDuration
+        type: float
   - name: isBlizzard
     modifiers:
       - public
@@ -324,27 +337,41 @@ methods:
     parameters:
       - name: input
         type: DataInputStream
+      - name: worldVersion
+        type: int
   - name: readNetWeatherData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: input
+        type: ByteBuffer
   - name: save
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: DataOutputStream
     notes: IO
   - name: setCloudColor
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: cloudcol
+        type: ClimateColorInfo
   - name: setDummy
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: setKateBobStormCoords
     modifiers:
       - public
@@ -353,16 +380,24 @@ methods:
     parameters:
       - name: x
         type: int
+      - name: y
+        type: int
   - name: setKateBobStormProgress
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: progress
+        type: float
   - name: setPrintStuff
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: b
+        type: boolean
   - name: startCreateModdedPeriod
     modifiers:
       - public
@@ -372,7 +407,9 @@ methods:
       - name: warmFront
         type: boolean
       - name: strength
-        type: " float"
+        type: float
+      - name: angle
+        type: float
   - name: stopWeatherPeriod
     modifiers:
       - public
@@ -383,8 +420,14 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: hoursSinceStart
+        type: double
   - name: writeNetWeatherData
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: output
+        type: ByteBuffer

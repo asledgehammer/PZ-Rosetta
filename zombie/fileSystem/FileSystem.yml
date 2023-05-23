@@ -25,12 +25,18 @@ methods:
       - abstract
     return:
       type: void
+    parameters:
+      - name: id
+        type: int
   - name: close
     modifiers:
       - public
       - abstract
     return:
       type: void
+    parameters:
+      - name: file
+        type: IFile
   - name: closeAsync
     modifiers:
       - public
@@ -40,12 +46,17 @@ methods:
     parameters:
       - name: file
         type: IFile
+      - name: cb
+        type: IFileTask2Callback
   - name: closeStream
     modifiers:
       - public
       - abstract
     return:
       type: void
+    parameters:
+      - name: stream
+        type: InputStream
   - name: getDefaultDevice
     modifiers:
       - public
@@ -61,18 +72,26 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: page
+        type: String
   - name: getTexturePackDevice
     modifiers:
       - public
       - abstract
     return:
       type: DeviceList
+    parameters:
+      - name: name
+        type: String
   - name: getTexturePackFlags
     modifiers:
       - public
       - abstract
     return:
       type: int
+    parameters:
+      - name: name
+        type: String
   - name: hasWork
     modifiers:
       - public
@@ -85,6 +104,9 @@ methods:
       - abstract
     return:
       type: boolean
+    parameters:
+      - name: device
+        type: IFileDevice
   - name: mountTexturePack
     modifiers:
       - public
@@ -95,7 +117,9 @@ methods:
       - name: name
         type: String
       - name: subTextures
-        type: " FileSystem.TexturePackTextures"
+        type: FileSystem.TexturePackTextures
+      - name: flags
+        type: int
   - name: open
     modifiers:
       - public
@@ -106,7 +130,9 @@ methods:
       - name: deviceList
         type: DeviceList
       - name: path
-        type: " String"
+        type: String
+      - name: mode
+        type: int
   - name: openAsync
     modifiers:
       - public
@@ -117,9 +143,11 @@ methods:
       - name: deviceList
         type: DeviceList
       - name: path
-        type: " String"
+        type: String
       - name: mode
-        type: " int"
+        type: int
+      - name: cb
+        type: IFileTask2Callback
   - name: openStream
     modifiers:
       - public
@@ -129,18 +157,26 @@ methods:
     parameters:
       - name: deviceList
         type: DeviceList
+      - name: path
+        type: String
   - name: runAsync
     modifiers:
       - public
       - abstract
     return:
       type: int
+    parameters:
+      - name: task
+        type: FileTask
   - name: unMount
     modifiers:
       - public
       - abstract
     return:
       type: boolean
+    parameters:
+      - name: device
+        type: IFileDevice
   - name: updateAsyncTransactions
     modifiers:
       - public

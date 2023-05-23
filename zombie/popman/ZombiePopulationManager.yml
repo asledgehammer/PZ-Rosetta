@@ -46,6 +46,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: addWorldSound
     modifiers:
       - public
@@ -54,6 +57,8 @@ methods:
     parameters:
       - name: sound
         type: WorldSoundManager.WorldSound
+      - name: doSend
+        type: boolean
   - name: beginSaveRealZombies
     modifiers:
       - public
@@ -68,11 +73,13 @@ methods:
       - name: spawnX
         type: int
       - name: spawnY
-        type: " int"
+        type: int
       - name: targetX
-        type: " int"
+        type: int
       - name: targetY
-        type: " int"
+        type: int
+      - name: count
+        type: int
   - name: createHordeInAreaTo
     modifiers:
       - public
@@ -82,15 +89,17 @@ methods:
       - name: spawnX
         type: int
       - name: spawnY
-        type: " int"
+        type: int
       - name: spawnW
-        type: " int"
+        type: int
       - name: spawnH
-        type: " int"
+        type: int
       - name: targetX
-        type: " int"
+        type: int
       - name: targetY
-        type: " int"
+        type: int
+      - name: count
+        type: int
   - name: dbgClearZombies
     modifiers:
       - public
@@ -98,6 +107,8 @@ methods:
       type: void
     parameters:
       - name: cellX
+        type: int
+      - name: cellY
         type: int
   - name: dbgSpawnNow
     modifiers:
@@ -107,6 +118,8 @@ methods:
     parameters:
       - name: cellX
         type: int
+      - name: cellY
+        type: int
   - name: dbgSpawnTimeToZero
     modifiers:
       - public
@@ -114,6 +127,8 @@ methods:
       type: void
     parameters:
       - name: cellX
+        type: int
+      - name: cellY
         type: int
   - name: endSaveRealZombies
     modifiers:
@@ -131,6 +146,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: metaGrid
+        type: IsoMetaGrid
   - name: onConfigReloaded
     modifiers:
       - public
@@ -145,7 +163,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: registerSpawnOrigin
     modifiers:
       - public
@@ -155,16 +175,21 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: width
-        type: " int"
+        type: int
       - name: height
-        type: " int"
+        type: int
+      - name: properties
+        type: se.krka.kahlua.vm.KahluaTable
   - name: removeChunkFromWorld
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: chunk
+        type: IsoChunk
   - name: save
     modifiers:
       - public
@@ -179,7 +204,9 @@ methods:
       - name: id
         type: int
       - name: x
-        type: " int"
+        type: int
+      - name: y
+        type: int
   - name: shouldWait
     modifiers:
       - public
@@ -193,6 +220,8 @@ methods:
     parameters:
       - name: zombie
         type: IsoZombie
+      - name: square
+        type: IsoGridSquare
   - name: stop
     modifiers:
       - public
@@ -218,3 +247,6 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: realZombie
+        type: IsoZombie

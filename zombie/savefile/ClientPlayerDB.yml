@@ -25,6 +25,8 @@ methods:
     parameters:
       - name: bb
         type: ByteBuffer
+      - name: connection
+        type: UdpConnection
   - name: clientLoadNetworkPlayer
     modifiers:
       - public
@@ -35,6 +37,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: player
+        type: IsoPlayer
   - name: close
     modifiers:
       - public
@@ -45,6 +50,9 @@ methods:
       - public
     return:
       type: void
+    parameters:
+      - name: serverPlayerIndex
+        type: int
   - name: getAllNetworkPlayers
     modifiers:
       - public
@@ -56,6 +64,9 @@ methods:
       - public
     return:
       type: byte[]
+    parameters:
+      - name: playerIndex
+        type: int
   - name: getInstance
     modifiers:
       - public
@@ -94,12 +105,18 @@ methods:
       - public
     return:
       type: boolean
+    parameters:
+      - name: playerIndex
+        type: int
   - name: setAllow
     modifiers:
       - public
       - static
     return:
       type: void
+    parameters:
+      - name: en
+        type: boolean
   - name: updateMain
     modifiers:
       - public

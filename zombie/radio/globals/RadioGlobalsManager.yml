@@ -15,6 +15,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: global
+        type: RadioGlobal
   - name: addGlobalBool
     modifiers:
       - public
@@ -23,6 +25,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: boolean
   - name: addGlobalFloat
     modifiers:
       - public
@@ -31,6 +35,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: float
   - name: addGlobalInt
     modifiers:
       - public
@@ -39,6 +45,8 @@ methods:
     parameters:
       - name: name
         type: String
+      - name: value
+        type: int
   - name: addGlobalString
     modifiers:
       - public
@@ -46,6 +54,8 @@ methods:
       type: boolean
     parameters:
       - name: name
+        type: String
+      - name: value
         type: String
   - name: compare
     modifiers:
@@ -56,7 +66,9 @@ methods:
       - name: A
         type: RadioGlobal
       - name: B
-        type: " RadioGlobal"
+        type: RadioGlobal
+      - name: compareMethod
+        type: CompareMethod
   - name: compare
     modifiers:
       - public
@@ -66,37 +78,57 @@ methods:
       - name: globalA
         type: String
       - name: globalB
-        type: " String"
+        type: String
+      - name: compareMethod
+        type: CompareMethod
   - name: exists
     modifiers:
       - public
     return:
       type: boolean
+    parameters:
+      - name: name
+        type: String
   - name: getGlobal
     modifiers:
       - public
     return:
       type: RadioGlobal
+    parameters:
+      - name: name
+        type: String
   - name: getGlobalBool
     modifiers:
       - public
     return:
       type: RadioGlobalBool
+    parameters:
+      - name: name
+        type: String
   - name: getGlobalFloat
     modifiers:
       - public
     return:
       type: RadioGlobalFloat
+    parameters:
+      - name: name
+        type: String
   - name: getGlobalInt
     modifiers:
       - public
     return:
       type: RadioGlobalInt
+    parameters:
+      - name: name
+        type: String
   - name: getGlobalString
     modifiers:
       - public
     return:
       type: RadioGlobalString
+    parameters:
+      - name: name
+        type: String
   - name: getInstance
     modifiers:
       - public
@@ -108,11 +140,17 @@ methods:
       - public
     return:
       type: String
+    parameters:
+      - name: name
+        type: String
   - name: getType
     modifiers:
       - public
     return:
       type: RadioGlobalType
+    parameters:
+      - name: name
+        type: String
   - name: reset
     modifiers:
       - public
@@ -126,29 +164,7 @@ methods:
     parameters:
       - name: name
         type: String
-  - name: setGlobal
-    modifiers:
-      - public
-    return:
-      type: boolean
-    parameters:
-      - name: name
-        type: String
-  - name: setGlobal
-    modifiers:
-      - public
-    return:
-      type: boolean
-    parameters:
-      - name: name
-        type: String
-  - name: setGlobal
-    modifiers:
-      - public
-    return:
-      type: boolean
-    parameters:
-      - name: name
+      - name: value
         type: String
   - name: setGlobal
     modifiers:
@@ -159,4 +175,36 @@ methods:
       - name: name
         type: String
       - name: value
-        type: " RadioGlobal"
+        type: int
+  - name: setGlobal
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: name
+        type: String
+      - name: value
+        type: float
+  - name: setGlobal
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: name
+        type: String
+      - name: value
+        type: boolean
+  - name: setGlobal
+    modifiers:
+      - public
+    return:
+      type: boolean
+    parameters:
+      - name: name
+        type: String
+      - name: value
+        type: RadioGlobal
+      - name: operator
+        type: EditGlobalOps

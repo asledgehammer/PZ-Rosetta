@@ -77,37 +77,58 @@ constructors:
   - name: ObjectsSyncRequests
     modifiers:
       - public
+    parameters:
+      - name: isClient
+        type: boolean
 methods:
   - name: putRequestSyncIsoChunk
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: ch
+        type: IsoChunk
   - name: putRequestSyncIsoGridSquare
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: sq
+        type: IsoGridSquare
   - name: putRequestSyncItemContainer
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: container
+        type: ItemContainer
   - name: receiveGridSquareHashes
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: receiveGridSquareObjectHashes
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: receiveObject
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: bb
+        type: ByteBuffer
   - name: receiveSyncIsoChunk
     modifiers:
       - public
@@ -115,6 +136,8 @@ methods:
       type: void
     parameters:
       - name: x
+        type: int
+      - name: y
         type: int
   - name: receiveSyncIsoGridSquare
     modifiers:
@@ -125,7 +148,9 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
+      - name: z
+        type: int
   - name: receiveSyncIsoObject
     modifiers:
       - public
@@ -135,21 +160,32 @@ methods:
       - name: x
         type: int
       - name: y
-        type: " int"
+        type: int
       - name: z
-        type: " int"
+        type: int
+      - name: hash
+        type: long
   - name: sendRequests
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
   - name: serverSendRequests
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: udpEngine
+        type: UdpEngine
   - name: serverSendRequests
     modifiers:
       - public
     return:
       type: void
+    parameters:
+      - name: connection
+        type: UdpConnection
