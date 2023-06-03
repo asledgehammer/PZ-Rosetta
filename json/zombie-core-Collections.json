@@ -1,0 +1,3155 @@
+{
+  "namespaces": {
+    "zombie.core.Collections": {
+      "ConcurrentAutoTable": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Add the given value to current counter value.  Concurrent updates will\n not be lost, but addAndGet or getAndAdd are not implemented because the\n total counter value (i.e.,"
+          },
+          {
+            "name": "decrement",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "add(long)"
+          },
+          {
+            "name": "estimate_get",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            },
+            "notes": "A cheaper"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            },
+            "notes": "Current value of the counter.  Since other threads are updating furiously\n the value is only approximate, but it includes all counts made by the\n current thread.  Requires a pass over the internally striped counters."
+          },
+          {
+            "name": "increment",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "add(long)"
+          },
+          {
+            "name": "internal_size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            },
+            "notes": "Return the internal counter striping factor.  Useful for diagnosing\n performance problems."
+          },
+          {
+            "name": "intValue",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            },
+            "notes": "Same as"
+          },
+          {
+            "name": "longValue",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            },
+            "notes": "Same as"
+          },
+          {
+            "name": "print",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "A more verbose print than"
+          },
+          {
+            "name": "set",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Atomically set the sum of the striped counters to specified value.\n  Rather more expensive than a simple store, in order to remain atomic."
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            },
+            "notes": "Return the counter's"
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "An auto-resizing table of"
+      },
+      "Counter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "ConcurrentAutoTable",
+        "notes": "A simple high-performance counter.  Merely renames the extended"
+      },
+      "IntIterator": {
+        "methods": [
+          {
+            "name": "hasNext",
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "next",
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "interface"
+      },
+      "NonBlockingHashMap": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Create a new NonBlockingHashMap with default minimum size (currently set\n  to 8 K/V pairs or roughly 84 bytes on a standard 32-bit JVM)."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initial_sz",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "notes": "Create a new NonBlockingHashMap with initial room for the given number of\n  elements, thus avoiding internal resizing operations to reach an\n  appropriate size.  Large numbers here when used with a small count of\n  elements will sacrifice space for a small amount of time gained.  The\n  initial size will be rounded up internally to the next larger power of 2."
+          }
+        ],
+        "methods": [
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Removes all of the mappings from this map."
+          },
+          {
+            "name": "clone",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Object"
+              },
+              "notes": "a clone of the hashtable."
+            },
+            "notes": "Creates a shallow copy of this hashtable. All the structure of the\n hashtable itself is copied, but the keys and values are not cloned.\n This is a relatively expensive operation."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "a value to search for"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Legacy method testing if some key maps into the specified value in this\n  table.  This method is identical in functionality to"
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the key is in the table using the equals method"
+            },
+            "notes": "Tests if the key in the table using the"
+          },
+          {
+            "name": "containsValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "value whose presence in this map is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "elements",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the values in this table"
+            },
+            "notes": "Returns an enumeration of the values in this table."
+          },
+          {
+            "name": "entrySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Returns the value to which the specified key is mapped, or"
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "size() == 0"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "keys",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the keys in this table"
+            },
+            "notes": "Returns an enumeration of the keys in this table."
+          },
+          {
+            "name": "keySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "print",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Verbose printout of table internals, useful for debugging."
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                },
+                "notes": "key with which the specified value is to be associated"
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n          null if there was no mapping for key"
+            },
+            "notes": "Maps the specified key to the specified value in the table.  Neither key\n  nor value can be null."
+          },
+          {
+            "name": "putAll",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "Map",
+                  "full": "Map<? extends TypeK,? extends TypeV>"
+                },
+                "notes": "mappings to be stored in this map"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Copies all of the mappings from the specified map to this one, replacing\n  any existing mappings."
+          },
+          {
+            "name": "putIfAbsent",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with the specified key,\n         or null if there was no mapping for the key"
+            },
+            "notes": "Atomically, do a"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "oldValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              },
+              {
+                "name": "newValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "reprobes",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              },
+              "notes": "the count of reprobes since the last call to reprobes()\n  or since the table was created."
+            },
+            "notes": "Get and clear the current count of reprobes.  Reprobes happen on key\n  collisions, and a high reprobe rate may indicate a poor hash function or\n  weaknesses in the table resizing function."
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the number of key-value mappings in this map"
+            },
+            "notes": "Returns the number of key-value mappings in this map."
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              },
+              "notes": "a string representation of this map"
+            },
+            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Collection"
+              }
+            },
+            "notes": "Returns a"
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractMap",
+        "notes": "A lock-free alternate implementation of"
+      },
+      "NonBlockingHashMapLong": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Create a new NonBlockingHashMapLong with default minimum size (currently set\n  to 8 K/V pairs or roughly 84 bytes on a standard 32-bit JVM)."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initial_sz",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "notes": "Create a new NonBlockingHashMapLong with initial room for the given\n  number of elements, thus avoiding internal resizing operations to reach\n  an appropriate size.  Large numbers here when used with a small count of\n  elements will sacrifice space for a small amount of time gained.  The\n  initial size will be rounded up internally to the next larger power of 2."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "opt_for_space",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "notes": "Create a new NonBlockingHashMapLong, setting the space-for-speed\n  tradeoff."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initial_sz",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "opt_for_space",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "notes": "Create a new NonBlockingHashMapLong, setting both the initial size and\n  the space-for-speed tradeoff."
+          }
+        ],
+        "methods": [
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Removes all of the mappings from this map."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "a value to search for"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Legacy method testing if some key maps into the specified value in this\n  table.  This method is identical in functionality to"
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "containsValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "value whose presence in this map is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this Map maps one or more keys to the specified value"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "elements",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the values in this table"
+            },
+            "notes": "Returns an enumeration of the values in this table."
+          },
+          {
+            "name": "entrySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "keys",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the auto-boxed keys in this table"
+            },
+            "notes": "Returns an enumeration of the"
+          },
+          {
+            "name": "keySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "print",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Verbose printout of table internals, useful for debugging."
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Long"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "putIfAbsent",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Long"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              },
+              {
+                "name": "Val",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Long"
+                }
+              },
+              {
+                "name": "oldValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              },
+              {
+                "name": "newValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "reprobes",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              },
+              "notes": "the count of reprobes since the last call to reprobes()\n  or since the table was created."
+            },
+            "notes": "Get and clear the current count of reprobes.  Reprobes happen on key\n  collisions, and a high reprobe rate may indicate a poor hash function or\n  weaknesses in the table resizing function."
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the number of key-value mappings in this map"
+            },
+            "notes": "Returns the number of key-value mappings in this map."
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Collection"
+              }
+            },
+            "notes": "Returns a"
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractMap",
+        "notes": "A lock-free alternate implementation of"
+      },
+      "NonBlockingHashSet": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Make a new empty"
+          }
+        ],
+        "methods": [
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "E"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if o was added to the set, false\n if o was already in the set."
+            },
+            "notes": "Add"
+          },
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Empty the set."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if o is in the set."
+            }
+          },
+          {
+            "name": "iterator",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Iterator"
+              }
+            }
+          },
+          {
+            "name": "readOnly",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Atomically make the set immutable.  Future calls to mutate will throw an\n IllegalStateException.  Existing mutator calls in other threads racing\n with this thread and will either throw IllegalStateException or their\n update will be visible to this thread.  This implies that a simple flag\n cannot make the Set immutable, because a late-arriving update in another\n thread might see immutable flag not set yet, then mutate the Set after\n the"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if o was removed to the set, false\n if o was not in the set."
+            },
+            "notes": "Remove"
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "count of elements."
+            },
+            "notes": "Current count of elements in the set.  Due to concurrent racing updates,\n the size is only ever approximate.  Updates due to the calling thread are\n immediately visible to calling thread."
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractSet",
+        "notes": "A simple wrapper around"
+      },
+      "NonBlockingHashtable": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Create a new NonBlockingHashtable with default minimum size (currently set\n  to 8 K/V pairs or roughly 84 bytes on a standard 32-bit JVM)."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initial_sz",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "notes": "Create a new NonBlockingHashtable with initial room for the given number of\n  elements, thus avoiding internal resizing operations to reach an\n  appropriate size.  Large numbers here when used with a small count of\n  elements will sacrifice space for a small amount of time gained.  The\n  initial size will be rounded up internally to the next larger power of 2."
+          }
+        ],
+        "methods": [
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Removes all of the mappings from this map."
+          },
+          {
+            "name": "clone",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Object"
+              },
+              "notes": "a clone of the hashtable."
+            },
+            "notes": "Creates a shallow copy of this hashtable. All the structure of the\n hashtable itself is copied, but the keys and values are not cloned.\n This is a relatively expensive operation."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "a value to search for"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Legacy method testing if some key maps into the specified value in this\n  table.  This method is identical in functionality to"
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the key is in the table using the equals method"
+            },
+            "notes": "Tests if the key in the table using the"
+          },
+          {
+            "name": "containsValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "value whose presence in this map is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "elements",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the values in this table"
+            },
+            "notes": "Returns an enumeration of the values in this table."
+          },
+          {
+            "name": "entrySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Returns the value to which the specified key is mapped, or"
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "size() == 0"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "keys",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the keys in this table"
+            },
+            "notes": "Returns an enumeration of the keys in this table."
+          },
+          {
+            "name": "keySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "print",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Verbose printout of table internals, useful for debugging."
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                },
+                "notes": "key with which the specified value is to be associated"
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n          null if there was no mapping for key"
+            },
+            "notes": "Maps the specified key to the specified value in the table.  Neither key\n  nor value can be null."
+          },
+          {
+            "name": "putAll",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "Map",
+                  "full": "Map<? extends TypeK,? extends TypeV>"
+                },
+                "notes": "mappings to be stored in this map"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Copies all of the mappings from the specified map to this one, replacing\n  any existing mappings."
+          },
+          {
+            "name": "putIfAbsent",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with the specified key,\n         or null if there was no mapping for the key"
+            },
+            "notes": "Atomically, do a"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "oldValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              },
+              {
+                "name": "newValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "reprobes",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              },
+              "notes": "the count of reprobes since the last call to reprobes()\n  or since the table was created."
+            },
+            "notes": "Get and clear the current count of reprobes.  Reprobes happen on key\n  collisions, and a high reprobe rate may indicate a poor hash function or\n  weaknesses in the table resizing function."
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the number of key-value mappings in this map"
+            },
+            "notes": "Returns the number of key-value mappings in this map."
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              },
+              "notes": "a string representation of this map"
+            },
+            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Collection"
+              }
+            },
+            "notes": "Returns a"
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Dictionary",
+        "notes": "A lock-free alternate implementation of"
+      },
+      "NonBlockingIdentityHashMap": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Create a new NonBlockingHashMap with default minimum size (currently set\n  to 8 K/V pairs or roughly 84 bytes on a standard 32-bit JVM)."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initial_sz",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "notes": "Create a new NonBlockingHashMap with initial room for the given number of\n  elements, thus avoiding internal resizing operations to reach an\n  appropriate size.  Large numbers here when used with a small count of\n  elements will sacrifice space for a small amount of time gained.  The\n  initial size will be rounded up internally to the next larger power of 2."
+          }
+        ],
+        "methods": [
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Removes all of the mappings from this map."
+          },
+          {
+            "name": "clone",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Object"
+              },
+              "notes": "a clone of the hashtable."
+            },
+            "notes": "Creates a shallow copy of this hashtable. All the structure of the\n hashtable itself is copied, but the keys and values are not cloned.\n This is a relatively expensive operation."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "a value to search for"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Legacy method testing if some key maps into the specified value in this\n  table.  This method is identical in functionality to"
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the key is in the table using the equals method"
+            },
+            "notes": "Tests if the key in the table using the"
+          },
+          {
+            "name": "containsValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "value whose presence in this map is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the specified value"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "elements",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the values in this table"
+            },
+            "notes": "Returns an enumeration of the values in this table."
+          },
+          {
+            "name": "entrySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Returns the value to which the specified key is mapped, or"
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "size() == 0"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "keys",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Enumeration"
+              },
+              "notes": "an enumeration of the keys in this table"
+            },
+            "notes": "Returns an enumeration of the keys in this table."
+          },
+          {
+            "name": "keySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "print",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Verbose printout of table internals, useful for debugging."
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                },
+                "notes": "key with which the specified value is to be associated"
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n          null if there was no mapping for key"
+            },
+            "notes": "Maps the specified key to the specified value in the table.  Neither key\n  nor value can be null."
+          },
+          {
+            "name": "putAll",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "Map",
+                  "full": "Map<? extends TypeK,? extends TypeV>"
+                },
+                "notes": "mappings to be stored in this map"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Copies all of the mappings from the specified map to this one, replacing\n  any existing mappings."
+          },
+          {
+            "name": "putIfAbsent",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with the specified key,\n         or null if there was no mapping for the key"
+            },
+            "notes": "Atomically, do a"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "oldValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              },
+              {
+                "name": "newValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "reprobes",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              },
+              "notes": "the count of reprobes since the last call to reprobes()\n  or since the table was created."
+            },
+            "notes": "Get and clear the current count of reprobes.  Reprobes happen on key\n  collisions, and a high reprobe rate may indicate a poor hash function or\n  weaknesses in the table resizing function."
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the number of key-value mappings in this map"
+            },
+            "notes": "Returns the number of key-value mappings in this map."
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              },
+              "notes": "a string representation of this map"
+            },
+            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Collection"
+              }
+            },
+            "notes": "Returns a"
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractMap",
+        "notes": "A lock-free alternate implementation of"
+      },
+      "NonBlockingSetInt": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Create a new empty bit-vector"
+          }
+        ],
+        "methods": [
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "i",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if i was added to the set."
+            },
+            "notes": "Add"
+          },
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Empty the bitvector."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "i",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if i was int the set."
+            },
+            "notes": "Test if"
+          },
+          {
+            "name": "intersect",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "op",
+                "type": {
+                  "basic": "NonBlockingSetInt"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "NonBlockingSetInt"
+              }
+            },
+            "notes": "bitwise comparisons optimised for NBSI"
+          },
+          {
+            "name": "intIterator",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "IntIterator"
+              }
+            }
+          },
+          {
+            "name": "iterator",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Iterator"
+              }
+            },
+            "notes": "Standard Java"
+          },
+          {
+            "name": "print",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Verbose printout of internal structure for debugging."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "i",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if i was added to the set."
+            },
+            "notes": "Remove"
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "count of elements."
+            },
+            "notes": "Current count of elements in the set.  Due to concurrent racing updates,\n the size is only ever approximate.  Updates due to the calling thread are\n immediately visible to calling thread."
+          },
+          {
+            "name": "sizeInBytes",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "union",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "op",
+                "type": {
+                  "basic": "NonBlockingSetInt"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "NonBlockingSetInt"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractSet",
+        "notes": "A multi-threaded bit-vector set, implemented as an array of primitive"
+      },
+      "ZomboidAbstractMap": {
+        "methods": [
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "containsValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "entrySet",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            }
+          },
+          {
+            "name": "equals",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "object to be compared for equality with this map"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the specified object is equal to this map"
+            },
+            "notes": "Compares the specified object with this map for equality.  Returns"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "hashCode",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the hash code value for this map"
+            },
+            "notes": "Returns the hash code value for this map.  The hash code of a map is\n defined to be the sum of the hash codes of each entry in the map's"
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "keySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "K"
+                }
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "V"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "putAll",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "Map",
+                  "full": "Map<? extends K,? extends V>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            },
+            "notes": ""
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              },
+              "notes": "a string representation of this map"
+            },
+            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Collection"
+              }
+            },
+            "notes": ""
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ZomboidAbstractMap.SimpleEntry": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "K"
+                },
+                "notes": "the key represented by this entry"
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "V"
+                }
+              }
+            ],
+            "notes": "Creates an entry representing a mapping from the specified\n key to the specified value."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "entry",
+                "type": {
+                  "basic": "Map.Entry",
+                  "full": "Map.Entry<? extends K,? extends V>"
+                },
+                "notes": "the entry to copy"
+              }
+            ],
+            "notes": "Creates an entry representing the same mapping as the\n specified entry."
+          }
+        ],
+        "methods": [
+          {
+            "name": "equals",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "object to be compared for equality with this map entry"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the specified object is equal to this map\n           entry"
+            },
+            "notes": "Compares the specified object with this entry for equality.\n Returns"
+          },
+          {
+            "name": "getKey",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "K"
+              },
+              "notes": "the key corresponding to this entry"
+            },
+            "notes": "Returns the key corresponding to this entry."
+          },
+          {
+            "name": "getValue",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              },
+              "notes": "the value corresponding to this entry"
+            },
+            "notes": "Returns the value corresponding to this entry."
+          },
+          {
+            "name": "hashCode",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the hash code value for this map entry"
+            },
+            "notes": "Returns the hash code value for this map entry.  The hash code\n of a map entry"
+          },
+          {
+            "name": "setValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "V"
+                },
+                "notes": "new value to be stored in this entry"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              },
+              "notes": "the old value corresponding to the entry"
+            },
+            "notes": "Replaces the value corresponding to this entry with the specified\n value."
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              },
+              "notes": "a String representation of this map entry"
+            },
+            "notes": "Returns a String representation of this map entry.  This\n implementation returns the string representation of this\n entry's key followed by the equals character (\""
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "An Entry maintaining a key and a value.  The value may be\n changed using the"
+      },
+      "ZomboidAbstractMap.SimpleImmutableEntry": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "K"
+                },
+                "notes": "the key represented by this entry"
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "V"
+                }
+              }
+            ],
+            "notes": "Creates an entry representing a mapping from the specified\n key to the specified value."
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "entry",
+                "type": {
+                  "basic": "Map.Entry",
+                  "full": "Map.Entry<? extends K,? extends V>"
+                },
+                "notes": "the entry to copy"
+              }
+            ],
+            "notes": "Creates an entry representing the same mapping as the\n specified entry."
+          }
+        ],
+        "methods": [
+          {
+            "name": "equals",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "object to be compared for equality with this map entry"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the specified object is equal to this map\n           entry"
+            },
+            "notes": "Compares the specified object with this entry for equality.\n Returns"
+          },
+          {
+            "name": "getKey",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "K"
+              },
+              "notes": "the key corresponding to this entry"
+            },
+            "notes": "Returns the key corresponding to this entry."
+          },
+          {
+            "name": "getValue",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              },
+              "notes": "the value corresponding to this entry"
+            },
+            "notes": "Returns the value corresponding to this entry."
+          },
+          {
+            "name": "hashCode",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the hash code value for this map entry"
+            },
+            "notes": "Returns the hash code value for this map entry.  The hash code\n of a map entry"
+          },
+          {
+            "name": "setValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "V"
+                },
+                "notes": "new value to be stored in this entry"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              },
+              "notes": "(Does not return)"
+            },
+            "notes": "Replaces the value corresponding to this entry with the specified\n value (optional operation).  This implementation simply throws"
+          },
+          {
+            "name": "toString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              },
+              "notes": "a String representation of this map entry"
+            },
+            "notes": "Returns a String representation of this map entry.  This\n implementation returns the string representation of this\n entry's key followed by the equals character (\""
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "An Entry maintaining an immutable key and value.  This class\n does not support method"
+      },
+      "ZomboidHashMap": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initialCapacity",
+                "type": {
+                  "basic": "int"
+                },
+                "notes": "the initial capacity"
+              },
+              {
+                "name": "loadFactor",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "notes": "Constructs an empty"
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initialCapacity",
+                "type": {
+                  "basic": "int"
+                },
+                "notes": "the initial capacity."
+              }
+            ],
+            "notes": "Constructs an empty"
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Constructs an empty"
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "Map",
+                  "full": "Map<? extends K,? extends V>"
+                },
+                "notes": "the map whose mappings are to be placed in this map"
+              }
+            ],
+            "notes": "Constructs a new"
+          }
+        ],
+        "methods": [
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Removes all of the mappings from this map.\n The map will be empty after this call returns."
+          },
+          {
+            "name": "clone",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Object"
+              },
+              "notes": "a shallow copy of this map"
+            },
+            "notes": "Returns a shallow copy of this"
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "The key whose presence in this map is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map contains a mapping for the specified\n key."
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "containsValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "value whose presence in this map is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map maps one or more keys to the\n         specified value"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "entrySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              },
+              "notes": "a set view of the mappings contained in this map"
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              }
+            },
+            "notes": "Returns the value to which the specified key is mapped,\n or"
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this map contains no key-value mappings"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "keySet",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Set"
+              }
+            },
+            "notes": "Returns a"
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "K"
+                },
+                "notes": "key with which the specified value is to be associated"
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "V"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              },
+              "notes": "the previous value associated with key, or\n         null if there was no mapping for key.\n         (A null return can also indicate that the map\n         previously associated null with key.)"
+            },
+            "notes": "Associates the specified value with the specified key in this map.\n If the map previously contained a mapping for the key, the old\n value is replaced."
+          },
+          {
+            "name": "putAll",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "Map",
+                  "full": "Map<? extends K,? extends V>"
+                },
+                "notes": "mappings to be stored in this map"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Copies all of the mappings from the specified map to this map.\n These mappings will replace any mappings that this map had for\n any of the keys currently in the specified map."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "key whose mapping is to be removed from the map"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "V"
+              },
+              "notes": "the previous value associated with key, or\n         null if there was no mapping for key.\n         (A null return can also indicate that the map\n         previously associated null with key.)"
+            },
+            "notes": "Removes the mapping for the specified key from this map if present."
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the number of key-value mappings in this map"
+            },
+            "notes": "Returns the number of key-value mappings in this map."
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Collection"
+              }
+            },
+            "notes": "Returns a"
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "ZomboidAbstractMap"
+      },
+      "ZomboidHashSet": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "notes": "Constructs a new, empty set; the backing"
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "c",
+                "type": {
+                  "basic": "Collection",
+                  "full": "Collection<? extends E>"
+                },
+                "notes": "the collection whose elements are to be placed into this set"
+              }
+            ],
+            "notes": "Constructs a new set containing the elements in the specified\n collection.  The"
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initialCapacity",
+                "type": {
+                  "basic": "int"
+                },
+                "notes": "the initial capacity of the hash map"
+              },
+              {
+                "name": "loadFactor",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "notes": "Constructs a new, empty set; the backing"
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "initialCapacity",
+                "type": {
+                  "basic": "int"
+                },
+                "notes": "the initial capacity of the hash table"
+              }
+            ],
+            "notes": "Constructs a new, empty set; the backing"
+          }
+        ],
+        "methods": [
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "e",
+                "type": {
+                  "basic": "E"
+                },
+                "notes": "element to be added to this set"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this set did not already contain the specified\n element"
+            },
+            "notes": "Adds the specified element to this set if it is not already present.\n More formally, adds the specified element"
+          },
+          {
+            "name": "clear",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Removes all of the elements from this set.\n The set will be empty after this call returns."
+          },
+          {
+            "name": "clone",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Object"
+              },
+              "notes": "a shallow copy of this set"
+            },
+            "notes": "Returns a shallow copy of this"
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "element whose presence in this set is to be tested"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this set contains the specified element"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if this set contains no elements"
+            },
+            "notes": "Returns"
+          },
+          {
+            "name": "iterator",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "Iterator"
+              },
+              "notes": "an Iterator over the elements in this set"
+            },
+            "notes": "Returns an iterator over the elements in this set.  The elements\n are returned in no particular order."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                },
+                "notes": "object to be removed from this set, if present"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the set contained the specified element"
+            },
+            "notes": "Removes the specified element from this set if it is present.\n More formally, removes an element"
+          },
+          {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              },
+              "notes": "the number of elements in this set (its cardinality)"
+            },
+            "notes": "Returns the number of elements in this set (its cardinality)."
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractSet"
+      }
+    }
+  }
+}

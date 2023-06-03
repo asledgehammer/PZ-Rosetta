@@ -1,0 +1,592 @@
+{
+  "namespaces": {
+    "zombie.text.templating": {
+      "IReplace": {
+        "methods": [
+          {
+            "name": "getString",
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "interface",
+        "notes": "TurboTuTone.\n Interface that provides (random) String for ITemplateBuilder."
+      },
+      "IReplaceProvider": {
+        "methods": [
+          {
+            "name": "getReplacer",
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "IReplace"
+              }
+            }
+          },
+          {
+            "name": "hasReplacer",
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "interface",
+        "notes": "TurboTuTone.\n Interface that can provide IReplace for ITemplateBuilder.\n Any keys present in a IReplaceProvider take priority when replacing keys in a template.\n\n NOTE: When checking the key String, this should be equaling a lowercase version or equalsIgnoreCase"
+      },
+      "ITemplateBuilder": {
+        "methods": [
+          {
+            "name": "Build",
+            "parameters": [
+              {
+                "name": "input",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "table",
+                "type": {
+                  "basic": "se.krka.kahlua.j2se.KahluaTableImpl"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "RegisterKey",
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "replace",
+                "type": {
+                  "basic": "IReplace"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Reset",
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "interface",
+        "notes": "TurboTuTone."
+      },
+      "ReplaceList": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "replacements",
+                "type": {
+                  "basic": "ArrayList",
+                  "full": "ArrayList<String>"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "getString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "TurboTuTone."
+      },
+      "ReplaceProvider": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "table",
+                "type": {
+                  "basic": "se.krka.kahlua.j2se.KahluaTableImpl"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addReplacer",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "replace",
+                "type": {
+                  "basic": "IReplace"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getReplacer",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "IReplace"
+              }
+            }
+          },
+          {
+            "name": "hasReplacer",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "TurboTuTone.\n A generic non-pooled ReplaceProvider that can be used for example in scripting,\n where the provider could provide forced overrides for certain template keys."
+      },
+      "ReplaceProviderCharacter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "character",
+                "type": {
+                  "basic": "IsoGameCharacter"
+                }
+              }
+            ]
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "ReplaceProvider",
+        "notes": "TurboTuTone.\n Example of ReplaceProvider that registers firstname and lastname keys for the supplied character."
+      },
+      "ReplaceProviderLua": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "fromLuaTable",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "table",
+                "type": {
+                  "basic": "se.krka.kahlua.j2se.KahluaTableImpl"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "release",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "ReplaceProvider",
+        "notes": "TurboTuTone.\n A pooled ReplaceProvider that can be used to take lua table input to populate the replace provider."
+      },
+      "ReplaceSingle": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "getString",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "TurboTuTone."
+      },
+      "TemplateText": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Build",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "input",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "table",
+                "type": {
+                  "basic": "se.krka.kahlua.j2se.KahluaTableImpl"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "Initialize",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "RandNext",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "bound",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "RegisterKey",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "replace",
+                "type": {
+                  "basic": "IReplace"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Reset",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "TurboTuTone."
+      },
+      "TemplateTextBuilder": {
+        "methods": [
+          {
+            "name": "Build",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "input",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "table",
+                "type": {
+                  "basic": "se.krka.kahlua.j2se.KahluaTableImpl"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "RegisterKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "replace",
+                "type": {
+                  "basic": "IReplace"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Reset",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "TurboTuTone."
+      }
+    }
+  }
+}

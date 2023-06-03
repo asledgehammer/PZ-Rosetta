@@ -1,0 +1,1096 @@
+# zombie.randomizedWorld.randomizedBuilding
+RandomizedBuildingBase:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addBarricade
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+        - name: numPlanks
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: addRandomRangedWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: container
+          type:
+            basic: ItemContainer
+        - name: addBulletsInGun
+          type:
+            basic: boolean
+        - name: addBoxInContainer
+          type:
+            basic: boolean
+        - name: attachPart
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: HandWeapon
+    - name: addWorldItem
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: String
+        - name: sq
+          type:
+            basic: IsoGridSquare
+        - name: obj
+          type:
+            basic: IsoObject
+      returns:
+        type:
+          basic: InventoryItem
+    - name: addZombies
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+          notes: buildingDef
+        - name: totalZombies
+          type:
+            basic: int
+        - name: outfit
+          type:
+            basic: String
+        - name: femaleChance
+          type:
+            basic: Integer
+        - name: room
+          type:
+            basic: RoomDef
+      returns:
+        type:
+          basic: ArrayList
+      notes: |-
+        If you specify a outfit, make sure it works for both gender! (or force
+         femaleChance to 0 or 1 if it's gender-specific)
+    - name: addZombiesOnSquare
+      modifiers:
+        - public
+      parameters:
+        - name: totalZombies
+          type:
+            basic: int
+        - name: outfit
+          type:
+            basic: String
+        - name: femaleChance
+          type:
+            basic: Integer
+        - name: square
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: ArrayList
+    - name: ChunkLoaded
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: building
+          type:
+            basic: IsoBuilding
+      returns:
+        type:
+          basic: void
+    - name: getChance
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDoor
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: IsoDoor
+    - name: getMinimumDays
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinimumRooms
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWindow
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: IsoWindow
+    - name: init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: initAllRBMapChance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: isAlwaysDo
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isTableFor3DItems
+      modifiers:
+        - public
+      parameters:
+        - name: obj
+          type:
+            basic: IsoObject
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: >-
+        Don't do any building change in a player's building Also check if the
+         building have a bathroom, a kitchen and a bedroom
+         This is ignored for the alwaysDo building (so i can do stuff in spiffo, pizzawhirled, etc..)
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: setAlwaysDo
+      modifiers:
+        - public
+      parameters:
+        - name: alwaysDo
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setChance
+      modifiers:
+        - public
+      parameters:
+        - name: chance
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setMinimumDays
+      modifiers:
+        - public
+      parameters:
+        - name: minimumDays
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setMinimumRooms
+      modifiers:
+        - public
+      parameters:
+        - name: minimumRooms
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: spawnItemsInContainers
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: distribName
+          type:
+            basic: String
+        - name: chance
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: RandomizedWorldBase
+RandomizedBuildingBase.HumanCorpse:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: cell
+          type:
+            basic: IsoCell
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+  methods:
+    - name: dressInNamedOutfit
+      modifiers:
+        - public
+      parameters:
+        - name: outfitName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: Dressup
+      modifiers:
+        - public
+      parameters:
+        - name: desc
+          type:
+            basic: SurvivorDesc
+      returns:
+        type:
+          basic: void
+    - name: getHumanVisual
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: HumanVisual
+    - name: getVisual
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: HumanVisual
+    - name: isSkeleton
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: IsoGameCharacter
+RBBar:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBBasic:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: doProfessionStory
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: professionChoosed
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: doRandomDeadSurvivorStory
+      modifiers:
+        - public
+      parameters:
+        - name: buildingDef
+          type:
+            basic: BuildingDef
+        - name: DSDef
+          type:
+            basic: RandomizedDeadSurvivorBase
+      returns:
+        type:
+          basic: void
+    - name: getSurvivorProfession
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: getSurvivorStories
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: getUniqueRDSSpawned
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ArrayList
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: |-
+    This is a basic randomized building, some inside door will be opened, can
+     have profession specific loots and cold cooked food in stove Also this type
+     of house can have speicfic dead survivor/zombies/story inside them
+RBBurnt:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: This building will be 90% burnt (no fire started tho)
+RBBurntCorpse:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: |-
+    This building will be 60% burnt (no fire started tho)
+     Add some burnt skeleton in it
+RBBurntFireman:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: |-
+    This building will be 70% burnt (no fire started tho)
+     Also spawn 1 to 3 fireman zombies inside it (65% of them to be male)
+RBCafe:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBClinic:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBHairSalon:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBKateAndBaldspot:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: RandomizedBuildingBase
+RBLooted:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: This building will be almost empty of loot, and lot of the doors/windows
+    will be broken
+RBOffice:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Random clutter in office
+RBOther:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Building full of toilet paper
+RBPileOCrepe:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBPizzaWhirled:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBSafehouse:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: This building will be barricaded, have a lot of canned food but also lot
+    of zombies inside it
+RBSchool:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add pen, pencils, books... on school desk
+RBShopLooted:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Shop being looted by bandits + 2 cops and corpses inside the shop
+RBSpiffo:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+    - name: roomValid
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: Add some food on table
+RBStripclub:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: |-
+    Add money/alcohol on table
+     Can also generate a rare male venue
+RBTableStory:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: initStories
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: isValid
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+        - name: force
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: RandomizedBuildingBase
+    - name: randomizeBuilding
+      modifiers:
+        - public
+      parameters:
+        - name: def
+          type:
+            basic: BuildingDef
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomizedBuildingBase
+  notes: TODO Not used anymore, but i'm keeping it around just in case, gonna
+    delete this soon

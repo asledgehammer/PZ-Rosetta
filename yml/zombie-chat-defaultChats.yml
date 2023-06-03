@@ -1,0 +1,723 @@
+# zombie.chat.defaultChats
+AdminChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+    - modifiers:
+        - public
+  methods:
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+  modifiers:
+    - public
+  javaType: class
+  extends: ChatBase
+FactionChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+  methods:
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+  modifiers:
+    - public
+  javaType: class
+  extends: ChatBase
+GeneralChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: discordEnabled
+          type:
+            basic: boolean
+    - modifiers:
+        - public
+  methods:
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+    - name: getMessagePrefix
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: String
+    - name: packMessage
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: sendMessageToChatMembers
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: sendToDiscordGeneralChatDisabled
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: unpackMessage
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: ChatMessage
+  modifiers:
+    - public
+  javaType: class
+  extends: ChatBase
+RadioChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+    - modifiers:
+        - public
+  methods:
+    - name: createBroadcastingMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+        - name: channel
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ChatMessage
+    - name: createMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+          notes: text of the message
+      returns:
+        type:
+          basic: ChatMessage
+        notes: corresponding object to message
+      notes: Description copied from class: ChatBase
+    - name: createStaticSoundMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ChatMessage
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+    - name: getMessagePrefix
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: String
+    - name: packMessage
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: sendToServer
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+        - name: deviceData
+          type:
+            basic: DeviceData
+      returns:
+        type:
+          basic: void
+    - name: showMessage
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: unpackMessage
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: ChatMessage
+  modifiers:
+    - public
+  javaType: class
+  extends: RangeBasedChat
+RangeBasedChat:
+  methods:
+    - name: createBubbleMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ChatMessage
+    - name: createMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+          notes: text of the message
+      returns:
+        type:
+          basic: ChatMessage
+        notes: corresponding object to message
+      notes: Description copied from class: ChatBase
+    - name: Init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: isSendingToRadio
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: sendMessageToChatMembers
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: showMessage
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: ChatBase
+SafehouseChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+  methods:
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+  modifiers:
+    - public
+  javaType: class
+  extends: ChatBase
+SayChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+    - modifiers:
+        - public
+  methods:
+    - name: createCalloutMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ChatMessage
+    - name: createInfoMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ChatMessage
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+    - name: getMessageTextWithPrefix
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+  javaType: class
+  extends: RangeBasedChat
+ServerChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+  methods:
+    - name: createMessage
+      modifiers:
+        - public
+      parameters:
+        - name: author
+          type:
+            basic: String
+        - name: text
+          type:
+            basic: String
+        - name: isAlert
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: ChatMessage
+    - name: createServerMessage
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+        - name: isAlert
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: ServerChatMessage
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+    - name: getMessagePrefix
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: String
+    - name: getMessageTextWithPrefix
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: String
+    - name: getTabID
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: short
+    - name: packMessage
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: sendMessageToChatMembers
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: showMessage
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: void
+    - name: unpackMessage
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: ChatMessage
+  modifiers:
+    - public
+  javaType: class
+  extends: ChatBase
+ShoutChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+    - modifiers:
+        - public
+  methods:
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+  modifiers:
+    - public
+  javaType: class
+  extends: RangeBasedChat
+WhisperChat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: firstMember
+          type:
+            basic: String
+        - name: secondMember
+          type:
+            basic: String
+    - modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: tab
+          type:
+            basic: ChatTab
+        - name: owner
+          type:
+            basic: IsoPlayer
+  methods:
+    - name: getCompanionName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getDefaultSettings
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ChatSettings
+    - name: getMessagePrefix
+      modifiers:
+        - public
+      parameters:
+        - name: msg
+          type:
+            basic: ChatMessage
+      returns:
+        type:
+          basic: String
+    - name: init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: ChatBase
+WhisperChat.ChatStatus:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: WhisperChat.ChatStatus
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: WhisperChat.ChatStatus
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum

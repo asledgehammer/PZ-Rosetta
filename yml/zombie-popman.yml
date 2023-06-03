@@ -1,0 +1,1213 @@
+# zombie.popman
+MPDebugInfo:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: AddDebugSound
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: sound
+          type:
+            basic: WorldSoundManager.WorldSound
+      returns:
+        type:
+          basic: void
+    - name: clientPacket
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      parameters:
+        - name: renderer
+          type:
+            basic: ZombiePopulationRenderer
+        - name: zoom
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: request
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: serverPacket
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: serverUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+NetworkZombieList:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getNetworkZombie
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: NetworkZombieList.NetworkZombie
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+NetworkZombieList.NetworkZombie:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: _connection
+          type:
+            basic: UdpConnection
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object
+NetworkZombieManager:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: canSpotted
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: boolean
+    - name: clearTargetAuth
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+        - name: player
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: getAuthorizedZombieCount
+      modifiers:
+        - public
+      parameters:
+        - name: con
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: int
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: NetworkZombieManager
+    - name: getUnauthorizedZombieCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getZombieAuth
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: getZombieList
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: LinkedList
+    - name: moveZombie
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+        - name: to
+          type:
+            basic: UdpConnection
+        - name: player
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: recheck
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: removeZombies
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: updateAuth
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+NetworkZombiePacker:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: deleteZombie
+      modifiers:
+        - public
+      parameters:
+        - name: z
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: NetworkZombiePacker
+    - name: getZombieData
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: int
+    - name: parseZombie
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: postupdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: receivePacket
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: send
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: setExtraUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+NetworkZombieSimulator:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: add
+      modifiers:
+        - public
+      parameters:
+        - name: onlineId
+          type:
+            basic: short
+      returns:
+        type:
+          basic: void
+    - name: added
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: addExtraUpdate
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: anyUnknownZombies
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: becomeLocal
+      modifiers:
+        - public
+      parameters:
+        - name: z
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: becomeRemote
+      modifiers:
+        - public
+      parameters:
+        - name: z
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clearTargetAuth
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: getAuthorizedZombieCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: NetworkZombieSimulator
+    - name: getUnauthorizedZombieCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: isZombieSimulated
+      modifiers:
+        - public
+      parameters:
+        - name: zombieId
+          type:
+            basic: Short
+      returns:
+        type:
+          basic: boolean
+    - name: receivePacket
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: remove
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: send
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ObjectPool:
+  constructors:
+    - modifiers:
+        - public
+    - modifiers:
+        - public
+      parameters:
+        - name: alloc
+          type:
+            basic: ObjectPool.Allocator
+            full: ObjectPool.Allocator<T>
+  methods:
+    - name: alloc
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: T
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: forEach
+      modifiers:
+        - public
+      parameters:
+        - name: consumer
+          type:
+            basic: Consumer
+            full: Consumer<T>
+      returns:
+        type:
+          basic: void
+    - name: release
+      modifiers:
+        - public
+      parameters:
+        - name: objs
+          type:
+            basic: T[]
+      returns:
+        type:
+          basic: void
+    - name: releaseAll
+      modifiers:
+        - public
+      parameters:
+        - name: objs
+          type:
+            basic: List
+            full: List<T>
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ObjectPool.Allocator:
+  methods:
+    - name: allocate
+      returns:
+        type:
+          basic: T
+  modifiers:
+    - public
+    - static
+  javaType: interface
+ZombieCountOptimiser:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: incrementZombie
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: startCount
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ZombiePopulationManager:
+  methods:
+    - name: addChunkToWorld
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: addWorldSound
+      modifiers:
+        - public
+      parameters:
+        - name: sound
+          type:
+            basic: WorldSoundManager.WorldSound
+        - name: doSend
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: beginSaveRealZombies
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: createHordeFromTo
+      modifiers:
+        - public
+      parameters:
+        - name: spawnX
+          type:
+            basic: int
+        - name: spawnY
+          type:
+            basic: int
+        - name: targetX
+          type:
+            basic: int
+        - name: targetY
+          type:
+            basic: int
+        - name: count
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: createHordeInAreaTo
+      modifiers:
+        - public
+      parameters:
+        - name: spawnX
+          type:
+            basic: int
+        - name: spawnY
+          type:
+            basic: int
+        - name: spawnW
+          type:
+            basic: int
+        - name: spawnH
+          type:
+            basic: int
+        - name: targetX
+          type:
+            basic: int
+        - name: targetY
+          type:
+            basic: int
+        - name: count
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: dbgClearZombies
+      modifiers:
+        - public
+      parameters:
+        - name: cellX
+          type:
+            basic: int
+        - name: cellY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: dbgSpawnNow
+      modifiers:
+        - public
+      parameters:
+        - name: cellX
+          type:
+            basic: int
+        - name: cellY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: dbgSpawnTimeToZero
+      modifiers:
+        - public
+      parameters:
+        - name: cellX
+          type:
+            basic: int
+        - name: cellY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: endSaveRealZombies
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: metaGrid
+          type:
+            basic: IsoMetaGrid
+      returns:
+        type:
+          basic: void
+    - name: onConfigReloaded
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: playerSpawnedAt
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: registerSpawnOrigin
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+        - name: properties
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+      returns:
+        type:
+          basic: void
+    - name: removeChunkFromWorld
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setAggroTarget
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: int
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: shouldWait
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: sitAgainstWall
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+        - name: square
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: void
+    - name: stop
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateLoadedAreas
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateMain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateThread
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: virtualizeZombie
+      modifiers:
+        - public
+      parameters:
+        - name: realZombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ZombiePopulationRenderer:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: getOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionByName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: load
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: outlineRect
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: w
+          type:
+            basic: float
+        - name: h
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      parameters:
+        - name: ui
+          type:
+            basic: UIElement
+        - name: zoom
+          type:
+            basic: float
+        - name: xPos
+          type:
+            basic: float
+        - name: yPos
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderCellInfo
+      modifiers:
+        - public
+      parameters:
+        - name: cellX
+          type:
+            basic: int
+        - name: cellY
+          type:
+            basic: int
+        - name: effectivePopulation
+          type:
+            basic: int
+        - name: targetPopulation
+          type:
+            basic: int
+        - name: lastRepopTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderCircle
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: radius
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderLine
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderRect
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: w
+          type:
+            basic: float
+        - name: h
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderString
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: str
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: double
+        - name: g
+          type:
+            basic: double
+        - name: b
+          type:
+            basic: double
+        - name: a
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: renderVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: sqlid
+          type:
+            basic: int
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderZombie
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setWallFollowerEnd
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setWallFollowerStart
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: uiToWorldX
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: uiToWorldY
+      modifiers:
+        - public
+      parameters:
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: wallFollowerMouseMove
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: worldToScreenX
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldToScreenY
+      modifiers:
+        - public
+      parameters:
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ZombieTriggerXmlFile:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object

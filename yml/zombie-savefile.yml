@@ -1,0 +1,416 @@
+# zombie.savefile
+ClientPlayerDB:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clientLoadNetworkCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: clientLoadNetworkPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: clientSendNetworkPlayerInt
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: close
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: forgetPlayer
+      modifiers:
+        - public
+      parameters:
+        - name: serverPlayerIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getAllNetworkPlayers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: getClientLoadNetworkPlayerData
+      modifiers:
+        - public
+      parameters:
+        - name: playerIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: byte[]
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ClientPlayerDB
+    - name: getNextServerPlayerIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: isAliveMainNetworkPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isAllow
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: isAvailable
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: loadNetworkPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: loadNetworkPlayerInfo
+      modifiers:
+        - public
+      parameters:
+        - name: playerIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: setAllow
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: en
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: updateMain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PlayerDB:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: close
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getAllLocalPlayers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: PlayerDB
+    - name: importPlayersFromVehiclesDB
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: isAllow
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: isAvailable
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: loadLocalPlayer
+      modifiers:
+        - public
+      parameters:
+        - name: sqlId
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: loadLocalPlayerInfo
+      modifiers:
+        - public
+      parameters:
+        - name: sqlId
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: saveLocalPlayersForce
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: savePlayers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setAllow
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: en
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: updateMain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateWorldStreamer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: uploadLocalPlayers2DB
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PlayerDBHelper:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: create
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Connection
+    - name: getPlayers
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: saveDir
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ArrayList
+    - name: isPlayerAlive
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: saveDir
+          type:
+            basic: String
+        - name: playerSqlId
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: rollback
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: conn
+          type:
+            basic: Connection
+      returns:
+        type:
+          basic: void
+    - name: setPlayer1
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: saveDir
+          type:
+            basic: String
+        - name: sqlID
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+SavefileThumbnail:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: create
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: playerIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ServerPlayerDB:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: close
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ServerPlayerDB
+    - name: isAllow
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: isAvailable
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: process
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: serverLoadNetworkCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: serverUpdateNetworkCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: setAllow
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: en
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object

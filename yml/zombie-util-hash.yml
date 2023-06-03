@@ -1,0 +1,80 @@
+# zombie.util.hash
+DefaultIntHashFunction:
+  methods:
+    - name: hash
+      modifiers:
+        - public
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the value for which to return a hash code.
+      returns:
+        type:
+          basic: int
+        notes: a hash code for the specified value.
+      notes: Description copied from interface: IntHashFunction
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: |-
+    This class provides a default hash function for
+      int values. It has been derived from the Java library and
+      is known to work well in the general case.
+IntHashFunction:
+  methods:
+    - name: hash
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the value for which to return a hash code.
+      returns:
+        type:
+          basic: int
+        notes: a hash code for the specified value.
+      notes: Returns a hash code for a specified int value.
+  modifiers:
+    - public
+  javaType: interface
+  notes: |-
+    This interface represents hash functions from int values
+      to int values. The int value result is chosen to achieve
+      consistence with the common
+Primes:
+  methods:
+    - name: nextPrime
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: n
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+        notes: |-
+          the least prime in the table that is greater
+                        than or equal to the specified value.
+      notes: |-
+        Returns from a static prime table the least prime that is greater
+          than or equal to a specified value.
+
+          On average, the returned prime will about 1/64 of 2
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: |-
+    This class provides a static table of int sized prime numbers.
+      For small numbers (0-511) it contains all primes. For larger
+      numbers it contains 32 primes each time the number of bits is
+      increased. I.e., there are 32 primes from 512 to 1023,
+      32 primes from 1024 to 2048, etc., the primes thus becoming less
+      dense with size. Within the interval formed by using one more
+      bit (say, v0 to v1), the 32 primes are formed by searching for
+      the first prime greater than or equal to v0 + n*(v1-v0)/32, n
+      belonging to {0,1,2, ..., 31}. This creates a reasonable
+      distribution.

@@ -1,0 +1,635 @@
+{
+  "namespaces": {
+    "zombie.spnetwork": {
+      "SinglePlayerClient": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addIncoming",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "type": {
+                  "basic": "short"
+                }
+              },
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Reset",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "sendClientCommand",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "player",
+                "type": {
+                  "basic": "IsoPlayer"
+                }
+              },
+              {
+                "name": "module",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "command",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "args",
+                "type": {
+                  "basic": "se.krka.kahlua.vm.KahluaTable"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "update",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "SinglePlayerServer": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addIncoming",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "type": {
+                  "basic": "short"
+                }
+              },
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              },
+              {
+                "name": "connection",
+                "type": {
+                  "basic": "UdpConnection"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Reset",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "sendObjectChange",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              },
+              {
+                "name": "change",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "objects",
+                "type": {
+                  "basic": "Object..."
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "sendServerCommand",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "module",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "command",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "args",
+                "type": {
+                  "basic": "se.krka.kahlua.vm.KahluaTable"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "update",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "SinglePlayerServer.UdpEngineServer": {
+        "methods": [
+          {
+            "name": "Receive",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Send",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "UdpEngine"
+      },
+      "UdpConnection": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "engine",
+                "type": {
+                  "basic": "UdpEngine"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "cancelPacket",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "endPacketImmediate",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "ReleventTo",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPacket",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "ByteBufferWriter"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "UdpEngine": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Receive",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Send",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ZomboidNetData": {
+        "fields": {
+          "buffer": {
+            "name": "buffer",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ByteBuffer"
+            }
+          },
+          "connection": {
+            "name": "connection",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "UdpConnection"
+            }
+          },
+          "length": {
+            "name": "length",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "short"
+            }
+          },
+          "type": {
+            "name": "type",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "short"
+            }
+          }
+        },
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "size",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "isConnect",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "isDisconnect",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "read",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "type": {
+                  "basic": "short"
+                }
+              },
+              {
+                "name": "bb",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              },
+              {
+                "name": "connection",
+                "type": {
+                  "basic": "UdpConnection"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "reset",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ZomboidNetDataPool": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "discard",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "data",
+                "type": {
+                  "basic": "ZomboidNetData"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "ZomboidNetData"
+              }
+            }
+          },
+          {
+            "name": "getLong",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "len",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ZomboidNetData"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      }
+    }
+  }
+}

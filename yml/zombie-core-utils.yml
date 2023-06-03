@@ -1,0 +1,1658 @@
+# zombie.core.utils
+Bits:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: value
+          type:
+            basic: long
+        - name: flags
+          type:
+            basic: long
+      returns:
+        type:
+          basic: long
+    - name: checkFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: value
+          type:
+            basic: long
+        - name: flags
+          type:
+            basic: long
+        - name: limit
+          type:
+            basic: long
+        - name: option
+          type:
+            basic: Bits.CompareOption
+      returns:
+        type:
+          basic: boolean
+    - name: getBitsString
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bits
+          type:
+            basic: long
+      returns:
+        type:
+          basic: String
+    - name: getLen
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: l
+          type:
+            basic: long
+      returns:
+        type:
+          basic: int
+    - name: hasEitherFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: value
+          type:
+            basic: long
+        - name: flags
+          type:
+            basic: long
+      returns:
+        type:
+          basic: boolean
+    - name: hasFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: value
+          type:
+            basic: long
+        - name: flags
+          type:
+            basic: long
+      returns:
+        type:
+          basic: boolean
+    - name: notHasFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: value
+          type:
+            basic: long
+        - name: flags
+          type:
+            basic: long
+      returns:
+        type:
+          basic: boolean
+    - name: packFloatUnitToByte
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: f
+          type:
+            basic: float
+      returns:
+        type:
+          basic: byte
+    - name: unpackByteToFloatUnit
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: b
+          type:
+            basic: byte
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+Bits.CompareOption:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: Bits.CompareOption
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Bits.CompareOption
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+BooleanGrid:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BooleanGrid
+    - name: copy
+      modifiers:
+        - public
+      parameters:
+        - name: src
+          type:
+            basic: BooleanGrid
+      returns:
+        type:
+          basic: void
+    - name: fill
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getHeight
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the height
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: LoadFromByteBuffer
+      modifiers:
+        - public
+      parameters:
+        - name: cache
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: PutToByteBuffer
+      modifiers:
+        - public
+      parameters:
+        - name: cache
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: Boolean grid
+BoundedQueue:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: numElements
+          type:
+            basic: int
+  methods:
+    - name: add
+      modifiers:
+        - public
+      parameters:
+        - name: e
+          type:
+            basic: E
+      returns:
+        type:
+          basic: void
+    - name: capacity
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: E
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isFull
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: remove
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: E
+    - name: removeFirst
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: E
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+BufferUtils:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: createByteBuffer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: size
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ByteBuffer
+    - name: destroyDirectBuffer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: toBeDestroyed
+          type:
+            basic: Buffer
+          notes: The direct buffer that will be "cleaned". Utilizes reflection.
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Direct buffers are garbage collected by using a phantom reference and a
+         reference queue. Every once a while, the JVM checks the reference queue and
+         cleans the direct buffers. However, as this doesn't happen
+         immediately after discarding all references to a direct buffer, it's
+         easy to OutOfMemoryError yourself using direct buffers. This function
+         explicitly calls the Cleaner method of a direct buffer.
+    - name: printCurrentDirectMemory
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: store
+          type:
+            basic: StringBuilder
+      returns:
+        type:
+          basic: void
+    - name: setTrackDirectMemoryEnabled
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: enabled
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Set it to true if you want to enable direct memory tracking for
+        debugging purpose.
+         Default is false.
+         To print direct memory usage use BufferUtils.printCurrentDirectMemory(StringBuilder store);
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+DirectBufferAllocator:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: allocate
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: size
+          type:
+            basic: int
+      returns:
+        type:
+          basic: WrappedBuffer
+    - name: getBytesAllocated
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: long
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ExpandableBooleanList:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ExpandableBooleanList
+    - name: fill
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: Expandable boolean list.
+FibonacciHeap:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: decreaseKey
+      modifiers:
+        - public
+      parameters:
+        - name: entry
+          type:
+            basic: FibonacciHeap.Entry
+            full: FibonacciHeap.Entry<T>
+          notes: The element whose priority should be decreased.
+        - name: newPriority
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+      notes: |-
+        Decreases the key of the specified element to the new priority.  If the
+         new priority is greater than the old priority, this function throws an
+         IllegalArgumentException.  The new priority must be a finite double,
+         so you cannot set the priority to be NaN, or +/- infinity.  Doing
+         so also throws an IllegalArgumentException.
+
+         It is assumed that the entry belongs in this heap.  For efficiency
+         reasons, this is not checked at runtime.
+    - name: delete
+      modifiers:
+        - public
+      parameters:
+        - name: threadID
+          type:
+            basic: int
+        - name: node
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: void
+    - name: dequeueMin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: FibonacciHeap.Entry
+        notes: The smallest element of the Fibonacci heap.
+      notes: |-
+        Dequeues and returns the minimum element of the Fibonacci heap.  If the
+         heap is empty, this throws a NoSuchElementException.
+    - name: empty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: enqueue
+      modifiers:
+        - public
+      parameters:
+        - name: value
+          type:
+            basic: T
+          notes: The value to insert.
+        - name: priority
+          type:
+            basic: double
+      returns:
+        type:
+          basic: FibonacciHeap.Entry
+        notes: An Entry representing that element in the tree.
+      notes: |-
+        Inserts the specified element into the Fibonacci heap with the specified
+         priority.  Its priority must be a valid double, so you cannot set the
+         priority to NaN.
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: Whether the heap is empty.
+      notes: Returns whether the heap is empty.
+    - name: merge
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: one
+          type:
+            basic: FibonacciHeap
+            full: FibonacciHeap<T>
+          notes: The first Fibonacci heap to merge.
+        - name: two
+          type:
+            basic: FibonacciHeap
+            full: FibonacciHeap<T>
+      returns:
+        type:
+          basic: FibonacciHeap
+        notes: |-
+          A new FibonacciHeap containing all of the elements of both
+                   heaps.
+      notes: |-
+        Given two Fibonacci heaps, returns a new Fibonacci heap that contains
+         all of the elements of the two heaps.  Each of the input heaps is
+         destructively modified by having all its elements removed.  You can
+         continue to use those heaps, but be aware that they will be empty
+         after this call completes.
+    - name: min
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: FibonacciHeap.Entry
+        notes: The smallest element of the heap.
+      notes: |-
+        Returns an Entry object corresponding to the minimum element of the
+         Fibonacci heap, throwing a NoSuchElementException if the heap is
+         empty.
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: The number of elements in the heap.
+      notes: Returns the number of elements in the heap.
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+FibonacciHeap.Entry:
+  methods:
+    - name: getPriority
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+        notes: The priority of this element.
+      notes: Returns the priority of this element.
+    - name: getValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: T
+        notes: The element represented by this heap entry.
+      notes: Returns the element represented by this heap entry.
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: value
+          type:
+            basic: T
+          notes: The element to associate with this heap entry.
+      returns:
+        type:
+          basic: void
+      notes: Sets the element associated with this heap entry.
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+HashMap:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: key
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: iterator
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: HashMap.Iterator
+    - name: put
+      modifiers:
+        - public
+      parameters:
+        - name: key
+          type:
+            basic: Object
+        - name: value
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: remove
+      modifiers:
+        - public
+      parameters:
+        - name: key
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+HashMap.Iterator:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: hashmap
+          type:
+            basic: HashMap
+  methods:
+    - name: advance
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getKey
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: getValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: hasNext
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: HashMap.Iterator
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object
+ImageUtils:
+  methods:
+    - name: depureTexture
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+          notes: source texture
+        - name: limit
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+      notes: removes mistakes which are present on some ruined gif or png .
+    - name: getNextPowerOfTwo
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: fold
+          type:
+            basic: int
+          notes: The target number
+      returns:
+        type:
+          basic: int
+        notes: The power of 2
+      notes: get the closest greater power of 2 to the fold number
+    - name: getNextPowerOfTwoHW
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: fold
+          type:
+            basic: int
+          notes: The target number
+      returns:
+        type:
+          basic: int
+        notes: The power of 2
+      notes: get the closest greater power of 2 to the fold number
+    - name: getScreenShot
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Texture
+    - name: makeTransp
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: data
+          type:
+            basic: ByteBuffer
+        - name: red
+          type:
+            basic: int
+        - name: green
+          type:
+            basic: int
+        - name: blue
+          type:
+            basic: int
+        - name: alpha
+          type:
+            basic: int
+        - name: widthHW
+          type:
+            basic: int
+        - name: heightHW
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ByteBuffer
+    - name: saveBmpImage
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+          notes: the texture to save
+        - name: path
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+      notes: saves a texture on a bmp file
+    - name: saveImage
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+          notes: the texture to save
+        - name: path
+          type:
+            basic: String
+        - name: format
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+      notes: saves a texture on a image file
+    - name: saveJpgImage
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+          notes: the texture to save
+        - name: path
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+      notes: saves a texture on a jpg file
+    - name: savePngImage
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+          notes: the texture to save
+        - name: path
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+      notes: saves a texture on a png file
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: class to simplify images management.
+IntGrid:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IntGrid
+    - name: fill
+      modifiers:
+        - public
+      parameters:
+        - name: newValue
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getHeight
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the height
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+IntHypercube:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+        - name: depth
+          type:
+            basic: int
+        - name: quanta
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IntHypercube
+    - name: fill
+      modifiers:
+        - public
+      parameters:
+        - name: newValue
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getDepth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the depth
+    - name: getHeight
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the height
+    - name: getQuanta
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the "quanta" (4th dimension)
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+        - name: w
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+        - name: w
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+IntHyperCube2:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+        - name: depth
+          type:
+            basic: int
+        - name: quanta
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: fill
+      modifiers:
+        - public
+      parameters:
+        - name: newValue
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getDepth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the depth
+    - name: getHeight
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the height
+    - name: getQuanta
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the "quanta" (4th dimension)
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+        - name: w
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+        - name: w
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ObjectCube:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+        - name: depth
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ObjectCube
+    - name: fill
+      modifiers:
+        - public
+      parameters:
+        - name: newValue
+          type:
+            basic: T
+      returns:
+        type:
+          basic: void
+    - name: getDepth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the depth
+    - name: getHeight
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the height
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: T
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: T
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ObjectGrid:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+      notes: C'tor
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ObjectGrid
+    - name: fill
+      modifiers:
+        - public
+      parameters:
+        - name: newValue
+          type:
+            basic: T
+      returns:
+        type:
+          basic: void
+    - name: getHeight
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the height
+    - name: getValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: T
+    - name: getWidth
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+        notes: the width
+    - name: setValue
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: newValue
+          type:
+            basic: T
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+OnceEvery:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: seconds
+          type:
+            basic: float
+    - modifiers:
+        - public
+      parameters:
+        - name: seconds
+          type:
+            basic: float
+        - name: randomStart
+          type:
+            basic: boolean
+  methods:
+    - name: Check
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getElapsedMillis
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: long
+    - name: update
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+UpdateLimit:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: ms
+          type:
+            basic: long
+    - modifiers:
+        - public
+      parameters:
+        - name: ms
+          type:
+            basic: long
+        - name: shift
+          type:
+            basic: long
+  methods:
+    - name: BlockCheck
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Check
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getDelay
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: getLast
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: getTimePeriod
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: Reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setSmoothUpdatePeriod
+      modifiers:
+        - public
+      parameters:
+        - name: ms
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+    - name: setUpdatePeriod
+      modifiers:
+        - public
+      parameters:
+        - name: ms
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+    - name: updateTimePeriod
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+UpdateTimer:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: check
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: reset
+      modifiers:
+        - public
+      parameters:
+        - name: time
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+WrappedBuffer:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: size
+          type:
+            basic: int
+  methods:
+    - name: capacity
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: dispose
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getBuffer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ByteBuffer
+    - name: isDisposed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: Tracks allocated buffers

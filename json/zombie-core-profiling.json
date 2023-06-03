@@ -1,0 +1,301 @@
+{
+  "namespaces": {
+    "zombie.core.profiling": {
+      "AbstractPerformanceProfileProbe": {
+        "methods": [
+          {
+            "name": "end",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "invokeAndMeasure",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "invoker",
+                "type": {
+                  "basic": "Invokers.Params2.ICallback",
+                  "full": "Invokers.Params2.ICallback<T1,T2>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "isEnabled",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "setEnabled",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "start",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "PerformanceProfileFrameProbe": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "PerformanceProfileProbe"
+      },
+      "PerformanceProfileProbe": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "isEnabled",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ]
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "AbstractPerformanceProfileProbe"
+      },
+      "PerformanceProfileProbeList": {
+        "methods": [
+          {
+            "name": "at",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "layerIdx",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Probe"
+              }
+            }
+          },
+          {
+            "name": "construct",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "prefix",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "count",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "type",
+                "type": {
+                  "basic": "Class",
+                  "full": "Class<Probe>"
+                }
+              },
+              {
+                "name": "ctor",
+                "type": {
+                  "basic": "PerformanceProfileProbeList.Constructor",
+                  "full": "PerformanceProfileProbeList.Constructor<Probe>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "PerformanceProfileProbeList"
+              }
+            }
+          },
+          {
+            "name": "count",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "start",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "layerIdx",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Probe"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "PerformanceProfileProbeList.Constructor": {
+        "methods": [
+          {
+            "name": "get",
+            "parameters": [
+              {
+                "name": "title",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Probe"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "javaType": "interface"
+      },
+      "TriggerGameProfilerFile": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "Object",
+        "notes": "TriggerXmlFile\n  A serialized representation of a Trigger_PerformanceProfiler.xml file.\n  Used by AnimZed to message a character to change its outfit."
+      }
+    }
+  }
+}

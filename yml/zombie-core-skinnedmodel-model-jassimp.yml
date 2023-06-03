@@ -1,0 +1,216 @@
+# zombie.core.skinnedmodel.model.jassimp
+ImportedSkeleton:
+  methods:
+    - name: getNumBoneAncestors
+      modifiers:
+        - public
+      parameters:
+        - name: boneIdx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: process
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: params
+          type:
+            basic: ImportedSkeletonParams
+      returns:
+        type:
+          basic: ImportedSkeleton
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ImportedSkeletonParams:
+  methods:
+    - name: create
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: aiSceneParams
+          type:
+            basic: ProcessedAiSceneParams
+        - name: mesh
+          type:
+            basic: jassimp.AiMesh
+      returns:
+        type:
+          basic: ImportedSkeletonParams
+  modifiers:
+    - public
+  javaType: class
+  extends: ProcessedAiSceneParams
+ImportedSkinnedMesh:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: skeleton
+          type:
+            basic: ImportedSkeleton
+        - name: mesh
+          type:
+            basic: jassimp.AiMesh
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ImportedStaticMesh:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: mesh
+          type:
+            basic: jassimp.AiMesh
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+JAssImpImporter:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getSharedString
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: countKey
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: Init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: takeOutTheTrash
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: scene
+          type:
+            basic: jassimp.AiScene
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: Created by Mark Rowley - Bitbaboon
+JAssImpImporter.LoadMode:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: JAssImpImporter.LoadMode
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: JAssImpImporter.LoadMode
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+ProcessedAiScene:
+  methods:
+    - name: applyToAnimation
+      modifiers:
+        - public
+      parameters:
+        - name: anim
+          type:
+            basic: AnimationAsset
+      returns:
+        type:
+          basic: void
+    - name: applyToMesh
+      modifiers:
+        - public
+      parameters:
+        - name: mesh
+          type:
+            basic: ModelMesh
+        - name: mode
+          type:
+            basic: JAssImpImporter.LoadMode
+        - name: bReverse
+          type:
+            basic: boolean
+        - name: skinnedTo
+          type:
+            basic: SkinningData
+      returns:
+        type:
+          basic: void
+    - name: process
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: params
+          type:
+            basic: ProcessedAiSceneParams
+      returns:
+        type:
+          basic: ProcessedAiScene
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ProcessedAiSceneParams:
+  methods:
+    - name: create
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ProcessedAiSceneParams
+  modifiers:
+    - public
+  javaType: class
+  extends: Object

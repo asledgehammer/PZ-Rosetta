@@ -1,0 +1,566 @@
+# zombie.characters.action
+ActionContext:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IAnimatable
+  methods:
+    - name: childStateCount
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: int
+    - name: clearEvent
+      modifiers:
+        - public
+      parameters:
+        - name: eventName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: foreachChildState
+      modifiers:
+        - public
+        - final
+      parameters:
+        - name: consumer
+          type:
+            basic: Consumer
+            full: Consumer<ActionState>
+      returns:
+        type:
+          basic: void
+    - name: getChildStateAt
+      modifiers:
+        - public
+        - final
+      parameters:
+        - name: idx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ActionState
+    - name: getChildStates
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: List
+    - name: getCurrentState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionState
+    - name: getCurrentStateName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getGroup
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionGroup
+    - name: getNextState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionState
+    - name: getOwner
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IAnimatable
+    - name: getPlaybackStateSnapshot
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionStateSnapshot
+    - name: getPreviousStateName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: hasChildStates
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: boolean
+    - name: hasEventOccurred
+      modifiers:
+        - public
+      parameters:
+        - name: eventName
+          type:
+            basic: String
+        - name: layerIdx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+      notes: Returns TRUE if an event has occurred on the specified layer.
+    - name: indexOfChildState
+      modifiers:
+        - public
+        - final
+      parameters:
+        - name: predicate
+          type:
+            basic: Predicate
+            full: Predicate<ActionState>
+      returns:
+        type:
+          basic: int
+    - name: logCurrentState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: reportEvent
+      modifiers:
+        - public
+      parameters:
+        - name: animLayer
+          type:
+            basic: int
+        - name: event
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setGroup
+      modifiers:
+        - public
+      parameters:
+        - name: group
+          type:
+            basic: ActionGroup
+      returns:
+        type:
+          basic: void
+    - name: setPlaybackStateSnapshot
+      modifiers:
+        - public
+      parameters:
+        - name: snapshot
+          type:
+            basic: ActionStateSnapshot
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ActionContextEvents:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: add
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: layer
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clearEvent
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: contains
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: layer
+          type:
+            basic: int
+        - name: bAgnosticLayer
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ActionGroup:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addState
+      modifiers:
+        - public
+      parameters:
+        - name: state
+          type:
+            basic: ActionState
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: state
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ActionState
+    - name: getActionGroup
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ActionGroup
+    - name: getDefaultState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionState
+    - name: getInitialState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionState
+    - name: reloadAll
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ActionState:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+  methods:
+    - name: canBeSubstate
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: boolean
+    - name: canHaveSubState
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: parent
+          type:
+            basic: ActionState
+        - name: child
+          type:
+            basic: ActionState
+      returns:
+        type:
+          basic: boolean
+      notes: >-
+        Returns TRUE if the supplied child state can be a child of this state.
+         To determine this, the parent's childStateTags are compared to the child's parentStateTags.
+         If there is an overlap, the child is compatible with the parent.
+    - name: canHaveSubStates
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: boolean
+    - name: getName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: stateFolderPath
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: file
+          type:
+            basic: File
+      returns:
+        type:
+          basic: void
+    - name: resetForReload
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: sortTransitions
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: tagsOverlap
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: parentTags
+          type:
+            basic: String[]
+        - name: childTags
+          type:
+            basic: String[]
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ActionStateSnapshot:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: |-
+    Used for Playback
+      Holds the current ActionContext state, and any sub-states
+ActionTransition:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ActionTransition
+    - name: getTransitionTo
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: parse
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: root
+          type:
+            basic: Element
+        - name: srcInfo
+          type:
+            basic: String
+        - name: out_transitions
+          type:
+            basic: List
+            full: List<ActionTransition>
+      returns:
+        type:
+          basic: boolean
+    - name: parseTransition
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: root
+          type:
+            basic: Element
+        - name: out_transitions
+          type:
+            basic: List
+            full: List<ActionTransition>
+      returns:
+        type:
+          basic: void
+    - name: parseTransitions
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: root
+          type:
+            basic: Element
+        - name: srcInfo
+          type:
+            basic: String
+        - name: out_transitions
+          type:
+            basic: List
+            full: List<ActionTransition>
+      returns:
+        type:
+          basic: void
+    - name: passes
+      modifiers:
+        - public
+      parameters:
+        - name: context
+          type:
+            basic: ActionContext
+        - name: layerIdx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+IActionCondition:
+  methods:
+    - name: clone
+      returns:
+        type:
+          basic: IActionCondition
+    - name: createInstance
+      modifiers:
+        - static
+      parameters:
+        - name: conditionNode
+          type:
+            basic: Element
+      returns:
+        type:
+          basic: IActionCondition
+    - name: getDescription
+      returns:
+        type:
+          basic: String
+    - name: passes
+      parameters:
+        - name: context
+          type:
+            basic: ActionContext
+        - name: layerIdx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: registerFactory
+      modifiers:
+        - static
+      parameters:
+        - name: elementName
+          type:
+            basic: String
+        - name: factory
+          type:
+            basic: IActionCondition.IFactory
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: interface
+IActionCondition.IFactory:
+  methods:
+    - name: create
+      parameters:
+        - name: conditionNode
+          type:
+            basic: Element
+      returns:
+        type:
+          basic: IActionCondition
+  modifiers:
+    - public
+    - static
+  javaType: interface
+IActionStateChanged:
+  methods:
+    - name: actionStateChanged
+      parameters:
+        - name: sender
+          type:
+            basic: ActionContext
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: interface

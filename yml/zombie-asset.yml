@@ -1,0 +1,649 @@
+# zombie.asset
+Asset:
+  methods:
+    - name: addDependency
+      modifiers:
+        - public
+      parameters:
+        - name: dependent_asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+    - name: getAssetManager
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AssetManager
+    - name: getObserverCb
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Asset.ObserverCallback
+    - name: getPath
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AssetPath
+    - name: getRefCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Asset.State
+    - name: getType
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: AssetType
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isFailure
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isReady
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: onCreated
+      modifiers:
+        - public
+      parameters:
+        - name: state
+          type:
+            basic: Asset.State
+      returns:
+        type:
+          basic: void
+    - name: removeDependency
+      modifiers:
+        - public
+      parameters:
+        - name: dependent_asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+    - name: setAssetParams
+      modifiers:
+        - public
+      parameters:
+        - name: params
+          type:
+            basic: AssetManager.AssetParams
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+Asset.ObserverCallback:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: invoke
+      modifiers:
+        - public
+      parameters:
+        - name: oldState
+          type:
+            basic: Asset.State
+        - name: newState
+          type:
+            basic: Asset.State
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ArrayList
+Asset.State:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: Asset.State
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Asset.State
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+AssetManager:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: create
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: AssetType
+        - name: owner
+          type:
+            basic: AssetManagers
+      returns:
+        type:
+          basic: void
+    - name: destroy
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: enableUnload
+      modifiers:
+        - public
+      parameters:
+        - name: enable
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: getAssetTable
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AssetManager.AssetTable
+    - name: getOwner
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AssetManagers
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+    - name: onStateChanged
+      modifiers:
+        - public
+      parameters:
+        - name: old_state
+          type:
+            basic: Asset.State
+        - name: new_state
+          type:
+            basic: Asset.State
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+    - name: reload
+      modifiers:
+        - public
+      parameters:
+        - name: asset
+          type:
+            basic: Asset
+        - name: params
+          type:
+            basic: AssetManager.AssetParams
+      returns:
+        type:
+          basic: void
+    - name: removeUnreferenced
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: unload
+      modifiers:
+        - public
+      parameters:
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+AssetManager.AssetParams:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object
+AssetManager.AssetTable:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: String
+AssetManagers:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: fileSystem
+          type:
+            basic: FileSystem
+  methods:
+    - name: add
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: AssetType
+        - name: rm
+          type:
+            basic: AssetManager
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: AssetType
+      returns:
+        type:
+          basic: AssetManager
+    - name: getFileSystem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: FileSystem
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AssetPath:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: path
+          type:
+            basic: String
+  methods:
+    - name: getHash
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getPath
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isValid
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AssetStateObserver:
+  methods:
+    - name: onStateChanged
+      parameters:
+        - name: oldState
+          type:
+            basic: Asset.State
+        - name: newState
+          type:
+            basic: Asset.State
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: interface
+AssetTask:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: asset
+          type:
+            basic: Asset
+  methods:
+    - name: cancel
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: void
+    - name: execute
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+AssetTask_RunFileTask:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: fileTask
+          type:
+            basic: FileTask
+        - name: asset
+          type:
+            basic: Asset
+  methods:
+    - name: cancel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: execute
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: AssetTask
+AssetType:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: typeName
+          type:
+            basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+FileTask_Exists:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: fileName
+          type:
+            basic: String
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+        - name: fileSystem
+          type:
+            basic: FileSystem
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
+FileTask_LoadAiScene:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: filename
+          type:
+            basic: String
+        - name: pps
+          type:
+            basic: EnumSet
+            full: EnumSet<jassimp.AiPostProcessSteps>
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+        - name: fileSystem
+          type:
+            basic: FileSystem
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getErrorMessage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
+FileTask_LoadImageData:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: imageName
+          type:
+            basic: String
+        - name: fs
+          type:
+            basic: FileSystem
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getErrorMessage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
+FileTask_LoadPackImage:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: packName
+          type:
+            basic: String
+        - name: imageName
+          type:
+            basic: String
+        - name: fs
+          type:
+            basic: FileSystem
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
+FileTask_ParseXML:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: klass
+          type:
+            basic: Class
+            full: Class<? extends Object>
+        - name: filename
+          type:
+            basic: String
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+        - name: fileSystem
+          type:
+            basic: FileSystem
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getErrorMessage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
