@@ -1,0 +1,3334 @@
+# zombie.worldMap
+FileTask_LoadWorldMapBinary:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: worldMapData
+          type:
+            basic: WorldMapData
+        - name: filename
+          type:
+            basic: String
+        - name: fileSystem
+          type:
+            basic: FileSystem
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getErrorMessage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
+FileTask_LoadWorldMapXML:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: worldMapData
+          type:
+            basic: WorldMapData
+        - name: filename
+          type:
+            basic: String
+        - name: fileSystem
+          type:
+            basic: FileSystem
+        - name: cb
+          type:
+            basic: IFileTaskCallback
+  methods:
+    - name: call
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Object
+    - name: done
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getErrorMessage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: FileTask
+ImagePyramid:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: destroy
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: generateFiles
+      modifiers:
+        - public
+      parameters:
+        - name: imageFile
+          type:
+            basic: String
+        - name: outputDirectory
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: generateZip
+      modifiers:
+        - public
+      parameters:
+        - name: imageFile
+          type:
+            basic: String
+        - name: zipFile
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: getImage
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: Texture
+    - name: getTexture
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: TextureID
+    - name: openZipFile
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: FileSystem
+    - name: setDirectory
+      modifiers:
+        - public
+      parameters:
+        - name: directory
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setZipFile
+      modifiers:
+        - public
+      parameters:
+        - name: zipFile
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ImagePyramid.PyramidTexture:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+MapDefinitions:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: MapDefinitions
+    - name: pickRandom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+MapProjection:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: exp2
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: N
+          type:
+            basic: double
+      returns:
+        type:
+          basic: double
+    - name: log2
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: N
+          type:
+            basic: double
+      returns:
+        type:
+          basic: double
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+MapProjection.BoundingBox:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: min
+          type:
+            basic: org.joml.Vector2d
+        - name: max
+          type:
+            basic: org.joml.Vector2d
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+MapProjection.LngLat:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: lng
+          type:
+            basic: double
+        - name: lat
+          type:
+            basic: double
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+MapProjection.ProjectedMeters:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+Rasterize:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+StrokeGeometry:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+StrokeGeometry.Point:
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+UIWorldMap:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: table
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+  methods:
+    - name: getAPI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: UIWorldMapV1
+    - name: getAPIv1
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: UIWorldMapV1
+    - name: onMouseDown
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: double
+        - name: y
+          type:
+            basic: double
+      returns:
+        type:
+          basic: Boolean
+    - name: onMouseMove
+      modifiers:
+        - public
+      parameters:
+        - name: dx
+          type:
+            basic: double
+        - name: dy
+          type:
+            basic: double
+      returns:
+        type:
+          basic: Boolean
+    - name: onMouseUp
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: double
+        - name: y
+          type:
+            basic: double
+      returns:
+        type:
+          basic: Boolean
+    - name: onMouseUpOutside
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: double
+        - name: y
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: onMouseWheel
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: double
+      returns:
+        type:
+          basic: Boolean
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setExposed
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: exposer
+          type:
+            basic: LuaManager.Exposer
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: UIElement
+UIWorldMapV1:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: ui
+          type:
+            basic: UIWorldMap
+  methods:
+    - name: addData
+      modifiers:
+        - public
+      parameters:
+        - name: fileName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: addImages
+      modifiers:
+        - public
+      parameters:
+        - name: directory
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: centerOn
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: clearData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: endDirectoryData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getBaseZoom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: getCenterWorldX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCenterWorldY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDataCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDataFileByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: String
+    - name: getDouble
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: defaultValue
+          type:
+            basic: double
+      returns:
+        type:
+          basic: double
+    - name: getHeightInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getHeightInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getImagesCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMarkers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMapMarkers
+    - name: getMarkersAPI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMapMarkersV1
+    - name: getMaxXInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxXInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxYInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxYInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinXInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinXInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinYInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinYInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getRenderer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMapRenderer
+    - name: getStyle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMapStyle
+    - name: getStyleAPI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMapStyleV1
+    - name: getSymbolsAPI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMapSymbolsV1
+    - name: getWidthInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWidthInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWorldScale
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getZoomF
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: mouseToWorldX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: mouseToWorldY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: moveView
+      modifiers:
+        - public
+      parameters:
+        - name: dx
+          type:
+            basic: float
+        - name: dy
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: resetView
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBackgroundRGBA
+      modifiers:
+        - public
+      parameters:
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setBoundsFromData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoundsFromWorld
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoundsInCells
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setBoundsInSquares
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setDouble
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: setDropShadowWidth
+      modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setMapItem
+      modifiers:
+        - public
+      parameters:
+        - name: mapItem
+          type:
+            basic: MapItem
+      returns:
+        type:
+          basic: void
+    - name: setUnvisitedGridRGBA
+      modifiers:
+        - public
+      parameters:
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setUnvisitedRGBA
+      modifiers:
+        - public
+      parameters:
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setZoom
+      modifiers:
+        - public
+      parameters:
+        - name: zoom
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: uiToWorldX
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: uiToWorldY
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldOriginX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: worldOriginY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: worldToUIX
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldToUIY
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: zoomAt
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+        - name: delta
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+VASErenderer:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: n_drawLineString
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: points
+          type:
+            basic: float[]
+        - name: npoints
+          type:
+            basic: int
+        - name: lineWidth
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VBOLinesUV:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addElement
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addLine
+      modifiers:
+        - public
+      parameters:
+        - name: x0
+          type:
+            basic: float
+        - name: y0
+          type:
+            basic: float
+        - name: z0
+          type:
+            basic: float
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: z1
+          type:
+            basic: float
+        - name: r0
+          type:
+            basic: float
+        - name: g0
+          type:
+            basic: float
+        - name: b0
+          type:
+            basic: float
+        - name: a0
+          type:
+            basic: float
+        - name: r1
+          type:
+            basic: float
+        - name: g1
+          type:
+            basic: float
+        - name: b1
+          type:
+            basic: float
+        - name: a1
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addQuad
+      modifiers:
+        - public
+      parameters:
+        - name: x0
+          type:
+            basic: float
+        - name: y0
+          type:
+            basic: float
+        - name: u0
+          type:
+            basic: float
+        - name: v0
+          type:
+            basic: float
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: u1
+          type:
+            basic: float
+        - name: v1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: u2
+          type:
+            basic: float
+        - name: v2
+          type:
+            basic: float
+        - name: x3
+          type:
+            basic: float
+        - name: y3
+          type:
+            basic: float
+        - name: u3
+          type:
+            basic: float
+        - name: v3
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addTriangle
+      modifiers:
+        - public
+      parameters:
+        - name: x0
+          type:
+            basic: float
+        - name: y0
+          type:
+            basic: float
+        - name: z0
+          type:
+            basic: float
+        - name: u0
+          type:
+            basic: float
+        - name: v0
+          type:
+            basic: float
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: z1
+          type:
+            basic: float
+        - name: u1
+          type:
+            basic: float
+        - name: v1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: z2
+          type:
+            basic: float
+        - name: u2
+          type:
+            basic: float
+        - name: v2
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: flush
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: reserve
+      modifiers:
+        - public
+      parameters:
+        - name: numElements
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setLineWidth
+      modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setMode
+      modifiers:
+        - public
+      parameters:
+        - name: mode
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setOffset
+      modifiers:
+        - public
+      parameters:
+        - name: dx
+          type:
+            basic: float
+        - name: dy
+          type:
+            basic: float
+        - name: dz
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: startRun
+      modifiers:
+        - public
+      parameters:
+        - name: textureID
+          type:
+            basic: TextureID
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMap:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addData
+      modifiers:
+        - public
+      parameters:
+        - name: fileName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: addImages
+      modifiers:
+        - public
+      parameters:
+        - name: directory
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: clearData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: endDirectoryData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getCell
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: WorldMapCell
+    - name: getDataByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: WorldMapData
+    - name: getDataCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDataHeightInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDataHeightInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDataWidthInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDataWidthInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getHeightInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getHeightInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getImagesByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: WorldMapImages
+    - name: getImagesCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxXInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxXInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxYInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxYInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinXInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinXInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinYInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinYInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWidthInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWidthInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: hasData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasImages
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isLastDataInDirectory
+      modifiers:
+        - public
+      parameters:
+        - name: data
+          type:
+            basic: WorldMapData
+      returns:
+        type:
+          basic: boolean
+    - name: onStateChanged
+      modifiers:
+        - public
+      parameters:
+        - name: oldState
+          type:
+            basic: Asset.State
+        - name: newState
+          type:
+            basic: Asset.State
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: setBoundsFromData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoundsFromWorld
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoundsInCells
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setBoundsInSquares
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapBinary:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: read
+      modifiers:
+        - public
+      parameters:
+        - name: filePath
+          type:
+            basic: String
+        - name: data
+          type:
+            basic: WorldMapData
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapCell:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: dispose
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: hitTest
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: features
+          type:
+            basic: ArrayList
+            full: ArrayList<WorldMapFeature>
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapData:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: path
+          type:
+            basic: AssetPath
+        - name: manager
+          type:
+            basic: AssetManager
+    - modifiers:
+        - public
+      parameters:
+        - name: path
+          type:
+            basic: AssetPath
+        - name: manager
+          type:
+            basic: AssetManager
+        - name: params
+          type:
+            basic: AssetManager.AssetParams
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getCell
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: WorldMapCell
+    - name: getHeightInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getHeightInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getOrCreateData
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: fileName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: WorldMapData
+    - name: getType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AssetType
+    - name: getWidthInCells
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWidthInSquares
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: hitTest
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: features
+          type:
+            basic: ArrayList
+            full: ArrayList<WorldMapFeature>
+      returns:
+        type:
+          basic: void
+    - name: onLoaded
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Asset
+WorldMapDataAssetManager:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: AssetManager
+WorldMapFeature:
+  methods:
+    - name: containsPoint
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: dispose
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: hasLineString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasPoint
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasPolygon
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapGeometry:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: calculateBounds
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: containsPoint
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: dispose
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: triangulate
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: double[]
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapGeometry.TrianglesPerZoom:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+WorldMapGeometry.Type:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: WorldMapGeometry.Type
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: WorldMapGeometry.Type
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+WorldMapImages:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getMaxX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getOrCreate
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: directory
+          type:
+            basic: String
+      returns:
+        type:
+          basic: WorldMapImages
+    - name: getPyramid
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImagePyramid
+    - name: getResolution
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getZoom
+      modifiers:
+        - public
+      parameters:
+        - name: zoomF
+          type:
+            basic: float
+      returns:
+        type:
+          basic: int
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapJNI:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapPoint:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapPoints:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: calculateBounds
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getX
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getY
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: isClockwise
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: numPoints
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+WorldMapProperties:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: HashMap
+WorldMapRenderer:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: centerOn
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: getAbsoluteX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getAbsoluteY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getBaseZoom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: getCenterWorldX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCenterWorldY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDisplayZoomF
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDouble
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: defaultValue
+          type:
+            basic: double
+      returns:
+        type:
+          basic: double
+    - name: getHeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getModelViewMatrix
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: org.joml.Matrix4f
+    - name: getOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionByName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getProjectionMatrix
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: org.joml.Matrix4f
+    - name: getWidth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWorldMap
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: WorldMap
+    - name: getWorldScale
+      modifiers:
+        - public
+      parameters:
+        - name: zoomF
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: getZoom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getZoomF
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: log2
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: double
+      returns:
+        type:
+          basic: double
+    - name: moveView
+      modifiers:
+        - public
+      parameters:
+        - name: dx
+          type:
+            basic: int
+        - name: dy
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      parameters:
+        - name: ui
+          type:
+            basic: UIWorldMap
+      returns:
+        type:
+          basic: void
+    - name: resetView
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: sceneToUI
+      modifiers:
+        - public
+      parameters:
+        - name: sceneX
+          type:
+            basic: float
+        - name: sceneY
+          type:
+            basic: float
+        - name: sceneZ
+          type:
+            basic: float
+        - name: projection
+          type:
+            basic: org.joml.Matrix4f
+        - name: modelView
+          type:
+            basic: org.joml.Matrix4f
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: setBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setDouble
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: setDropShadowWidth
+      modifiers:
+        - public
+      parameters:
+        - name: width
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setMap
+      modifiers:
+        - public
+      parameters:
+        - name: worldMap
+          type:
+            basic: WorldMap
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: width
+          type:
+            basic: int
+        - name: height
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setVisited
+      modifiers:
+        - public
+      parameters:
+        - name: visited
+          type:
+            basic: WorldMapVisited
+      returns:
+        type:
+          basic: void
+    - name: setZoom
+      modifiers:
+        - public
+      parameters:
+        - name: zoom
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: uiToScene
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+        - name: projection
+          type:
+            basic: org.joml.Matrix4f
+        - name: modelView
+          type:
+            basic: org.joml.Matrix4f
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: uiToWorldX
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+        - name: zoomF
+          type:
+            basic: float
+        - name: centerWorldX
+          type:
+            basic: float
+        - name: centerWorldY
+          type:
+            basic: float
+        - name: projection
+          type:
+            basic: org.joml.Matrix4f
+        - name: modelView
+          type:
+            basic: org.joml.Matrix4f
+      returns:
+        type:
+          basic: float
+    - name: uiToWorldY
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+        - name: zoomF
+          type:
+            basic: float
+        - name: centerWorldX
+          type:
+            basic: float
+        - name: centerWorldY
+          type:
+            basic: float
+        - name: projection
+          type:
+            basic: org.joml.Matrix4f
+        - name: modelView
+          type:
+            basic: org.joml.Matrix4f
+      returns:
+        type:
+          basic: float
+    - name: updateView
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: worldOriginUIX
+      modifiers:
+        - public
+      parameters:
+        - name: zoomF
+          type:
+            basic: float
+        - name: centerWorldX
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldOriginUIY
+      modifiers:
+        - public
+      parameters:
+        - name: zoomF
+          type:
+            basic: float
+        - name: centerWorldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldToUIX
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+        - name: zoomF
+          type:
+            basic: float
+        - name: centerWorldX
+          type:
+            basic: float
+        - name: centerWorldY
+          type:
+            basic: float
+        - name: projection
+          type:
+            basic: org.joml.Matrix4f
+        - name: modelView
+          type:
+            basic: org.joml.Matrix4f
+      returns:
+        type:
+          basic: float
+    - name: worldToUIY
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+        - name: zoomF
+          type:
+            basic: float
+        - name: centerWorldX
+          type:
+            basic: float
+        - name: centerWorldY
+          type:
+            basic: float
+        - name: projection
+          type:
+            basic: org.joml.Matrix4f
+        - name: modelView
+          type:
+            basic: org.joml.Matrix4f
+      returns:
+        type:
+          basic: float
+    - name: zoomAt
+      modifiers:
+        - public
+      parameters:
+        - name: mouseX
+          type:
+            basic: int
+        - name: mouseY
+          type:
+            basic: int
+        - name: delta
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: zoomMult
+      modifiers:
+        - public
+      parameters:
+        - name: zoomF
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapRenderer.Drawer:
+  methods:
+    - name: drawLineString
+      modifiers:
+        - public
+      parameters:
+        - name: args
+          type:
+            basic: WorldMapStyleLayer.RenderArgs
+        - name: feature
+          type:
+            basic: WorldMapFeature
+        - name: color
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: lineWidth
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: drawLineStringTexture
+      modifiers:
+        - public
+      parameters:
+        - name: args
+          type:
+            basic: WorldMapStyleLayer.RenderArgs
+        - name: feature
+          type:
+            basic: WorldMapFeature
+        - name: color
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: lineWidth
+          type:
+            basic: float
+        - name: texture
+          type:
+            basic: Texture
+      returns:
+        type:
+          basic: void
+    - name: drawLineStringXXX
+      modifiers:
+        - public
+      parameters:
+        - name: args
+          type:
+            basic: WorldMapStyleLayer.RenderArgs
+        - name: feature
+          type:
+            basic: WorldMapFeature
+        - name: color
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: lineWidth
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: drawLineStringYYY
+      modifiers:
+        - public
+      parameters:
+        - name: args
+          type:
+            basic: WorldMapStyleLayer.RenderArgs
+        - name: feature
+          type:
+            basic: WorldMapFeature
+        - name: color
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: lineWidth
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: drawTexture
+      modifiers:
+        - public
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+        - name: fill
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: worldX1
+          type:
+            basic: int
+        - name: worldY1
+          type:
+            basic: int
+        - name: worldX2
+          type:
+            basic: int
+        - name: worldY2
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: drawTextureTiled
+      modifiers:
+        - public
+      parameters:
+        - name: texture
+          type:
+            basic: Texture
+        - name: fill
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: worldX1
+          type:
+            basic: int
+        - name: worldY1
+          type:
+            basic: int
+        - name: worldX2
+          type:
+            basic: int
+        - name: worldY2
+          type:
+            basic: int
+        - name: tileW
+          type:
+            basic: int
+        - name: tileH
+          type:
+            basic: int
+        - name: cellX
+          type:
+            basic: int
+        - name: cellY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: fillPolygon
+      modifiers:
+        - public
+      parameters:
+        - name: args
+          type:
+            basic: WorldMapStyleLayer.RenderArgs
+        - name: feature
+          type:
+            basic: WorldMapFeature
+        - name: color
+          type:
+            basic: WorldMapStyleLayer.RGBAf
+        - name: texture
+          type:
+            basic: Texture
+        - name: textureScale
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: getAbsoluteX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getAbsoluteY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getHeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWidth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWorldScale
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: postRender
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: uiToWorldX
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: uiToWorldY
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldOriginUIX
+      modifiers:
+        - public
+      parameters:
+        - name: centerWorldX
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldOriginUIY
+      modifiers:
+        - public
+      parameters:
+        - name: centerWorldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: TextureDraw.GenericDrawer
+WorldMapRenderLayer:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapSettings:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: getDouble
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: defaultValue
+          type:
+            basic: double
+      returns:
+        type:
+          basic: double
+    - name: getFileVersion
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: WorldMapSettings
+    - name: getOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionByName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: load
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setDouble
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapVBOs:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addElement
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: create
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: drawElements
+      modifiers:
+        - public
+      parameters:
+        - name: mode
+          type:
+            basic: int
+        - name: index1
+          type:
+            basic: int
+        - name: index2
+          type:
+            basic: int
+        - name: count
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: WorldMapVBOs
+    - name: reserveVertices
+      modifiers:
+        - public
+      parameters:
+        - name: numVertices
+          type:
+            basic: int
+        - name: indices
+          type:
+            basic: int[]
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+WorldMapVisited:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clearKnownInCells
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: clearKnownInSquares
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: clearVisitedInCells
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: clearVisitedInSquares
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: forget
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: WorldMapVisited
+    - name: getMinX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: load
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      parameters:
+        - name: renderX
+          type:
+            basic: float
+        - name: renderY
+          type:
+            basic: float
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+        - name: worldScale
+          type:
+            basic: float
+        - name: blur
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: renderGrid
+      modifiers:
+        - public
+      parameters:
+        - name: renderX
+          type:
+            basic: float
+        - name: renderY
+          type:
+            basic: float
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+        - name: worldScale
+          type:
+            basic: float
+        - name: zoomF
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderMain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: SaveAll
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: setBounds
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setKnownInCells
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setKnownInSquares
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setVisitedInCells
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setVisitedInSquares
+      modifiers:
+        - public
+      parameters:
+        - name: minX
+          type:
+            basic: int
+        - name: minY
+          type:
+            basic: int
+        - name: maxX
+          type:
+            basic: int
+        - name: maxY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+WorldMapXML:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: read
+      modifiers:
+        - public
+      parameters:
+        - name: filePath
+          type:
+            basic: String
+        - name: data
+          type:
+            basic: WorldMapData
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object

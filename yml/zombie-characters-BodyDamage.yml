@@ -1,0 +1,4312 @@
+# zombie.characters.BodyDamage
+BodyDamage:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: ParentCharacter
+          type:
+            basic: IsoGameCharacter
+  methods:
+    - name: AddDamage
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: AddGeneralHealth
+      modifiers:
+        - public
+      parameters:
+        - name: Val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: AddRandomDamage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: AddRandomDamageFromZombie
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+        - name: hitReaction
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+      notes: |-
+        This gonna decide the strength of the damage you'll get.
+         Getting surrounded can also trigger an instant death animation.
+    - name: areBodyPartsBleeding
+      modifiers:
+        - public
+      parameters:
+        - name: partA
+          type:
+            basic: BodyPartType
+        - name: partB
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: boolean
+      notes: Returns TRUE if either body part is bleeding. ie. A OR B
+    - name: DamageFromWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: weapon
+          type:
+            basic: HandWeapon
+      returns:
+        type:
+          basic: void
+      notes: When hit by another player in MP
+    - name: decreaseBodyWetness
+      modifiers:
+        - public
+      parameters:
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: DisableFakeInfection
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: doBodyPartsHaveInjuries
+      modifiers:
+        - public
+      parameters:
+        - name: partA
+          type:
+            basic: BodyPartType
+        - name: partB
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: boolean
+      notes: Returns TRUE if either body part is injured. ie. A OR B
+    - name: doesBodyPartHaveInjury
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: boolean
+    - name: DrawUntexturedQuad
+      modifiers:
+        - public
+      parameters:
+        - name: X
+          type:
+            basic: int
+        - name: Y
+          type:
+            basic: int
+        - name: Width
+          type:
+            basic: int
+        - name: Height
+          type:
+            basic: int
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: getApparentInfectionLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBodyPart
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: BodyPart
+    - name: getBodyPartHealth
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getBodyPartName
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: String
+    - name: getBodyParts
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+        notes: the BodyParts
+    - name: getBodyPartsLastState
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: BodyPartLast
+    - name: getBoredomDecreaseFromReading
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the BoredomDecreaseFromReading
+    - name: getBoredomLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCatchACold
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the CatchACold
+    - name: getColdDamageStage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getColdProgressionRate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the ColdProgressionRate
+    - name: getColdReduction
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getColdSneezeTimerMax
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the ColdSneezeTimerMax
+    - name: getColdSneezeTimerMin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the ColdSneezeTimerMin
+    - name: getColdStrength
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getContinualPainIncrease
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the ContinualPainIncrease
+    - name: getCurrentNumZombiesVisible
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the CurrentNumZombiesVisible
+    - name: getDamageModCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the DamageModCount
+    - name: getDrunkIncreaseValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the DrunkIncreaseValue
+    - name: getDrunkReductionValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the DrunkReductionValue
+    - name: getFakeInfectionLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the FakeInfectionLevel
+    - name: getFoodSicknessLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getHealth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getHealthFromFood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the HealthFromFood
+    - name: getHealthFromFoodTimer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the HealthFromFoodTimer
+    - name: getHealthReductionFromSevereBadMoodles
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the HealthReductionFromSevereBadMoodles
+    - name: getInfectionGrowthRate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the InfectionGrowthRate
+    - name: getInfectionLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getInfectionMortalityDuration
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getInfectionTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getInitialBitePain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the InitialBitePain
+    - name: getInitialScratchPain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the InitialScratchPain
+    - name: getInitialThumpPain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the InitialThumpPain
+    - name: getInitialWoundPain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the InitialWoundPain
+    - name: getMildColdSneezeTimerMax
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the MildColdSneezeTimerMax
+    - name: getMildColdSneezeTimerMin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the MildColdSneezeTimerMin
+    - name: getNastyColdSneezeTimerMax
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the NastyColdSneezeTimerMax
+    - name: getNastyColdSneezeTimerMin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the NastyColdSneezeTimerMin
+    - name: getNumPartsBitten
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getNumPartsBleeding
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getNumPartsScratched
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getOldNumZombiesVisible
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the OldNumZombiesVisible
+    - name: getOverallBodyHealth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the OverallBodyHealth
+    - name: getPainReduction
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getPainReductionFromMeds
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the PainReductionFromMeds
+    - name: getPanicIncreaseValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the PanicIncreaseValue
+    - name: getPanicIncreaseValueFrame
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getPanicReductionValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the PanicReductionValue
+    - name: getParentChar
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGameCharacter
+        notes: the ParentChar
+    - name: getPoisonLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getReducedHealthAddition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the ReducedHealthAddition
+    - name: getRemotePainLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSeverlyReducedHealthAddition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the SeverlyReducedHealthAddition
+    - name: getSicknessFromCorpsesRate
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: corpseCount
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getSleepingHealthAddition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the SleepingHealthAddition
+    - name: getSneezeCoughActive
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the SneezeCoughActive
+    - name: getSneezeCoughDelay
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the SneezeCoughDelay
+    - name: getSneezeCoughTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the SneezeCoughTime
+    - name: getStandardHealthAddition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the StandardHealthAddition
+    - name: getStandardHealthFromFoodTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the StandardHealthFromFoodTime
+    - name: getStandardPainReductionWhenWell
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the StandardPainReductionWhenWell
+    - name: getTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+        notes: the body temperature (updated by lua)
+    - name: getTemperatureChangeTick
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getThermoregulator
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Thermoregulator
+    - name: getTimeToSneezeOrCough
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the TimeToSneezeOrCough
+    - name: getUnhappynessLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getWetness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: HasInjury
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: increaseBodyWetness
+      modifiers:
+        - public
+      parameters:
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: IncreasePanic
+      modifiers:
+        - public
+      parameters:
+        - name: NumNewZombiesSeen
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: IncreasePanicFloat
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: IsBandaged
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: IsBitten
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: IsBleeding
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: IsBleedingStemmed
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isBodyPartBleeding
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: boolean
+      notes: Returns TRUE if the specified body part's bleeding time is greater than
+        0.
+    - name: isBurntToDeath
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: the BurntToDeath
+    - name: IsCortorised
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: IsCut
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPart
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: boolean
+    - name: IsDeepWounded
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPart
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: boolean
+    - name: IsFakeInfected
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isHasACold
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: the HasACold
+    - name: isInf
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: the inf
+    - name: isInfected
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: IsInfected
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isIsFakeInfected
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: the IsFakeInfected
+    - name: isIsOnFire
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: the IsOnFire
+    - name: IsOnFire
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isReduceFakeInfection
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: IsScratched
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: IsSneezingCoughing
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: IsStitched
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: IsWounded
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: JustAteFood
+      modifiers:
+        - public
+      parameters:
+        - name: NewFood
+          type:
+            basic: Food
+      returns:
+        type:
+          basic: void
+    - name: JustDrankBooze
+      modifiers:
+        - public
+      parameters:
+        - name: food
+          type:
+            basic: Food
+        - name: percentage
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: JustReadSomething
+      modifiers:
+        - public
+      parameters:
+        - name: lit
+          type:
+            basic: Literature
+      returns:
+        type:
+          basic: void
+    - name: JustTookPainMeds
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: JustTookPill
+      modifiers:
+        - public
+      parameters:
+        - name: Pill
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: OnFire
+      modifiers:
+        - public
+      parameters:
+        - name: OnFire
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: pickMortalityDuration
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: ReduceGeneralHealth
+      modifiers:
+        - public
+      parameters:
+        - name: Val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: ReducePanic
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: RestoreToFullHealth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: SetBandaged
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Bandaged
+          type:
+            basic: boolean
+        - name: bandageLife
+          type:
+            basic: float
+        - name: isAlcoholic
+          type:
+            basic: boolean
+        - name: bandageType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: SetBitten
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Bitten
+          type:
+            basic: boolean
+        - name: Infected
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetBleeding
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Bleeding
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetBleedingStemmed
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: BleedingStemmed
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setBodyPartsLastState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoredomDecreaseFromReading
+      modifiers:
+        - public
+      parameters:
+        - name: BoredomDecreaseFromReading
+          type:
+            basic: float
+          notes: the BoredomDecreaseFromReading to set
+      returns:
+        type:
+          basic: void
+    - name: setBoredomLevel
+      modifiers:
+        - public
+      parameters:
+        - name: BoredomLevel
+          type:
+            basic: float
+          notes: the BoredomLevel to set
+      returns:
+        type:
+          basic: void
+    - name: setBurntToDeath
+      modifiers:
+        - public
+      parameters:
+        - name: BurntToDeath
+          type:
+            basic: boolean
+          notes: the BurntToDeath to set
+      returns:
+        type:
+          basic: void
+    - name: setCatchACold
+      modifiers:
+        - public
+      parameters:
+        - name: CatchACold
+          type:
+            basic: float
+          notes: the CatchACold to set
+      returns:
+        type:
+          basic: void
+    - name: setColdDamageStage
+      modifiers:
+        - public
+      parameters:
+        - name: coldDamageStage
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setColdProgressionRate
+      modifiers:
+        - public
+      parameters:
+        - name: ColdProgressionRate
+          type:
+            basic: float
+          notes: the ColdProgressionRate to set
+      returns:
+        type:
+          basic: void
+    - name: setColdReduction
+      modifiers:
+        - public
+      parameters:
+        - name: coldReduction
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setColdSneezeTimerMax
+      modifiers:
+        - public
+      parameters:
+        - name: ColdSneezeTimerMax
+          type:
+            basic: int
+          notes: the ColdSneezeTimerMax to set
+      returns:
+        type:
+          basic: void
+    - name: setColdSneezeTimerMin
+      modifiers:
+        - public
+      parameters:
+        - name: ColdSneezeTimerMin
+          type:
+            basic: int
+          notes: the ColdSneezeTimerMin to set
+      returns:
+        type:
+          basic: void
+    - name: setColdStrength
+      modifiers:
+        - public
+      parameters:
+        - name: ColdStrength
+          type:
+            basic: float
+          notes: the ColdStrength to set
+      returns:
+        type:
+          basic: void
+    - name: setContinualPainIncrease
+      modifiers:
+        - public
+      parameters:
+        - name: ContinualPainIncrease
+          type:
+            basic: float
+          notes: the ContinualPainIncrease to set
+      returns:
+        type:
+          basic: void
+    - name: SetCortorised
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Cortorised
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setCurrentNumZombiesVisible
+      modifiers:
+        - public
+      parameters:
+        - name: CurrentNumZombiesVisible
+          type:
+            basic: int
+          notes: the CurrentNumZombiesVisible to set
+      returns:
+        type:
+          basic: void
+    - name: SetCut
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Cut
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setDamageModCount
+      modifiers:
+        - public
+      parameters:
+        - name: DamageModCount
+          type:
+            basic: int
+          notes: the DamageModCount to set
+      returns:
+        type:
+          basic: void
+    - name: setDrunkIncreaseValue
+      modifiers:
+        - public
+      parameters:
+        - name: DrunkIncreaseValue
+          type:
+            basic: float
+          notes: the DrunkIncreaseValue to set
+      returns:
+        type:
+          basic: void
+    - name: setDrunkReductionValue
+      modifiers:
+        - public
+      parameters:
+        - name: DrunkReductionValue
+          type:
+            basic: float
+          notes: the DrunkReductionValue to set
+      returns:
+        type:
+          basic: void
+    - name: setFakeInfectionLevel
+      modifiers:
+        - public
+      parameters:
+        - name: FakeInfectionLevel
+          type:
+            basic: float
+          notes: the FakeInfectionLevel to set
+      returns:
+        type:
+          basic: void
+    - name: setFoodSicknessLevel
+      modifiers:
+        - public
+      parameters:
+        - name: foodSicknessLevel
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setHasACold
+      modifiers:
+        - public
+      parameters:
+        - name: HasACold
+          type:
+            basic: boolean
+          notes: the HasACold to set
+      returns:
+        type:
+          basic: void
+    - name: setHealthFromFood
+      modifiers:
+        - public
+      parameters:
+        - name: HealthFromFood
+          type:
+            basic: float
+          notes: the HealthFromFood to set
+      returns:
+        type:
+          basic: void
+    - name: setHealthFromFoodTimer
+      modifiers:
+        - public
+      parameters:
+        - name: HealthFromFoodTimer
+          type:
+            basic: float
+          notes: the HealthFromFoodTimer to set
+      returns:
+        type:
+          basic: void
+    - name: setHealthReductionFromSevereBadMoodles
+      modifiers:
+        - public
+      parameters:
+        - name: HealthReductionFromSevereBadMoodles
+          type:
+            basic: float
+          notes: the HealthReductionFromSevereBadMoodles to set
+      returns:
+        type:
+          basic: void
+    - name: setInf
+      modifiers:
+        - public
+      parameters:
+        - name: inf
+          type:
+            basic: boolean
+          notes: the inf to set
+      returns:
+        type:
+          basic: void
+    - name: setInfected
+      modifiers:
+        - public
+      parameters:
+        - name: infected
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setInfectionGrowthRate
+      modifiers:
+        - public
+      parameters:
+        - name: InfectionGrowthRate
+          type:
+            basic: float
+          notes: the InfectionGrowthRate to set
+      returns:
+        type:
+          basic: void
+    - name: setInfectionLevel
+      modifiers:
+        - public
+      parameters:
+        - name: InfectionLevel
+          type:
+            basic: float
+          notes: the InfectionLevel to set
+      returns:
+        type:
+          basic: void
+    - name: setInfectionMortalityDuration
+      modifiers:
+        - public
+      parameters:
+        - name: worldHours
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setInfectionTime
+      modifiers:
+        - public
+      parameters:
+        - name: worldHours
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setInitialBitePain
+      modifiers:
+        - public
+      parameters:
+        - name: InitialBitePain
+          type:
+            basic: float
+          notes: the InitialBitePain to set
+      returns:
+        type:
+          basic: void
+    - name: setInitialScratchPain
+      modifiers:
+        - public
+      parameters:
+        - name: InitialScratchPain
+          type:
+            basic: float
+          notes: the InitialScratchPain to set
+      returns:
+        type:
+          basic: void
+    - name: setInitialThumpPain
+      modifiers:
+        - public
+      parameters:
+        - name: InitialThumpPain
+          type:
+            basic: float
+          notes: the InitialThumpPain to set
+      returns:
+        type:
+          basic: void
+    - name: setInitialWoundPain
+      modifiers:
+        - public
+      parameters:
+        - name: InitialWoundPain
+          type:
+            basic: float
+          notes: the InitialWoundPain to set
+      returns:
+        type:
+          basic: void
+    - name: setIsFakeInfected
+      modifiers:
+        - public
+      parameters:
+        - name: IsFakeInfected
+          type:
+            basic: boolean
+          notes: the IsFakeInfected to set
+      returns:
+        type:
+          basic: void
+    - name: setIsOnFire
+      modifiers:
+        - public
+      parameters:
+        - name: IsOnFire
+          type:
+            basic: boolean
+          notes: the IsOnFire to set
+      returns:
+        type:
+          basic: void
+    - name: setMildColdSneezeTimerMax
+      modifiers:
+        - public
+      parameters:
+        - name: MildColdSneezeTimerMax
+          type:
+            basic: int
+          notes: the MildColdSneezeTimerMax to set
+      returns:
+        type:
+          basic: void
+    - name: setMildColdSneezeTimerMin
+      modifiers:
+        - public
+      parameters:
+        - name: MildColdSneezeTimerMin
+          type:
+            basic: int
+          notes: the MildColdSneezeTimerMin to set
+      returns:
+        type:
+          basic: void
+    - name: setNastyColdSneezeTimerMax
+      modifiers:
+        - public
+      parameters:
+        - name: NastyColdSneezeTimerMax
+          type:
+            basic: int
+          notes: the NastyColdSneezeTimerMax to set
+      returns:
+        type:
+          basic: void
+    - name: setNastyColdSneezeTimerMin
+      modifiers:
+        - public
+      parameters:
+        - name: NastyColdSneezeTimerMin
+          type:
+            basic: int
+          notes: the NastyColdSneezeTimerMin to set
+      returns:
+        type:
+          basic: void
+    - name: setOldNumZombiesVisible
+      modifiers:
+        - public
+      parameters:
+        - name: OldNumZombiesVisible
+          type:
+            basic: int
+          notes: the OldNumZombiesVisible to set
+      returns:
+        type:
+          basic: void
+    - name: setOverallBodyHealth
+      modifiers:
+        - public
+      parameters:
+        - name: OverallBodyHealth
+          type:
+            basic: float
+          notes: the OverallBodyHealth to set
+      returns:
+        type:
+          basic: void
+    - name: setPainReduction
+      modifiers:
+        - public
+      parameters:
+        - name: painReduction
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setPainReductionFromMeds
+      modifiers:
+        - public
+      parameters:
+        - name: PainReductionFromMeds
+          type:
+            basic: float
+          notes: the PainReductionFromMeds to set
+      returns:
+        type:
+          basic: void
+    - name: setPanicIncreaseValue
+      modifiers:
+        - public
+      parameters:
+        - name: PanicIncreaseValue
+          type:
+            basic: float
+          notes: the PanicIncreaseValue to set
+      returns:
+        type:
+          basic: void
+    - name: setPanicReductionValue
+      modifiers:
+        - public
+      parameters:
+        - name: PanicReductionValue
+          type:
+            basic: float
+          notes: the PanicReductionValue to set
+      returns:
+        type:
+          basic: void
+    - name: setParentChar
+      modifiers:
+        - public
+      parameters:
+        - name: ParentChar
+          type:
+            basic: IsoGameCharacter
+          notes: the ParentChar to set
+      returns:
+        type:
+          basic: void
+    - name: setPoisonLevel
+      modifiers:
+        - public
+      parameters:
+        - name: poisonLevel
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setReducedHealthAddition
+      modifiers:
+        - public
+      parameters:
+        - name: ReducedHealthAddition
+          type:
+            basic: float
+          notes: the ReducedHealthAddition to set
+      returns:
+        type:
+          basic: void
+    - name: setReduceFakeInfection
+      modifiers:
+        - public
+      parameters:
+        - name: reduceFakeInfection
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setRemotePainLevel
+      modifiers:
+        - public
+      parameters:
+        - name: painLevel
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: SetScratched
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Scratched
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetScratchedFromWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Scratched
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setScratchedWindow
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BodyPart
+    - name: setSeverlyReducedHealthAddition
+      modifiers:
+        - public
+      parameters:
+        - name: SeverlyReducedHealthAddition
+          type:
+            basic: float
+          notes: the SeverlyReducedHealthAddition to set
+      returns:
+        type:
+          basic: void
+    - name: setSleepingHealthAddition
+      modifiers:
+        - public
+      parameters:
+        - name: SleepingHealthAddition
+          type:
+            basic: float
+          notes: the SleepingHealthAddition to set
+      returns:
+        type:
+          basic: void
+    - name: setSneezeCoughActive
+      modifiers:
+        - public
+      parameters:
+        - name: SneezeCoughActive
+          type:
+            basic: int
+          notes: the SneezeCoughActive to set
+      returns:
+        type:
+          basic: void
+    - name: setSneezeCoughDelay
+      modifiers:
+        - public
+      parameters:
+        - name: SneezeCoughDelay
+          type:
+            basic: int
+          notes: the SneezeCoughDelay to set
+      returns:
+        type:
+          basic: void
+    - name: setSneezeCoughTime
+      modifiers:
+        - public
+      parameters:
+        - name: SneezeCoughTime
+          type:
+            basic: int
+          notes: the SneezeCoughTime to set
+      returns:
+        type:
+          basic: void
+    - name: setStandardHealthAddition
+      modifiers:
+        - public
+      parameters:
+        - name: StandardHealthAddition
+          type:
+            basic: float
+          notes: the StandardHealthAddition to set
+      returns:
+        type:
+          basic: void
+    - name: setStandardHealthFromFoodTime
+      modifiers:
+        - public
+      parameters:
+        - name: StandardHealthFromFoodTime
+          type:
+            basic: int
+          notes: the StandardHealthFromFoodTime to set
+      returns:
+        type:
+          basic: void
+    - name: setStandardPainReductionWhenWell
+      modifiers:
+        - public
+      parameters:
+        - name: StandardPainReductionWhenWell
+          type:
+            basic: float
+          notes: the StandardPainReductionWhenWell to set
+      returns:
+        type:
+          basic: void
+    - name: setTemperature
+      modifiers:
+        - public
+      parameters:
+        - name: t
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setTimeToSneezeOrCough
+      modifiers:
+        - public
+      parameters:
+        - name: TimeToSneezeOrCough
+          type:
+            basic: int
+          notes: the TimeToSneezeOrCough to set
+      returns:
+        type:
+          basic: void
+    - name: setUnhappynessLevel
+      modifiers:
+        - public
+      parameters:
+        - name: UnhappynessLevel
+          type:
+            basic: float
+          notes: the UnhappynessLevel to set
+      returns:
+        type:
+          basic: void
+    - name: setWetness
+      modifiers:
+        - public
+      parameters:
+        - name: Wetness
+          type:
+            basic: float
+          notes: the Wetness to set
+      returns:
+        type:
+          basic: void
+    - name: SetWounded
+      modifiers:
+        - public
+      parameters:
+        - name: BodyPartIndex
+          type:
+            basic: int
+        - name: Wounded
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: ShowDebugInfo
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: splatBloodFloorBig
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: TriggerSneezeCough
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: UpdateBoredom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: UpdateCold
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: UpdatePanicState
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: UpdateStrength
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: UpdateWetness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: UseBandageOnMostNeededPart
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: WasBurntToDeath
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+BodyPart:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: ChosenType
+          type:
+            basic: BodyPartType
+        - name: PC
+          type:
+            basic: IsoGameCharacter
+  methods:
+    - name: AddDamage
+      modifiers:
+        - public
+      parameters:
+        - name: Val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: AddHealth
+      modifiers:
+        - public
+      parameters:
+        - name: Val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: bandaged
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: bitten
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: bleeding
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: damageFromFirearm
+      modifiers:
+        - public
+      parameters:
+        - name: damage
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: DamageUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: deepWounded
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: DisableFakeInfection
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: generateBleeding
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: |-
+        Generate an amount of bleeding time
+         will depend on injuries type and body part type.
+         Use this instead of setBleedingTime() so all is automated.
+    - name: generateDeepShardWound
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: generateDeepWound
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: generateZombieInfection
+      modifiers:
+        - public
+      parameters:
+        - name: baseChance
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getAdditionalPain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getAlcoholLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBandageLife
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBandageType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getBiteTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBleedingTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBurnSpeedModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBurnTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getComfreyFactor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCutSpeedModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCutTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDeepWoundSpeedModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDeepWoundTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDistToCore
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getFractureTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getGarlicFactor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getHealth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getInnerTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getLastTimeBurnWash
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getPain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getPlantainFactor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getScratchSpeedModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getScratchTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSkinSurface
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSkinTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSplintFactor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSplintItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getStiffness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getStitchTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getThermalNode
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Thermoregulator.ThermalNode
+    - name: getType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BodyPartType
+    - name: getWetness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getWoundInfectionLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: HasInjury
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: haveBullet
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: haveGlass
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isBandageDirty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: IsBleedingStemmed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isBurnt
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: IsCortorised
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isCut
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isDeepWounded
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: IsFakeInfected
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGetBandageXp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGetSplintXp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGetStitchXp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: IsInfected
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isInfectedWound
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isNeedBurnWash
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isSplint
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: ReduceHealth
+      modifiers:
+        - public
+      parameters:
+        - name: Val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: RestoreToFullHealth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: scratched
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: setAdditionalPain
+      modifiers:
+        - public
+      parameters:
+        - name: additionalPain
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setAlcoholLevel
+      modifiers:
+        - public
+      parameters:
+        - name: alcoholLevel
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBandaged
+      modifiers:
+        - public
+      parameters:
+        - name: Bandaged
+          type:
+            basic: boolean
+        - name: bandageLife
+          type:
+            basic: float
+        - name: isAlcoholic
+          type:
+            basic: boolean
+        - name: bandageType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setBandageLife
+      modifiers:
+        - public
+      parameters:
+        - name: bandageLife
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBandageType
+      modifiers:
+        - public
+      parameters:
+        - name: bandageType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setBiteTime
+      modifiers:
+        - public
+      parameters:
+        - name: biteTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: SetBitten
+      modifiers:
+        - public
+      parameters:
+        - name: Bitten
+          type:
+            basic: boolean
+        - name: Infected
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setBleeding
+      modifiers:
+        - public
+      parameters:
+        - name: Bleeding
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetBleedingStemmed
+      modifiers:
+        - public
+      parameters:
+        - name: BleedingStemmed
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setBleedingTime
+      modifiers:
+        - public
+      parameters:
+        - name: bleedingTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBurned
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBurnSpeedModifier
+      modifiers:
+        - public
+      parameters:
+        - name: burnSpeedModifier
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBurnTime
+      modifiers:
+        - public
+      parameters:
+        - name: burnTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setComfreyFactor
+      modifiers:
+        - public
+      parameters:
+        - name: comfreyFactor
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: SetCortorised
+      modifiers:
+        - public
+      parameters:
+        - name: Cortorised
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setCut
+      modifiers:
+        - public
+      parameters:
+        - name: cut
+          type:
+            basic: boolean
+        - name: forceNoInfection
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setCutSpeedModifier
+      modifiers:
+        - public
+      parameters:
+        - name: cutSpeedModifier
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setCutTime
+      modifiers:
+        - public
+      parameters:
+        - name: cutTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setDeepWounded
+      modifiers:
+        - public
+      parameters:
+        - name: Wounded
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setDeepWoundSpeedModifier
+      modifiers:
+        - public
+      parameters:
+        - name: deepWoundSpeedModifier
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setDeepWoundTime
+      modifiers:
+        - public
+      parameters:
+        - name: deepWoundTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: SetFakeInfected
+      modifiers:
+        - public
+      parameters:
+        - name: inf
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setFractureTime
+      modifiers:
+        - public
+      parameters:
+        - name: fractureTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setGarlicFactor
+      modifiers:
+        - public
+      parameters:
+        - name: garlicFactor
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setGetBandageXp
+      modifiers:
+        - public
+      parameters:
+        - name: getBandageXp
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setGetSplintXp
+      modifiers:
+        - public
+      parameters:
+        - name: getSplintXp
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setGetStitchXp
+      modifiers:
+        - public
+      parameters:
+        - name: getStitchXp
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setHaveBullet
+      modifiers:
+        - public
+      parameters:
+        - name: haveBullet
+          type:
+            basic: boolean
+        - name: doctorLevel
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setHaveGlass
+      modifiers:
+        - public
+      parameters:
+        - name: haveGlass
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetHealth
+      modifiers:
+        - public
+      parameters:
+        - name: NewHealth
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: SetInfected
+      modifiers:
+        - public
+      parameters:
+        - name: inf
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setInfectedWound
+      modifiers:
+        - public
+      parameters:
+        - name: infectedWound
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setLastTimeBurnWash
+      modifiers:
+        - public
+      parameters:
+        - name: lastTimeBurnWash
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setNeedBurnWash
+      modifiers:
+        - public
+      parameters:
+        - name: needBurnWash
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setPlantainFactor
+      modifiers:
+        - public
+      parameters:
+        - name: plantainFactor
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setScratched
+      modifiers:
+        - public
+      parameters:
+        - name: Scratched
+          type:
+            basic: boolean
+        - name: forceNoInfection
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetScratchedWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: Scratched
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: SetScratchedWindow
+      modifiers:
+        - public
+      parameters:
+        - name: Scratched
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setScratchSpeedModifier
+      modifiers:
+        - public
+      parameters:
+        - name: scratchSpeedModifier
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setScratchTime
+      modifiers:
+        - public
+      parameters:
+        - name: scratchTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setSplint
+      modifiers:
+        - public
+      parameters:
+        - name: splint
+          type:
+            basic: boolean
+        - name: splintFactor
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setSplintFactor
+      modifiers:
+        - public
+      parameters:
+        - name: splintFactor
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setSplintItem
+      modifiers:
+        - public
+      parameters:
+        - name: splintItem
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setStiffness
+      modifiers:
+        - public
+      parameters:
+        - name: stiffness
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setStitched
+      modifiers:
+        - public
+      parameters:
+        - name: Stitched
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setStitchTime
+      modifiers:
+        - public
+      parameters:
+        - name: stitchTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setWetness
+      modifiers:
+        - public
+      parameters:
+        - name: wetness
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setWoundInfectionLevel
+      modifiers:
+        - public
+      parameters:
+        - name: infectedWound
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: stitched
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: sync
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: id
+          type:
+            basic: byte
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+BodyPartContacts:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getAllContacts
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: BodyPartType
+    - name: getChildren
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: BodyPartType
+    - name: getNodeDepth
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: int
+    - name: getParent
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: BodyPartType
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+BodyPartLast:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: bandaged
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: bitten
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: copy
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: BodyPart
+      returns:
+        type:
+          basic: void
+    - name: isCut
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: scratched
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+BodyPartType:
+  methods:
+    - name: FromIndex
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: BodyPartType
+    - name: FromString
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+      returns:
+        type:
+          basic: BodyPartType
+    - name: getBandageModel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getBiteWoundModel
+      modifiers:
+        - public
+      parameters:
+        - name: female
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: String
+    - name: getBleedingTimeModifyer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getCutWoundModel
+      modifiers:
+        - public
+      parameters:
+        - name: female
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: String
+    - name: getDamageModifyer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getDisplayName
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: BPT
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: String
+    - name: GetDistToCore
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: float
+    - name: GetMaxActionPenalty
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: float
+    - name: GetMaxMovementPenalty
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getPainModifyer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getRandom
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: BodyPartType
+    - name: getScratchWoundModel
+      modifiers:
+        - public
+      parameters:
+        - name: female
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: String
+    - name: GetSkinSurface
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: float
+    - name: GetUmbrellaMod
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: float
+    - name: index
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: ToIndex
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: BPT
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: int
+    - name: ToString
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: BPT
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: String
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: BodyPartType
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: BodyPartType
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+  javaType: enum
+  extends: Enum
+Fitness:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: parent
+          type:
+            basic: IsoGameCharacter
+  methods:
+    - name: exerciseRepeat
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getCurrentExeStiffnessInc
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: float
+    - name: getCurrentExeStiffnessTimer
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: int
+    - name: getParent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getRegularity
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: float
+    - name: getRegularityMap
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: HashMap
+    - name: incFutureStiffness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: >-
+        We setup a timer after finishing an exercice, 12h after, we gonna start
+        to increase stiffness (add pains in muscles)
+         When adding the stiffness, we decrease slowly our vars while increasing pain, untill no more stiffness is to be added.
+         Stiffness induced will depend on regularity, fatigue.
+         Numbers approx: At 0 regularity, 60min exercises should gives almost 4h of stiffness (gets additional pain)
+    - name: incRegularity
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Increase the regularity when you've done a repeat of an exercice
+         Depend on fitness (using logarithm), the more fitness, the LESS regularity you get
+         Regularity will influence on the stiffness you get once you've finished an exercise
+    - name: incStats
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: initRegularityMapProfession
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: onGoingStiffness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: reduceEndurance
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: Reduce endurance, using metabolics (to know what kind of exercise it is,
+        some are more exhausting than others), regularity, current carrying
+        weight.
+    - name: removeStiffnessValue
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: resetValues
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setCurrentExercise
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setParent
+      modifiers:
+        - public
+      parameters:
+        - name: parent
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: setRegularityMap
+      modifiers:
+        - public
+      parameters:
+        - name: regularityMap
+          type:
+            basic: HashMap
+            full: HashMap<String,Float>
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: We update every 10 in game minutes to facilitate calculs
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+Fitness.FitnessExercise:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: exeDatas
+          type:
+            basic: se.krka.kahlua.j2se.KahluaTableImpl
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+Metabolics:
+  methods:
+    - name: getBtuHr
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMet
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getW
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getWm2
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: MetToBtuHr
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: met
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: MetToW
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: met
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: MetToWm2
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: met
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: Metabolics
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Metabolics
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+  javaType: enum
+  extends: Enum
+  notes: TurboTuTone.
+Nutrition:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: parent
+          type:
+            basic: IsoPlayer
+  methods:
+    - name: applyTraitFromWeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: >-
+        > 100 obese 85 to 100 over weight 75 to 85 normal 65 to 75 underweight
+        50 to
+         65 very underweight <= 50 emaciated
+    - name: applyWeightFromTraits
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: canAddFitnessXp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+      notes: >-
+        You gain xp only if you're in good shape As underweight or overweight
+        you can
+         still be "fit"
+    - name: characterHaveWeightTrouble
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getCalories
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCarbohydrates
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getLipids
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getProteins
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getWeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: isDecWeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isIncWeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isIncWeightLot
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setCalories
+      modifiers:
+        - public
+      parameters:
+        - name: calories
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setCarbohydrates
+      modifiers:
+        - public
+      parameters:
+        - name: carbohydrates
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setDecWeight
+      modifiers:
+        - public
+      parameters:
+        - name: decWeight
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setIncWeight
+      modifiers:
+        - public
+      parameters:
+        - name: incWeight
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setIncWeightLot
+      modifiers:
+        - public
+      parameters:
+        - name: incWeightLot
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setLipids
+      modifiers:
+        - public
+      parameters:
+        - name: lipids
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setProteins
+      modifiers:
+        - public
+      parameters:
+        - name: proteins
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setWeight
+      modifiers:
+        - public
+      parameters:
+        - name: weight
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+Thermoregulator:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: parent
+          type:
+            basic: BodyDamage
+  methods:
+    - name: getBodyFluids
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBodyHeatDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBodyHeatMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCatchAColdDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCombatModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreCelcius
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreHeatContractMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreHeatDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreHeatExpandMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreRateOfChange
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreTemperatureUI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_primTotal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_secTotal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_totalHeat
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_totalHeatRaw
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDefaultMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getEnergy
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getEnergyMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getExternalAirTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getFatigueMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getFluidsMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getHeatGeneration
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getHeatGenerationUI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRateDecMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRateIncMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRateReal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicTarget
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMovementModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getNode
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: Thermoregulator.ThermalNode
+    - name: getNodeForBloodType
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: Thermoregulator.ThermalNode
+    - name: getNodeForType
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: Thermoregulator.ThermalNode
+    - name: getNodeSize
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSetPoint
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSimulationMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusFavorable
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusMax
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusMin
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTemperatureAir
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTemperatureAirAndWind
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getThermalDamage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTimedActionTimeModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setMetabolicTarget
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setSimulationMultiplier
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: multiplier
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: thermalChevronCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: thermalChevronUp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: |-
+    TurboTuTone.
+     Thermoregulator for living bodies.
+Thermoregulator_tryouts:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: parent
+          type:
+            basic: BodyDamage
+  methods:
+    - name: getBodyFluids
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBodyHeatDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBodyHeatMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCatchAColdDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCombatModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreCelcius
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreHeatContractMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreHeatDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreHeatExpandMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreRateOfChange
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCoreTemperatureUI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_primTotal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_secTotal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_totalHeat
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDbg_totalHeatRaw
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDefaultMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getEnergy
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getEnergyMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getExternalAirTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getFatigueMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getFluidsMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getHeatGeneration
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getHeatGenerationUI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRateDecMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRateIncMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicRateReal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMetabolicTarget
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMovementModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getNodeForBloodType
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: Thermoregulator_tryouts.ThermalNode
+    - name: getNodeForType
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: BodyPartType
+      returns:
+        type:
+          basic: Thermoregulator_tryouts.ThermalNode
+    - name: getSetPoint
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSimulationMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusFavorable
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusMax
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusMin
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getSkinCelciusMultiplier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTemperatureAir
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTemperatureAirAndWind
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getThermalDamage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTimedActionTimeModifier
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setMetabolicTarget
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setSimulationMultiplier
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: multiplier
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: thermalChevronCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: thermalChevronUp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.

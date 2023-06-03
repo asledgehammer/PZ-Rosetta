@@ -1,0 +1,2101 @@
+# zombie.network.packets.hit
+AttackVars:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: copy
+      modifiers:
+        - public
+      parameters:
+        - name: original
+          type:
+            basic: AttackVars
+      returns:
+        type:
+          basic: void
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getPacketSizeBytes
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoLivingCharacter
+      returns:
+        type:
+          basic: HandWeapon
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: setWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: weapon
+          type:
+            basic: HandWeapon
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Bite:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Character:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getCharacter
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: character
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Instance
+Fall:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: process
+      modifiers:
+        - public
+      parameters:
+        - name: character
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: dropPositionX
+          type:
+            basic: float
+        - name: dropPositionY
+          type:
+            basic: float
+        - name: dropPositionZ
+          type:
+            basic: byte
+        - name: dropDirection
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Hit:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDamage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: ignore
+          type:
+            basic: boolean
+        - name: damage
+          type:
+            basic: float
+        - name: hitForce
+          type:
+            basic: float
+        - name: hitDirectionX
+          type:
+            basic: float
+        - name: hitDirectionY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+HitCharacterPacket:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: hitType
+          type:
+            basic: HitCharacterPacket.HitType
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isRelevant
+      modifiers:
+        - public
+        - abstract
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: process
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: HitCharacterPacket
+    - name: tryProcess
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: tryProcessInternal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+        - abstract
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+HitCharacterPacket.HitType:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: HitCharacterPacket.HitType
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: HitCharacterPacket.HitType
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+HitInfo:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getObject
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoMovingObject
+    - name: getPacketSizeBytes
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: obj
+          type:
+            basic: IsoWindow
+        - name: dot
+          type:
+            basic: float
+        - name: distSq
+          type:
+            basic: float
+      returns:
+        type:
+          basic: HitInfo
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+IMovable:
+  methods:
+    - name: getSpeed
+      returns:
+        type:
+          basic: float
+    - name: isVehicle
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+  javaType: interface
+Instance:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: ID
+          type:
+            basic: short
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+IPositional:
+  methods:
+    - name: getX
+      returns:
+        type:
+          basic: float
+    - name: getY
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+  javaType: interface
+MovingObject:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getMovingObject
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoMovingObject
+    - name: getPacketSizeBytes
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: setMovingObject
+      modifiers:
+        - public
+      parameters:
+        - name: value
+          type:
+            basic: IsoMovingObject
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+NetObject:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getObject
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoObject
+    - name: getPacketSizeBytes
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: setObject
+      modifiers:
+        - public
+      parameters:
+        - name: value
+          type:
+            basic: IsoObject
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Perk:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getPerk
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: _perk
+          type:
+            basic: PerkFactory.Perk
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Player:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getCharacter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoPlayer
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: parsePlayer
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+        - name: isCriticalHit
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Character
+PlayerBodyPart:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getBodyPart
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BodyPart
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: _bodyPart
+          type:
+            basic: BodyPart
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+PlayerHitPacket:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: hitType
+          type:
+            basic: HitCharacterPacket.HitType
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isRelevant
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: weapon
+          type:
+            basic: HandWeapon
+        - name: isCriticalHit
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: HitCharacterPacket
+PlayerHitPlayerPacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: target
+          type:
+            basic: IsoPlayer
+        - name: weapon
+          type:
+            basic: HandWeapon
+        - name: damage
+          type:
+            basic: float
+        - name: ignore
+          type:
+            basic: boolean
+        - name: range
+          type:
+            basic: float
+        - name: isCriticalHit
+          type:
+            basic: boolean
+        - name: hitHead
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: PlayerHitPacket
+PlayerHitSquarePacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isRelevant
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: weapon
+          type:
+            basic: HandWeapon
+        - name: isCriticalHit
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: PlayerHitPacket
+PlayerHitVehiclePacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: weapon
+          type:
+            basic: HandWeapon
+        - name: isCriticalHit
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: PlayerHitPacket
+PlayerHitZombiePacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: target
+          type:
+            basic: IsoZombie
+        - name: weapon
+          type:
+            basic: HandWeapon
+        - name: damage
+          type:
+            basic: float
+        - name: ignore
+          type:
+            basic: boolean
+        - name: range
+          type:
+            basic: float
+        - name: isCriticalHit
+          type:
+            basic: boolean
+        - name: helmetFall
+          type:
+            basic: boolean
+        - name: hitHead
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: PlayerHitPacket
+PlayerItem:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: InventoryItem
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: _item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Instance
+Square:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getSquare
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGridSquare
+    - name: getX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getZ
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: _square
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Vehicle:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Instance
+VehicleHit:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getSpeed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: isVehicle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: ignore
+          type:
+            basic: boolean
+        - name: damage
+          type:
+            basic: float
+        - name: hitForce
+          type:
+            basic: float
+        - name: hitDirectionX
+          type:
+            basic: float
+        - name: hitDirectionY
+          type:
+            basic: float
+        - name: vehicleDamage
+          type:
+            basic: int
+        - name: vehicleSpeed
+          type:
+            basic: float
+        - name: isVehicleHitFromBehind
+          type:
+            basic: boolean
+        - name: isTargetHitFromBehind
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Hit
+VehicleHitPacket:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: hitType
+          type:
+            basic: HitCharacterPacket.HitType
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isRelevant
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: isCriticalHit
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: HitCharacterPacket
+VehicleHitPlayerPacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: target
+          type:
+            basic: IsoPlayer
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: damage
+          type:
+            basic: float
+        - name: isTargetHitFromBehind
+          type:
+            basic: boolean
+        - name: vehicleDamage
+          type:
+            basic: int
+        - name: vehicleSpeed
+          type:
+            basic: float
+        - name: isVehicleHitFromBehind
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: VehicleHitPacket
+VehicleHitZombiePacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoPlayer
+        - name: target
+          type:
+            basic: IsoZombie
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: damage
+          type:
+            basic: float
+        - name: isTargetHitFromBehind
+          type:
+            basic: boolean
+        - name: vehicleDamage
+          type:
+            basic: int
+        - name: vehicleSpeed
+          type:
+            basic: float
+        - name: isVehicleHitFromBehind
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: VehicleHitPacket
+Weapon:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: weapon
+          type:
+            basic: HandWeapon
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Instance
+WeaponHit:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: ignore
+          type:
+            basic: boolean
+        - name: damage
+          type:
+            basic: float
+        - name: range
+          type:
+            basic: float
+        - name: hitForce
+          type:
+            basic: float
+        - name: hitDirectionX
+          type:
+            basic: float
+        - name: hitDirectionY
+          type:
+            basic: float
+        - name: hitHead
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Hit
+Zombie:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getCharacter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+        - name: isHelmetFall
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Character
+ZombieHitPlayerPacket:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: isConsistent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isRelevant
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: parse
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: wielder
+          type:
+            basic: IsoZombie
+        - name: target
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: validate
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: ByteBufferWriter
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: HitCharacterPacket

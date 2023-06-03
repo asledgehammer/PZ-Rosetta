@@ -1,0 +1,492 @@
+# zombie.radio.media
+MediaData:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+        - name: itemDisplayName
+          type:
+            basic: String
+        - name: spawning
+          type:
+            basic: int
+  methods:
+    - name: addLine
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: codes
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: getAuthorEN
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getCategory
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getExtraEN
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: short
+    - name: getLine
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: MediaData.MediaLineData
+    - name: getLineCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMediaType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: byte
+    - name: getSpawning
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSubtitleEN
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTitleEN
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTranslatedAuthor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTranslatedExtra
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTranslatedItemDisplayName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTranslatedSubTitle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTranslatedTitle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: hasAuthor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasExtra
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasSubTitle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasTitle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: setAuthor
+      modifiers:
+        - public
+      parameters:
+        - name: author
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setExtra
+      modifiers:
+        - public
+      parameters:
+        - name: extra
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setSubtitle
+      modifiers:
+        - public
+      parameters:
+        - name: subtitle
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setTitle
+      modifiers:
+        - public
+      parameters:
+        - name: title
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+MediaData.MediaLineData:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: codes
+          type:
+            basic: String
+  methods:
+    - name: getB
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCodes
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Color
+    - name: getG
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getR
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTextGuid
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTranslatedText
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+RecordedMedia:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getAllMediaForCategory
+      modifiers:
+        - public
+      parameters:
+        - name: category
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ArrayList
+    - name: getAllMediaForType
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: byte
+      returns:
+        type:
+          basic: ArrayList
+    - name: getCategories
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: getIndexForMediaData
+      modifiers:
+        - public
+      parameters:
+        - name: data
+          type:
+            basic: MediaData
+      returns:
+        type:
+          basic: short
+    - name: getMediaData
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: MediaData
+    - name: getMediaDataFromIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: short
+      returns:
+        type:
+          basic: MediaData
+    - name: getMediaTypeForCategory
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: category
+          type:
+            basic: String
+      returns:
+        type:
+          basic: byte
+    - name: getRandomFromCategory
+      modifiers:
+        - public
+      parameters:
+        - name: cat
+          type:
+            basic: String
+      returns:
+        type:
+          basic: MediaData
+    - name: handleLegacyListenedLines
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: hasListenedToAll
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+        - name: mediaData
+          type:
+            basic: MediaData
+      returns:
+        type:
+          basic: boolean
+    - name: hasListenedToLine
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+        - name: guid
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: load
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: receiveRequestData
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: register
+      modifiers:
+        - public
+      parameters:
+        - name: category
+          type:
+            basic: String
+        - name: id
+          type:
+            basic: String
+        - name: itemDisplayName
+          type:
+            basic: String
+        - name: spawning
+          type:
+            basic: int
+      returns:
+        type:
+          basic: MediaData
+    - name: save
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: sendRequestData
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: toAscii
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: string
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+RecordedMedia.MediaNameSorter:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: compare
+      modifiers:
+        - public
+      parameters:
+        - name: o1
+          type:
+            basic: MediaData
+        - name: o2
+          type:
+            basic: MediaData
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object

@@ -1,0 +1,8582 @@
+# zombie.vehicles
+AttackVehicleState:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: animEvent
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+        - name: event
+          type:
+            basic: AnimEvent
+      returns:
+        type:
+          basic: void
+    - name: enter
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: execute
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: exit
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: instance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: AttackVehicleState
+    - name: isAttacking
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+      notes: Description copied from class: State
+    - name: isPassengerExposed
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: State
+BaseVehicle:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: cell
+          type:
+            basic: IsoCell
+  methods:
+    - name: addDamageFrontHitAChr
+      modifiers:
+        - public
+      parameters:
+        - name: dmg
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+      notes: >-
+        When hitting a character (zombie or player) damage aren't the same as
+        hitting a wall.
+         damaged will be mainly focus on windshield/hood, not on doors/windows like when hitting a wall.
+    - name: addDamageRearHitAChr
+      modifiers:
+        - public
+      parameters:
+        - name: dmg
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+      notes: >-
+        When hitting a character (zombie or player) damage aren't the same as
+        hitting a wall.
+         damaged will be mainly focus on windshield/truckbed, not on doors/windows like when hitting a wall.
+    - name: addImpulse
+      modifiers:
+        - public
+      parameters:
+        - name: impulse
+          type:
+            basic: org.joml.Vector3f
+        - name: rel_pos
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: void
+    - name: addKeyToGloveBox
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: addKeyToSquare
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: boolean
+    - name: addKeyToWorld
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: addPointConstraint
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+        - name: vehicleB
+          type:
+            basic: BaseVehicle
+        - name: attachmentA
+          type:
+            basic: String
+        - name: attachmentB
+          type:
+            basic: String
+        - name: remote
+          type:
+            basic: Boolean
+      returns:
+        type:
+          basic: void
+    - name: addRandomDamageFromCrash
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: damage
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addToWorld
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: allocVector2
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Vector2
+    - name: allocVector3f
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: ApplyImpulse
+      modifiers:
+        - public
+      parameters:
+        - name: obj
+          type:
+            basic: IsoObject
+        - name: mul
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: ApplyImpulse4Break
+      modifiers:
+        - public
+      parameters:
+        - name: obj
+          type:
+            basic: IsoObject
+        - name: mul
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: areAllDoorsLocked
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: areaPositionWorld
+      modifiers:
+        - public
+      parameters:
+        - name: area
+          type:
+            basic: VehicleScript.Area
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: Vector2
+    - name: areaPositionWorld4PlayerInteract
+      modifiers:
+        - public
+      parameters:
+        - name: area
+          type:
+            basic: VehicleScript.Area
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: Vector2
+    - name: attachmentExist
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: authorizationChanged
+      modifiers:
+        - public
+      parameters:
+        - name: character
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: authorizationClientCollide
+      modifiers:
+        - public
+      parameters:
+        - name: driver
+          type:
+            basic: IsoPlayer
+      returns:
+        type:
+          basic: void
+    - name: authorizationServerCollide
+      modifiers:
+        - public
+      parameters:
+        - name: PlayerID
+          type:
+            basic: short
+        - name: isCollide
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: authorizationServerOnSeat
+      modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+        - name: enter
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: blocked
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: breakConstraint
+      modifiers:
+        - public
+      parameters:
+        - name: forgetID
+          type:
+            basic: boolean
+        - name: remote
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: brekingObjects
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: calculateDamageWithCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: int
+    - name: canAccessContainer
+      modifiers:
+        - public
+      parameters:
+        - name: partIndex
+          type:
+            basic: int
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: canAttachTrailer
+      modifiers:
+        - public
+      parameters:
+        - name: vehicleB
+          type:
+            basic: BaseVehicle
+        - name: attachmentA
+          type:
+            basic: String
+        - name: attachmentB
+          type:
+            basic: String
+        - name: reconnect
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+    - name: canInstallPart
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: boolean
+    - name: canLockDoor
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: canSwitchSeat
+      modifiers:
+        - public
+      parameters:
+        - name: seatFrom
+          type:
+            basic: int
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: canUninstallPart
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: boolean
+    - name: canUnlockDoor
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: changeTransmission
+      modifiers:
+        - public
+      parameters:
+        - name: newTransmission
+          type:
+            basic: TransmissionNumber
+      returns:
+        type:
+          basic: void
+      notes: Change transmission, slow down the car if you change shift for a superior
+        one
+    - name: cheatHotwire
+      modifiers:
+        - public
+      parameters:
+        - name: hotwired
+          type:
+            basic: boolean
+        - name: broken
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: checkCollision
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: BaseVehicle.HitVars
+    - name: checkPhysicsValidWithServer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: chooseBestAttackPosition
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: IsoGameCharacter
+        - name: attacker
+          type:
+            basic: IsoGameCharacter
+        - name: worldPos
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: circleIntersects
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: radius
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: clearPassenger
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: constraintChanged
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: couldCrawlerAttackPassenger
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: crash
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: float
+        - name: front
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: createPhysics
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: createVehicleKey
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: InventoryItem
+    - name: Damage
+      modifiers:
+        - public
+      parameters:
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: damageObjects
+      modifiers:
+        - public
+      parameters:
+        - name: damage
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: damagePlayers
+      modifiers:
+        - public
+      parameters:
+        - name: damage
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: doBloodOverlay
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: doChrHitImpulse
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoObject
+      returns:
+        type:
+          basic: void
+    - name: doDamageOverlay
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: drainBatteryUpdateHack
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: drawDirectionLine
+      modifiers:
+        - public
+      parameters:
+        - name: dir
+          type:
+            basic: Vector2
+        - name: length
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: engineDoIdle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoRetryingStarting
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoRunning
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoShuttingDown
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoStalling
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoStarting
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoStartingFailed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoStartingFailedNoPower
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: engineDoStartingSuccess
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: enter
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: enterRSync
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: v
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: boolean
+    - name: exit
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: exitRSync
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: fixLightbarModelLighting
+      modifiers:
+        - public
+      parameters:
+        - name: ls
+          type:
+            basic: IsoLightSource
+        - name: lightPos
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: void
+    - name: flipUpright
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getAngleX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getAngleY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getAngleZ
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getAnimationPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AnimationPlayer
+    - name: getAreaCenter
+      modifiers:
+        - public
+      parameters:
+        - name: areaId
+          type:
+            basic: String
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: Vector2
+    - name: getAreaDist
+      modifiers:
+        - public
+      parameters:
+        - name: areaId
+          type:
+            basic: String
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: float
+    - name: getAttachmentLocalPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getAttachmentWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getAuthorizationDescription
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getBaseQuality
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBattery
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getBatteryCharge
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBestSeat
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: int
+    - name: getBloodIntensity
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: float
+    - name: getBrakeSpeedBetweenUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getBrakingForce
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getChoosenParts
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: HashMap
+    - name: getClientForce
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getClosestWindow
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getColorHue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getColorSaturation
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getColorValue
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getController
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: CarController
+    - name: getCurrentKey
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getCurrentSpeedForRegulator
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCurrentSpeedKmHour
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getCurrentSteering
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDebugZ
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDriver
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getEmitter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BaseSoundEmitter
+    - name: getEngineLoudness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getEnginePower
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getEngineQuality
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getEngineSpeed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getFacingPosition
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: void
+    - name: getFakeSpeedModifier
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: float
+    - name: getFMODParameters
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: FMODParameterList
+    - name: getForce
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getForwardVector
+      modifiers:
+        - public
+      parameters:
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getFudgedMass
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getHeadlightCanEmmitLight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getHeadlightsOn
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getHeater
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: short
+    - name: getInitialMass
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getInsideTemperature
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getJoypad
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getKeyId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getKeySpawned
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getLightbarLightsMode
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getLightbarSirenMode
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getLightByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getLightCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getLinearVelocity
+      modifiers:
+        - public
+      parameters:
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getLocalPos
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+        - name: worldZ
+          type:
+            basic: float
+        - name: localPos
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getMass
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMaxPassengers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMaxSpeed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getMechanicalID
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getMinMaxPosition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BaseVehicle.MinMaxPosition
+    - name: getNearestBodyworkPart
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getNetPlayerId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: short
+    - name: getNumberOfPartsWithContainers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getObjectName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getOffroadEfficiency
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+      notes: >-
+        Give the offroad efficiency of the car, based on car's script + where
+        the vehicle is (in forest you get more
+         damage than vegitation)
+         Currently x2 to balance things
+    - name: getPartById
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getPartByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getPartCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getPartForSeatContainer
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getPassenger
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: BaseVehicle.Passenger
+    - name: getPassengerAnim
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: VehicleScript.Anim
+    - name: getPassengerArea
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: String
+    - name: getPassengerDoor
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getPassengerDoor2
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getPassengerLocalPos
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getPassengerPosition
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: VehicleScript.Position
+    - name: getPassengerPositionWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getPassengerSwitchSeat
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehicleScript.Passenger.SwitchSeat
+    - name: getPassengerSwitchSeatCount
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getPassengerWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getPlayerTrailerLocalPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: left
+          type:
+            basic: boolean
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getPlayerTrailerWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: left
+          type:
+            basic: boolean
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getPoly
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: PolygonalMap2.VehiclePoly
+    - name: getPolyPlusRadius
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: PolygonalMap2.VehiclePoly
+    - name: getRegulatorSpeed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getRemainingFuelPercentage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getRust
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getScript
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleScript
+    - name: getScriptName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getSeat
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: int
+    - name: getShadowTexture
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Texture
+    - name: getSirenStartTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: double
+    - name: getSkin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getSkinCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSkinIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSpeed2D
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSqlId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSquare
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGridSquare
+    - name: getStoplightsOn
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getSurroundVehicle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: SurroundVehicle
+    - name: getSwitchSeatAnimName
+      modifiers:
+        - public
+      parameters:
+        - name: seatFrom
+          type:
+            basic: int
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: String
+    - name: getSwitchSeatAnimRate
+      modifiers:
+        - public
+      parameters:
+        - name: seatFrom
+          type:
+            basic: int
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getSwitchSeatSound
+      modifiers:
+        - public
+      parameters:
+        - name: seatFrom
+          type:
+            basic: int
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: String
+    - name: getThumpableFor
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: Thumpable
+    - name: getThumpCondition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTowAttachmentOther
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTowAttachmentSelf
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getTowedByLocalPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getTowedByWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getTowingLocalPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getTowingWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: v
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getTransmissionNumber
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getTransmissionNumberLetter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getUpVector
+      modifiers:
+        - public
+      parameters:
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getUpVectorDot
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getUseablePart
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: checkDir
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getVehicleEngineRPM
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleEngineRPM
+    - name: getVehicleTowedBy
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BaseVehicle
+    - name: getVehicleTowing
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BaseVehicle
+    - name: getVehicleType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getWheelForwardVector
+      modifiers:
+        - public
+      parameters:
+        - name: wheelIndex
+          type:
+            basic: int
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: void
+    - name: getWindowLightsOn
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getWorldPos
+      modifiers:
+        - public
+      parameters:
+        - name: localX
+          type:
+            basic: float
+        - name: localY
+          type:
+            basic: float
+        - name: localZ
+          type:
+            basic: float
+        - name: worldPos
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: getWorldTransform
+      modifiers:
+        - public
+      parameters:
+        - name: out
+          type:
+            basic: Transform
+      returns:
+        type:
+          basic: Transform
+    - name: getZone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: hasAuthorization
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: boolean
+    - name: hasBackSignal
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasHeadlights
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasHorn
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasLightbar
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasRoof
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: haveOneDoorUnlocked
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+      notes: Check if one of the seat door is unlocked
+    - name: HitByVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: hitCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: character
+          type:
+            basic: IsoGameCharacter
+        - name: vars
+          type:
+            basic: BaseVehicle.HitVars
+      returns:
+        type:
+          basic: void
+    - name: hitVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: attacker
+          type:
+            basic: IsoGameCharacter
+        - name: weapon
+          type:
+            basic: HandWeapon
+      returns:
+        type:
+          basic: void
+    - name: isAlarmed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isAnyDoorLocked
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isAnyListenerInside
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isAtRest
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isBackSignalEmitting
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isBraking
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isCharacterAdjacentTo
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: isCollided
+      modifiers:
+        - public
+      parameters:
+        - name: character
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: isDoColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isDoingOffroad
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isDriveable
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isDriver
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: isEngineRunning
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isEngineStarted
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isEngineWorking
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isEnterBlocked
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isEnterBlocked2
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isExitBlocked
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isExitBlocked2
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isGoodCar
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isHotwired
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isHotwiredBroken
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isInArea
+      modifiers:
+        - public
+      parameters:
+        - name: areaId
+          type:
+            basic: String
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: isInBounds
+      modifiers:
+        - public
+      parameters:
+        - name: worldX
+          type:
+            basic: float
+        - name: worldY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: isInForest
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isIntersectingSquare
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isIntersectingSquareWithShadow
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isInvalidChunkAhead
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isInvalidChunkAround
+      modifiers:
+        - public
+      parameters:
+        - name: moveW
+          type:
+            basic: boolean
+        - name: moveE
+          type:
+            basic: boolean
+        - name: moveN
+          type:
+            basic: boolean
+        - name: moveS
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+    - name: isInvalidChunkBehind
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isKeyboardControlled
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isKeyIsOnDoor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isKeysInIgnition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isLocalPhysicSim
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isMechanicUIOpen
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isNetPlayerAuthorization
+      modifiers:
+        - public
+      parameters:
+        - name: netPlayerAuthorization
+          type:
+            basic: BaseVehicle.Authorization
+      returns:
+        type:
+          basic: boolean
+    - name: isNetPlayerId
+      modifiers:
+        - public
+      parameters:
+        - name: netPlayerId
+          type:
+            basic: short
+      returns:
+        type:
+          basic: boolean
+    - name: isOperational
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isPassengerUseDoor2
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isPositionOnLeftOrRight
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: isRegulator
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isRemovedFromWorld
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isSeatInstalled
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isSeatOccupied
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isStarting
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isStopped
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isTrunkLocked
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+        - name: IS_DEBUG_SAVE
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: LoadAllVehicleTextures
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: loadChange
+      modifiers:
+        - public
+      parameters:
+        - name: change
+          type:
+            basic: String
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: LoadVehicleTexture
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: flags
+          type:
+            basic: int
+      returns:
+        type:
+          basic: Texture
+    - name: LoadVehicleTextures
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: script
+          type:
+            basic: VehicleScript
+      returns:
+        type:
+          basic: void
+    - name: lockServerUpdate
+      modifiers:
+        - public
+      parameters:
+        - name: lockTimeMs
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+    - name: needPartsUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: netPlayerFromServerUpdate
+      modifiers:
+        - public
+      parameters:
+        - name: authorization
+          type:
+            basic: BaseVehicle.Authorization
+        - name: authorizationPlayer
+          type:
+            basic: short
+      returns:
+        type:
+          basic: void
+    - name: netPlayerServerSendAuthorisation
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: onBackMoveSignalStart
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: onBackMoveSignalStop
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: onHornStart
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: onHornStop
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: permanentlyRemove
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: playActorAnim
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+        - name: animId
+          type:
+            basic: String
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: playPartAnim
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+        - name: animId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: playPartSound
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+        - name: player
+          type:
+            basic: IsoPlayer
+        - name: animId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: playPassengerAnim
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: animId
+          type:
+            basic: String
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: playPassengerSound
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: animId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: playSound
+      modifiers:
+        - public
+      parameters:
+        - name: sound
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: playSoundImpl
+      modifiers:
+        - public
+      parameters:
+        - name: file
+          type:
+            basic: String
+        - name: parent
+          type:
+            basic: IsoObject
+      returns:
+        type:
+          basic: long
+    - name: playSwitchSeatAnim
+      modifiers:
+        - public
+      parameters:
+        - name: seatFrom
+          type:
+            basic: int
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: positionTrailer
+      modifiers:
+        - public
+      parameters:
+        - name: trailer
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: postupdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: putKeyInIgnition
+      modifiers:
+        - public
+      parameters:
+        - name: key
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: putKeyOnDoor
+      modifiers:
+        - public
+      parameters:
+        - name: key
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: putKeyToContainer
+      modifiers:
+        - public
+      parameters:
+        - name: container
+          type:
+            basic: ItemContainer
+        - name: sq
+          type:
+            basic: IsoGridSquare
+        - name: obj
+          type:
+            basic: IsoObject
+      returns:
+        type:
+          basic: void
+    - name: putKeyToWorld
+      modifiers:
+        - public
+      parameters:
+        - name: sq
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: void
+    - name: putKeyToZombie
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: releaseAnimationPlayers
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: releaseVector2
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: v
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: void
+    - name: releaseVector3f
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: vector3f
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: void
+    - name: removeFromWorld
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: removeKeyFromDoor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: removeKeyFromIgnition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: col
+          type:
+            basic: ColorInfo
+        - name: bDoAttached
+          type:
+            basic: boolean
+        - name: bWallLightingPass
+          type:
+            basic: boolean
+        - name: shader
+          type:
+            basic: Shader
+      returns:
+        type:
+          basic: void
+    - name: renderlast
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: renderShadow
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: repair
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: resumeRunningAfterLoad
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+        - name: IS_DEBUG_SAVE
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: saveChange
+      modifiers:
+        - public
+      parameters:
+        - name: change
+          type:
+            basic: String
+        - name: tbl
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: scriptReloaded
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Serialize
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: setActiveInBullet
+      modifiers:
+        - public
+      parameters:
+        - name: active
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Used in mechanics UI, we enable the vehicle in Bullet when starting
+        mechanics so physic will be updated. When
+         we close the UI, we should
+         disable it in Bullet, expect if the engine is running.
+    - name: setAddThumpWorldSound
+      modifiers:
+        - public
+      parameters:
+        - name: add
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setAlarmed
+      modifiers:
+        - public
+      parameters:
+        - name: alarmed
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setAngles
+      modifiers:
+        - public
+      parameters:
+        - name: degreesX
+          type:
+            basic: float
+        - name: degreesY
+          type:
+            basic: float
+        - name: degreesZ
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBaseQuality
+      modifiers:
+        - public
+      parameters:
+        - name: baseQuality
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBloodIntensity
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+        - name: intensity
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBraking
+      modifiers:
+        - public
+      parameters:
+        - name: isBraking
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setBrakingForce
+      modifiers:
+        - public
+      parameters:
+        - name: brakingForce
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setCharacterPosition
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seat
+          type:
+            basic: int
+        - name: positionId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setCharacterPositionToAnim
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seat
+          type:
+            basic: int
+        - name: animId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setClientForce
+      modifiers:
+        - public
+      parameters:
+        - name: force
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setColor
+      modifiers:
+        - public
+      parameters:
+        - name: value
+          type:
+            basic: float
+        - name: saturation
+          type:
+            basic: float
+        - name: hue
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setColorHSV
+      modifiers:
+        - public
+      parameters:
+        - name: hue
+          type:
+            basic: float
+        - name: saturation
+          type:
+            basic: float
+        - name: value
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setCurrentKey
+      modifiers:
+        - public
+      parameters:
+        - name: currentKey
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: setCurrentSteering
+      modifiers:
+        - public
+      parameters:
+        - name: currentSteering
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setDebugZ
+      modifiers:
+        - public
+      parameters:
+        - name: z
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setDoColor
+      modifiers:
+        - public
+      parameters:
+        - name: doColor
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setEngineFeature
+      modifiers:
+        - public
+      parameters:
+        - name: quality
+          type:
+            basic: int
+        - name: loudness
+          type:
+            basic: int
+        - name: engineForce
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setForceBrake
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setGeneralPartCondition
+      modifiers:
+        - public
+      parameters:
+        - name: baseQuality
+          type:
+            basic: float
+        - name: chanceToSpawnDamaged
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setGoodCar
+      modifiers:
+        - public
+      parameters:
+        - name: isGoodCar
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setHeadlightsOn
+      modifiers:
+        - public
+      parameters:
+        - name: on
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setHotwired
+      modifiers:
+        - public
+      parameters:
+        - name: hotwired
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setHotwiredBroken
+      modifiers:
+        - public
+      parameters:
+        - name: hotwiredBroken
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setInitialMass
+      modifiers:
+        - public
+      parameters:
+        - name: initialMass
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setKeyIsOnDoor
+      modifiers:
+        - public
+      parameters:
+        - name: keyIsOnDoor
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setKeysInIgnition
+      modifiers:
+        - public
+      parameters:
+        - name: keysOnContact
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setLightbarLightsMode
+      modifiers:
+        - public
+      parameters:
+        - name: mode
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setLightbarSirenMode
+      modifiers:
+        - public
+      parameters:
+        - name: mode
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setMass
+      modifiers:
+        - public
+      parameters:
+        - name: mass
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setMaxSpeed
+      modifiers:
+        - public
+      parameters:
+        - name: maxSpeed
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setMechanicalID
+      modifiers:
+        - public
+      parameters:
+        - name: mechanicalID
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setMechanicUIOpen
+      modifiers:
+        - public
+      parameters:
+        - name: mechanicUIOpen
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setNeedPartsUpdate
+      modifiers:
+        - public
+      parameters:
+        - name: needPartsUpdate
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setNetPlayerAuthorization
+      modifiers:
+        - public
+      parameters:
+        - name: netPlayerAuthorization
+          type:
+            basic: BaseVehicle.Authorization
+        - name: netPlayerId
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setPassenger
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: offset
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: boolean
+    - name: setPhysicsActive
+      modifiers:
+        - public
+      parameters:
+        - name: active
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setRegulator
+      modifiers:
+        - public
+      parameters:
+        - name: regulator
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setRegulatorSpeed
+      modifiers:
+        - public
+      parameters:
+        - name: regulatorSpeed
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setRust
+      modifiers:
+        - public
+      parameters:
+        - name: rust
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setScript
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setScriptName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setSirenStartTime
+      modifiers:
+        - public
+      parameters:
+        - name: worldAgeHours
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: setSkinIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setSmashed
+      modifiers:
+        - public
+      parameters:
+        - name: location
+          type:
+            basic: String
+        - name: flipped
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: BaseVehicle
+    - name: setStoplightsOn
+      modifiers:
+        - public
+      parameters:
+        - name: on
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setTireInflation
+      modifiers:
+        - public
+      parameters:
+        - name: wheelIndex
+          type:
+            basic: int
+        - name: inflation
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setTireRemoved
+      modifiers:
+        - public
+      parameters:
+        - name: wheelIndex
+          type:
+            basic: int
+        - name: removed
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setTrunkLocked
+      modifiers:
+        - public
+      parameters:
+        - name: locked
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setVehicleTowedBy
+      modifiers:
+        - public
+      parameters:
+        - name: vehicleA
+          type:
+            basic: BaseVehicle
+        - name: attachmentA
+          type:
+            basic: String
+        - name: attachmentB
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setVehicleTowing
+      modifiers:
+        - public
+      parameters:
+        - name: vehicleB
+          type:
+            basic: BaseVehicle
+        - name: attachmentA
+          type:
+            basic: String
+        - name: attachmentB
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setVehicleType
+      modifiers:
+        - public
+      parameters:
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setWindowLightsOn
+      modifiers:
+        - public
+      parameters:
+        - name: on
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setWorldTransform
+      modifiers:
+        - public
+      parameters:
+        - name: in
+          type:
+            basic: Transform
+      returns:
+        type:
+          basic: void
+    - name: setZone
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: shouldCollideWithCharacters
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: shouldCollideWithObjects
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: showPassenger
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: shutOff
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: sirenShutoffTimeExpired
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: softReset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: startEvent
+      modifiers:
+        - public
+      parameters:
+        - name: eventInstance
+          type:
+            basic: long
+        - name: clip
+          type:
+            basic: GameSoundClip
+        - name: parameterSet
+          type:
+            basic: BitSet
+      returns:
+        type:
+          basic: void
+    - name: stopEvent
+      modifiers:
+        - public
+      parameters:
+        - name: eventInstance
+          type:
+            basic: long
+        - name: clip
+          type:
+            basic: GameSoundClip
+        - name: parameterSet
+          type:
+            basic: BitSet
+      returns:
+        type:
+          basic: void
+    - name: stopSound
+      modifiers:
+        - public
+      parameters:
+        - name: channel
+          type:
+            basic: long
+      returns:
+        type:
+          basic: int
+    - name: switchSeat
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: syncKeyInIgnition
+      modifiers:
+        - public
+      parameters:
+        - name: inIgnition
+          type:
+            basic: boolean
+        - name: onDoor
+          type:
+            basic: boolean
+        - name: key
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: testCollisionWithCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: circleRadius
+          type:
+            basic: float
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: Vector2
+    - name: testCollisionWithCorpse
+      modifiers:
+        - public
+      parameters:
+        - name: body
+          type:
+            basic: IsoDeadBody
+        - name: doSound
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: int
+    - name: testCollisionWithObject
+      modifiers:
+        - public
+      parameters:
+        - name: obj
+          type:
+            basic: IsoObject
+        - name: circleRadius
+          type:
+            basic: float
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: Vector2
+    - name: testCollisionWithProneCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoMovingObject
+        - name: angleX
+          type:
+            basic: float
+        - name: angleY
+          type:
+            basic: float
+        - name: doSound
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: int
+    - name: testCollisionWithVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: obj
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: boolean
+    - name: Thump
+      modifiers:
+        - public
+      parameters:
+        - name: thumper
+          type:
+            basic: IsoMovingObject
+      returns:
+        type:
+          basic: void
+    - name: toggleLockedDoor
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: locked
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: transmitBlood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: transmitCharacterPosition
+      modifiers:
+        - public
+      parameters:
+        - name: seat
+          type:
+            basic: int
+        - name: positionId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: transmitColorHSV
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: transmitEngine
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: transmitPartCondition
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: transmitPartDoor
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: transmitPartItem
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: transmitPartModData
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: transmitPartUsedDelta
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: transmitPartWindow
+      modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: transmitRust
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: transmitSkinIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: triggerAlarm
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: tryHotwire
+      modifiers:
+        - public
+      parameters:
+        - name: electricityLevel
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Try to hotwire a car Calcul is: 100-Engine quality (capped to 5) + Skill
+        modifier: electricityLvl * 4 % of
+         hotwiring the car Failing may cause the ignition to break
+    - name: trySpawnKey
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: tryStartEngine
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateBulletStats
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateControls
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateEvent
+      modifiers:
+        - public
+      parameters:
+        - name: eventInstance
+          type:
+            basic: long
+        - name: clip
+          type:
+            basic: GameSoundClip
+      returns:
+        type:
+          basic: void
+    - name: updateHasExtendOffset
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: updateHasExtendOffsetForExit
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: updateHasExtendOffsetForExitEnd
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: updateHitByVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+    - name: updateLights
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateParts
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updatePartStats
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: Update the stats of the part depending on condition
+    - name: updatePhysics
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updatePhysicsNetwork
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateSkin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateSounds
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateTotalMass
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: WeaponHit
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: weapon
+          type:
+            basic: HandWeapon
+      returns:
+        type:
+          basic: void
+    - name: windowsOpen
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: IsoMovingObject
+BaseVehicle.Authorization:
+  methods:
+    - name: index
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: byte
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: b
+          type:
+            basic: byte
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: BaseVehicle.Authorization
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: BaseVehicle.Authorization
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+BaseVehicle.engineStateTypes:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: BaseVehicle.engineStateTypes
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: BaseVehicle.engineStateTypes
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+BaseVehicle.HitVars:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: calc
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: IsoGameCharacter
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object
+BaseVehicle.Matrix4fObjectPool:
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+BaseVehicle.MinMaxPosition:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+BaseVehicle.ModelInfo:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getAnimationPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AnimationPlayer
+    - name: releaseAnimationPlayer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+BaseVehicle.Passenger:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+BaseVehicle.QuaternionfObjectPool:
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+BaseVehicle.ServerVehicleState:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: setAuthorization
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: shouldSend
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+BaseVehicle.Vector2fObjectPool:
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+BaseVehicle.Vector2ObjectPool:
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+BaseVehicle.Vector3fObjectPool:
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+BaseVehicle.WheelInfo:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+CircleLineIntersect:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: checkforcecirclescollide
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: forceCircle
+          type:
+            basic: List
+            full: List<zombie.vehicles.CircleLineIntersect.ForceCircle>
+        - name: lines
+          type:
+            basic: ArrayList
+            full: ArrayList<zombie.vehicles.CircleLineIntersect.StaticLine>
+      returns:
+        type:
+          basic: zombie.vehicles.CircleLineIntersect.Collideresult
+    - name: checkforcecirclescollidetime
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: forceCircle2
+          type:
+            basic: List
+            full: List<zombie.vehicles.CircleLineIntersect.ForceCircle>
+        - name: lines
+          type:
+            basic: ArrayList
+            full: ArrayList<zombie.vehicles.CircleLineIntersect.StaticLine>
+        - name: timepassed
+          type:
+            basic: double[]
+        - name: modified
+          type:
+            basic: boolean[]
+        - name: fullcheck
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: zombie.vehicles.CircleLineIntersect.Collideresult
+    - name: TEST
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: vec
+          type:
+            basic: org.joml.Vector3f
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: w
+          type:
+            basic: float
+        - name: h
+          type:
+            basic: float
+        - name: controller
+          type:
+            basic: CarController
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Clipper:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addAABB
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addAABBBevel
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: RADIUS
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addLine
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: addPath
+      modifiers:
+        - public
+      parameters:
+        - name: numPoints
+          type:
+            basic: int
+        - name: points
+          type:
+            basic: ByteBuffer
+        - name: bClip
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: addPolygon
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: x3
+          type:
+            basic: float
+        - name: y3
+          type:
+            basic: float
+        - name: x4
+          type:
+            basic: float
+        - name: y4
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: clipAABB
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: generatePolygons
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: double
+      returns:
+        type:
+          basic: int
+    - name: generateTriangulatePolygons
+      modifiers:
+        - public
+      parameters:
+        - name: wx
+          type:
+            basic: int
+        - name: wy
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getPolygon
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+        - name: vertices
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: int
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: n_init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: triangulate
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+        - name: vertices
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ClipperOffset:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addPath
+      modifiers:
+        - public
+      parameters:
+        - name: numPoints
+          type:
+            basic: int
+        - name: points
+          type:
+            basic: ByteBuffer
+        - name: joinType
+          type:
+            basic: int
+        - name: endType
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: execute
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: getPolygon
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+        - name: vertices
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: int
+    - name: getPolygonCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ClipperOffset.EndType:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: ClipperOffset.EndType
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ClipperOffset.EndType
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+ClipperOffset.JoinType:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: ClipperOffset.JoinType
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: ClipperOffset.JoinType
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+CollideWithObstacles:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getIntersection
+      modifiers:
+        - public
+      parameters:
+        - name: edge1
+          type:
+            basic: zombie.vehicles.CollideWithObstacles.CCEdge
+        - name: edge2
+          type:
+            basic: zombie.vehicles.CollideWithObstacles.CCEdge
+      returns:
+        type:
+          basic: zombie.vehicles.CollideWithObstacles.CCIntersection
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+CollideWithObstaclesPoly:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isNotClear
+      modifiers:
+        - public
+      parameters:
+        - name: x0
+          type:
+            basic: float
+        - name: y0
+          type:
+            basic: float
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: int
+        - name: render
+          type:
+            basic: boolean
+        - name: ignoreVehicle
+          type:
+            basic: BaseVehicle
+        - name: ignoreDoors
+          type:
+            basic: boolean
+        - name: closeToWalls
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: resolveCollision
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: nx
+          type:
+            basic: float
+        - name: ny
+          type:
+            basic: float
+        - name: finalPos
+          type:
+            basic: org.joml.Vector2f
+      returns:
+        type:
+          basic: org.joml.Vector2f
+    - name: vehicleMoved
+      modifiers:
+        - public
+      parameters:
+        - name: oldPolyPlusRadius
+          type:
+            basic: PolygonalMap2.VehiclePoly
+        - name: newPolyPlusRadius
+          type:
+            basic: PolygonalMap2.VehiclePoly
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+CollideWithObstaclesPoly.ChunkData:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+        - name: z
+          type:
+            basic: int
+        - name: instance
+          type:
+            basic: CollideWithObstaclesPoly
+      returns:
+        type:
+          basic: CollideWithObstaclesPoly.ChunkDataZ
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+CollideWithObstaclesPoly.ChunkDataZ:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+        - name: z
+          type:
+            basic: int
+        - name: instance
+          type:
+            basic: CollideWithObstaclesPoly
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+EditVehicleState:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: checkInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: EditVehicleState
+    - name: enter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: exit
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: fromLua0
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+      returns:
+        type:
+          basic: Object
+    - name: fromLua1
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: reenter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setScript
+      modifiers:
+        - public
+      parameters:
+        - name: scriptName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setTable
+      modifiers:
+        - public
+      parameters:
+        - name: table
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: GameStateMachine.StateAction
+    - name: yield
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: GameState
+EditVehicleState.LuaEnvironment:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: platform
+          type:
+            basic: se.krka.kahlua.j2se.J2SEPlatform
+        - name: converterManager
+          type:
+            basic: se.krka.kahlua.converter.KahluaConverterManager
+        - name: env
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+EngineRPMData:
+  constructors:
+    - modifiers:
+        - public
+    - modifiers:
+        - public
+      parameters:
+        - name: gearChange
+          type:
+            basic: float
+        - name: afterGearChange
+          type:
+            basic: float
+  methods:
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+LightbarLightsMode:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: get
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getLightTexIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: isEnable
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: v
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: start
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: Created by kroto on 9/20/2017.
+LightbarSirenMode:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: get
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getSoundName
+      modifiers:
+        - public
+      parameters:
+        - name: lightbar
+          type:
+            basic: VehicleScript.LightBar
+      returns:
+        type:
+          basic: String
+    - name: isEnable
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: v
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: Created by kroto on 9/20/2017.
+PathFindBehavior2:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+  methods:
+    - name: cancel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: closestPointOnPath
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: x3
+          type:
+            basic: float
+        - name: y3
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: mover
+          type:
+            basic: IsoMovingObject
+        - name: path
+          type:
+            basic: PolygonalMap2.Path
+        - name: pop
+          type:
+            basic: PathFindBehavior2.PointOnPath
+      returns:
+        type:
+          basic: void
+    - name: Failed
+      modifiers:
+        - public
+      parameters:
+        - name: mover
+          type:
+            basic: Mover
+      returns:
+        type:
+          basic: void
+    - name: getIsCancelled
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getPathLength
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTargetChar
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGameCharacter
+    - name: getTargetX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTargetY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTargetZ
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: isGoalCharacter
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGoalLocation
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGoalNone
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGoalSound
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGoalVehicleAdjacent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGoalVehicleArea
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isGoalVehicleSeat
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isMovingUsingPathFind
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isStrafing
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isTargetLocation
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: moveToDir
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: IsoMovingObject
+        - name: speedMul
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: moveToPoint
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: speedMul
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: pathToCharacter
+      modifiers:
+        - public
+      parameters:
+        - name: target
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: pathToLocation
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: pathToLocationF
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: pathToNearest
+      modifiers:
+        - public
+      parameters:
+        - name: locations
+          type:
+            basic: gnu.trove.list.array.TFloatArrayList
+      returns:
+        type:
+          basic: void
+    - name: pathToNearestTable
+      modifiers:
+        - public
+      parameters:
+        - name: locationsTable
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+      returns:
+        type:
+          basic: void
+    - name: pathToSound
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: pathToVehicleAdjacent
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: pathToVehicleArea
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: areaId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: pathToVehicleSeat
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: seat
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setData
+      modifiers:
+        - public
+      parameters:
+        - name: targetX
+          type:
+            basic: float
+        - name: targetY
+          type:
+            basic: float
+        - name: targetZ
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: shouldGetUpFromCrawl
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: Succeeded
+      modifiers:
+        - public
+      parameters:
+        - name: path
+          type:
+            basic: PolygonalMap2.Path
+        - name: mover
+          type:
+            basic: Mover
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: PathFindBehavior2.BehaviorResult
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PathFindBehavior2.BehaviorResult:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: PathFindBehavior2.BehaviorResult
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: PathFindBehavior2.BehaviorResult
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+PathFindBehavior2.PointOnPath:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+PathFindState2:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: animEvent
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+        - name: event
+          type:
+            basic: AnimEvent
+      returns:
+        type:
+          basic: void
+    - name: enter
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: execute
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: exit
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: isMoving
+      modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: boolean
+      notes: |-
+        Return TRUE if the owner is currently moving.
+          Defaults to FALSE
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: State
+PolygonalMap2:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addChunkToWorld
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: addRequest
+      modifiers:
+        - public
+      parameters:
+        - name: pathfinder
+          type:
+            basic: PolygonalMap2.IPathfinder
+        - name: mover
+          type:
+            basic: Mover
+        - name: startX
+          type:
+            basic: float
+        - name: startY
+          type:
+            basic: float
+        - name: startZ
+          type:
+            basic: float
+        - name: targetX
+          type:
+            basic: float
+        - name: targetY
+          type:
+            basic: float
+        - name: targetZ
+          type:
+            basic: float
+      returns:
+        type:
+          basic: zombie.vehicles.PolygonalMap2.PathFindRequest
+    - name: addVehicleToWorld
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: cancelRequest
+      modifiers:
+        - public
+      parameters:
+        - name: mover
+          type:
+            basic: Mover
+      returns:
+        type:
+          basic: void
+    - name: canStandAt
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: int
+        - name: ignoreVehicle
+          type:
+            basic: BaseVehicle
+        - name: flags
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: getCollidepoint
+      modifiers:
+        - public
+      parameters:
+        - name: fromX
+          type:
+            basic: float
+        - name: fromY
+          type:
+            basic: float
+        - name: toX
+          type:
+            basic: float
+        - name: toY
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: int
+        - name: ignoreVehicle
+          type:
+            basic: IsoMovingObject
+        - name: flags
+          type:
+            basic: int
+      returns:
+        type:
+          basic: Vector2
+    - name: getPointInLine
+      modifiers:
+        - public
+      parameters:
+        - name: fromX
+          type:
+            basic: float
+        - name: fromY
+          type:
+            basic: float
+        - name: toX
+          type:
+            basic: float
+        - name: toY
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ArrayList
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: metaGrid
+          type:
+            basic: IsoMetaGrid
+      returns:
+        type:
+          basic: void
+    - name: intersectLineWithVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: out
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: boolean
+    - name: lineClearCollide
+      modifiers:
+        - public
+      parameters:
+        - name: fromX
+          type:
+            basic: float
+        - name: fromY
+          type:
+            basic: float
+        - name: toX
+          type:
+            basic: float
+        - name: toY
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: int
+        - name: ignoreVehicle
+          type:
+            basic: IsoMovingObject
+        - name: flags
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: removeChunkFromWorld
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: removeVehicleFromWorld
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: resolveCollision
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: nx
+          type:
+            basic: float
+        - name: ny
+          type:
+            basic: float
+        - name: finalPos
+          type:
+            basic: org.joml.Vector2f
+      returns:
+        type:
+          basic: org.joml.Vector2f
+    - name: squareChanged
+      modifiers:
+        - public
+      parameters:
+        - name: square
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: void
+    - name: stop
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateMain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateThread
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PolygonalMap2.IPathfinder:
+  methods:
+    - name: Failed
+      parameters:
+        - name: mover
+          type:
+            basic: Mover
+      returns:
+        type:
+          basic: void
+    - name: Succeeded
+      parameters:
+        - name: path
+          type:
+            basic: PolygonalMap2.Path
+        - name: mover
+          type:
+            basic: Mover
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: interface
+PolygonalMap2.LiangBarsky:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: lineRectIntersect
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: dx
+          type:
+            basic: float
+        - name: dy
+          type:
+            basic: float
+        - name: left
+          type:
+            basic: float
+        - name: top
+          type:
+            basic: float
+        - name: right
+          type:
+            basic: float
+        - name: bottom
+          type:
+            basic: float
+        - name: t1t2
+          type:
+            basic: double[]
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+PolygonalMap2.Path:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: crossesSquare
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+PolygonalMap2.Point:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: equals
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+PolygonalMap2.VehiclePoly:
+  methods:
+    - name: containsPoint
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+    - name: lineIntersection
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: start1
+          type:
+            basic: Vector2
+        - name: end1
+          type:
+            basic: Vector2
+        - name: start2
+          type:
+            basic: Vector2
+        - name: end2
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: Vector2
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+PolyPolyIntersect:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: intersects
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: a
+          type:
+            basic: PolygonalMap2.VehiclePoly
+        - name: b
+          type:
+            basic: PolygonalMap2.VehiclePoly
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+QuadranglesIntersection:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: det
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: a
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: c
+          type:
+            basic: float
+        - name: d
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: IsPointInTriangle
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: p
+          type:
+            basic: Vector2
+        - name: q
+          type:
+            basic: Vector2[]
+      returns:
+        type:
+          basic: boolean
+    - name: IsQuadranglesAreIntersected
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: q1
+          type:
+            basic: Vector2[]
+        - name: q2
+          type:
+            basic: Vector2[]
+      returns:
+        type:
+          basic: boolean
+    - name: IsQuadranglesAreTransposed2
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: q1
+          type:
+            basic: org.joml.Vector4f
+        - name: q2
+          type:
+            basic: org.joml.Vector4f
+      returns:
+        type:
+          basic: boolean
+    - name: lineIntersection
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: start1
+          type:
+            basic: Vector2
+        - name: end1
+          type:
+            basic: Vector2
+        - name: start2
+          type:
+            basic: Vector2
+        - name: end2
+          type:
+            basic: Vector2
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+SurroundVehicle:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+  methods:
+    - name: getPositionForZombie
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+        - name: out
+          type:
+            basic: org.joml.Vector2f
+      returns:
+        type:
+          basic: org.joml.Vector2f
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+test_IsQuadranglesAreTransposed:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: testIsQuadranglesAreTransposed_1
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_10
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_11
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_12
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_13
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_14
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_2
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_3
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_4
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_5
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_6
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_7
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_8
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testIsQuadranglesAreTransposed_9
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+test_VehicleCache:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: test_getInsertIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+testall_vehicles:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+TransmissionNumber:
+  methods:
+    - name: fromIndex
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: TransmissionNumber
+    - name: getIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getNext
+      modifiers:
+        - public
+      parameters:
+        - name: gearRatioCount
+          type:
+            basic: int
+      returns:
+        type:
+          basic: TransmissionNumber
+    - name: getPrev
+      modifiers:
+        - public
+      parameters:
+        - name: gearRatioCount
+          type:
+            basic: int
+      returns:
+        type:
+          basic: TransmissionNumber
+    - name: getString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: TransmissionNumber
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: TransmissionNumber
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+  javaType: enum
+  extends: Enum
+  notes: Created by kroto on 7/12/2017.
+UI3DScene:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: table
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+  methods:
+    - name: fromLua0
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+      returns:
+        type:
+          basic: Object
+    - name: fromLua1
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: fromLua2
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+        - name: arg1
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: fromLua3
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+        - name: arg1
+          type:
+            basic: Object
+        - name: arg2
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: fromLua4
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+        - name: arg1
+          type:
+            basic: Object
+        - name: arg2
+          type:
+            basic: Object
+        - name: arg3
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: fromLua6
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+        - name: arg1
+          type:
+            basic: Object
+        - name: arg2
+          type:
+            basic: Object
+        - name: arg3
+          type:
+            basic: Object
+        - name: arg4
+          type:
+            basic: Object
+        - name: arg5
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: fromLua9
+      modifiers:
+        - public
+      parameters:
+        - name: func
+          type:
+            basic: String
+        - name: arg0
+          type:
+            basic: Object
+        - name: arg1
+          type:
+            basic: Object
+        - name: arg2
+          type:
+            basic: Object
+        - name: arg3
+          type:
+            basic: Object
+        - name: arg4
+          type:
+            basic: Object
+        - name: arg5
+          type:
+            basic: Object
+        - name: arg6
+          type:
+            basic: Object
+        - name: arg7
+          type:
+            basic: Object
+        - name: arg8
+          type:
+            basic: Object
+      returns:
+        type:
+          basic: Object
+    - name: intersect_ray_plane
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: Pn
+          type:
+            basic: UI3DScene.Plane
+        - name: S
+          type:
+            basic: UI3DScene.Ray
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: int
+    - name: render
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: sceneToUIX
+      modifiers:
+        - public
+      parameters:
+        - name: sceneX
+          type:
+            basic: float
+        - name: sceneY
+          type:
+            basic: float
+        - name: sceneZ
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: sceneToUIY
+      modifiers:
+        - public
+      parameters:
+        - name: sceneX
+          type:
+            basic: float
+        - name: sceneY
+          type:
+            basic: float
+        - name: sceneZ
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: uiToScene
+      modifiers:
+        - public
+      parameters:
+        - name: modelTransform
+          type:
+            basic: org.joml.Matrix4f
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+        - name: uiZ
+          type:
+            basic: float
+        - name: out
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: org.joml.Vector3f
+    - name: uiToSceneX
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: uiToSceneY
+      modifiers:
+        - public
+      parameters:
+        - name: uiX
+          type:
+            basic: float
+        - name: uiY
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: UIElement
+UI3DScene.Plane:
+  constructors:
+    - modifiers:
+        - public
+    - modifiers:
+        - public
+      parameters:
+        - name: normal
+          type:
+            basic: org.joml.Vector3f
+        - name: point
+          type:
+            basic: org.joml.Vector3f
+  methods:
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: normal
+          type:
+            basic: org.joml.Vector3f
+        - name: point
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: UI3DScene.Plane
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+UI3DScene.PlaneObjectPool:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+UI3DScene.Ray:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+UI3DScene.RayObjectPool:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: ObjectPool
+VehicleCache:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: remove
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: id
+          type:
+            basic: short
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: vehicleGet
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: wx
+          type:
+            basic: int
+        - name: wy
+          type:
+            basic: int
+      returns:
+        type:
+          basic: List
+    - name: vehicleUpdate
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: id
+          type:
+            basic: short
+        - name: ax
+          type:
+            basic: float
+        - name: ay
+          type:
+            basic: float
+        - name: az
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehicleDBHelper:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isPlayerAlive
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: saveDir
+          type:
+            basic: String
+        - name: playerSqlId
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehicleDoor:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: part
+          type:
+            basic: VehiclePart
+  methods:
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: scriptDoor
+          type:
+            basic: VehicleScript.Door
+      returns:
+        type:
+          basic: void
+    - name: isLockBroken
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isLocked
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isOpen
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setLockBroken
+      modifiers:
+        - public
+      parameters:
+        - name: broken
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setLocked
+      modifiers:
+        - public
+      parameters:
+        - name: locked
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setOpen
+      modifiers:
+        - public
+      parameters:
+        - name: open
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehicleEngineRPM:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: Load
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: totalFile
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: BaseScriptObject
+VehicleIDMap:
+  methods:
+    - name: allocateID
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: short
+    - name: containsKey
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: short
+      returns:
+        type:
+          basic: boolean
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: short
+      returns:
+        type:
+          basic: BaseVehicle
+    - name: put
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: short
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: remove
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: short
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: toArrayList
+      modifiers:
+        - public
+      parameters:
+        - name: vehicles
+          type:
+            basic: ArrayList
+            full: ArrayList<BaseVehicle>
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehicleInterpolation:
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: interpolationDataAdd
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: time
+          type:
+            basic: long
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: currentTime
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+    - name: interpolationDataGet
+      modifiers:
+        - public
+      parameters:
+        - name: buf1
+          type:
+            basic: float[]
+        - name: buf2
+          type:
+            basic: float[]
+        - name: time
+          type:
+            basic: long
+      returns:
+        type:
+          basic: boolean
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      parameters:
+        - name: time
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: Created by kroto on 1/17/2017.
+VehicleInterpolationData:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: compareTo
+      modifiers:
+        - public
+      parameters:
+        - name: o
+          type:
+            basic: VehicleInterpolationData
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: Created by kroto on 1/17/2017.
+VehicleInterpolationTest:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: interpolationMicroStepTest
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: interpolationMicroStepTest2
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: interpolationTest
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: normalTest
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: normalTestBufferRestoring2
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: normalTestBufferRestoring3
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setup
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: testBufferRestoring
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+VehicleLight:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: canFocusingDown
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: canFocusingUp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getActive
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: getDistanization
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getFocusing
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getIntensity
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setActive
+      modifiers:
+        - public
+      parameters:
+        - name: active
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setFocusingDown
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setFocusingUp
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehicleManager:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clientPacket
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: clientUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getTowedVehicleID
+      modifiers:
+        - public
+      parameters:
+        - name: towingID
+          type:
+            basic: short
+      returns:
+        type:
+          basic: short
+    - name: getVehicleByID
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: short
+      returns:
+        type:
+          basic: BaseVehicle
+    - name: getVehicles
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: registerVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: removeFromWorld
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: sendAddImpulse
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: impulse
+          type:
+            basic: org.joml.Vector3f
+        - name: rel_pos
+          type:
+            basic: org.joml.Vector3f
+      returns:
+        type:
+          basic: void
+    - name: sendCollide
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+        - name: isCollide
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: sendDetachTowing
+      modifiers:
+        - public
+      parameters:
+        - name: vehicleTowing
+          type:
+            basic: BaseVehicle
+        - name: vehicleTowedBy
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: sendEnter
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: character
+          type:
+            basic: IsoGameCharacter
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: sendExit
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: character
+          type:
+            basic: IsoGameCharacter
+        - name: seatFrom
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: sendPassengerPosition
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: seat
+          type:
+            basic: int
+        - name: positionId
+          type:
+            basic: String
+        - name: ignore
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: sendPhysic
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: sendRequestGetFull
+      modifiers:
+        - public
+      parameters:
+        - name: vehicles
+          type:
+            basic: List
+            full: List<VehicleCache>
+      returns:
+        type:
+          basic: void
+    - name: sendRequestGetPosition
+      modifiers:
+        - public
+      parameters:
+        - name: VehicleID
+          type:
+            basic: short
+        - name: packetType
+          type:
+            basic: PacketTypes.PacketType
+      returns:
+        type:
+          basic: void
+    - name: sendSound
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: id
+          type:
+            basic: byte
+      returns:
+        type:
+          basic: void
+    - name: sendSoundFromServer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: soundId
+          type:
+            basic: byte
+      returns:
+        type:
+          basic: void
+    - name: sendSwitchSeat
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+        - name: character
+          type:
+            basic: IsoGameCharacter
+        - name: seatFrom
+          type:
+            basic: int
+        - name: seatTo
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: sendTowing
+      modifiers:
+        - public
+      parameters:
+        - name: vehicleA
+          type:
+            basic: BaseVehicle
+        - name: vehicleB
+          type:
+            basic: BaseVehicle
+        - name: attachmentA
+          type:
+            basic: String
+        - name: attachmentB
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: serverPacket
+      modifiers:
+        - public
+      parameters:
+        - name: bb
+          type:
+            basic: ByteBuffer
+        - name: connection
+          type:
+            basic: UdpConnection
+        - name: type
+          type:
+            basic: short
+      returns:
+        type:
+          basic: void
+    - name: serverSendInitialWorldState
+      modifiers:
+        - public
+      parameters:
+        - name: connection
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: serverUpdate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: unregisterVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehicleManager.PosUpdateVars:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+VehicleManager.VehiclePacket:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+VehicleModelCamera:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: Begin
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: End
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: ModelCamera
+VehiclePart:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+  methods:
+    - name: addChild
+      modifiers:
+        - public
+      parameters:
+        - name: child
+          type:
+            basic: VehiclePart
+      returns:
+        type:
+          basic: void
+    - name: AddDeviceText
+      modifiers:
+        - public
+      parameters:
+        - name: line
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: guid
+          type:
+            basic: String
+        - name: codes
+          type:
+            basic: String
+        - name: distance
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: createSignalDevice
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: DeviceData
+    - name: createSpotLight
+      modifiers:
+        - public
+      parameters:
+        - name: xOffset
+          type:
+            basic: float
+        - name: yOffset
+          type:
+            basic: float
+        - name: dist
+          type:
+            basic: float
+        - name: intensity
+          type:
+            basic: float
+        - name: dot
+          type:
+            basic: float
+        - name: focusing
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: damage
+      modifiers:
+        - public
+      parameters:
+        - name: amount
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: doInventoryItemStats
+      modifiers:
+        - public
+      parameters:
+        - name: newItem
+          type:
+            basic: InventoryItem
+        - name: mechanicSkill
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: findWindow
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleWindow
+    - name: getAnimById
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: VehicleScript.Anim
+    - name: getArea
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getCategory
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getChatElement
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ChatElement
+    - name: getChild
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getChildCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getChildWindow
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getCondition
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getContainerCapacity
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: int
+    - name: getContainerContentAmount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getContainerContentType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getContainerSeatNumber
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getDeviceData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: DeviceData
+    - name: getDoor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleDoor
+    - name: getEngineLoudness
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getInventoryItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getItemContainer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ItemContainer
+    - name: getItemType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: getLastUpdated
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getLight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleLight
+    - name: getLightDistance
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getLightFocusing
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getLightIntensity
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getLuaFunction
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: getMechanicSkillInstaller
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getModData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: se.krka.kahlua.vm.KahluaTable
+    - name: getNumberByCondition
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: number
+          type:
+            basic: float
+        - name: cond
+          type:
+            basic: float
+        - name: min
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: getParent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehiclePart
+    - name: getScriptPart
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleScript.Part
+    - name: getSquare
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoGridSquare
+    - name: getSuspensionCompression
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getSuspensionDamping
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getTable
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: se.krka.kahlua.vm.KahluaTable
+    - name: getVehicle
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: BaseVehicle
+    - name: getWheelFriction
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getWheelIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getWindow
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: VehicleWindow
+    - name: getX
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getY
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getZ
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: hasDevicePower
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: hasModData
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: HasPlayerInRange
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isContainer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isInventoryItemUninstalled
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isSetAllModelsVisible
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isSpecificItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: repair
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setAllModelsVisible
+      modifiers:
+        - public
+      parameters:
+        - name: visible
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setCategory
+      modifiers:
+        - public
+      parameters:
+        - name: category
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setCondition
+      modifiers:
+        - public
+      parameters:
+        - name: condition
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setContainerCapacity
+      modifiers:
+        - public
+      parameters:
+        - name: cap
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setContainerContentAmount
+      modifiers:
+        - public
+      parameters:
+        - name: amount
+          type:
+            basic: float
+        - name: force
+          type:
+            basic: boolean
+        - name: noUpdateMass
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setDelta
+      modifiers:
+        - public
+      parameters:
+        - name: d
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setDeviceData
+      modifiers:
+        - public
+      parameters:
+        - name: data
+          type:
+            basic: DeviceData
+      returns:
+        type:
+          basic: void
+    - name: setEngineLoudness
+      modifiers:
+        - public
+      parameters:
+        - name: engineLoudness
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setGeneralCondition
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: InventoryItem
+        - name: baseQuality
+          type:
+            basic: float
+        - name: chanceToSpawnDamaged
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setInventoryItem
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: setItemContainer
+      modifiers:
+        - public
+      parameters:
+        - name: container
+          type:
+            basic: ItemContainer
+      returns:
+        type:
+          basic: void
+    - name: setLastUpdated
+      modifiers:
+        - public
+      parameters:
+        - name: hours
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setLightActive
+      modifiers:
+        - public
+      parameters:
+        - name: active
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setMechanicSkillInstaller
+      modifiers:
+        - public
+      parameters:
+        - name: mechanicSkillInstaller
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setModelVisible
+      modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+        - name: visible
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setRandomCondition
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: setScriptPart
+      modifiers:
+        - public
+      parameters:
+        - name: scriptPart
+          type:
+            basic: VehicleScript.Part
+      returns:
+        type:
+          basic: void
+    - name: setSpecificItem
+      modifiers:
+        - public
+      parameters:
+        - name: specificItem
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setSuspensionCompression
+      modifiers:
+        - public
+      parameters:
+        - name: suspensionCompression
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setSuspensionDamping
+      modifiers:
+        - public
+      parameters:
+        - name: suspensionDamping
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setWheelFriction
+      modifiers:
+        - public
+      parameters:
+        - name: wheelFriction
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: updateSignalDevice
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehiclesDB2:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: importPlayersFromOldDB
+      modifiers:
+        - public
+      parameters:
+        - name: consumer
+          type:
+            basic: VehiclesDB2.IImportPlayerFromOldDB
+      returns:
+        type:
+          basic: void
+    - name: init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: isChunkSeen
+      modifiers:
+        - public
+      parameters:
+        - name: wx
+          type:
+            basic: int
+        - name: wy
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isVehicleLoaded
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: boolean
+    - name: loadChunk
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: loadChunkMain
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: removeVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: renderDebug
+      modifiers:
+        - public
+      parameters:
+        - name: renderer
+          type:
+            basic: ZombiePopulationRenderer
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setChunkSeen
+      modifiers:
+        - public
+      parameters:
+        - name: wx
+          type:
+            basic: int
+        - name: wy
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setForceSave
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setVehicleLoaded
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: setVehicleUnloaded
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: unloadChunk
+      modifiers:
+        - public
+      parameters:
+        - name: chunk
+          type:
+            basic: IsoChunk
+      returns:
+        type:
+          basic: void
+    - name: updateMain
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: updateVehicle
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: updateVehicleAndTrailer
+      modifiers:
+        - public
+      parameters:
+        - name: vehicle
+          type:
+            basic: BaseVehicle
+      returns:
+        type:
+          basic: void
+    - name: updateWorldStreamer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+VehiclesDB2.IImportPlayerFromOldDB:
+  methods:
+    - name: accept
+      parameters:
+        - name: sqlId
+          type:
+            basic: int
+        - name: name
+          type:
+            basic: String
+        - name: wx
+          type:
+            basic: int
+        - name: wy
+          type:
+            basic: int
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: z
+          type:
+            basic: float
+        - name: WorldVersion
+          type:
+            basic: int
+        - name: bb
+          type:
+            basic: byte[]
+        - name: bDead
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: interface
+VehiclesDB2.ThrowingBiConsumer:
+  methods:
+    - name: accept
+      parameters:
+        - name: t1
+          type:
+            basic: T1
+        - name: t2
+          type:
+            basic: T2
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: interface
+VehiclesDB2.ThrowingConsumer:
+  methods:
+    - name: accept
+      parameters:
+        - name: t1
+          type:
+            basic: T1
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: interface
+VehicleType:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+  methods:
+    - name: getBaseVehicleQuality
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getChanceToSpawnKey
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getRandomBaseVehicleQuality
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: getRandomVehicleType
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: zoneName
+          type:
+            basic: String
+        - name: doNormalWhenSpecific
+          type:
+            basic: Boolean
+      returns:
+        type:
+          basic: VehicleType
+    - name: getTypeFromName
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: VehicleType
+    - name: hasTypeForZone
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: zoneName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: setChanceToSpawnKey
+      modifiers:
+        - public
+      parameters:
+        - name: chanceToSpawnKey
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: Contains all car model with their associated skin index
+VehicleType.VehicleTypeDefinition:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: vehicleType
+          type:
+            basic: String
+        - name: index
+          type:
+            basic: int
+        - name: spawnChance
+          type:
+            basic: float
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object
+VehicleWindow:
+  methods:
+    - name: damage
+      modifiers:
+        - public
+      parameters:
+        - name: amount
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getHealth
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getOpenDelta
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: hit
+      modifiers:
+        - public
+      parameters:
+        - name: chr
+          type:
+            basic: IsoGameCharacter
+      returns:
+        type:
+          basic: void
+    - name: init
+      modifiers:
+        - public
+      parameters:
+        - name: scriptWindow
+          type:
+            basic: VehicleScript.Window
+      returns:
+        type:
+          basic: void
+    - name: isDestroyed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isHittable
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isOpen
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isOpenable
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setHealth
+      modifiers:
+        - public
+      parameters:
+        - name: health
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setOpen
+      modifiers:
+        - public
+      parameters:
+        - name: open
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setOpenDelta
+      modifiers:
+        - public
+      parameters:
+        - name: delta
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object

@@ -1,0 +1,355 @@
+# zombie.characters.skills
+CustomPerk:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+CustomPerks:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: init
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: initLua
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PerkFactory:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: AddPerk
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: perk
+          type:
+            basic: PerkFactory.Perk
+        - name: translation
+          type:
+            basic: String
+        - name: parent
+          type:
+            basic: PerkFactory.Perk
+        - name: xp1
+          type:
+            basic: int
+        - name: xp2
+          type:
+            basic: int
+        - name: xp3
+          type:
+            basic: int
+        - name: xp4
+          type:
+            basic: int
+        - name: xp5
+          type:
+            basic: int
+        - name: xp6
+          type:
+            basic: int
+        - name: xp7
+          type:
+            basic: int
+        - name: xp8
+          type:
+            basic: int
+        - name: xp9
+          type:
+            basic: int
+        - name: xp10
+          type:
+            basic: int
+        - name: passiv
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: getPerk
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: perk
+          type:
+            basic: PerkFactory.Perk
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: getPerkFromName
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: getPerkName
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: type
+          type:
+            basic: PerkFactory.Perk
+      returns:
+        type:
+          basic: String
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: initTranslations
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PerkFactory.Perk:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+        - name: parent
+          type:
+            basic: PerkFactory.Perk
+  methods:
+    - name: getId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getParent
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: getTotalXpForLevel
+      modifiers:
+        - public
+      parameters:
+        - name: level
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: getType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: getXp1
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp10
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp2
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp3
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp4
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp5
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp6
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp7
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp8
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXp9
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getXpForLevel
+      modifiers:
+        - public
+      parameters:
+        - name: level
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: index
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: isCustom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isPassiv
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: setCustom
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object
+PerkFactory.Perks:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: fromIndex
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: value
+          type:
+            basic: int
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: FromString
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: PerkFactory.Perk
+    - name: getMaxIndex
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Object

@@ -1,0 +1,248 @@
+# zombie.core.fonts
+AngelCodeFont:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: fntFile
+          type:
+            basic: String
+          notes: The location of the font defnition file
+        - name: image
+          type:
+            basic: Texture
+      notes: |-
+        Create a new font based on a font definition from AngelCode's tool and
+         the font image generated from the tool.
+    - modifiers:
+        - public
+      parameters:
+        - name: fntFile
+          type:
+            basic: String
+          notes: The location of the font defnition file
+        - name: imgFile
+          type:
+            basic: String
+      notes: |-
+        Create a new font based on a font definition from AngelCode's tool and
+         the font image generated from the tool.
+  methods:
+    - name: destroy
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: drawString
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: scale
+          type:
+            basic: float
+        - name: text
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+        - name: startIndex
+          type:
+            basic: int
+        - name: endIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getHeight
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+          notes: The string to obtain the rendered with of
+      returns:
+        type:
+          basic: int
+        notes: The width of the given string
+      notes: Description copied from interface: Font
+    - name: getLineHeight
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: The maxium height of any line drawn by this font
+      notes: Description copied from interface: Font
+    - name: getWidth
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+        - name: start
+          type:
+            basic: int
+        - name: end
+          type:
+            basic: int
+        - name: xadvance
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: int
+    - name: getYOffset
+      modifiers:
+        - public
+      parameters:
+        - name: text
+          type:
+            basic: String
+          notes: The text that is to be tested
+      returns:
+        type:
+          basic: int
+        notes: The yoffset from the y draw location at which text will start
+      notes: Returns the distance from the y drawing location to the top most pixel of
+        the specified text.
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: onStateChanged
+      modifiers:
+        - public
+      parameters:
+        - name: oldState
+          type:
+            basic: Asset.State
+        - name: newState
+          type:
+            basic: Asset.State
+        - name: asset
+          type:
+            basic: Asset
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: >-
+    A font implementation that will parse BMFont format font files. The font
+    files can be output
+     by Hiero, which is included with Slick, and also the AngelCode font tool available at:
+AngelCodeFont.CharDefTexture:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: data
+          type:
+            basic: TextureID
+        - name: name
+          type:
+            basic: String
+  methods:
+    - name: releaseCharDef
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+    - final
+  javaType: class
+  extends: Texture
+Font:
+  methods:
+    - name: drawString
+      parameters:
+        - name: x
+          type:
+            basic: float
+          notes: The x location at which to draw the string
+        - name: y
+          type:
+            basic: float
+        - name: text
+          type:
+            basic: String
+        - name: col
+          type:
+            basic: Color
+        - name: startIndex
+          type:
+            basic: int
+        - name: endIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+      notes: |-
+        Draw part of a string to the screen. Note that this will
+         still position the text as though it's part of the bigger string.
+    - name: getHeight
+      parameters:
+        - name: str
+          type:
+            basic: String
+          notes: The string to obtain the rendered with of
+      returns:
+        type:
+          basic: int
+        notes: The width of the given string
+      notes: get the height of the given string
+    - name: getLineHeight
+      returns:
+        type:
+          basic: int
+        notes: The maxium height of any line drawn by this font
+      notes: get the maximum height of any line drawn by this font
+    - name: getWidth
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: startIndex
+          type:
+            basic: int
+        - name: endIndex
+          type:
+            basic: int
+        - name: xAdvance
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+  javaType: interface

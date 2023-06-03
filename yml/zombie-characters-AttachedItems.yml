@@ -1,0 +1,490 @@
+# zombie.characters.AttachedItems
+AttachedItem:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: location
+          type:
+            basic: String
+        - name: item
+          type:
+            basic: InventoryItem
+  methods:
+    - name: getItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getLocation
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedItems:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: group
+          type:
+            basic: AttachedLocationGroup
+    - modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: AttachedItems
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: contains
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: boolean
+    - name: copyFrom
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: AttachedItems
+      returns:
+        type:
+          basic: void
+    - name: forEach
+      modifiers:
+        - public
+      parameters:
+        - name: c
+          type:
+            basic: Consumer
+            full: Consumer<AttachedItem>
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: AttachedItem
+    - name: getGroup
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: AttachedLocationGroup
+    - name: getItem
+      modifiers:
+        - public
+      parameters:
+        - name: location
+          type:
+            basic: String
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getItemByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getLocation
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: String
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: remove
+      modifiers:
+        - public
+      parameters:
+        - name: item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: setItem
+      modifiers:
+        - public
+      parameters:
+        - name: location
+          type:
+            basic: String
+        - name: item
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedLocation:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: group
+          type:
+            basic: AttachedLocationGroup
+        - name: id
+          type:
+            basic: String
+  methods:
+    - name: getAttachmentName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getId
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: setAttachmentName
+      modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedLocationGroup:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: id
+          type:
+            basic: String
+  methods:
+    - name: checkValid
+      modifiers:
+        - public
+      parameters:
+        - name: locationId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: getLocation
+      modifiers:
+        - public
+      parameters:
+        - name: locationId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: AttachedLocation
+    - name: getLocationByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: AttachedLocation
+    - name: getOrCreateLocation
+      modifiers:
+        - public
+      parameters:
+        - name: locationId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: AttachedLocation
+    - name: indexOf
+      modifiers:
+        - public
+      parameters:
+        - name: locationId
+          type:
+            basic: String
+      returns:
+        type:
+          basic: int
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedLocations:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getGroup
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: id
+          type:
+            basic: String
+      returns:
+        type:
+          basic: AttachedLocationGroup
+    - name: Reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedModelName:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: AttachedModelName
+    - modifiers:
+        - public
+      parameters:
+        - name: attachmentName
+          type:
+            basic: String
+        - name: modelName
+          type:
+            basic: String
+        - name: bloodLevel
+          type:
+            basic: float
+    - modifiers:
+        - public
+      parameters:
+        - name: attachmentNameSelf
+          type:
+            basic: String
+        - name: attachmentNameParent
+          type:
+            basic: String
+        - name: modelName
+          type:
+            basic: String
+        - name: bloodLevel
+          type:
+            basic: float
+  methods:
+    - name: addChild
+      modifiers:
+        - public
+      parameters:
+        - name: child
+          type:
+            basic: AttachedModelName
+      returns:
+        type:
+          basic: void
+    - name: getChildByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: AttachedModelName
+    - name: getChildCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedModelNames:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: copyFrom
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: AttachedModelNames
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: AttachedModelName
+    - name: initFrom
+      modifiers:
+        - public
+      parameters:
+        - name: attachedItems
+          type:
+            basic: AttachedItems
+      returns:
+        type:
+          basic: void
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedModels:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: ArrayList
+AttachedWeaponCustomOutfit:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedWeaponDefinition:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AttachedWeaponDefinitions:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: addRandomAttachedWeapon
+      modifiers:
+        - public
+      parameters:
+        - name: zed
+          type:
+            basic: IsoZombie
+      returns:
+        type:
+          basic: void
+    - name: checkDirty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: outfitHasItem
+      modifiers:
+        - public
+      parameters:
+        - name: zombie
+          type:
+            basic: IsoZombie
+        - name: ensureItem
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object

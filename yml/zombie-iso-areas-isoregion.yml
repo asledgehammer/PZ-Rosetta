@@ -1,0 +1,1038 @@
+# zombie.iso.areas.isoregion
+ChunkUpdate:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: writeIsoChunkIntoBuffer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: c
+          type:
+            basic: IsoChunk
+        - name: bb
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+IsoRegionException:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: errorMessage
+          type:
+            basic: String
+    - modifiers:
+        - public
+      parameters:
+        - name: errorMessage
+          type:
+            basic: String
+        - name: err
+          type:
+            basic: Throwable
+  modifiers:
+    - public
+  javaType: class
+  extends: Exception
+  notes: TurboTuTone.
+IsoRegionLogType:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: IsoRegionLogType
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: IsoRegionLogType
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+  javaType: enum
+  extends: Enum
+  notes: TurboTuTone.
+IsoRegions:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getChunkFile
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: chunkX
+          type:
+            basic: int
+        - name: chunkY
+          type:
+            basic: int
+      returns:
+        type:
+          basic: File
+    - name: getChunkRegion
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: IChunkRegion
+        notes: can be null.
+      notes: >-
+        Returns a IChunkRegion for the square.
+         Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
+    - name: getDataChunk
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: chunkx
+          type:
+            basic: int
+        - name: chunky
+          type:
+            basic: int
+      returns:
+        type:
+          basic: DataChunk
+        notes: can be null.
+      notes: >-
+        Returns a DataChunk for the square.
+         Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
+    - name: getDirectory
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: File
+    - name: getHeaderFile
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: File
+    - name: getIsoWorldRegion
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: IWorldRegion
+        notes: can be null.
+      notes: >-
+        Returns a IWorldRegion for the square.
+         Note: Returned objects from this function should not be retained as the DataRoot may get swapped.
+         Note: The IWorldRegion does get cached in IsoGridSquare for optimizing purposes but this gets handled in 'clientResetCachedRegionReferences()'
+    - name: getLogger
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: IsoRegionsLogger
+    - name: GetOppositeDir
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: dir
+          type:
+            basic: byte
+      returns:
+        type:
+          basic: byte
+    - name: getSquareFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: byte
+    - name: hash
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: isDebugLoadAllChunks
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: log
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: col
+          type:
+            basic: Color
+      returns:
+        type:
+          basic: void
+    - name: receiveClientRequestFullDataChunks
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: conn
+          type:
+            basic: UdpConnection
+      returns:
+        type:
+          basic: void
+    - name: receiveServerUpdatePacket
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: ResetAllDataDebug
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: setDebugLoadAllChunks
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: b
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setPreviousFlags
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: gs
+          type:
+            basic: IsoGridSquare
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Needs to be called before a player manipulates the grid.
+         Records bitFlags for the state of the square that are compared to bitFlags for the state of the square after manipulation to detect relevant changes.
+    - name: squareChanged
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: gs
+          type:
+            basic: IsoGridSquare
+        - name: isRemoval
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+      notes: >-
+        Called after the grid has been manipulated by a player.
+         NOTE: setPreviousFlags needs to be called prior to the grid being manipulated by a player.
+    - name: update
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: warn
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+IsoRegionsLogger:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: doConsolePrint
+          type:
+            basic: boolean
+  methods:
+    - name: getLogs
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ArrayList
+    - name: isDirtyUI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: unsetDirtyUI
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+IsoRegionsLogger.IsoRegionLog:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Color
+    - name: getStr
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: IsoRegionLogType
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Object
+IsoRegionsRenderer:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: editRotate
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: editSquare
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: getBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: getChunkRegion
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: IsoChunkRegion
+    - name: getEditOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getEditOptionByName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getEditOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionByName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getZLevel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getZLevelOptionByIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getZLevelOptionByName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ConfigOption
+    - name: getZLevelOptionCount
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: hasChunkRegion
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: isEditingEnabled
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isHasSelected
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: load
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: outlineRect
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: w
+          type:
+            basic: float
+        - name: h
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: recalcSurroundings
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: render
+      modifiers:
+        - public
+      parameters:
+        - name: ui
+          type:
+            basic: UIElement
+        - name: zoom
+          type:
+            basic: float
+        - name: xPos
+          type:
+            basic: float
+        - name: yPos
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderCellInfo
+      modifiers:
+        - public
+      parameters:
+        - name: cellX
+          type:
+            basic: int
+        - name: cellY
+          type:
+            basic: int
+        - name: effectivePopulation
+          type:
+            basic: int
+        - name: targetPopulation
+          type:
+            basic: int
+        - name: lastRepopTime
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderEntity
+      modifiers:
+        - public
+      parameters:
+        - name: size
+          type:
+            basic: float
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderLine
+      modifiers:
+        - public
+      parameters:
+        - name: x1
+          type:
+            basic: float
+        - name: y1
+          type:
+            basic: float
+        - name: x2
+          type:
+            basic: float
+        - name: y2
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderRect
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: w
+          type:
+            basic: float
+        - name: h
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: a
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderSquare
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+        - name: alpha
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: renderString
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: str
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: double
+        - name: g
+          type:
+            basic: double
+        - name: b
+          type:
+            basic: double
+        - name: a
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: renderStringUI
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: str
+          type:
+            basic: String
+        - name: r
+          type:
+            basic: double
+        - name: g
+          type:
+            basic: double
+        - name: b
+          type:
+            basic: double
+        - name: a
+          type:
+            basic: double
+      returns:
+        type:
+          basic: void
+    - name: renderZombie
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+        - name: y
+          type:
+            basic: float
+        - name: r
+          type:
+            basic: float
+        - name: g
+          type:
+            basic: float
+        - name: b
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: setBoolean
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+        - name: value
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setEditOption
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+        - name: b
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setEditSquareCoord
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setSelected
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setSelectedWorld
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setZLevelOption
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+        - name: b
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: uiToWorldX
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: uiToWorldY
+      modifiers:
+        - public
+      parameters:
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: unsetSelected
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: worldToScreenX
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: worldToScreenY
+      modifiers:
+        - public
+      parameters:
+        - name: y
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: |-
+    TurboTuTone.
+     Base functionality copied from ZombiePopulationRenderer
+IsoRegionsRenderer.BooleanDebugOption:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: optionList
+          type:
+            basic: ArrayList
+            full: ArrayList<ConfigOption>
+        - name: name
+          type:
+            basic: String
+        - name: defaultValue
+          type:
+            basic: boolean
+        - name: zLevel
+          type:
+            basic: int
+    - modifiers:
+        - public
+      parameters:
+        - name: optionList
+          type:
+            basic: ArrayList
+            full: ArrayList<ConfigOption>
+        - name: name
+          type:
+            basic: String
+        - name: defaultValue
+          type:
+            basic: boolean
+  methods:
+    - name: getIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: BooleanConfigOption
+IsoRegionWorker:
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.

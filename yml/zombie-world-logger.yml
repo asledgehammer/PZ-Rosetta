@@ -1,0 +1,328 @@
+# zombie.world.logger
+Log:
+  constructors:
+    - modifiers:
+        - public
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.
+Log.BaseItemLog:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: itemInfo
+          type:
+            basic: ItemInfo
+  modifiers:
+    - public
+    - abstract
+    - static
+  javaType: class
+  extends: Log.BaseLog
+Log.BaseLog:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: isIgnoreSaveCheck
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+    - abstract
+    - static
+  javaType: class
+  extends: Object
+Log.Comment:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: txt
+          type:
+            basic: String
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseLog
+Log.Info:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: timeStamp
+          type:
+            basic: String
+        - name: saveWorld
+          type:
+            basic: String
+        - name: worldVersion
+          type:
+            basic: int
+        - name: mods
+          type:
+            basic: List
+            full: List<String>
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseLog
+Log.ModIDChangedItem:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: itemInfo
+          type:
+            basic: ItemInfo
+        - name: oldModId
+          type:
+            basic: String
+        - name: newModId
+          type:
+            basic: String
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseItemLog
+Log.ObsoleteItem:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: itemInfo
+          type:
+            basic: ItemInfo
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseItemLog
+Log.RegisterItem:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: itemInfo
+          type:
+            basic: ItemInfo
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseItemLog
+Log.RegisterObject:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: objectName
+          type:
+            basic: String
+        - name: id
+          type:
+            basic: int
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseLog
+Log.ReinstateItem:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: itemInfo
+          type:
+            basic: ItemInfo
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseItemLog
+Log.RemovedItem:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: itemInfo
+          type:
+            basic: ItemInfo
+        - name: isScriptMissing
+          type:
+            basic: boolean
+  methods:
+    - name: saveAsText
+      modifiers:
+        - public
+      parameters:
+        - name: w
+          type:
+            basic: FileWriter
+        - name: padding
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - static
+  javaType: class
+  extends: Log.BaseItemLog
+WorldDictionaryLogger:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: log
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: msg
+          type:
+            basic: String
+        - name: debugPrint
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: saveLog
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: saveFile
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: startLogging
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+  notes: TurboTuTone.

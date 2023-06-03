@@ -1,0 +1,1192 @@
+# zombie.core.skinnedmodel.visual
+BaseVisual:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: void
+    - name: copyFrom
+      modifiers:
+        - public
+        - abstract
+      parameters:
+        - name: other
+          type:
+            basic: BaseVisual
+      returns:
+        type:
+          basic: void
+    - name: dressInNamedOutfit
+      modifiers:
+        - public
+        - abstract
+      parameters:
+        - name: outfitName
+          type:
+            basic: String
+        - name: itemVisuals
+          type:
+            basic: ItemVisuals
+      returns:
+        type:
+          basic: void
+    - name: getModel
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: Model
+    - name: getModelScript
+      modifiers:
+        - public
+        - abstract
+      returns:
+        type:
+          basic: ModelScript
+    - name: load
+      modifiers:
+        - public
+        - abstract
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+        - abstract
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+HumanVisual:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: owner
+          type:
+            basic: IHumanVisual
+  methods:
+    - name: addBodyVisual
+      modifiers:
+        - public
+      parameters:
+        - name: clothingItemName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ItemVisual
+    - name: addBodyVisualFromClothingItemName
+      modifiers:
+        - public
+      parameters:
+        - name: clothingItemName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ItemVisual
+    - name: addBodyVisualFromItemType
+      modifiers:
+        - public
+      parameters:
+        - name: itemType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ItemVisual
+    - name: addClothingItem
+      modifiers:
+        - public
+      parameters:
+        - name: itemVisuals
+          type:
+            basic: ItemVisuals
+        - name: scriptItem
+          type:
+            basic: Item
+      returns:
+        type:
+          basic: ItemVisual
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: copyFrom
+      modifiers:
+        - public
+      parameters:
+        - name: other_
+          type:
+            basic: BaseVisual
+      returns:
+        type:
+          basic: void
+    - name: dressInClothingItem
+      modifiers:
+        - public
+      parameters:
+        - name: itemGUID
+          type:
+            basic: String
+        - name: itemVisuals
+          type:
+            basic: ItemVisuals
+        - name: clearCurrentVisuals
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: dressInNamedOutfit
+      modifiers:
+        - public
+      parameters:
+        - name: outfitName
+          type:
+            basic: String
+        - name: itemVisuals
+          type:
+            basic: ItemVisuals
+      returns:
+        type:
+          basic: void
+    - name: getBeardColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImmutableColor
+    - name: getBeardModel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getBlood
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getBodyHairIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getBodyVisuals
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ItemVisuals
+    - name: getDirt
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getHairColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImmutableColor
+    - name: getHairModel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getHole
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getLastStandString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: GetMask
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: itemVisuals
+          type:
+            basic: ItemVisuals
+      returns:
+        type:
+          basic: CharacterMask
+    - name: getModel
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Model
+    - name: getModelScript
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ModelScript
+    - name: getNaturalBeardColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImmutableColor
+    - name: getNaturalHairColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImmutableColor
+    - name: getNonAttachedHair
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getOutfit
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Outfit
+    - name: getSkinColor
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImmutableColor
+    - name: getSkinTexture
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getSkinTextureIndex
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getTotalBlood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: hasBodyVisualFromItemType
+      modifiers:
+        - public
+      parameters:
+        - name: itemType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: isFemale
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isSkeleton
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isZombie
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: lerp
+      modifiers:
+        - public
+      parameters:
+        - name: start
+          type:
+            basic: float
+        - name: end
+          type:
+            basic: float
+        - name: delta
+          type:
+            basic: float
+      returns:
+        type:
+          basic: float
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: loadLastStandString
+      modifiers:
+        - public
+      parameters:
+        - name: saveStr
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: pickRandomZombieRotStage
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: randomBlood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: randomDirt
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: removeBlood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: removeBodyVisualFromItemType
+      modifiers:
+        - public
+      parameters:
+        - name: itemType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: ItemVisual
+    - name: removeDirt
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setBeardColor
+      modifiers:
+        - public
+      parameters:
+        - name: color
+          type:
+            basic: ImmutableColor
+      returns:
+        type:
+          basic: void
+    - name: setBeardModel
+      modifiers:
+        - public
+      parameters:
+        - name: model
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setBlood
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setBodyHairIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setDirt
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setForceModel
+      modifiers:
+        - public
+      parameters:
+        - name: model
+          type:
+            basic: Model
+      returns:
+        type:
+          basic: void
+    - name: setForceModelScript
+      modifiers:
+        - public
+      parameters:
+        - name: modelScript
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setHairColor
+      modifiers:
+        - public
+      parameters:
+        - name: color
+          type:
+            basic: ImmutableColor
+      returns:
+        type:
+          basic: void
+    - name: setHairModel
+      modifiers:
+        - public
+      parameters:
+        - name: model
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setHole
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: void
+    - name: setNaturalBeardColor
+      modifiers:
+        - public
+      parameters:
+        - name: color
+          type:
+            basic: ImmutableColor
+      returns:
+        type:
+          basic: void
+    - name: setNaturalHairColor
+      modifiers:
+        - public
+      parameters:
+        - name: color
+          type:
+            basic: ImmutableColor
+      returns:
+        type:
+          basic: void
+    - name: setNonAttachedHair
+      modifiers:
+        - public
+      parameters:
+        - name: nonAttachedHair
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setOutfit
+      modifiers:
+        - public
+      parameters:
+        - name: outfit
+          type:
+            basic: Outfit
+      returns:
+        type:
+          basic: void
+    - name: setSkinColor
+      modifiers:
+        - public
+      parameters:
+        - name: color
+          type:
+            basic: ImmutableColor
+      returns:
+        type:
+          basic: void
+    - name: setSkinTextureIndex
+      modifiers:
+        - public
+      parameters:
+        - name: index
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setSkinTextureName
+      modifiers:
+        - public
+      parameters:
+        - name: textureName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: synchWithOutfit
+      modifiers:
+        - public
+      parameters:
+        - name: outfit
+          type:
+            basic: Outfit
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: BaseVisual
+IHumanVisual:
+  methods:
+    - name: getHumanVisual
+      returns:
+        type:
+          basic: HumanVisual
+    - name: getItemVisuals
+      parameters:
+        - name: itemVisuals
+          type:
+            basic: ItemVisuals
+      returns:
+        type:
+          basic: void
+    - name: isFemale
+      returns:
+        type:
+          basic: boolean
+    - name: isSkeleton
+      returns:
+        type:
+          basic: boolean
+    - name: isZombie
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+  javaType: interface
+ItemVisual:
+  constructors:
+    - modifiers:
+        - public
+    - modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: ItemVisual
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: copyBlood
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: ItemVisual
+      returns:
+        type:
+          basic: void
+    - name: copyDirt
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: ItemVisual
+      returns:
+        type:
+          basic: void
+    - name: copyFrom
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: ItemVisual
+      returns:
+        type:
+          basic: void
+    - name: copyHoles
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: ItemVisual
+      returns:
+        type:
+          basic: void
+    - name: copyPatches
+      modifiers:
+        - public
+      parameters:
+        - name: other
+          type:
+            basic: ItemVisual
+      returns:
+        type:
+          basic: void
+    - name: createLastStandItem
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: saveStr
+          type:
+            basic: String
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getAlternateModelName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getBaseTexture
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getBasicPatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getBasicPatchesNumber
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getBlood
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getClothingItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ClothingItem
+    - name: getClothingItemCombinedMask
+      modifiers:
+        - public
+      parameters:
+        - name: in_out_mask
+          type:
+            basic: CharacterMask
+      returns:
+        type:
+          basic: void
+    - name: getClothingItemName
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getDecal
+      modifiers:
+        - public
+      parameters:
+        - name: clothingItem
+          type:
+            basic: ClothingItem
+      returns:
+        type:
+          basic: String
+    - name: getDenimPatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getDirt
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getHole
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getHolesNumber
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getHue
+      modifiers:
+        - public
+      parameters:
+        - name: clothingItem
+          type:
+            basic: ClothingItem
+      returns:
+        type:
+          basic: float
+    - name: getInventoryItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: InventoryItem
+    - name: getItemType
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getLastStandString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+    - name: getLeatherPatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: float
+    - name: getScriptItem
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: Item
+    - name: getTextureChoice
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getTint
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ImmutableColor
+    - name: getTotalBlood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: pickUninitializedValues
+      modifiers:
+        - public
+      parameters:
+        - name: clothingItem
+          type:
+            basic: ClothingItem
+      returns:
+        type:
+          basic: void
+    - name: removeBlood
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: removeDirt
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: removeHole
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: removePatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+    - name: setAlternateModelName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setBaseTexture
+      modifiers:
+        - public
+      parameters:
+        - name: baseTexture
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setBasicPatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: void
+    - name: setBlood
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setClothingItemName
+      modifiers:
+        - public
+      parameters:
+        - name: name
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setDecal
+      modifiers:
+        - public
+      parameters:
+        - name: decalName
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setDenimPatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: void
+    - name: setDirt
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+        - name: amount
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setHole
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: void
+    - name: setHue
+      modifiers:
+        - public
+      parameters:
+        - name: hue
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: setInventoryItem
+      modifiers:
+        - public
+      parameters:
+        - name: inventoryItem
+          type:
+            basic: InventoryItem
+      returns:
+        type:
+          basic: void
+    - name: setItemType
+      modifiers:
+        - public
+      parameters:
+        - name: fullType
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: setLeatherPatch
+      modifiers:
+        - public
+      parameters:
+        - name: bodyPartType
+          type:
+            basic: BloodBodyPartType
+      returns:
+        type:
+          basic: void
+    - name: setTextureChoice
+      modifiers:
+        - public
+      parameters:
+        - name: TextureChoice
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setTint
+      modifiers:
+        - public
+      parameters:
+        - name: tint
+          type:
+            basic: ImmutableColor
+      returns:
+        type:
+          basic: void
+    - name: synchWithOutfit
+      modifiers:
+        - public
+      parameters:
+        - name: itemRef
+          type:
+            basic: ClothingItemReference
+      returns:
+        type:
+          basic: void
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+ItemVisuals:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: findHat
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ItemVisual
+    - name: findMask
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ItemVisual
+    - name: load
+      modifiers:
+        - public
+      parameters:
+        - name: input
+          type:
+            basic: ByteBuffer
+        - name: WorldVersion
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: save
+      modifiers:
+        - public
+      parameters:
+        - name: output
+          type:
+            basic: ByteBuffer
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: ArrayList

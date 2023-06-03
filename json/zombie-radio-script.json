@@ -1,0 +1,509 @@
+{
+  "namespaces": {
+    "zombie.radio.script": {
+      "ConditionContainer": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "operator",
+                "type": {
+                  "basic": "OperatorType"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "A",
+                "type": {
+                  "basic": "RadioGlobal"
+                }
+              },
+              {
+                "name": "B",
+                "type": {
+                  "basic": "RadioGlobal"
+                }
+              },
+              {
+                "name": "compareMethod",
+                "type": {
+                  "basic": "CompareMethod"
+                }
+              },
+              {
+                "name": "nextOperator",
+                "type": {
+                  "basic": "OperatorType"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Evaluate",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "CompareResult"
+              }
+            }
+          },
+          {
+            "name": "getNextOperator",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "OperatorType"
+              }
+            }
+          },
+          {
+            "name": "setNextOperator",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "operatorType",
+                "type": {
+                  "basic": "OperatorType"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ConditionIter": {
+        "methods": [
+          {
+            "name": "Evaluate",
+            "returns": {
+              "type": {
+                "basic": "CompareResult"
+              }
+            }
+          },
+          {
+            "name": "getNextOperator",
+            "returns": {
+              "type": {
+                "basic": "OperatorType"
+              }
+            }
+          },
+          {
+            "name": "setNextOperator",
+            "parameters": [
+              {
+                "name": "operatorType",
+                "type": {
+                  "basic": "OperatorType"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "interface"
+      },
+      "ExitOptionOld": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "parentName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addScriptEntry",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "entry",
+                "type": {
+                  "basic": "RadioScriptEntry"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "evaluate",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "RadioScriptEntry"
+              }
+            }
+          },
+          {
+            "name": "setCondition",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "conditionContainer",
+                "type": {
+                  "basic": "ConditionContainer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "OperatorType": {
+        "methods": [
+          {
+            "name": "valueOf",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                },
+                "notes": "the name of the enum constant to be returned."
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "OperatorType"
+              },
+              "notes": "the enum constant with the specified name"
+            },
+            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "OperatorType"
+              },
+              "notes": "an array containing the constants of this enum class, in the order they are declared"
+            },
+            "notes": "Returns an array containing the constants of this enum class, in\nthe order they are declared."
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "enum",
+        "extends": "Enum"
+      },
+      "RadioScriptEntry": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "delay",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ]
+          },
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "delay",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "min",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "max",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "getChanceMax",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "getChanceMin",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "getDelay",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "getScriptName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "setChanceMax",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "max",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setChanceMin",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "min",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setDelay",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "delay",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setScriptName",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "RadioScriptInfo": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addExitOption",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "exitOption",
+                "type": {
+                  "basic": "ExitOptionOld"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getNextScript",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "RadioScriptEntry"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      }
+    }
+  }
+}

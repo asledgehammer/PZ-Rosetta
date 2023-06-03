@@ -1,0 +1,3313 @@
+{
+  "namespaces": {
+    "zombie.audio": {
+      "BaseSoundBank": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addFootstep",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "grass",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "wood",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "concrete",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "upstairs",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addVoice",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "sound",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "priority",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getFootstep",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "fmod.fmod.FMODFootstep"
+              }
+            }
+          },
+          {
+            "name": "getVoice",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "fmod.fmod.FMODVoice"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "BaseSoundEmitter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "hasSoundsToStart",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "hasSustainPoints",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "isPlaying",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "playAmbientLoopedImpl",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playAmbientSound",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playClip",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "clip",
+                "type": {
+                  "basic": "GameSoundClip"
+                }
+              },
+              {
+                "name": "parent",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSound",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "parent",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSoundImpl",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "parent",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSoundLooped",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSoundLoopedImpl",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "randomStart",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "restart",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "set3D",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "is3D",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setParameterValue",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "parameterDescription",
+                "type": {
+                  "basic": "fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
+                }
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setPitch",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "pitch",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setPos",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setTimelinePosition",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "positionName",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setVolume",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "volume",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setVolumeAll",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "volume",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopAll",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopOrTriggerSound",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopOrTriggerSoundByName",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopSound",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "channel",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "stopSoundByName",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "stopSoundLocal",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "tick",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "triggerCue",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "DummySoundBank": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addFootstep",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "grass",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "wood",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "concrete",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "upstairs",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addVoice",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "sound",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "priority",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getFootstep",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "fmod.fmod.FMODFootstep"
+              }
+            }
+          },
+          {
+            "name": "getVoice",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "fmod.fmod.FMODVoice"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "BaseSoundBank"
+      },
+      "DummySoundEmitter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "hasSoundsToStart",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "hasSustainPoints",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "isEmpty",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "isPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "alias",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "playAmbientLoopedImpl",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playAmbientSound",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playClip",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "clip",
+                "type": {
+                  "basic": "GameSoundClip"
+                }
+              },
+              {
+                "name": "parent",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSound",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "parent",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSoundImpl",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "parent",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSoundLooped",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "playSoundLoopedImpl",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "file",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "long"
+              }
+            }
+          },
+          {
+            "name": "randomStart",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "restart",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "set3D",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "is3D",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setParameterValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "parameterDescription",
+                "type": {
+                  "basic": "fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
+                }
+              },
+              {
+                "name": "value",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setPitch",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "volume",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setPos",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setTimelinePosition",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "positionName",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setVolume",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "volume",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setVolumeAll",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "volume",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopAll",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopOrTriggerSound",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopOrTriggerSoundByName",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopSound",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "channel",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "stopSoundByName",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "stopSoundLocal",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "tick",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "triggerCue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "handle",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "BaseSoundEmitter"
+      },
+      "FMODGlobalParameter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "setCurrentValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "startEventInstance",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "eventInstance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopEventInstance",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "eventInstance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "FMODParameter"
+      },
+      "FMODLocalParameter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "calculateCurrentValue",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "setCurrentValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "startEventInstance",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "inst",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopEventInstance",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "inst",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "javaType": "class",
+        "extends": "FMODParameter"
+      },
+      "FMODParameter": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "calculateCurrentValue",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getCurrentValue",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getParameterDescription",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
+              }
+            }
+          },
+          {
+            "name": "getParameterID",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "fmod.fmod.FMOD_STUDIO_PARAMETER_ID"
+              }
+            }
+          },
+          {
+            "name": "resetToDefault",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setCurrentValue",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "value",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "startEventInstance",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "eventInstance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopEventInstance",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "eventInstance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "update",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "FMODParameterList": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "parameter",
+                "type": {
+                  "basic": "FMODParameter"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "pdesc",
+                "type": {
+                  "basic": "fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "FMODParameter"
+              }
+            }
+          },
+          {
+            "name": "update",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "GameSound": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "getCategory",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getMasterName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getRandomClip",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "GameSoundClip"
+              }
+            }
+          },
+          {
+            "name": "getUserVolume",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "isLooped",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "numClipsUsingParameter",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "parameterName",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "reset",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setUserVolume",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "gain",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "GameSound.MasterVolume": {
+        "methods": [
+          {
+            "name": "valueOf",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                },
+                "notes": "the name of the enum constant to be returned."
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "GameSound.MasterVolume"
+              },
+              "notes": "the enum constant with the specified name"
+            },
+            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+          },
+          {
+            "name": "values",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "GameSound.MasterVolume"
+              },
+              "notes": "an array containing the constants of this enum class, in the order they are declared"
+            },
+            "notes": "Returns an array containing the constants of this enum class, in\nthe order they are declared."
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "javaType": "enum",
+        "extends": "Enum"
+      },
+      "GameSoundClip": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "gameSound",
+                "type": {
+                  "basic": "GameSound"
+                }
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkReloaded",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "GameSoundClip"
+              }
+            }
+          },
+          {
+            "name": "getEffectiveVolume",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getEffectiveVolumeInMenu",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getEvent",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getFile",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getMaxDistance",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getMinDistance",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getPitch",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getVolume",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "hasMaxDistance",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "hasMinDistance",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "hasParameter",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "parameterDescription",
+                "type": {
+                  "basic": "fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "hasSustainPoints",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ObjectAmbientEmitters": {
+        "methods": [
+          {
+            "name": "getInstance",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "ObjectAmbientEmitters"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Reset",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "update",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ObjectAmbientEmitters.AmbientSoundLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "object",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ObjectAmbientEmitters.PerObjectLogic"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      },
+      "ObjectAmbientEmitters.ChunkData": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "addObject",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "object",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              },
+              {
+                "name": "logic",
+                "type": {
+                  "basic": "ObjectAmbientEmitters.PerObjectLogic"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "hasObject",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "object",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "removeObject",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "object",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "reset",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ObjectAmbientEmitters.DoorLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      },
+      "ObjectAmbientEmitters.FridgeHumLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      },
+      "ObjectAmbientEmitters.PerObjectLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "object",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ObjectAmbientEmitters.PerObjectLogic"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract",
+          "static"
+        ],
+        "javaType": "class",
+        "extends": "Object"
+      },
+      "ObjectAmbientEmitters.TentAmbianceLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      },
+      "ObjectAmbientEmitters.TreeAmbianceLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      },
+      "ObjectAmbientEmitters.WaterDripLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      },
+      "ObjectAmbientEmitters.WindowLogic": {
+        "constructors": [
+          {
+            "modifiers": [
+              "public"
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "checkParameters",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getSoundName",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "shouldPlaySound",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "startPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "stopPlaying",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "emitter",
+                "type": {
+                  "basic": "BaseSoundEmitter"
+                }
+              },
+              {
+                "name": "instance",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "javaType": "class",
+        "extends": "ObjectAmbientEmitters.PerObjectLogic"
+      }
+    }
+  }
+}

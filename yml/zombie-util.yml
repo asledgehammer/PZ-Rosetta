@@ -1,0 +1,2098 @@
+# zombie.util
+AbstractIntCollection:
+  methods:
+    - name: add
+      modifiers:
+        - public
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the element to add to this collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of adding v; returns
+                        false otherwise.
+      notes: Throws
+    - name: addAll
+      modifiers:
+        - public
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to add to this
+                          collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of adding the elements of c;
+                        returns false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: Description copied from interface: IntCollection
+    - name: contains
+      modifiers:
+        - public
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the element to test for containment.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if v is contained in this
+                        collection; returns false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: containsAll
+      modifiers:
+        - public
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to test for
+                          containment.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if all the elements of c
+                        are contained in this collection; returns
+                        false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection is empty; returns
+                        false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: remove
+      modifiers:
+        - public
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the int value to remove from this collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of removing v; returns
+                        false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: removeAll
+      modifiers:
+        - public
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to remove from this
+                          collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of removing the elements of c;
+                        returns false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: retainAll
+      modifiers:
+        - public
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to retain in this
+                          collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of removing the elements not contained
+                        in c;
+                        returns false otherwise.
+      notes: Description copied from interface: IntCollection
+    - name: size
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+        notes: the number of elements in this collection.
+      notes: Description copied from interface: IntCollection
+    - name: toArray
+      modifiers:
+        - public
+      parameters:
+        - name: a
+          type:
+            basic: int[]
+          notes: |-
+            an array to fill with the elements of this
+                          collection; if a is null or not
+                          big enough to contain all the elements of this
+                          collection, an new array is allocated,
+                          and a is not changed.
+      returns:
+        type:
+          basic: int[]
+        notes: |-
+          a, if a has room for all the
+                        elements of this collection; otherwise a new
+                        array is allocated, filled with the elements of
+                        this collection, and returned.
+      notes: Description copied from interface: IntCollection
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+        notes: a string representation of this collection.
+      notes: Returns a string representation of this collection.
+    - name: trimToSize
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+      notes: |-
+        Does nothing. Sub-classes may provide an implementation to
+          minimize memory usage, but this is not required since many
+          implementations will always have minimal memory usage.
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+  notes: |-
+    This class represents an abstract base for implementing
+      collections of int values. All operations that can be implemented
+      using iterators are implemented as such. In most cases, this is
+      hardly an efficient solution, and at least some of those
+      methods should be overridden by sub-classes.
+AddCoopPlayer:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: player
+          type:
+            basic: IsoPlayer
+  methods:
+    - name: accessDenied
+      modifiers:
+        - public
+      parameters:
+        - name: playerIndex
+          type:
+            basic: int
+        - name: reason
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: accessGranted
+      modifiers:
+        - public
+      parameters:
+        - name: playerIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: isFinished
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: isLoadingThisSquare
+      modifiers:
+        - public
+      parameters:
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: receivePlayerConnect
+      modifiers:
+        - public
+      parameters:
+        - name: playerIndex
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: update
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+AddCoopPlayer.Stage:
+  methods:
+    - name: valueOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: name
+          type:
+            basic: String
+          notes: the name of the enum constant to be returned.
+      returns:
+        type:
+          basic: AddCoopPlayer.Stage
+        notes: the enum constant with the specified name
+      notes: |-
+        Returns the enum constant of this class with the specified name.
+        The string must match
+    - name: values
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: AddCoopPlayer.Stage
+        notes: an array containing the constants of this enum class, in the order they
+          are declared
+      notes: |-
+        Returns an array containing the constants of this enum class, in
+        the order they are declared.
+  modifiers:
+    - public
+    - static
+  javaType: enum
+  extends: Enum
+BufferedRandomAccessFile:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: filename
+          type:
+            basic: String
+        - name: mode
+          type:
+            basic: String
+        - name: bufsize
+          type:
+            basic: int
+    - modifiers:
+        - public
+      parameters:
+        - name: file
+          type:
+            basic: File
+        - name: mode
+          type:
+            basic: String
+        - name: bufsize
+          type:
+            basic: int
+  methods:
+    - name: getFilePointer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: getNextLine
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: String
+    - name: read
+      modifiers:
+        - public
+      parameters:
+        - name: b
+          type:
+            basic: byte[]
+        - name: off
+          type:
+            basic: int
+        - name: len
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: seek
+      modifiers:
+        - public
+      parameters:
+        - name: pos
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: RandomAccessFile
+ByteBufferBackedInputStream:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: buf
+          type:
+            basic: ByteBuffer
+  methods:
+    - name: read
+      modifiers:
+        - public
+      parameters:
+        - name: bytes
+          type:
+            basic: byte[]
+        - name: off
+          type:
+            basic: int
+        - name: len
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+  modifiers:
+    - public
+  javaType: class
+  extends: InputStream
+ByteBufferOutputStream:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: wrappedBuffer
+          type:
+            basic: ByteBuffer
+        - name: autoEnlarge
+          type:
+            basic: boolean
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: flip
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: getWrappedBuffer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ByteBuffer
+    - name: toByteBuffer
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: ByteBuffer
+    - name: write
+      modifiers:
+        - public
+      parameters:
+        - name: bytes
+          type:
+            basic: byte[]
+        - name: off
+          type:
+            basic: int
+        - name: len
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: OutputStream
+  notes: Wraps a
+ExecuteTimeAnalyse:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: caption
+          type:
+            basic: String
+        - name: size
+          type:
+            basic: int
+  methods:
+    - name: add
+      modifiers:
+        - public
+      parameters:
+        - name: comment
+          type:
+            basic: String
+      returns:
+        type:
+          basic: void
+    - name: getMsTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: getNanoTime
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: print
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: reset
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+ICloner:
+  methods:
+    - name: clone
+      parameters:
+        - name: src
+          type:
+            basic: E
+      returns:
+        type:
+          basic: E
+  modifiers:
+    - public
+  javaType: interface
+IntCollection:
+  methods:
+    - name: add
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the element to add to this collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of adding v; returns
+                        false otherwise.
+      notes: Adds an element to this collection.
+    - name: addAll
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to add to this
+                          collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of adding the elements of c;
+                        returns false otherwise.
+      notes: |-
+        Adds all the elements of a specified collection to
+          this collection.
+    - name: clear
+      returns:
+        type:
+          basic: void
+      notes: Clears this collection.
+    - name: contains
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the element to test for containment.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if v is contained in this
+                        collection; returns false otherwise.
+      notes: |-
+        Indicates whether this collection contains a specified
+          element.
+    - name: containsAll
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to test for
+                          containment.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if all the elements of c
+                        are contained in this collection; returns
+                        false otherwise.
+      notes: |-
+        Indicates whether all elements of a specified
+          collection is contained in this collection.
+    - name: equals
+      parameters:
+        - name: obj
+          type:
+            basic: Object
+          notes: the object with which to compare this collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection is equals to
+                        obj; returns false otherwise.
+      notes: Indicates whether this collection is equal to some object.
+    - name: hashCode
+      returns:
+        type:
+          basic: int
+        notes: a hash code value for this collection.
+      notes: Returns a hash code value for this collection.
+    - name: isEmpty
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection is empty; returns
+                        false otherwise.
+      notes: Indicates whether this collection is empty.
+    - name: iterator
+      returns:
+        type:
+          basic: IntIterator
+        notes: an iterator over this collection.
+      notes: Returns an iterator over this collection.
+    - name: remove
+      parameters:
+        - name: v
+          type:
+            basic: int
+          notes: the int value to remove from this collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of removing v; returns
+                        false otherwise.
+      notes: Removes a specified element from this collection.
+    - name: removeAll
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to remove from this
+                          collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of removing the elements of c;
+                        returns false otherwise.
+      notes: |-
+        Removes all the elements of a specified collection from
+          this collection.
+    - name: retainAll
+      parameters:
+        - name: c
+          type:
+            basic: IntCollection
+          notes: |-
+            the collection whose elements to retain in this
+                          collection.
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if this collection was modified
+                        as a result of removing the elements not contained
+                        in c;
+                        returns false otherwise.
+      notes: |-
+        Retains only the elements of a specified collection in
+          this collection.
+    - name: size
+      returns:
+        type:
+          basic: int
+        notes: the number of elements in this collection.
+      notes: Returns the number of elements in this collection.
+    - name: toArray
+      parameters:
+        - name: a
+          type:
+            basic: int[]
+          notes: |-
+            an array to fill with the elements of this
+                          collection; if a is null or not
+                          big enough to contain all the elements of this
+                          collection, an new array is allocated,
+                          and a is not changed.
+      returns:
+        type:
+          basic: int[]
+        notes: |-
+          a, if a has room for all the
+                        elements of this collection; otherwise a new
+                        array is allocated, filled with the elements of
+                        this collection, and returned.
+      notes: Returns the elements of this collection as an array.
+    - name: trimToSize
+      returns:
+        type:
+          basic: void
+      notes: |-
+        Minimizes the memory used by this collection. The exact
+          operation of this method depends on the class implementing it.
+          Implementors may choose to ignore it completely.
+  modifiers:
+    - public
+  javaType: interface
+  notes: This interface defines collections of int values.
+IntComparator:
+  methods:
+    - name: compare
+      parameters:
+        - name: v1
+          type:
+            basic: int
+          notes: the first int value in the comparison.
+        - name: v2
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+        notes: |-
+          a negative int value if v1 < v2,
+                        0 if v1 is equal to v2,
+                        or a positive integer if v1 > v2.
+      notes: Compares two int values for order.
+  modifiers:
+    - public
+  javaType: interface
+  notes: |-
+    This interface represents comparators of int values. The
+      comparator interface is used for defining new orderings for
+      int values.
+IntIterator:
+  methods:
+    - name: hasNext
+      returns:
+        type:
+          basic: boolean
+        notes: |-
+          true if more int values can be returned
+                        by this iterator; returns false
+                        otherwise.
+      notes: |-
+        Indicates whether more int values can be returned by this
+          iterator.
+    - name: next
+      returns:
+        type:
+          basic: int
+        notes: the next int value of this iterator.
+      notes: Returns the next int value of this iterator.
+    - name: remove
+      returns:
+        type:
+          basic: void
+      notes: |-
+        Removes the last int value returned from the underlying
+          collection.
+  modifiers:
+    - public
+  javaType: interface
+  notes: This class represents iterators over collections of int values.
+IPooledObject:
+  methods:
+    - name: getPool
+      returns:
+        type:
+          basic: Pool
+    - name: isFree
+      returns:
+        type:
+          basic: boolean
+    - name: onReleased
+      modifiers:
+        - default
+      returns:
+        type:
+          basic: void
+    - name: release
+      modifiers:
+        - static
+      parameters:
+        - name: list
+          type:
+            basic: List
+            full: List<? extends IPooledObject>
+      returns:
+        type:
+          basic: void
+    - name: releaseAndBlank
+      modifiers:
+        - static
+      parameters:
+        - name: list
+          type:
+            basic: IPooledObject[]
+      returns:
+        type:
+          basic: void
+    - name: setFree
+      parameters:
+        - name: isFree
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setPool
+      parameters:
+        - name: pool
+          type:
+            basic: Pool
+            full: Pool<IPooledObject>
+      returns:
+        type:
+          basic: void
+    - name: tryReleaseAndBlank
+      modifiers:
+        - static
+      parameters:
+        - name: list
+          type:
+            basic: IPooledObject[]
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: interface
+  notes: The base interface of all pooled objects managed by zombie.util.Pool
+IPredicate:
+  modifiers:
+    - public
+  javaType: interface
+  extends: Predicate
+Lambda:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: capture
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val1
+          type:
+            basic: T1
+        - name: val2
+          type:
+            basic: T2
+        - name: val3
+          type:
+            basic: T3
+        - name: val4
+          type:
+            basic: T4
+        - name: val5
+          type:
+            basic: T5
+        - name: val6
+          type:
+            basic: T6
+        - name: captureConsumer
+          type:
+            basic: Stacks.Params6.ICallback
+            full: Stacks.Params6.ICallback<T1,T2,T3,T4,T5,T6>
+      returns:
+        type:
+          basic: void
+    - name: comparator
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val1
+          type:
+            basic: T1
+        - name: val2
+          type:
+            basic: T2
+        - name: comparator
+          type:
+            basic: Comparators.Params2.ICallback
+            full: Comparators.Params2.ICallback<E,T1,T2>
+      returns:
+        type:
+          basic: Comparator
+    - name: consumer
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val1
+          type:
+            basic: T1
+        - name: val2
+          type:
+            basic: T2
+        - name: val3
+          type:
+            basic: T3
+        - name: val4
+          type:
+            basic: T4
+        - name: val5
+          type:
+            basic: T5
+        - name: consumer
+          type:
+            basic: Consumers.Params5.ICallback
+            full: Consumers.Params5.ICallback<E,T1,T2,T3,T4,T5>
+      returns:
+        type:
+          basic: Consumer
+    - name: contains
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: findFunction
+          type:
+            basic: Predicate
+            full: Predicate<Predicate<E>>
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: lambdaFunc
+          type:
+            basic: Predicates.Params1.ICallback
+            full: Predicates.Params1.ICallback<E,T1>
+      returns:
+        type:
+          basic: boolean
+      notes: >-
+        contains
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: containsFrom
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: findFunction
+          type:
+            basic: BiPredicate
+            full: BiPredicate<F,Predicate<E>>
+        - name: from
+          type:
+            basic: F
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: lambdaFunc
+          type:
+            basic: Predicates.Params1.ICallback
+            full: Predicates.Params1.ICallback<E,T1>
+      returns:
+        type:
+          basic: boolean
+      notes: >-
+        containsFrom
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: find
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: findFunction
+          type:
+            basic: Function
+            full: Function<Predicate<E>,R>
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: lambdaFunc
+          type:
+            basic: Predicates.Params1.ICallback
+            full: Predicates.Params1.ICallback<E,T1>
+      returns:
+        type:
+          basic: R
+      notes: >-
+        find
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: forEach
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: forEachFunction
+          type:
+            basic: Consumer
+            full: Consumer<Consumer<E>>
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: captureVal2
+          type:
+            basic: T2
+        - name: lambdaFunc
+          type:
+            basic: Consumers.Params2.ICallback
+            full: Consumers.Params2.ICallback<E,T1,T2>
+      returns:
+        type:
+          basic: void
+      notes: >-
+        forEach
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: forEachFrom
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: forEachFunction
+          type:
+            basic: BiConsumer
+            full: BiConsumer<F,Consumer<E>>
+        - name: from
+          type:
+            basic: F
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: captureVal2
+          type:
+            basic: T2
+        - name: lambdaFunc
+          type:
+            basic: Consumers.Params2.ICallback
+            full: Consumers.Params2.ICallback<E,T1,T2>
+      returns:
+        type:
+          basic: void
+      notes: >-
+        forEachFrom (Node, 2-param)
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: indexOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: findFunction
+          type:
+            basic: IntSupplierFunction
+            full: IntSupplierFunction<Predicate<E>>
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: lambdaFunc
+          type:
+            basic: Predicates.Params1.ICallback
+            full: Predicates.Params1.ICallback<E,T1>
+      returns:
+        type:
+          basic: int
+      notes: >-
+        contains
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: invoke
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: runFunction
+          type:
+            basic: Consumer
+            full: Consumer<Runnable>
+        - name: captureVal1
+          type:
+            basic: T1
+        - name: captureVal2
+          type:
+            basic: T2
+        - name: lambdaFunc
+          type:
+            basic: Invokers.Params2.ICallback
+            full: Invokers.Params2.ICallback<T1,T2>
+      returns:
+        type:
+          basic: void
+      notes: >-
+        invoke
+         A way to call in-place lambdas with captured variables while avoiding Garbage-Collection.
+    - name: invoker
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val1
+          type:
+            basic: T1
+        - name: val2
+          type:
+            basic: T2
+        - name: val3
+          type:
+            basic: T3
+        - name: val4
+          type:
+            basic: T4
+        - name: invoker
+          type:
+            basic: Invokers.Params4.ICallback
+            full: Invokers.Params4.ICallback<T1,T2,T3,T4>
+      returns:
+        type:
+          basic: Runnable
+    - name: predicate
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val1
+          type:
+            basic: T1
+        - name: val2
+          type:
+            basic: T2
+        - name: val3
+          type:
+            basic: T3
+        - name: predicate
+          type:
+            basic: Predicates.Params3.ICallback
+            full: Predicates.Params3.ICallback<E,T1,T2,T3>
+      returns:
+        type:
+          basic: Predicate
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: A GC-friendly lambda class. Useful for capturing local variables for use
+    in callbacks.
+LocationRNG:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getSeed
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: nextFloat
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float
+      notes: "Reference:"
+    - name: nextInt
+      modifiers:
+        - public
+      parameters:
+        - name: n
+          type:
+            basic: int
+        - name: x
+          type:
+            basic: int
+        - name: y
+          type:
+            basic: int
+        - name: z
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: setSeed
+      modifiers:
+        - public
+      parameters:
+        - name: seed
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: Reference
+Pool:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: allocator
+          type:
+            basic: Supplier
+            full: Supplier<PO>
+  methods:
+    - name: alloc
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: PO
+    - name: release
+      modifiers:
+        - public
+        - final
+      parameters:
+        - name: item
+          type:
+            basic: IPooledObject
+      returns:
+        type:
+          basic: void
+    - name: tryRelease
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: objArray
+          type:
+            basic: E[]
+      returns:
+        type:
+          basic: E[]
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+  notes: >-
+    A thread-safe object pool. Useful for re-using memory without it falling
+    into the garbage collector.
+
+     Beware: Once an item has been allocated, it MUST be released at some point by calling its release() function.
+             If not, the item's memory will never be recycled, and it will be considered a memory leak.
+PooledArrayObject:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: array
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: T
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: idx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: T
+    - name: isEmpty
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: boolean
+    - name: length
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: idx
+          type:
+            basic: int
+        - name: val
+          type:
+            basic: T
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: PooledObject
+PooledFloatArrayObject:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: alloc
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: count
+          type:
+            basic: int
+      returns:
+        type:
+          basic: PooledFloatArrayObject
+    - name: array
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: float[]
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: idx
+          type:
+            basic: int
+      returns:
+        type:
+          basic: float
+    - name: length
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: int
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: idx
+          type:
+            basic: int
+        - name: val
+          type:
+            basic: float
+      returns:
+        type:
+          basic: void
+    - name: toArray
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: source
+          type:
+            basic: PooledFloatArrayObject
+      returns:
+        type:
+          basic: PooledFloatArrayObject
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: PooledObject
+PooledObject:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getPool
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: Pool
+    - name: isFree
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: boolean
+    - name: release
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: void
+    - name: setFree
+      modifiers:
+        - public
+        - final
+      parameters:
+        - name: isFree
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: void
+    - name: setPool
+      modifiers:
+        - public
+        - final
+      parameters:
+        - name: pool
+          type:
+            basic: Pool
+            full: Pool<IPooledObject>
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - abstract
+  javaType: class
+  extends: Object
+  notes: >-
+    The base implementation of IPooledObject
+      Extend from this class if you wish to take advantage of the Pool's functionality.
+
+      If extending from this class is not possible, implement IPooledObject instead.
+PooledObjectArrayObject:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: onReleased
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: PooledArrayObject
+PublicServerUtil:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: insertOrUpdate
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: isEnabled
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: boolean
+    - name: update
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: updatePlayerCountIfChanged
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+    - name: updatePlayers
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PZCalendar:
+  constructors:
+    - modifiers:
+        - public
+      parameters:
+        - name: calendar
+          type:
+            basic: Calendar
+  methods:
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: field
+          type:
+            basic: int
+      returns:
+        type:
+          basic: int
+    - name: getInstance
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: PZCalendar
+    - name: getTime
+      modifiers:
+        - public
+        - final
+      returns:
+        type:
+          basic: Date
+    - name: getTimeInMillis
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: long
+    - name: isLeapYear
+      modifiers:
+        - public
+      parameters:
+        - name: year
+          type:
+            basic: int
+      returns:
+        type:
+          basic: boolean
+    - name: set
+      modifiers:
+        - public
+      parameters:
+        - name: year
+          type:
+            basic: int
+        - name: month
+          type:
+            basic: int
+        - name: dayOfMonth
+          type:
+            basic: int
+        - name: hourOfDay
+          type:
+            basic: int
+        - name: minute
+          type:
+            basic: int
+      returns:
+        type:
+          basic: void
+    - name: setTimeInMillis
+      modifiers:
+        - public
+      parameters:
+        - name: millis
+          type:
+            basic: long
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+PZSQLUtils:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: getConnection
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: absolutePath
+          type:
+            basic: String
+      returns:
+        type:
+          basic: Connection
+    - name: init
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+PZXmlParserException:
+  constructors:
+    - modifiers:
+        - public
+    - modifiers:
+        - public
+      parameters:
+        - name: message
+          type:
+            basic: String
+    - modifiers:
+        - public
+      parameters:
+        - name: message
+          type:
+            basic: String
+        - name: cause
+          type:
+            basic: Throwable
+    - modifiers:
+        - public
+      parameters:
+        - name: cause
+          type:
+            basic: Throwable
+  methods:
+    - name: toString
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Exception
+  notes: >-
+    Exception thrown by PZXmlUtil.parse function.
+      Typically used to encapsulate an inner exception thrown by various internal parsers.
+PZXmlUtil:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: createNewDocument
+      modifiers:
+        - public
+        - static
+      returns:
+        type:
+          basic: Document
+    - name: forEachElement
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: root
+          type:
+            basic: Element
+        - name: consumer
+          type:
+            basic: Consumer
+            full: Consumer<Element>
+      returns:
+        type:
+          basic: void
+    - name: parse
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: type
+          type:
+            basic: Class
+            full: Class<T>
+          notes: The type of the loaded class. A new instance is created.
+        - name: source
+          type:
+            basic: String
+      returns:
+        type:
+          basic: T
+        notes: A new instance of the supplied type, loaded with the supplied data
+          source.
+      notes: >-
+        Deserialize function.
+         Parses the supplied XML source, and creates a new instance of the supplied type.
+          The Source can be either a file path, or a file GUID.
+    - name: parseXml
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: source
+          type:
+            basic: String
+          notes: The data source. Can be a file path, or a file GUID.
+      returns:
+        type:
+          basic: Element
+        notes: The root XML Element
+      notes: |-
+        Parses the XML data from the specified Source.
+          The Source can be either a file path, or a file GUID.
+    - name: tryWrite
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: doc
+          type:
+            basic: Document
+        - name: outFile
+          type:
+            basic: File
+      returns:
+        type:
+          basic: boolean
+    - name: write
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: doc
+          type:
+            basic: Document
+        - name: outFile
+          type:
+            basic: File
+      returns:
+        type:
+          basic: void
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+RaySphereIntersectCheck:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: intersects
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: origin
+          type:
+            basic: Vector3
+        - name: dirAndLength
+          type:
+            basic: Vector3
+        - name: sphereCentre
+          type:
+            basic: Vector3
+        - name: sphereRadius
+          type:
+            basic: float
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+SharedStrings:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: clear
+      modifiers:
+        - public
+      returns:
+        type:
+          basic: void
+    - name: get
+      modifiers:
+        - public
+      parameters:
+        - name: s
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+  modifiers:
+    - public
+    - final
+  javaType: class
+  extends: Object
+StringUtils:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: contains
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: array
+          type:
+            basic: String[]
+        - name: val
+          type:
+            basic: String
+        - name: equalizer
+          type:
+            basic: BiFunction
+            full: BiFunction<String,String,Boolean>
+      returns:
+        type:
+          basic: boolean
+    - name: containsIgnoreCase
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: haystack
+          type:
+            basic: String
+        - name: needle
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: discardNullOrWhitespace
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: endsWithIgnoreCase
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: suffix
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: equals
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: a
+          type:
+            basic: String
+        - name: b
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: equalsIgnoreCase
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: a
+          type:
+            basic: String
+        - name: b
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: indent
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: text
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: indexOf
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: array
+          type:
+            basic: String[]
+        - name: val
+          type:
+            basic: String
+        - name: equalizer
+          type:
+            basic: BiFunction
+            full: BiFunction<String,String,Boolean>
+      returns:
+        type:
+          basic: int
+    - name: isBoolean
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: varStr
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: isNullOrEmpty
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: s
+          type:
+            basic: String
+          notes: The string to test.
+      returns:
+        type:
+          basic: boolean
+        notes: TRUE if the string is null or empty, FALSE otherwise.
+      notes: Tests the supplied string and return TRUE if it is either NULL or a
+        zero-length string.
+    - name: isNullOrWhitespace
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: s
+          type:
+            basic: String
+          notes: The string to test.
+      returns:
+        type:
+          basic: boolean
+        notes: TRUE if the string is either null, or whitespace, FALSE otherwise.
+      notes: Returns TRUE if the supplied string is either NULL, empty, or whitespace.
+    - name: leftJustify
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: text
+          type:
+            basic: String
+        - name: length
+          type:
+            basic: int
+      returns:
+        type:
+          basic: String
+    - name: moduleDotType
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: module
+          type:
+            basic: String
+        - name: type
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: startsWithIgnoreCase
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: prefix
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+    - name: stripBOM
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: line
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: trimPrefix
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: prefix
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: trimSuffix
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: str
+          type:
+            basic: String
+        - name: suffix
+          type:
+            basic: String
+      returns:
+        type:
+          basic: String
+    - name: tryParseBoolean
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: varStr
+          type:
+            basic: String
+      returns:
+        type:
+          basic: boolean
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
+Type:
+  constructors:
+    - modifiers:
+        - public
+  methods:
+    - name: asBoolean
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val
+          type:
+            basic: Object
+        - name: defaultVal
+          type:
+            basic: boolean
+      returns:
+        type:
+          basic: boolean
+    - name: tryCastTo
+      modifiers:
+        - public
+        - static
+      parameters:
+        - name: val
+          type:
+            basic: I
+        - name: clazz
+          type:
+            basic: Class
+            full: Class<R>
+      returns:
+        type:
+          basic: R
+      notes: Returns the supplied object, cast to the specified Type, or NULL if it is
+        not the right type.
+  modifiers:
+    - public
+  javaType: class
+  extends: Object
