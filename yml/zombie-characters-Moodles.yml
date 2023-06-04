@@ -1,336 +1,337 @@
-# zombie.characters.Moodles
-Moodle:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: ChosenType
-          type:
-            basic: MoodleType
-        - name: parent
-          type:
-            basic: IsoGameCharacter
-    - modifiers:
-        - public
-      parameters:
-        - name: ChosenType
-          type:
-            basic: MoodleType
-        - name: parent
-          type:
-            basic: IsoGameCharacter
-        - name: maxChevrons
-          type:
-            basic: int
-  methods:
-    - name: chevronDifference
+namespaces:
+  zombie.characters.Moodles:
+    Moodle:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: ChosenType
+              type:
+                basic: MoodleType
+            - name: parent
+              type:
+                basic: IsoGameCharacter
+        - modifiers:
+            - public
+          parameters:
+            - name: ChosenType
+              type:
+                basic: MoodleType
+            - name: parent
+              type:
+                basic: IsoGameCharacter
+            - name: maxChevrons
+              type:
+                basic: int
+      methods:
+        - name: chevronDifference
+          modifiers:
+            - public
+          parameters:
+            - name: count
+              type:
+                basic: int
+            - name: isup
+              type:
+                basic: boolean
+            - name: col
+              type:
+                basic: Color
+          returns:
+            type:
+              basic: boolean
+        - name: getChevronColor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Color
+        - name: getChevronCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getLevel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: isChevronIsUp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: setChevron
+          modifiers:
+            - public
+          parameters:
+            - name: count
+              type:
+                basic: int
+            - name: isup
+              type:
+                basic: boolean
+            - name: col
+              type:
+                basic: Color
+          returns:
+            type:
+              basic: void
+        - name: SetLevel
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: Update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: count
-          type:
-            basic: int
-        - name: isup
-          type:
-            basic: boolean
-        - name: col
-          type:
-            basic: Color
-      returns:
-        type:
-          basic: boolean
-    - name: getChevronColor
+        - final
+      javaType: class
+      extends: Object
+    Moodles:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: parent
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: getGoodBadNeutral
+          modifiers:
+            - public
+          parameters:
+            - name: MoodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getMoodleChevronColor
+          modifiers:
+            - public
+          parameters:
+            - name: moodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: Color
+        - name: getMoodleChevronCount
+          modifiers:
+            - public
+          parameters:
+            - name: moodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getMoodleChevronIsUp
+          modifiers:
+            - public
+          parameters:
+            - name: moodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: getMoodleDescriptionString
+          modifiers:
+            - public
+          parameters:
+            - name: MoodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getMoodleDisplayString
+          modifiers:
+            - public
+          parameters:
+            - name: MoodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getMoodleLevel
+          modifiers:
+            - public
+          parameters:
+            - name: MType
+              type:
+                basic: MoodleType
+          returns:
+            type:
+              basic: int
+        - name: getMoodleType
+          modifiers:
+            - public
+          parameters:
+            - name: MoodleIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: MoodleType
+        - name: getNumMoodles
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: Randomise
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setMoodlesStateChanged
+          modifiers:
+            - public
+          parameters:
+            - name: refresh
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: UI_RefreshNeeded
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: Update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: Color
-    - name: getChevronCount
+        - final
+      javaType: class
+      extends: Object
+    MoodleType:
+      methods:
+        - name: FromIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: MoodleType
+        - name: FromString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: MoodleType
+        - name: getDescriptionText
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: MT
+              type:
+                basic: MoodleType
+            - name: Level
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getDisplayName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: MT
+              type:
+                basic: MoodleType
+            - name: Level
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: GoodBadNeutral
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: MT
+              type:
+                basic: MoodleType
+          returns:
+            type:
+              basic: int
+        - name: ToIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: MT
+              type:
+                basic: MoodleType
+          returns:
+            type:
+              basic: int
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: MoodleType
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: MoodleType
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-      returns:
-        type:
-          basic: int
-    - name: getLevel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: isChevronIsUp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: setChevron
-      modifiers:
-        - public
-      parameters:
-        - name: count
-          type:
-            basic: int
-        - name: isup
-          type:
-            basic: boolean
-        - name: col
-          type:
-            basic: Color
-      returns:
-        type:
-          basic: void
-    - name: SetLevel
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: Update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-Moodles:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: parent
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: getGoodBadNeutral
-      modifiers:
-        - public
-      parameters:
-        - name: MoodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getMoodleChevronColor
-      modifiers:
-        - public
-      parameters:
-        - name: moodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: Color
-    - name: getMoodleChevronCount
-      modifiers:
-        - public
-      parameters:
-        - name: moodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getMoodleChevronIsUp
-      modifiers:
-        - public
-      parameters:
-        - name: moodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: getMoodleDescriptionString
-      modifiers:
-        - public
-      parameters:
-        - name: MoodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getMoodleDisplayString
-      modifiers:
-        - public
-      parameters:
-        - name: MoodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getMoodleLevel
-      modifiers:
-        - public
-      parameters:
-        - name: MType
-          type:
-            basic: MoodleType
-      returns:
-        type:
-          basic: int
-    - name: getMoodleType
-      modifiers:
-        - public
-      parameters:
-        - name: MoodleIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: MoodleType
-    - name: getNumMoodles
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: Randomise
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setMoodlesStateChanged
-      modifiers:
-        - public
-      parameters:
-        - name: refresh
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: UI_RefreshNeeded
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: Update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-MoodleType:
-  methods:
-    - name: FromIndex
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: MoodleType
-    - name: FromString
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: MoodleType
-    - name: getDescriptionText
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: MT
-          type:
-            basic: MoodleType
-        - name: Level
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getDisplayName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: MT
-          type:
-            basic: MoodleType
-        - name: Level
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: GoodBadNeutral
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: MT
-          type:
-            basic: MoodleType
-      returns:
-        type:
-          basic: int
-    - name: ToIndex
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: MT
-          type:
-            basic: MoodleType
-      returns:
-        type:
-          basic: int
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: MoodleType
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: MoodleType
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
+      javaType: enum
+      extends: Enum

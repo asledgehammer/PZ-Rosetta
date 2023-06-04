@@ -1,105 +1,106 @@
-# zombie.ai.permission
-DefaultStatePermissions:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: isDeferredMovementAllowed
+namespaces:
+  zombie.ai.permission:
+    DefaultStatePermissions:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: isDeferredMovementAllowed
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+        - name: isPlayerInputAllowed
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-    - name: isPlayerInputAllowed
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: >-
-    Default State permissions singleton.
-      Typically returns fixed values that are default for most states.
+      javaType: class
+      extends: Object
+      notes: >-
+        Default State permissions singleton.
+          Typically returns fixed values that are default for most states.
 
-      States that wish to override this need to implement and return their own IStatePermissions object.
-GenericStatePermissions:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: isDeferredMovementAllowed
+          States that wish to override this need to implement and return their own IStatePermissions object.
+    GenericStatePermissions:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: isDeferredMovementAllowed
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+        - name: isPlayerInputAllowed
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+        - name: setDeferredMovementAllowed
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setPlayerInputAllowed
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-    - name: isPlayerInputAllowed
+      javaType: class
+      extends: Object
+    IStatePermissions:
+      methods:
+        - name: isDeferredMovementAllowed
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+        - name: isPlayerInputAllowed
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-    - name: setDeferredMovementAllowed
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setPlayerInputAllowed
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-IStatePermissions:
-  methods:
-    - name: isDeferredMovementAllowed
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-    - name: isPlayerInputAllowed
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: interface
+      javaType: interface

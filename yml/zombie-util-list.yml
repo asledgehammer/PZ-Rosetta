@@ -1,1849 +1,1852 @@
-# zombie.util.list
-AbstractIntList:
-  methods:
-    - name: add
+namespaces:
+  zombie.util.list:
+    AbstractIntList:
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                the index at which to add the element. If
+                              index == size() the element is appended
+                              to this list.
+            - name: v
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Throws
+        - name: addAll
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                the index at which to insert the elements of
+                              the specified collection. If
+                              index == size() the elements are appended
+                              to this list.
+            - name: c
+              type:
+                basic: IntCollection
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if this list was modified
+                            as a result of adding the elements of c;
+                            returns false otherwise.
+          notes: Description copied from interface: IntList
+        - name: equals
+          modifiers:
+            - public
+          parameters:
+            - name: obj
+              type:
+                basic: Object
+              notes: the object with which to compare this collection.
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if this collection is equals to
+                            obj; returns false otherwise.
+          notes: Description copied from interface: IntCollection
+        - name: hashCode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: a hash code value for this collection.
+          notes: Description copied from interface: IntCollection
+        - name: indexOf
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index at which to start the search.
+            - name: c
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the first occurance of the specified
+                            element in this list; returns -1, if the
+                            element is not contained in this list.
+          notes: Description copied from interface: IntList
+        - name: iterator
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IntIterator
+            notes: an iterator over this collection.
+          notes: Description copied from interface: IntCollection
+        - name: lastIndexOf
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                the index at which to start the search. Note that
+                              the element at index is not included
+                              in the search.
+            - name: c
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the last occurance of the specified
+                            element in this list; returns -1, if the
+                            element is not contained in this list.
+          notes: Description copied from interface: IntList
+        - name: listIterator
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index at which to begin the iteration.
+          returns:
+            type:
+              basic: IntListIterator
+            notes: a list iterator over this list.
+          notes: Description copied from interface: IntList
+        - name: removeElementAt
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index of the element to remove.
+          returns:
+            type:
+              basic: int
+            notes: the value of the element removed.
+          notes: Throws
       modifiers:
         - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: |-
-            the index at which to add the element. If
-                          index == size() the element is appended
-                          to this list.
-        - name: v
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Throws
-    - name: addAll
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: |-
-            the index at which to insert the elements of
-                          the specified collection. If
-                          index == size() the elements are appended
-                          to this list.
-        - name: c
-          type:
-            basic: IntCollection
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if this list was modified
-                        as a result of adding the elements of c;
-                        returns false otherwise.
-      notes: Description copied from interface: IntList
-    - name: equals
-      modifiers:
-        - public
-      parameters:
-        - name: obj
-          type:
-            basic: Object
-          notes: the object with which to compare this collection.
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if this collection is equals to
-                        obj; returns false otherwise.
-      notes: Description copied from interface: IntCollection
-    - name: hashCode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: a hash code value for this collection.
-      notes: Description copied from interface: IntCollection
-    - name: indexOf
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index at which to start the search.
-        - name: c
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the first occurance of the specified
-                        element in this list; returns -1, if the
-                        element is not contained in this list.
-      notes: Description copied from interface: IntList
-    - name: iterator
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IntIterator
-        notes: an iterator over this collection.
-      notes: Description copied from interface: IntCollection
-    - name: lastIndexOf
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: |-
-            the index at which to start the search. Note that
-                          the element at index is not included
-                          in the search.
-        - name: c
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the last occurance of the specified
-                        element in this list; returns -1, if the
-                        element is not contained in this list.
-      notes: Description copied from interface: IntList
-    - name: listIterator
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index at which to begin the iteration.
-      returns:
-        type:
-          basic: IntListIterator
-        notes: a list iterator over this list.
-      notes: Description copied from interface: IntList
-    - name: removeElementAt
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index of the element to remove.
-      returns:
-        type:
-          basic: int
-        notes: the value of the element removed.
-      notes: Throws
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: AbstractIntCollection
-  notes: |-
-    This class represents an abstract base for implementing
-      lists of int values. All operations that can be implemented
-      using iterators and the
-FloatConsumer:
-  methods:
-    - name: accept
-      parameters:
-        - name: t
-          type:
-            basic: float
-          notes: the input argument
-      returns:
-        type:
-          basic: void
-      notes: Performs this operation on the given argument.
-    - name: andThen
-      modifiers:
-        - default
-      parameters:
-        - name: after
-          type:
-            basic: FloatConsumer
-          notes: the operation to perform after this operation
-      returns:
-        type:
-          basic: FloatConsumer
-        notes: |-
-          a composed Consumer that performs in sequence this
-           operation followed by the after operation
-      notes: Returns a composed
-  modifiers:
-    - public
-  javaType: interface
-IntArrayList:
-  constructors:
-    - modifiers:
-        - public
+        - abstract
+      javaType: class
+      extends: AbstractIntCollection
       notes: |-
-        Creates a new array list with capacity 10 and a relative
-          growth factor of 1.0.
-    - modifiers:
+        This class represents an abstract base for implementing
+          lists of int values. All operations that can be implemented
+          using iterators and the
+    FloatConsumer:
+      methods:
+        - name: accept
+          parameters:
+            - name: t
+              type:
+                basic: float
+              notes: the input argument
+          returns:
+            type:
+              basic: void
+          notes: Performs this operation on the given argument.
+        - name: andThen
+          modifiers:
+            - default
+          parameters:
+            - name: after
+              type:
+                basic: FloatConsumer
+              notes: the operation to perform after this operation
+          returns:
+            type:
+              basic: FloatConsumer
+            notes: |-
+              a composed Consumer that performs in sequence this
+               operation followed by the after operation
+          notes: Returns a composed
+      modifiers:
         - public
-      parameters:
-        - name: c
-          type:
-            basic: IntCollection
+      javaType: interface
+    IntArrayList:
+      constructors:
+        - modifiers:
+            - public
           notes: |-
-            the collection whose elements to add to the new
-                          list.
-      notes: |-
-        Creates a new array list with the same elements as a
-          specified collection. The elements of the specified collection
-          are added to the end of the list in the collection's iteration
-          order.
-    - modifiers:
-        - public
-      parameters:
-        - name: a
-          type:
-            basic: int[]
+            Creates a new array list with capacity 10 and a relative
+              growth factor of 1.0.
+        - modifiers:
+            - public
+          parameters:
+            - name: c
+              type:
+                basic: IntCollection
+              notes: |-
+                the collection whose elements to add to the new
+                              list.
           notes: |-
-            the array whose elements to add to the new
-                          list.
-      notes: |-
-        Creates a new array list with the same elements as a
-          specified array. The elements of the specified array
-          are added to the end of the list in order of the array.
-    - modifiers:
-        - public
-      parameters:
+            Creates a new array list with the same elements as a
+              specified collection. The elements of the specified collection
+              are added to the end of the list in the collection's iteration
+              order.
+        - modifiers:
+            - public
+          parameters:
+            - name: a
+              type:
+                basic: int[]
+              notes: |-
+                the array whose elements to add to the new
+                              list.
+          notes: |-
+            Creates a new array list with the same elements as a
+              specified array. The elements of the specified array
+              are added to the end of the list in order of the array.
+        - modifiers:
+            - public
+          parameters:
+            - name: capacity
+              type:
+                basic: int
+              notes: the initial capacity of the list.
+          notes: |-
+            Creates a new array list with a specified capacity and a
+              relative growth factor of 1.0.
+        - modifiers:
+            - public
+          parameters:
+            - name: capacity
+              type:
+                basic: int
+              notes: the initial capacity of the list.
+            - name: growthFactor
+              type:
+                basic: double
+          notes: |-
+            Creates a new array list with a specified capacity and
+              relative growth factor.
+        - modifiers:
+            - public
+          parameters:
+            - name: capacity
+              type:
+                basic: int
+              notes: the initial capacity of the list.
+            - name: growthChunk
+              type:
+                basic: int
+          notes: |-
+            Creates a new array list with a specified capacity and
+              absolute growth factor.
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                the index at which to add the element. If
+                              index == size() the element is appended
+                              to this list.
+            - name: v
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Description copied from class: AbstractIntList
         - name: capacity
-          type:
-            basic: int
-          notes: the initial capacity of the list.
-      notes: |-
-        Creates a new array list with a specified capacity and a
-          relative growth factor of 1.0.
-    - modifiers:
-        - public
-      parameters:
-        - name: capacity
-          type:
-            basic: int
-          notes: the initial capacity of the list.
-        - name: growthFactor
-          type:
-            basic: double
-      notes: |-
-        Creates a new array list with a specified capacity and
-          relative growth factor.
-    - modifiers:
-        - public
-      parameters:
-        - name: capacity
-          type:
-            basic: int
-          notes: the initial capacity of the list.
-        - name: growthChunk
-          type:
-            basic: int
-      notes: |-
-        Creates a new array list with a specified capacity and
-          absolute growth factor.
-  methods:
-    - name: add
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the current capacity of this list.
           notes: |-
-            the index at which to add the element. If
-                          index == size() the element is appended
-                          to this list.
-        - name: v
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Description copied from class: AbstractIntList
-    - name: capacity
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the current capacity of this list.
-      notes: |-
-        Returns the current capacity of this list. The capacity is the
-          number of elements that the list can contain without having to
-          increase the amount of memory used.
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IntCollection
-    - name: clone
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Object
-        notes: a clone of this array list.
-      notes: Returns a clone of this array list.
-    - name: contains
-      modifiers:
-        - public
-      parameters:
-        - name: v
-          type:
-            basic: int
-          notes: the element to test for containment.
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if v is contained in this
-                        collection; returns false otherwise.
-      notes: Description copied from interface: IntCollection
-    - name: ensureCapacity
-      modifiers:
-        - public
-      parameters:
-        - name: capacity
-          type:
-            basic: int
-          notes: the minimum capacity of this list.
-      returns:
-        type:
-          basic: int
-        notes: the new capacity of this list.
-      notes: |-
-        Ensures that this list has at least a specified capacity.
-          The actual capacity is calculated from the growth factor
-          or growth chunk specified to the constructor.
-    - name: equals
-      modifiers:
-        - public
-      parameters:
-        - name: obj
-          type:
-            basic: Object
-          notes: the object with which to compare this collection.
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if this collection is equals to
-                        obj; returns false otherwise.
-      notes: Description copied from interface: IntCollection
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the position of the element to return.
-      returns:
-        type:
-          basic: int
-        notes: the element at the specified position.
-      notes: Description copied from interface: IntList
-    - name: hashCode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: a hash code value for this collection.
-      notes: Description copied from interface: IntCollection
-    - name: indexOf
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index at which to start the search.
-        - name: c
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the first occurance of the specified
-                        element in this list; returns -1, if the
-                        element is not contained in this list.
-      notes: Description copied from interface: IntList
-    - name: isEmpty
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if this collection is empty; returns
-                        false otherwise.
-      notes: Description copied from interface: IntCollection
-    - name: lastIndexOf
-      modifiers:
-        - public
-      parameters:
-        - name: c
-          type:
-            basic: int
-          notes: the element to find.
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the last occurance of the specified
-                        element in this list; returns -1, if the
-                        element is not contained in this list.
-      notes: Description copied from interface: IntList
-    - name: remove
-      modifiers:
-        - public
-      parameters:
-        - name: v
-          type:
-            basic: int
-          notes: the int value to remove from this collection.
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if this collection was modified
-                        as a result of removing v; returns
-                        false otherwise.
-      notes: Description copied from interface: IntCollection
-    - name: removeElementAt
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index of the element to remove.
-      returns:
-        type:
-          basic: int
-        notes: the value of the element removed.
-      notes: Description copied from class: AbstractIntList
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index of the element whose value to set.
-        - name: v
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-        notes: the previous value of the element.
-      notes: Description copied from interface: IntList
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the number of elements in this collection.
-      notes: Description copied from interface: IntCollection
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: a
-          type:
-            basic: int[]
+            Returns the current capacity of this list. The capacity is the
+              number of elements that the list can contain without having to
+              increase the amount of memory used.
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IntCollection
+        - name: clone
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Object
+            notes: a clone of this array list.
+          notes: Returns a clone of this array list.
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: v
+              type:
+                basic: int
+              notes: the element to test for containment.
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if v is contained in this
+                            collection; returns false otherwise.
+          notes: Description copied from interface: IntCollection
+        - name: ensureCapacity
+          modifiers:
+            - public
+          parameters:
+            - name: capacity
+              type:
+                basic: int
+              notes: the minimum capacity of this list.
+          returns:
+            type:
+              basic: int
+            notes: the new capacity of this list.
           notes: |-
-            an array to fill with the elements of this
-                          collection; if a is null or not
-                          big enough to contain all the elements of this
-                          collection, an new array is allocated,
-                          and a is not changed.
-      returns:
-        type:
-          basic: int[]
-        notes: |-
-          a, if a has room for all the
-                        elements of this collection; otherwise a new
-                        array is allocated, filled with the elements of
-                        this collection, and returned.
-      notes: Description copied from interface: IntCollection
-    - name: trimToSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: |-
-        Minimizes the memory used by this array list. The underlying
-          array is replaced by an array whose size is exactly the number
-          of elements in this array list. The method can be used to
-          free up memory after many removals.
-  modifiers:
-    - public
-  javaType: class
-  extends: AbstractIntList
-  notes: |-
-    This class represents an array implemenation of lists of
-      int values.
-IntList:
-  methods:
-    - name: add
-      parameters:
-        - name: index
-          type:
-            basic: int
+            Ensures that this list has at least a specified capacity.
+              The actual capacity is calculated from the growth factor
+              or growth chunk specified to the constructor.
+        - name: equals
+          modifiers:
+            - public
+          parameters:
+            - name: obj
+              type:
+                basic: Object
+              notes: the object with which to compare this collection.
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if this collection is equals to
+                            obj; returns false otherwise.
+          notes: Description copied from interface: IntCollection
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the position of the element to return.
+          returns:
+            type:
+              basic: int
+            notes: the element at the specified position.
+          notes: Description copied from interface: IntList
+        - name: hashCode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: a hash code value for this collection.
+          notes: Description copied from interface: IntCollection
+        - name: indexOf
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index at which to start the search.
+            - name: c
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the first occurance of the specified
+                            element in this list; returns -1, if the
+                            element is not contained in this list.
+          notes: Description copied from interface: IntList
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if this collection is empty; returns
+                            false otherwise.
+          notes: Description copied from interface: IntCollection
+        - name: lastIndexOf
+          modifiers:
+            - public
+          parameters:
+            - name: c
+              type:
+                basic: int
+              notes: the element to find.
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the last occurance of the specified
+                            element in this list; returns -1, if the
+                            element is not contained in this list.
+          notes: Description copied from interface: IntList
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: v
+              type:
+                basic: int
+              notes: the int value to remove from this collection.
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if this collection was modified
+                            as a result of removing v; returns
+                            false otherwise.
+          notes: Description copied from interface: IntCollection
+        - name: removeElementAt
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index of the element to remove.
+          returns:
+            type:
+              basic: int
+            notes: the value of the element removed.
+          notes: Description copied from class: AbstractIntList
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index of the element whose value to set.
+            - name: v
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+            notes: the previous value of the element.
+          notes: Description copied from interface: IntList
+        - name: size
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the number of elements in this collection.
+          notes: Description copied from interface: IntCollection
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: a
+              type:
+                basic: int[]
+              notes: |-
+                an array to fill with the elements of this
+                              collection; if a is null or not
+                              big enough to contain all the elements of this
+                              collection, an new array is allocated,
+                              and a is not changed.
+          returns:
+            type:
+              basic: int[]
+            notes: |-
+              a, if a has room for all the
+                            elements of this collection; otherwise a new
+                            array is allocated, filled with the elements of
+                            this collection, and returned.
+          notes: Description copied from interface: IntCollection
+        - name: trimToSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
           notes: |-
-            the index at which to add the element. If
-                          index == size() the element is appended
-                          to this list.
-        - name: v
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
+            Minimizes the memory used by this array list. The underlying
+              array is replaced by an array whose size is exactly the number
+              of elements in this array list. The method can be used to
+              free up memory after many removals.
+      modifiers:
+        - public
+      javaType: class
+      extends: AbstractIntList
       notes: |-
-        Adds an element to this list at a specified index. All
-          elements from the specified index and forward are pushed
-          to their successor's indices.
-    - name: addAll
-      parameters:
-        - name: index
-          type:
-            basic: int
+        This class represents an array implemenation of lists of
+          int values.
+    IntList:
+      methods:
+        - name: add
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                the index at which to add the element. If
+                              index == size() the element is appended
+                              to this list.
+            - name: v
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
           notes: |-
-            the index at which to insert the elements of
-                          the specified collection. If
-                          index == size() the elements are appended
-                          to this list.
-        - name: c
-          type:
-            basic: IntCollection
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if this list was modified
-                        as a result of adding the elements of c;
-                        returns false otherwise.
-      notes: |-
-        Adds all the elements of a specified collection to
-          this list starting at a specified index. The elements are
-          inserted in the specified collection's iteration order.
-          All elements from the specified index and forward are pushed
-          to their successors' indices (
-    - name: get
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the position of the element to return.
-      returns:
-        type:
-          basic: int
-        notes: the element at the specified position.
-      notes: Returns the element at a specified position in this list.
-    - name: indexOf
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: c
-          type:
-            basic: int
-          notes: the element to find.
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the first occurance of the specified
-                        element in this list; returns -1, if the
-                        element is not contained in this list.
-      notes: |-
-        Returns the index of the first occurance of a specified
-          element in this list after or at a specified index.
-    - name: lastIndexOf
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: c
-          type:
-            basic: int
-          notes: the element to find.
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the last occurance of the specified
-                        element in this list; returns -1, if the
-                        element is not contained in this list.
-      notes: |-
-        Returns the index of the last occurance of a specified
-          element in this list before a specified index.
-    - name: listIterator
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index at which to begin the iteration.
-      returns:
-        type:
-          basic: IntListIterator
-        notes: a list iterator over this list.
-      notes: |-
-        Returns a list iterator over this list, starting from a
-          specified index.
-    - name: removeElementAt
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index of the element to remove.
-      returns:
-        type:
-          basic: int
-        notes: the value of the element removed.
-      notes: |-
-        Removes the element at a specified index in this list. All
-          elements following the removed element are pushed to their
-          predecessor's indices.
-    - name: set
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: the index of the element whose value to set.
-        - name: v
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-        notes: the previous value of the element.
-      notes: Sets a specified element to a new value.
-  modifiers:
-    - public
-  javaType: interface
-  extends: IntCollection
-  notes: This interface represents lists of int values.
-IntListIterator:
-  methods:
-    - name: add
-      parameters:
-        - name: v
-          type:
-            basic: int
-          notes: the element to add.
-      returns:
-        type:
-          basic: void
-      notes: |-
-        Adds a specified element to the list at this iterator's
-          current position.
-    - name: hasPrevious
-      returns:
-        type:
-          basic: boolean
-        notes: |-
-          true if more int values can be returned
-                        by this iterator in backwards direction; returns
-                        false otherwise.
-      notes: |-
-        Indicates whether more int values can be returned by this
-          iterator by calling
-    - name: nextIndex
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the element that would be returned by
-                        a call to next().
-      notes: |-
-        Returns the index of the element that would be returned by
-          a call to
-    - name: previous
-      returns:
-        type:
-          basic: int
-        notes: the previous int value of this iterator.
-      notes: Returns the previous int value of this iterator.
-    - name: previousIndex
-      returns:
-        type:
-          basic: int
-        notes: |-
-          the index of the element that would be returned by
-                        a call to previous(); if no more elements
-                        are available in backwards direction, -1
-                        is returned.
-      notes: |-
-        Returns the index of the element that would be returned by
-          a call to
-    - name: set
-      parameters:
-        - name: v
-          type:
-            basic: int
-          notes: the new value of the element.
-      returns:
-        type:
-          basic: void
-      notes: Sets the last element returned to a specified value.
-  modifiers:
-    - public
-  javaType: interface
-  extends: IntIterator
-  notes: This class represents iterators over lists of int values.
-PrimitiveFloatList:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: array
-          type:
-            basic: float[]
-  methods:
-    - name: contains
+            Adds an element to this list at a specified index. All
+              elements from the specified index and forward are pushed
+              to their successor's indices.
+        - name: addAll
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                the index at which to insert the elements of
+                              the specified collection. If
+                              index == size() the elements are appended
+                              to this list.
+            - name: c
+              type:
+                basic: IntCollection
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if this list was modified
+                            as a result of adding the elements of c;
+                            returns false otherwise.
+          notes: |-
+            Adds all the elements of a specified collection to
+              this list starting at a specified index. The elements are
+              inserted in the specified collection's iteration order.
+              All elements from the specified index and forward are pushed
+              to their successors' indices (
+        - name: get
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the position of the element to return.
+          returns:
+            type:
+              basic: int
+            notes: the element at the specified position.
+          notes: Returns the element at a specified position in this list.
+        - name: indexOf
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: c
+              type:
+                basic: int
+              notes: the element to find.
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the first occurance of the specified
+                            element in this list; returns -1, if the
+                            element is not contained in this list.
+          notes: |-
+            Returns the index of the first occurance of a specified
+              element in this list after or at a specified index.
+        - name: lastIndexOf
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: c
+              type:
+                basic: int
+              notes: the element to find.
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the last occurance of the specified
+                            element in this list; returns -1, if the
+                            element is not contained in this list.
+          notes: |-
+            Returns the index of the last occurance of a specified
+              element in this list before a specified index.
+        - name: listIterator
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index at which to begin the iteration.
+          returns:
+            type:
+              basic: IntListIterator
+            notes: a list iterator over this list.
+          notes: |-
+            Returns a list iterator over this list, starting from a
+              specified index.
+        - name: removeElementAt
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index of the element to remove.
+          returns:
+            type:
+              basic: int
+            notes: the value of the element removed.
+          notes: |-
+            Removes the element at a specified index in this list. All
+              elements following the removed element are pushed to their
+              predecessor's indices.
+        - name: set
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: the index of the element whose value to set.
+            - name: v
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+            notes: the previous value of the element.
+          notes: Sets a specified element to a new value.
       modifiers:
         - public
-      parameters:
-        - name: val
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-    - name: forEach
+      javaType: interface
+      extends: IntCollection
+      notes: This interface represents lists of int values.
+    IntListIterator:
+      methods:
+        - name: add
+          parameters:
+            - name: v
+              type:
+                basic: int
+              notes: the element to add.
+          returns:
+            type:
+              basic: void
+          notes: |-
+            Adds a specified element to the list at this iterator's
+              current position.
+        - name: hasPrevious
+          returns:
+            type:
+              basic: boolean
+            notes: |-
+              true if more int values can be returned
+                            by this iterator in backwards direction; returns
+                            false otherwise.
+          notes: |-
+            Indicates whether more int values can be returned by this
+              iterator by calling
+        - name: nextIndex
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the element that would be returned by
+                            a call to next().
+          notes: |-
+            Returns the index of the element that would be returned by
+              a call to
+        - name: previous
+          returns:
+            type:
+              basic: int
+            notes: the previous int value of this iterator.
+          notes: Returns the previous int value of this iterator.
+        - name: previousIndex
+          returns:
+            type:
+              basic: int
+            notes: |-
+              the index of the element that would be returned by
+                            a call to previous(); if no more elements
+                            are available in backwards direction, -1
+                            is returned.
+          notes: |-
+            Returns the index of the element that would be returned by
+              a call to
+        - name: set
+          parameters:
+            - name: v
+              type:
+                basic: int
+              notes: the new value of the element.
+          returns:
+            type:
+              basic: void
+          notes: Sets the last element returned to a specified value.
       modifiers:
         - public
-      parameters:
-        - name: action
-          type:
-            basic: FloatConsumer
-      returns:
-        type:
-          basic: void
-    - name: get
+      javaType: interface
+      extends: IntIterator
+      notes: This class represents iterators over lists of int values.
+    PrimitiveFloatList:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: array
+              type:
+                basic: float[]
+      methods:
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: forEach
+          modifiers:
+            - public
+          parameters:
+            - name: action
+              type:
+                basic: FloatConsumer
+          returns:
+            type:
+              basic: void
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: Float
+        - name: indexOf
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: float
+          returns:
+            type:
+              basic: int
+        - name: replaceAll
+          modifiers:
+            - public
+          parameters:
+            - name: operator
+              type:
+                basic: UnaryOperator
+                full: UnaryOperator<Float>
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: element
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: size
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: sort
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: T[]
+          returns:
+            type:
+              basic: T[]
       modifiers:
         - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: Float
-    - name: indexOf
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: float
-      returns:
-        type:
-          basic: int
-    - name: replaceAll
-      modifiers:
-        - public
-      parameters:
-        - name: operator
-          type:
-            basic: UnaryOperator
-            full: UnaryOperator<Float>
-      returns:
-        type:
-          basic: void
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: element
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: sort
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: T[]
-      returns:
-        type:
-          basic: T[]
-  modifiers:
-    - public
-  javaType: class
-  extends: AbstractList
-PZArrayList:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: elementType
-          type:
-            basic: Class
-            full: Class<E>
-        - name: initialCapacity
-          type:
-            basic: int
-  methods:
-    - name: add
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: e
-          type:
-            basic: E
-      returns:
-        type:
-          basic: void
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: contains
-      modifiers:
-        - public
-      parameters:
-        - name: o
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: boolean
-    - name: emptyList
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: AbstractList
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: E
-    - name: getElements
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: E
-    - name: indexOf
-      modifiers:
-        - public
-      parameters:
-        - name: o
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: int
-    - name: isEmpty
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: iterator
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Iterator
-    - name: listIterator
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: ListIterator
-    - name: remove
-      modifiers:
-        - public
-      parameters:
-        - name: o
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: boolean
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: e
-          type:
-            basic: E
-      returns:
-        type:
-          basic: E
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractList
-PZArrayUtil:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: add
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: array
-          type:
-            basic: E[]
-        - name: val
-          type:
-            basic: E
-      returns:
-        type:
-          basic: E[]
-    - name: arrayAdd
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: in_out_a
-          type:
-            basic: int[]
-        - name: b
-          type:
-            basic: int[]
-      returns:
-        type:
-          basic: int[]
-    - name: arrayConvert
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: to
-          type:
-            basic: L
-        - name: from
-          type:
-            basic: List
-            full: List<S>
-        - name: converter
-          type:
-            basic: Function
-            full: Function<S,E>
-      returns:
-        type:
-          basic: L
-        notes: The target array.
-      notes: |-
-        Convert all elements in the source array, and add them to the target.
-         Uses supplied converter function.
-         Clears target before populating.
-    - name: arrayCopy
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: to
-          type:
-            basic: E[]
-        - name: from
-          type:
-            basic: S[]
-      returns:
-        type:
-          basic: E[]
-        notes: The target array.
-      notes: |-
-        Copies all elements from the source array to the target.
-         Clears target before populating.
-    - name: arrayPopulate
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: arr
-          type:
-            basic: E[]
-        - name: supplier
-          type:
-            basic: Supplier
-            full: Supplier<E>
-      returns:
-        type:
-          basic: E[]
-    - name: arraySet
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: arr
-          type:
-            basic: E[]
-        - name: val
-          type:
-            basic: E
-      returns:
-        type:
-          basic: E[]
-    - name: arrayToString
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: list
-          type:
-            basic: Iterable
-            full: Iterable<E>
+      javaType: class
+      extends: AbstractList
+    PZArrayList:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: elementType
+              type:
+                basic: Class
+                full: Class<E>
+            - name: initialCapacity
+              type:
+                basic: int
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: e
+              type:
+                basic: E
+          returns:
+            type:
+              basic: void
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: o
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: boolean
+        - name: emptyList
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AbstractList
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: E
+        - name: getElements
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: E
+        - name: indexOf
+          modifiers:
+            - public
+          parameters:
+            - name: o
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: int
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: iterator
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Iterator
+        - name: listIterator
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ListIterator
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: o
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: boolean
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: e
+              type:
+                basic: E
+          returns:
+            type:
+              basic: E
+        - name: size
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
         - name: toString
-          type:
-            basic: Function
-            full: Function<E,String>
-        - name: prefix
-          type:
-            basic: String
-        - name: suffix
-          type:
-            basic: String
-        - name: delimiter
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: clone
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-        - static
-      parameters:
-        - name: src
-          type:
-            basic: E[]
-      returns:
-        type:
-          basic: E[]
-    - name: concat
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: arrayA
-          type:
-            basic: E[]
-        - name: arrayB
-          type:
-            basic: E[]
-      returns:
-        type:
-          basic: E[]
-      notes: |-
-        Concatenate two arrays.
-         null-safe. Allows either A or B parameters to be null or empty.
-    - name: contains
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: arr
-          type:
-            basic: int[]
-        - name: count
-          type:
-            basic: int
-        - name: val
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: copy
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: target
-          type:
-            basic: ArrayList
-            full: ArrayList<E>
-        - name: source
-          type:
-            basic: ArrayList
-            full: ArrayList<E>
-        - name: elementCloner
-          type:
-            basic: ICloner
-            full: ICloner<E>
-      returns:
-        type:
-          basic: void
-      notes: >-
-        Perform a copy of the source array into the target array, using the
-        supplied ICloner.
-         The target array's contents first cleared, and then populated with elements generated using the ICloner.clone() function.
-    - name: find
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: collection
-          type:
-            basic: Iterable
-            full: Iterable<E>
-        - name: comparer
-          type:
-            basic: Predicate
-            full: Predicate<E>
-      returns:
-        type:
-          basic: E
-    - name: forEach
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: elements
-          type:
-            basic: E[]
-        - name: consumer
-          type:
-            basic: Consumer
-            full: Consumer<? super E>
-      returns:
-        type:
-          basic: void
-      notes: |-
-        Iterate over specified array, invoke supplied consumer on each element.
-          Null-safe
-    - name: getElementAt
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: collection
-          type:
-            basic: Iterable
-            full: Iterable<E>
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: E
-      notes: Get the specified element from the supplied Iterable.
-    - name: getOrCreate
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: map
-          type:
-            basic: HashMap
-            full: HashMap<K,V>
-        - name: key
-          type:
-            basic: K
-        - name: allocator
-          type:
-            basic: Supplier
-            full: Supplier<V>
-      returns:
-        type:
-          basic: V
-    - name: getOrDefault
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: list
-          type:
-            basic: float[]
-        - name: i
-          type:
-            basic: int
-        - name: defaultVal
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-      notes: |-
-        Get the array value at index.
-         Bounds-safe: Returns default value if out of bounds.
-    - name: getSize
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: collection
-          type:
-            basic: Iterable
-            full: Iterable<E>
-      returns:
-        type:
-          basic: int
-      notes: Count the number of elements in the supplied Iterable.
-    - name: indexOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: arr
-          type:
-            basic: int[]
-        - name: count
-          type:
-            basic: int
-        - name: val
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: insertAt
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: arr
-          type:
-            basic: float[]
+        - final
+      javaType: class
+      extends: AbstractList
+    PZArrayUtil:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: add
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: array
+              type:
+                basic: E[]
+            - name: val
+              type:
+                basic: E
+          returns:
+            type:
+              basic: E[]
+        - name: arrayAdd
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: in_out_a
+              type:
+                basic: int[]
+            - name: b
+              type:
+                basic: int[]
+          returns:
+            type:
+              basic: int[]
+        - name: arrayConvert
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: to
+              type:
+                basic: L
+            - name: from
+              type:
+                basic: List
+                full: List<S>
+            - name: converter
+              type:
+                basic: Function
+                full: Function<S,E>
+          returns:
+            type:
+              basic: L
+            notes: The target array.
+          notes: >-
+            Convert all elements in the source array, and add them to the
+            target.
+             Uses supplied converter function.
+             Clears target before populating.
+        - name: arrayCopy
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: to
+              type:
+                basic: E[]
+            - name: from
+              type:
+                basic: S[]
+          returns:
+            type:
+              basic: E[]
+            notes: The target array.
+          notes: |-
+            Copies all elements from the source array to the target.
+             Clears target before populating.
+        - name: arrayPopulate
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: arr
+              type:
+                basic: E[]
+            - name: supplier
+              type:
+                basic: Supplier
+                full: Supplier<E>
+          returns:
+            type:
+              basic: E[]
+        - name: arraySet
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: arr
+              type:
+                basic: E[]
+            - name: val
+              type:
+                basic: E
+          returns:
+            type:
+              basic: E[]
+        - name: arrayToString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: list
+              type:
+                basic: Iterable
+                full: Iterable<E>
+            - name: toString
+              type:
+                basic: Function
+                full: Function<E,String>
+            - name: prefix
+              type:
+                basic: String
+            - name: suffix
+              type:
+                basic: String
+            - name: delimiter
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: clone
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: src
+              type:
+                basic: E[]
+          returns:
+            type:
+              basic: E[]
+        - name: concat
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: arrayA
+              type:
+                basic: E[]
+            - name: arrayB
+              type:
+                basic: E[]
+          returns:
+            type:
+              basic: E[]
+          notes: |-
+            Concatenate two arrays.
+             null-safe. Allows either A or B parameters to be null or empty.
+        - name: contains
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: arr
+              type:
+                basic: int[]
+            - name: count
+              type:
+                basic: int
+            - name: val
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: copy
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: target
+              type:
+                basic: ArrayList
+                full: ArrayList<E>
+            - name: source
+              type:
+                basic: ArrayList
+                full: ArrayList<E>
+            - name: elementCloner
+              type:
+                basic: ICloner
+                full: ICloner<E>
+          returns:
+            type:
+              basic: void
+          notes: >-
+            Perform a copy of the source array into the target array, using the
+            supplied ICloner.
+             The target array's contents first cleared, and then populated with elements generated using the ICloner.clone() function.
+        - name: find
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: collection
+              type:
+                basic: Iterable
+                full: Iterable<E>
+            - name: comparer
+              type:
+                basic: Predicate
+                full: Predicate<E>
+          returns:
+            type:
+              basic: E
+        - name: forEach
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: elements
+              type:
+                basic: E[]
+            - name: consumer
+              type:
+                basic: Consumer
+                full: Consumer<? super E>
+          returns:
+            type:
+              basic: void
+          notes: >-
+            Iterate over specified array, invoke supplied consumer on each
+            element.
+              Null-safe
+        - name: getElementAt
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: collection
+              type:
+                basic: Iterable
+                full: Iterable<E>
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: E
+          notes: Get the specified element from the supplied Iterable.
+        - name: getOrCreate
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: map
+              type:
+                basic: HashMap
+                full: HashMap<K,V>
+            - name: key
+              type:
+                basic: K
+            - name: allocator
+              type:
+                basic: Supplier
+                full: Supplier<V>
+          returns:
+            type:
+              basic: V
+        - name: getOrDefault
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: list
+              type:
+                basic: float[]
+            - name: i
+              type:
+                basic: int
+            - name: defaultVal
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+          notes: |-
+            Get the array value at index.
+             Bounds-safe: Returns default value if out of bounds.
+        - name: getSize
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: collection
+              type:
+                basic: Iterable
+                full: Iterable<E>
+          returns:
+            type:
+              basic: int
+          notes: Count the number of elements in the supplied Iterable.
+        - name: indexOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: arr
+              type:
+                basic: int[]
+            - name: count
+              type:
+                basic: int
+            - name: val
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
         - name: insertAt
-          type:
-            basic: int
-        - name: val
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: isNullOrEmpty
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: arr
+              type:
+                basic: float[]
+            - name: insertAt
+              type:
+                basic: int
+            - name: val
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: isNullOrEmpty
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: it
+              type:
+                basic: Iterable
+                full: Iterable<E>
+          returns:
+            type:
+              basic: boolean
+        - name: itConvert
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: source
+              type:
+                basic: Iterable
+                full: Iterable<S>
+            - name: converter
+              type:
+                basic: Function
+                full: Function<S,E>
+          returns:
+            type:
+              basic: Iterable
+        - name: listConvert
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: source
+              type:
+                basic: List
+                full: List<S>
+            - name: dest
+              type:
+                basic: List
+                full: List<E>
+            - name: v1
+              type:
+                basic: T1
+            - name: converter
+              type:
+                basic: PZArrayUtil.IListConverter1Param
+                full: PZArrayUtil.IListConverter1Param<S,E,T1>
+          returns:
+            type:
+              basic: List
+        - name: newInstance
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: componentType
+              type:
+                basic: Class
+                full: Class<?>
+            - name: reusableArray
+              type:
+                basic: E[]
+            - name: newLength
+              type:
+                basic: int
+            - name: growOnly
+              type:
+                basic: boolean
+            - name: newAllocator
+              type:
+                basic: Supplier
+                full: Supplier<E>
+          returns:
+            type:
+              basic: E[]
+        - name: pickRandom
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: collection
+              type:
+                basic: Iterable
+                full: Iterable<E>
+          returns:
+            type:
+              basic: E
+          notes: Pick a random element from the supplied Iterable.
+        - name: sequenceEqual
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: List
+                full: List<? extends E>
+            - name: b
+              type:
+                basic: List
+                full: List<? extends E>
+            - name: comparator
+              type:
+                basic: Comparator
+                full: Comparator<E>
+          returns:
+            type:
+              basic: boolean
+        - name: sort
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: stack
+              type:
+                basic: Stack
+                full: Stack<E>
+            - name: comparator
+              type:
+                basic: Comparator
+                full: Comparator<E>
+          returns:
+            type:
+              basic: void
+        - name: toArray
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: list
+              type:
+                basic: List
+                full: List<E>
+          returns:
+            type:
+              basic: E[]
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    PZArrayUtil.Comparators:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: equalsIgnoreCase
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: String
+            - name: b
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: objectsEqual
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: E
+            - name: b
+              type:
+                basic: E
+          returns:
+            type:
+              basic: int
+        - name: referencesEqual
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: E
+            - name: b
+              type:
+                basic: E
+          returns:
+            type:
+              basic: int
       modifiers:
         - public
         - static
-      parameters:
-        - name: it
-          type:
-            basic: Iterable
-            full: Iterable<E>
-      returns:
-        type:
-          basic: boolean
-    - name: itConvert
+      javaType: class
+      extends: Object
+    PZArrayUtil.IListConverter1Param:
+      methods:
+        - name: convert
+          parameters:
+            - name: s
+              type:
+                basic: S
+            - name: t
+              type:
+                basic: T1
+          returns:
+            type:
+              basic: E
       modifiers:
         - public
         - static
-      parameters:
-        - name: source
-          type:
-            basic: Iterable
-            full: Iterable<S>
-        - name: converter
-          type:
-            basic: Function
-            full: Function<S,E>
-      returns:
-        type:
-          basic: Iterable
-    - name: listConvert
+      javaType: interface
+    PZConvertArray:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: array
+              type:
+                basic: S[]
+            - name: converterST
+              type:
+                basic: Function
+                full: Function<S,T>
+          notes: Create a read-only list converter
+        - modifiers:
+            - public
+          parameters:
+            - name: array
+              type:
+                basic: S[]
+            - name: converterST
+              type:
+                basic: Function
+                full: Function<S,T>
+            - name: converterTS
+              type:
+                basic: Function
+                full: Function<T,S>
+          notes: Create a read-write list converter
+      methods:
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: o
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: boolean
+        - name: forEach
+          modifiers:
+            - public
+          parameters:
+            - name: action
+              type:
+                basic: Consumer
+                full: Consumer<? super T>
+          returns:
+            type:
+              basic: void
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: T
+        - name: indexOf
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: int
+        - name: isReadonly
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: replaceAll
+          modifiers:
+            - public
+          parameters:
+            - name: operator
+              type:
+                basic: UnaryOperator
+                full: UnaryOperator<T>
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: element
+              type:
+                basic: T
+          returns:
+            type:
+              basic: T
+        - name: setS
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: element
+              type:
+                basic: S
+          returns:
+            type:
+              basic: S
+        - name: size
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: sort
+          modifiers:
+            - public
+          parameters:
+            - name: c
+              type:
+                basic: Comparator
+                full: Comparator<? super T>
+          returns:
+            type:
+              basic: void
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: R[]
+          returns:
+            type:
+              basic: R[]
       modifiers:
         - public
-        - static
-      parameters:
-        - name: source
-          type:
-            basic: List
-            full: List<S>
-        - name: dest
-          type:
-            basic: List
-            full: List<E>
-        - name: v1
-          type:
-            basic: T1
-        - name: converter
-          type:
-            basic: PZArrayUtil.IListConverter1Param
-            full: PZArrayUtil.IListConverter1Param<S,E,T1>
-      returns:
-        type:
-          basic: List
-    - name: newInstance
+        - final
+      javaType: class
+      extends: AbstractList
+    PZConvertIterable:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: srcIterable
+              type:
+                basic: Iterable
+                full: Iterable<S>
+            - name: converter
+              type:
+                basic: Function
+                full: Function<S,T>
+      methods:
+        - name: iterator
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Iterator
       modifiers:
         - public
-        - static
-      parameters:
-        - name: componentType
-          type:
-            basic: Class
-            full: Class<?>
-        - name: reusableArray
-          type:
-            basic: E[]
-        - name: newLength
-          type:
-            basic: int
-        - name: growOnly
-          type:
-            basic: boolean
-        - name: newAllocator
-          type:
-            basic: Supplier
-            full: Supplier<E>
-      returns:
-        type:
-          basic: E[]
-    - name: pickRandom
+        - final
+      javaType: class
+      extends: Object
+    PZConvertList:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: List
+                full: List<S>
+            - name: converterST
+              type:
+                basic: Function
+                full: Function<S,T>
+          notes: Create a read-only list converter
+        - modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: List
+                full: List<S>
+            - name: converterST
+              type:
+                basic: Function
+                full: Function<S,T>
+            - name: converterTS
+              type:
+                basic: Function
+                full: Function<T,S>
+          notes: Create a read-write list converter
+      methods:
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: o
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: boolean
+        - name: forEach
+          modifiers:
+            - public
+          parameters:
+            - name: action
+              type:
+                basic: Consumer
+                full: Consumer<? super T>
+          returns:
+            type:
+              basic: void
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: T
+        - name: indexOf
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: int
+        - name: isReadonly
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: replaceAll
+          modifiers:
+            - public
+          parameters:
+            - name: operator
+              type:
+                basic: UnaryOperator
+                full: UnaryOperator<T>
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: element
+              type:
+                basic: T
+          returns:
+            type:
+              basic: T
+        - name: setS
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: element
+              type:
+                basic: S
+          returns:
+            type:
+              basic: S
+        - name: size
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: sort
+          modifiers:
+            - public
+          parameters:
+            - name: c
+              type:
+                basic: Comparator
+                full: Comparator<? super T>
+          returns:
+            type:
+              basic: void
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: R[]
+          returns:
+            type:
+              basic: R[]
       modifiers:
         - public
-        - static
-      parameters:
-        - name: collection
-          type:
-            basic: Iterable
-            full: Iterable<E>
-      returns:
-        type:
-          basic: E
-      notes: Pick a random element from the supplied Iterable.
-    - name: sequenceEqual
+        - final
+      javaType: class
+      extends: AbstractList
+    PZEmptyIterable:
+      methods:
+        - name: getInstance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: PZEmptyIterable
+        - name: iterator
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Iterator
       modifiers:
         - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: List
-            full: List<? extends E>
-        - name: b
-          type:
-            basic: List
-            full: List<? extends E>
-        - name: comparator
-          type:
-            basic: Comparator
-            full: Comparator<E>
-      returns:
-        type:
-          basic: boolean
-    - name: sort
+        - final
+      javaType: class
+      extends: Object
+    PZPrimitiveArrayIterable:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: fromArray
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: list
+              type:
+                basic: float[]
+          returns:
+            type:
+              basic: Iterable
       modifiers:
         - public
-        - static
-      parameters:
-        - name: stack
-          type:
-            basic: Stack
-            full: Stack<E>
-        - name: comparator
-          type:
-            basic: Comparator
-            full: Comparator<E>
-      returns:
-        type:
-          basic: void
-    - name: toArray
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: list
-          type:
-            basic: List
-            full: List<E>
-      returns:
-        type:
-          basic: E[]
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-PZArrayUtil.Comparators:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: equalsIgnoreCase
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: String
-        - name: b
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-    - name: objectsEqual
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: E
-        - name: b
-          type:
-            basic: E
-      returns:
-        type:
-          basic: int
-    - name: referencesEqual
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: E
-        - name: b
-          type:
-            basic: E
-      returns:
-        type:
-          basic: int
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-PZArrayUtil.IListConverter1Param:
-  methods:
-    - name: convert
-      parameters:
-        - name: s
-          type:
-            basic: S
-        - name: t
-          type:
-            basic: T1
-      returns:
-        type:
-          basic: E
-  modifiers:
-    - public
-    - static
-  javaType: interface
-PZConvertArray:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: array
-          type:
-            basic: S[]
-        - name: converterST
-          type:
-            basic: Function
-            full: Function<S,T>
-      notes: Create a read-only list converter
-    - modifiers:
-        - public
-      parameters:
-        - name: array
-          type:
-            basic: S[]
-        - name: converterST
-          type:
-            basic: Function
-            full: Function<S,T>
-        - name: converterTS
-          type:
-            basic: Function
-            full: Function<T,S>
-      notes: Create a read-write list converter
-  methods:
-    - name: contains
-      modifiers:
-        - public
-      parameters:
-        - name: o
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: boolean
-    - name: forEach
-      modifiers:
-        - public
-      parameters:
-        - name: action
-          type:
-            basic: Consumer
-            full: Consumer<? super T>
-      returns:
-        type:
-          basic: void
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: T
-    - name: indexOf
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: int
-    - name: isReadonly
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: replaceAll
-      modifiers:
-        - public
-      parameters:
-        - name: operator
-          type:
-            basic: UnaryOperator
-            full: UnaryOperator<T>
-      returns:
-        type:
-          basic: void
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: element
-          type:
-            basic: T
-      returns:
-        type:
-          basic: T
-    - name: setS
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: element
-          type:
-            basic: S
-      returns:
-        type:
-          basic: S
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: sort
-      modifiers:
-        - public
-      parameters:
-        - name: c
-          type:
-            basic: Comparator
-            full: Comparator<? super T>
-      returns:
-        type:
-          basic: void
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: R[]
-      returns:
-        type:
-          basic: R[]
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractList
-PZConvertIterable:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: srcIterable
-          type:
-            basic: Iterable
-            full: Iterable<S>
-        - name: converter
-          type:
-            basic: Function
-            full: Function<S,T>
-  methods:
-    - name: iterator
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Iterator
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-PZConvertList:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: List
-            full: List<S>
-        - name: converterST
-          type:
-            basic: Function
-            full: Function<S,T>
-      notes: Create a read-only list converter
-    - modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: List
-            full: List<S>
-        - name: converterST
-          type:
-            basic: Function
-            full: Function<S,T>
-        - name: converterTS
-          type:
-            basic: Function
-            full: Function<T,S>
-      notes: Create a read-write list converter
-  methods:
-    - name: contains
-      modifiers:
-        - public
-      parameters:
-        - name: o
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: boolean
-    - name: forEach
-      modifiers:
-        - public
-      parameters:
-        - name: action
-          type:
-            basic: Consumer
-            full: Consumer<? super T>
-      returns:
-        type:
-          basic: void
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: T
-    - name: indexOf
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: int
-    - name: isReadonly
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: replaceAll
-      modifiers:
-        - public
-      parameters:
-        - name: operator
-          type:
-            basic: UnaryOperator
-            full: UnaryOperator<T>
-      returns:
-        type:
-          basic: void
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: element
-          type:
-            basic: T
-      returns:
-        type:
-          basic: T
-    - name: setS
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: element
-          type:
-            basic: S
-      returns:
-        type:
-          basic: S
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: sort
-      modifiers:
-        - public
-      parameters:
-        - name: c
-          type:
-            basic: Comparator
-            full: Comparator<? super T>
-      returns:
-        type:
-          basic: void
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: R[]
-      returns:
-        type:
-          basic: R[]
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractList
-PZEmptyIterable:
-  methods:
-    - name: getInstance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: PZEmptyIterable
-    - name: iterator
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Iterator
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-PZPrimitiveArrayIterable:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: fromArray
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: list
-          type:
-            basic: float[]
-      returns:
-        type:
-          basic: Iterable
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
+        - final
+      javaType: class
+      extends: Object

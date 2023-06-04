@@ -1,500 +1,501 @@
-# zombie.characterTextures
-BloodBodyPartType:
-  methods:
-    - name: FromIndex
-      modifiers:
-        - public
-        - static
-      parameters:
+namespaces:
+  zombie.characterTextures:
+    BloodBodyPartType:
+      methods:
+        - name: FromIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: BloodBodyPartType
+        - name: FromString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: BloodBodyPartType
+        - name: getCharacterMaskParts
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: CharacterMask.Part
+        - name: getDisplayName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: BPT
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: String
         - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: BloodBodyPartType
-    - name: FromString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: ToIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: BPT
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: int
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: BloodBodyPartType
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: BloodBodyPartType
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-        - static
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: BloodBodyPartType
-    - name: getCharacterMaskParts
+      javaType: enum
+      extends: Enum
+      notes: Created by LEMMY on 7/1/2016.
+    BloodClothingType:
+      methods:
+        - name: addBasicPatch
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: part
+              type:
+                basic: BloodBodyPartType
+            - name: humanVisual
+              type:
+                basic: HumanVisual
+            - name: itemVisuals
+              type:
+                basic: ArrayList
+                full: ArrayList<ItemVisual>
+          returns:
+            type:
+              basic: void
+          notes: Should be used only for debug, use Clothing.addPatch for gameplay stuff
+        - name: addBlood
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: part
+              type:
+                basic: BloodBodyPartType
+            - name: intensity
+              type:
+                basic: float
+            - name: humanVisual
+              type:
+                basic: HumanVisual
+            - name: itemVisuals
+              type:
+                basic: ArrayList
+                full: ArrayList<ItemVisual>
+            - name: allLayers
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: addDirt
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: part
+              type:
+                basic: BloodBodyPartType
+            - name: intensity
+              type:
+                basic: float
+            - name: humanVisual
+              type:
+                basic: HumanVisual
+            - name: itemVisuals
+              type:
+                basic: ArrayList
+                full: ArrayList<ItemVisual>
+            - name: allLayers
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: addHole
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: part
+              type:
+                basic: BloodBodyPartType
+            - name: humanVisual
+              type:
+                basic: HumanVisual
+            - name: itemVisuals
+              type:
+                basic: ArrayList
+                full: ArrayList<ItemVisual>
+            - name: allLayers
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: calcTotalBloodLevel
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: clothing
+              type:
+                basic: Clothing
+          returns:
+            type:
+              basic: void
+        - name: calcTotalDirtLevel
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: clothing
+              type:
+                basic: Clothing
+          returns:
+            type:
+              basic: void
+        - name: fromString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: BloodClothingType
+        - name: getCoveredPartCount
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bloodClothingType
+              type:
+                basic: ArrayList
+                full: ArrayList<BloodClothingType>
+          returns:
+            type:
+              basic: int
+        - name: getCoveredParts
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bloodClothingType
+              type:
+                basic: ArrayList
+                full: ArrayList<BloodClothingType>
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<BloodBodyPartType>
+          returns:
+            type:
+              basic: ArrayList
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: BloodClothingType
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: BloodClothingType
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-      returns:
-        type:
-          basic: CharacterMask.Part
-    - name: getDisplayName
+      javaType: enum
+      extends: Enum
+    CharacterSmartTexture:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addBlood
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+            - name: intensity
+              type:
+                basic: float
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: float
+        - name: addDirt
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+            - name: intensity
+              type:
+                basic: float
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: float
+        - name: addShirtDecal
+          modifiers:
+            - public
+          parameters:
+            - name: dec
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: removeBlood
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: void
+        - name: setBlood
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+            - name: intensity
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setDirt
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+            - name: intensity
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: BPT
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: String
-    - name: index
+        - final
+      javaType: class
+      extends: SmartTexture
+      notes: Created by LEMMY on 6/30/2016.
+    ItemSmartTexture:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
+        - modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
+            - name: hue
+              type:
+                basic: float
+      methods:
+        - name: addBlood
+          modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
+            - name: mask
+              type:
+                basic: String
+            - name: intensity
+              type:
+                basic: float
+            - name: category
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: addDirt
+          modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
+            - name: mask
+              type:
+                basic: String
+            - name: intensity
+              type:
+                basic: float
+            - name: category
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: getTexName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: removeBlood
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: void
+        - name: removeDirt
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: void
+        - name: setBasicPatches
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: void
+        - name: setBlood
+          modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
+            - name: mask
+              type:
+                basic: String
+            - name: intensity
+              type:
+                basic: float
+            - name: category
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setDenimPatches
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: void
+        - name: setLeatherPatches
+          modifiers:
+            - public
+          parameters:
+            - name: bodyPart
+              type:
+                basic: BloodBodyPartType
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: int
-    - name: ToIndex
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: BPT
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: int
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: BloodBodyPartType
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: BloodBodyPartType
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-  notes: Created by LEMMY on 7/1/2016.
-BloodClothingType:
-  methods:
-    - name: addBasicPatch
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: part
-          type:
-            basic: BloodBodyPartType
-        - name: humanVisual
-          type:
-            basic: HumanVisual
-        - name: itemVisuals
-          type:
-            basic: ArrayList
-            full: ArrayList<ItemVisual>
-      returns:
-        type:
-          basic: void
-      notes: Should be used only for debug, use Clothing.addPatch for gameplay stuff
-    - name: addBlood
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: part
-          type:
-            basic: BloodBodyPartType
-        - name: intensity
-          type:
-            basic: float
-        - name: humanVisual
-          type:
-            basic: HumanVisual
-        - name: itemVisuals
-          type:
-            basic: ArrayList
-            full: ArrayList<ItemVisual>
-        - name: allLayers
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: addDirt
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: part
-          type:
-            basic: BloodBodyPartType
-        - name: intensity
-          type:
-            basic: float
-        - name: humanVisual
-          type:
-            basic: HumanVisual
-        - name: itemVisuals
-          type:
-            basic: ArrayList
-            full: ArrayList<ItemVisual>
-        - name: allLayers
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: addHole
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: part
-          type:
-            basic: BloodBodyPartType
-        - name: humanVisual
-          type:
-            basic: HumanVisual
-        - name: itemVisuals
-          type:
-            basic: ArrayList
-            full: ArrayList<ItemVisual>
-        - name: allLayers
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: calcTotalBloodLevel
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: clothing
-          type:
-            basic: Clothing
-      returns:
-        type:
-          basic: void
-    - name: calcTotalDirtLevel
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: clothing
-          type:
-            basic: Clothing
-      returns:
-        type:
-          basic: void
-    - name: fromString
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: BloodClothingType
-    - name: getCoveredPartCount
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bloodClothingType
-          type:
-            basic: ArrayList
-            full: ArrayList<BloodClothingType>
-      returns:
-        type:
-          basic: int
-    - name: getCoveredParts
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bloodClothingType
-          type:
-            basic: ArrayList
-            full: ArrayList<BloodClothingType>
-        - name: result
-          type:
-            basic: ArrayList
-            full: ArrayList<BloodBodyPartType>
-      returns:
-        type:
-          basic: ArrayList
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: BloodClothingType
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: BloodClothingType
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-CharacterSmartTexture:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addBlood
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-        - name: intensity
-          type:
-            basic: float
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: float
-    - name: addDirt
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-        - name: intensity
-          type:
-            basic: float
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: float
-    - name: addShirtDecal
-      modifiers:
-        - public
-      parameters:
-        - name: dec
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: removeBlood
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: void
-    - name: setBlood
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-        - name: intensity
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setDirt
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-        - name: intensity
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: SmartTexture
-  notes: Created by LEMMY on 6/30/2016.
-ItemSmartTexture:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: tex
-          type:
-            basic: String
-    - modifiers:
-        - public
-      parameters:
-        - name: tex
-          type:
-            basic: String
-        - name: hue
-          type:
-            basic: float
-  methods:
-    - name: addBlood
-      modifiers:
-        - public
-      parameters:
-        - name: tex
-          type:
-            basic: String
-        - name: mask
-          type:
-            basic: String
-        - name: intensity
-          type:
-            basic: float
-        - name: category
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: addDirt
-      modifiers:
-        - public
-      parameters:
-        - name: tex
-          type:
-            basic: String
-        - name: mask
-          type:
-            basic: String
-        - name: intensity
-          type:
-            basic: float
-        - name: category
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: getTexName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: removeBlood
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: void
-    - name: removeDirt
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: void
-    - name: setBasicPatches
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: void
-    - name: setBlood
-      modifiers:
-        - public
-      parameters:
-        - name: tex
-          type:
-            basic: String
-        - name: mask
-          type:
-            basic: String
-        - name: intensity
-          type:
-            basic: float
-        - name: category
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setDenimPatches
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: void
-    - name: setLeatherPatches
-      modifiers:
-        - public
-      parameters:
-        - name: bodyPart
-          type:
-            basic: BloodBodyPartType
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: SmartTexture
+        - final
+      javaType: class
+      extends: SmartTexture

@@ -1,221 +1,222 @@
-# zombie.core.logger
-ExceptionLogger:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: logException
+namespaces:
+  zombie.core.logger:
+    ExceptionLogger:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: logException
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: ex
+              type:
+                basic: Throwable
+            - name: errorMessage
+              type:
+                basic: String
+            - name: out
+              type:
+                basic: DebugLogStream
+            - name: severity
+              type:
+                basic: LogSeverity
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: showPopup
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: ex
-          type:
-            basic: Throwable
-        - name: errorMessage
-          type:
-            basic: String
-        - name: out
-          type:
-            basic: DebugLogStream
-        - name: severity
-          type:
-            basic: LogSeverity
-      returns:
-        type:
-          basic: void
-    - name: render
+        - final
+      javaType: class
+      extends: Object
+    LoggerManager:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: createLogger
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: loggerName
+              type:
+                basic: String
+              notes: logger name. It will used for logger file name
+            - name: useConsole
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Create logger for file and optional for console.
+        - name: getLogger
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: loggerName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ZLogger
+        - name: getLogsDir
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: String
+        - name: getPlayerCoords
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: player
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: String
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: showPopup
+        - final
+      javaType: class
+      extends: Object
+    ZipLogs:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addDirToZip
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: zipfs
+              type:
+                basic: FileSystem
+            - name: filenameInternal
+              type:
+                basic: String
+            - name: filename
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: addToZip
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: zipfs
+              type:
+                basic: FileSystem
+            - name: filenameInternal
+              type:
+                basic: String
+            - name: filename
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: addZipFile
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: saveTheSaveData
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: putTextFile
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: zipfs
+              type:
+                basic: FileSystem
+            - name: filename
+              type:
+                basic: String
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-LoggerManager:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: createLogger
+        - final
+      javaType: class
+      extends: Object
+    ZLogger:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: filename
+            - name: useConsole
+              type:
+                basic: boolean
+          notes: Write logs into file and console.
+      methods:
+        - name: write
+          modifiers:
+            - public
+          parameters:
+            - name: ex
+              type:
+                basic: Exception
+          returns:
+            type:
+              basic: void
+        - name: writeUnsafe
+          modifiers:
+            - public
+          parameters:
+            - name: logs
+              type:
+                basic: String
+            - name: prefix
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: loggerName
-          type:
-            basic: String
-          notes: logger name. It will used for logger file name
-        - name: useConsole
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Create logger for file and optional for console.
-    - name: getLogger
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: loggerName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ZLogger
-    - name: getLogsDir
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: String
-    - name: getPlayerCoords
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: player
-          type:
-            basic: IsoPlayer
-      returns:
-        type:
-          basic: String
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ZipLogs:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addDirToZip
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: zipfs
-          type:
-            basic: FileSystem
-        - name: filenameInternal
-          type:
-            basic: String
-        - name: filename
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: addToZip
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: zipfs
-          type:
-            basic: FileSystem
-        - name: filenameInternal
-          type:
-            basic: String
-        - name: filename
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: addZipFile
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: saveTheSaveData
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: putTextFile
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: zipfs
-          type:
-            basic: FileSystem
-        - name: filename
-          type:
-            basic: String
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ZLogger:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: filename
-        - name: useConsole
-          type:
-            basic: boolean
-      notes: Write logs into file and console.
-  methods:
-    - name: write
-      modifiers:
-        - public
-      parameters:
-        - name: ex
-          type:
-            basic: Exception
-      returns:
-        type:
-          basic: void
-    - name: writeUnsafe
-      modifiers:
-        - public
-      parameters:
-        - name: logs
-          type:
-            basic: String
-        - name: prefix
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
+        - final
+      javaType: class
+      extends: Object

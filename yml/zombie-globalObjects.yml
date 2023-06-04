@@ -1,1034 +1,1035 @@
-# zombie.globalObjects
-CGlobalObject:
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: GlobalObject
-CGlobalObjectNetwork:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: receive
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: sendClientCommand
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: player
-          type:
-            basic: IsoPlayer
-        - name: systemName
-          type:
-            basic: String
-        - name: command
-          type:
-            basic: String
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-CGlobalObjects:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getSystemByIndex
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: CGlobalObjectSystem
-    - name: getSystemByName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: CGlobalObjectSystem
-    - name: getSystemCount
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: initSystems
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: loadInitialState
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: newSystem
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: CGlobalObjectSystem
-    - name: noise
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: message
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: receiveServerCommand
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: systemName
-          type:
-            basic: String
-        - name: command
-          type:
-            basic: String
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: boolean
-    - name: registerSystem
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: CGlobalObjectSystem
-    - name: Reset
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-CGlobalObjectSystem:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-  methods:
-    - name: receiveNewLuaObjectAt
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: receiveRemoveLuaObjectAt
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: receiveServerCommand
-      modifiers:
-        - public
-      parameters:
-        - name: command
-          type:
-            basic: String
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: receiveUpdateLuaObjectAt
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: sendCommand
-      modifiers:
-        - public
-      parameters:
-        - name: command
-          type:
-            basic: String
-        - name: player
-          type:
-            basic: IsoPlayer
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: GlobalObjectSystem
-GlobalObject:
-  methods:
-    - name: getModData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: se.krka.kahlua.vm.KahluaTable
-    - name: getSystem
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: GlobalObjectSystem
-    - name: getX
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getY
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getZ
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: Reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setLocation
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-GlobalObjectLookup:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: system
-          type:
-            basic: GlobalObjectSystem
-  methods:
-    - name: addObject
-      modifiers:
-        - public
-      parameters:
-        - name: object
-          type:
-            basic: GlobalObject
-      returns:
-        type:
-          basic: void
-    - name: getObjectAt
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: GlobalObject
-    - name: getObjectsAdjacentTo
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-        - name: objects
-          type:
-            basic: ArrayList
-            full: ArrayList<GlobalObject>
-      returns:
-        type:
-          basic: ArrayList
-    - name: getObjectsInChunk
-      modifiers:
-        - public
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-        - name: objects
-          type:
-            basic: ArrayList
-            full: ArrayList<GlobalObject>
-      returns:
-        type:
-          basic: ArrayList
-    - name: hasObjectsInChunk
-      modifiers:
-        - public
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: init
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: metaGrid
-          type:
-            basic: IsoMetaGrid
-      returns:
-        type:
-          basic: void
-    - name: removeObject
-      modifiers:
-        - public
-      parameters:
-        - name: object
-          type:
-            basic: GlobalObject
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-GlobalObjectSystem:
-  methods:
-    - name: allocList
+namespaces:
+  zombie.globalObjects:
+    CGlobalObject:
       modifiers:
         - public
         - final
-      returns:
-        type:
-          basic: ArrayList
-    - name: finishedWithList
+      javaType: class
+      extends: GlobalObject
+    CGlobalObjectNetwork:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: receive
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: sendClientCommand
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: player
+              type:
+                basic: IsoPlayer
+            - name: systemName
+              type:
+                basic: String
+            - name: command
+              type:
+                basic: String
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - final
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<GlobalObject>
-      returns:
-        type:
-          basic: void
-    - name: getModData
+      javaType: class
+      extends: Object
+    CGlobalObjects:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getSystemByIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: CGlobalObjectSystem
+        - name: getSystemByName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: CGlobalObjectSystem
+        - name: getSystemCount
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: initSystems
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: loadInitialState
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: newSystem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: CGlobalObjectSystem
+        - name: noise
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: message
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: receiveServerCommand
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: systemName
+              type:
+                basic: String
+            - name: command
+              type:
+                basic: String
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: boolean
+        - name: registerSystem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: CGlobalObjectSystem
+        - name: Reset
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - final
-      returns:
-        type:
-          basic: se.krka.kahlua.vm.KahluaTable
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getObjectAt
-      modifiers:
-        - public
-        - final
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: GlobalObject
-    - name: getObjectByIndex
-      modifiers:
-        - public
-        - final
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: GlobalObject
-    - name: getObjectCount
-      modifiers:
-        - public
-        - final
-      returns:
-        type:
-          basic: int
-    - name: getObjectsAdjacentTo
-      modifiers:
-        - public
-        - final
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: ArrayList
-    - name: getObjectsInChunk
-      modifiers:
-        - public
-        - final
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-      returns:
-        type:
-          basic: ArrayList
-    - name: hasObjectsInChunk
-      modifiers:
-        - public
-        - final
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: newObject
-      modifiers:
-        - public
-        - final
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: GlobalObject
-    - name: removeObject
+      javaType: class
+      extends: Object
+    CGlobalObjectSystem:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+      methods:
+        - name: receiveNewLuaObjectAt
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: receiveRemoveLuaObjectAt
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: receiveServerCommand
+          modifiers:
+            - public
+          parameters:
+            - name: command
+              type:
+                basic: String
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: receiveUpdateLuaObjectAt
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: sendCommand
+          modifiers:
+            - public
+          parameters:
+            - name: command
+              type:
+                basic: String
+            - name: player
+              type:
+                basic: IsoPlayer
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - final
-      parameters:
-        - name: object
-          type:
-            basic: GlobalObject
-      returns:
-        type:
-          basic: void
-    - name: Reset
+      javaType: class
+      extends: GlobalObjectSystem
+    GlobalObject:
+      methods:
+        - name: getModData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: se.krka.kahlua.vm.KahluaTable
+        - name: getSystem
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: GlobalObjectSystem
+        - name: getX
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getY
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getZ
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setLocation
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-SGlobalObject:
-  methods:
-    - name: load
+        - abstract
+      javaType: class
+      extends: Object
+    GlobalObjectLookup:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: system
+              type:
+                basic: GlobalObjectSystem
+      methods:
+        - name: addObject
+          modifiers:
+            - public
+          parameters:
+            - name: object
+              type:
+                basic: GlobalObject
+          returns:
+            type:
+              basic: void
+        - name: getObjectAt
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GlobalObject
+        - name: getObjectsAdjacentTo
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: objects
+              type:
+                basic: ArrayList
+                full: ArrayList<GlobalObject>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getObjectsInChunk
+          modifiers:
+            - public
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+            - name: objects
+              type:
+                basic: ArrayList
+                full: ArrayList<GlobalObject>
+          returns:
+            type:
+              basic: ArrayList
+        - name: hasObjectsInChunk
+          modifiers:
+            - public
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: init
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: metaGrid
+              type:
+                basic: IsoMetaGrid
+          returns:
+            type:
+              basic: void
+        - name: removeObject
+          modifiers:
+            - public
+          parameters:
+            - name: object
+              type:
+                basic: GlobalObject
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-        - name: WorldVersion
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: save
+        - final
+      javaType: class
+      extends: Object
+    GlobalObjectSystem:
+      methods:
+        - name: allocList
+          modifiers:
+            - public
+            - final
+          returns:
+            type:
+              basic: ArrayList
+        - name: finishedWithList
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<GlobalObject>
+          returns:
+            type:
+              basic: void
+        - name: getModData
+          modifiers:
+            - public
+            - final
+          returns:
+            type:
+              basic: se.krka.kahlua.vm.KahluaTable
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getObjectAt
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GlobalObject
+        - name: getObjectByIndex
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GlobalObject
+        - name: getObjectCount
+          modifiers:
+            - public
+            - final
+          returns:
+            type:
+              basic: int
+        - name: getObjectsAdjacentTo
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getObjectsInChunk
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: hasObjectsInChunk
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: newObject
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GlobalObject
+        - name: removeObject
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: object
+              type:
+                basic: GlobalObject
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: GlobalObject
-SGlobalObjectNetwork:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addGlobalObjectOnClient
+        - abstract
+      javaType: class
+      extends: Object
+    SGlobalObject:
+      methods:
+        - name: load
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: globalObject
-          type:
-            basic: SGlobalObject
-      returns:
-        type:
-          basic: void
-    - name: receive
+        - final
+      javaType: class
+      extends: GlobalObject
+    SGlobalObjectNetwork:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addGlobalObjectOnClient
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: globalObject
+              type:
+                basic: SGlobalObject
+          returns:
+            type:
+              basic: void
+        - name: receive
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+            - name: player
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: void
+        - name: removeGlobalObjectOnClient
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: globalObject
+              type:
+                basic: GlobalObject
+          returns:
+            type:
+              basic: void
+        - name: sendServerCommand
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: systemName
+              type:
+                basic: String
+            - name: command
+              type:
+                basic: String
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: updateGlobalObjectOnClient
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: globalObject
+              type:
+                basic: SGlobalObject
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-        - name: player
-          type:
-            basic: IsoPlayer
-      returns:
-        type:
-          basic: void
-    - name: removeGlobalObjectOnClient
+        - final
+      javaType: class
+      extends: Object
+    SGlobalObjects:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: chunkLoaded
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: getSystemByIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: SGlobalObjectSystem
+        - name: getSystemByName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: SGlobalObjectSystem
+        - name: getSystemCount
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: initSystems
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: load
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: newSystem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: SGlobalObjectSystem
+        - name: noise
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: message
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: OnIsoObjectChangedItself
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: systemName
+              type:
+                basic: String
+            - name: isoObject
+              type:
+                basic: IsoObject
+          returns:
+            type:
+              basic: void
+        - name: receiveClientCommand
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: systemName
+              type:
+                basic: String
+            - name: command
+              type:
+                basic: String
+            - name: playerObj
+              type:
+                basic: IsoPlayer
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: boolean
+        - name: registerSystem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: SGlobalObjectSystem
+        - name: Reset
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: saveInitialStateForClient
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: globalObject
-          type:
-            basic: GlobalObject
-      returns:
-        type:
-          basic: void
-    - name: sendServerCommand
+        - final
+      javaType: class
+      extends: Object
+    SGlobalObjectSystem:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+      methods:
+        - name: addGlobalObjectOnClient
+          modifiers:
+            - public
+          parameters:
+            - name: globalObject
+              type:
+                basic: SGlobalObject
+          returns:
+            type:
+              basic: void
+        - name: chunkLoaded
+          modifiers:
+            - public
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: getInitialStateForClient
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: se.krka.kahlua.vm.KahluaTable
+        - name: load
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: loadedWorldVersion
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: OnIsoObjectChangedItself
+          modifiers:
+            - public
+          parameters:
+            - name: isoObject
+              type:
+                basic: IsoObject
+          returns:
+            type:
+              basic: void
+        - name: receiveClientCommand
+          modifiers:
+            - public
+          parameters:
+            - name: command
+              type:
+                basic: String
+            - name: playerObj
+              type:
+                basic: IsoPlayer
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: removeGlobalObjectOnClient
+          modifiers:
+            - public
+          parameters:
+            - name: globalObject
+              type:
+                basic: SGlobalObject
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: sendCommand
+          modifiers:
+            - public
+          parameters:
+            - name: command
+              type:
+                basic: String
+            - name: args
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: setModDataKeys
+          modifiers:
+            - public
+          parameters:
+            - name: keys
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: setObjectModDataKeys
+          modifiers:
+            - public
+          parameters:
+            - name: keys
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: setObjectSyncKeys
+          modifiers:
+            - public
+          parameters:
+            - name: keys
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: updateGlobalObjectOnClient
+          modifiers:
+            - public
+          parameters:
+            - name: globalObject
+              type:
+                basic: SGlobalObject
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: systemName
-          type:
-            basic: String
-        - name: command
-          type:
-            basic: String
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: updateGlobalObjectOnClient
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: globalObject
-          type:
-            basic: SGlobalObject
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-SGlobalObjects:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: chunkLoaded
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: getSystemByIndex
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: SGlobalObjectSystem
-    - name: getSystemByName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: SGlobalObjectSystem
-    - name: getSystemCount
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: initSystems
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: load
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: newSystem
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: SGlobalObjectSystem
-    - name: noise
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: message
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: OnIsoObjectChangedItself
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: systemName
-          type:
-            basic: String
-        - name: isoObject
-          type:
-            basic: IsoObject
-      returns:
-        type:
-          basic: void
-    - name: receiveClientCommand
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: systemName
-          type:
-            basic: String
-        - name: command
-          type:
-            basic: String
-        - name: playerObj
-          type:
-            basic: IsoPlayer
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: boolean
-    - name: registerSystem
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: SGlobalObjectSystem
-    - name: Reset
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: save
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: saveInitialStateForClient
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-SGlobalObjectSystem:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-  methods:
-    - name: addGlobalObjectOnClient
-      modifiers:
-        - public
-      parameters:
-        - name: globalObject
-          type:
-            basic: SGlobalObject
-      returns:
-        type:
-          basic: void
-    - name: chunkLoaded
-      modifiers:
-        - public
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: getInitialStateForClient
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: se.krka.kahlua.vm.KahluaTable
-    - name: load
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: loadedWorldVersion
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: OnIsoObjectChangedItself
-      modifiers:
-        - public
-      parameters:
-        - name: isoObject
-          type:
-            basic: IsoObject
-      returns:
-        type:
-          basic: void
-    - name: receiveClientCommand
-      modifiers:
-        - public
-      parameters:
-        - name: command
-          type:
-            basic: String
-        - name: playerObj
-          type:
-            basic: IsoPlayer
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: removeGlobalObjectOnClient
-      modifiers:
-        - public
-      parameters:
-        - name: globalObject
-          type:
-            basic: SGlobalObject
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: save
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: sendCommand
-      modifiers:
-        - public
-      parameters:
-        - name: command
-          type:
-            basic: String
-        - name: args
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: setModDataKeys
-      modifiers:
-        - public
-      parameters:
-        - name: keys
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: setObjectModDataKeys
-      modifiers:
-        - public
-      parameters:
-        - name: keys
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: setObjectSyncKeys
-      modifiers:
-        - public
-      parameters:
-        - name: keys
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: updateGlobalObjectOnClient
-      modifiers:
-        - public
-      parameters:
-        - name: globalObject
-          type:
-            basic: SGlobalObject
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: GlobalObjectSystem
+        - final
+      javaType: class
+      extends: GlobalObjectSystem

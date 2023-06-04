@@ -1,498 +1,499 @@
-# zombie.characters.traits
-ObservationFactory:
-  constructors:
-    - modifiers:
+namespaces:
+  zombie.characters.traits:
+    ObservationFactory:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addObservation
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: desc
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: getObservation
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ObservationFactory.Observation
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: setMutualExclusive
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: String
+            - name: b
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
         - public
-  methods:
-    - name: addObservation
+        - final
+      javaType: class
+      extends: Object
+    ObservationFactory.Observation:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: tr
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: desc
+              type:
+                basic: String
+      methods:
+        - name: getDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getLabel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getLeftLabel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getRightLabel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTraitID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: setDescription
+          modifiers:
+            - public
+          parameters:
+            - name: description
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setName
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setTraitID
+          modifiers:
+            - public
+          parameters:
+            - name: traitID
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: type
-          type:
-            basic: String
-        - name: name
-          type:
-            basic: String
-        - name: desc
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: getObservation
+      javaType: class
+      extends: Object
+    TraitCollection:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: trait
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: addAll
+          modifiers:
+            - public
+          parameters:
+            - name: c
+              type:
+                basic: Collection
+                full: Collection<? extends String>
+          returns:
+            type:
+              basic: void
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: trait
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: n
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getTraitSlot
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: TraitCollection.TraitSlot
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: removeAll
+          modifiers:
+            - public
+          parameters:
+            - name: c
+              type:
+                basic: Collection
+                full: Collection<?>
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: size
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    TraitFactory:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addTrait
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: cost
+              type:
+                basic: int
+            - name: desc
+              type:
+                basic: String
+            - name: profession
+              type:
+                basic: boolean
+            - name: removeInMP
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: TraitFactory.Trait
+        - name: getTrait
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: TraitFactory.Trait
+        - name: getTraits
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ArrayList
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: setMutualExclusive
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: String
+            - name: b
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: sortList
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+    TraitFactory.Trait:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: tr
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: cost
+              type:
+                basic: int
+            - name: desc
+              type:
+                basic: String
+            - name: prof
+              type:
+                basic: boolean
+            - name: removeInMP
+              type:
+                basic: boolean
+      methods:
+        - name: addXPBoost
+          modifiers:
+            - public
+          parameters:
+            - name: perk
+              type:
+                basic: PerkFactory.Perk
+            - name: level
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: getCost
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getFreeRecipes
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: List
+        - name: getLabel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getLeftLabel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getMutuallyExclusiveTraits
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getRightLabel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTexture
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Texture
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getXPBoostMap
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: HashMap
+        - name: isFree
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isRemoveInMP
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: setDescription
+          modifiers:
+            - public
+          parameters:
+            - name: desc
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setFreeRecipes
+          modifiers:
+            - public
+          parameters:
+            - name: freeRecipes
+              type:
+                basic: List
+                full: List<String>
+          returns:
+            type:
+              basic: void
+        - name: setRemoveInMP
+          modifiers:
+            - public
+          parameters:
+            - name: removeInMP
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ObservationFactory.Observation
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: setMutualExclusive
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: String
-        - name: b
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ObservationFactory.Observation:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: tr
-          type:
-            basic: String
-        - name: name
-          type:
-            basic: String
-        - name: desc
-          type:
-            basic: String
-  methods:
-    - name: getDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getLabel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getLeftLabel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getRightLabel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTraitID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: setDescription
-      modifiers:
-        - public
-      parameters:
-        - name: description
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setName
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setTraitID
-      modifiers:
-        - public
-      parameters:
-        - name: traitID
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-TraitCollection:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: add
-      modifiers:
-        - public
-      parameters:
-        - name: trait
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: addAll
-      modifiers:
-        - public
-      parameters:
-        - name: c
-          type:
-            basic: Collection
-            full: Collection<? extends String>
-      returns:
-        type:
-          basic: void
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: contains
-      modifiers:
-        - public
-      parameters:
-        - name: trait
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: n
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getTraitSlot
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: TraitCollection.TraitSlot
-    - name: isEmpty
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: remove
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: removeAll
-      modifiers:
-        - public
-      parameters:
-        - name: c
-          type:
-            basic: Collection
-            full: Collection<?>
-      returns:
-        type:
-          basic: void
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-TraitFactory:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addTrait
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: type
-          type:
-            basic: String
-        - name: name
-          type:
-            basic: String
-        - name: cost
-          type:
-            basic: int
-        - name: desc
-          type:
-            basic: String
-        - name: profession
-          type:
-            basic: boolean
-        - name: removeInMP
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: TraitFactory.Trait
-    - name: getTrait
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: TraitFactory.Trait
-    - name: getTraits
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ArrayList
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: setMutualExclusive
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: String
-        - name: b
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: sortList
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-TraitFactory.Trait:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: tr
-          type:
-            basic: String
-        - name: name
-          type:
-            basic: String
-        - name: cost
-          type:
-            basic: int
-        - name: desc
-          type:
-            basic: String
-        - name: prof
-          type:
-            basic: boolean
-        - name: removeInMP
-          type:
-            basic: boolean
-  methods:
-    - name: addXPBoost
-      modifiers:
-        - public
-      parameters:
-        - name: perk
-          type:
-            basic: PerkFactory.Perk
-        - name: level
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: getCost
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getFreeRecipes
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: List
-    - name: getLabel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getLeftLabel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getMutuallyExclusiveTraits
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: getRightLabel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTexture
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Texture
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getXPBoostMap
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: HashMap
-    - name: isFree
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isRemoveInMP
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: setDescription
-      modifiers:
-        - public
-      parameters:
-        - name: desc
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setFreeRecipes
-      modifiers:
-        - public
-      parameters:
-        - name: freeRecipes
-          type:
-            basic: List
-            full: List<String>
-      returns:
-        type:
-          basic: void
-    - name: setRemoveInMP
-      modifiers:
-        - public
-      parameters:
-        - name: removeInMP
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
+      javaType: class
+      extends: Object

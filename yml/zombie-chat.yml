@@ -1,1880 +1,1881 @@
-# zombie.chat
-ChatBase:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-          notes: package from server that describe how chat should look and work
-        - name: type
-          type:
-            basic: ChatType
-        - name: tab
-          type:
-            basic: ChatTab
-        - name: owner
-          type:
-            basic: IsoPlayer
-      notes: Should called only on client side of chat system
-    - modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: int
-          notes: unique id of chat. It will be used to identify chat in client-server
-            communication
-        - name: type
-          type:
-            basic: ChatType
-        - name: tab
-          type:
-            basic: ChatTab
-      notes: Should be called only on server side of chat system
-  methods:
-    - name: addMember
+namespaces:
+  zombie.chat:
+    ChatBase:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+              notes: package from server that describe how chat should look and work
+            - name: type
+              type:
+                basic: ChatType
+            - name: tab
+              type:
+                basic: ChatTab
+            - name: owner
+              type:
+                basic: IsoPlayer
+          notes: Should called only on client side of chat system
+        - modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: int
+              notes: unique id of chat. It will be used to identify chat in client-server
+                communication
+            - name: type
+              type:
+                basic: ChatType
+            - name: tab
+              type:
+                basic: ChatTab
+          notes: Should be called only on server side of chat system
+      methods:
+        - name: addMember
+          modifiers:
+            - public
+          parameters:
+            - name: playerID
+              type:
+                basic: short
+          returns:
+            type:
+              basic: void
+        - name: close
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: createMessage
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+              notes: text of the message
+          returns:
+            type:
+              basic: ChatMessage
+            notes: corresponding object to message
+          notes: Message creator. Every chat know how to create its own message
+        - name: createServerMessage
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ServerChatMessage
+        - name: getColor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Color
+        - name: getID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getJustAddedMembers
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getJustRemovedMembers
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getMessagePrefix
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: ChatMessage
+          returns:
+            type:
+              basic: String
+        - name: getMessageTextWithPrefix
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: ChatMessage
+          returns:
+            type:
+              basic: String
+        - name: getMode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ChatMode
+        - name: getRange
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getTabID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: short
+        - name: getTitleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ChatType
+        - name: getZombieAttractionRange
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: isEnabled
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isSendingToRadio
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: leaveMember
+          modifiers:
+            - public
+          parameters:
+            - name: playerID
+              type:
+                basic: Short
+          returns:
+            type:
+              basic: void
+        - name: packMessage
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: ByteBufferWriter
+            - name: msg
+              type:
+                basic: ChatMessage
+          returns:
+            type:
+              basic: void
+        - name: removeMember
+          modifiers:
+            - public
+          parameters:
+            - name: playerID
+              type:
+                basic: Short
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToChatMembers
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: ServerChatMessage
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToPlayer
+          modifiers:
+            - public
+          parameters:
+            - name: playerID
+              type:
+                basic: short
+            - name: msg
+              type:
+                basic: ChatMessage
+          returns:
+            type:
+              basic: void
+        - name: sendPlayerJoinChatPacket
+          modifiers:
+            - public
+          parameters:
+            - name: playerConnection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: sendPlayerLeaveChatPacket
+          modifiers:
+            - public
+          parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: sendToServer
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: ChatMessage
+            - name: deviceData
+              type:
+                basic: DeviceData
+          returns:
+            type:
+              basic: void
+        - name: setFontSize
+          modifiers:
+            - public
+          parameters:
+            - name: fontSize
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setSettings
+          modifiers:
+            - public
+          parameters:
+            - name: settings
+              type:
+                basic: ChatSettings
+          returns:
+            type:
+              basic: void
+        - name: setShowTimestamp
+          modifiers:
+            - public
+          parameters:
+            - name: showTimestamp
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setShowTitle
+          modifiers:
+            - public
+          parameters:
+            - name: showTitle
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: showMessage
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: ChatMessage
+          returns:
+            type:
+              basic: void
+        - name: syncMembersByUsernames
+          modifiers:
+            - public
+          parameters:
+            - name: players
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: unpackMessage
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: ChatMessage
       modifiers:
         - public
-      parameters:
-        - name: playerID
-          type:
-            basic: short
-      returns:
-        type:
-          basic: void
-    - name: close
+        - abstract
+      javaType: class
+      extends: Object
+    ChatElement:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: chatowner
+              type:
+                basic: ChatElementOwner
+            - name: numberoflines
+              type:
+                basic: int
+            - name: talkertype
+              type:
+                basic: String
+      methods:
+        - name: addChatLine
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: String
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: font
+              type:
+                basic: UIFont
+            - name: baseRange
+              type:
+                basic: float
+            - name: customTag
+              type:
+                basic: String
+            - name: bbcode
+              type:
+                basic: boolean
+            - name: img
+              type:
+                basic: boolean
+            - name: icons
+              type:
+                basic: boolean
+            - name: colors
+              type:
+                basic: boolean
+            - name: fonts
+              type:
+                basic: boolean
+            - name: equalizeHeights
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: addNoLogText
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: clear
+          modifiers:
+            - public
+          parameters:
+            - name: playerIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: getHasChatToDisplay
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: getMaxChatLines
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getSayLine
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getSayLineTag
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTalkerType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: IsSpeaking
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: NoRender
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerNum
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: RenderBatch
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerNum
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: renderBatched
+          modifiers:
+            - public
+          parameters:
+            - name: playerNum
+              type:
+                basic: int
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: ignoreRadioLines
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: Say
+          modifiers:
+            - public
+          parameters:
+            - name: line
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SayDebug
+          modifiers:
+            - public
+          parameters:
+            - name: n
+              type:
+                basic: int
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setHistoryRange
+          modifiers:
+            - public
+          parameters:
+            - name: range
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setMaxCharsPerLine
+          modifiers:
+            - public
+          parameters:
+            - name: maxChars
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setMaxChatLines
+          modifiers:
+            - public
+          parameters:
+            - name: num
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setTalkerType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setUseEuclidean
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: createMessage
+      javaType: class
+      extends: Object
+      notes: >-
+        Turbo
+         shared display of chat lines functionallity for iso objects & players (characters)
+    ChatElementOwner:
+      methods:
+        - name: getSquare
+          returns:
+            type:
+              basic: IsoGridSquare
+        - name: getX
+          returns:
+            type:
+              basic: float
+        - name: getY
+          returns:
+            type:
+              basic: float
+        - name: getZ
+          returns:
+            type:
+              basic: float
       modifiers:
         - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-          notes: text of the message
-      returns:
-        type:
-          basic: ChatMessage
-        notes: corresponding object to message
-      notes: Message creator. Every chat know how to create its own message
-    - name: createServerMessage
+      javaType: interface
+      notes: Turbo
+    ChatManager:
+      methods:
+        - name: addMessage
+          modifiers:
+            - public
+          parameters:
+            - name: msgAuthor
+              type:
+                basic: String
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: createRadiostationMessage
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+            - name: channel
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ChatMessage
+        - name: focusOnTab
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: Short
+          returns:
+            type:
+              basic: void
+        - name: getFocusTab
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ChatTab
+        - name: getInstance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ChatManager
+        - name: getTabName
+          modifiers:
+            - public
+          parameters:
+            - name: tabID
+              type:
+                basic: short
+          returns:
+            type:
+              basic: String
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: isSinglePlayer
+              type:
+                basic: boolean
+            - name: owner
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: void
+        - name: isPlayerCanUseChat
+          modifiers:
+            - public
+          parameters:
+            - name: chat
+              type:
+                basic: ChatType
+          returns:
+            type:
+              basic: Boolean
+        - name: isSinglePlayerMode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isWorking
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: processAddTabPacket
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: processChatMessagePacket
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: processInitPlayerChatPacket
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: processJoinChatPacket
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: processLeaveChatPacket
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: processPlayerNotFound
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: processRemoveTabPacket
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToChat
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: ChatType
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: sendWhisperMessage
+          modifiers:
+            - public
+          parameters:
+            - name: destPlayerName
+              type:
+                basic: String
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setFullyConnected
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: showInfoMessage
+          modifiers:
+            - public
+          parameters:
+            - name: author
+              type:
+                basic: String
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: showRadioMessage
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+            - name: channel
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: showServerChatMessage
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: showStaticRadioSound
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: unpackMessage
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: ChatMessage
+        - name: updateChatSettings
+          modifiers:
+            - public
+          parameters:
+            - name: fontSize
+              type:
+                basic: String
+            - name: showTimestamp
+              type:
+                basic: boolean
+            - name: showTitle
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ServerChatMessage
-    - name: getColor
+      javaType: class
+      extends: Object
+    ChatMessage:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: chat
+              type:
+                basic: ChatBase
+            - name: text
+              type:
+                basic: String
+        - modifiers:
+            - public
+          parameters:
+            - name: chat
+              type:
+                basic: ChatBase
+            - name: datetime
+              type:
+                basic: LocalDateTime
+            - name: text
+              type:
+                basic: String
+      methods:
+        - name: clone
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ChatMessage
+        - name: getAuthor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getChat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ChatBase
+        - name: getChatID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getCustomTag
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getDatetime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: LocalDateTime
+        - name: getDatetimeStr
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getRadioChannel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getText
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTextColor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Color
+        - name: getTextWithPrefix
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTextWithReplacedParentheses
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: isCustomColor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isFromDiscord
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isLocal
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isOverHeadSpeech
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isScramble
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isServerAlert
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isServerAuthor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isShouldAttractZombies
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isShowAuthor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isShowInChat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: makeFromDiscord
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: pack
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: ByteBufferWriter
+          returns:
+            type:
+              basic: void
+        - name: setAuthor
+          modifiers:
+            - public
+          parameters:
+            - name: author
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setCustomTag
+          modifiers:
+            - public
+          parameters:
+            - name: customTag
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setDatetime
+          modifiers:
+            - public
+          parameters:
+            - name: datetime
+              type:
+                basic: LocalDateTime
+          returns:
+            type:
+              basic: void
+        - name: setLocal
+          modifiers:
+            - public
+          parameters:
+            - name: local
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOverHeadSpeech
+          modifiers:
+            - public
+          parameters:
+            - name: overHeadSpeech
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setRadioChannel
+          modifiers:
+            - public
+          parameters:
+            - name: radioChannel
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setScrambledText
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setServerAlert
+          modifiers:
+            - public
+          parameters:
+            - name: serverAlert
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setServerAuthor
+          modifiers:
+            - public
+          parameters:
+            - name: serverAuthor
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setShouldAttractZombies
+          modifiers:
+            - public
+          parameters:
+            - name: shouldAttractZombies
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setShowInChat
+          modifiers:
+            - public
+          parameters:
+            - name: showInChat
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setText
+          modifiers:
+            - public
+          parameters:
+            - name: text
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setTextColor
+          modifiers:
+            - public
+          parameters:
+            - name: textColor
+              type:
+                basic: Color
+          returns:
+            type:
+              basic: void
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      returns:
-        type:
-          basic: Color
-    - name: getID
+      javaType: class
+      extends: Object
+    ChatMode:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: ChatMode
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ChatMode
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-      returns:
-        type:
-          basic: int
-    - name: getJustAddedMembers
+      javaType: enum
+      extends: Enum
+    ChatSettings:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+      methods:
+        - name: getFont
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: UIFont
+        - name: getFontColor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Color
+        - name: getFontSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getRange
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getZombieAttractionRange
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: isAllowBBcode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isAllowChatIcons
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isAllowColors
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isAllowFonts
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isAllowImages
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isBold
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isEqualizeLineHeights
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isShowAuthor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isShowChatTitle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isShowTimestamp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isUnique
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isUseOnlyActiveTab
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: pack
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBufferWriter
+          returns:
+            type:
+              basic: void
+        - name: setAllowBBcode
+          modifiers:
+            - public
+          parameters:
+            - name: allowBBcode
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setAllowChatIcons
+          modifiers:
+            - public
+          parameters:
+            - name: allowChatIcons
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setAllowColors
+          modifiers:
+            - public
+          parameters:
+            - name: allowColors
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setAllowFonts
+          modifiers:
+            - public
+          parameters:
+            - name: allowFonts
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setAllowImages
+          modifiers:
+            - public
+          parameters:
+            - name: allowImages
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setBold
+          modifiers:
+            - public
+          parameters:
+            - name: bold
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setEqualizeLineHeights
+          modifiers:
+            - public
+          parameters:
+            - name: equalizeLineHeights
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setFont
+          modifiers:
+            - public
+          parameters:
+            - name: font
+              type:
+                basic: UIFont
+          returns:
+            type:
+              basic: void
+        - name: setFontColor
+          modifiers:
+            - public
+          parameters:
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setFontSize
+          modifiers:
+            - public
+          parameters:
+            - name: fontSize
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setRange
+          modifiers:
+            - public
+          parameters:
+            - name: range
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setShowAuthor
+          modifiers:
+            - public
+          parameters:
+            - name: showAuthor
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setShowChatTitle
+          modifiers:
+            - public
+          parameters:
+            - name: showChatTitle
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setShowTimestamp
+          modifiers:
+            - public
+          parameters:
+            - name: showTimestamp
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setUnique
+          modifiers:
+            - public
+          parameters:
+            - name: unique
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setUseOnlyActiveTab
+          modifiers:
+            - public
+          parameters:
+            - name: useOnlyActiveTab
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setZombieAttractionRange
+          modifiers:
+            - public
+          parameters:
+            - name: zombieAttractionRange
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: getJustRemovedMembers
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: getMessagePrefix
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: ChatMessage
-      returns:
-        type:
-          basic: String
-    - name: getMessageTextWithPrefix
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: ChatMessage
-      returns:
-        type:
-          basic: String
-    - name: getMode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ChatMode
-    - name: getRange
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getTabID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: short
-    - name: getTitleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ChatType
-    - name: getZombieAttractionRange
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: isEnabled
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isSendingToRadio
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: leaveMember
-      modifiers:
-        - public
-      parameters:
-        - name: playerID
-          type:
-            basic: Short
-      returns:
-        type:
-          basic: void
-    - name: packMessage
-      modifiers:
-        - public
-      parameters:
-        - name: b
-          type:
-            basic: ByteBufferWriter
-        - name: msg
-          type:
-            basic: ChatMessage
-      returns:
-        type:
-          basic: void
-    - name: removeMember
-      modifiers:
-        - public
-      parameters:
-        - name: playerID
-          type:
-            basic: Short
-      returns:
-        type:
-          basic: void
-    - name: sendMessageToChatMembers
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: ServerChatMessage
-      returns:
-        type:
-          basic: void
-    - name: sendMessageToPlayer
-      modifiers:
-        - public
-      parameters:
-        - name: playerID
-          type:
-            basic: short
-        - name: msg
-          type:
-            basic: ChatMessage
-      returns:
-        type:
-          basic: void
-    - name: sendPlayerJoinChatPacket
-      modifiers:
-        - public
-      parameters:
-        - name: playerConnection
-          type:
-            basic: UdpConnection
-      returns:
-        type:
-          basic: void
-    - name: sendPlayerLeaveChatPacket
-      modifiers:
-        - public
-      parameters:
-        - name: connection
-          type:
-            basic: UdpConnection
-      returns:
-        type:
-          basic: void
-    - name: sendToServer
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: ChatMessage
-        - name: deviceData
-          type:
-            basic: DeviceData
-      returns:
-        type:
-          basic: void
-    - name: setFontSize
-      modifiers:
-        - public
-      parameters:
-        - name: fontSize
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setSettings
-      modifiers:
-        - public
-      parameters:
-        - name: settings
-          type:
-            basic: ChatSettings
-      returns:
-        type:
-          basic: void
-    - name: setShowTimestamp
-      modifiers:
-        - public
-      parameters:
-        - name: showTimestamp
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setShowTitle
-      modifiers:
-        - public
-      parameters:
-        - name: showTitle
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: showMessage
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: ChatMessage
-      returns:
-        type:
-          basic: void
-    - name: syncMembersByUsernames
-      modifiers:
-        - public
-      parameters:
-        - name: players
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: unpackMessage
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: ChatMessage
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-ChatElement:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: chatowner
-          type:
-            basic: ChatElementOwner
-        - name: numberoflines
-          type:
-            basic: int
-        - name: talkertype
-          type:
-            basic: String
-  methods:
-    - name: addChatLine
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: String
-        - name: r
-          type:
-            basic: float
-        - name: g
-          type:
-            basic: float
-        - name: b
-          type:
-            basic: float
-        - name: font
-          type:
-            basic: UIFont
-        - name: baseRange
-          type:
-            basic: float
-        - name: customTag
-          type:
-            basic: String
-        - name: bbcode
-          type:
-            basic: boolean
-        - name: img
-          type:
-            basic: boolean
-        - name: icons
-          type:
-            basic: boolean
-        - name: colors
-          type:
-            basic: boolean
-        - name: fonts
-          type:
-            basic: boolean
-        - name: equalizeHeights
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: addNoLogText
+      javaType: class
+      extends: Object
+    ChatSettings.FontSize:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: ChatSettings.FontSize
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ChatSettings.FontSize
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
         - static
-      parameters:
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: clear
-      modifiers:
-        - public
-      parameters:
-        - name: playerIndex
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: getHasChatToDisplay
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: getMaxChatLines
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getSayLine
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getSayLineTag
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTalkerType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: IsSpeaking
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: NoRender
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playerNum
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: RenderBatch
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playerNum
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: renderBatched
-      modifiers:
-        - public
-      parameters:
-        - name: playerNum
-          type:
-            basic: int
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: ignoreRadioLines
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: Say
-      modifiers:
-        - public
-      parameters:
-        - name: line
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SayDebug
-      modifiers:
-        - public
-      parameters:
-        - name: n
-          type:
-            basic: int
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setHistoryRange
-      modifiers:
-        - public
-      parameters:
-        - name: range
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setMaxCharsPerLine
-      modifiers:
-        - public
-      parameters:
-        - name: maxChars
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setMaxChatLines
-      modifiers:
-        - public
-      parameters:
-        - name: num
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setTalkerType
-      modifiers:
-        - public
-      parameters:
-        - name: type
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setUseEuclidean
-      modifiers:
-        - public
-      parameters:
-        - name: b
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: >-
-    Turbo
-     shared display of chat lines functionallity for iso objects & players (characters)
-ChatElementOwner:
-  methods:
-    - name: getSquare
-      returns:
-        type:
-          basic: IsoGridSquare
-    - name: getX
-      returns:
-        type:
-          basic: float
-    - name: getY
-      returns:
-        type:
-          basic: float
-    - name: getZ
-      returns:
-        type:
-          basic: float
-  modifiers:
-    - public
-  javaType: interface
-  notes: Turbo
-ChatManager:
-  methods:
-    - name: addMessage
-      modifiers:
-        - public
-      parameters:
-        - name: msgAuthor
-          type:
-            basic: String
-        - name: msg
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: createRadiostationMessage
-      modifiers:
-        - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-        - name: channel
-          type:
-            basic: int
-      returns:
-        type:
-          basic: ChatMessage
-    - name: focusOnTab
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: Short
-      returns:
-        type:
-          basic: void
-    - name: getFocusTab
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ChatTab
-    - name: getInstance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ChatManager
-    - name: getTabName
-      modifiers:
-        - public
-      parameters:
-        - name: tabID
-          type:
-            basic: short
-      returns:
-        type:
-          basic: String
-    - name: init
-      modifiers:
-        - public
-      parameters:
-        - name: isSinglePlayer
-          type:
-            basic: boolean
-        - name: owner
-          type:
-            basic: IsoPlayer
-      returns:
-        type:
-          basic: void
-    - name: isPlayerCanUseChat
-      modifiers:
-        - public
-      parameters:
-        - name: chat
-          type:
-            basic: ChatType
-      returns:
-        type:
-          basic: Boolean
-    - name: isSinglePlayerMode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isWorking
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: processAddTabPacket
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: processChatMessagePacket
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: processInitPlayerChatPacket
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: processJoinChatPacket
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: processLeaveChatPacket
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: processPlayerNotFound
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: processRemoveTabPacket
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-    - name: sendMessageToChat
-      modifiers:
-        - public
-      parameters:
-        - name: type
-          type:
-            basic: ChatType
-        - name: msg
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: sendWhisperMessage
-      modifiers:
-        - public
-      parameters:
-        - name: destPlayerName
-          type:
-            basic: String
-        - name: msg
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setFullyConnected
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: showInfoMessage
-      modifiers:
-        - public
-      parameters:
-        - name: author
-          type:
-            basic: String
-        - name: msg
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: showRadioMessage
-      modifiers:
-        - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-        - name: channel
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: showServerChatMessage
-      modifiers:
-        - public
-      parameters:
-        - name: msg
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: showStaticRadioSound
-      modifiers:
-        - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: unpackMessage
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: ChatMessage
-    - name: updateChatSettings
-      modifiers:
-        - public
-      parameters:
-        - name: fontSize
-          type:
-            basic: String
-        - name: showTimestamp
-          type:
-            basic: boolean
-        - name: showTitle
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ChatMessage:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: chat
-          type:
-            basic: ChatBase
-        - name: text
-          type:
-            basic: String
-    - modifiers:
-        - public
-      parameters:
-        - name: chat
-          type:
-            basic: ChatBase
-        - name: datetime
-          type:
-            basic: LocalDateTime
-        - name: text
-          type:
-            basic: String
-  methods:
-    - name: clone
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ChatMessage
-    - name: getAuthor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getChat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ChatBase
-    - name: getChatID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getCustomTag
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getDatetime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: LocalDateTime
-    - name: getDatetimeStr
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getRadioChannel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getText
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTextColor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Color
-    - name: getTextWithPrefix
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTextWithReplacedParentheses
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: isCustomColor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isFromDiscord
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isLocal
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isOverHeadSpeech
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isScramble
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isServerAlert
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isServerAuthor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isShouldAttractZombies
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isShowAuthor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isShowInChat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: makeFromDiscord
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: pack
-      modifiers:
-        - public
-      parameters:
-        - name: b
-          type:
-            basic: ByteBufferWriter
-      returns:
-        type:
-          basic: void
-    - name: setAuthor
-      modifiers:
-        - public
-      parameters:
-        - name: author
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setCustomTag
-      modifiers:
-        - public
-      parameters:
-        - name: customTag
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setDatetime
-      modifiers:
-        - public
-      parameters:
-        - name: datetime
-          type:
-            basic: LocalDateTime
-      returns:
-        type:
-          basic: void
-    - name: setLocal
-      modifiers:
-        - public
-      parameters:
-        - name: local
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setOverHeadSpeech
-      modifiers:
-        - public
-      parameters:
-        - name: overHeadSpeech
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setRadioChannel
-      modifiers:
-        - public
-      parameters:
-        - name: radioChannel
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setScrambledText
-      modifiers:
-        - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setServerAlert
-      modifiers:
-        - public
-      parameters:
-        - name: serverAlert
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setServerAuthor
-      modifiers:
-        - public
-      parameters:
-        - name: serverAuthor
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setShouldAttractZombies
-      modifiers:
-        - public
-      parameters:
-        - name: shouldAttractZombies
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setShowInChat
-      modifiers:
-        - public
-      parameters:
-        - name: showInChat
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setText
-      modifiers:
-        - public
-      parameters:
-        - name: text
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setTextColor
-      modifiers:
-        - public
-      parameters:
-        - name: textColor
-          type:
-            basic: Color
-      returns:
-        type:
-          basic: void
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ChatMode:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: ChatMode
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ChatMode
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-ChatSettings:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBuffer
-  methods:
-    - name: getFont
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: UIFont
-    - name: getFontColor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Color
-    - name: getFontSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getRange
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getZombieAttractionRange
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: isAllowBBcode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isAllowChatIcons
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isAllowColors
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isAllowFonts
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isAllowImages
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isBold
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isEqualizeLineHeights
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isShowAuthor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isShowChatTitle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isShowTimestamp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isUnique
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isUseOnlyActiveTab
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: pack
-      modifiers:
-        - public
-      parameters:
-        - name: bb
-          type:
-            basic: ByteBufferWriter
-      returns:
-        type:
-          basic: void
-    - name: setAllowBBcode
-      modifiers:
-        - public
-      parameters:
-        - name: allowBBcode
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setAllowChatIcons
-      modifiers:
-        - public
-      parameters:
-        - name: allowChatIcons
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setAllowColors
-      modifiers:
-        - public
-      parameters:
-        - name: allowColors
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setAllowFonts
-      modifiers:
-        - public
-      parameters:
-        - name: allowFonts
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setAllowImages
-      modifiers:
-        - public
-      parameters:
-        - name: allowImages
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setBold
-      modifiers:
-        - public
-      parameters:
-        - name: bold
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setEqualizeLineHeights
-      modifiers:
-        - public
-      parameters:
-        - name: equalizeLineHeights
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setFont
-      modifiers:
-        - public
-      parameters:
-        - name: font
-          type:
-            basic: UIFont
-      returns:
-        type:
-          basic: void
-    - name: setFontColor
-      modifiers:
-        - public
-      parameters:
-        - name: r
-          type:
-            basic: float
-        - name: g
-          type:
-            basic: float
-        - name: b
-          type:
-            basic: float
-        - name: a
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setFontSize
-      modifiers:
-        - public
-      parameters:
-        - name: fontSize
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setRange
-      modifiers:
-        - public
-      parameters:
-        - name: range
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setShowAuthor
-      modifiers:
-        - public
-      parameters:
-        - name: showAuthor
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setShowChatTitle
-      modifiers:
-        - public
-      parameters:
-        - name: showChatTitle
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setShowTimestamp
-      modifiers:
-        - public
-      parameters:
-        - name: showTimestamp
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setUnique
-      modifiers:
-        - public
-      parameters:
-        - name: unique
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setUseOnlyActiveTab
-      modifiers:
-        - public
-      parameters:
-        - name: useOnlyActiveTab
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setZombieAttractionRange
-      modifiers:
-        - public
-      parameters:
-        - name: zombieAttractionRange
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ChatSettings.FontSize:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: ChatSettings.FontSize
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ChatSettings.FontSize
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-ChatTab:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: tabID
-          type:
-            basic: short
-        - name: titleID
-          type:
-            basic: String
-    - modifiers:
-        - public
-      parameters:
-        - name: tabID
-          type:
-            basic: short
-        - name: titleID
-          type:
-            basic: String
-        - name: chatID
-          type:
-            basic: int
-  methods:
-    - name: getID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: short
-    - name: getTitle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTitleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: isEnabled
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: RemoveChat
-      modifiers:
-        - public
-      parameters:
-        - name: chatID
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: sendAddTabPacket
-      modifiers:
-        - public
-      parameters:
-        - name: connection
-          type:
-            basic: UdpConnection
-      returns:
-        type:
-          basic: void
-    - name: sendRemoveTabPacket
-      modifiers:
-        - public
-      parameters:
-        - name: connection
-          type:
-            basic: UdpConnection
-      returns:
-        type:
-          basic: void
-    - name: setEnabled
-      modifiers:
-        - public
-      parameters:
-        - name: enabled
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ChatUtility:
-  methods:
-    - name: chatStreamEnabled
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: type
-          type:
-            basic: ChatType
-      returns:
-        type:
-          basic: boolean
-    - name: findConnection
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playerName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: UdpConnection
-    - name: findPlayer
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playerNickname
-          type:
-            basic: String
-      returns:
-        type:
-          basic: IsoPlayer
-    - name: findPlayerName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playerOnlineID
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getAllowedChatStreams
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ArrayList
-    - name: getDistance
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: srcX
-          type:
-            basic: float
-        - name: srcY
-          type:
-            basic: float
-        - name: dest
-          type:
-            basic: IsoPlayer
-      returns:
-        type:
-          basic: float
-    - name: getScrambleValue
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: srcX
-          type:
-            basic: float
-        - name: srcY
-          type:
-            basic: float
-        - name: srcZ
-          type:
-            basic: float
-        - name: srcSquare
-          type:
-            basic: IsoGridSquare
-        - name: dest
-          type:
-            basic: IsoPlayer
-        - name: baseRange
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-    - name: InitAllowedChatIcons
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: parseStringForChatBubble
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: parseStringForChatLog
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: playerWithinBounds
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: srcX
-          type:
-            basic: float
-        - name: srcY
-          type:
-            basic: float
-        - name: dest
-          type:
-            basic: IsoObject
-        - name: dist
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-NineGridTexture:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: base
-          type:
-            basic: String
-        - name: outer
-          type:
-            basic: int
-  methods:
-    - name: renderInnerBased
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: w
-          type:
-            basic: int
-        - name: h
-          type:
-            basic: int
-        - name: r
-          type:
-            basic: float
-        - name: g
-          type:
-            basic: float
-        - name: b
-          type:
-            basic: float
-        - name: a
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Turbo
-ServerChatMessage:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: chat
-          type:
-            basic: ChatBase
-        - name: text
-          type:
-            basic: String
-  methods:
-    - name: getAuthor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: setAuthor
-      modifiers:
-        - public
-      parameters:
-        - name: author
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: ChatMessage
-  notes: Messages which sent by server to any chat stream. This applied stream
-    setting but author always Server
+      javaType: enum
+      extends: Enum
+    ChatTab:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: tabID
+              type:
+                basic: short
+            - name: titleID
+              type:
+                basic: String
+        - modifiers:
+            - public
+          parameters:
+            - name: tabID
+              type:
+                basic: short
+            - name: titleID
+              type:
+                basic: String
+            - name: chatID
+              type:
+                basic: int
+      methods:
+        - name: getID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: short
+        - name: getTitle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTitleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: isEnabled
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: RemoveChat
+          modifiers:
+            - public
+          parameters:
+            - name: chatID
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: sendAddTabPacket
+          modifiers:
+            - public
+          parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: sendRemoveTabPacket
+          modifiers:
+            - public
+          parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: setEnabled
+          modifiers:
+            - public
+          parameters:
+            - name: enabled
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    ChatUtility:
+      methods:
+        - name: chatStreamEnabled
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: type
+              type:
+                basic: ChatType
+          returns:
+            type:
+              basic: boolean
+        - name: findConnection
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: UdpConnection
+        - name: findPlayer
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerNickname
+              type:
+                basic: String
+          returns:
+            type:
+              basic: IsoPlayer
+        - name: findPlayerName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerOnlineID
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getAllowedChatStreams
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ArrayList
+        - name: getDistance
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: srcX
+              type:
+                basic: float
+            - name: srcY
+              type:
+                basic: float
+            - name: dest
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: float
+        - name: getScrambleValue
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: srcX
+              type:
+                basic: float
+            - name: srcY
+              type:
+                basic: float
+            - name: srcZ
+              type:
+                basic: float
+            - name: srcSquare
+              type:
+                basic: IsoGridSquare
+            - name: dest
+              type:
+                basic: IsoPlayer
+            - name: baseRange
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: InitAllowedChatIcons
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: parseStringForChatBubble
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: parseStringForChatLog
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: playerWithinBounds
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: srcX
+              type:
+                basic: float
+            - name: srcY
+              type:
+                basic: float
+            - name: dest
+              type:
+                basic: IsoObject
+            - name: dist
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+    NineGridTexture:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: base
+              type:
+                basic: String
+            - name: outer
+              type:
+                basic: int
+      methods:
+        - name: renderInnerBased
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: w
+              type:
+                basic: int
+            - name: h
+              type:
+                basic: int
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Turbo
+    ServerChatMessage:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: chat
+              type:
+                basic: ChatBase
+            - name: text
+              type:
+                basic: String
+      methods:
+        - name: getAuthor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: setAuthor
+          modifiers:
+            - public
+          parameters:
+            - name: author
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: ChatMessage
+      notes: Messages which sent by server to any chat stream. This applied stream
+        setting but author always Server

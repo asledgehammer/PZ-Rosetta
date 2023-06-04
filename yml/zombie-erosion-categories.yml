@@ -1,948 +1,949 @@
-# zombie.erosion.categories
-ErosionCategory:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
+namespaces:
+  zombie.erosion.categories:
+    ErosionCategory:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: void
+        - name: loadCategoryData
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: input
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ErosionCategory.Data
+        - name: replaceExistingObject
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: updateObj
+          modifiers:
+            - public
+          parameters:
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _gameObj
+              type:
+                basic: ErosionObj
+            - name: _bTree
+              type:
+                basic: boolean
+            - name: _stage
+              type:
+                basic: int
+            - name: _dispSeason
+              type:
+                basic: int
+            - name: _bloom
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
         - abstract
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-        - abstract
-      returns:
-        type:
-          basic: void
-    - name: loadCategoryData
+      javaType: class
+      extends: Object
+    ErosionCategory.Data:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: load
+          modifiers:
+            - public
+          parameters:
+            - name: input
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: input
-          type:
-            basic: ByteBuffer
-        - name: WorldVersion
-          type:
-            basic: int
-      returns:
-        type:
-          basic: ErosionCategory.Data
-    - name: replaceExistingObject
+      javaType: class
+      extends: Object
+    Flowerbed:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-        - abstract
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
+        - final
+      javaType: class
+      extends: ErosionCategory
+    NatureBush:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-        - abstract
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: updateObj
+        - final
+      javaType: class
+      extends: ErosionCategory
+    NatureGeneric:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _gameObj
-          type:
-            basic: ErosionObj
-        - name: _bTree
-          type:
-            basic: boolean
-        - name: _stage
-          type:
-            basic: int
-        - name: _dispSeason
-          type:
-            basic: int
-        - name: _bloom
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
+        - final
+      javaType: class
+      extends: ErosionCategory
+    NaturePlants:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-        - abstract
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-ErosionCategory.Data:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: load
+        - final
+      javaType: class
+      extends: ErosionCategory
+    NatureTrees:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: input
-          type:
-            basic: ByteBuffer
-        - name: WorldVersion
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: save
+        - final
+      javaType: class
+      extends: ErosionCategory
+    StreetCracks:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: output
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-Flowerbed:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
+        - final
+      javaType: class
+      extends: ErosionCategory
+    WallCracks:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
+        - final
+      javaType: class
+      extends: ErosionCategory
+    WallVines:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getObjectNames
+          modifiers:
+            - public
+          parameters:
+            - name: list
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: replaceExistingObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _sqCategoryData
+              type:
+                basic: ErosionCategory.Data
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _eTick
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: validateSpawn
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _sqErosionData
+              type:
+                basic: ErosionData.Square
+            - name: _chunkData
+              type:
+                basic: ErosionData.Chunk
+            - name: _isExterior
+              type:
+                basic: boolean
+            - name: _hasWall
+              type:
+                basic: boolean
+            - name: _isRespawn
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-NatureBush:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-NatureGeneric:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-NaturePlants:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-NatureTrees:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-StreetCracks:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-WallCracks:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
-WallVines:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getObjectNames
-      modifiers:
-        - public
-      parameters:
-        - name: list
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: init
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: replaceExistingObject
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _sqCategoryData
-          type:
-            basic: ErosionCategory.Data
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _eTick
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: validateSpawn
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _sqErosionData
-          type:
-            basic: ErosionData.Square
-        - name: _chunkData
-          type:
-            basic: ErosionData.Chunk
-        - name: _isExterior
-          type:
-            basic: boolean
-        - name: _hasWall
-          type:
-            basic: boolean
-        - name: _isRespawn
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: ErosionCategory
+        - final
+      javaType: class
+      extends: ErosionCategory

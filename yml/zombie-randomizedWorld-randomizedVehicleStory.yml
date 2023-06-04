@@ -1,1354 +1,1355 @@
-# zombie.randomizedWorld.randomizedVehicleStory
-RandomizedVehicleStoryBase:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addSmashedOverlay
+namespaces:
+  zombie.randomizedWorld.randomizedVehicleStory:
+    RandomizedVehicleStoryBase:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addSmashedOverlay
+          modifiers:
+            - public
+          parameters:
+            - name: v1
+              type:
+                basic: BaseVehicle
+            - name: v2
+              type:
+                basic: BaseVehicle
+            - name: xOffset
+              type:
+                basic: int
+            - name: yOffset
+              type:
+                basic: int
+            - name: horizontalZone
+              type:
+                basic: boolean
+            - name: addBlood
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: BaseVehicle
+        - name: callVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: additionalRotationRadians
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: doRandomStory
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: force
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: getCenterOfChunk
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: IsoGridSquare
+          notes: >-
+            Get the center of the chunk according to the zone (so center of the
+            10x10
+             chunk AND the zone)
+        - name: getChance
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getDebugLine
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getMaximumDays
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMinimumDays
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMinZoneHeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMinZoneWidth
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getPolylineSpawnPoint
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: result
+              type:
+                basic: float[]
+          returns:
+            type:
+              basic: boolean
+        - name: getRectangleSpawnPoint
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: result
+              type:
+                basic: float[]
+          returns:
+            type:
+              basic: boolean
+        - name: getSpawnPoint
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: result
+              type:
+                basic: float[]
+          returns:
+            type:
+              basic: boolean
+        - name: initAllRVSMapChance
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+          notes: We init a map with every possible stories for this zone
+        - name: initSpawnDataForChunk
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: VehicleStorySpawnData
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: isChunkLoaded
+          modifiers:
+            - public
+          parameters:
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isFullyStreamedIn
+          modifiers:
+            - public
+          parameters:
+            - name: x1
+              type:
+                basic: int
+            - name: y1
+              type:
+                basic: int
+            - name: x2
+              type:
+                basic: int
+            - name: y2
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isValid
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: force
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: registerCustomOutfits
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setChance
+          modifiers:
+            - public
+          parameters:
+            - name: chance
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setMaximumDays
+          modifiers:
+            - public
+          parameters:
+            - name: maximumDays
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setMinimumDays
+          modifiers:
+            - public
+          parameters:
+            - name: minimumDays
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: v1
-          type:
-            basic: BaseVehicle
-        - name: v2
-          type:
-            basic: BaseVehicle
-        - name: xOffset
-          type:
-            basic: int
-        - name: yOffset
-          type:
-            basic: int
-        - name: horizontalZone
-          type:
-            basic: boolean
-        - name: addBlood
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: BaseVehicle
-    - name: callVehicleStorySpawner
+      javaType: class
+      extends: RandomizedWorldBase
+    RVSAmbulanceCrash:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: additionalRotationRadians
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-    - name: doRandomStory
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+    RVSBanditRoad:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+    RVSBurntCar:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Just a burnt car with 0, 1 or 2 burnt corpses near it
+    RVSCarCrash:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+    RVSCarCrashCorpse:
+      constructors:
+        - modifiers:
+            - public
+          notes: Vehicle alone, corpse not so far from the car's front with blood trail
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+    RVSChangingTire:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Good car with a couple changing its tire
+    RVSConstructionSite:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Van with a sewer hole & road cones around it, some construction worker
+        and a foreman + some tools in ground
+    RVSCrashHorde:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Car crashed with quite some zombies around it
+    RVSFlippedCrash:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Flipped car with bodies & blood near it, can be burnt
+    RVSPoliceBlockade:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Police barricading a road, 2 police cars, some zombies police
+    RVSPoliceBlockadeShooting:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: isValid
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: force
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: Police barricading a road, 2 police cars, some zombies police with
+        guns/rifle, dead corpses around
+    RVSTrailerCrash:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+    RVSUtilityVehicle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: doUtilityVehicle
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: zoneName
+              type:
+                basic: String
+            - name: scriptName
+              type:
+                basic: String
+            - name: outfits
+              type:
+                basic: String
+            - name: femaleChance
+              type:
+                basic: Integer
+            - name: vehicleDistrib
+              type:
+                basic: String
+            - name: items
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+            - name: nbrOfItem
+              type:
+                basic: int
+            - name: addTrailer
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: initVehicleStorySpawner
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+            - name: debug
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: randomizeVehicleStory
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: spawnElement
+          modifiers:
+            - public
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: RandomizedVehicleStoryBase
+      notes: An utility vehicle (mccoys, fire dept, police, ranger, postal..) with
+        corresponding outfit zeds and sometimes tools
+    VehicleStorySpawnData:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: story
+              type:
+                basic: RandomizedVehicleStoryBase
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: spawnX
+              type:
+                basic: float
+            - name: spawnY
+              type:
+                basic: float
+            - name: direction
+              type:
+                basic: float
+            - name: x1
+              type:
+                basic: int
+            - name: y1
+              type:
+                basic: int
+            - name: x2
+              type:
+                basic: int
+            - name: y2
+              type:
+                basic: int
+      methods:
+        - name: isValid
+          modifiers:
+            - public
+          parameters:
+            - name: zone
+              type:
+                basic: IsoMetaGrid.Zone
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+    VehicleStorySpawner:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addElement
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: direction
+              type:
+                basic: float
+            - name: width
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+          returns:
+            type:
+              basic: VehicleStorySpawner.Element
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getAABB
+          modifiers:
+            - public
+          parameters:
+            - name: centerX
+              type:
+                basic: float
+            - name: centerY
+              type:
+                basic: float
+            - name: width
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+            - name: angleRadians
+              type:
+                basic: float
+            - name: aabb
+              type:
+                basic: int[]
+          returns:
+            type:
+              basic: void
+        - name: getInstance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: VehicleStorySpawner
+        - name: getParameter
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: clazz
+              type:
+                basic: Class
+                full: Class<E>
+          returns:
+            type:
+              basic: E
+        - name: getParameterBoolean
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: getParameterFloat
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: float
+        - name: getParameterInteger
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: getParameterString
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: render
+          modifiers:
+            - public
+          parameters:
+            - name: centerX
+              type:
+                basic: float
+            - name: centerY
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: width
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+            - name: angleRadians
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: rotate
+          modifiers:
+            - public
+          parameters:
+            - name: centerX
+              type:
+                basic: float
+            - name: centerY
+              type:
+                basic: float
+            - name: v
+              type:
+                basic: Vector2
+            - name: angleRadians
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Vector2
+        - name: setParameter
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
+        - name: spawn
+          modifiers:
+            - public
+          parameters:
+            - name: worldX
+              type:
+                basic: float
+            - name: worldY
+              type:
+                basic: float
+            - name: worldZ
+              type:
+                basic: float
+            - name: angleRadians
+              type:
+                basic: float
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner.IElementSpawner
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    VehicleStorySpawner.Element:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
         - static
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: force
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: getCenterOfChunk
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: IsoGridSquare
-      notes: >-
-        Get the center of the chunk according to the zone (so center of the
-        10x10
-         chunk AND the zone)
-    - name: getChance
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getDebugLine
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getMaximumDays
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMinimumDays
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMinZoneHeight
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMinZoneWidth
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getPolylineSpawnPoint
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: result
-          type:
-            basic: float[]
-      returns:
-        type:
-          basic: boolean
-    - name: getRectangleSpawnPoint
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: result
-          type:
-            basic: float[]
-      returns:
-        type:
-          basic: boolean
-    - name: getSpawnPoint
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: result
-          type:
-            basic: float[]
-      returns:
-        type:
-          basic: boolean
-    - name: initAllRVSMapChance
+        - final
+      javaType: class
+      extends: Object
+    VehicleStorySpawner.IElementSpawner:
+      methods:
+        - name: spawn
+          parameters:
+            - name: spawner
+              type:
+                basic: VehicleStorySpawner
+            - name: element
+              type:
+                basic: VehicleStorySpawner.Element
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-      notes: We init a map with every possible stories for this zone
-    - name: initSpawnDataForChunk
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: VehicleStorySpawnData
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: isChunkLoaded
-      modifiers:
-        - public
-      parameters:
-        - name: wx
-          type:
-            basic: int
-        - name: wy
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: isFullyStreamedIn
-      modifiers:
-        - public
-      parameters:
-        - name: x1
-          type:
-            basic: int
-        - name: y1
-          type:
-            basic: int
-        - name: x2
-          type:
-            basic: int
-        - name: y2
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: isValid
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: force
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: registerCustomOutfits
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setChance
-      modifiers:
-        - public
-      parameters:
-        - name: chance
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setMaximumDays
-      modifiers:
-        - public
-      parameters:
-        - name: maximumDays
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setMinimumDays
-      modifiers:
-        - public
-      parameters:
-        - name: minimumDays
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: RandomizedWorldBase
-RVSAmbulanceCrash:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-RVSBanditRoad:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-RVSBurntCar:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Just a burnt car with 0, 1 or 2 burnt corpses near it
-RVSCarCrash:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-RVSCarCrashCorpse:
-  constructors:
-    - modifiers:
-        - public
-      notes: Vehicle alone, corpse not so far from the car's front with blood trail
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-RVSChangingTire:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Good car with a couple changing its tire
-RVSConstructionSite:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Van with a sewer hole & road cones around it, some construction worker
-    and a foreman + some tools in ground
-RVSCrashHorde:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Car crashed with quite some zombies around it
-RVSFlippedCrash:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Flipped car with bodies & blood near it, can be burnt
-RVSPoliceBlockade:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Police barricading a road, 2 police cars, some zombies police
-RVSPoliceBlockadeShooting:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: isValid
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: force
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: Police barricading a road, 2 police cars, some zombies police with
-    guns/rifle, dead corpses around
-RVSTrailerCrash:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-RVSUtilityVehicle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: doUtilityVehicle
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: zoneName
-          type:
-            basic: String
-        - name: scriptName
-          type:
-            basic: String
-        - name: outfits
-          type:
-            basic: String
-        - name: femaleChance
-          type:
-            basic: Integer
-        - name: vehicleDistrib
-          type:
-            basic: String
-        - name: items
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-        - name: nbrOfItem
-          type:
-            basic: int
-        - name: addTrailer
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: initVehicleStorySpawner
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-        - name: debug
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: randomizeVehicleStory
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: void
-    - name: spawnElement
-      modifiers:
-        - public
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: RandomizedVehicleStoryBase
-  notes: An utility vehicle (mccoys, fire dept, police, ranger, postal..) with
-    corresponding outfit zeds and sometimes tools
-VehicleStorySpawnData:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: story
-          type:
-            basic: RandomizedVehicleStoryBase
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: spawnX
-          type:
-            basic: float
-        - name: spawnY
-          type:
-            basic: float
-        - name: direction
-          type:
-            basic: float
-        - name: x1
-          type:
-            basic: int
-        - name: y1
-          type:
-            basic: int
-        - name: x2
-          type:
-            basic: int
-        - name: y2
-          type:
-            basic: int
-  methods:
-    - name: isValid
-      modifiers:
-        - public
-      parameters:
-        - name: zone
-          type:
-            basic: IsoMetaGrid.Zone
-        - name: chunk
-          type:
-            basic: IsoChunk
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-VehicleStorySpawner:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addElement
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: direction
-          type:
-            basic: float
-        - name: width
-          type:
-            basic: float
-        - name: height
-          type:
-            basic: float
-      returns:
-        type:
-          basic: VehicleStorySpawner.Element
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getAABB
-      modifiers:
-        - public
-      parameters:
-        - name: centerX
-          type:
-            basic: float
-        - name: centerY
-          type:
-            basic: float
-        - name: width
-          type:
-            basic: float
-        - name: height
-          type:
-            basic: float
-        - name: angleRadians
-          type:
-            basic: float
-        - name: aabb
-          type:
-            basic: int[]
-      returns:
-        type:
-          basic: void
-    - name: getInstance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: VehicleStorySpawner
-    - name: getParameter
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: clazz
-          type:
-            basic: Class
-            full: Class<E>
-      returns:
-        type:
-          basic: E
-    - name: getParameterBoolean
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: getParameterFloat
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: float
-    - name: getParameterInteger
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-    - name: getParameterString
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: render
-      modifiers:
-        - public
-      parameters:
-        - name: centerX
-          type:
-            basic: float
-        - name: centerY
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-        - name: width
-          type:
-            basic: float
-        - name: height
-          type:
-            basic: float
-        - name: angleRadians
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: rotate
-      modifiers:
-        - public
-      parameters:
-        - name: centerX
-          type:
-            basic: float
-        - name: centerY
-          type:
-            basic: float
-        - name: v
-          type:
-            basic: Vector2
-        - name: angleRadians
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Vector2
-    - name: setParameter
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: value
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-    - name: spawn
-      modifiers:
-        - public
-      parameters:
-        - name: worldX
-          type:
-            basic: float
-        - name: worldY
-          type:
-            basic: float
-        - name: worldZ
-          type:
-            basic: float
-        - name: angleRadians
-          type:
-            basic: float
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner.IElementSpawner
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-VehicleStorySpawner.Element:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-VehicleStorySpawner.IElementSpawner:
-  methods:
-    - name: spawn
-      parameters:
-        - name: spawner
-          type:
-            basic: VehicleStorySpawner
-        - name: element
-          type:
-            basic: VehicleStorySpawner.Element
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: interface
+      javaType: interface

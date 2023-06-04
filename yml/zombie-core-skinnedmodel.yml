@@ -1,1516 +1,1517 @@
-# zombie.core.skinnedmodel
-CharacterTextures:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-DeadBodyAtlas:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: checkLights
+namespaces:
+  zombie.core.skinnedmodel:
+    CharacterTextures:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-      parameters:
-        - name: entryTex
-          type:
-            basic: Texture
-        - name: body
-          type:
-            basic: IsoZombie
-      returns:
-        type:
-          basic: void
-    - name: getBodyTexture
+        - final
+      javaType: class
+      extends: Object
+    DeadBodyAtlas:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: checkLights
+          modifiers:
+            - public
+          parameters:
+            - name: entryTex
+              type:
+                basic: Texture
+            - name: body
+              type:
+                basic: IsoZombie
+          returns:
+            type:
+              basic: void
+        - name: getBodyTexture
+          modifiers:
+            - public
+          parameters:
+            - name: body
+              type:
+                basic: zombie.core.skinnedmodel.DeadBodyAtlas.BodyParams
+          returns:
+            type:
+              basic: DeadBodyAtlas.BodyTexture
+        - name: lightingUpdate
+          modifiers:
+            - public
+          parameters:
+            - name: updateCounter
+              type:
+                basic: int
+            - name: lightsChanged
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: renderDebug
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: renderUI
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: body
-          type:
-            basic: zombie.core.skinnedmodel.DeadBodyAtlas.BodyParams
-      returns:
-        type:
-          basic: DeadBodyAtlas.BodyTexture
-    - name: lightingUpdate
-      modifiers:
-        - public
-      parameters:
-        - name: updateCounter
-          type:
-            basic: int
-        - name: lightsChanged
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: render
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: renderDebug
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: renderUI
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-DeadBodyAtlas.BodyTexture:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: render
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: r
-          type:
-            basic: float
-        - name: g
-          type:
-            basic: float
-        - name: b
-          type:
-            basic: float
-        - name: a
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: renderObjectPicker
-      modifiers:
-        - public
-      parameters:
-        - name: sx
-          type:
-            basic: float
-        - name: sy
-          type:
-            basic: float
-        - name: lightInfo
-          type:
-            basic: ColorInfo
-        - name: square
-          type:
-            basic: IsoGridSquare
-        - name: object
-          type:
-            basic: IsoObject
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-HelperFunctions:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: ApplyBlendBone
+        - final
+      javaType: class
+      extends: Object
+    DeadBodyAtlas.BodyTexture:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: render
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: renderObjectPicker
+          modifiers:
+            - public
+          parameters:
+            - name: sx
+              type:
+                basic: float
+            - name: sy
+              type:
+                basic: float
+            - name: lightInfo
+              type:
+                basic: ColorInfo
+            - name: square
+              type:
+                basic: IsoGridSquare
+            - name: object
+              type:
+                basic: IsoObject
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: weight
-          type:
-            basic: float
+        - final
+      javaType: class
+      extends: Object
+    HelperFunctions:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: ApplyBlendBone
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: weight
+              type:
+                basic: float
+            - name: transform
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: vertPos
+              type:
+                basic: Vector3
+            - name: vertNorm
+              type:
+                basic: Vector3
+            - name: tmpVect
+              type:
+                basic: org.lwjgl.util.vector.Vector4f
+            - name: newPos
+              type:
+                basic: Vector3
+            - name: newNorm
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: void
+        - name: CreateFromQuaternion
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: q
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: result
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+        - name: CreateFromQuaternionPositionScale
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: position
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: rotation
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: transformResult
+              type:
+                basic: HelperFunctions.TransformResult_QPS
+          returns:
+            type:
+              basic: void
+        - name: getIdentityQ
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Quaternion
+        - name: getMatrix
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: copyFrom
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+        - name: getPosition
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: matrix
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: getRotation
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: matrix
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: out_rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Quaternion
+        - name: getRotationY
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: rotation
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: float
+          notes: Returns the rotation about the Y axis, in radians.
+        - name: getRotationZ
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: rotation
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: float
+          notes: Returns the rotation about the Z axis, in radians.
+        - name: getVector3f
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: getZero3
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: returnMatrix
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: mat
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: returnVector3f
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: v
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: setPosition
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: matrix
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: ToEulerAngles
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: out_angles
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+          notes: >-
+            Convert the supplied Quaternion to Euler angles.
+              Source: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
+        - name: ToQuaternion
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: roll
+              type:
+                basic: double
+            - name: pitch
+              type:
+                basic: double
+            - name: yaw
+              type:
+                basic: double
+            - name: out_result
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Quaternion
+          notes: >-
+            Convert the supplied Euler angles to a Quaternion.
+              Source: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
+        - name: ToRgba
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: color
+              type:
+                basic: Color
+          returns:
+            type:
+              basic: int
         - name: transform
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-        - name: vertPos
-          type:
-            basic: Vector3
-        - name: vertNorm
-          type:
-            basic: Vector3
-        - name: tmpVect
-          type:
-            basic: org.lwjgl.util.vector.Vector4f
-        - name: newPos
-          type:
-            basic: Vector3
-        - name: newNorm
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: void
-    - name: CreateFromQuaternion
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: rotation
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: in_vector
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_result
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+          notes: |-
+            Applies the supplied quaternion to transform the supplied in_vector,
+              stores the result in the supplied out_result.
+        - name: TransformVertices
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: vertices
+              type:
+                basic: VertexPositionNormalTangentTextureSkin[]
+            - name: boneTransforms
+              type:
+                basic: List
+                full: List<org.lwjgl.util.vector.Matrix4f>
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 03/01/14.
+    HelperFunctions.TransformResult_QPS:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
       modifiers:
         - public
         - static
-      parameters:
-        - name: q
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: result
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-    - name: CreateFromQuaternionPositionScale
+      javaType: class
+      extends: Object
+    IAnimatable:
+      methods:
+        - name: Play
+          parameters:
+            - name: animName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: Update
+          parameters:
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      parameters:
-        - name: position
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: rotation
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
+      javaType: interface
+    IDrawable:
+      methods:
+        - name: Draw
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+      notes: Created by LEMMYATI on 03/01/14.
+    Matrix4:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: m
+              type:
+                basic: float[]
+        - modifiers:
+            - public
+          parameters:
+            - name: m
+              type:
+                basic: Matrix4
+      methods:
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Matrix4
+        - name: clearToIdentity
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Matrix4
+        - name: clearToOrtho
+          modifiers:
+            - public
+          parameters:
+            - name: left
+              type:
+                basic: float
+            - name: right
+              type:
+                basic: float
+            - name: bottom
+              type:
+                basic: float
+            - name: top
+              type:
+                basic: float
+            - name: near
+              type:
+                basic: float
+            - name: far
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Matrix4
+        - name: clearToPerspective
+          modifiers:
+            - public
+          parameters:
+            - name: fovRad
+              type:
+                basic: float
+            - name: width
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+            - name: near
+              type:
+                basic: float
+            - name: far
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Matrix4
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: getBuffer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: FloatBuffer
+        - name: mult
+          modifiers:
+            - public
+          parameters:
+            - name: m
+              type:
+                basic: Matrix4
+          returns:
+            type:
+              basic: Matrix4
+        - name: put
+          modifiers:
+            - public
+          parameters:
+            - name: m
+              type:
+                basic: Matrix4
+          returns:
+            type:
+              basic: Matrix4
+        - name: rotate
+          modifiers:
+            - public
+          parameters:
+            - name: angle
+              type:
+                basic: float
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Matrix4
         - name: scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: transformResult
-          type:
-            basic: HelperFunctions.TransformResult_QPS
-      returns:
-        type:
-          basic: void
-    - name: getIdentityQ
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Matrix4
+        - name: translate
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Matrix4
+        - name: transpose
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Matrix4
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    ModelCamera:
+      constructors:
+        - modifiers:
+            - public
+      modifiers:
+        - public
+        - abstract
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 03/01/14.
+    ModelCameraRenderData:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: camera
+              type:
+                basic: ModelCamera
+            - name: useangle
+              type:
+                basic: float
+            - name: useWorldIso
+              type:
+                basic: boolean
+            - name: tx
+              type:
+                basic: float
+            - name: ty
+              type:
+                basic: float
+            - name: tz
+              type:
+                basic: float
+            - name: bInVehicle
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: ModelCameraRenderData
+        - name: postRender
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: TextureDraw.GenericDrawer
+    ModelManager:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: Add
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+          notes: Add the supplied character to the visible render list.
+        - name: addAnimationClip
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: clip
+              type:
+                basic: AnimationClip
+          returns:
+            type:
+              basic: void
+        - name: addStatic
+          modifiers:
+            - public
+          parameters:
+            - name: parentInst
+              type:
+                basic: ModelInstance
+            - name: modelName
+              type:
+                basic: String
+            - name: attachNameSelf
+              type:
+                basic: String
+            - name: attachNameParent
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ModelInstance
+        - name: addStaticForcedTex
+          modifiers:
+            - public
+          parameters:
+            - name: parentInst
+              type:
+                basic: ModelInstance
+            - name: modelName
+              type:
+                basic: String
+            - name: attachNameSelf
+              type:
+                basic: String
+            - name: attachNameParent
+              type:
+                basic: String
+            - name: forcedTex
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ModelInstance
+        - name: addVehicle
+          modifiers:
+            - public
+          parameters:
+            - name: vehicle
+              type:
+                basic: BaseVehicle
+          returns:
+            type:
+              basic: void
+        - name: animationAssetLoaded
+          modifiers:
+            - public
+          parameters:
+            - name: animationAsset
+              type:
+                basic: AnimationAsset
+          returns:
+            type:
+              basic: void
+        - name: ContainsChar
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+          notes: Returns TRUE if the character is currently in the visible render list,
+            and has not been flagged for removal.
+        - name: create
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: derefModelInstance
+          modifiers:
+            - public
+          parameters:
+            - name: modelInstance
+              type:
+                basic: ModelInstance
+          returns:
+            type:
+              basic: void
+        - name: derefModelInstances
+          modifiers:
+            - public
+          parameters:
+            - name: modelInstances
+              type:
+                basic: ArrayList
+                full: ArrayList<ModelInstance>
+          returns:
+            type:
+              basic: void
+        - name: dressInRandomOutfit
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: getAllAnimationClips
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Collection
+        - name: getAnimationClip
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimationClip
+        - name: getBodyModel
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: Model
+        - name: getClosestThreeLights
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoMovingObject
+            - name: ret
+              type:
+                basic: IsoLightSource[]
+          returns:
+            type:
+              basic: void
+        - name: getLoadedModel
+          modifiers:
+            - public
+          parameters:
+            - name: meshName
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+            - name: isStatic
+              type:
+                basic: boolean
+            - name: shaderName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: Model
+        - name: getSlot
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: ModelManager.ModelSlot
+        - name: getTextureFlags
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: initAnimationMeshes
+          modifiers:
+            - public
+          parameters:
+            - name: bReloading
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: isCreated
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isLoadingAnimations
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: loadAdditionalModel
+          modifiers:
+            - public
+          parameters:
+            - name: meshName
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+            - name: bStatic
+              type:
+                basic: boolean
+            - name: shaderName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: loadModAnimations
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: loadStaticModel
+          modifiers:
+            - public
+          parameters:
+            - name: meshName
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+            - name: shaderName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: Model
+        - name: newAdditionalModelInstance
+          modifiers:
+            - public
+          parameters:
+            - name: meshName
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+            - name: animPlayer
+              type:
+                basic: AnimationPlayer
+            - name: shaderName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ModelInstance
+        - name: newInstance
+          modifiers:
+            - public
+          parameters:
+            - name: model
+              type:
+                basic: Model
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+            - name: player
+              type:
+                basic: AnimationPlayer
+          returns:
+            type:
+              basic: ModelInstance
+        - name: newStaticInstance
+          modifiers:
+            - public
+          parameters:
+            - name: slot
+              type:
+                basic: ModelManager.ModelSlot
+            - name: meshName
+              type:
+                basic: String
+            - name: texName
+              type:
+                basic: String
+            - name: boneName
+              type:
+                basic: String
+            - name: shaderName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ModelInstance
+        - name: putLoadedModel
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+            - name: isStatic
+              type:
+                basic: boolean
+            - name: shaderName
+              type:
+                basic: String
+            - name: model
+              type:
+                basic: Model
+          returns:
+            type:
+              basic: void
+        - name: reloadAllOutfits
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: reloadModelsMatching
+          modifiers:
+            - public
+          parameters:
+            - name: meshName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: Remove
+          modifiers:
+            - public
+          parameters:
+            - name: vehicle
+              type:
+                basic: BaseVehicle
+          returns:
+            type:
+              basic: void
+        - name: RenderParticles
+          modifiers:
+            - public
+          parameters:
+            - name: texd
+              type:
+                basic: TextureDraw
+            - name: userId
+              type:
+                basic: int
+            - name: va11
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: RenderPuddles
+          modifiers:
+            - public
+          parameters:
+            - name: shaderID
+              type:
+                basic: int
+            - name: userId
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: RenderSkyBox
+          modifiers:
+            - public
+          parameters:
+            - name: texd
+              type:
+                basic: TextureDraw
+            - name: shaderID
+              type:
+                basic: int
+            - name: userId
+              type:
+                basic: int
+            - name: apiId
+              type:
+                basic: int
+            - name: bufferId
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: RenderWater
+          modifiers:
+            - public
+          parameters:
+            - name: texd
+              type:
+                basic: TextureDraw
+            - name: shaderID
+              type:
+                basic: int
+            - name: userId
+              type:
+                basic: int
+            - name: bShore
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: ResetCharacterEquippedHands
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: ResetEquippedNextFrame
+          modifiers:
+            - public
+          parameters:
+            - name: isoGameCharacter
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: resetModelInstance
+          modifiers:
+            - public
+          parameters:
+            - name: modelInstance
+              type:
+                basic: ModelInstance
+            - name: expectedOwner
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
+        - name: resetModelInstanceRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: modelInstance
+              type:
+                basic: ModelInstance
+            - name: expectedOwner
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
+        - name: resetModelInstancesRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: modelInstances
+              type:
+                basic: ArrayList
+                full: ArrayList<ModelInstance>
+            - name: expectedOwner
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
+        - name: ResetNextFrame
+          modifiers:
+            - public
+          parameters:
+            - name: isoGameCharacter
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: setModelMetaData
+          modifiers:
+            - public
+          parameters:
+            - name: modelId
+              type:
+                basic: String
+            - name: meshName
+              type:
+                basic: String
+            - name: texName
+              type:
+                basic: String
+            - name: shaderName
+              type:
+                basic: String
+            - name: bStatic
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: tryGetLoadedModel
+          modifiers:
+            - public
+          parameters:
+            - name: meshName
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+            - name: isStatic
+              type:
+                basic: boolean
+            - name: shaderName
+              type:
+                basic: String
+            - name: logError
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: Model
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 05/01/14.
+    ModelManager.ModAnimations:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: modID
+              type:
+                basic: String
+      methods:
+        - name: isActive
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: setPriority
+          modifiers:
+            - public
+          parameters:
+            - name: priority
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Quaternion
-    - name: getMatrix
+        - final
+      javaType: class
+      extends: Object
+    ModelManager.ModelSlot:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: ID
+              type:
+                basic: int
+            - name: model
+              type:
+                basic: ModelInstance
+            - name: character
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: isRendering
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: copyFrom
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-    - name: getPosition
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: matrix
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-    - name: getRotation
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: matrix
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-        - name: out_rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Quaternion
-    - name: getRotationY
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: rotation
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: float
-      notes: Returns the rotation about the Y axis, in radians.
-    - name: getRotationZ
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: rotation
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: float
-      notes: Returns the rotation about the Z axis, in radians.
-    - name: getVector3f
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-    - name: getZero3
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-    - name: returnMatrix
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: mat
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: void
-    - name: returnVector3f
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: v
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: setPosition
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: matrix
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-        - name: pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: ToEulerAngles
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: out_angles
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-      notes: >-
-        Convert the supplied Quaternion to Euler angles.
-          Source: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
-    - name: ToQuaternion
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: roll
-          type:
-            basic: double
-        - name: pitch
-          type:
-            basic: double
-        - name: yaw
-          type:
-            basic: double
-        - name: out_result
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Quaternion
-      notes: >-
-        Convert the supplied Euler angles to a Quaternion.
-          Source: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
-    - name: ToRgba
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: color
-          type:
-            basic: Color
-      returns:
-        type:
-          basic: int
-    - name: transform
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: rotation
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: in_vector
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_result
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-      notes: |-
-        Applies the supplied quaternion to transform the supplied in_vector,
-          stores the result in the supplied out_result.
-    - name: TransformVertices
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: vertices
-          type:
-            basic: VertexPositionNormalTangentTextureSkin[]
-        - name: boneTransforms
-          type:
-            basic: List
-            full: List<org.lwjgl.util.vector.Matrix4f>
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 03/01/14.
-HelperFunctions.TransformResult_QPS:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-IAnimatable:
-  methods:
-    - name: Play
-      parameters:
-        - name: animName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: Update
-      parameters:
-        - name: time
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-IDrawable:
-  methods:
-    - name: Draw
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-  notes: Created by LEMMYATI on 03/01/14.
-Matrix4:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: m
-          type:
-            basic: float[]
-    - modifiers:
-        - public
-      parameters:
-        - name: m
-          type:
-            basic: Matrix4
-  methods:
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Matrix4
-    - name: clearToIdentity
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Matrix4
-    - name: clearToOrtho
-      modifiers:
-        - public
-      parameters:
-        - name: left
-          type:
-            basic: float
-        - name: right
-          type:
-            basic: float
-        - name: bottom
-          type:
-            basic: float
-        - name: top
-          type:
-            basic: float
-        - name: near
-          type:
-            basic: float
-        - name: far
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Matrix4
-    - name: clearToPerspective
-      modifiers:
-        - public
-      parameters:
-        - name: fovRad
-          type:
-            basic: float
-        - name: width
-          type:
-            basic: float
-        - name: height
-          type:
-            basic: float
-        - name: near
-          type:
-            basic: float
-        - name: far
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Matrix4
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: getBuffer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: FloatBuffer
-    - name: mult
-      modifiers:
-        - public
-      parameters:
-        - name: m
-          type:
-            basic: Matrix4
-      returns:
-        type:
-          basic: Matrix4
-    - name: put
-      modifiers:
-        - public
-      parameters:
-        - name: m
-          type:
-            basic: Matrix4
-      returns:
-        type:
-          basic: Matrix4
-    - name: rotate
-      modifiers:
-        - public
-      parameters:
-        - name: angle
-          type:
-            basic: float
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Matrix4
-    - name: scale
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Matrix4
-    - name: translate
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Matrix4
-    - name: transpose
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Matrix4
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ModelCamera:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 03/01/14.
-ModelCameraRenderData:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: init
-      modifiers:
-        - public
-      parameters:
-        - name: camera
-          type:
-            basic: ModelCamera
-        - name: useangle
-          type:
-            basic: float
-        - name: useWorldIso
-          type:
-            basic: boolean
-        - name: tx
-          type:
-            basic: float
-        - name: ty
-          type:
-            basic: float
-        - name: tz
-          type:
-            basic: float
-        - name: bInVehicle
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: ModelCameraRenderData
-    - name: postRender
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: render
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: TextureDraw.GenericDrawer
-ModelManager:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: Add
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-      notes: Add the supplied character to the visible render list.
-    - name: addAnimationClip
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: clip
-          type:
-            basic: AnimationClip
-      returns:
-        type:
-          basic: void
-    - name: addStatic
-      modifiers:
-        - public
-      parameters:
-        - name: parentInst
-          type:
-            basic: ModelInstance
-        - name: modelName
-          type:
-            basic: String
-        - name: attachNameSelf
-          type:
-            basic: String
-        - name: attachNameParent
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ModelInstance
-    - name: addStaticForcedTex
-      modifiers:
-        - public
-      parameters:
-        - name: parentInst
-          type:
-            basic: ModelInstance
-        - name: modelName
-          type:
-            basic: String
-        - name: attachNameSelf
-          type:
-            basic: String
-        - name: attachNameParent
-          type:
-            basic: String
-        - name: forcedTex
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ModelInstance
-    - name: addVehicle
-      modifiers:
-        - public
-      parameters:
-        - name: vehicle
-          type:
-            basic: BaseVehicle
-      returns:
-        type:
-          basic: void
-    - name: animationAssetLoaded
-      modifiers:
-        - public
-      parameters:
-        - name: animationAsset
-          type:
-            basic: AnimationAsset
-      returns:
-        type:
-          basic: void
-    - name: ContainsChar
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-      notes: Returns TRUE if the character is currently in the visible render list,
-        and has not been flagged for removal.
-    - name: create
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: derefModelInstance
-      modifiers:
-        - public
-      parameters:
-        - name: modelInstance
-          type:
-            basic: ModelInstance
-      returns:
-        type:
-          basic: void
-    - name: derefModelInstances
-      modifiers:
-        - public
-      parameters:
-        - name: modelInstances
-          type:
-            basic: ArrayList
-            full: ArrayList<ModelInstance>
-      returns:
-        type:
-          basic: void
-    - name: dressInRandomOutfit
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: getAllAnimationClips
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Collection
-    - name: getAnimationClip
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimationClip
-    - name: getBodyModel
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: Model
-    - name: getClosestThreeLights
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoMovingObject
-        - name: ret
-          type:
-            basic: IsoLightSource[]
-      returns:
-        type:
-          basic: void
-    - name: getLoadedModel
-      modifiers:
-        - public
-      parameters:
-        - name: meshName
-          type:
-            basic: String
-        - name: tex
-          type:
-            basic: String
-        - name: isStatic
-          type:
-            basic: boolean
-        - name: shaderName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: Model
-    - name: getSlot
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: ModelManager.ModelSlot
-    - name: getTextureFlags
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: initAnimationMeshes
-      modifiers:
-        - public
-      parameters:
-        - name: bReloading
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: isCreated
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isLoadingAnimations
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: loadAdditionalModel
-      modifiers:
-        - public
-      parameters:
-        - name: meshName
-          type:
-            basic: String
-        - name: tex
-          type:
-            basic: String
-        - name: bStatic
-          type:
-            basic: boolean
-        - name: shaderName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: loadModAnimations
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: loadStaticModel
-      modifiers:
-        - public
-      parameters:
-        - name: meshName
-          type:
-            basic: String
-        - name: tex
-          type:
-            basic: String
-        - name: shaderName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: Model
-    - name: newAdditionalModelInstance
-      modifiers:
-        - public
-      parameters:
-        - name: meshName
-          type:
-            basic: String
-        - name: tex
-          type:
-            basic: String
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-        - name: animPlayer
-          type:
-            basic: AnimationPlayer
-        - name: shaderName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ModelInstance
-    - name: newInstance
-      modifiers:
-        - public
-      parameters:
-        - name: model
-          type:
-            basic: Model
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-        - name: player
-          type:
-            basic: AnimationPlayer
-      returns:
-        type:
-          basic: ModelInstance
-    - name: newStaticInstance
-      modifiers:
-        - public
-      parameters:
-        - name: slot
-          type:
-            basic: ModelManager.ModelSlot
-        - name: meshName
-          type:
-            basic: String
-        - name: texName
-          type:
-            basic: String
-        - name: boneName
-          type:
-            basic: String
-        - name: shaderName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: ModelInstance
-    - name: putLoadedModel
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: tex
-          type:
-            basic: String
-        - name: isStatic
-          type:
-            basic: boolean
-        - name: shaderName
-          type:
-            basic: String
-        - name: model
-          type:
-            basic: Model
-      returns:
-        type:
-          basic: void
-    - name: reloadAllOutfits
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: reloadModelsMatching
-      modifiers:
-        - public
-      parameters:
-        - name: meshName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: Remove
-      modifiers:
-        - public
-      parameters:
-        - name: vehicle
-          type:
-            basic: BaseVehicle
-      returns:
-        type:
-          basic: void
-    - name: RenderParticles
-      modifiers:
-        - public
-      parameters:
-        - name: texd
-          type:
-            basic: TextureDraw
-        - name: userId
-          type:
-            basic: int
-        - name: va11
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: RenderPuddles
-      modifiers:
-        - public
-      parameters:
-        - name: shaderID
-          type:
-            basic: int
-        - name: userId
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: RenderSkyBox
-      modifiers:
-        - public
-      parameters:
-        - name: texd
-          type:
-            basic: TextureDraw
-        - name: shaderID
-          type:
-            basic: int
-        - name: userId
-          type:
-            basic: int
-        - name: apiId
-          type:
-            basic: int
-        - name: bufferId
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: RenderWater
-      modifiers:
-        - public
-      parameters:
-        - name: texd
-          type:
-            basic: TextureDraw
-        - name: shaderID
-          type:
-            basic: int
-        - name: userId
-          type:
-            basic: int
-        - name: bShore
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: ResetCharacterEquippedHands
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: ResetEquippedNextFrame
-      modifiers:
-        - public
-      parameters:
-        - name: isoGameCharacter
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: resetModelInstance
-      modifiers:
-        - public
-      parameters:
-        - name: modelInstance
-          type:
-            basic: ModelInstance
-        - name: expectedOwner
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-    - name: resetModelInstanceRecurse
-      modifiers:
-        - public
-      parameters:
-        - name: modelInstance
-          type:
-            basic: ModelInstance
-        - name: expectedOwner
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-    - name: resetModelInstancesRecurse
-      modifiers:
-        - public
-      parameters:
-        - name: modelInstances
-          type:
-            basic: ArrayList
-            full: ArrayList<ModelInstance>
-        - name: expectedOwner
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-    - name: ResetNextFrame
-      modifiers:
-        - public
-      parameters:
-        - name: isoGameCharacter
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: setModelMetaData
-      modifiers:
-        - public
-      parameters:
-        - name: modelId
-          type:
-            basic: String
-        - name: meshName
-          type:
-            basic: String
-        - name: texName
-          type:
-            basic: String
-        - name: shaderName
-          type:
-            basic: String
-        - name: bStatic
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: tryGetLoadedModel
-      modifiers:
-        - public
-      parameters:
-        - name: meshName
-          type:
-            basic: String
-        - name: tex
-          type:
-            basic: String
-        - name: isStatic
-          type:
-            basic: boolean
-        - name: shaderName
-          type:
-            basic: String
-        - name: logError
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: Model
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 05/01/14.
-ModelManager.ModAnimations:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: modID
-          type:
-            basic: String
-  methods:
-    - name: isActive
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: setPriority
-      modifiers:
-        - public
-      parameters:
-        - name: priority
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-ModelManager.ModelSlot:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: ID
-          type:
-            basic: int
-        - name: model
-          type:
-            basic: ModelInstance
-        - name: character
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: isRendering
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: Update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-Vector3:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
+      javaType: class
+      extends: Object
+    Vector3:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+        - modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Vector3
+        - name: cross
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Vector3
+        - name: dot
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: float
+        - name: length
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: mul
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Vector3
+        - name: normalize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Vector3
+        - name: reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Vector3
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Vector3
+        - name: sub
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Vector3
         - name: x
-          type:
-            basic: float
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Vector3
         - name: y
-          type:
-            basic: float
+          modifiers:
+            - public
+          parameters:
+            - name: y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Vector3
         - name: z
-          type:
-            basic: float
-    - modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-  methods:
-    - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Vector3
       modifiers:
         - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Vector3
-    - name: cross
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 03/01/14.
+    Vector4:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: w
+              type:
+                basic: float
+        - modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector4
+      methods:
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: Vector4
+          returns:
+            type:
+              basic: Vector4
       modifiers:
         - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Vector3
-    - name: dot
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: float
-    - name: length
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: mul
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Vector3
-    - name: normalize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Vector3
-    - name: reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Vector3
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Vector3
-    - name: sub
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector3
-      returns:
-        type:
-          basic: Vector3
-    - name: x
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Vector3
-    - name: y
-      modifiers:
-        - public
-      parameters:
-        - name: y
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Vector3
-    - name: z
-      modifiers:
-        - public
-      parameters:
-        - name: z
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Vector3
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 03/01/14.
-Vector4:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-        - name: w
-          type:
-            basic: float
-    - modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector4
-  methods:
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: vec
-          type:
-            basic: Vector4
-      returns:
-        type:
-          basic: Vector4
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 03/01/14.
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 03/01/14.

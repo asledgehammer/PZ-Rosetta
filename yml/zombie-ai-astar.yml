@@ -1,303 +1,305 @@
-# zombie.ai.astar
-AStarPathFinder:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-AStarPathFinder.PathFindProgress:
-  methods:
-    - name: valueOf
+namespaces:
+  zombie.ai.astar:
+    AStarPathFinder:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: AStarPathFinder.PathFindProgress
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: AStarPathFinder.PathFindProgress
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-AStarPathFinderResult:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-IPathfinder:
-  methods:
-    - name: Failed
-      parameters:
-        - name: mover
-          type:
-            basic: Mover
-      returns:
-        type:
-          basic: void
-    - name: getName
-      returns:
-        type:
-          basic: String
-    - name: Succeeded
-      parameters:
-        - name: path
-          type:
-            basic: Path
-        - name: mover
-          type:
-            basic: Mover
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-Mover:
-  methods:
-    - name: getID
-      returns:
-        type:
-          basic: int
-    - name: getPathFindIndex
-      returns:
-        type:
-          basic: int
-  modifiers:
-    - public
-  javaType: interface
-  notes: >-
-    A tagging interface for an object representing the entity in the game that
-     is going to moving along the path. This allows us to pass around entity/state
-     information to determine whether a particular tile is blocked, or how much
-     cost to apply on a particular tile.
-
-     For instance, a Mover might represent a tank or plane on a game map. Passing round
-     this entity allows us to determine whether rough ground on a map should effect
-     the unit's cost for moving through the tile.
-Path:
-  constructors:
-    - modifiers:
-        - public
-      notes: Create an empty path
-  methods:
-    - name: appendStep
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-          notes: The x coordinate of the new step
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Append a step to the path.
-    - name: contains
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: costPerStep
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: createStep
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: Path.Step
-    - name: getLength
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: The number of steps in this path
-      notes: get the length of the path, i.e. the number of steps
-    - name: getStep
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
+      javaType: class
+      extends: Object
+    AStarPathFinder.PathFindProgress:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: AStarPathFinder.PathFindProgress
+            notes: the enum constant with the specified name
           notes: |-
-            The index of the step to retrieve. Note this should
-             be >= 0 and < getLength();
-      returns:
-        type:
-          basic: Path.Step
-        notes: The step information, the position on the map.
-      notes: get the step at a given index in the path
-    - name: getX
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AStarPathFinder.PathFindProgress
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: The index of the step whose x coordinate should be retrieved
-      returns:
-        type:
-          basic: int
-        notes: The x coordinate at the step
-      notes: get the x coordinate for the step at the given index
-    - name: getY
+        - static
+      javaType: enum
+      extends: Enum
+    AStarPathFinderResult:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-          notes: The index of the step whose y coordinate should be retrieved
-      returns:
-        type:
-          basic: int
-        notes: The y coordinate at the step
-      notes: get the y coordinate for the step at the given index
-    - name: getZ
+      javaType: class
+      extends: Object
+    IPathfinder:
+      methods:
+        - name: Failed
+          parameters:
+            - name: mover
+              type:
+                basic: Mover
+          returns:
+            type:
+              basic: void
+        - name: getName
+          returns:
+            type:
+              basic: String
+        - name: Succeeded
+          parameters:
+            - name: path
+              type:
+                basic: Path
+            - name: mover
+              type:
+                basic: Mover
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: prependStep
+      javaType: interface
+    Mover:
+      methods:
+        - name: getID
+          returns:
+            type:
+              basic: int
+        - name: getPathFindIndex
+          returns:
+            type:
+              basic: int
       modifiers:
         - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-          notes: The x coordinate of the new step
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Prepend a step to the path.
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: |-
-    A path determined by some path finding algorithm. A series of steps from
-     the starting location to the target location. This includes a step for the
-     initial location.
-Path.Step:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-          notes: The x coordinate of the new step
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      notes: Create a new step
-    - modifiers:
-        - public
-  methods:
-    - name: equals
+      javaType: interface
+      notes: >-
+        A tagging interface for an object representing the entity in the game
+        that
+         is going to moving along the path. This allows us to pass around entity/state
+         information to determine whether a particular tile is blocked, or how much
+         cost to apply on a particular tile.
+
+         For instance, a Mover might represent a tank or plane on a game map. Passing round
+         this entity allows us to determine whether rough ground on a map should effect
+         the unit's cost for moving through the tile.
+    Path:
+      constructors:
+        - modifiers:
+            - public
+          notes: Create an empty path
+      methods:
+        - name: appendStep
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+              notes: The x coordinate of the new step
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Append a step to the path.
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: costPerStep
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: createStep
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: Path.Step
+        - name: getLength
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: The number of steps in this path
+          notes: get the length of the path, i.e. the number of steps
+        - name: getStep
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: |-
+                The index of the step to retrieve. Note this should
+                 be >= 0 and < getLength();
+          returns:
+            type:
+              basic: Path.Step
+            notes: The step information, the position on the map.
+          notes: get the step at a given index in the path
+        - name: getX
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: The index of the step whose x coordinate should be retrieved
+          returns:
+            type:
+              basic: int
+            notes: The x coordinate at the step
+          notes: get the x coordinate for the step at the given index
+        - name: getY
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+              notes: The index of the step whose y coordinate should be retrieved
+          returns:
+            type:
+              basic: int
+            notes: The y coordinate at the step
+          notes: get the y coordinate for the step at the given index
+        - name: getZ
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: prependStep
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+              notes: The x coordinate of the new step
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Prepend a step to the path.
       modifiers:
         - public
-      parameters:
-        - name: other
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: boolean
-    - name: getX
+      javaType: class
+      extends: Object
+      notes: >-
+        A path determined by some path finding algorithm. A series of steps from
+         the starting location to the target location. This includes a step for the
+         initial location.
+    Path.Step:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+              notes: The x coordinate of the new step
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          notes: Create a new step
+        - modifiers:
+            - public
+      methods:
+        - name: equals
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: boolean
+        - name: getX
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: The x coodindate of the new step
+          notes: get the x coordinate of the new step
+        - name: getY
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: The y coodindate of the new step
+          notes: get the y coordinate of the new step
+        - name: getZ
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: hashCode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
       modifiers:
         - public
-      returns:
-        type:
-          basic: int
-        notes: The x coodindate of the new step
-      notes: get the x coordinate of the new step
-    - name: getY
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: The y coodindate of the new step
-      notes: get the y coordinate of the new step
-    - name: getZ
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: hashCode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-  notes: A single step within the path
+        - static
+      javaType: class
+      extends: Object
+      notes: A single step within the path

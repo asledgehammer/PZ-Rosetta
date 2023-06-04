@@ -1,3312 +1,3314 @@
-# zombie.core.skinnedmodel.advancedanimation
-AdvancedAnimator:
-  constructors:
-    - modifiers:
+namespaces:
+  zombie.core.skinnedmodel.advancedanimation:
+    AdvancedAnimator:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: checkModifiedFiles
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: containsAnyIdleNodes
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Returns TRUE if any Actuve Live nodes are an Idle animation.
+             This is useful when determining if the character is currently Idle.
+        - name: containsState
+          modifiers:
+            - public
+          parameters:
+            - name: stateName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: debugGetVariables
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getActiveSubLayerCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getCharacter
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IAnimatable
+        - name: getCurrentStateName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: GetDebug
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getDebugMonitor
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimatorDebugMonitor
+        - name: getRootLayer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimLayer
+        - name: getSubLayerAt
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: AnimLayer
+        - name: getSubLayerCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: character
+              type:
+                basic: IAnimatable
+          returns:
+            type:
+              basic: void
+        - name: isRecording
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: OnAnimDataChanged
+          modifiers:
+            - public
+          parameters:
+            - name: reload
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: OnAnimEvent
+          modifiers:
+            - public
+          parameters:
+            - name: sender
+              type:
+                basic: AnimLayer
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+        - name: printDebugCharacterActions
+          modifiers:
+            - public
+          parameters:
+            - name: target
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: Reload
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: SetAnimSet
+          modifiers:
+            - public
+          parameters:
+            - name: aset
+              type:
+                basic: AnimationSet
+          returns:
+            type:
+              basic: void
+        - name: setDebugMonitor
+          modifiers:
+            - public
+          parameters:
+            - name: monitor
+              type:
+                basic: AnimatorDebugMonitor
+          returns:
+            type:
+              basic: void
+        - name: setRecorder
+          modifiers:
+            - public
+          parameters:
+            - name: recorder
+              type:
+                basic: AnimationPlayerRecorder
+          returns:
+            type:
+              basic: void
+        - name: SetState
+          modifiers:
+            - public
+          parameters:
+            - name: stateName
+              type:
+                basic: String
+            - name: subStateNames
+              type:
+                basic: List
+                full: List<String>
+          returns:
+            type:
+              basic: void
+        - name: systemInit
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: updateSpeedScale
+          modifiers:
+            - public
+          parameters:
+            - name: variable
+              type:
+                basic: String
+            - name: newSpeed
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
         - public
-  methods:
-    - name: checkModifiedFiles
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYMAIN on 26/01/2015.
+    AdvancedAnimator.SubLayerSlot:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: rootLayer
+              type:
+                basic: AnimLayer
+            - name: character
+              type:
+                basic: IAnimatable
+            - name: animEventsCallback
+              type:
+                basic: IAnimEventCallback
+      methods:
+        - name: applyTransition
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Transition to NULL, if shouldBeActive is FALSE
+        - name: transitionTo
+          modifiers:
+            - public
+          parameters:
+            - name: newState
+              type:
+                basic: AnimState
+            - name: force
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: void
-    - name: containsAnyIdleNodes
+      javaType: class
+      extends: Object
+    Anim2DBlend:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Returns TRUE if any Actuve Live nodes are an Idle animation.
-         This is useful when determining if the character is currently Idle.
-    - name: containsState
+        - final
+      javaType: class
+      extends: Object
+    Anim2DBlendPicker:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: Pick
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Anim2DBlendPicker.PickResults
+        - name: SetPickTriangles
+          modifiers:
+            - public
+          parameters:
+            - name: tris
+              type:
+                basic: List
+                full: List<Anim2DBlendTriangle>
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: stateName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: debugGetVariables
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: getActiveSubLayerCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getCharacter
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IAnimatable
-    - name: getCurrentStateName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: GetDebug
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getDebugMonitor
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimatorDebugMonitor
-    - name: getRootLayer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimLayer
-    - name: getSubLayerAt
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: AnimLayer
-    - name: getSubLayerCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: init
-      modifiers:
-        - public
-      parameters:
-        - name: character
-          type:
-            basic: IAnimatable
-      returns:
-        type:
-          basic: void
-    - name: isRecording
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: OnAnimDataChanged
-      modifiers:
-        - public
-      parameters:
-        - name: reload
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: OnAnimEvent
-      modifiers:
-        - public
-      parameters:
-        - name: sender
-          type:
-            basic: AnimLayer
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-    - name: printDebugCharacterActions
-      modifiers:
-        - public
-      parameters:
-        - name: target
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: Reload
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: render
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: SetAnimSet
-      modifiers:
-        - public
-      parameters:
-        - name: aset
-          type:
-            basic: AnimationSet
-      returns:
-        type:
-          basic: void
-    - name: setDebugMonitor
-      modifiers:
-        - public
-      parameters:
-        - name: monitor
-          type:
-            basic: AnimatorDebugMonitor
-      returns:
-        type:
-          basic: void
-    - name: setRecorder
-      modifiers:
-        - public
-      parameters:
-        - name: recorder
-          type:
-            basic: AnimationPlayerRecorder
-      returns:
-        type:
-          basic: void
-    - name: SetState
-      modifiers:
-        - public
-      parameters:
-        - name: stateName
-          type:
-            basic: String
-        - name: subStateNames
-          type:
-            basic: List
-            full: List<String>
-      returns:
-        type:
-          basic: void
-    - name: systemInit
+        - final
+      javaType: class
+      extends: Object
+    Anim2DBlendPicker.PickResults:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: void
-    - name: update
+      javaType: class
+      extends: Object
+    Anim2DBlendTriangle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: Contains
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: sign
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: P1X
+              type:
+                basic: float
+            - name: P1Y
+              type:
+                basic: float
+            - name: P2X
+              type:
+                basic: float
+            - name: P2Y
+              type:
+                basic: float
+            - name: P3X
+              type:
+                basic: float
+            - name: P3Y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: double
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: updateSpeedScale
+        - final
+      javaType: class
+      extends: Object
+    AnimatedModel:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: actionStateChanged
+          modifiers:
+            - public
+          parameters:
+            - name: sender
+              type:
+                basic: ActionContext
+          returns:
+            type:
+              basic: void
+        - name: clothingItemChanged
+          modifiers:
+            - public
+          parameters:
+            - name: itemGuid
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: DoRender
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: w
+              type:
+                basic: int
+            - name: h
+              type:
+                basic: int
+            - name: sizeV
+              type:
+                basic: float
+            - name: animPlayerAngle
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: DoRenderToWorld
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: animPlayerAngle
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: getActionContext
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ActionContext
+        - name: getAdvancedAnimator
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AdvancedAnimator
+        - name: getAnimationPlayer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationPlayer
+        - name: getAnimationPlayerRecorder
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationPlayerRecorder
+        - name: GetAnimSetName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getHumanVisual
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: HumanVisual
+        - name: getItemVisuals
+          modifiers:
+            - public
+          parameters:
+            - name: itemVisuals
+              type:
+                basic: ItemVisuals
+          returns:
+            type:
+              basic: void
+        - name: getModelInstance
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ModelInstance
+        - name: getState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getUID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getVisual
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: BaseVisual
+        - name: isAnimationRecorderActive
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isFemale
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isIsometric
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isReadyToRender
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isRendered
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isSkeleton
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isZombie
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: OnAnimEvent
+          modifiers:
+            - public
+          parameters:
+            - name: sender
+              type:
+                basic: AnimLayer
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+        - name: postRender
+          modifiers:
+            - public
+          parameters:
+            - name: bRendered
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: releaseAnimationPlayer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: renderMain
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: setAlpha
+          modifiers:
+            - public
+          parameters:
+            - name: alpha
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setAmbient
+          modifiers:
+            - public
+          parameters:
+            - name: ambient
+              type:
+                basic: ColorInfo
+            - name: outside
+              type:
+                basic: boolean
+            - name: room
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setAngle
+          modifiers:
+            - public
+          parameters:
+            - name: angle
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: void
+        - name: setAnimate
+          modifiers:
+            - public
+          parameters:
+            - name: animate
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setAnimSetName
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setAttachedModelNames
+          modifiers:
+            - public
+          parameters:
+            - name: attachedModelNames
+              type:
+                basic: AttachedModelNames
+          returns:
+            type:
+              basic: void
+        - name: setCharacter
+          modifiers:
+            - public
+          parameters:
+            - name: character
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: setFlipY
+          modifiers:
+            - public
+          parameters:
+            - name: flip
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setIsometric
+          modifiers:
+            - public
+          parameters:
+            - name: iso
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setLights
+          modifiers:
+            - public
+          parameters:
+            - name: lights
+              type:
+                basic: IsoGridSquare.ResultLight[]
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setModelData
+          modifiers:
+            - public
+          parameters:
+            - name: baseVisual
+              type:
+                basic: HumanVisual
+            - name: itemVisuals
+              type:
+                basic: ItemVisuals
+          returns:
+            type:
+              basic: void
+        - name: setOffset
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setOutfitName
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: female
+              type:
+                basic: boolean
+            - name: zombie
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setPrimaryHandModelName
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setSecondaryHandModelName
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setState
+          modifiers:
+            - public
+          parameters:
+            - name: state
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setSurvivorDesc
+          modifiers:
+            - public
+          parameters:
+            - name: survivorDesc
+              type:
+                basic: SurvivorDesc
+          returns:
+            type:
+              basic: void
+        - name: setTrackTime
+          modifiers:
+            - public
+          parameters:
+            - name: trackTime
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setVisual
+          modifiers:
+            - public
+          parameters:
+            - name: baseVisual
+              type:
+                basic: HumanVisual
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: variable
-          type:
-            basic: String
-        - name: newSpeed
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYMAIN on 26/01/2015.
-AdvancedAnimator.SubLayerSlot:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: rootLayer
-          type:
-            basic: AnimLayer
-        - name: character
-          type:
-            basic: IAnimatable
-        - name: animEventsCallback
-          type:
-            basic: IAnimEventCallback
-  methods:
-    - name: applyTransition
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Transition to NULL, if shouldBeActive is FALSE
-    - name: transitionTo
-      modifiers:
-        - public
-      parameters:
-        - name: newState
-          type:
-            basic: AnimState
-        - name: force
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-Anim2DBlend:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-Anim2DBlendPicker:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: Pick
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-      returns:
-        type:
-          basic: Anim2DBlendPicker.PickResults
-    - name: SetPickTriangles
-      modifiers:
-        - public
-      parameters:
-        - name: tris
-          type:
-            basic: List
-            full: List<Anim2DBlendTriangle>
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-Anim2DBlendPicker.PickResults:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-Anim2DBlendTriangle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: Contains
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-    - name: sign
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: P1X
-          type:
-            basic: float
-        - name: P1Y
-          type:
-            basic: float
-        - name: P2X
-          type:
-            basic: float
-        - name: P2Y
-          type:
-            basic: float
-        - name: P3X
-          type:
-            basic: float
-        - name: P3Y
-          type:
-            basic: float
-      returns:
-        type:
-          basic: double
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimatedModel:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: actionStateChanged
-      modifiers:
-        - public
-      parameters:
-        - name: sender
-          type:
-            basic: ActionContext
-      returns:
-        type:
-          basic: void
-    - name: clothingItemChanged
-      modifiers:
-        - public
-      parameters:
-        - name: itemGuid
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: DoRender
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: w
-          type:
-            basic: int
-        - name: h
-          type:
-            basic: int
-        - name: sizeV
-          type:
-            basic: float
-        - name: animPlayerAngle
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: DoRenderToWorld
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-        - name: animPlayerAngle
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: getActionContext
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ActionContext
-    - name: getAdvancedAnimator
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AdvancedAnimator
-    - name: getAnimationPlayer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationPlayer
-    - name: getAnimationPlayerRecorder
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationPlayerRecorder
-    - name: GetAnimSetName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getHumanVisual
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: HumanVisual
-    - name: getItemVisuals
-      modifiers:
-        - public
-      parameters:
-        - name: itemVisuals
-          type:
-            basic: ItemVisuals
-      returns:
-        type:
-          basic: void
-    - name: getModelInstance
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ModelInstance
-    - name: getState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getUID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getVisual
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: BaseVisual
-    - name: isAnimationRecorderActive
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isFemale
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isIsometric
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isReadyToRender
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isRendered
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isSkeleton
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isZombie
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: OnAnimEvent
-      modifiers:
-        - public
-      parameters:
-        - name: sender
-          type:
-            basic: AnimLayer
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-    - name: postRender
-      modifiers:
-        - public
-      parameters:
-        - name: bRendered
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: releaseAnimationPlayer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: renderMain
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: setAlpha
-      modifiers:
-        - public
-      parameters:
-        - name: alpha
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setAmbient
-      modifiers:
-        - public
-      parameters:
-        - name: ambient
-          type:
-            basic: ColorInfo
-        - name: outside
-          type:
-            basic: boolean
-        - name: room
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setAngle
-      modifiers:
-        - public
-      parameters:
-        - name: angle
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: void
-    - name: setAnimate
-      modifiers:
-        - public
-      parameters:
-        - name: animate
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setAnimSetName
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setAttachedModelNames
-      modifiers:
-        - public
-      parameters:
-        - name: attachedModelNames
-          type:
-            basic: AttachedModelNames
-      returns:
-        type:
-          basic: void
-    - name: setCharacter
-      modifiers:
-        - public
-      parameters:
-        - name: character
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: setFlipY
-      modifiers:
-        - public
-      parameters:
-        - name: flip
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setIsometric
-      modifiers:
-        - public
-      parameters:
-        - name: iso
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setLights
-      modifiers:
-        - public
-      parameters:
-        - name: lights
-          type:
-            basic: IsoGridSquare.ResultLight[]
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setModelData
-      modifiers:
-        - public
-      parameters:
-        - name: baseVisual
-          type:
-            basic: HumanVisual
-        - name: itemVisuals
-          type:
-            basic: ItemVisuals
-      returns:
-        type:
-          basic: void
-    - name: setOffset
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setOutfitName
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: female
-          type:
-            basic: boolean
-        - name: zombie
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setPrimaryHandModelName
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setSecondaryHandModelName
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setState
-      modifiers:
-        - public
-      parameters:
-        - name: state
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setSurvivorDesc
-      modifiers:
-        - public
-      parameters:
-        - name: survivorDesc
-          type:
-            basic: SurvivorDesc
-      returns:
-        type:
-          basic: void
-    - name: setTrackTime
-      modifiers:
-        - public
-      parameters:
-        - name: trackTime
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setVisual
-      modifiers:
-        - public
-      parameters:
-        - name: baseVisual
-          type:
-            basic: HumanVisual
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSource
-AnimatedModel.StateInfo:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-AnimationSet:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: containsState
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: GetAnimationSet
+        - final
+      javaType: class
+      extends: AnimationVariableSource
+    AnimatedModel.StateInfo:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
         - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: reload
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: AnimationSet
-    - name: GetState
+        - final
+      javaType: class
+      extends: Object
+    AnimationSet:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: containsState
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: GetAnimationSet
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: reload
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: AnimationSet
+        - name: GetState
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimState
+        - name: Load
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: Reset
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimState
-    - name: Load
+        - final
+      javaType: class
+      extends: Object
+    AnimationVariableGenericSlot:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+            0 for Floats, False for Booleans, etc.
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
       modifiers:
         - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: Reset
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimationVariableGenericSlot:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Clear this variable, its value is set to a null-value. Blank for Strings,
-        0 for Floats, False for Booleans, etc.
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlot
-  notes: >-
-    A universal adapter. This variable accepts all types, and stores a more
-    explicit type internally.
+        - final
+      javaType: class
+      extends: AnimationVariableSlot
+      notes: >-
+        A universal adapter. This variable accepts all types, and stores a more
+        explicit type internally.
 
-      Whenever a setter is called, this object checks whether it can keep its current internal variable,
-      or if it needs to re-create it.
-AnimationVariableHandle:
-  methods:
-    - name: alloc
+          Whenever a setter is called, this object checks whether it can keep its current internal variable,
+          or if it needs to re-create it.
+    AnimationVariableHandle:
+      methods:
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimationVariableHandle
+        - name: getVariableIndex
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getVariableName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimationVariableHandle
-    - name: getVariableIndex
+      javaType: class
+      extends: Object
+    AnimationVariableHandlePool:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getOrCreate
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimationVariableHandle
       modifiers:
         - public
-      returns:
-        type:
-          basic: int
-    - name: getVariableName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-AnimationVariableHandlePool:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getOrCreate
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimationVariableHandle
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-AnimationVariableSlot:
-  methods:
-    - name: getKey
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-  notes: >-
-    An Animation Variable Slot
-      Used to store a variable's key+value pair, and its current type.
-
-      This abstract class provides the key read-only storage, constructor, and getter.
-AnimationVariableSlotBool:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Clear this variable, its value is set to a null-value. Blank for Strings,
-        0 for Floats, False for Booleans, etc.
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlot
-AnimationVariableSlotCallback:
-  methods:
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Clear this variable, its value is set to a null-value. Blank for Strings,
-        0 for Floats, False for Booleans, etc.
-    - name: getDefaultValue
+      javaType: class
+      extends: Object
+    AnimationVariableSlot:
+      methods:
+        - name: getKey
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
       modifiers:
         - public
         - abstract
-      returns:
-        type:
-          basic: VariableType
-    - name: getValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: VariableType
-    - name: isReadOnly
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: trySetValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: VariableType
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: AnimationVariableSlot
-AnimationVariableSlotCallback.CallbackGet:
-  methods:
-    - name: call
-      returns:
-        type:
-          basic: VariableType
-  modifiers:
-    - public
-    - static
-  javaType: interface
-AnimationVariableSlotCallback.CallbackSet:
-  methods:
-    - name: call
-      parameters:
-        - name: val
-          type:
-            basic: VariableType
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: interface
-AnimationVariableSlotCallbackBool:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: boolean
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: boolean
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getDefaultValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Boolean
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlotCallback
-AnimationVariableSlotCallbackBool.CallbackGetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackGet
-  notes: Strong-typed utility type. Useful for auto-typed function overrides, such as
-AnimationVariableSlotCallbackBool.CallbackSetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackSet
-AnimationVariableSlotCallbackFloat:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: float
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: float
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getDefaultValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Float
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlotCallback
-AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackGet
-AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackSet
-AnimationVariableSlotCallbackInt:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackInt.CallbackSetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: int
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: int
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackInt.CallbackSetStrongTyped
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getDefaultValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Integer
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlotCallback
-AnimationVariableSlotCallbackInt.CallbackGetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackGet
-AnimationVariableSlotCallbackInt.CallbackSetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackSet
-AnimationVariableSlotCallbackString:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: String
-        - name: callbackGet
-          type:
-            basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
-        - name: callbackSet
-          type:
-            basic: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getDefaultValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlotCallback
-AnimationVariableSlotCallbackString.CallbackGetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackGet
-AnimationVariableSlotCallbackString.CallbackSetStrongTyped:
-  modifiers:
-    - public
-    - static
-  javaType: interface
-  extends: AnimationVariableSlotCallback.CallbackSet
-AnimationVariableSlotFloat:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Clear this variable, its value is set to a null-value. Blank for Strings,
-        0 for Floats, False for Booleans, etc.
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlot
-AnimationVariableSlotString:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-  methods:
-    - name: canConvertFrom
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Clear this variable, its value is set to a null-value. Blank for Strings,
-        0 for Floats, False for Booleans, etc.
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueBool
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueFloat
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-      notes: Description copied from interface: IAnimationVariableSlot
-    - name: setValue
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: IAnimationVariableSlot
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AnimationVariableSlot
-AnimationVariableSource:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: clearVariable
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: clearVariables
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: containsVariable
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: getGameVariables
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Iterable
-      notes: Returns all Game variables.
-    - name: getOrCreateVariable
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: IAnimationVariableSlot
-      notes: |-
-        Returns the specified variable slot.
-          Creates a new slot if not found.
-
-          Returns NULL if key is null, whitespace, or empty.
-    - name: getVariable
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: IAnimationVariableSlot
-      notes: Returns the specified variable slot. Or NULL if not found.
-    - name: getVariableBoolean
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Returns the specified variable, as a boolean.
-         Attempts to convert the string variable to a boolean.
-         If that fails, or if variable not found, returns defaultVal
-    - name: getVariableFloat
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-      notes: |-
-        Returns the specified variable, as a float.
-         Attempts to convert the string variable to a float.
-         If that fails, or if variable not found, returns the defaultValue
-    - name: getVariableString
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-      notes: Returns the specified variable. Or an empty string "" if not found.
-    - name: isVariable
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Compares (ignoring case) the value of the specified variable.
-         Returns TRUE if they match.
-    - name: setVariable
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: value
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-AnimationVariableType:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: AnimationVariableType
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: AnimationVariableType
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-AnimBoneWeight:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: boneName
-          type:
-            basic: String
-        - name: weight
-          type:
-            basic: float
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimCondition:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: check
-      modifiers:
-        - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-      returns:
-        type:
-          basic: boolean
-    - name: getConditionString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getValueString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: pass
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-        - name: conditions
-          type:
-            basic: List
-            full: List<AnimCondition>
-      returns:
-        type:
-          basic: boolean
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimCondition.Type:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: AnimCondition.Type
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: AnimCondition.Type
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-AnimEvent:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: toDetailsString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: |-
-    class AnimEvent
-      Used to set a game variable from an animation node.
-
-       eg. Set a sword's collision box to Active during a swing animation,
-        then Inactive once swing is done.
-
-       Holds a time, name, and value
-        The time is measured as a fraction of the animation's time.
-        This means that scaling an animation's speed scales the Events as well.
-AnimEvent.AnimEventTime:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: AnimEvent.AnimEventTime
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: AnimEvent.AnimEventTime
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-AnimLayer:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: character
-          type:
-            basic: IAnimatable
-        - name: animEventsCallback
-          type:
-            basic: IAnimEventCallback
-    - modifiers:
-        - public
-      parameters:
-        - name: parentLayer
-          type:
-            basic: AnimLayer
-        - name: character
-          type:
-            basic: IAnimatable
-        - name: animEventsCallback
-          type:
-            basic: IAnimEventCallback
-  methods:
-    - name: findTransitionToNewNode
-      modifiers:
-        - public
-      parameters:
-        - name: newNode
-          type:
-            basic: LiveAnimNode
-        - name: isSubNode
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: LiveAnimNode
-    - name: getAnimationTrack
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationMultiTrack
-    - name: getCurrentStateName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getCurrentSyncNode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: LiveAnimNode
-    - name: getCurrentSyncTrack
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: getDebugNodeName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: GetDebugString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getDepth
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-      notes: The layer's depth, how many layer ancestors (parent, grandparent,
-        great-grandparent, etc) does this layer have.
-    - name: getLiveAnimNodes
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: List
-    - name: getVariableSource
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IAnimationVariableSource
-    - name: hasState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isCurrentState
-      modifiers:
-        - public
-      parameters:
-        - name: stateName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: isRecording
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isStateless
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isSubLayer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: onAnimStarted
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onLoopedAnim
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onNonLoopedAnimFadeOut
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onNonLoopedAnimFinished
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onTrackDestroyed
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: removeFadedOutNodes
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: render
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: Reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: TransitionTo
-      modifiers:
-        - public
-      parameters:
-        - name: newState
-          type:
-            basic: AnimState
-        - name: force
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: Update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: updateNodeActiveFlags
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimNode:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: checkConditions
-      modifiers:
-        - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-      returns:
-        type:
-          basic: boolean
-    - name: findTransitionTo
-      modifiers:
-        - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-        - name: targetName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimTransition
-    - name: getBlendOutTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getConditionsString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getDeferredBoneAxis
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: BoneAxis
-    - name: getDeferredBoneName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getPriority
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getSpeedScale
-      modifiers:
-        - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-      returns:
-        type:
-          basic: float
-    - name: isAbstract
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isIdleAnim
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Returns TRUE if this AnimNode represents an Idle animation.
-         TODO: Make this a flag in the AnimNode, instead of relying on the name
-    - name: Parse
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: source
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimNode
-        notes: The deserialized AnimNode instance, or NULL if failed.
-      notes: |-
-        Loads an AnimNode from the specified source.
-         The source can either be a file path, or a File GUID.
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimNodeAsset:
-  methods:
-    - name: getType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AssetType
-  modifiers:
-    - public
-  javaType: class
-  extends: Asset
-AnimNodeAssetManager:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: onStateChanged
-      modifiers:
-        - public
-      parameters:
-        - name: old_state
-          type:
-            basic: Asset.State
-        - name: new_state
-          type:
-            basic: Asset.State
-        - name: asset
-          type:
-            basic: Asset
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: AssetManager
-AnimState:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getAnimNodes
-      modifiers:
-        - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-        - name: nodes
-          type:
-            basic: List
-            full: List<AnimNode>
-      returns:
-        type:
-          basic: List
-    - name: getStateName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: state
-          type:
-            basic: AnimState
-      returns:
-        type:
-          basic: String
-      notes: |-
-        Null-safe function that returns a given state's name.
-         If null, returns a null
-    - name: Parse
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: statePath
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimState
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimTransition:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-BlendInfo:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYMAIN on 16/04/2015.
-BlendInfo.BlendInstance:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: info
-          type:
-            basic: BlendInfo
-  methods:
-    - name: GetDebug
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-BlendType:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: BlendType
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: BlendType
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-  notes: Created by LEMMYMAIN on 16/04/2015.
-IAnimatable:
-  methods:
-    - name: getActionContext
-      returns:
-        type:
-          basic: ActionContext
-    - name: getAdvancedAnimator
-      returns:
-        type:
-          basic: AdvancedAnimator
-    - name: getAnimationPlayer
-      returns:
-        type:
-          basic: AnimationPlayer
-    - name: getAnimationPlayerRecorder
-      returns:
-        type:
-          basic: AnimationPlayerRecorder
-    - name: GetAnimSetName
-      returns:
-        type:
-          basic: String
-    - name: getModelInstance
-      returns:
-        type:
-          basic: ModelInstance
-    - name: getOnlineID
-      modifiers:
-        - default
-      returns:
-        type:
-          basic: short
-    - name: getUID
-      returns:
-        type:
-          basic: String
-    - name: isAnimationRecorderActive
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: interface
-  extends: IAnimationVariableSource
-IAnimationVariableMap:
-  methods:
-    - name: clearVariable
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: clearVariables
-      returns:
-        type:
-          basic: void
-    - name: getOrCreateVariable
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: IAnimationVariableSlot
-      notes: |-
-        Returns the specified variable slot.
-          Creates a new slot if not found.
-    - name: setVariable
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: value
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-  extends: IAnimationVariableSource
-IAnimationVariableSlot:
-  methods:
-    - name: canConvertFrom
-      parameters:
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
+      javaType: class
+      extends: Object
       notes: >-
-        Returns TRUE if this variable slot can accept and/or convert the
-        supplied value object.
-         Returns FALSE if the conversion would result in a loss of data.
+        An Animation Variable Slot
+          Used to store a variable's key+value pair, and its current type.
 
-          Eg. If a String is given to a Float variable, and the string is not of a numeric format, then the string value
-              would be lost.
-    - name: clear
-      returns:
-        type:
-          basic: void
-      notes: Clear this variable, its value is set to a null-value. Blank for Strings,
-        0 for Floats, False for Booleans, etc.
-    - name: getKey
-      returns:
-        type:
-          basic: String
-      notes: This variable's unique key
-    - name: getType
-      returns:
-        type:
-          basic: AnimationVariableType
-      notes: This variable's value type
-    - name: getValueBool
-      returns:
-        type:
-          basic: boolean
-      notes: This variable's value, as a Boolean.
-    - name: getValueFloat
-      returns:
-        type:
-          basic: float
-      notes: This variable's value, as a Float.
-    - name: getValueString
-      returns:
-        type:
-          basic: String
-      notes: This variable's value, in String form.
-    - name: isReadOnly
+          This abstract class provides the key read-only storage, constructor, and getter.
+    AnimationVariableSlotBool:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+            0 for Floats, False for Booleans, etc.
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
       modifiers:
-        - default
-      returns:
-        type:
-          basic: boolean
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlot
+    AnimationVariableSlotCallback:
+      methods:
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+            0 for Floats, False for Booleans, etc.
+        - name: getDefaultValue
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: VariableType
+        - name: getValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: VariableType
+        - name: isReadOnly
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: trySetValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: VariableType
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+        - abstract
+      javaType: class
+      extends: AnimationVariableSlot
+    AnimationVariableSlotCallback.CallbackGet:
+      methods:
+        - name: call
+          returns:
+            type:
+              basic: VariableType
+      modifiers:
+        - public
+        - static
+      javaType: interface
+    AnimationVariableSlotCallback.CallbackSet:
+      methods:
+        - name: call
+          parameters:
+            - name: val
+              type:
+                basic: VariableType
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - static
+      javaType: interface
+    AnimationVariableSlotCallbackBool:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: boolean
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: boolean
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackBool.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackBool.CallbackSetStrongTyped
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getDefaultValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Boolean
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlotCallback
+    AnimationVariableSlotCallbackBool.CallbackGetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackGet
+      notes: Strong-typed utility type. Useful for auto-typed function overrides, such
+        as
+    AnimationVariableSlotCallbackBool.CallbackSetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackSet
+    AnimationVariableSlotCallbackFloat:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: float
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: float
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getDefaultValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Float
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlotCallback
+    AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackGet
+    AnimationVariableSlotCallbackFloat.CallbackSetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackSet
+    AnimationVariableSlotCallbackInt:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackInt.CallbackSetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: int
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: int
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackInt.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackInt.CallbackSetStrongTyped
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getDefaultValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Integer
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlotCallback
+    AnimationVariableSlotCallbackInt.CallbackGetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackGet
+    AnimationVariableSlotCallbackInt.CallbackSetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackSet
+    AnimationVariableSlotCallbackString:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: String
+            - name: callbackGet
+              type:
+                basic: AnimationVariableSlotCallbackString.CallbackGetStrongTyped
+            - name: callbackSet
+              type:
+                basic: AnimationVariableSlotCallbackString.CallbackSetStrongTyped
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getDefaultValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlotCallback
+    AnimationVariableSlotCallbackString.CallbackGetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackGet
+    AnimationVariableSlotCallbackString.CallbackSetStrongTyped:
+      modifiers:
+        - public
+        - static
+      javaType: interface
+      extends: AnimationVariableSlotCallback.CallbackSet
+    AnimationVariableSlotFloat:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+            0 for Floats, False for Booleans, etc.
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlot
+    AnimationVariableSlotString:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+      methods:
+        - name: canConvertFrom
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+            0 for Floats, False for Booleans, etc.
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueBool
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueFloat
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+          notes: Description copied from interface: IAnimationVariableSlot
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: IAnimationVariableSlot
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: AnimationVariableSlot
+    AnimationVariableSource:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: clearVariable
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: clearVariables
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: containsVariable
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: getGameVariables
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Iterable
+          notes: Returns all Game variables.
+        - name: getOrCreateVariable
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: IAnimationVariableSlot
+          notes: |-
+            Returns the specified variable slot.
+              Creates a new slot if not found.
+
+              Returns NULL if key is null, whitespace, or empty.
+        - name: getVariable
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: IAnimationVariableSlot
+          notes: Returns the specified variable slot. Or NULL if not found.
+        - name: getVariableBoolean
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Returns the specified variable, as a boolean.
+             Attempts to convert the string variable to a boolean.
+             If that fails, or if variable not found, returns defaultVal
+        - name: getVariableFloat
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+          notes: |-
+            Returns the specified variable, as a float.
+             Attempts to convert the string variable to a float.
+             If that fails, or if variable not found, returns the defaultValue
+        - name: getVariableString
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+          notes: Returns the specified variable. Or an empty string "" if not found.
+        - name: isVariable
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Compares (ignoring case) the value of the specified variable.
+             Returns TRUE if they match.
+        - name: setVariable
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    AnimationVariableType:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: AnimationVariableType
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AnimationVariableType
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
+      modifiers:
+        - public
+      javaType: enum
+      extends: Enum
+    AnimBoneWeight:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: boneName
+              type:
+                basic: String
+            - name: weight
+              type:
+                basic: float
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+    AnimCondition:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: check
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+          returns:
+            type:
+              basic: boolean
+        - name: getConditionString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getValueString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: pass
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+            - name: conditions
+              type:
+                basic: List
+                full: List<AnimCondition>
+          returns:
+            type:
+              basic: boolean
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+    AnimCondition.Type:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: AnimCondition.Type
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AnimCondition.Type
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
+      modifiers:
+        - public
+        - static
+      javaType: enum
+      extends: Enum
+    AnimEvent:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: toDetailsString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
       notes: >-
-        Returns TRUE if this variable is not writable. Typically, the value of
-        this variable is specified by an outside
-         condition, such as whether the character is currently falling, etc.
-    - name: setValue
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-      notes: Set this variable's value
-  modifiers:
-    - public
-  javaType: interface
-  notes: |-
-    An Animation Variable Slot
-      Used to store a variable's key+value pair, and its current type.
-IAnimationVariableSource:
-  methods:
-    - name: containsVariable
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: getGameVariables
-      returns:
-        type:
-          basic: Iterable
-      notes: Returns all Game variables.
-    - name: getVariable
-      parameters:
-        - name: key
-          type:
-            basic: String
-      returns:
-        type:
-          basic: IAnimationVariableSlot
-      notes: Returns the specified variable slot. Or NULL if not found.
-    - name: getVariableBoolean
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Returns the specified variable, as a boolean.
-         Attempts to convert the string variable to a boolean.
-         If that fails, or if variable not found, returns defaultVal
-    - name: getVariableFloat
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-      notes: |-
-        Returns the specified variable, as a float.
-          Attempts to convert the string variable to a float.
-          If that fails, or if variable not found, returns the defaultValue
-    - name: getVariableString
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-      notes: Returns the specified variable. Or an empty string "" if not found.
-    - name: isVariable
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: val
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Compares (ignoring case) the value of the specified variable.
-         Returns TRUE if they match.
-  modifiers:
-    - public
-  javaType: interface
-IAnimEventCallback:
-  methods:
-    - name: OnAnimEvent
-      parameters:
-        - name: sender
-          type:
-            basic: AnimLayer
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-LiveAnimNode:
-  methods:
-    - name: addMainTrack
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: alloc
+        class AnimEvent
+          Used to set a game variable from an animation node.
+
+           eg. Set a sword's collision box to Active during a swing animation,
+            then Inactive once swing is done.
+
+           Holds a time, name, and value
+            The time is measured as a fraction of the animation's time.
+            This means that scaling an animation's speed scales the Events as well.
+    AnimEvent.AnimEventTime:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: AnimEvent.AnimEventTime
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AnimEvent.AnimEventTime
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
         - static
-      parameters:
-        - name: animLayer
-          type:
-            basic: AnimLayer
-        - name: sourceNode
-          type:
-            basic: AnimNode
-        - name: layerIdx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: LiveAnimNode
-    - name: findTransitionTo
+      javaType: enum
+      extends: Enum
+    AnimLayer:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: character
+              type:
+                basic: IAnimatable
+            - name: animEventsCallback
+              type:
+                basic: IAnimEventCallback
+        - modifiers:
+            - public
+          parameters:
+            - name: parentLayer
+              type:
+                basic: AnimLayer
+            - name: character
+              type:
+                basic: IAnimatable
+            - name: animEventsCallback
+              type:
+                basic: IAnimEventCallback
+      methods:
+        - name: findTransitionToNewNode
+          modifiers:
+            - public
+          parameters:
+            - name: newNode
+              type:
+                basic: LiveAnimNode
+            - name: isSubNode
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: LiveAnimNode
+        - name: getAnimationTrack
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationMultiTrack
+        - name: getCurrentStateName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getCurrentSyncNode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: LiveAnimNode
+        - name: getCurrentSyncTrack
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: getDebugNodeName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: GetDebugString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getDepth
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+          notes: The layer's depth, how many layer ancestors (parent, grandparent,
+            great-grandparent, etc) does this layer have.
+        - name: getLiveAnimNodes
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: List
+        - name: getVariableSource
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IAnimationVariableSource
+        - name: hasState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isCurrentState
+          modifiers:
+            - public
+          parameters:
+            - name: stateName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: isRecording
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isStateless
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isSubLayer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: onAnimStarted
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onLoopedAnim
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onNonLoopedAnimFadeOut
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onNonLoopedAnimFinished
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onTrackDestroyed
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: removeFadedOutNodes
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: TransitionTo
+          modifiers:
+            - public
+          parameters:
+            - name: newState
+              type:
+                basic: AnimState
+            - name: force
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: Update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: updateNodeActiveFlags
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimTransition
-    - name: getBlendInTime
+        - final
+      javaType: class
+      extends: Object
+    AnimNode:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: checkConditions
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+          returns:
+            type:
+              basic: boolean
+        - name: findTransitionTo
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+            - name: targetName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimTransition
+        - name: getBlendOutTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getConditionsString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getDeferredBoneAxis
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: BoneAxis
+        - name: getDeferredBoneName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getPriority
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getSpeedScale
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+          returns:
+            type:
+              basic: float
+        - name: isAbstract
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isIdleAnim
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: >-
+            Returns TRUE if this AnimNode represents an Idle animation.
+             TODO: Make this a flag in the AnimNode, instead of relying on the name
+        - name: Parse
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: source
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimNode
+            notes: The deserialized AnimNode instance, or NULL if failed.
+          notes: |-
+            Loads an AnimNode from the specified source.
+             The source can either be a file path, or a File GUID.
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      returns:
-        type:
-          basic: float
-    - name: getBlendOutTime
+        - final
+      javaType: class
+      extends: Object
+    AnimNodeAsset:
+      methods:
+        - name: getType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AssetType
       modifiers:
         - public
-      returns:
-        type:
-          basic: float
-    - name: getDeferredBoneAxis
+      javaType: class
+      extends: Asset
+    AnimNodeAssetManager:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: onStateChanged
+          modifiers:
+            - public
+          parameters:
+            - name: old_state
+              type:
+                basic: Asset.State
+            - name: new_state
+              type:
+                basic: Asset.State
+            - name: asset
+              type:
+                basic: Asset
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: BoneAxis
-    - name: getDeferredBoneName
+      javaType: class
+      extends: AssetManager
+    AnimState:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getAnimNodes
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+            - name: nodes
+              type:
+                basic: List
+                full: List<AnimNode>
+          returns:
+            type:
+              basic: List
+        - name: getStateName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: state
+              type:
+                basic: AnimState
+          returns:
+            type:
+              basic: String
+          notes: |-
+            Null-safe function that returns a given state's name.
+             If null, returns a null
+        - name: Parse
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: statePath
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimState
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      returns:
-        type:
-          basic: String
-    - name: getLayerIdx
+        - final
+      javaType: class
+      extends: Object
+    AnimTransition:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-      returns:
-        type:
-          basic: int
-    - name: getMainInitialRewindTime
+        - final
+      javaType: class
+      extends: Object
+    BlendInfo:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-      returns:
-        type:
-          basic: float
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getPlayingTrackAt
-      modifiers:
-        - public
-      parameters:
-        - name: trackIdx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: getPlayingTrackCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getPriority
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getSourceNode
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimNode
-    - name: getSpeedScale
-      modifiers:
-        - public
-      parameters:
-        - name: varSource
-          type:
-            basic: IAnimationVariableSource
-      returns:
-        type:
-          basic: float
-    - name: getSubStateBoneWeights
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: List
-    - name: getTransitionFrom
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTransitionInBlendInTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getTransitionInBlendOutTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getTransitionInTrack
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: getTransitionInWeight
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getTransitionLayerIdx
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getWeight
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: isActive
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isIdleAnimActive
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: Returns TRUE if this Live node is currently Active, and if the source
-        AnimNode is an Idle animation.
-    - name: isLooped
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isMainAnimActive
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isNew
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isTransitioningIn
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: onAnimStarted
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onLoopedAnim
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onNonLoopedAnimFadeOut
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onNonLoopedAnimFinished
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onReleased
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: onTrackDestroyed
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: setActive
-      modifiers:
-        - public
-      parameters:
-        - name: active
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setTransitionInBlendDelta
-      modifiers:
-        - public
-      parameters:
-        - name: blendDelta
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setTransitionOut
-      modifiers:
-        - public
-      parameters:
-        - name: transitionOut
-          type:
-            basic: AnimTransition
-      returns:
-        type:
-          basic: void
-    - name: startTransitionIn
-      modifiers:
-        - public
-      parameters:
-        - name: transitionFrom
-          type:
-            basic: AnimNode
-        - name: transitionIn
-          type:
-            basic: AnimTransition
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: timeDelta
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: wasActivated
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: wasDeactivated
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: class
-  extends: PooledObject
-  notes: >-
-    The Live version of an AnimNode
-     The AnimNode represents the data.
-     The LiveAnimNode represents the playback of said data, its blend weights, timing, transitions etc.
-PooledAnimBoneWeightArray:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: alloc
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYMAIN on 16/04/2015.
+    BlendInfo.BlendInstance:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: info
+              type:
+                basic: BlendInfo
+      methods:
+        - name: GetDebug
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - static
-      parameters:
-        - name: count
-          type:
-            basic: int
-      returns:
-        type:
-          basic: PooledAnimBoneWeightArray
-    - name: toArray
+      javaType: class
+      extends: Object
+    BlendType:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: BlendType
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: BlendType
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-        - static
-      parameters:
-        - name: source
-          type:
-            basic: PooledArrayObject
-            full: PooledArrayObject<AnimBoneWeight>
-      returns:
-        type:
-          basic: PooledAnimBoneWeightArray
-  modifiers:
-    - public
-  javaType: class
-  extends: PooledArrayObject
+      javaType: enum
+      extends: Enum
+      notes: Created by LEMMYMAIN on 16/04/2015.
+    IAnimatable:
+      methods:
+        - name: getActionContext
+          returns:
+            type:
+              basic: ActionContext
+        - name: getAdvancedAnimator
+          returns:
+            type:
+              basic: AdvancedAnimator
+        - name: getAnimationPlayer
+          returns:
+            type:
+              basic: AnimationPlayer
+        - name: getAnimationPlayerRecorder
+          returns:
+            type:
+              basic: AnimationPlayerRecorder
+        - name: GetAnimSetName
+          returns:
+            type:
+              basic: String
+        - name: getModelInstance
+          returns:
+            type:
+              basic: ModelInstance
+        - name: getOnlineID
+          modifiers:
+            - default
+          returns:
+            type:
+              basic: short
+        - name: getUID
+          returns:
+            type:
+              basic: String
+        - name: isAnimationRecorderActive
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+      javaType: interface
+      extends: IAnimationVariableSource
+    IAnimationVariableMap:
+      methods:
+        - name: clearVariable
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: clearVariables
+          returns:
+            type:
+              basic: void
+        - name: getOrCreateVariable
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: IAnimationVariableSlot
+          notes: |-
+            Returns the specified variable slot.
+              Creates a new slot if not found.
+        - name: setVariable
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+      extends: IAnimationVariableSource
+    IAnimationVariableSlot:
+      methods:
+        - name: canConvertFrom
+          parameters:
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: >-
+            Returns TRUE if this variable slot can accept and/or convert the
+            supplied value object.
+             Returns FALSE if the conversion would result in a loss of data.
+
+              Eg. If a String is given to a Float variable, and the string is not of a numeric format, then the string value
+                  would be lost.
+        - name: clear
+          returns:
+            type:
+              basic: void
+          notes: Clear this variable, its value is set to a null-value. Blank for Strings,
+            0 for Floats, False for Booleans, etc.
+        - name: getKey
+          returns:
+            type:
+              basic: String
+          notes: This variable's unique key
+        - name: getType
+          returns:
+            type:
+              basic: AnimationVariableType
+          notes: This variable's value type
+        - name: getValueBool
+          returns:
+            type:
+              basic: boolean
+          notes: This variable's value, as a Boolean.
+        - name: getValueFloat
+          returns:
+            type:
+              basic: float
+          notes: This variable's value, as a Float.
+        - name: getValueString
+          returns:
+            type:
+              basic: String
+          notes: This variable's value, in String form.
+        - name: isReadOnly
+          modifiers:
+            - default
+          returns:
+            type:
+              basic: boolean
+          notes: >-
+            Returns TRUE if this variable is not writable. Typically, the value
+            of this variable is specified by an outside
+             condition, such as whether the character is currently falling, etc.
+        - name: setValue
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+          notes: Set this variable's value
+      modifiers:
+        - public
+      javaType: interface
+      notes: |-
+        An Animation Variable Slot
+          Used to store a variable's key+value pair, and its current type.
+    IAnimationVariableSource:
+      methods:
+        - name: containsVariable
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: getGameVariables
+          returns:
+            type:
+              basic: Iterable
+          notes: Returns all Game variables.
+        - name: getVariable
+          parameters:
+            - name: key
+              type:
+                basic: String
+          returns:
+            type:
+              basic: IAnimationVariableSlot
+          notes: Returns the specified variable slot. Or NULL if not found.
+        - name: getVariableBoolean
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Returns the specified variable, as a boolean.
+             Attempts to convert the string variable to a boolean.
+             If that fails, or if variable not found, returns defaultVal
+        - name: getVariableFloat
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+          notes: |-
+            Returns the specified variable, as a float.
+              Attempts to convert the string variable to a float.
+              If that fails, or if variable not found, returns the defaultValue
+        - name: getVariableString
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+          notes: Returns the specified variable. Or an empty string "" if not found.
+        - name: isVariable
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Compares (ignoring case) the value of the specified variable.
+             Returns TRUE if they match.
+      modifiers:
+        - public
+      javaType: interface
+    IAnimEventCallback:
+      methods:
+        - name: OnAnimEvent
+          parameters:
+            - name: sender
+              type:
+                basic: AnimLayer
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+    LiveAnimNode:
+      methods:
+        - name: addMainTrack
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: animLayer
+              type:
+                basic: AnimLayer
+            - name: sourceNode
+              type:
+                basic: AnimNode
+            - name: layerIdx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: LiveAnimNode
+        - name: findTransitionTo
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimTransition
+        - name: getBlendInTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getBlendOutTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getDeferredBoneAxis
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: BoneAxis
+        - name: getDeferredBoneName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getLayerIdx
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMainInitialRewindTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getPlayingTrackAt
+          modifiers:
+            - public
+          parameters:
+            - name: trackIdx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: getPlayingTrackCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getPriority
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getSourceNode
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimNode
+        - name: getSpeedScale
+          modifiers:
+            - public
+          parameters:
+            - name: varSource
+              type:
+                basic: IAnimationVariableSource
+          returns:
+            type:
+              basic: float
+        - name: getSubStateBoneWeights
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: List
+        - name: getTransitionFrom
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTransitionInBlendInTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getTransitionInBlendOutTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getTransitionInTrack
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: getTransitionInWeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getTransitionLayerIdx
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getWeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: isActive
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isIdleAnimActive
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Returns TRUE if this Live node is currently Active, and if the source
+            AnimNode is an Idle animation.
+        - name: isLooped
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isMainAnimActive
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isNew
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isTransitioningIn
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: onAnimStarted
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onLoopedAnim
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onNonLoopedAnimFadeOut
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onNonLoopedAnimFinished
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onReleased
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: onTrackDestroyed
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: setActive
+          modifiers:
+            - public
+          parameters:
+            - name: active
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setTransitionInBlendDelta
+          modifiers:
+            - public
+          parameters:
+            - name: blendDelta
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTransitionOut
+          modifiers:
+            - public
+          parameters:
+            - name: transitionOut
+              type:
+                basic: AnimTransition
+          returns:
+            type:
+              basic: void
+        - name: startTransitionIn
+          modifiers:
+            - public
+          parameters:
+            - name: transitionFrom
+              type:
+                basic: AnimNode
+            - name: transitionIn
+              type:
+                basic: AnimTransition
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: timeDelta
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: wasActivated
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: wasDeactivated
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+      javaType: class
+      extends: PooledObject
+      notes: >-
+        The Live version of an AnimNode
+         The AnimNode represents the data.
+         The LiveAnimNode represents the playback of said data, its blend weights, timing, transitions etc.
+    PooledAnimBoneWeightArray:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: PooledAnimBoneWeightArray
+        - name: toArray
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: source
+              type:
+                basic: PooledArrayObject
+                full: PooledArrayObject<AnimBoneWeight>
+          returns:
+            type:
+              basic: PooledAnimBoneWeightArray
+      modifiers:
+        - public
+      javaType: class
+      extends: PooledArrayObject

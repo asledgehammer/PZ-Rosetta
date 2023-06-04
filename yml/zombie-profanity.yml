@@ -1,223 +1,224 @@
-# zombie.profanity
-Phonizer:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: regex
-          type:
-            basic: String
-  methods:
-    - name: execute
+namespaces:
+  zombie.profanity:
+    Phonizer:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: regex
+              type:
+                basic: String
+      methods:
+        - name: execute
+          modifiers:
+            - public
+          parameters:
+            - name: m
+              type:
+                basic: Matcher
+            - name: s
+              type:
+                basic: StringBuffer
+          returns:
+            type:
+              basic: void
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getRegex
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      parameters:
-        - name: m
-          type:
-            basic: Matcher
-        - name: s
-          type:
-            basic: StringBuffer
-      returns:
-        type:
-          basic: void
-    - name: getName
+      javaType: class
+      extends: Object
+    ProfanityFilter:
+      methods:
+        - name: addFilterWord
+          modifiers:
+            - public
+          parameters:
+            - name: word
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: addLocale
+          modifiers:
+            - public
+          parameters:
+            - name: l
+              type:
+                basic: Locale
+            - name: setDefault
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: addWhiteListWord
+          modifiers:
+            - public
+          parameters:
+            - name: word
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: enable
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: filterString
+          modifiers:
+            - public
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: getFilterWordsCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getInstance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ProfanityFilter
+        - name: getLocale
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Locale
+        - name: isEnabled
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: printDebug
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: removeFilterWord
+          modifiers:
+            - public
+          parameters:
+            - name: word
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: removeWhiteListWord
+          modifiers:
+            - public
+          parameters:
+            - name: word
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setLocale
+          modifiers:
+            - public
+          parameters:
+            - name: locale
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: validateString
+          modifiers:
+            - public
+          parameters:
+            - name: str
+              type:
+                basic: String
+            - name: includePhonetics
+              type:
+                basic: boolean
+            - name: includeContains
+              type:
+                basic: boolean
+            - name: includeSpacedWords
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      returns:
-        type:
-          basic: String
-    - name: getRegex
+      javaType: class
+      extends: Object
+    ProfanityTest:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: loadDictionary
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: runTest
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: testString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: times
+              type:
+                basic: int
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ProfanityFilter:
-  methods:
-    - name: addFilterWord
-      modifiers:
-        - public
-      parameters:
-        - name: word
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: addLocale
-      modifiers:
-        - public
-      parameters:
-        - name: l
-          type:
-            basic: Locale
-        - name: setDefault
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: addWhiteListWord
-      modifiers:
-        - public
-      parameters:
-        - name: word
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: enable
-      modifiers:
-        - public
-      parameters:
-        - name: b
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: filterString
-      modifiers:
-        - public
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: getFilterWordsCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getInstance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ProfanityFilter
-    - name: getLocale
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Locale
-    - name: isEnabled
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: printDebug
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: removeFilterWord
-      modifiers:
-        - public
-      parameters:
-        - name: word
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: removeWhiteListWord
-      modifiers:
-        - public
-      parameters:
-        - name: word
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setLocale
-      modifiers:
-        - public
-      parameters:
-        - name: locale
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: validateString
-      modifiers:
-        - public
-      parameters:
-        - name: str
-          type:
-            basic: String
-        - name: includePhonetics
-          type:
-            basic: boolean
-        - name: includeContains
-          type:
-            basic: boolean
-        - name: includeSpacedWords
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ProfanityTest:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: loadDictionary
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: runTest
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: testString
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: times
-          type:
-            basic: int
-        - name: str
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
+      javaType: class
+      extends: Object

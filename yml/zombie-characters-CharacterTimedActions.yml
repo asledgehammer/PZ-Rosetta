@@ -1,449 +1,450 @@
-# zombie.characters.CharacterTimedActions
-BaseAction:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: finished
+namespaces:
+  zombie.characters.CharacterTimedActions:
+    BaseAction:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: finished
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: forceComplete
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: forceStop
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getCurrentTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getJobDelta
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getPrimaryHandItem
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: InventoryItem
+        - name: getPrimaryHandMdl
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getSecondaryHandItem
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: InventoryItem
+        - name: getSecondaryHandMdl
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: hasStalled
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: OnAnimEvent
+          modifiers:
+            - public
+          parameters:
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+        - name: perform
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: PlayLoopedSoundTillComplete
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: radius
+              type:
+                basic: int
+            - name: maxGain
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: resetJobDelta
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setActionAnim
+          modifiers:
+            - public
+          parameters:
+            - name: animNode
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setAnimVariable
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setBlockMovementEtc
+          modifiers:
+            - public
+          parameters:
+            - name: block
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setLoopedAction
+          modifiers:
+            - public
+          parameters:
+            - name: looped
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOverrideAnimation
+          modifiers:
+            - public
+          parameters:
+            - name: override
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOverrideHandModels
+          modifiers:
+            - public
+          parameters:
+            - name: primaryHand
+              type:
+                basic: InventoryItem
+            - name: secondaryHand
+              type:
+                basic: InventoryItem
+            - name: resetModel
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOverrideHandModelsObject
+          modifiers:
+            - public
+          parameters:
+            - name: primaryHand
+              type:
+                basic: Object
+            - name: secondaryHand
+              type:
+                basic: Object
+            - name: resetModel
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOverrideHandModelsString
+          modifiers:
+            - public
+          parameters:
+            - name: primaryHand
+              type:
+                basic: String
+            - name: secondaryHand
+              type:
+                basic: String
+            - name: resetModel
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setUseProgressBar
+          modifiers:
+            - public
+          parameters:
+            - name: use
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: start
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: stop
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: stopTimedActionAnim
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: valid
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: waitToStart
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: boolean
-    - name: forceComplete
+      javaType: class
+      extends: Object
+    LuaTimedAction:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: table
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: perform
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: start
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: stop
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: valid
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: forceStop
+        - final
+      javaType: class
+      extends: BaseAction
+    LuaTimedActionNew:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: table
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: Failed
+          modifiers:
+            - public
+          parameters:
+            - name: mover
+              type:
+                basic: Mover
+          returns:
+            type:
+              basic: void
+        - name: getMetaType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: OnAnimEvent
+          modifiers:
+            - public
+          parameters:
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+        - name: Pathfind
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: perform
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setCurrentTime
+          modifiers:
+            - public
+          parameters:
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTime
+          modifiers:
+            - public
+          parameters:
+            - name: maxTime
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: start
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: stop
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Succeeded
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: Path
+            - name: mover
+              type:
+                basic: Mover
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: valid
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: waitToStart
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: getCurrentTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getJobDelta
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getPrimaryHandItem
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: InventoryItem
-    - name: getPrimaryHandMdl
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getSecondaryHandItem
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: InventoryItem
-    - name: getSecondaryHandMdl
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: hasStalled
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: OnAnimEvent
-      modifiers:
-        - public
-      parameters:
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-    - name: perform
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: PlayLoopedSoundTillComplete
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: radius
-          type:
-            basic: int
-        - name: maxGain
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: resetJobDelta
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setActionAnim
-      modifiers:
-        - public
-      parameters:
-        - name: animNode
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setAnimVariable
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setBlockMovementEtc
-      modifiers:
-        - public
-      parameters:
-        - name: block
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setLoopedAction
-      modifiers:
-        - public
-      parameters:
-        - name: looped
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setOverrideAnimation
-      modifiers:
-        - public
-      parameters:
-        - name: override
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setOverrideHandModels
-      modifiers:
-        - public
-      parameters:
-        - name: primaryHand
-          type:
-            basic: InventoryItem
-        - name: secondaryHand
-          type:
-            basic: InventoryItem
-        - name: resetModel
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setOverrideHandModelsObject
-      modifiers:
-        - public
-      parameters:
-        - name: primaryHand
-          type:
-            basic: Object
-        - name: secondaryHand
-          type:
-            basic: Object
-        - name: resetModel
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setOverrideHandModelsString
-      modifiers:
-        - public
-      parameters:
-        - name: primaryHand
-          type:
-            basic: String
-        - name: secondaryHand
-          type:
-            basic: String
-        - name: resetModel
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setUseProgressBar
-      modifiers:
-        - public
-      parameters:
-        - name: use
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: start
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: stop
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: stopTimedActionAnim
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: valid
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: waitToStart
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-LuaTimedAction:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: table
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: perform
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: start
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: stop
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: valid
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: BaseAction
-LuaTimedActionNew:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: table
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: Failed
-      modifiers:
-        - public
-      parameters:
-        - name: mover
-          type:
-            basic: Mover
-      returns:
-        type:
-          basic: void
-    - name: getMetaType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: OnAnimEvent
-      modifiers:
-        - public
-      parameters:
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-    - name: Pathfind
-      modifiers:
-        - public
-      parameters:
-        - name: chr
-          type:
-            basic: IsoGameCharacter
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: perform
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setCurrentTime
-      modifiers:
-        - public
-      parameters:
-        - name: time
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setTime
-      modifiers:
-        - public
-      parameters:
-        - name: maxTime
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: start
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: stop
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: Succeeded
-      modifiers:
-        - public
-      parameters:
-        - name: path
-          type:
-            basic: Path
-        - name: mover
-          type:
-            basic: Mover
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: valid
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: waitToStart
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: BaseAction
+        - final
+      javaType: class
+      extends: BaseAction

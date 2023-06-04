@@ -1,704 +1,705 @@
-# zombie.ai
-AIBrainPlayerControlVars:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-GameCharacterAIBrain:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: character
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: AddBlockedMemory
-      modifiers:
-        - public
-      parameters:
-        - name: ttx
-          type:
-            basic: int
-        - name: tty
-          type:
-            basic: int
-        - name: ttz
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: getCharacter
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IsoGameCharacter
-    - name: getClosestChasingZombie
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IsoZombie
-    - name: getClosestChasingZombies
-      modifiers:
-        - public
-      parameters:
-        - name: num
-          type:
-            basic: int
-      returns:
-        type:
-          basic: ArrayList
-    - name: getCloseZombieCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getGroup
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: SurvivorGroup
-    - name: getOrder
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: HasBlockedMemory
-      modifiers:
-        - public
-      parameters:
-        - name: lx
-          type:
-            basic: int
-        - name: ly
-          type:
-            basic: int
-        - name: lz
-          type:
-            basic: int
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: postUpdateHuman
-      modifiers:
-        - public
-      parameters:
-        - name: isoPlayer
-          type:
-            basic: IsoPlayer
-      returns:
-        type:
-          basic: void
-    - name: renderlast
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setOrder
-      modifiers:
-        - public
-      parameters:
-        - name: order
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-KnownBlockedEdges:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: alloc
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: KnownBlockedEdges
-    - name: init
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-        - name: w
-          type:
-            basic: boolean
-        - name: n
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: KnownBlockedEdges
-    - name: isBlocked
-      modifiers:
-        - public
-      parameters:
-        - name: otherX
-          type:
-            basic: int
-        - name: otherY
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: release
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: releaseAll
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: objs
-          type:
-            basic: ArrayList
-            full: ArrayList<KnownBlockedEdges>
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-MapKnowledge:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: forget
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getKnownBlockedEdges
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: KnownBlockedEdges
-    - name: getOrCreateKnownBlockedEdges
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-      returns:
-        type:
-          basic: KnownBlockedEdges
-    - name: setKnownBlockedDoor
-      modifiers:
-        - public
-      parameters:
-        - name: object
-          type:
-            basic: IsoThumpable
-        - name: blocked
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setKnownBlockedEdgeN
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-        - name: blocked
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setKnownBlockedEdgeW
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: z
-          type:
-            basic: int
-        - name: blocked
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setKnownBlockedWindow
-      modifiers:
-        - public
-      parameters:
-        - name: object
-          type:
-            basic: IsoWindow
-        - name: blocked
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setKnownBlockedWindowFrame
-      modifiers:
-        - public
-      parameters:
-        - name: object
-          type:
-            basic: IsoObject
-        - name: blocked
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-State:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: animEvent
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-    - name: enter
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: execute
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: exit
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: getDeltaModifiers
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-        - name: modifiers
-          type:
-            basic: MoveDeltaModifiers
-      returns:
-        type:
-          basic: void
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getStatePermissions
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IStatePermissions
-    - name: isAttacking
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Return TRUE if the owner is currently attacking.
-          Defaults to FALSE
-    - name: isDoingActionThatCanBeCancelled
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-        notes: TRUE if this state handles the "Cancel Action" key or the B controller
-          button.
-    - name: isIgnoreCollide
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-        - name: fromX
-          type:
-            basic: int
-        - name: fromY
-          type:
-            basic: int
-        - name: fromZ
-          type:
-            basic: int
-        - name: toX
-          type:
-            basic: int
-        - name: toY
-          type:
-            basic: int
-        - name: toZ
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-      notes: >-
-        Return TRUE if the owner should ignore collisions when passing between
-        two squares.
-         Defaults to FALSE
-    - name: isMoving
-      modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: boolean
-      notes: |-
-        Return TRUE if the owner is currently moving.
-          Defaults to FALSE
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-StateMachine:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: owner
-          type:
-            basic: IsoGameCharacter
-  methods:
-    - name: changeState
-      modifiers:
-        - public
-      parameters:
-        - name: newState
-          type:
-            basic: State
-        - name: subStates
-          type:
-            basic: Iterable
-            full: Iterable<State>
-        - name: restart
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: getCurrent
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: State
-    - name: getPrevious
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: State
-    - name: getSubStateAt
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: State
-    - name: getSubStateCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: isLocked
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isSubstate
-      modifiers:
-        - public
-      parameters:
-        - name: substate
-          type:
-            basic: State
-      returns:
-        type:
-          basic: boolean
-    - name: revertToPreviousState
-      modifiers:
-        - public
-      parameters:
-        - name: sender
-          type:
-            basic: State
-      returns:
-        type:
-          basic: void
-    - name: setLocked
-      modifiers:
-        - public
-      parameters:
-        - name: lock
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: stateAnimEvent
+namespaces:
+  zombie.ai:
+    AIBrainPlayerControlVars:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
         - final
-      parameters:
-        - name: stateLayer
-          type:
-            basic: int
-        - name: event
-          type:
-            basic: AnimEvent
-      returns:
-        type:
-          basic: void
-    - name: update
+      javaType: class
+      extends: Object
+    GameCharacterAIBrain:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: character
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: AddBlockedMemory
+          modifiers:
+            - public
+          parameters:
+            - name: ttx
+              type:
+                basic: int
+            - name: tty
+              type:
+                basic: int
+            - name: ttz
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: getCharacter
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IsoGameCharacter
+        - name: getClosestChasingZombie
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IsoZombie
+        - name: getClosestChasingZombies
+          modifiers:
+            - public
+          parameters:
+            - name: num
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getCloseZombieCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getGroup
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: SurvivorGroup
+        - name: getOrder
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: HasBlockedMemory
+          modifiers:
+            - public
+          parameters:
+            - name: lx
+              type:
+                basic: int
+            - name: ly
+              type:
+                basic: int
+            - name: lz
+              type:
+                basic: int
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: postUpdateHuman
+          modifiers:
+            - public
+          parameters:
+            - name: isoPlayer
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: void
+        - name: renderlast
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setOrder
+          modifiers:
+            - public
+          parameters:
+            - name: order
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-StateMachine.SubstateSlot:
-  methods:
-    - name: getState
+        - final
+      javaType: class
+      extends: Object
+    KnownBlockedEdges:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: KnownBlockedEdges
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: w
+              type:
+                basic: boolean
+            - name: n
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: KnownBlockedEdges
+        - name: isBlocked
+          modifiers:
+            - public
+          parameters:
+            - name: otherX
+              type:
+                basic: int
+            - name: otherY
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: release
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: releaseAll
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: objs
+              type:
+                basic: ArrayList
+                full: ArrayList<KnownBlockedEdges>
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: State
-    - name: isEmpty
+        - final
+      javaType: class
+      extends: Object
+    MapKnowledge:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: forget
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getKnownBlockedEdges
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: KnownBlockedEdges
+        - name: getOrCreateKnownBlockedEdges
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: KnownBlockedEdges
+        - name: setKnownBlockedDoor
+          modifiers:
+            - public
+          parameters:
+            - name: object
+              type:
+                basic: IsoThumpable
+            - name: blocked
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setKnownBlockedEdgeN
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: blocked
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setKnownBlockedEdgeW
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: blocked
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setKnownBlockedWindow
+          modifiers:
+            - public
+          parameters:
+            - name: object
+              type:
+                basic: IsoWindow
+            - name: blocked
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setKnownBlockedWindowFrame
+          modifiers:
+            - public
+          parameters:
+            - name: object
+              type:
+                basic: IsoObject
+            - name: blocked
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-WalkingOnTheSpot:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: check
+        - final
+      javaType: class
+      extends: Object
+    State:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: animEvent
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+        - name: enter
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: execute
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: exit
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: getDeltaModifiers
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+            - name: modifiers
+              type:
+                basic: MoveDeltaModifiers
+          returns:
+            type:
+              basic: void
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getStatePermissions
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IStatePermissions
+        - name: isAttacking
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Return TRUE if the owner is currently attacking.
+              Defaults to FALSE
+        - name: isDoingActionThatCanBeCancelled
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: TRUE if this state handles the "Cancel Action" key or the B controller
+              button.
+        - name: isIgnoreCollide
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+            - name: fromX
+              type:
+                basic: int
+            - name: fromY
+              type:
+                basic: int
+            - name: fromZ
+              type:
+                basic: int
+            - name: toX
+              type:
+                basic: int
+            - name: toY
+              type:
+                basic: int
+            - name: toZ
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+          notes: >-
+            Return TRUE if the owner should ignore collisions when passing
+            between two squares.
+             Defaults to FALSE
+        - name: isMoving
+          modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: boolean
+          notes: |-
+            Return TRUE if the owner is currently moving.
+              Defaults to FALSE
       modifiers:
         - public
-      parameters:
-        - name: x1
-          type:
-            basic: float
-        - name: y1
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-    - name: reset
+        - abstract
+      javaType: class
+      extends: Object
+    StateMachine:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: owner
+              type:
+                basic: IsoGameCharacter
+      methods:
+        - name: changeState
+          modifiers:
+            - public
+          parameters:
+            - name: newState
+              type:
+                basic: State
+            - name: subStates
+              type:
+                basic: Iterable
+                full: Iterable<State>
+            - name: restart
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: getCurrent
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: State
+        - name: getPrevious
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: State
+        - name: getSubStateAt
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: State
+        - name: getSubStateCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: isLocked
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isSubstate
+          modifiers:
+            - public
+          parameters:
+            - name: substate
+              type:
+                basic: State
+          returns:
+            type:
+              basic: boolean
+        - name: revertToPreviousState
+          modifiers:
+            - public
+          parameters:
+            - name: sender
+              type:
+                basic: State
+          returns:
+            type:
+              basic: void
+        - name: setLocked
+          modifiers:
+            - public
+          parameters:
+            - name: lock
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: stateAnimEvent
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: stateLayer
+              type:
+                basic: int
+            - name: event
+              type:
+                basic: AnimEvent
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: x1
-          type:
-            basic: float
-        - name: y1
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ZombieGroupManager:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: findNearestGroup
+        - final
+      javaType: class
+      extends: Object
+    StateMachine.SubstateSlot:
+      methods:
+        - name: getState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: State
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-      returns:
-        type:
-          basic: ZombieGroup
-    - name: preupdate
+        - static
+      javaType: class
+      extends: Object
+    WalkingOnTheSpot:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: check
+          modifiers:
+            - public
+          parameters:
+            - name: x1
+              type:
+                basic: float
+            - name: y1
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: reset
+          modifiers:
+            - public
+          parameters:
+            - name: x1
+              type:
+                basic: float
+            - name: y1
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: Reset
+        - final
+      javaType: class
+      extends: Object
+    ZombieGroupManager:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: findNearestGroup
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: ZombieGroup
+        - name: preupdate
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: shouldBeInGroup
+          modifiers:
+            - public
+          parameters:
+            - name: zombie
+              type:
+                basic: IsoZombie
+          returns:
+            type:
+              basic: boolean
+        - name: update
+          modifiers:
+            - public
+          parameters:
+            - name: zombie
+              type:
+                basic: IsoZombie
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: void
-    - name: shouldBeInGroup
-      modifiers:
-        - public
-      parameters:
-        - name: zombie
-          type:
-            basic: IsoZombie
-      returns:
-        type:
-          basic: boolean
-    - name: update
-      modifiers:
-        - public
-      parameters:
-        - name: zombie
-          type:
-            basic: IsoZombie
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
+        - final
+      javaType: class
+      extends: Object

@@ -1,353 +1,354 @@
-# zombie.erosion.obj
-ErosionObj:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: _sprites
-          type:
-            basic: ErosionObjSprites
-        - name: _cycleTime
-          type:
-            basic: int
-        - name: _bloomstart
-          type:
-            basic: float
-        - name: _bloomend
-          type:
-            basic: float
-        - name: _noSeasonBase
-          type:
-            basic: boolean
-  methods:
-    - name: createObject
+namespaces:
+  zombie.erosion.obj:
+    ErosionObj:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: _sprites
+              type:
+                basic: ErosionObjSprites
+            - name: _cycleTime
+              type:
+                basic: int
+            - name: _bloomstart
+              type:
+                basic: float
+            - name: _bloomend
+              type:
+                basic: float
+            - name: _noSeasonBase
+              type:
+                basic: boolean
+      methods:
+        - name: createObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _stage
+              type:
+                basic: int
+            - name: _bTree
+              type:
+                basic: boolean
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoObject
+        - name: getObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _bRemove
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: IsoObject
+        - name: placeObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _stage
+              type:
+                basic: int
+            - name: _bTree
+              type:
+                basic: boolean
+            - name: _season
+              type:
+                basic: int
+            - name: _bloom
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: removeObject
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: IsoObject
+        - name: setStage
+          modifiers:
+            - public
+          parameters:
+            - name: _sq
+              type:
+                basic: IsoGridSquare
+            - name: _stage
+              type:
+                basic: int
+            - name: _season
+              type:
+                basic: int
+            - name: _bloom
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: setStageObject
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _object
+              type:
+                basic: IsoObject
+            - name: _season
+              type:
+                basic: int
+            - name: _bloom
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _stage
-          type:
-            basic: int
-        - name: _bTree
-          type:
-            basic: boolean
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: IsoObject
-    - name: getObject
+        - final
+      javaType: class
+      extends: Object
+    ErosionObjOverlay:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: _sprites
+              type:
+                basic: ErosionObjOverlaySprites
+            - name: _cycleTime
+              type:
+                basic: int
+            - name: _applyAlpha
+              type:
+                basic: boolean
+      methods:
+        - name: removeOverlay
+          modifiers:
+            - public
+          parameters:
+            - name: _obj
+              type:
+                basic: IsoObject
+            - name: _id
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: setOverlay
+          modifiers:
+            - public
+          parameters:
+            - name: _obj
+              type:
+                basic: IsoObject
+            - name: _curID
+              type:
+                basic: int
+            - name: _stage
+              type:
+                basic: int
+            - name: _season
+              type:
+                basic: int
+            - name: _alpha
+              type:
+                basic: float
+          returns:
+            type:
+              basic: int
       modifiers:
         - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _bRemove
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: IsoObject
-    - name: placeObject
+        - final
+      javaType: class
+      extends: Object
+    ErosionObjOverlaySprites:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: _stages
+              type:
+                basic: int
+            - name: _name
+              type:
+                basic: String
+      methods:
+        - name: getSprite
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoSprite
+        - name: getSpriteInstance
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoSpriteInstance
+        - name: setSprite
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _sprite
+              type:
+                basic: String
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _stage
-          type:
-            basic: int
-        - name: _bTree
-          type:
-            basic: boolean
-        - name: _season
-          type:
-            basic: int
-        - name: _bloom
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: removeObject
+        - final
+      javaType: class
+      extends: Object
+    ErosionObjSprites:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: _stages
+              type:
+                basic: int
+            - name: _name
+              type:
+                basic: String
+            - name: _hasSnow
+              type:
+                basic: boolean
+            - name: _hasFlower
+              type:
+                basic: boolean
+            - name: _hasChildsprite
+              type:
+                basic: boolean
+      methods:
+        - name: getBase
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getChildSprite
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getFlower
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: setBase
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _sprites
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setChildSprite
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _sprites
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+            - name: _season
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setFlower
+          modifiers:
+            - public
+          parameters:
+            - name: _stage
+              type:
+                basic: int
+            - name: _sprites
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-      returns:
-        type:
-          basic: IsoObject
-    - name: setStage
-      modifiers:
-        - public
-      parameters:
-        - name: _sq
-          type:
-            basic: IsoGridSquare
-        - name: _stage
-          type:
-            basic: int
-        - name: _season
-          type:
-            basic: int
-        - name: _bloom
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: setStageObject
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _object
-          type:
-            basic: IsoObject
-        - name: _season
-          type:
-            basic: int
-        - name: _bloom
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ErosionObjOverlay:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: _sprites
-          type:
-            basic: ErosionObjOverlaySprites
-        - name: _cycleTime
-          type:
-            basic: int
-        - name: _applyAlpha
-          type:
-            basic: boolean
-  methods:
-    - name: removeOverlay
-      modifiers:
-        - public
-      parameters:
-        - name: _obj
-          type:
-            basic: IsoObject
-        - name: _id
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: setOverlay
-      modifiers:
-        - public
-      parameters:
-        - name: _obj
-          type:
-            basic: IsoObject
-        - name: _curID
-          type:
-            basic: int
-        - name: _stage
-          type:
-            basic: int
-        - name: _season
-          type:
-            basic: int
-        - name: _alpha
-          type:
-            basic: float
-      returns:
-        type:
-          basic: int
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ErosionObjOverlaySprites:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: _stages
-          type:
-            basic: int
-        - name: _name
-          type:
-            basic: String
-  methods:
-    - name: getSprite
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: IsoSprite
-    - name: getSpriteInstance
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: IsoSpriteInstance
-    - name: setSprite
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _sprite
-          type:
-            basic: String
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-ErosionObjSprites:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: _stages
-          type:
-            basic: int
-        - name: _name
-          type:
-            basic: String
-        - name: _hasSnow
-          type:
-            basic: boolean
-        - name: _hasFlower
-          type:
-            basic: boolean
-        - name: _hasChildsprite
-          type:
-            basic: boolean
-  methods:
-    - name: getBase
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getChildSprite
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getFlower
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: setBase
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _sprites
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setChildSprite
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _sprites
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-        - name: _season
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setFlower
-      modifiers:
-        - public
-      parameters:
-        - name: _stage
-          type:
-            basic: int
-        - name: _sprites
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
+        - final
+      javaType: class
+      extends: Object

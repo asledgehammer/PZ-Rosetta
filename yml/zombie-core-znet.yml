@@ -1,1879 +1,1880 @@
-# zombie.core.znet
-CallbackManager:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: onJoinRequest
-      modifiers:
-        - public
-      parameters:
-        - name: friendSteamID
-          type:
-            basic: long
-        - name: connectionString
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by Gennadii on 11.06.2015.
-GameServerDetails:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: address
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-        - name: steamId
-          type:
-            basic: long
-        - name: name
-          type:
-            basic: String
-        - name: gamedir
-          type:
-            basic: String
-        - name: map
-          type:
-            basic: String
-        - name: gameDescription
-          type:
-            basic: String
-        - name: tags
-          type:
-            basic: String
-        - name: ping
-          type:
-            basic: int
-        - name: numPlayers
-          type:
-            basic: int
-        - name: maxPlayers
-          type:
-            basic: int
-        - name: passwordProtected
-          type:
-            basic: boolean
-        - name: version
-          type:
-            basic: int
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 02.06.2015.
-IJoinRequestCallback:
-  methods:
-    - name: onJoinRequest
-      parameters:
-        - name: friendSteamID
-          type:
-            basic: long
-        - name: connectionString
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-  notes: Created by serge on 02.06.2015.
-IServerBrowserCallback:
-  methods:
-    - name: OnRefreshComplete
-      returns:
-        type:
-          basic: void
-    - name: OnServerFailedToRespond
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: OnServerResponded
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: OnSteamRulesRefreshComplete
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-  notes: Created by serge on 05.06.2015.
-ISteamWorkshopCallback:
-  methods:
-    - name: onItemCreated
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: bUserNeedsToAcceptWorkshopLegalAgreement
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: onItemDownloaded
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: onItemNotCreated
-      parameters:
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemNotDownloaded
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemNotSubscribed
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemNotUpdated
-      parameters:
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemQueryCompleted
-      parameters:
-        - name: handle
-          type:
-            basic: long
-        - name: numResults
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemQueryNotCompleted
-      parameters:
-        - name: handle
-          type:
-            basic: long
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemSubscribed
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: onItemUpdated
-      parameters:
-        - name: bUserNeedsToAcceptWorkshopLegalAgreement
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-PortMapper:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addMapping
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: wanPort
-          type:
-            basic: int
-        - name: lanPort
-          type:
-            basic: int
-        - name: description
-          type:
-            basic: String
-        - name: proto
-          type:
-            basic: String
-        - name: leaseTime
-          type:
-            basic: int
-        - name: force
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: boolean
-    - name: discover
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: fetchMappings
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: getExternalAddress
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: String
-    - name: getGatewayInfo
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: String
-    - name: getMapping
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: PortMappingEntry
-    - name: igdFound
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: numMappings
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: removeMapping
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: wanPort
-          type:
-            basic: int
-        - name: proto
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: shutdown
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: startup
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 19.12.2015.
-PortMappingEntry:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 20.12.2015.
-ServerBrowser:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: GetServerCount
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: GetServerDetails
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: GameServerDetails
-    - name: GetServerDetailsSync
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: GameServerDetails
-    - name: GetServerList
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: List
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: IsRefreshing
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: QueryServer
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: RefreshInternetServers
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: Release
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: ReleaseServerQuery
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: RequestServerRules
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: setCallbackInterface
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: callbackInterface
-          type:
-            basic: IServerBrowserCallback
-      returns:
-        type:
-          basic: void
-    - name: shutdown
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 02.06.2015.
-SteamFriend:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: steamID
-          type:
-            basic: long
-  methods:
-    - name: getAvatar
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Texture
-    - name: getName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getSteamID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by Gennadiy on 11.06.2015.
-SteamFriends:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: ActivateGameOverlay
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: dialog
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: ActivateGameOverlayToUser
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: dialog
-          type:
-            basic: String
-        - name: steamID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: ActivateGameOverlayToWebPage
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: url
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: CreateSteamAvatar
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: steamID
-          type:
-            basic: long
-        - name: data
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: int
-    - name: GetFriendByIndex
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: long
-    - name: GetFriendCount
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: GetFriendList
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: List
-    - name: GetFriendPersonaName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: steamID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: String
-    - name: GetFriendPersonaState
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: steamID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: int
-    - name: GetPersonaName
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: String
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: InviteUserToGame
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: friendSteamID
-          type:
-            basic: long
-        - name: connectString
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: n_Init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: n_Shutdown
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: SetPlayedWith
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: steamID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: shutdown
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: UpdateRichPresenceConnectionInfo
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: status
-          type:
-            basic: String
-        - name: connectString
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 10.06.2015.
-SteamGameServer:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: BUpdateUserData
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: steamID
-          type:
-            basic: long
-        - name: playerName
-          type:
-            basic: String
-        - name: score
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: EnableHeartBeats
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bActive
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: GetSteamID
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: long
-    - name: GetSteamServersConnectState
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: Init
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: ip
-          type:
-            basic: String
-        - name: gamePort
-          type:
-            basic: int
-        - name: UDPPort
-          type:
-            basic: int
-        - name: serverMode
-          type:
-            basic: int
-        - name: version
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: LogOnAnonymous
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: SetDedicatedServer
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: dedicated
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: SetGameDescription
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: description
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetGameTags
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: gameTags
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetKeyValue
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: value
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetMapName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: mapName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetMaxPlayerCount
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playersMax
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: SetModDir
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: modDir
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetProduct
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: product
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetRegion
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: region
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetServerName
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: serverName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 11.06.2015.
-SteamUGCDetails:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: ID
-          type:
-            basic: long
-        - name: title
-          type:
-            basic: String
-        - name: timeCreated
-          type:
-            basic: long
-        - name: timeUpdated
-          type:
-            basic: long
-        - name: fileSize
-          type:
-            basic: int
-        - name: childIDs
-          type:
-            basic: long[]
-  methods:
-    - name: getChildID
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: long
-    - name: getChildren
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: long[]
-    - name: getFileSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: long
-    - name: getIDString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getNumChildren
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTimeCreated
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: long
-    - name: getTimeUpdated
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: long
-    - name: getTitle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-SteamUser:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: GetSteamID
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: long
-    - name: GetSteamIDString
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-SteamUtils:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addJoinRequestCallback
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: callback
-          type:
-            basic: IJoinRequestCallback
-      returns:
-        type:
-          basic: void
-    - name: convertSteamIDToString
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: steamID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: String
-    - name: convertStringToSteamID
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: s
-          type:
-            basic: String
-      returns:
-        type:
-          basic: long
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: isFloatingGamepadTextInputVisible
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: isOverlayEnabled
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: isRunningOnSteamDeck
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: isSteamModeEnabled
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: isValidSteamID
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: s
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: removeJoinRequestCallback
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: callback
-          type:
-            basic: IJoinRequestCallback
-      returns:
-        type:
-          basic: void
-    - name: runLoop
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: showFloatingGamepadTextInput
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: multipleLines
-          type:
-            basic: boolean
-        - name: x
-          type:
-            basic: int
-        - name: y
-          type:
-            basic: int
-        - name: width
-          type:
-            basic: int
-        - name: height
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: showGamepadTextInput
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: password
-          type:
-            basic: boolean
-        - name: multipleLines
-          type:
-            basic: boolean
-        - name: description
-          type:
-            basic: String
-        - name: maxChars
-          type:
-            basic: int
-        - name: existingText
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: shutdown
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-SteamWorkshop:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: CreateQueryUGCDetailsRequest
-      modifiers:
-        - public
-      parameters:
-        - name: itemIDs
-          type:
-            basic: long[]
-        - name: callback
-          type:
-            basic: ISteamWorkshopCallback
-      returns:
-        type:
-          basic: long
-    - name: CreateWorkshopItem
-      modifiers:
-        - public
-      parameters:
-        - name: item
-          type:
-            basic: SteamWorkshopItem
-      returns:
-        type:
-          basic: boolean
-    - name: DownloadItem
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: bHighPriority
-          type:
-            basic: boolean
-        - name: callback
-          type:
-            basic: ISteamWorkshopCallback
-      returns:
-        type:
-          basic: boolean
-    - name: getIDFromItemInstallFolder
-      modifiers:
-        - public
-      parameters:
-        - name: dir
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: GetInstalledItemFolders
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: GetItemDownloadInfo
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: progress
-          type:
-            basic: long[]
-      returns:
-        type:
-          basic: boolean
-    - name: GetItemInstallFolder
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: String
-    - name: GetItemInstallTimeStamp
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: long
-    - name: GetItemState
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: long
-    - name: GetItemUpdateProgress
-      modifiers:
-        - public
-      parameters:
-        - name: progress
-          type:
-            basic: long[]
-      returns:
-        type:
-          basic: boolean
-    - name: GetQueryUGCChildren
-      modifiers:
-        - public
-      parameters:
-        - name: handle
-          type:
-            basic: long
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: long[]
-    - name: GetQueryUGCResult
-      modifiers:
-        - public
-      parameters:
-        - name: handle
-          type:
-            basic: long
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: SteamUGCDetails
-    - name: getStageFolders
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: getWorkshopFolder
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: loadStagedItems
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: onItemCreated
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: bUserNeedsToAcceptWorkshopLegalAgreement
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: onItemDownloaded
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: onItemNotCreated
-      modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemNotDownloaded
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemNotSubscribed
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemNotUpdated
-      modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemQueryCompleted
-      modifiers:
-        - public
-      parameters:
-        - name: handle
-          type:
-            basic: long
-        - name: numResults
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemQueryNotCompleted
-      modifiers:
-        - public
-      parameters:
-        - name: handle
-          type:
-            basic: long
-        - name: result
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: onItemSubscribed
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: onItemUpdated
-      modifiers:
-        - public
-      parameters:
-        - name: bUserNeedsToAcceptWorkshopLegalAgreement
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: ReleaseQueryUGCRequest
-      modifiers:
-        - public
-      parameters:
-        - name: handle
-          type:
-            basic: long
-      returns:
-        type:
-          basic: boolean
-    - name: RemoveCallback
-      modifiers:
-        - public
-      parameters:
-        - name: callback
-          type:
-            basic: ISteamWorkshopCallback
-      returns:
-        type:
-          basic: void
-    - name: shutdown
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: SubmitWorkshopItem
-      modifiers:
-        - public
-      parameters:
-        - name: item
-          type:
-            basic: SteamWorkshopItem
-      returns:
-        type:
-          basic: boolean
-    - name: SubscribeItem
-      modifiers:
-        - public
-      parameters:
-        - name: itemID
-          type:
-            basic: long
-        - name: callback
-          type:
-            basic: ISteamWorkshopCallback
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-SteamWorkshopItem:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: workshopFolder
-          type:
-            basic: String
-  methods:
-    - name: create
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: getAllowedTags
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ArrayList
-    - name: getChangeNote
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getContentFolder
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getExtendedErrorInfo
-      modifiers:
-        - public
-      parameters:
-        - name: error
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: getFolderName
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getPreviewImage
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getSubmitDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getSubmitTags
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTags
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ArrayList
-    - name: getTitle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getUpdateProgress
-      modifiers:
-        - public
-      parameters:
-        - name: table
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: boolean
-    - name: getUpdateProgressTotal
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getVisibility
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getVisibilityInteger
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: readWorkshopTxt
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: setChangeNote
-      modifiers:
-        - public
-      parameters:
-        - name: changeNote
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setDescription
-      modifiers:
-        - public
-      parameters:
-        - name: description
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setID
-      modifiers:
-        - public
-      parameters:
-        - name: ID
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setTags
-      modifiers:
-        - public
-      parameters:
-        - name: tags
-          type:
-            basic: ArrayList
-            full: ArrayList<String>
-      returns:
-        type:
-          basic: void
-    - name: setTitle
-      modifiers:
-        - public
-      parameters:
-        - name: title
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setVisibility
-      modifiers:
-        - public
-      parameters:
-        - name: visibility
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setVisibilityInteger
-      modifiers:
-        - public
-      parameters:
-        - name: v
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: submitUpdate
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: validateContents
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: validatePreviewImage
-      modifiers:
-        - public
-      parameters:
-        - name: path
-          type:
-            basic: Path
-      returns:
-        type:
-          basic: String
-    - name: writeWorkshopTxt
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-SteamWorkshopItem.ItemState:
-  methods:
-    - name: and
-      modifiers:
-        - public
-      parameters:
-        - name: bits
-          type:
-            basic: long
-      returns:
-        type:
-          basic: boolean
-    - name: getValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: not
-      modifiers:
-        - public
-      parameters:
-        - name: bits
-          type:
-            basic: long
-      returns:
-        type:
-          basic: boolean
-    - name: toString
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: bits
-          type:
-            basic: long
-      returns:
-        type:
-          basic: String
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: SteamWorkshopItem.ItemState
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: SteamWorkshopItem.ItemState
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-ZNet:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: init
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: SetLogLevel
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: severity
-          type:
-            basic: LogSeverity
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by serge on 01.03.2016.
-ZNetSessionState:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-ZNetStatistics:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
+namespaces:
+  zombie.core.znet:
+    CallbackManager:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: onJoinRequest
+          modifiers:
+            - public
+          parameters:
+            - name: friendSteamID
+              type:
+                basic: long
+            - name: connectionString
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by Gennadii on 11.06.2015.
+    GameServerDetails:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: address
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+            - name: steamId
+              type:
+                basic: long
+            - name: name
+              type:
+                basic: String
+            - name: gamedir
+              type:
+                basic: String
+            - name: map
+              type:
+                basic: String
+            - name: gameDescription
+              type:
+                basic: String
+            - name: tags
+              type:
+                basic: String
+            - name: ping
+              type:
+                basic: int
+            - name: numPlayers
+              type:
+                basic: int
+            - name: maxPlayers
+              type:
+                basic: int
+            - name: passwordProtected
+              type:
+                basic: boolean
+            - name: version
+              type:
+                basic: int
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 02.06.2015.
+    IJoinRequestCallback:
+      methods:
+        - name: onJoinRequest
+          parameters:
+            - name: friendSteamID
+              type:
+                basic: long
+            - name: connectionString
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+      notes: Created by serge on 02.06.2015.
+    IServerBrowserCallback:
+      methods:
+        - name: OnRefreshComplete
+          returns:
+            type:
+              basic: void
+        - name: OnServerFailedToRespond
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: OnServerResponded
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: OnSteamRulesRefreshComplete
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+      notes: Created by serge on 05.06.2015.
+    ISteamWorkshopCallback:
+      methods:
+        - name: onItemCreated
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: bUserNeedsToAcceptWorkshopLegalAgreement
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: onItemDownloaded
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: onItemNotCreated
+          parameters:
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemNotDownloaded
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemNotSubscribed
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemNotUpdated
+          parameters:
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemQueryCompleted
+          parameters:
+            - name: handle
+              type:
+                basic: long
+            - name: numResults
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemQueryNotCompleted
+          parameters:
+            - name: handle
+              type:
+                basic: long
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemSubscribed
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: onItemUpdated
+          parameters:
+            - name: bUserNeedsToAcceptWorkshopLegalAgreement
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+    PortMapper:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addMapping
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: wanPort
+              type:
+                basic: int
+            - name: lanPort
+              type:
+                basic: int
+            - name: description
+              type:
+                basic: String
+            - name: proto
+              type:
+                basic: String
+            - name: leaseTime
+              type:
+                basic: int
+            - name: force
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: discover
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: fetchMappings
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: getExternalAddress
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: String
+        - name: getGatewayInfo
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: String
+        - name: getMapping
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: PortMappingEntry
+        - name: igdFound
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: numMappings
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: removeMapping
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: wanPort
+              type:
+                basic: int
+            - name: proto
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: shutdown
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: startup
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 19.12.2015.
+    PortMappingEntry:
+      constructors:
+        - modifiers:
+            - public
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 20.12.2015.
+    ServerBrowser:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: GetServerCount
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetServerDetails
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GameServerDetails
+        - name: GetServerDetailsSync
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GameServerDetails
+        - name: GetServerList
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: List
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: IsRefreshing
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: QueryServer
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: RefreshInternetServers
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: Release
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: ReleaseServerQuery
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: RequestServerRules
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: setCallbackInterface
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: callbackInterface
+              type:
+                basic: IServerBrowserCallback
+          returns:
+            type:
+              basic: void
+        - name: shutdown
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 02.06.2015.
+    SteamFriend:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: steamID
+              type:
+                basic: long
+      methods:
+        - name: getAvatar
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Texture
+        - name: getName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getSteamID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by Gennadiy on 11.06.2015.
+    SteamFriends:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: ActivateGameOverlay
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: dialog
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: ActivateGameOverlayToUser
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: dialog
+              type:
+                basic: String
+            - name: steamID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: ActivateGameOverlayToWebPage
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: url
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: CreateSteamAvatar
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: steamID
+              type:
+                basic: long
+            - name: data
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: int
+        - name: GetFriendByIndex
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: long
+        - name: GetFriendCount
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetFriendList
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: List
+        - name: GetFriendPersonaName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: steamID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: String
+        - name: GetFriendPersonaState
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: steamID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: int
+        - name: GetPersonaName
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: String
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: InviteUserToGame
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: friendSteamID
+              type:
+                basic: long
+            - name: connectString
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: n_Init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: n_Shutdown
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: SetPlayedWith
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: steamID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: shutdown
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: UpdateRichPresenceConnectionInfo
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: status
+              type:
+                basic: String
+            - name: connectString
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 10.06.2015.
+    SteamGameServer:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: BUpdateUserData
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: steamID
+              type:
+                basic: long
+            - name: playerName
+              type:
+                basic: String
+            - name: score
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: EnableHeartBeats
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bActive
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: GetSteamID
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: long
+        - name: GetSteamServersConnectState
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: Init
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: ip
+              type:
+                basic: String
+            - name: gamePort
+              type:
+                basic: int
+            - name: UDPPort
+              type:
+                basic: int
+            - name: serverMode
+              type:
+                basic: int
+            - name: version
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: LogOnAnonymous
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: SetDedicatedServer
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: dedicated
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: SetGameDescription
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: description
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetGameTags
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: gameTags
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetKeyValue
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetMapName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: mapName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetMaxPlayerCount
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playersMax
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: SetModDir
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: modDir
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetProduct
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: product
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetRegion
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: region
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetServerName
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: serverName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 11.06.2015.
+    SteamUGCDetails:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: ID
+              type:
+                basic: long
+            - name: title
+              type:
+                basic: String
+            - name: timeCreated
+              type:
+                basic: long
+            - name: timeUpdated
+              type:
+                basic: long
+            - name: fileSize
+              type:
+                basic: int
+            - name: childIDs
+              type:
+                basic: long[]
+      methods:
+        - name: getChildID
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: long
+        - name: getChildren
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long[]
+        - name: getFileSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long
+        - name: getIDString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getNumChildren
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTimeCreated
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long
+        - name: getTimeUpdated
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long
+        - name: getTitle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    SteamUser:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: GetSteamID
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: long
+        - name: GetSteamIDString
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    SteamUtils:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addJoinRequestCallback
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: callback
+              type:
+                basic: IJoinRequestCallback
+          returns:
+            type:
+              basic: void
+        - name: convertSteamIDToString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: steamID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: String
+        - name: convertStringToSteamID
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: s
+              type:
+                basic: String
+          returns:
+            type:
+              basic: long
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: isFloatingGamepadTextInputVisible
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: isOverlayEnabled
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: isRunningOnSteamDeck
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: isSteamModeEnabled
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: isValidSteamID
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: s
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: removeJoinRequestCallback
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: callback
+              type:
+                basic: IJoinRequestCallback
+          returns:
+            type:
+              basic: void
+        - name: runLoop
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: showFloatingGamepadTextInput
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: multipleLines
+              type:
+                basic: boolean
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: width
+              type:
+                basic: int
+            - name: height
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: showGamepadTextInput
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: password
+              type:
+                basic: boolean
+            - name: multipleLines
+              type:
+                basic: boolean
+            - name: description
+              type:
+                basic: String
+            - name: maxChars
+              type:
+                basic: int
+            - name: existingText
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: shutdown
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    SteamWorkshop:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: CreateQueryUGCDetailsRequest
+          modifiers:
+            - public
+          parameters:
+            - name: itemIDs
+              type:
+                basic: long[]
+            - name: callback
+              type:
+                basic: ISteamWorkshopCallback
+          returns:
+            type:
+              basic: long
+        - name: CreateWorkshopItem
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: SteamWorkshopItem
+          returns:
+            type:
+              basic: boolean
+        - name: DownloadItem
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: bHighPriority
+              type:
+                basic: boolean
+            - name: callback
+              type:
+                basic: ISteamWorkshopCallback
+          returns:
+            type:
+              basic: boolean
+        - name: getIDFromItemInstallFolder
+          modifiers:
+            - public
+          parameters:
+            - name: dir
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: GetInstalledItemFolders
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: GetItemDownloadInfo
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: progress
+              type:
+                basic: long[]
+          returns:
+            type:
+              basic: boolean
+        - name: GetItemInstallFolder
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: String
+        - name: GetItemInstallTimeStamp
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: GetItemState
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: GetItemUpdateProgress
+          modifiers:
+            - public
+          parameters:
+            - name: progress
+              type:
+                basic: long[]
+          returns:
+            type:
+              basic: boolean
+        - name: GetQueryUGCChildren
+          modifiers:
+            - public
+          parameters:
+            - name: handle
+              type:
+                basic: long
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: long[]
+        - name: GetQueryUGCResult
+          modifiers:
+            - public
+          parameters:
+            - name: handle
+              type:
+                basic: long
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: SteamUGCDetails
+        - name: getStageFolders
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getWorkshopFolder
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: loadStagedItems
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: onItemCreated
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: bUserNeedsToAcceptWorkshopLegalAgreement
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: onItemDownloaded
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: onItemNotCreated
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemNotDownloaded
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemNotSubscribed
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemNotUpdated
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemQueryCompleted
+          modifiers:
+            - public
+          parameters:
+            - name: handle
+              type:
+                basic: long
+            - name: numResults
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemQueryNotCompleted
+          modifiers:
+            - public
+          parameters:
+            - name: handle
+              type:
+                basic: long
+            - name: result
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: onItemSubscribed
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: onItemUpdated
+          modifiers:
+            - public
+          parameters:
+            - name: bUserNeedsToAcceptWorkshopLegalAgreement
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: ReleaseQueryUGCRequest
+          modifiers:
+            - public
+          parameters:
+            - name: handle
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: RemoveCallback
+          modifiers:
+            - public
+          parameters:
+            - name: callback
+              type:
+                basic: ISteamWorkshopCallback
+          returns:
+            type:
+              basic: void
+        - name: shutdown
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: SubmitWorkshopItem
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: SteamWorkshopItem
+          returns:
+            type:
+              basic: boolean
+        - name: SubscribeItem
+          modifiers:
+            - public
+          parameters:
+            - name: itemID
+              type:
+                basic: long
+            - name: callback
+              type:
+                basic: ISteamWorkshopCallback
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    SteamWorkshopItem:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: workshopFolder
+              type:
+                basic: String
+      methods:
+        - name: create
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: getAllowedTags
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ArrayList
+        - name: getChangeNote
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getContentFolder
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getExtendedErrorInfo
+          modifiers:
+            - public
+          parameters:
+            - name: error
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: getFolderName
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getPreviewImage
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getSubmitDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getSubmitTags
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTags
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getTitle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getUpdateProgress
+          modifiers:
+            - public
+          parameters:
+            - name: table
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: boolean
+        - name: getUpdateProgressTotal
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getVisibility
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getVisibilityInteger
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: readWorkshopTxt
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: setChangeNote
+          modifiers:
+            - public
+          parameters:
+            - name: changeNote
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setDescription
+          modifiers:
+            - public
+          parameters:
+            - name: description
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setID
+          modifiers:
+            - public
+          parameters:
+            - name: ID
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setTags
+          modifiers:
+            - public
+          parameters:
+            - name: tags
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+          returns:
+            type:
+              basic: void
+        - name: setTitle
+          modifiers:
+            - public
+          parameters:
+            - name: title
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setVisibility
+          modifiers:
+            - public
+          parameters:
+            - name: visibility
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setVisibilityInteger
+          modifiers:
+            - public
+          parameters:
+            - name: v
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: submitUpdate
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: validateContents
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: validatePreviewImage
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: Path
+          returns:
+            type:
+              basic: String
+        - name: writeWorkshopTxt
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    SteamWorkshopItem.ItemState:
+      methods:
+        - name: and
+          modifiers:
+            - public
+          parameters:
+            - name: bits
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: getValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: not
+          modifiers:
+            - public
+          parameters:
+            - name: bits
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: toString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bits
+              type:
+                basic: long
+          returns:
+            type:
+              basic: String
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: SteamWorkshopItem.ItemState
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: SteamWorkshopItem.ItemState
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
+      modifiers:
+        - public
+        - static
+      javaType: enum
+      extends: Enum
+    ZNet:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: SetLogLevel
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: severity
+              type:
+                basic: LogSeverity
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by serge on 01.03.2016.
+    ZNetSessionState:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    ZNetStatistics:
+      constructors:
+        - modifiers:
+            - public
+      modifiers:
+        - public
+      javaType: class
+      extends: Object

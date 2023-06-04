@@ -1,1176 +1,1177 @@
-# zombie.worldMap.styles
-WorldMapLineStyleLayer:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-  methods:
-    - name: getTypeString
+namespaces:
+  zombie.worldMap.styles:
+    WorldMapLineStyleLayer:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+      methods:
+        - name: getTypeString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: render
+          modifiers:
+            - public
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: String
-    - name: render
+      javaType: class
+      extends: WorldMapStyleLayer
+    WorldMapPolygonStyleLayer:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+      methods:
+        - name: getTypeString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: render
+          modifiers:
+            - public
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.RenderArgs
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: WorldMapStyleLayer
-WorldMapPolygonStyleLayer:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-  methods:
-    - name: getTypeString
+      javaType: class
+      extends: WorldMapStyleLayer
+    WorldMapStyle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: copyFrom
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: WorldMapStyle
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      returns:
-        type:
-          basic: String
-    - name: render
-      modifiers:
-        - public
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.RenderArgs
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: WorldMapStyleLayer
-WorldMapStyle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: copyFrom
-      modifiers:
-        - public
-      parameters:
-        - name: other
-          type:
-            basic: WorldMapStyle
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-WorldMapStyleLayer:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-  methods:
-    - name: filter
-      modifiers:
-        - public
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.FilterArgs
-      returns:
-        type:
-          basic: boolean
-    - name: getTypeString
+        - final
+      javaType: class
+      extends: Object
+    WorldMapStyleLayer:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+      methods:
+        - name: filter
+          modifiers:
+            - public
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.FilterArgs
+          returns:
+            type:
+              basic: boolean
+        - name: getTypeString
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: String
+        - name: render
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+          returns:
+            type:
+              basic: void
+        - name: renderCell
+          modifiers:
+            - public
+          parameters:
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - abstract
-      returns:
-        type:
-          basic: String
-    - name: render
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.RenderArgs
-      returns:
-        type:
-          basic: void
-    - name: renderCell
-      modifiers:
-        - public
-      parameters:
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.RenderArgs
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-WorldMapStyleLayer.ColorStop:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: r
-          type:
-            basic: int
-        - name: g
-          type:
-            basic: int
-        - name: b
-          type:
-            basic: int
-        - name: a
-          type:
-            basic: int
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: WorldMapStyleLayer.Stop
-WorldMapStyleLayer.FilterArgs:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-WorldMapStyleLayer.FloatStop:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: f
-          type:
-            basic: float
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: WorldMapStyleLayer.Stop
-WorldMapStyleLayer.IWorldMapStyleFilter:
-  methods:
-    - name: filter
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.FilterArgs
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - static
-  javaType: interface
-WorldMapStyleLayer.RenderArgs:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-WorldMapStyleLayer.RGBAf:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: init
-      modifiers:
-        - public
-      parameters:
-        - name: r
-          type:
-            basic: float
-        - name: g
-          type:
-            basic: float
-        - name: b
-          type:
-            basic: float
-        - name: a
-          type:
-            basic: float
-      returns:
-        type:
-          basic: WorldMapStyleLayer.RGBAf
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-WorldMapStyleLayer.Stop:
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-WorldMapStyleLayer.TextureStop:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: texturePath
-          type:
-            basic: String
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: WorldMapStyleLayer.Stop
-WorldMapStyleV1:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: ui
-          type:
-            basic: UIWorldMap
-  methods:
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getLayerByIndex
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: WorldMapStyleV1.WorldMapStyleLayerV1
-    - name: getLayerByName
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: WorldMapStyleV1.WorldMapStyleLayerV1
-    - name: getLayerCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: indexOfLayer
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-    - name: moveLayer
-      modifiers:
-        - public
-      parameters:
-        - name: indexFrom
-          type:
-            basic: int
-        - name: indexTo
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: newLineLayer
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: WorldMapStyleV1.WorldMapStyleLayerV1
-    - name: newPolygonLayer
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: WorldMapStyleV1.WorldMapStyleLayerV1
-    - name: newTextureLayer
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: WorldMapStyleV1.WorldMapStyleLayerV1
-    - name: removeLayerById
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: removeLayerByIndex
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setExposed
+      javaType: class
+      extends: Object
+    WorldMapStyleLayer.ColorStop:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: int
+            - name: g
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: a
+              type:
+                basic: int
       modifiers:
         - public
         - static
-      parameters:
-        - name: exposer
-          type:
-            basic: LuaManager.Exposer
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-WorldMapStyleV1.WorldMapLineStyleLayerV1:
-  methods:
-    - name: addFill
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: r
-          type:
-            basic: int
-        - name: g
-          type:
-            basic: int
-        - name: b
-          type:
-            basic: int
-        - name: a
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: addLineWidth
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: width
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setFilter
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: value
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: WorldMapStyleV1.WorldMapStyleLayerV1
-WorldMapStyleV1.WorldMapPolygonStyleLayerV1:
-  methods:
-    - name: addFill
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: r
-          type:
-            basic: int
-        - name: g
-          type:
-            basic: int
-        - name: b
-          type:
-            basic: int
-        - name: a
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: addScale
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: scale
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: addTexture
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: texturePath
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: getFillAlpha
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillBlue
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillGreen
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillRed
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillStops
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getFillZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: getFilterKey
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getFilterValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getTexture
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: Texture
-    - name: getTexturePath
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getTextureStops
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getTextureZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: moveFill
-      modifiers:
-        - public
-      parameters:
-        - name: indexFrom
-          type:
-            basic: int
-        - name: indexTo
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: moveTexture
-      modifiers:
-        - public
-      parameters:
-        - name: indexFrom
-          type:
-            basic: int
-        - name: indexTo
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: removeFill
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: removeTexture
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setFillRGBA
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: r
-          type:
-            basic: int
-        - name: g
-          type:
-            basic: int
-        - name: b
-          type:
-            basic: int
-        - name: a
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setFillZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: zoom
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setFilter
-      modifiers:
-        - public
-      parameters:
-        - name: key
-          type:
-            basic: String
-        - name: value
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setTexturePath
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: texturePath
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setTextureZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: zoom
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: WorldMapStyleV1.WorldMapStyleLayerV1
-WorldMapStyleV1.WorldMapStyleLayerV1:
-  methods:
-    - name: getId
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getMinZoom
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getTypeString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: setId
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setMinZoom
-      modifiers:
-        - public
-      parameters:
-        - name: minZoom
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-WorldMapStyleV1.WorldMapTextureStyleLayerV1:
-  methods:
-    - name: addFill
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: r
-          type:
-            basic: int
-        - name: g
-          type:
-            basic: int
-        - name: b
-          type:
-            basic: int
-        - name: a
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: addTexture
-      modifiers:
-        - public
-      parameters:
-        - name: zoom
-          type:
-            basic: float
-        - name: texturePath
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: getFillAlpha
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillBlue
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillGreen
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillRed
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getFillStops
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getFillZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: getHeightInSquares
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMaxXInSquares
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMaxYInSquares
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMinXInSquares
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMinYInSquares
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getTexture
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: Texture
-    - name: getTexturePath
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-    - name: getTextureStops
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getTextureZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: getWidthInSquares
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: isTile
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isUseWorldBounds
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: moveFill
-      modifiers:
-        - public
-      parameters:
-        - name: indexFrom
-          type:
-            basic: int
-        - name: indexTo
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: moveTexture
-      modifiers:
-        - public
-      parameters:
-        - name: indexFrom
-          type:
-            basic: int
-        - name: indexTo
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: removeAllFill
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: removeAllTexture
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: removeFill
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: removeTexture
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setBoundsInSquares
-      modifiers:
-        - public
-      parameters:
-        - name: minX
-          type:
-            basic: int
-        - name: minY
-          type:
-            basic: int
-        - name: maxX
-          type:
-            basic: int
-        - name: maxY
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setFillRGBA
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: r
-          type:
-            basic: int
-        - name: g
-          type:
-            basic: int
-        - name: b
-          type:
-            basic: int
-        - name: a
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setFillZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: zoom
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setTexturePath
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: texturePath
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: setTextureZoom
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-        - name: zoom
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setTile
-      modifiers:
-        - public
-      parameters:
-        - name: tile
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setUseWorldBounds
-      modifiers:
-        - public
-      parameters:
-        - name: useWorldBounds
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: WorldMapStyleV1.WorldMapStyleLayerV1
-WorldMapTextureStyleLayer:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: String
-  methods:
-    - name: filter
-      modifiers:
-        - public
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.FilterArgs
-      returns:
-        type:
-          basic: boolean
-    - name: getTypeString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: render
-      modifiers:
-        - public
-      parameters:
-        - name: feature
-          type:
-            basic: WorldMapFeature
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.RenderArgs
-      returns:
-        type:
-          basic: void
-    - name: renderCell
-      modifiers:
-        - public
-      parameters:
-        - name: args
-          type:
-            basic: WorldMapStyleLayer.RenderArgs
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: WorldMapStyleLayer
+      javaType: class
+      extends: WorldMapStyleLayer.Stop
+    WorldMapStyleLayer.FilterArgs:
+      constructors:
+        - modifiers:
+            - public
+      modifiers:
+        - public
+        - static
+        - final
+      javaType: class
+      extends: Object
+    WorldMapStyleLayer.FloatStop:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: f
+              type:
+                basic: float
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: WorldMapStyleLayer.Stop
+    WorldMapStyleLayer.IWorldMapStyleFilter:
+      methods:
+        - name: filter
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.FilterArgs
+          returns:
+            type:
+              basic: boolean
+      modifiers:
+        - public
+        - static
+      javaType: interface
+    WorldMapStyleLayer.RenderArgs:
+      constructors:
+        - modifiers:
+            - public
+      modifiers:
+        - public
+        - static
+        - final
+      javaType: class
+      extends: Object
+    WorldMapStyleLayer.RGBAf:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: WorldMapStyleLayer.RGBAf
+      modifiers:
+        - public
+        - static
+        - final
+      javaType: class
+      extends: Object
+    WorldMapStyleLayer.Stop:
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: Object
+    WorldMapStyleLayer.TextureStop:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: texturePath
+              type:
+                basic: String
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: WorldMapStyleLayer.Stop
+    WorldMapStyleV1:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: ui
+              type:
+                basic: UIWorldMap
+      methods:
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getLayerByIndex
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: WorldMapStyleV1.WorldMapStyleLayerV1
+        - name: getLayerByName
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: WorldMapStyleV1.WorldMapStyleLayerV1
+        - name: getLayerCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: indexOfLayer
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: moveLayer
+          modifiers:
+            - public
+          parameters:
+            - name: indexFrom
+              type:
+                basic: int
+            - name: indexTo
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: newLineLayer
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: WorldMapStyleV1.WorldMapStyleLayerV1
+        - name: newPolygonLayer
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: WorldMapStyleV1.WorldMapStyleLayerV1
+        - name: newTextureLayer
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: WorldMapStyleV1.WorldMapStyleLayerV1
+        - name: removeLayerById
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: removeLayerByIndex
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setExposed
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: exposer
+              type:
+                basic: LuaManager.Exposer
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    WorldMapStyleV1.WorldMapLineStyleLayerV1:
+      methods:
+        - name: addFill
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: int
+            - name: g
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: a
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: addLineWidth
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: width
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setFilter
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: WorldMapStyleV1.WorldMapStyleLayerV1
+    WorldMapStyleV1.WorldMapPolygonStyleLayerV1:
+      methods:
+        - name: addFill
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: int
+            - name: g
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: a
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: addScale
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: scale
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: addTexture
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: texturePath
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: getFillAlpha
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillBlue
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillGreen
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillRed
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillStops
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getFillZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: getFilterKey
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getFilterValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getTexture
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: Texture
+        - name: getTexturePath
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getTextureStops
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getTextureZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: moveFill
+          modifiers:
+            - public
+          parameters:
+            - name: indexFrom
+              type:
+                basic: int
+            - name: indexTo
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: moveTexture
+          modifiers:
+            - public
+          parameters:
+            - name: indexFrom
+              type:
+                basic: int
+            - name: indexTo
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: removeFill
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: removeTexture
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setFillRGBA
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: r
+              type:
+                basic: int
+            - name: g
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: a
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setFillZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: zoom
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setFilter
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setTexturePath
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: texturePath
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setTextureZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: zoom
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: WorldMapStyleV1.WorldMapStyleLayerV1
+    WorldMapStyleV1.WorldMapStyleLayerV1:
+      methods:
+        - name: getId
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getMinZoom
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getTypeString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: setId
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setMinZoom
+          modifiers:
+            - public
+          parameters:
+            - name: minZoom
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: Object
+    WorldMapStyleV1.WorldMapTextureStyleLayerV1:
+      methods:
+        - name: addFill
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: int
+            - name: g
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: a
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: addTexture
+          modifiers:
+            - public
+          parameters:
+            - name: zoom
+              type:
+                basic: float
+            - name: texturePath
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: getFillAlpha
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillBlue
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillGreen
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillRed
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getFillStops
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getFillZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: getHeightInSquares
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMaxXInSquares
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMaxYInSquares
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMinXInSquares
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMinYInSquares
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getTexture
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: Texture
+        - name: getTexturePath
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
+        - name: getTextureStops
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getTextureZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: getWidthInSquares
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: isTile
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isUseWorldBounds
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: moveFill
+          modifiers:
+            - public
+          parameters:
+            - name: indexFrom
+              type:
+                basic: int
+            - name: indexTo
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: moveTexture
+          modifiers:
+            - public
+          parameters:
+            - name: indexFrom
+              type:
+                basic: int
+            - name: indexTo
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: removeAllFill
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: removeAllTexture
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: removeFill
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: removeTexture
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setBoundsInSquares
+          modifiers:
+            - public
+          parameters:
+            - name: minX
+              type:
+                basic: int
+            - name: minY
+              type:
+                basic: int
+            - name: maxX
+              type:
+                basic: int
+            - name: maxY
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setFillRGBA
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: r
+              type:
+                basic: int
+            - name: g
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: a
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setFillZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: zoom
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTexturePath
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: texturePath
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setTextureZoom
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: zoom
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTile
+          modifiers:
+            - public
+          parameters:
+            - name: tile
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setUseWorldBounds
+          modifiers:
+            - public
+          parameters:
+            - name: useWorldBounds
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - static
+      javaType: class
+      extends: WorldMapStyleV1.WorldMapStyleLayerV1
+    WorldMapTextureStyleLayer:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+      methods:
+        - name: filter
+          modifiers:
+            - public
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.FilterArgs
+          returns:
+            type:
+              basic: boolean
+        - name: getTypeString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: render
+          modifiers:
+            - public
+          parameters:
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+          returns:
+            type:
+              basic: void
+        - name: renderCell
+          modifiers:
+            - public
+          parameters:
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: WorldMapStyleLayer

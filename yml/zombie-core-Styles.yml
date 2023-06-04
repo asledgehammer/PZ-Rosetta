@@ -1,805 +1,807 @@
-# zombie.core.Styles
-AbstractStyle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: build
+namespaces:
+  zombie.core.Styles:
+    AbstractStyle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: build
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: GeometryData
+            notes: the vertex data, or null
+          notes: Description copied from interface: Style
+        - name: getAlphaOp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the style's alpha operation
+        - name: getRenderSprite
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: boolean
+          notes: Description copied from interface: Style
+        - name: getStyleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the style's ID, which affects its rendering order
+        - name: render
+          modifiers:
+            - public
+          parameters:
+            - name: vertexOffset
+              type:
+                basic: int
+            - name: indexOffset
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
+        - name: resetState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
+        - name: setupState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
       modifiers:
         - public
-      returns:
-        type:
-          basic: GeometryData
-        notes: the vertex data, or null
-      notes: Description copied from interface: Style
-    - name: getAlphaOp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the style's alpha operation
-    - name: getRenderSprite
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-        notes: boolean
-      notes: Description copied from interface: Style
-    - name: getStyleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the style's ID, which affects its rendering order
-    - name: render
-      modifiers:
-        - public
-      parameters:
-        - name: vertexOffset
-          type:
-            basic: int
-        - name: indexOffset
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-    - name: resetState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-    - name: setupState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-  notes: Convenient base class implementation of
-AdditiveStyle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getAlphaOp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the style's alpha operation
-    - name: getRenderSprite
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-        notes: boolean
-      notes: Description copied from interface: Style
-    - name: getStyleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the style's ID, which affects its rendering order
-    - name: resetState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-    - name: setupState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractStyle
-AlphaOp:
-  methods:
-    - name: op
+        - abstract
+      javaType: class
+      extends: Object
+      notes: Convenient base class implementation of
+    AdditiveStyle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getAlphaOp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the style's alpha operation
+        - name: getRenderSprite
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: boolean
+          notes: Description copied from interface: Style
+        - name: getStyleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the style's ID, which affects its rendering order
+        - name: resetState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
+        - name: setupState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
       modifiers:
         - public
         - final
-      parameters:
-        - name: c
-          type:
-            basic: int
-        - name: alpha
-          type:
-            basic: int
-        - name: dest
-          type:
-            basic: FloatBuffer
-      returns:
-        type:
-          basic: void
-    - name: valueOf
+      javaType: class
+      extends: AbstractStyle
+    AlphaOp:
+      methods:
+        - name: op
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: c
+              type:
+                basic: int
+            - name: alpha
+              type:
+                basic: int
+            - name: dest
+              type:
+                basic: FloatBuffer
+          returns:
+            type:
+              basic: void
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AlphaOp
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: AlphaOp
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-  notes: What to do with the alpha to the colours of a sprite
-FloatList:
-  constructors:
-    - modifiers:
-        - public
-      notes: FloatList constructor comment.
-    - modifiers:
-        - public
-      parameters:
+      javaType: enum
+      extends: Enum
+      notes: What to do with the alpha to the colours of a sprite
+    FloatList:
+      constructors:
+        - modifiers:
+            - public
+          notes: FloatList constructor comment.
+        - modifiers:
+            - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          notes: FloatList constructor comment.
+        - modifiers:
+            - public
+          parameters:
+            - name: fastExpand
+              type:
+                basic: boolean
+            - name: size
+              type:
+                basic: int
+          notes: FloatList constructor comment.
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: f
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+          notes: add method comment.
+        - name: addAll
+          modifiers:
+            - public
+          parameters:
+            - name: f
+              type:
+                basic: FloatList
+          returns:
+            type:
+              basic: void
+          notes: add method comment.
+        - name: array
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float[]
+          notes: toArray method comment.
+        - name: capacity
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+          notes: |-
+            Insert the method's description here. Creation date: (11/03/2001
+             17:19:01)
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: clear method comment.
+        - name: ensureCapacity
+          modifiers:
+            - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Ensure the list is at least 'size' elements big.
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+          notes: get method comment.
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: isEmpty method comment.
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+              notes: The index of the element to remove
+          returns:
+            type:
+              basic: float
+            notes: the removed value
+          notes: Remove an element and return it.
         - name: size
-          type:
-            basic: int
-      notes: FloatList constructor comment.
-    - modifiers:
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+          notes: size method comment.
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: dest
+              type:
+                basic: Object[]
+          returns:
+            type:
+              basic: void
+          notes: Stash everything in an array.
+        - name: trimToSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Pack list to its minimum size.
+      modifiers:
         - public
-      parameters:
-        - name: fastExpand
-          type:
-            basic: boolean
+      javaType: class
+      extends: Object
+      notes: Quickly hacked together expandable list of floats
+    GeometryData:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: vertexData
+              type:
+                basic: FloatList
+            - name: indexData
+              type:
+                basic: ShortList
+          notes: C'tor
+      methods:
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getIndexData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ShortList
+        - name: getVertexData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: FloatList
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Really basic geometry data which is used by
+    IntList:
+      constructors:
+        - modifiers:
+            - public
+          notes: FloatList constructor comment.
+        - modifiers:
+            - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          notes: FloatList constructor comment.
+        - modifiers:
+            - public
+          parameters:
+            - name: fastExpand
+              type:
+                basic: boolean
+            - name: size
+              type:
+                basic: int
+          notes: FloatList constructor comment.
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: f
+              type:
+                basic: short
+          returns:
+            type:
+              basic: int
+          notes: add method comment.
+        - name: addAll
+          modifiers:
+            - public
+          parameters:
+            - name: f
+              type:
+                basic: IntList
+          returns:
+            type:
+              basic: void
+          notes: add method comment.
+        - name: array
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int[]
+          notes: toArray method comment.
+        - name: capacity
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: clear method comment.
+        - name: ensureCapacity
+          modifiers:
+            - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Ensure the list is at least 'size' elements big.
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+          notes: get method comment.
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: isEmpty method comment.
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+              notes: The index of the element to remove
+          returns:
+            type:
+              basic: int
+            notes: the removed value
+          notes: Remove an element and return it.
         - name: size
-          type:
-            basic: int
-      notes: FloatList constructor comment.
-  methods:
-    - name: add
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+          notes: size method comment.
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: dest
+              type:
+                basic: short[]
+          returns:
+            type:
+              basic: short[]
+          notes: Stash everything in an array.
+        - name: trimToSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Pack list to its minimum size.
       modifiers:
         - public
-      parameters:
-        - name: f
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-      notes: add method comment.
-    - name: addAll
+      javaType: class
+      extends: Object
+    LightingStyle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getAlphaOp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the style's alpha operation
+        - name: getRenderSprite
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: boolean
+          notes: Description copied from interface: Style
+        - name: getStyleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the style's ID, which affects its rendering order
+        - name: resetState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
+        - name: setupState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
       modifiers:
         - public
-      parameters:
-        - name: f
-          type:
-            basic: FloatList
-      returns:
-        type:
-          basic: void
-      notes: add method comment.
-    - name: array
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float[]
-      notes: toArray method comment.
-    - name: capacity
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-      notes: |-
-        Insert the method's description here. Creation date: (11/03/2001
-         17:19:01)
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: clear method comment.
-    - name: ensureCapacity
-      modifiers:
-        - public
-      parameters:
+        - final
+      javaType: class
+      extends: AbstractStyle
+    ShortList:
+      constructors:
+        - modifiers:
+            - public
+          notes: FloatList constructor comment.
+        - modifiers:
+            - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          notes: FloatList constructor comment.
+        - modifiers:
+            - public
+          parameters:
+            - name: fastExpand
+              type:
+                basic: boolean
+            - name: size
+              type:
+                basic: int
+          notes: FloatList constructor comment.
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: f
+              type:
+                basic: short
+          returns:
+            type:
+              basic: short
+          notes: add method comment.
+        - name: addAll
+          modifiers:
+            - public
+          parameters:
+            - name: f
+              type:
+                basic: ShortList
+          returns:
+            type:
+              basic: void
+          notes: add method comment.
+        - name: array
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: short[]
+          notes: toArray method comment.
+        - name: capacity
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: clear method comment.
+        - name: ensureCapacity
+          modifiers:
+            - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: Ensure the list is at least 'size' elements big.
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+          returns:
+            type:
+              basic: short
+          notes: get method comment.
+        - name: isEmpty
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: isEmpty method comment.
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+              notes: The index of the element to remove
+          returns:
+            type:
+              basic: short
+            notes: the removed value
+          notes: Remove an element and return it.
         - name: size
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Ensure the list is at least 'size' elements big.
-    - name: get
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+          notes: size method comment.
+        - name: toArray
+          modifiers:
+            - public
+          parameters:
+            - name: dest
+              type:
+                basic: short[]
+          returns:
+            type:
+              basic: short[]
+          notes: Stash everything in an array.
+        - name: trimToSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Pack list to its minimum size.
       modifiers:
         - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-      notes: get method comment.
-    - name: isEmpty
+      javaType: class
+      extends: Object
+      notes: Quickly hacked together expandable list of shorts
+    Style:
+      methods:
+        - name: build
+          returns:
+            type:
+              basic: GeometryData
+            notes: the vertex data, or null
+          notes: If not rendering a sprite, then we perform a build() to create
+        - name: getAlphaOp
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the style's alpha operation
+        - name: getRenderSprite
+          returns:
+            type:
+              basic: boolean
+            notes: boolean
+          notes: Whether to actually render a sprite when using this Style.
+        - name: getStyleID
+          returns:
+            type:
+              basic: int
+            notes: the style's ID, which affects its rendering order
+        - name: render
+          parameters:
+            - name: vertexOffset
+              type:
+                basic: int
+            - name: indexOffset
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+          notes: >-
+            If not rendering a sprite, then render stuff. Our geometry was
+            written to a pre-prepared buffer which is pointed to
+             already.
+        - name: resetState
+          returns:
+            type:
+              basic: void
+          notes: Called to reset GL rendering state after actual drawing is done.
+        - name: setupState
+          returns:
+            type:
+              basic: void
+          notes: Called to set up GL rendering state before actual drawing is done.
       modifiers:
         - public
-      returns:
-        type:
-          basic: boolean
-      notes: isEmpty method comment.
-    - name: remove
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-          notes: The index of the element to remove
-      returns:
-        type:
-          basic: float
-        notes: the removed value
-      notes: Remove an element and return it.
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-      notes: size method comment.
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: dest
-          type:
-            basic: Object[]
-      returns:
-        type:
-          basic: void
-      notes: Stash everything in an array.
-    - name: trimToSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Pack list to its minimum size.
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Quickly hacked together expandable list of floats
-GeometryData:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: vertexData
-          type:
-            basic: FloatList
-        - name: indexData
-          type:
-            basic: ShortList
-      notes: C'tor
-  methods:
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getIndexData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ShortList
-    - name: getVertexData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: FloatList
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Really basic geometry data which is used by
-IntList:
-  constructors:
-    - modifiers:
-        - public
-      notes: FloatList constructor comment.
-    - modifiers:
-        - public
-      parameters:
-        - name: size
-          type:
-            basic: int
-      notes: FloatList constructor comment.
-    - modifiers:
-        - public
-      parameters:
-        - name: fastExpand
-          type:
-            basic: boolean
-        - name: size
-          type:
-            basic: int
-      notes: FloatList constructor comment.
-  methods:
-    - name: add
-      modifiers:
-        - public
-      parameters:
-        - name: f
-          type:
-            basic: short
-      returns:
-        type:
-          basic: int
-      notes: add method comment.
-    - name: addAll
-      modifiers:
-        - public
-      parameters:
-        - name: f
-          type:
-            basic: IntList
-      returns:
-        type:
-          basic: void
-      notes: add method comment.
-    - name: array
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int[]
-      notes: toArray method comment.
-    - name: capacity
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: clear method comment.
-    - name: ensureCapacity
-      modifiers:
-        - public
-      parameters:
-        - name: size
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Ensure the list is at least 'size' elements big.
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-      notes: get method comment.
-    - name: isEmpty
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: isEmpty method comment.
-    - name: remove
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-          notes: The index of the element to remove
-      returns:
-        type:
-          basic: int
-        notes: the removed value
-      notes: Remove an element and return it.
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-      notes: size method comment.
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: dest
-          type:
-            basic: short[]
-      returns:
-        type:
-          basic: short[]
-      notes: Stash everything in an array.
-    - name: trimToSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Pack list to its minimum size.
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-LightingStyle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getAlphaOp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the style's alpha operation
-    - name: getRenderSprite
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-        notes: boolean
-      notes: Description copied from interface: Style
-    - name: getStyleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the style's ID, which affects its rendering order
-    - name: resetState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-    - name: setupState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractStyle
-ShortList:
-  constructors:
-    - modifiers:
-        - public
-      notes: FloatList constructor comment.
-    - modifiers:
-        - public
-      parameters:
-        - name: size
-          type:
-            basic: int
-      notes: FloatList constructor comment.
-    - modifiers:
-        - public
-      parameters:
-        - name: fastExpand
-          type:
-            basic: boolean
-        - name: size
-          type:
-            basic: int
-      notes: FloatList constructor comment.
-  methods:
-    - name: add
-      modifiers:
-        - public
-      parameters:
-        - name: f
-          type:
-            basic: short
-      returns:
-        type:
-          basic: short
-      notes: add method comment.
-    - name: addAll
-      modifiers:
-        - public
-      parameters:
-        - name: f
-          type:
-            basic: ShortList
-      returns:
-        type:
-          basic: void
-      notes: add method comment.
-    - name: array
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: short[]
-      notes: toArray method comment.
-    - name: capacity
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: clear method comment.
-    - name: ensureCapacity
-      modifiers:
-        - public
-      parameters:
-        - name: size
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-      notes: Ensure the list is at least 'size' elements big.
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: int
-      returns:
-        type:
-          basic: short
-      notes: get method comment.
-    - name: isEmpty
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-      notes: isEmpty method comment.
-    - name: remove
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-          notes: The index of the element to remove
-      returns:
-        type:
-          basic: short
-        notes: the removed value
-      notes: Remove an element and return it.
-    - name: size
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-      notes: size method comment.
-    - name: toArray
-      modifiers:
-        - public
-      parameters:
-        - name: dest
-          type:
-            basic: short[]
-      returns:
-        type:
-          basic: short[]
-      notes: Stash everything in an array.
-    - name: trimToSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Pack list to its minimum size.
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Quickly hacked together expandable list of shorts
-Style:
-  methods:
-    - name: build
-      returns:
-        type:
-          basic: GeometryData
-        notes: the vertex data, or null
-      notes: If not rendering a sprite, then we perform a build() to create
-    - name: getAlphaOp
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the style's alpha operation
-    - name: getRenderSprite
-      returns:
-        type:
-          basic: boolean
-        notes: boolean
-      notes: Whether to actually render a sprite when using this Style.
-    - name: getStyleID
-      returns:
-        type:
-          basic: int
-        notes: the style's ID, which affects its rendering order
-    - name: render
-      parameters:
-        - name: vertexOffset
-          type:
-            basic: int
-        - name: indexOffset
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
+      javaType: interface
       notes: >-
-        If not rendering a sprite, then render stuff. Our geometry was written
-        to a pre-prepared buffer which is pointed to
-         already.
-    - name: resetState
-      returns:
-        type:
-          basic: void
-      notes: Called to reset GL rendering state after actual drawing is done.
-    - name: setupState
-      returns:
-        type:
-          basic: void
-      notes: Called to set up GL rendering state before actual drawing is done.
-  modifiers:
-    - public
-  javaType: interface
-  notes: |-
-    The default sprite renderer has various different styles of rendering, which
-     affect what data it uses from the buffer and what GL state that it sets and
-     resets before and after rendering.
-TransparentStyle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getAlphaOp
+        The default sprite renderer has various different styles of rendering,
+        which
+         affect what data it uses from the buffer and what GL state that it sets and
+         resets before and after rendering.
+    TransparentStyle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getAlphaOp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the style's alpha operation
+        - name: getRenderSprite
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: boolean
+          notes: Description copied from interface: Style
+        - name: getStyleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the style's ID, which affects its rendering order
+        - name: resetState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
+        - name: setupState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
       modifiers:
         - public
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the style's alpha operation
-    - name: getRenderSprite
+        - final
+      javaType: class
+      extends: AbstractStyle
+      notes: Renders sprites with proper alpha transparency.
+    UIFBOStyle:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: getAlphaOp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AlphaOp
+            notes: the style's alpha operation
+        - name: getRenderSprite
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+            notes: boolean
+          notes: Description copied from interface: Style
+        - name: getStyleID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+            notes: the style's ID, which affects its rendering order
+        - name: setupState
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Description copied from interface: Style
       modifiers:
         - public
-      returns:
-        type:
-          basic: boolean
-        notes: boolean
-      notes: Description copied from interface: Style
-    - name: getStyleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the style's ID, which affects its rendering order
-    - name: resetState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-    - name: setupState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractStyle
-  notes: Renders sprites with proper alpha transparency.
-UIFBOStyle:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: getAlphaOp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AlphaOp
-        notes: the style's alpha operation
-    - name: getRenderSprite
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-        notes: boolean
-      notes: Description copied from interface: Style
-    - name: getStyleID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-        notes: the style's ID, which affects its rendering order
-    - name: setupState
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Description copied from interface: Style
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: AbstractStyle
+        - final
+      javaType: class
+      extends: AbstractStyle

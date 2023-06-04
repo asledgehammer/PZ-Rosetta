@@ -1,1600 +1,1601 @@
-# zombie.core.raknet
-FMODTest:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by krotos139 on 27.06.2016.
-RakNetPeerInterface:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: Connect
+namespaces:
+  zombie.core.raknet:
+    FMODTest:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
-      parameters:
-        - name: host
-          type:
-            basic: String
-        - name: remotePort
-          type:
-            basic: int
-        - name: password
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-    - name: ConnectToSteamServer
+      javaType: class
+      extends: Object
+      notes: Created by krotos139 on 27.06.2016.
+    RakNetPeerInterface:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: Connect
+          modifiers:
+            - public
+          parameters:
+            - name: host
+              type:
+                basic: String
+            - name: remotePort
+              type:
+                basic: int
+            - name: password
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: ConnectToSteamServer
+          modifiers:
+            - public
+          parameters:
+            - name: steamId
+              type:
+                basic: long
+              notes: Server steam ID
+            - name: password
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+            notes: In success case this function return CONNECTION_ATTEMPT_STARTED
+        - name: disconnect
+          modifiers:
+            - public
+          parameters:
+            - name: connectedGUID
+              type:
+                basic: long
+            - name: message
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: GetAveragePing
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: int
+        - name: GetClientOwnerSteamID
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: GetClientSteamID
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: GetConnectionsNumber
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: GetConnectionType
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: byte
+        - name: getGuidFromIndex
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: int
+          returns:
+            type:
+              basic: long
+        - name: getGuidOfPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long
+        - name: getIPFromGUID
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: String
+        - name: GetLastPing
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: int
+        - name: GetLowestPing
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: int
+        - name: GetMTUSize
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: int
+        - name: GetNetStatistics
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: ZNetStatistics
+        - name: GetServerIP
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: init
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: Init
+          modifiers:
+            - public
+          parameters:
+            - name: steamMode
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: Receive
+          modifiers:
+            - public
+          parameters:
+            - name: buffer
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: boolean
+        - name: Send
+          modifiers:
+            - public
+          parameters:
+            - name: data
+              type:
+                basic: ByteBuffer
+            - name: PacketPriority
+              type:
+                basic: int
+            - name: PacketReliability
+              type:
+                basic: int
+            - name: orderingChannel
+              type:
+                basic: byte
+            - name: guid
+              type:
+                basic: long
+            - name: broadcast
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: int
+        - name: SendRaw
+          modifiers:
+            - public
+          parameters:
+            - name: data
+              type:
+                basic: ByteBuffer
+            - name: PacketPriority
+              type:
+                basic: int
+            - name: PacketReliability
+              type:
+                basic: int
+            - name: orderingChannel
+              type:
+                basic: byte
+            - name: guid
+              type:
+                basic: long
+            - name: broadcast
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: int
+        - name: SetClientPort
+          modifiers:
+            - public
+          parameters:
+            - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: SetIncomingPassword
+          modifiers:
+            - public
+          parameters:
+            - name: password
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetMaximumIncomingConnections
+          modifiers:
+            - public
+          parameters:
+            - name: num
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: SetOccasionalPing
+          modifiers:
+            - public
+          parameters:
+            - name: bPing
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: SetServerIP
+          modifiers:
+            - public
+          parameters:
+            - name: ip
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetServerPort
+          modifiers:
+            - public
+          parameters:
+            - name: port
+              type:
+                basic: int
+            - name: UDPPort
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: SetTimeoutTime
+          modifiers:
+            - public
+          parameters:
+            - name: time
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: SetUnreliableTimeout
+          modifiers:
+            - public
+          parameters:
+            - name: timeout
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: Shutdown
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Startup
+          modifiers:
+            - public
+          parameters:
+            - name: maxConnections
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
       modifiers:
         - public
-      parameters:
-        - name: steamId
-          type:
-            basic: long
-          notes: Server steam ID
-        - name: password
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-        notes: In success case this function return CONNECTION_ATTEMPT_STARTED
-    - name: disconnect
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYPC on 10/01/14.
+    RakVoice:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: CloseAllChannels
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: CloseVoiceChannel
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: GetBuffering
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetBufferSizeBytes
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetChannelStatistics
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+            - name: buf
+              type:
+                basic: long[]
+          returns:
+            type:
+              basic: boolean
+        - name: GetComplexity
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetIs3D
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: GetMaxDistance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: float
+        - name: GetMinDistance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: float
+        - name: GetSampleRate
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetSendFramePeriod
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: int
+        - name: GetServerVOIPEnable
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: boolean
+        - name: ReceiveFrame
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerid
+              type:
+                basic: long
+            - name: buf
+              type:
+                basic: byte[]
+          returns:
+            type:
+              basic: boolean
+        - name: RequestVoiceChannel
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: RVDeinit
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: RVInit
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: frames_per_buffer
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: RVInitServer
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: enable
+              type:
+                basic: boolean
+            - name: sample_rate
+              type:
+                basic: int
+            - name: framePeriod
+              type:
+                basic: int
+            - name: complexity
+              type:
+                basic: int
+            - name: buffering
+              type:
+                basic: int
+            - name: minDistance
+              type:
+                basic: float
+            - name: maxDistance
+              type:
+                basic: float
+            - name: is3D
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: SendFrame
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+            - name: playerid
+              type:
+                basic: long
+            - name: buf
+              type:
+                basic: byte[]
+            - name: bufSize
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: SetChannelsRouting
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+            - name: isCanHearAll
+              type:
+                basic: boolean
+            - name: radioData
+              type:
+                basic: int[]
+            - name: radioDataCount
+              type:
+                basic: short
+          returns:
+            type:
+              basic: void
+        - name: SetComplexity
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: value
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: SetLoopbackMode
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: mode
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: SetVoiceBan
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+            - name: is_ban
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: connectedGUID
-          type:
-            basic: long
-        - name: message
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: GetAveragePing
+      javaType: class
+      extends: Object
+      notes: Created by krotos139 on 05.05.2016.
+    TestClient:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: main
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: args
+              type:
+                basic: String[]
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: int
-    - name: GetClientOwnerSteamID
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYPC on 10/01/14.
+    TestServer:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: main
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: args
+              type:
+                basic: String[]
+          returns:
+            type:
+              basic: void
+        - name: Receive
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ByteBuffer
       modifiers:
         - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: long
-    - name: GetClientSteamID
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYPC on 10/01/14.
+    UdpConnection:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: engine
+              type:
+                basic: UdpEngine
+            - name: connectedGUID
+              type:
+                basic: long
+            - name: index
+              type:
+                basic: int
+      methods:
+        - name: calcCountPlayersInRelevantPosition
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: cancelPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPacketImmediate
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPacketSuperHighUnreliable
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPacketUnordered
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPacketUnreliable
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPingPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: forceDisconnect
+          modifiers:
+            - public
+          parameters:
+            - name: description
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: getAveragePing
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getBufferPosition
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getConnectedGUID
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long
+        - name: getConnectionType
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: UdpConnection.ConnectionType
+        - name: getDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getInetSocketAddress
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: InetSocketAddress
+        - name: getLastPing
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getLowestPing
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getMTUSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getPeer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: RakNetPeerInterface
+        - name: getRelevantAndDistance
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: getServerIP
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getStatistics
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ZNetStatistics
+        - name: havePlayer
+          modifiers:
+            - public
+          parameters:
+            - name: p
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: boolean
+        - name: isConnectionAttemptTimeout
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isConnectionGraceIntervalTimeout
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isFullyConnected
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: RelevantTo
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: radius
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: RelevantToPlayerIndex
+          modifiers:
+            - public
+          parameters:
+            - name: n
+              type:
+                basic: int
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: setConnectionTimestamp
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setFullyConnected
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: startPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ByteBufferWriter
+        - name: startPingPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ByteBufferWriter
       modifiers:
         - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: long
-    - name: GetConnectionsNumber
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: GetConnectionType
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: byte
-    - name: getGuidFromIndex
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: int
-      returns:
-        type:
-          basic: long
-    - name: getGuidOfPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: long
-    - name: getIPFromGUID
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: String
-    - name: GetLastPing
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: int
-    - name: GetLowestPing
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: int
-    - name: GetMTUSize
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: int
-    - name: GetNetStatistics
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: ZNetStatistics
-    - name: GetServerIP
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: init
+      javaType: class
+      extends: Object
+    UdpConnection.ChecksumState:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: UdpConnection.ChecksumState
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: UdpConnection.ChecksumState
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: void
-    - name: Init
-      modifiers:
-        - public
-      parameters:
-        - name: steamMode
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: Receive
-      modifiers:
-        - public
-      parameters:
-        - name: buffer
-          type:
-            basic: ByteBuffer
-      returns:
-        type:
-          basic: boolean
-    - name: Send
-      modifiers:
-        - public
-      parameters:
-        - name: data
-          type:
-            basic: ByteBuffer
-        - name: PacketPriority
-          type:
-            basic: int
-        - name: PacketReliability
-          type:
-            basic: int
-        - name: orderingChannel
-          type:
-            basic: byte
-        - name: guid
-          type:
-            basic: long
-        - name: broadcast
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: int
-    - name: SendRaw
-      modifiers:
-        - public
-      parameters:
-        - name: data
-          type:
-            basic: ByteBuffer
-        - name: PacketPriority
-          type:
-            basic: int
-        - name: PacketReliability
-          type:
-            basic: int
-        - name: orderingChannel
-          type:
-            basic: byte
-        - name: guid
-          type:
-            basic: long
-        - name: broadcast
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: int
-    - name: SetClientPort
-      modifiers:
-        - public
-      parameters:
-        - name: port
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: SetIncomingPassword
-      modifiers:
-        - public
-      parameters:
-        - name: password
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetMaximumIncomingConnections
-      modifiers:
-        - public
-      parameters:
-        - name: num
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: SetOccasionalPing
-      modifiers:
-        - public
-      parameters:
-        - name: bPing
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: SetServerIP
-      modifiers:
-        - public
-      parameters:
-        - name: ip
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetServerPort
-      modifiers:
-        - public
-      parameters:
-        - name: port
-          type:
-            basic: int
-        - name: UDPPort
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: SetTimeoutTime
-      modifiers:
-        - public
-      parameters:
-        - name: time
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: SetUnreliableTimeout
-      modifiers:
-        - public
-      parameters:
-        - name: timeout
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: Shutdown
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: Startup
-      modifiers:
-        - public
-      parameters:
-        - name: maxConnections
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYPC on 10/01/14.
-RakVoice:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: CloseAllChannels
+      javaType: enum
+      extends: Enum
+    UdpConnection.ConnectionType:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: UdpConnection.ConnectionType
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: UdpConnection.ConnectionType
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: void
-    - name: CloseVoiceChannel
+      javaType: enum
+      extends: Enum
+    UdpEngine:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: port
+              type:
+                basic: int
+            - name: UDPPort
+              type:
+                basic: int
+            - name: maxConnections
+              type:
+                basic: int
+            - name: serverPassword
+              type:
+                basic: String
+            - name: bListen
+              type:
+                basic: boolean
+      methods:
+        - name: Connect
+          modifiers:
+            - public
+          parameters:
+            - name: hostname
+              type:
+                basic: String
+            - name: port
+              type:
+                basic: int
+            - name: serverPassword
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: connected
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: endPacketBroadcast
+          modifiers:
+            - public
+          parameters:
+            - name: packetType
+              type:
+                basic: PacketTypes.PacketType
+          returns:
+            type:
+              basic: void
+        - name: endPacketBroadcastExcept
+          modifiers:
+            - public
+          parameters:
+            - name: priority
+              type:
+                basic: int
+            - name: reliability
+              type:
+                basic: int
+            - name: connection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: forceDisconnect
+          modifiers:
+            - public
+          parameters:
+            - name: connectedGUID
+              type:
+                basic: long
+            - name: message
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: getActiveConnection
+          modifiers:
+            - public
+          parameters:
+            - name: connection
+              type:
+                basic: long
+          returns:
+            type:
+              basic: UdpConnection
+        - name: getClientOwnerSteamID
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: getClientSteamID
+          modifiers:
+            - public
+          parameters:
+            - name: guid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: getDescription
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: getMaxConnections
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getPeer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: RakNetPeerInterface
+        - name: getServerIP
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: hashServerPassword
+          modifiers:
+            - public
+          parameters:
+            - name: password
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
+        - name: Receive
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ByteBuffer
+        - name: SetServerPassword
+          modifiers:
+            - public
+          parameters:
+            - name: password
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: Shutdown
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: startPacket
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: ByteBufferWriter
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    VoiceDebug:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: scores
+              type:
+                basic: List
+                full: List<Integer>
+            - name: title
+              type:
+                basic: String
+      methods:
+        - name: createAndShowGui
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
+        - name: getPreferredSize
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Dimension
+        - name: updateGui
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playBuf
+              type:
+                basic: fmod.SoundBuffer
+            - name: recBuf
+              type:
+                basic: fmod.FMODSoundBuffer
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: JPanel
+      notes: Created by krotos139 on 02.07.2016.
+    VoiceManager:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: DeinitRecSound
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: DeinitVMClient
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getInstance
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: VoiceManager
+        - name: getMicVolumeError
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: getMicVolumeIndicator
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getServerVOIPEnable
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: InitVMClient
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: loadConfig
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: LuaRegister
+          modifiers:
+            - public
+          parameters:
+            - name: platform
+              type:
+                basic: se.krka.kahlua.vm.Platform
+            - name: environment
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: notifyThread
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: playerGetMute
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: username
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: playerSetMute
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: username
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: ResetRecSound
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setAGCMode
+          modifiers:
+            - public
+          parameters:
+            - name: mode
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setMode
+          modifiers:
+            - public
+          parameters:
+            - name: mode
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setTestingMicrophone
+          modifiers:
+            - public
+          parameters:
+            - name: testing
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setVADMode
+          modifiers:
+            - public
+          parameters:
+            - name: mode
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setVolumeMic
+          modifiers:
+            - public
+          parameters:
+            - name: volume
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setVolumePlayers
+          modifiers:
+            - public
+          parameters:
+            - name: volume
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: UpdateChannelsRoaming
+          modifiers:
+            - public
+          parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: UpdateRecordDevice
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: VMServerBan
+          modifiers:
+            - public
+          parameters:
+            - name: player_id
+              type:
+                basic: short
+            - name: is_ban
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: VoiceConnectClose
+          modifiers:
+            - public
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: VoiceConnectReq
+          modifiers:
+            - public
+          parameters:
+            - name: uuid
+              type:
+                basic: long
+          returns:
+            type:
+              basic: void
+        - name: VoiceRestartClient
+          modifiers:
+            - public
+          parameters:
+            - name: isEnable
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by krotos139 on 12.05.2016.
+    VoiceManagerData:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: short
+      methods:
+        - name: get
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: onlineId
+              type:
+                basic: short
+          returns:
+            type:
+              basic: VoiceManagerData
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by krotos139 on 19.09.2016.
+    VoiceManagerData.RadioData:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: distance
+              type:
+                basic: float
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+        - modifiers:
+            - public
+          parameters:
+            - name: freq
+              type:
+                basic: int
+            - name: distance
+              type:
+                basic: float
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+        - modifiers:
+            - public
+          parameters:
+            - name: data
+              type:
+                basic: DeviceData
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+      methods:
+        - name: getDeviceData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: DeviceData
+        - name: isReceivingAvailable
+          modifiers:
+            - public
+          parameters:
+            - name: channel
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isTransmissionAvailable
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
         - static
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: GetBuffering
+      javaType: class
+      extends: Object
+    VoiceManagerData.VoiceDataSource:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: VoiceManagerData.VoiceDataSource
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: VoiceManagerData.VoiceDataSource
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: int
-    - name: GetBufferSizeBytes
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: GetChannelStatistics
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-        - name: buf
-          type:
-            basic: long[]
-      returns:
-        type:
-          basic: boolean
-    - name: GetComplexity
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: GetIs3D
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: GetMaxDistance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: float
-    - name: GetMinDistance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: float
-    - name: GetSampleRate
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: GetSendFramePeriod
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: int
-    - name: GetServerVOIPEnable
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: boolean
-    - name: ReceiveFrame
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playerid
-          type:
-            basic: long
-        - name: buf
-          type:
-            basic: byte[]
-      returns:
-        type:
-          basic: boolean
-    - name: RequestVoiceChannel
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: RVDeinit
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: RVInit
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: frames_per_buffer
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: RVInitServer
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: enable
-          type:
-            basic: boolean
-        - name: sample_rate
-          type:
-            basic: int
-        - name: framePeriod
-          type:
-            basic: int
-        - name: complexity
-          type:
-            basic: int
-        - name: buffering
-          type:
-            basic: int
-        - name: minDistance
-          type:
-            basic: float
-        - name: maxDistance
-          type:
-            basic: float
-        - name: is3D
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: SendFrame
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-        - name: playerid
-          type:
-            basic: long
-        - name: buf
-          type:
-            basic: byte[]
-        - name: bufSize
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: SetChannelsRouting
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-        - name: isCanHearAll
-          type:
-            basic: boolean
-        - name: radioData
-          type:
-            basic: int[]
-        - name: radioDataCount
-          type:
-            basic: short
-      returns:
-        type:
-          basic: void
-    - name: SetComplexity
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: value
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: SetLoopbackMode
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: mode
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: SetVoiceBan
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-        - name: is_ban
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by krotos139 on 05.05.2016.
-TestClient:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: main
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: args
-          type:
-            basic: String[]
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYPC on 10/01/14.
-TestServer:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: main
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: args
-          type:
-            basic: String[]
-      returns:
-        type:
-          basic: void
-    - name: Receive
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ByteBuffer
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYPC on 10/01/14.
-UdpConnection:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: engine
-          type:
-            basic: UdpEngine
-        - name: connectedGUID
-          type:
-            basic: long
-        - name: index
-          type:
-            basic: int
-  methods:
-    - name: calcCountPlayersInRelevantPosition
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: cancelPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPacketImmediate
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPacketSuperHighUnreliable
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPacketUnordered
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPacketUnreliable
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPingPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: forceDisconnect
-      modifiers:
-        - public
-      parameters:
-        - name: description
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: getAveragePing
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getBufferPosition
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getConnectedGUID
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: long
-    - name: getConnectionType
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: UdpConnection.ConnectionType
-    - name: getDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getInetSocketAddress
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: InetSocketAddress
-    - name: getLastPing
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getLowestPing
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getMTUSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getPeer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: RakNetPeerInterface
-    - name: getRelevantAndDistance
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: z
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-    - name: getServerIP
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getStatistics
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ZNetStatistics
-    - name: havePlayer
-      modifiers:
-        - public
-      parameters:
-        - name: p
-          type:
-            basic: IsoPlayer
-      returns:
-        type:
-          basic: boolean
-    - name: isConnectionAttemptTimeout
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isConnectionGraceIntervalTimeout
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isFullyConnected
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: RelevantTo
-      modifiers:
-        - public
-      parameters:
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-        - name: radius
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-    - name: RelevantToPlayerIndex
-      modifiers:
-        - public
-      parameters:
-        - name: n
-          type:
-            basic: int
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-      returns:
-        type:
-          basic: boolean
-    - name: setConnectionTimestamp
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setFullyConnected
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: startPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ByteBufferWriter
-    - name: startPingPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ByteBufferWriter
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-UdpConnection.ChecksumState:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: UdpConnection.ChecksumState
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: UdpConnection.ChecksumState
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-UdpConnection.ConnectionType:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: UdpConnection.ConnectionType
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: UdpConnection.ConnectionType
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-UdpEngine:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: port
-          type:
-            basic: int
-        - name: UDPPort
-          type:
-            basic: int
-        - name: maxConnections
-          type:
-            basic: int
-        - name: serverPassword
-          type:
-            basic: String
-        - name: bListen
-          type:
-            basic: boolean
-  methods:
-    - name: Connect
-      modifiers:
-        - public
-      parameters:
-        - name: hostname
-          type:
-            basic: String
-        - name: port
-          type:
-            basic: int
-        - name: serverPassword
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: connected
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: endPacketBroadcast
-      modifiers:
-        - public
-      parameters:
-        - name: packetType
-          type:
-            basic: PacketTypes.PacketType
-      returns:
-        type:
-          basic: void
-    - name: endPacketBroadcastExcept
-      modifiers:
-        - public
-      parameters:
-        - name: priority
-          type:
-            basic: int
-        - name: reliability
-          type:
-            basic: int
-        - name: connection
-          type:
-            basic: UdpConnection
-      returns:
-        type:
-          basic: void
-    - name: forceDisconnect
-      modifiers:
-        - public
-      parameters:
-        - name: connectedGUID
-          type:
-            basic: long
-        - name: message
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: getActiveConnection
-      modifiers:
-        - public
-      parameters:
-        - name: connection
-          type:
-            basic: long
-      returns:
-        type:
-          basic: UdpConnection
-    - name: getClientOwnerSteamID
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: long
-    - name: getClientSteamID
-      modifiers:
-        - public
-      parameters:
-        - name: guid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: long
-    - name: getDescription
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: getMaxConnections
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getPeer
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: RakNetPeerInterface
-    - name: getServerIP
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: hashServerPassword
-      modifiers:
-        - public
-      parameters:
-        - name: password
-          type:
-            basic: String
-      returns:
-        type:
-          basic: String
-    - name: Receive
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ByteBuffer
-    - name: SetServerPassword
-      modifiers:
-        - public
-      parameters:
-        - name: password
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: Shutdown
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: startPacket
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: ByteBufferWriter
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-VoiceDebug:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: scores
-          type:
-            basic: List
-            full: List<Integer>
-        - name: title
-          type:
-            basic: String
-  methods:
-    - name: createAndShowGui
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: void
-    - name: getPreferredSize
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Dimension
-    - name: updateGui
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: playBuf
-          type:
-            basic: fmod.SoundBuffer
-        - name: recBuf
-          type:
-            basic: fmod.FMODSoundBuffer
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: JPanel
-  notes: Created by krotos139 on 02.07.2016.
-VoiceManager:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: DeinitRecSound
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: DeinitVMClient
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getInstance
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: VoiceManager
-    - name: getMicVolumeError
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: getMicVolumeIndicator
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getServerVOIPEnable
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: InitVMClient
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: loadConfig
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: LuaRegister
-      modifiers:
-        - public
-      parameters:
-        - name: platform
-          type:
-            basic: se.krka.kahlua.vm.Platform
-        - name: environment
-          type:
-            basic: se.krka.kahlua.vm.KahluaTable
-      returns:
-        type:
-          basic: void
-    - name: notifyThread
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: playerGetMute
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: username
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: playerSetMute
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: username
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: ResetRecSound
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setAGCMode
-      modifiers:
-        - public
-      parameters:
-        - name: mode
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setMode
-      modifiers:
-        - public
-      parameters:
-        - name: mode
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setTestingMicrophone
-      modifiers:
-        - public
-      parameters:
-        - name: testing
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setVADMode
-      modifiers:
-        - public
-      parameters:
-        - name: mode
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setVolumeMic
-      modifiers:
-        - public
-      parameters:
-        - name: volume
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setVolumePlayers
-      modifiers:
-        - public
-      parameters:
-        - name: volume
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: update
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: UpdateChannelsRoaming
-      modifiers:
-        - public
-      parameters:
-        - name: connection
-          type:
-            basic: UdpConnection
-      returns:
-        type:
-          basic: void
-    - name: UpdateRecordDevice
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: VMServerBan
-      modifiers:
-        - public
-      parameters:
-        - name: player_id
-          type:
-            basic: short
-        - name: is_ban
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: VoiceConnectClose
-      modifiers:
-        - public
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: VoiceConnectReq
-      modifiers:
-        - public
-      parameters:
-        - name: uuid
-          type:
-            basic: long
-      returns:
-        type:
-          basic: void
-    - name: VoiceRestartClient
-      modifiers:
-        - public
-      parameters:
-        - name: isEnable
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by krotos139 on 12.05.2016.
-VoiceManagerData:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: index
-          type:
-            basic: short
-  methods:
-    - name: get
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: onlineId
-          type:
-            basic: short
-      returns:
-        type:
-          basic: VoiceManagerData
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by krotos139 on 19.09.2016.
-VoiceManagerData.RadioData:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: distance
-          type:
-            basic: float
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-    - modifiers:
-        - public
-      parameters:
-        - name: freq
-          type:
-            basic: int
-        - name: distance
-          type:
-            basic: float
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-    - modifiers:
-        - public
-      parameters:
-        - name: data
-          type:
-            basic: DeviceData
-        - name: x
-          type:
-            basic: float
-        - name: y
-          type:
-            basic: float
-  methods:
-    - name: getDeviceData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: DeviceData
-    - name: isReceivingAvailable
-      modifiers:
-        - public
-      parameters:
-        - name: channel
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: isTransmissionAvailable
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-VoiceManagerData.VoiceDataSource:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: VoiceManagerData.VoiceDataSource
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: VoiceManagerData.VoiceDataSource
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-    - static
-  javaType: enum
-  extends: Enum
-VoiceTest:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: main
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: args
-          type:
-            basic: String[]
-      returns:
-        type:
-          basic: void
-    - name: rakNetClientReceive
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ByteBuffer
-    - name: rakNetServerReceive
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: ByteBuffer
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-  notes: Created by krotos139 on 25.06.2016.
+      javaType: enum
+      extends: Enum
+    VoiceTest:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: main
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: args
+              type:
+                basic: String[]
+          returns:
+            type:
+              basic: void
+        - name: rakNetClientReceive
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ByteBuffer
+        - name: rakNetServerReceive
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: ByteBuffer
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: Created by krotos139 on 25.06.2016.

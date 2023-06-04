@@ -1,955 +1,956 @@
-# zombie.fileSystem
-DeviceList:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: add
+namespaces:
+  zombie.fileSystem:
+    DeviceList:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: add
+          modifiers:
+            - public
+          parameters:
+            - name: device
+              type:
+                basic: IFileDevice
+          returns:
+            type:
+              basic: void
+        - name: createFile
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IFile
+        - name: createStream
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InputStream
       modifiers:
         - public
-      parameters:
-        - name: device
-          type:
-            basic: IFileDevice
-      returns:
-        type:
-          basic: void
-    - name: createFile
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: IFile
-    - name: createStream
-      modifiers:
-        - public
-      parameters:
-        - name: path
-          type:
-            basic: String
-      returns:
-        type:
-          basic: InputStream
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-DiskFileDevice:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
+        - final
+      javaType: class
+      extends: Object
+    DiskFileDevice:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+      methods:
+        - name: createFile
+          modifiers:
+            - public
+          parameters:
+            - name: child
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: IFile
+        - name: createStream
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: String
+            - name: child
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: InputStream
+        - name: destroyFile
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: void
+        - name: destroyStream
+          modifiers:
+            - public
+          parameters:
+            - name: stream
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: void
         - name: name
-          type:
-            basic: String
-  methods:
-    - name: createFile
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      parameters:
-        - name: child
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: IFile
-    - name: createStream
+        - final
+      javaType: class
+      extends: Object
+    FileOpenMode:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: toStringMode
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bits
+              type:
+                basic: int
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      parameters:
-        - name: path
-          type:
-            basic: String
-        - name: child
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: InputStream
-    - name: destroyFile
+        - final
+      javaType: class
+      extends: Object
+    FileSeekMode:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: FileSeekMode
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: FileSeekMode
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
       modifiers:
         - public
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: void
-    - name: destroyStream
+      javaType: enum
+      extends: Enum
+    FileSystem:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: cancelAsync
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: id
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: close
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: void
+        - name: closeAsync
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+            - name: cb
+              type:
+                basic: IFileTask2Callback
+          returns:
+            type:
+              basic: void
+        - name: closeStream
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: stream
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: void
+        - name: getDefaultDevice
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: DeviceList
+        - name: getTexturePackAlpha
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: page
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: getTexturePackDevice
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: DeviceList
+        - name: getTexturePackFlags
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: hasWork
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: boolean
+        - name: mount
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: device
+              type:
+                basic: IFileDevice
+          returns:
+            type:
+              basic: boolean
+        - name: mountTexturePack
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: subTextures
+              type:
+                basic: FileSystem.TexturePackTextures
+            - name: flags
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: open
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: deviceList
+              type:
+                basic: DeviceList
+            - name: path
+              type:
+                basic: String
+            - name: mode
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IFile
+        - name: openAsync
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: deviceList
+              type:
+                basic: DeviceList
+            - name: path
+              type:
+                basic: String
+            - name: mode
+              type:
+                basic: int
+            - name: cb
+              type:
+                basic: IFileTask2Callback
+          returns:
+            type:
+              basic: int
+        - name: openStream
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: deviceList
+              type:
+                basic: DeviceList
+            - name: path
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InputStream
+        - name: runAsync
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: task
+              type:
+                basic: FileTask
+          returns:
+            type:
+              basic: int
+        - name: unMount
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: device
+              type:
+                basic: IFileDevice
+          returns:
+            type:
+              basic: boolean
+        - name: updateAsyncTransactions
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: stream
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: void
-    - name: name
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-FileOpenMode:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: toStringMode
+        - abstract
+      javaType: class
+      extends: Object
+    FileSystem.SubTexture:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: packName
+              type:
+                basic: String
+            - name: pageName
+              type:
+                basic: String
+            - name: info
+              type:
+                basic: TexturePackPage.SubTextureInfo
       modifiers:
         - public
         - static
-      parameters:
-        - name: bits
-          type:
-            basic: int
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-FileSeekMode:
-  methods:
-    - name: valueOf
+        - final
+      javaType: class
+      extends: Object
+    FileSystem.TexturePackTextures:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
         - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: FileSeekMode
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
+        - final
+      javaType: class
+      extends: HashMap
+    FileSystemImpl:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: cancelAsync
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: close
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: void
+        - name: closeAsync
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+            - name: cb
+              type:
+                basic: IFileTask2Callback
+          returns:
+            type:
+              basic: void
+        - name: closeStream
+          modifiers:
+            - public
+          parameters:
+            - name: stream
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: void
+        - name: getDefaultDevice
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: DeviceList
+        - name: getTexturePackAlpha
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: page
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: getTexturePackDevice
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: DeviceList
+        - name: getTexturePackFlags
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: hasWork
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: mount
+          modifiers:
+            - public
+          parameters:
+            - name: device
+              type:
+                basic: IFileDevice
+          returns:
+            type:
+              basic: boolean
+        - name: mountTexturePack
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: subTextures
+              type:
+                basic: FileSystem.TexturePackTextures
+            - name: flags
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: open
+          modifiers:
+            - public
+          parameters:
+            - name: deviceList
+              type:
+                basic: DeviceList
+            - name: path
+              type:
+                basic: String
+            - name: mode
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IFile
+        - name: openAsync
+          modifiers:
+            - public
+          parameters:
+            - name: deviceList
+              type:
+                basic: DeviceList
+            - name: path
+              type:
+                basic: String
+            - name: mode
+              type:
+                basic: int
+            - name: cb
+              type:
+                basic: IFileTask2Callback
+          returns:
+            type:
+              basic: int
+        - name: openStream
+          modifiers:
+            - public
+          parameters:
+            - name: deviceList
+              type:
+                basic: DeviceList
+            - name: path
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InputStream
+        - name: runAsync
+          modifiers:
+            - public
+          parameters:
+            - name: fileTask
+              type:
+                basic: FileTask
+          returns:
+            type:
+              basic: int
+        - name: unMount
+          modifiers:
+            - public
+          parameters:
+            - name: device
+              type:
+                basic: IFileDevice
+          returns:
+            type:
+              basic: boolean
+        - name: updateAsyncTransactions
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-        - static
-      returns:
-        type:
-          basic: FileSeekMode
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-FileSystem:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: cancelAsync
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: id
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: close
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: void
-    - name: closeAsync
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-        - name: cb
-          type:
-            basic: IFileTask2Callback
-      returns:
-        type:
-          basic: void
-    - name: closeStream
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: stream
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: void
-    - name: getDefaultDevice
-      modifiers:
-        - public
-        - abstract
-      returns:
-        type:
-          basic: DeviceList
-    - name: getTexturePackAlpha
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: page
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: getTexturePackDevice
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: DeviceList
-    - name: getTexturePackFlags
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-    - name: hasWork
-      modifiers:
-        - public
-        - abstract
-      returns:
-        type:
-          basic: boolean
-    - name: mount
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: device
-          type:
-            basic: IFileDevice
-      returns:
-        type:
-          basic: boolean
-    - name: mountTexturePack
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: subTextures
-          type:
-            basic: FileSystem.TexturePackTextures
-        - name: flags
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: open
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: deviceList
-          type:
-            basic: DeviceList
-        - name: path
-          type:
-            basic: String
-        - name: mode
-          type:
-            basic: int
-      returns:
-        type:
-          basic: IFile
-    - name: openAsync
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: deviceList
-          type:
-            basic: DeviceList
-        - name: path
-          type:
-            basic: String
-        - name: mode
-          type:
-            basic: int
-        - name: cb
-          type:
-            basic: IFileTask2Callback
-      returns:
-        type:
-          basic: int
-    - name: openStream
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: deviceList
-          type:
-            basic: DeviceList
-        - name: path
-          type:
-            basic: String
-      returns:
-        type:
-          basic: InputStream
-    - name: runAsync
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: task
-          type:
-            basic: FileTask
-      returns:
-        type:
-          basic: int
-    - name: unMount
-      modifiers:
-        - public
-        - abstract
-      parameters:
-        - name: device
-          type:
-            basic: IFileDevice
-      returns:
-        type:
-          basic: boolean
-    - name: updateAsyncTransactions
-      modifiers:
-        - public
-        - abstract
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-FileSystem.SubTexture:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: packName
-          type:
-            basic: String
-        - name: pageName
-          type:
-            basic: String
-        - name: info
-          type:
-            basic: TexturePackPage.SubTextureInfo
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: Object
-FileSystem.TexturePackTextures:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-    - final
-  javaType: class
-  extends: HashMap
-FileSystemImpl:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: cancelAsync
-      modifiers:
-        - public
-      parameters:
-        - name: id
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: close
-      modifiers:
-        - public
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: void
-    - name: closeAsync
-      modifiers:
-        - public
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-        - name: cb
-          type:
-            basic: IFileTask2Callback
-      returns:
-        type:
-          basic: void
-    - name: closeStream
-      modifiers:
-        - public
-      parameters:
-        - name: stream
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: void
-    - name: getDefaultDevice
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: DeviceList
-    - name: getTexturePackAlpha
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: page
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: getTexturePackDevice
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: DeviceList
-    - name: getTexturePackFlags
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: int
-    - name: hasWork
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: mount
-      modifiers:
-        - public
-      parameters:
-        - name: device
-          type:
-            basic: IFileDevice
-      returns:
-        type:
-          basic: boolean
-    - name: mountTexturePack
-      modifiers:
-        - public
-      parameters:
-        - name: name
-          type:
-            basic: String
-        - name: subTextures
-          type:
-            basic: FileSystem.TexturePackTextures
-        - name: flags
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: open
-      modifiers:
-        - public
-      parameters:
-        - name: deviceList
-          type:
-            basic: DeviceList
-        - name: path
-          type:
-            basic: String
-        - name: mode
-          type:
-            basic: int
-      returns:
-        type:
-          basic: IFile
-    - name: openAsync
-      modifiers:
-        - public
-      parameters:
-        - name: deviceList
-          type:
-            basic: DeviceList
-        - name: path
-          type:
-            basic: String
-        - name: mode
-          type:
-            basic: int
-        - name: cb
-          type:
-            basic: IFileTask2Callback
-      returns:
-        type:
-          basic: int
-    - name: openStream
-      modifiers:
-        - public
-      parameters:
-        - name: deviceList
-          type:
-            basic: DeviceList
-        - name: path
-          type:
-            basic: String
-      returns:
-        type:
-          basic: InputStream
-    - name: runAsync
-      modifiers:
-        - public
-      parameters:
-        - name: fileTask
-          type:
-            basic: FileTask
-      returns:
-        type:
-          basic: int
-    - name: unMount
-      modifiers:
-        - public
-      parameters:
-        - name: device
-          type:
-            basic: IFileDevice
-      returns:
-        type:
-          basic: boolean
-    - name: updateAsyncTransactions
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: FileSystem
-FileTask:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: fileSystem
-          type:
-            basic: FileSystem
-    - modifiers:
-        - public
-      parameters:
-        - name: fileSystem
-          type:
-            basic: FileSystem
-        - name: cb
-          type:
-            basic: IFileTaskCallback
-  methods:
-    - name: done
+        - final
+      javaType: class
+      extends: FileSystem
+    FileTask:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: fileSystem
+              type:
+                basic: FileSystem
+        - modifiers:
+            - public
+          parameters:
+            - name: fileSystem
+              type:
+                basic: FileSystem
+            - name: cb
+              type:
+                basic: IFileTaskCallback
+      methods:
+        - name: done
+          modifiers:
+            - public
+            - abstract
+          returns:
+            type:
+              basic: void
+        - name: getErrorMessage
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+        - name: handleResult
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
+        - name: setPriority
+          modifiers:
+            - public
+          parameters:
+            - name: priority
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
         - abstract
-      returns:
-        type:
-          basic: void
-    - name: getErrorMessage
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-    - name: handleResult
-      modifiers:
-        - public
-      parameters:
-        - name: result
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-    - name: setPriority
-      modifiers:
-        - public
-      parameters:
-        - name: priority
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - abstract
-  javaType: class
-  extends: Object
-IFile:
-  methods:
-    - name: close
-      returns:
-        type:
-          basic: void
-    - name: getBuffer
-      returns:
-        type:
-          basic: byte[]
-    - name: getDevice
-      returns:
-        type:
-          basic: IFileDevice
-    - name: getInputStream
-      returns:
-        type:
-          basic: InputStream
-    - name: open
-      parameters:
-        - name: path
-          type:
-            basic: String
-        - name: mode
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: pos
-      returns:
-        type:
-          basic: long
-    - name: read
-      parameters:
-        - name: buffer
-          type:
-            basic: byte[]
-        - name: size
-          type:
-            basic: long
-      returns:
-        type:
-          basic: boolean
-    - name: release
-      returns:
-        type:
-          basic: void
-    - name: seek
-      parameters:
-        - name: mode
-          type:
-            basic: FileSeekMode
+      javaType: class
+      extends: Object
+    IFile:
+      methods:
+        - name: close
+          returns:
+            type:
+              basic: void
+        - name: getBuffer
+          returns:
+            type:
+              basic: byte[]
+        - name: getDevice
+          returns:
+            type:
+              basic: IFileDevice
+        - name: getInputStream
+          returns:
+            type:
+              basic: InputStream
+        - name: open
+          parameters:
+            - name: path
+              type:
+                basic: String
+            - name: mode
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
         - name: pos
-          type:
-            basic: long
-      returns:
-        type:
-          basic: boolean
-    - name: size
-      returns:
-        type:
-          basic: long
-    - name: write
-      parameters:
-        - name: buffer
-          type:
-            basic: byte[]
+          returns:
+            type:
+              basic: long
+        - name: read
+          parameters:
+            - name: buffer
+              type:
+                basic: byte[]
+            - name: size
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: release
+          returns:
+            type:
+              basic: void
+        - name: seek
+          parameters:
+            - name: mode
+              type:
+                basic: FileSeekMode
+            - name: pos
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
         - name: size
-          type:
-            basic: long
-      returns:
-        type:
-          basic: boolean
-  modifiers:
-    - public
-  javaType: interface
-IFileDevice:
-  methods:
-    - name: createFile
-      parameters:
-        - name: child
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: IFile
-    - name: createStream
-      parameters:
-        - name: path
-          type:
-            basic: String
-        - name: child
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: InputStream
-    - name: destroyFile
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: void
-    - name: destroyStream
-      parameters:
-        - name: stream
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: void
-    - name: name
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: interface
-IFileTask2Callback:
-  methods:
-    - name: onFileTaskFinished
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-        - name: result
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-IFileTaskCallback:
-  methods:
-    - name: onFileTaskFinished
-      parameters:
-        - name: result
-          type:
-            basic: Object
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-MemoryFileDevice:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: createFile
+          returns:
+            type:
+              basic: long
+        - name: write
+          parameters:
+            - name: buffer
+              type:
+                basic: byte[]
+            - name: size
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
       modifiers:
         - public
-      parameters:
-        - name: child
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: IFile
-    - name: createStream
-      modifiers:
-        - public
-      parameters:
-        - name: path
-          type:
-            basic: String
-        - name: child
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: InputStream
-    - name: destroyFile
-      modifiers:
-        - public
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: void
-    - name: destroyStream
-      modifiers:
-        - public
-      parameters:
-        - name: stream
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: void
-    - name: name
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-TexturePackDevice:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
+      javaType: interface
+    IFileDevice:
+      methods:
+        - name: createFile
+          parameters:
+            - name: child
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: IFile
+        - name: createStream
+          parameters:
+            - name: path
+              type:
+                basic: String
+            - name: child
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: InputStream
+        - name: destroyFile
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: void
+        - name: destroyStream
+          parameters:
+            - name: stream
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: void
         - name: name
-          type:
-            basic: String
-        - name: flags
-          type:
-            basic: int
-  methods:
-    - name: createFile
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      parameters:
-        - name: child
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: IFile
-    - name: createStream
+      javaType: interface
+    IFileTask2Callback:
+      methods:
+        - name: onFileTaskFinished
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+            - name: result
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: path
-          type:
-            basic: String
-        - name: child
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: InputStream
-    - name: destroyFile
+      javaType: interface
+    IFileTaskCallback:
+      methods:
+        - name: onFileTaskFinished
+          parameters:
+            - name: result
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: void
       modifiers:
         - public
-      parameters:
-        - name: file
-          type:
-            basic: IFile
-      returns:
-        type:
-          basic: void
-    - name: destroyStream
+      javaType: interface
+    MemoryFileDevice:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: createFile
+          modifiers:
+            - public
+          parameters:
+            - name: child
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: IFile
+        - name: createStream
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: String
+            - name: child
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: InputStream
+        - name: destroyFile
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: void
+        - name: destroyStream
+          modifiers:
+            - public
+          parameters:
+            - name: stream
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: void
+        - name: name
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      parameters:
-        - name: stream
-          type:
-            basic: InputStream
-      returns:
-        type:
-          basic: void
-    - name: getSubTextureInfo
+        - final
+      javaType: class
+      extends: Object
+    TexturePackDevice:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: flags
+              type:
+                basic: int
+      methods:
+        - name: createFile
+          modifiers:
+            - public
+          parameters:
+            - name: child
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: IFile
+        - name: createStream
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: String
+            - name: child
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: InputStream
+        - name: destroyFile
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: IFile
+          returns:
+            type:
+              basic: void
+        - name: destroyStream
+          modifiers:
+            - public
+          parameters:
+            - name: stream
+              type:
+                basic: InputStream
+          returns:
+            type:
+              basic: void
+        - name: getSubTextureInfo
+          modifiers:
+            - public
+          parameters:
+            - name: result
+              type:
+                basic: FileSystem.TexturePackTextures
+          returns:
+            type:
+              basic: void
+        - name: getTextureFlags
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: isAlpha
+          modifiers:
+            - public
+          parameters:
+            - name: page
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: name
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
       modifiers:
         - public
-      parameters:
-        - name: result
-          type:
-            basic: FileSystem.TexturePackTextures
-      returns:
-        type:
-          basic: void
-    - name: getTextureFlags
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: isAlpha
-      modifiers:
-        - public
-      parameters:
-        - name: page
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: name
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
+        - final
+      javaType: class
+      extends: Object

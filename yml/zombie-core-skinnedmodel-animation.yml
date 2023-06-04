@@ -1,1910 +1,1911 @@
-# zombie.core.skinnedmodel.animation
-AnimationBoneBinding:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: boneName
-          type:
-            basic: String
-  methods:
-    - name: getBone
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: SkinningBone
-    - name: getSkinningData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: SkinningData
-    - name: setSkinningData
-      modifiers:
-        - public
-      parameters:
-        - name: skinningData
-          type:
-            basic: SkinningData
-      returns:
-        type:
-          basic: void
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-  javaType: class
-  extends: Object
-AnimationBoneBindingPair:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: boneA
-          type:
-            basic: String
-        - name: boneB
-          type:
-            basic: String
-  methods:
-    - name: getBoneA
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: SkinningBone
-    - name: getBoneB
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: SkinningBone
-    - name: getBoneIdxA
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getBoneIdxB
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: isValid
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: matches
-      modifiers:
-        - public
-      parameters:
-        - name: boneA
-          type:
-            basic: String
-        - name: boneB
-          type:
-            basic: String
-      returns:
-        type:
-          basic: boolean
-    - name: setSkinningData
-      modifiers:
-        - public
-      parameters:
-        - name: skinningData
-          type:
-            basic: SkinningData
-      returns:
-        type:
-          basic: void
-    - name: toString
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: String
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-AnimationBoneWeightBinding:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: boneWeight
-          type:
-            basic: AnimBoneWeight
-    - modifiers:
-        - public
-      parameters:
-        - name: boneName
-          type:
-            basic: String
-        - name: weight
-          type:
-            basic: float
-        - name: includeDescendants
-          type:
-            basic: boolean
-  methods:
-    - name: forEachDescendant
-      modifiers:
-        - public
-      parameters:
-        - name: consumer
-          type:
-            basic: Consumer
-            full: Consumer<SkinningBone>
-      returns:
-        type:
-          basic: void
-    - name: getIncludeDescendants
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: getWeight
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: setIncludeDescendants
-      modifiers:
-        - public
-      parameters:
-        - name: set
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setWeight
-      modifiers:
-        - public
-      parameters:
-        - name: weight
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: AnimationBoneBinding
-AnimationClip:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: duration
-          type:
-            basic: float
-        - name: keyframes
-          type:
-            basic: List
-            full: List<Keyframe>
-        - name: name
-          type:
-            basic: String
-        - name: bKeepLastFrame
-          type:
-            basic: boolean
-  methods:
-    - name: getBoneFramesAt
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: Keyframe
-    - name: getKeyframes
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Keyframe
-    - name: getRootMotionFrameAt
-      modifiers:
-        - public
-      parameters:
-        - name: idx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: Keyframe
-    - name: getRootMotionFrameCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getTranslationLength
-      modifiers:
-        - public
-      parameters:
-        - name: deferredBoneAxis
-          type:
-            basic: BoneAxis
-      returns:
-        type:
-          basic: float
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 03/01/14.
-AnimationMultiTrack:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: addTrack
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: findTrack
-      modifiers:
-        - public
-      parameters:
-        - name: trackName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: getDuration
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getIndexOfTrack
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: int
-    - name: getTrackAt
-      modifiers:
-        - public
-      parameters:
-        - name: i
-          type:
-            basic: int
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: getTrackCount
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getTracks
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: List
-    - name: removeTrack
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: removeTrackAt
-      modifiers:
-        - public
-      parameters:
-        - name: indexOf
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: removeTracks
-      modifiers:
-        - public
-      parameters:
-        - name: tracks
-          type:
-            basic: List
-            full: List<AnimationTrack>
-      returns:
-        type:
-          basic: void
-    - name: reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: Update
-      modifiers:
-        - public
-      parameters:
-        - name: time
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYMAIN on 28/02/2015.
-AnimationPlayer:
-  methods:
-    - name: addBoneReparent
-      modifiers:
-        - public
-      parameters:
-        - name: boneName
-          type:
-            basic: String
-        - name: newParentBone
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: alloc
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: model
-          type:
-            basic: Model
-      returns:
-        type:
-          basic: AnimationPlayer
-    - name: calculateAnimPlayerAngle
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: dir
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: float
-    - name: discardRecording
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: dismember
-      modifiers:
-        - public
-      parameters:
-        - name: bone
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: DoAngles
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getBoneModelTransform
-      modifiers:
-        - public
-      parameters:
-        - name: boneIdx
-          type:
-            basic: int
-        - name: out_modelTransform
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-      notes: |-
-        Get the bone's transform, in the model space.
-          That is, relative to the model's origin.
-    - name: getBoneTransform
-      modifiers:
-        - public
-      parameters:
-        - name: boneIdx
-          type:
-            basic: int
-        - name: out_boneTransform
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-      notes: |-
-        Get the bone's transform, in its local space.
-          That is, relative to its parent bone.
-    - name: getCounterRotationBone
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationBoneBinding
-    - name: getDeferredAngleDelta
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getDeferredMovement
-      modifiers:
-        - public
-      parameters:
-        - name: out_result
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: void
-    - name: getDeferredRotationWeight
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getExcessTwistAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getMaxTwistAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: Returns the maximum twist angle, in radians.
-    - name: getModel
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: Model
-    - name: getMultiTrack
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationMultiTrack
-    - name: GetPropBoneMatrix
-      modifiers:
-        - public
-      parameters:
-        - name: bone
-          type:
-            basic: int
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-    - name: getRecorder
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationPlayerRecorder
-    - name: getRenderedAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getShoulderTwistAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getSkinningBoneIndex
-      modifiers:
-        - public
-      parameters:
-        - name: boneName
-          type:
-            basic: String
-        - name: defaultVal
-          type:
-            basic: int
-      returns:
-        type:
-          basic: int
-    - name: getSkinningBoneIndices
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: HashMap
-    - name: getSkinningData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: SkinningData
-    - name: getSkinTransforms
-      modifiers:
-        - public
-      parameters:
-        - name: skinnedTo
-          type:
-            basic: SkinningData
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f[]
-    - name: getTargetAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getTargetTwistAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-      notes: >-
-        The lookAt bearing, in radians. The difference between angle and
-        targetAngle.
-          The twist target, not clamped at all.
-          All twists aim for this target, and are clamped by maxTwist.
-    - name: getTwistAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getUnweightedBoneTransform
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-        - name: boneIdx
-          type:
-            basic: int
-        - name: out_boneTransform
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-    - name: getUnweightedModelTransform
-      modifiers:
-        - public
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-        - name: boneIdx
-          type:
-            basic: int
-        - name: out_modelTransform
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Matrix4f
-    - name: hasSkinningData
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isBoneReparented
-      modifiers:
-        - public
-      parameters:
-        - name: boneIdx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: boolean
-    - name: isBoneTransformsNeedFirstFrame
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isReady
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isRecording
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: lerpBlendWeight
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: from
-          type:
-            basic: float
-        - name: to
-          type:
-            basic: float
-        - name: fadeTimeTo1
-          type:
-            basic: float
-      returns:
-        type:
-          basic: float
-    - name: onReleased
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: play
-      modifiers:
-        - public
-      parameters:
-        - name: animName
-          type:
-            basic: String
-        - name: looped
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: releaseTracks
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: tracks
-          type:
-            basic: List
-            full: List<AnimationTrack>
-      returns:
-        type:
-          basic: void
-    - name: reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: resetBoneModelTransforms
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setAngle
-      modifiers:
-        - public
-      parameters:
-        - name: angle
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setAngleToTarget
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setCounterRotationBone
-      modifiers:
-        - public
-      parameters:
-        - name: boneName
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: SetDir
-      modifiers:
-        - public
-      parameters:
-        - name: dir
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: void
-    - name: SetForceDir
-      modifiers:
-        - public
-      parameters:
-        - name: dir
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: void
-    - name: setMaxTwistAngle
-      modifiers:
-        - public
-      parameters:
-        - name: radians
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-      notes: Set the maximum twist angle, in radians
-    - name: setModel
-      modifiers:
-        - public
-      parameters:
-        - name: model
-          type:
-            basic: Model
-      returns:
-        type:
-          basic: void
-    - name: setRecorder
-      modifiers:
-        - public
-      parameters:
-        - name: recorder
-          type:
-            basic: AnimationPlayerRecorder
-      returns:
-        type:
-          basic: void
-    - name: setRecording
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: setSharedAnimRepo
-      modifiers:
-        - public
-      parameters:
-        - name: repo
-          type:
-            basic: SharedSkeleAnimationRepository
-      returns:
-        type:
-          basic: void
-    - name: setTargetAngle
-      modifiers:
-        - public
-      parameters:
-        - name: targetAngle
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setTargetToAngle
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: setTwistBones
-      modifiers:
-        - public
-      parameters:
-        - name: bones
-          type:
-            basic: String...
-      returns:
-        type:
-          basic: void
-    - name: Update
-      modifiers:
-        - public
-      parameters:
-        - name: deltaT
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: UpdateDir
-      modifiers:
-        - public
-      parameters:
-        - name: character
-          type:
-            basic: IsoGameCharacter
-      returns:
-        type:
-          basic: void
-    - name: updateMultiTrackBoneTransforms_DeferredMovementOnly
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: UpdateSkinTransforms
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: PooledObject
-  notes: Created by LEMMYATI on 03/01/14.
-AnimationTrack:
-  methods:
-    - name: addListener
-      modifiers:
-        - public
-      parameters:
-        - name: listener
-          type:
-            basic: IAnimListener
-      returns:
-        type:
-          basic: void
-    - name: advance
-      modifiers:
-        - public
-      parameters:
-        - name: advanceAmount
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: advanceFraction
-      modifiers:
-        - public
-      parameters:
+namespaces:
+  zombie.core.skinnedmodel.animation:
+    AnimationBoneBinding:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: boneName
+              type:
+                basic: String
+      methods:
+        - name: getBone
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: SkinningBone
+        - name: getSkinningData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: SkinningData
+        - name: setSkinningData
+          modifiers:
+            - public
+          parameters:
+            - name: skinningData
+              type:
+                basic: SkinningData
+          returns:
+            type:
+              basic: void
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    AnimationBoneBindingPair:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: boneA
+              type:
+                basic: String
+            - name: boneB
+              type:
+                basic: String
+      methods:
+        - name: getBoneA
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: SkinningBone
+        - name: getBoneB
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: SkinningBone
+        - name: getBoneIdxA
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getBoneIdxB
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: isValid
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: matches
+          modifiers:
+            - public
+          parameters:
+            - name: boneA
+              type:
+                basic: String
+            - name: boneB
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: setSkinningData
+          modifiers:
+            - public
+          parameters:
+            - name: skinningData
+              type:
+                basic: SkinningData
+          returns:
+            type:
+              basic: void
+        - name: toString
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: String
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+    AnimationBoneWeightBinding:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: boneWeight
+              type:
+                basic: AnimBoneWeight
+        - modifiers:
+            - public
+          parameters:
+            - name: boneName
+              type:
+                basic: String
+            - name: weight
+              type:
+                basic: float
+            - name: includeDescendants
+              type:
+                basic: boolean
+      methods:
+        - name: forEachDescendant
+          modifiers:
+            - public
+          parameters:
+            - name: consumer
+              type:
+                basic: Consumer
+                full: Consumer<SkinningBone>
+          returns:
+            type:
+              basic: void
+        - name: getIncludeDescendants
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: getWeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: setIncludeDescendants
+          modifiers:
+            - public
+          parameters:
+            - name: set
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setWeight
+          modifiers:
+            - public
+          parameters:
+            - name: weight
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: AnimationBoneBinding
+    AnimationClip:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: duration
+              type:
+                basic: float
+            - name: keyframes
+              type:
+                basic: List
+                full: List<Keyframe>
+            - name: name
+              type:
+                basic: String
+            - name: bKeepLastFrame
+              type:
+                basic: boolean
+      methods:
+        - name: getBoneFramesAt
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: Keyframe
+        - name: getKeyframes
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Keyframe
+        - name: getRootMotionFrameAt
+          modifiers:
+            - public
+          parameters:
+            - name: idx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: Keyframe
+        - name: getRootMotionFrameCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getTranslationLength
+          modifiers:
+            - public
+          parameters:
+            - name: deferredBoneAxis
+              type:
+                basic: BoneAxis
+          returns:
+            type:
+              basic: float
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 03/01/14.
+    AnimationMultiTrack:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: addTrack
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: findTrack
+          modifiers:
+            - public
+          parameters:
+            - name: trackName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: getDuration
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getIndexOfTrack
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: int
+        - name: getTrackAt
+          modifiers:
+            - public
+          parameters:
+            - name: i
+              type:
+                basic: int
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: getTrackCount
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getTracks
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: List
+        - name: removeTrack
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: removeTrackAt
+          modifiers:
+            - public
+          parameters:
+            - name: indexOf
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: removeTracks
+          modifiers:
+            - public
+          parameters:
+            - name: tracks
+              type:
+                basic: List
+                full: List<AnimationTrack>
+          returns:
+            type:
+              basic: void
+        - name: reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: Update
+          modifiers:
+            - public
+          parameters:
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYMAIN on 28/02/2015.
+    AnimationPlayer:
+      methods:
+        - name: addBoneReparent
+          modifiers:
+            - public
+          parameters:
+            - name: boneName
+              type:
+                basic: String
+            - name: newParentBone
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: model
+              type:
+                basic: Model
+          returns:
+            type:
+              basic: AnimationPlayer
+        - name: calculateAnimPlayerAngle
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: dir
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: float
+        - name: discardRecording
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: dismember
+          modifiers:
+            - public
+          parameters:
+            - name: bone
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: DoAngles
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getBoneModelTransform
+          modifiers:
+            - public
+          parameters:
+            - name: boneIdx
+              type:
+                basic: int
+            - name: out_modelTransform
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+          notes: |-
+            Get the bone's transform, in the model space.
+              That is, relative to the model's origin.
+        - name: getBoneTransform
+          modifiers:
+            - public
+          parameters:
+            - name: boneIdx
+              type:
+                basic: int
+            - name: out_boneTransform
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+          notes: |-
+            Get the bone's transform, in its local space.
+              That is, relative to its parent bone.
+        - name: getCounterRotationBone
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationBoneBinding
+        - name: getDeferredAngleDelta
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getDeferredMovement
+          modifiers:
+            - public
+          parameters:
+            - name: out_result
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: void
+        - name: getDeferredRotationWeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getExcessTwistAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getMaxTwistAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: Returns the maximum twist angle, in radians.
+        - name: getModel
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Model
+        - name: getMultiTrack
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationMultiTrack
+        - name: GetPropBoneMatrix
+          modifiers:
+            - public
+          parameters:
+            - name: bone
+              type:
+                basic: int
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+        - name: getRecorder
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationPlayerRecorder
+        - name: getRenderedAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getShoulderTwistAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getSkinningBoneIndex
+          modifiers:
+            - public
+          parameters:
+            - name: boneName
+              type:
+                basic: String
+            - name: defaultVal
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: getSkinningBoneIndices
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: HashMap
+        - name: getSkinningData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: SkinningData
+        - name: getSkinTransforms
+          modifiers:
+            - public
+          parameters:
+            - name: skinnedTo
+              type:
+                basic: SkinningData
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f[]
+        - name: getTargetAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getTargetTwistAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+          notes: >-
+            The lookAt bearing, in radians. The difference between angle and
+            targetAngle.
+              The twist target, not clamped at all.
+              All twists aim for this target, and are clamped by maxTwist.
+        - name: getTwistAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getUnweightedBoneTransform
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+            - name: boneIdx
+              type:
+                basic: int
+            - name: out_boneTransform
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+        - name: getUnweightedModelTransform
+          modifiers:
+            - public
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+            - name: boneIdx
+              type:
+                basic: int
+            - name: out_modelTransform
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+        - name: hasSkinningData
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isBoneReparented
+          modifiers:
+            - public
+          parameters:
+            - name: boneIdx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isBoneTransformsNeedFirstFrame
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isReady
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isRecording
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: lerpBlendWeight
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: from
+              type:
+                basic: float
+            - name: to
+              type:
+                basic: float
+            - name: fadeTimeTo1
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: onReleased
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: play
+          modifiers:
+            - public
+          parameters:
+            - name: animName
+              type:
+                basic: String
+            - name: looped
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: releaseTracks
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: tracks
+              type:
+                basic: List
+                full: List<AnimationTrack>
+          returns:
+            type:
+              basic: void
+        - name: reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: resetBoneModelTransforms
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setAngle
+          modifiers:
+            - public
+          parameters:
+            - name: angle
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setAngleToTarget
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setCounterRotationBone
+          modifiers:
+            - public
+          parameters:
+            - name: boneName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: SetDir
+          modifiers:
+            - public
+          parameters:
+            - name: dir
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: void
+        - name: SetForceDir
+          modifiers:
+            - public
+          parameters:
+            - name: dir
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: void
+        - name: setMaxTwistAngle
+          modifiers:
+            - public
+          parameters:
+            - name: radians
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+          notes: Set the maximum twist angle, in radians
+        - name: setModel
+          modifiers:
+            - public
+          parameters:
+            - name: model
+              type:
+                basic: Model
+          returns:
+            type:
+              basic: void
+        - name: setRecorder
+          modifiers:
+            - public
+          parameters:
+            - name: recorder
+              type:
+                basic: AnimationPlayerRecorder
+          returns:
+            type:
+              basic: void
+        - name: setRecording
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setSharedAnimRepo
+          modifiers:
+            - public
+          parameters:
+            - name: repo
+              type:
+                basic: SharedSkeleAnimationRepository
+          returns:
+            type:
+              basic: void
+        - name: setTargetAngle
+          modifiers:
+            - public
+          parameters:
+            - name: targetAngle
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTargetToAngle
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: setTwistBones
+          modifiers:
+            - public
+          parameters:
+            - name: bones
+              type:
+                basic: String...
+          returns:
+            type:
+              basic: void
+        - name: Update
+          modifiers:
+            - public
+          parameters:
+            - name: deltaT
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: UpdateDir
+          modifiers:
+            - public
+          parameters:
+            - name: character
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: updateMultiTrackBoneTransforms_DeferredMovementOnly
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: UpdateSkinTransforms
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: PooledObject
+      notes: Created by LEMMYATI on 03/01/14.
+    AnimationTrack:
+      methods:
+        - name: addListener
+          modifiers:
+            - public
+          parameters:
+            - name: listener
+              type:
+                basic: IAnimListener
+          returns:
+            type:
+              basic: void
+        - name: advance
+          modifiers:
+            - public
+          parameters:
+            - name: advanceAmount
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
         - name: advanceFraction
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: alloc
+          modifiers:
+            - public
+          parameters:
+            - name: advanceFraction
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: createClone
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: source
+              type:
+                basic: AnimationTrack
+            - name: allocator
+              type:
+                basic: Supplier
+                full: Supplier<AnimationTrack>
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: bone
+              type:
+                basic: int
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: out_scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: getBoneWeight
+          modifiers:
+            - public
+          parameters:
+            - name: boneIdx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: getClampedBlendDelta
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getClip
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationClip
+        - name: getCurrentDeferredCounterPosition
+          modifiers:
+            - public
+          parameters:
+            - name: out_result
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: getCurrentDeferredPosition
+          modifiers:
+            - public
+          parameters:
+            - name: out_result
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: getCurrentDeferredRotation
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getCurrentTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getCurrentTimeFraction
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getCurrentTimeValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getDeferredBoneWeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getDeferredMovement
+          modifiers:
+            - public
+          parameters:
+            - name: bonePos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_deferredPos
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: Vector2
+        - name: getDeferredMovementBoneIdx
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getDeferredMovementDiff
+          modifiers:
+            - public
+          parameters:
+            - name: out_result
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: Vector2
+        - name: getDeferredRotationDiff
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getDeferredTwistRotation
+          modifiers:
+            - public
+          parameters:
+            - name: boneRotation
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: float
+        - name: getDuration
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getLayerIdx
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getPreviousTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getPreviousTimeValue
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getPriority
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getUseDeferredRotation
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: hasBoneMask
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: hasClip
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: initBoneWeights
+          modifiers:
+            - public
+          parameters:
+            - name: skinningData
+              type:
+                basic: SkinningData
+          returns:
+            type:
+              basic: void
+        - name: isFinished
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isLooping
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: moveCurrentTimeValueTo
+          modifiers:
+            - public
+          parameters:
+            - name: target
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: moveCurrentTimeValueToFraction
+          modifiers:
+            - public
+          parameters:
+            - name: fraction
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: onReleased
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: >-
+            onDestroyed
+             Called by AnimationPlayer's ObjectPool, when this track has been released.
+        - name: removeListener
+          modifiers:
+            - public
+          parameters:
+            - name: listener
+              type:
+                basic: IAnimListener
+          returns:
+            type:
+              basic: void
+        - name: reset
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: AnimationTrack
+        - name: rewind
+          modifiers:
+            - public
+          parameters:
+            - name: rewindAmount
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: scaledAdvance
+          modifiers:
+            - public
+          parameters:
+            - name: advanceAmount
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: scaledRewind
+          modifiers:
+            - public
+          parameters:
+            - name: rewindAmount
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setBoneWeights
+          modifiers:
+            - public
+          parameters:
+            - name: boneWeights
+              type:
+                basic: List
+                full: List<AnimBoneWeight>
+          returns:
+            type:
+              basic: void
+        - name: setCurrentTimeValue
+          modifiers:
+            - public
+          parameters:
+            - name: currentTimeValue
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setDeferredBone
+          modifiers:
+            - public
+          parameters:
+            - name: bone
+              type:
+                basic: SkinningBone
+            - name: axis
+              type:
+                basic: BoneAxis
+          returns:
+            type:
+              basic: void
+        - name: setLayerIdx
+          modifiers:
+            - public
+          parameters:
+            - name: layerIdx
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setPreviousTimeValue
+          modifiers:
+            - public
+          parameters:
+            - name: previousTimeValue
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setUseDeferredRotation
+          modifiers:
+            - public
+          parameters:
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: startClip
+          modifiers:
+            - public
+          parameters:
+            - name: clip
+              type:
+                basic: AnimationClip
+            - name: loop
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: Update
+          modifiers:
+            - public
+          parameters:
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: UpdateKeyframes
+          modifiers:
+            - public
+          parameters:
+            - name: dt
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: PooledObject
+      notes: Created by LEMMYPC on 07/01/14.
+    AnimTrackSampler:
+      methods:
+        - name: getBoneMatrix
+          parameters:
+            - name: boneIdx
+              type:
+                basic: int
+            - name: out_matrix
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: getCurrentTime
+          returns:
+            type:
+              basic: float
+        - name: getNumBones
+          returns:
+            type:
+              basic: int
+        - name: getTotalTime
+          returns:
+            type:
+              basic: float
+        - name: isLooped
+          returns:
+            type:
+              basic: boolean
+        - name: moveToTime
+          parameters:
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+    BoneAxis:
+      methods:
+        - name: valueOf
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: name
+              type:
+                basic: String
+              notes: the name of the enum constant to be returned.
+          returns:
+            type:
+              basic: BoneAxis
+            notes: the enum constant with the specified name
+          notes: |-
+            Returns the enum constant of this class with the specified name.
+            The string must match
+        - name: values
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: BoneAxis
+            notes: an array containing the constants of this enum class, in the order they
+              are declared
+          notes: |-
+            Returns an array containing the constants of this enum class, in
+            the order they are declared.
+      modifiers:
+        - public
+      javaType: enum
+      extends: Enum
+    BoneTransform:
+      methods:
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: BoneTransform
+        - name: getMatrix
+          modifiers:
+            - public
+          parameters:
+            - name: out_result
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: getPosition
+          modifiers:
+            - public
+          parameters:
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: getPRS
+          modifiers:
+            - public
+          parameters:
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: out_scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: mul
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: BoneTransform
+            - name: b
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: out_result
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: matrix
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: setIdentity
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: class
+      extends: PooledObject
+    IAnimListener:
+      methods:
+        - name: onAnimStarted
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onLoopedAnim
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onNonLoopedAnimFadeOut
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onNonLoopedAnimFinished
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+        - name: onTrackDestroyed
+          parameters:
+            - name: track
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      javaType: interface
+      notes: Created by LEMMYMAIN on 23/02/2015.
+    Keyframe:
+      constructors:
+        - modifiers:
+            - public
+        - modifiers:
+            - public
+          parameters:
+            - name: pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: rotation
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+      methods:
+        - name: clear
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: get
+          modifiers:
+            - public
+          parameters:
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: out_scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: lerp
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: Keyframe
+            - name: b
+              type:
+                basic: Keyframe
+            - name: time
+              type:
+                basic: float
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: out_scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: keyframe
+              type:
+                basic: Keyframe
+          returns:
+            type:
+              basic: void
+        - name: setIdentity
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: out_pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: out_rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: out_scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+          returns:
+            type:
+              basic: void
+        - name: setIdentityIfNotNull
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: to
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: void
+        - name: setIfNotNull
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: to
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: val
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMYATI on 03/01/14.
+    ModelTransformSampler:
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: animationPlayer
+              type:
+                basic: AnimationPlayer
+            - name: animTrack
+              type:
+                basic: AnimationTrack
+          returns:
+            type:
+              basic: ModelTransformSampler
+        - name: getBoneMatrix
+          modifiers:
+            - public
+          parameters:
+            - name: boneIdx
+              type:
+                basic: int
+            - name: out_matrix
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: getCurrentTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: getNumBones
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: int
+        - name: getTotalTime
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+        - name: isLooped
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: moveToTime
+          modifiers:
+            - public
+          parameters:
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: onReleased
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Release any Pooled objects.
+      modifiers:
+        - public
+      javaType: class
+      extends: PooledObject
+    ModelTransformSampler.L_updateBoneAnimationTransform:
+      constructors:
+        - modifiers:
+            - public
       modifiers:
         - public
         - static
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: createClone
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: source
-          type:
-            basic: AnimationTrack
-        - name: allocator
-          type:
-            basic: Supplier
-            full: Supplier<AnimationTrack>
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: bone
-          type:
-            basic: int
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: out_scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: getBoneWeight
-      modifiers:
-        - public
-      parameters:
-        - name: boneIdx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: float
-    - name: getClampedBlendDelta
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getClip
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationClip
-    - name: getCurrentDeferredCounterPosition
-      modifiers:
-        - public
-      parameters:
-        - name: out_result
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-    - name: getCurrentDeferredPosition
-      modifiers:
-        - public
-      parameters:
-        - name: out_result
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-    - name: getCurrentDeferredRotation
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getCurrentTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getCurrentTimeFraction
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getCurrentTimeValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getDeferredBoneWeight
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getDeferredMovement
-      modifiers:
-        - public
-      parameters:
-        - name: bonePos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_deferredPos
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: Vector2
-    - name: getDeferredMovementBoneIdx
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getDeferredMovementDiff
-      modifiers:
-        - public
-      parameters:
-        - name: out_result
-          type:
-            basic: Vector2
-      returns:
-        type:
-          basic: Vector2
-    - name: getDeferredRotationDiff
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getDeferredTwistRotation
-      modifiers:
-        - public
-      parameters:
-        - name: boneRotation
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: float
-    - name: getDuration
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getLayerIdx
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getPreviousTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getPreviousTimeValue
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getPriority
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getUseDeferredRotation
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: hasBoneMask
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: hasClip
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: initBoneWeights
-      modifiers:
-        - public
-      parameters:
-        - name: skinningData
-          type:
-            basic: SkinningData
-      returns:
-        type:
-          basic: void
-    - name: isFinished
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: isLooping
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: moveCurrentTimeValueTo
-      modifiers:
-        - public
-      parameters:
-        - name: target
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: moveCurrentTimeValueToFraction
-      modifiers:
-        - public
-      parameters:
-        - name: fraction
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: onReleased
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: >-
-        onDestroyed
-         Called by AnimationPlayer's ObjectPool, when this track has been released.
-    - name: removeListener
-      modifiers:
-        - public
-      parameters:
-        - name: listener
-          type:
-            basic: IAnimListener
-      returns:
-        type:
-          basic: void
-    - name: reset
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: AnimationTrack
-    - name: rewind
-      modifiers:
-        - public
-      parameters:
-        - name: rewindAmount
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: scaledAdvance
-      modifiers:
-        - public
-      parameters:
-        - name: advanceAmount
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: scaledRewind
-      modifiers:
-        - public
-      parameters:
-        - name: rewindAmount
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setBoneWeights
-      modifiers:
-        - public
-      parameters:
-        - name: boneWeights
-          type:
-            basic: List
-            full: List<AnimBoneWeight>
-      returns:
-        type:
-          basic: void
-    - name: setCurrentTimeValue
-      modifiers:
-        - public
-      parameters:
-        - name: currentTimeValue
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setDeferredBone
-      modifiers:
-        - public
-      parameters:
-        - name: bone
-          type:
-            basic: SkinningBone
-        - name: axis
-          type:
-            basic: BoneAxis
-      returns:
-        type:
-          basic: void
-    - name: setLayerIdx
-      modifiers:
-        - public
-      parameters:
-        - name: layerIdx
-          type:
-            basic: int
-      returns:
-        type:
-          basic: void
-    - name: setPreviousTimeValue
-      modifiers:
-        - public
-      parameters:
-        - name: previousTimeValue
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: setUseDeferredRotation
-      modifiers:
-        - public
-      parameters:
-        - name: val
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: startClip
-      modifiers:
-        - public
-      parameters:
-        - name: clip
-          type:
-            basic: AnimationClip
-        - name: loop
-          type:
-            basic: boolean
-      returns:
-        type:
-          basic: void
-    - name: Update
-      modifiers:
-        - public
-      parameters:
-        - name: time
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: UpdateKeyframes
-      modifiers:
-        - public
-      parameters:
-        - name: dt
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: PooledObject
-  notes: Created by LEMMYPC on 07/01/14.
-AnimTrackSampler:
-  methods:
-    - name: getBoneMatrix
-      parameters:
-        - name: boneIdx
-          type:
-            basic: int
-        - name: out_matrix
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: void
-    - name: getCurrentTime
-      returns:
-        type:
-          basic: float
-    - name: getNumBones
-      returns:
-        type:
-          basic: int
-    - name: getTotalTime
-      returns:
-        type:
-          basic: float
-    - name: isLooped
-      returns:
-        type:
-          basic: boolean
-    - name: moveToTime
-      parameters:
-        - name: time
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-BoneAxis:
-  methods:
-    - name: valueOf
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: name
-          type:
-            basic: String
-          notes: the name of the enum constant to be returned.
-      returns:
-        type:
-          basic: BoneAxis
-        notes: the enum constant with the specified name
-      notes: |-
-        Returns the enum constant of this class with the specified name.
-        The string must match
-    - name: values
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: BoneAxis
-        notes: an array containing the constants of this enum class, in the order they
-          are declared
-      notes: |-
-        Returns an array containing the constants of this enum class, in
-        the order they are declared.
-  modifiers:
-    - public
-  javaType: enum
-  extends: Enum
-BoneTransform:
-  methods:
-    - name: alloc
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: BoneTransform
-    - name: getMatrix
-      modifiers:
-        - public
-      parameters:
-        - name: out_result
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: void
-    - name: getPosition
-      modifiers:
-        - public
-      parameters:
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: getPRS
-      modifiers:
-        - public
-      parameters:
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: out_scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: mul
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: BoneTransform
-        - name: b
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-        - name: out_result
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: void
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: matrix
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: void
-    - name: setIdentity
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: class
-  extends: PooledObject
-IAnimListener:
-  methods:
-    - name: onAnimStarted
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onLoopedAnim
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onNonLoopedAnimFadeOut
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onNonLoopedAnimFinished
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-    - name: onTrackDestroyed
-      parameters:
-        - name: track
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  javaType: interface
-  notes: Created by LEMMYMAIN on 23/02/2015.
-Keyframe:
-  constructors:
-    - modifiers:
-        - public
-    - modifiers:
-        - public
-      parameters:
-        - name: pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: rotation
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-  methods:
-    - name: clear
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: get
-      modifiers:
-        - public
-      parameters:
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: out_scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: lerp
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: a
-          type:
-            basic: Keyframe
-        - name: b
-          type:
-            basic: Keyframe
-        - name: time
-          type:
-            basic: float
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: out_scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: set
-      modifiers:
-        - public
-      parameters:
-        - name: keyframe
-          type:
-            basic: Keyframe
-      returns:
-        type:
-          basic: void
-    - name: setIdentity
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: out_pos
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: out_rot
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: out_scale
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-      returns:
-        type:
-          basic: void
-    - name: setIdentityIfNotNull
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: to
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: void
-    - name: setIfNotNull
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: to
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: val
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMYATI on 03/01/14.
-ModelTransformSampler:
-  constructors:
-    - modifiers:
-        - public
-  methods:
-    - name: alloc
-      modifiers:
-        - public
-        - static
-      parameters:
-        - name: animationPlayer
-          type:
-            basic: AnimationPlayer
-        - name: animTrack
-          type:
-            basic: AnimationTrack
-      returns:
-        type:
-          basic: ModelTransformSampler
-    - name: getBoneMatrix
-      modifiers:
-        - public
-      parameters:
-        - name: boneIdx
-          type:
-            basic: int
-        - name: out_matrix
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-      returns:
-        type:
-          basic: void
-    - name: getCurrentTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: getNumBones
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: int
-    - name: getTotalTime
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: float
-    - name: isLooped
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: boolean
-    - name: moveToTime
-      modifiers:
-        - public
-      parameters:
-        - name: time
-          type:
-            basic: float
-      returns:
-        type:
-          basic: void
-    - name: onReleased
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-      notes: Release any Pooled objects.
-  modifiers:
-    - public
-  javaType: class
-  extends: PooledObject
-ModelTransformSampler.L_updateBoneAnimationTransform:
-  constructors:
-    - modifiers:
-        - public
-  modifiers:
-    - public
-    - static
-  javaType: class
-  extends: Object
-SoftwareSkinnedModelAnim:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: anims
-          type:
-            basic: StaticAnimation[]
-        - name: model
-          type:
-            basic: SoftwareModelMesh
-        - name: skinning
-          type:
-            basic: SkinningData
-  methods:
-    - name: Draw
-      modifiers:
-        - public
-      parameters:
-        - name: frame
-          type:
-            basic: int
-        - name: offset
-          type:
-            basic: int
-        - name: name
-          type:
-            basic: String
-      returns:
-        type:
-          basic: void
-    - name: updateSkin
-      modifiers:
-        - public
-      parameters:
-        - name: matrixPalette
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f[]
-        - name: vertices
-          type:
-            basic: VertexPositionNormalTangentTextureSkin[]
-        - name: n
-          type:
-            basic: int
-      returns:
-        type:
-          basic: VertexPositionNormalTangentTextureSkin
-    - name: UpdateSkinTransforms
-      modifiers:
-        - public
-      parameters:
-        - name: skinningDataValue
-          type:
-            basic: SkinningData
-      returns:
-        type:
-          basic: void
-    - name: UpdateWorldTransforms
-      modifiers:
-        - public
-      parameters:
-        - name: rootTransform
-          type:
-            basic: org.lwjgl.util.vector.Matrix4f
-        - name: angle
-          type:
-            basic: float
-        - name: skinningDataValue
-          type:
-            basic: SkinningData
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: Object
-  notes: Created by LEMMY on 3/17/2016.
-StaticAnimation:
-  constructors:
-    - modifiers:
-        - public
-      parameters:
-        - name: clip
-          type:
-            basic: AnimationClip
-  methods:
-    - name: Create
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: doRootMotion
-      modifiers:
-        - public
-      parameters:
-        - name: frames
-          type:
-            basic: List
-            full: List<Keyframe>
-      returns:
-        type:
-          basic: void
-    - name: getPose
-      modifiers:
-        - public
-      returns:
-        type:
-          basic: void
-    - name: getPosition
-      modifiers:
-        - public
-      parameters:
-        - name: out
-          type:
-            basic: org.lwjgl.util.vector.Vector3f
-        - name: bone
-          type:
-            basic: int
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Vector3f
-    - name: getRotation
-      modifiers:
-        - public
-      parameters:
-        - name: out
-          type:
-            basic: org.lwjgl.util.vector.Quaternion
-        - name: bone
-          type:
-            basic: int
-      returns:
-        type:
-          basic: org.lwjgl.util.vector.Quaternion
-    - name: interpolate
-      modifiers:
-        - public
-      parameters:
-        - name: frames
-          type:
-            basic: List
-            full: List<Keyframe>
-      returns:
-        type:
-          basic: void
-  modifiers:
-    - public
-  deprecated: true
-  javaType: class
-  extends: Object
-  notes: Created by LEMMY on 3/15/2016.
-TwistableBoneTransform:
-  methods:
-    - name: alloc
-      modifiers:
-        - public
-        - static
-      returns:
-        type:
-          basic: TwistableBoneTransform
-  modifiers:
-    - public
-    - final
-  javaType: class
-  extends: BoneTransform
+      javaType: class
+      extends: Object
+    SoftwareSkinnedModelAnim:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: anims
+              type:
+                basic: StaticAnimation[]
+            - name: model
+              type:
+                basic: SoftwareModelMesh
+            - name: skinning
+              type:
+                basic: SkinningData
+      methods:
+        - name: Draw
+          modifiers:
+            - public
+          parameters:
+            - name: frame
+              type:
+                basic: int
+            - name: offset
+              type:
+                basic: int
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: updateSkin
+          modifiers:
+            - public
+          parameters:
+            - name: matrixPalette
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f[]
+            - name: vertices
+              type:
+                basic: VertexPositionNormalTangentTextureSkin[]
+            - name: n
+              type:
+                basic: int
+          returns:
+            type:
+              basic: VertexPositionNormalTangentTextureSkin
+        - name: UpdateSkinTransforms
+          modifiers:
+            - public
+          parameters:
+            - name: skinningDataValue
+              type:
+                basic: SkinningData
+          returns:
+            type:
+              basic: void
+        - name: UpdateWorldTransforms
+          modifiers:
+            - public
+          parameters:
+            - name: rootTransform
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: angle
+              type:
+                basic: float
+            - name: skinningDataValue
+              type:
+                basic: SkinningData
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: Object
+      notes: Created by LEMMY on 3/17/2016.
+    StaticAnimation:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: clip
+              type:
+                basic: AnimationClip
+      methods:
+        - name: Create
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: doRootMotion
+          modifiers:
+            - public
+          parameters:
+            - name: frames
+              type:
+                basic: List
+                full: List<Keyframe>
+          returns:
+            type:
+              basic: void
+        - name: getPose
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: getPosition
+          modifiers:
+            - public
+          parameters:
+            - name: out
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: bone
+              type:
+                basic: int
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: getRotation
+          modifiers:
+            - public
+          parameters:
+            - name: out
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: bone
+              type:
+                basic: int
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Quaternion
+        - name: interpolate
+          modifiers:
+            - public
+          parameters:
+            - name: frames
+              type:
+                basic: List
+                full: List<Keyframe>
+          returns:
+            type:
+              basic: void
+      modifiers:
+        - public
+      deprecated: true
+      javaType: class
+      extends: Object
+      notes: Created by LEMMY on 3/15/2016.
+    TwistableBoneTransform:
+      methods:
+        - name: alloc
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: TwistableBoneTransform
+      modifiers:
+        - public
+        - final
+      javaType: class
+      extends: BoneTransform
