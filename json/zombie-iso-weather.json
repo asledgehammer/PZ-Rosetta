@@ -121,6 +121,37 @@
           {
             "name": "interp",
             "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "to",
+                "type": {
+                  "basic": "ClimateColorInfo"
+                }
+              },
+              {
+                "name": "t",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "result",
+                "type": {
+                  "basic": "ClimateColorInfo"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ClimateColorInfo"
+              }
+            }
+          },
+          {
+            "name": "interp",
+            "modifiers": [
               "public",
               "static"
             ],
@@ -245,6 +276,25 @@
             ],
             "parameters": [
               {
+                "name": "other",
+                "type": {
+                  "basic": "Color"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setExterior",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "r",
                 "type": {
                   "basic": "float"
@@ -266,6 +316,25 @@
                 "name": "a",
                 "type": {
                   "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setInterior",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "other",
+                "type": {
+                  "basic": "Color"
                 }
               }
             ],
@@ -387,6 +456,17 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "getForecast",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "ClimateForecaster.DayForecast"
               }
             }
           },
@@ -914,6 +994,401 @@
         "notes": "TurboTuTone."
       },
       "ClimateManager": {
+        "fields": {
+          "A_STORM_IS_COMING": {
+            "name": "A_STORM_IS_COMING",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "AVG_FAV_AIR_TEMPERATURE": {
+            "name": "AVG_FAV_AIR_TEMPERATURE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "BOOL_IS_SNOW": {
+            "name": "BOOL_IS_SNOW",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "BOOL_MAX": {
+            "name": "BOOL_MAX",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "COLOR_GLOBAL_LIGHT": {
+            "name": "COLOR_GLOBAL_LIGHT",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "COLOR_MAX": {
+            "name": "COLOR_MAX",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "COLOR_NEW_FOG": {
+            "name": "COLOR_NEW_FOG",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_AMBIENT": {
+            "name": "FLOAT_AMBIENT",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_CLOUD_INTENSITY": {
+            "name": "FLOAT_CLOUD_INTENSITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_DAYLIGHT_STRENGTH": {
+            "name": "FLOAT_DAYLIGHT_STRENGTH",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_DESATURATION": {
+            "name": "FLOAT_DESATURATION",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_FOG_INTENSITY": {
+            "name": "FLOAT_FOG_INTENSITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_GLOBAL_LIGHT_INTENSITY": {
+            "name": "FLOAT_GLOBAL_LIGHT_INTENSITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_HUMIDITY": {
+            "name": "FLOAT_HUMIDITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_MAX": {
+            "name": "FLOAT_MAX",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_NIGHT_STRENGTH": {
+            "name": "FLOAT_NIGHT_STRENGTH",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_PRECIPITATION_INTENSITY": {
+            "name": "FLOAT_PRECIPITATION_INTENSITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_TEMPERATURE": {
+            "name": "FLOAT_TEMPERATURE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_VIEW_DISTANCE": {
+            "name": "FLOAT_VIEW_DISTANCE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_WIND_ANGLE_INTENSITY": {
+            "name": "FLOAT_WIND_ANGLE_INTENSITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FLOAT_WIND_INTENSITY": {
+            "name": "FLOAT_WIND_INTENSITY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FRONT_COLD": {
+            "name": "FRONT_COLD",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FRONT_STATIONARY": {
+            "name": "FRONT_STATIONARY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FRONT_WARM": {
+            "name": "FRONT_WARM",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "MAX_WINDSPEED_KPH": {
+            "name": "MAX_WINDSPEED_KPH",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "MAX_WINDSPEED_MPH": {
+            "name": "MAX_WINDSPEED_MPH",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "PacketAdminVarsUpdate": {
+            "name": "PacketAdminVarsUpdate",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketClientChangedAdminVars": {
+            "name": "PacketClientChangedAdminVars",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketClientChangedWeather": {
+            "name": "PacketClientChangedWeather",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketFlare": {
+            "name": "PacketFlare",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketRequestAdminVars": {
+            "name": "PacketRequestAdminVars",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketThunderEvent": {
+            "name": "PacketThunderEvent",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketUpdateClimateVars": {
+            "name": "PacketUpdateClimateVars",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "PacketWeatherUpdate": {
+            "name": "PacketWeatherUpdate",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "THE_DESCENDING_FOG": {
+            "name": "THE_DESCENDING_FOG",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "WINTER_IS_COMING": {
+            "name": "WINTER_IS_COMING",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -956,6 +1431,38 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "clamp",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "min",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "max",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
               }
             }
           },
@@ -1067,6 +1574,17 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "execute_Simulation",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "RainModOverride",
@@ -1136,11 +1654,74 @@
                 "type": {
                   "basic": "IsoGameCharacter"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getAirTemperatureForCharacter",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "plr",
+                "type": {
+                  "basic": "IsoGameCharacter"
+                }
               },
               {
                 "name": "doWindChill",
                 "type": {
                   "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getAirTemperatureForSquare",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "square",
+                "type": {
+                  "basic": "IsoGridSquare"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "getAirTemperatureForSquare",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "square",
+                "type": {
+                  "basic": "IsoGridSquare"
+                }
+              },
+              {
+                "name": "vehicle",
+                "type": {
+                  "basic": "BaseVehicle"
                 }
               }
             ],
@@ -3085,6 +3666,61 @@
                 "type": {
                   "basic": "float"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "triggerKateBobIntroStorm",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "centerX",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "centerY",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "duration",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "strength",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "initialProgress",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "angle",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "initialPuddles",
+                "type": {
+                  "basic": "float"
+                }
               },
               {
                 "name": "cloudcolor",
@@ -3762,6 +4398,67 @@
             ],
             "parameters": [
               {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a1",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setAdminValue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "targ",
                 "type": {
                   "basic": "ClimateColorInfo"
@@ -3953,6 +4650,31 @@
                 "name": "targ",
                 "type": {
                   "basic": "ClimateColorInfo"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setOverride",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "targ",
+                "type": {
+                  "basic": "ClimateColorInfo"
+                }
+              },
+              {
+                "name": "inter",
+                "type": {
+                  "basic": "float"
                 }
               }
             ],
@@ -4328,30 +5050,53 @@
         "extends": "Object"
       },
       "ClimateManager.ClimateNetAuth": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "ClientAndServer": {
+            "name": "ClientAndServer",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "ClimateManager.ClimateNetAuth"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "ClimateManager.ClimateNetAuth"
+            }
           },
+          "ClientOnly": {
+            "name": "ClientOnly",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ClimateManager.ClimateNetAuth"
+            }
+          },
+          "Denied": {
+            "name": "Denied",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ClimateManager.ClimateNetAuth"
+            }
+          },
+          "ServerOnly": {
+            "name": "ServerOnly",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ClimateManager.ClimateNetAuth"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -4376,6 +5121,80 @@
         "notes": "NETWORKING"
       },
       "ClimateManager.DayInfo": {
+        "fields": {
+          "calendar": {
+            "name": "calendar",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "GregorianCalendar"
+            }
+          },
+          "dateValue": {
+            "name": "dateValue",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "long"
+            }
+          },
+          "day": {
+            "name": "day",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "hour": {
+            "name": "hour",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "minutes": {
+            "name": "minutes",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "month": {
+            "name": "month",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "season": {
+            "name": "season",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ErosionSeason"
+            }
+          },
+          "year": {
+            "name": "year",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -5014,6 +5833,117 @@
             ],
             "parameters": [
               {
+                "name": "year",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "month",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dayOfMonth",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "pollDate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "year",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "month",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dayOfMonth",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "hourOfDay",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "pollDate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "year",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "month",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dayOfMonth",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "hourOfDay",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "minute",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "pollDate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "calendar",
                 "type": {
                   "basic": "GregorianCalendar"
@@ -5062,6 +5992,64 @@
             ],
             "parameters": [
               {
+                "name": "xin",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "yin",
+                "type": {
+                  "basic": "double"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "double"
+              }
+            }
+          },
+          {
+            "name": "noise",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "xin",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "yin",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "zin",
+                "type": {
+                  "basic": "double"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "double"
+              }
+            }
+          },
+          {
+            "name": "noise",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
                 "name": "x",
                 "type": {
                   "basic": "double"
@@ -5100,6 +6088,279 @@
         "extends": "Object"
       },
       "Temperature": {
+        "fields": {
+          "BodyMaxTemp": {
+            "name": "BodyMaxTemp",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "BodyMinTemp": {
+            "name": "BodyMinTemp",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "CELSIUS_POSTFIX": {
+            "name": "CELSIUS_POSTFIX",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "coreCelciusMax": {
+            "name": "coreCelciusMax",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "coreCelciusMin": {
+            "name": "coreCelciusMin",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "DO_DAYLEN_MOD": {
+            "name": "DO_DAYLEN_MOD",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "DO_DEFAULT_BASE": {
+            "name": "DO_DEFAULT_BASE",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "FAHRENHEIT_POSTFIX": {
+            "name": "FAHRENHEIT_POSTFIX",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "FavorableNakedTemp": {
+            "name": "FavorableNakedTemp",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "FavorableRoomTemp": {
+            "name": "FavorableRoomTemp",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "homeostasisDefault": {
+            "name": "homeostasisDefault",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hyperthermia_1": {
+            "name": "Hyperthermia_1",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hyperthermia_2": {
+            "name": "Hyperthermia_2",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hyperthermia_3": {
+            "name": "Hyperthermia_3",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hyperthermia_4": {
+            "name": "Hyperthermia_4",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hypothermia_1": {
+            "name": "Hypothermia_1",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hypothermia_2": {
+            "name": "Hypothermia_2",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hypothermia_3": {
+            "name": "Hypothermia_3",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Hypothermia_4": {
+            "name": "Hypothermia_4",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "neutralZone": {
+            "name": "neutralZone",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "skinCelciusFavorable": {
+            "name": "skinCelciusFavorable",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "skinCelciusMax": {
+            "name": "skinCelciusMax",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "skinCelciusMin": {
+            "name": "skinCelciusMin",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "TrueInsulationMultiplier": {
+            "name": "TrueInsulationMultiplier",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "TrueWindresistMultiplier": {
+            "name": "TrueWindresistMultiplier",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -5351,6 +6612,48 @@
         "notes": "TurboTuTone."
       },
       "ThunderStorm": {
+        "fields": {
+          "MAP_MAX_X": {
+            "name": "MAP_MAX_X",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "MAP_MAX_Y": {
+            "name": "MAP_MAX_Y",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "MAP_MIN_X": {
+            "name": "MAP_MIN_X",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "MAP_MIN_Y": {
+            "name": "MAP_MIN_Y",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -5562,6 +6865,61 @@
               }
             },
             "notes": "IO"
+          },
+          {
+            "name": "startThunderCloud",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "str",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "angle",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "radius",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "eventFreq",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "thunderRatio",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "duration",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "targetRandomPlayer",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
           },
           {
             "name": "startThunderCloud",
@@ -5858,6 +7216,162 @@
         "extends": "Object"
       },
       "WeatherPeriod": {
+        "fields": {
+          "FRONT_STRENGTH_THRESHOLD": {
+            "name": "FRONT_STRENGTH_THRESHOLD",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "STAGE_BLIZZARD": {
+            "name": "STAGE_BLIZZARD",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_CLEARING": {
+            "name": "STAGE_CLEARING",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_DRIZZLE": {
+            "name": "STAGE_DRIZZLE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_HEAVY_PRECIP": {
+            "name": "STAGE_HEAVY_PRECIP",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_INTERMEZZO": {
+            "name": "STAGE_INTERMEZZO",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_KATEBOB_STORM": {
+            "name": "STAGE_KATEBOB_STORM",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_MAX": {
+            "name": "STAGE_MAX",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_MODDED": {
+            "name": "STAGE_MODDED",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_MODERATE": {
+            "name": "STAGE_MODERATE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_SHOWERS": {
+            "name": "STAGE_SHOWERS",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_START": {
+            "name": "STAGE_START",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_STORM": {
+            "name": "STAGE_STORM",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "STAGE_TROPICAL_STORM": {
+            "name": "STAGE_TROPICAL_STORM",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6275,6 +7789,31 @@
                 "type": {
                   "basic": "double"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "initSimulationDebug",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "front",
+                "type": {
+                  "basic": "ClimateManager.AirFront"
+                }
+              },
+              {
+                "name": "hoursSinceStart",
+                "type": {
+                  "basic": "double"
+                }
               },
               {
                 "name": "doThisStageOnly",
@@ -6593,6 +8132,52 @@
         "notes": "TurboTuTone."
       },
       "WeatherPeriod.StrLerpVal": {
+        "fields": {
+          "Entry": {
+            "name": "Entry",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeatherPeriod.StrLerpVal"
+            }
+          },
+          "NextTarget": {
+            "name": "NextTarget",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeatherPeriod.StrLerpVal"
+            }
+          },
+          "None": {
+            "name": "None",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeatherPeriod.StrLerpVal"
+            }
+          },
+          "Target": {
+            "name": "Target",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeatherPeriod.StrLerpVal"
+            }
+          }
+        },
         "methods": [
           {
             "name": "fromValue",
@@ -6624,29 +8209,6 @@
                 "basic": "int"
               }
             }
-          },
-          {
-            "name": "valueOf",
-            "modifiers": [
-              "public",
-              "static"
-            ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "WeatherPeriod.StrLerpVal"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
           },
           {
             "name": "values",
@@ -6926,6 +8488,17 @@
         "extends": "Object"
       },
       "WeatherShader": {
+        "fields": {
+          "timeOfDay": {
+            "name": "timeOfDay",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -7032,6 +8605,39 @@
         "extends": "Shader"
       },
       "WorldFlares": {
+        "fields": {
+          "DEBUG_DRAW": {
+            "name": "DEBUG_DRAW",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "ENABLED": {
+            "name": "ENABLED",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "NEXT_ID": {
+            "name": "NEXT_ID",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

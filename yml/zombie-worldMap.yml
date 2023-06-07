@@ -223,6 +223,39 @@ namespaces:
       javaType: class
       extends: Object
     MapProjection:
+      fields:
+        EARTH_CIRCUMFERENCE_METERS:
+          name: EARTH_CIRCUMFERENCE_METERS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: double
+        EARTH_HALF_CIRCUMFERENCE_METERS:
+          name: EARTH_HALF_CIRCUMFERENCE_METERS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: double
+        EARTH_RADIUS_METERS:
+          name: EARTH_RADIUS_METERS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: double
+        MAX_LATITUDE_DEGREES:
+          name: MAX_LATITUDE_DEGREES
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: double
       constructors:
         - modifiers:
             - public
@@ -888,6 +921,50 @@ namespaces:
             - name: uiY
               type:
                 basic: float
+            - name: zoomF
+              type:
+                basic: float
+            - name: centerWorldX
+              type:
+                basic: float
+            - name: centerWorldY
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: uiToWorldX
+          modifiers:
+            - public
+          parameters:
+            - name: uiX
+              type:
+                basic: float
+            - name: uiY
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: uiToWorldY
+          modifiers:
+            - public
+          parameters:
+            - name: uiX
+              type:
+                basic: float
+            - name: uiY
+              type:
+                basic: float
+            - name: zoomF
+              type:
+                basic: float
+            - name: centerWorldX
+              type:
+                basic: float
+            - name: centerWorldY
+              type:
+                basic: float
           returns:
             type:
               basic: float
@@ -1019,6 +1096,77 @@ namespaces:
             - name: z
               type:
                 basic: float
+            - name: u
+              type:
+                basic: float
+            - name: v
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: addElement
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: addLine
+          modifiers:
+            - public
+          parameters:
+            - name: x0
+              type:
+                basic: float
+            - name: y0
+              type:
+                basic: float
+            - name: z0
+              type:
+                basic: float
+            - name: x1
+              type:
+                basic: float
+            - name: y1
+              type:
+                basic: float
+            - name: z1
+              type:
+                basic: float
             - name: r
               type:
                 basic: float
@@ -1078,6 +1226,52 @@ namespaces:
               type:
                 basic: float
             - name: a1
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: addQuad
+          modifiers:
+            - public
+          parameters:
+            - name: x0
+              type:
+                basic: float
+            - name: y0
+              type:
+                basic: float
+            - name: u0
+              type:
+                basic: float
+            - name: v0
+              type:
+                basic: float
+            - name: x1
+              type:
+                basic: float
+            - name: y1
+              type:
+                basic: float
+            - name: u1
+              type:
+                basic: float
+            - name: v1
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
               type:
                 basic: float
           returns:
@@ -1285,6 +1479,76 @@ namespaces:
       javaType: class
       extends: Object
     WorldMap:
+      fields:
+        m_data:
+          name: m_data
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_images:
+          name: m_images
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_lastDataInDirectory:
+          name: m_lastDataInDirectory
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_maxDataX:
+          name: m_maxDataX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_maxDataY:
+          name: m_maxDataY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_maxX:
+          name: m_maxX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_maxY:
+          name: m_maxY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minDataX:
+          name: m_minDataX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minDataY:
+          name: m_minDataY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minX:
+          name: m_minX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minY:
+          name: m_minY
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1586,6 +1850,26 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapCell:
+      fields:
+        m_features:
+          name: m_features
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_x:
+          name: m_x
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_y:
+          name: m_y
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1619,6 +1903,67 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapData:
+      fields:
+        ASSET_TYPE:
+          name: ASSET_TYPE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: AssetType
+        m_cellLookup:
+          name: m_cellLookup
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        m_cells:
+          name: m_cells
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_maxX:
+          name: m_maxX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_maxY:
+          name: m_maxY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minX:
+          name: m_minX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minY:
+          name: m_minY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_relativeFileName:
+          name: m_relativeFileName
+          modifiers:
+            - public
+          type:
+            basic: String
+        s_fileNameToData:
+          name: s_fileNameToData
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
       constructors:
         - modifiers:
             - public
@@ -1738,6 +2083,15 @@ namespaces:
       javaType: class
       extends: Asset
     WorldMapDataAssetManager:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldMapDataAssetManager
       constructors:
         - modifiers:
             - public
@@ -1747,6 +2101,27 @@ namespaces:
       javaType: class
       extends: AssetManager
     WorldMapFeature:
+      fields:
+        m_cell:
+          name: m_cell
+          modifiers:
+            - public
+            - final
+          type:
+            basic: WorldMapCell
+        m_geometries:
+          name: m_geometries
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_properties:
+          name: m_properties
+          modifiers:
+            - public
+          type:
+            basic: WorldMapProperties
       methods:
         - name: containsPoint
           modifiers:
@@ -1791,6 +2166,80 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapGeometry:
+      fields:
+        m_maxX:
+          name: m_maxX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_maxY:
+          name: m_maxY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minX:
+          name: m_minX
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_minY:
+          name: m_minY
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_points:
+          name: m_points
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        m_triangles:
+          name: m_triangles
+          modifiers:
+            - public
+          type:
+            basic: float[]
+        m_trianglesPerZoom:
+          name: m_trianglesPerZoom
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        m_type:
+          name: m_type
+          modifiers:
+            - public
+          type:
+            basic: WorldMapGeometry.Type
+        m_vboIndex1:
+          name: m_vboIndex1
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_vboIndex2:
+          name: m_vboIndex2
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_vboIndex3:
+          name: m_vboIndex3
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_vboIndex4:
+          name: m_vboIndex4
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1836,6 +2285,13 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapGeometry.TrianglesPerZoom:
+      fields:
+        m_triangles:
+          name: m_triangles
+          modifiers:
+            - public
+          type:
+            basic: float[]
       constructors:
         - modifiers:
             - public
@@ -1846,23 +2302,32 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapGeometry.Type:
-      methods:
-        - name: valueOf
+      fields:
+        LineString:
+          name: LineString
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: WorldMapGeometry.Type
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: WorldMapGeometry.Type
+        Point:
+          name: Point
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldMapGeometry.Type
+        Polygon:
+          name: Polygon
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldMapGeometry.Type
+      methods:
         - name: values
           modifiers:
             - public
@@ -1972,6 +2437,19 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapPoint:
+      fields:
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -2037,6 +2515,13 @@ namespaces:
       javaType: class
       extends: HashMap
     WorldMapRenderer:
+      fields:
+        m_style:
+          name: m_style
+          modifiers:
+            - public
+          type:
+            basic: WorldMapStyle
       constructors:
         - modifiers:
             - public
@@ -2374,12 +2859,56 @@ namespaces:
             - name: centerWorldY
               type:
                 basic: float
+          returns:
+            type:
+              basic: float
+        - name: uiToWorldX
+          modifiers:
+            - public
+          parameters:
+            - name: uiX
+              type:
+                basic: float
+            - name: uiY
+              type:
+                basic: float
+            - name: zoomF
+              type:
+                basic: float
+            - name: centerWorldX
+              type:
+                basic: float
+            - name: centerWorldY
+              type:
+                basic: float
             - name: projection
               type:
                 basic: org.joml.Matrix4f
             - name: modelView
               type:
                 basic: org.joml.Matrix4f
+          returns:
+            type:
+              basic: float
+        - name: uiToWorldY
+          modifiers:
+            - public
+          parameters:
+            - name: uiX
+              type:
+                basic: float
+            - name: uiY
+              type:
+                basic: float
+            - name: zoomF
+              type:
+                basic: float
+            - name: centerWorldX
+              type:
+                basic: float
+            - name: centerWorldY
+              type:
+                basic: float
           returns:
             type:
               basic: float
@@ -2518,6 +3047,12 @@ namespaces:
         - name: zoomMult
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: zoomMult
+          modifiers:
+            - public
           parameters:
             - name: zoomF
               type:
@@ -2531,6 +3066,13 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapRenderer.Drawer:
+      fields:
+        m_zoomF:
+          name: m_zoomF
+          modifiers:
+            - public
+          type:
+            basic: float
       methods:
         - name: drawLineString
           modifiers:
@@ -2658,6 +3200,37 @@ namespaces:
             - name: worldY2
               type:
                 basic: int
+            - name: cellX
+              type:
+                basic: int
+            - name: cellY
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: drawTextureTiled
+          modifiers:
+            - public
+          parameters:
+            - name: texture
+              type:
+                basic: Texture
+            - name: fill
+              type:
+                basic: WorldMapStyleLayer.RGBAf
+            - name: worldX1
+              type:
+                basic: int
+            - name: worldY1
+              type:
+                basic: int
+            - name: worldX2
+              type:
+                basic: int
+            - name: worldY2
+              type:
+                basic: int
             - name: tileW
               type:
                 basic: int
@@ -2670,6 +3243,22 @@ namespaces:
             - name: cellY
               type:
                 basic: int
+          returns:
+            type:
+              basic: void
+        - name: fillPolygon
+          modifiers:
+            - public
+          parameters:
+            - name: args
+              type:
+                basic: WorldMapStyleLayer.RenderArgs
+            - name: feature
+              type:
+                basic: WorldMapFeature
+            - name: color
+              type:
+                basic: WorldMapStyleLayer.RGBAf
           returns:
             type:
               basic: void
@@ -2799,6 +3388,21 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapSettings:
+      fields:
+        VERSION:
+          name: VERSION
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        VERSION1:
+          name: VERSION1
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -2916,6 +3520,15 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapVBOs:
+      fields:
+        NUM_ELEMENTS:
+          name: NUM_ELEMENTS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -3113,6 +3726,19 @@ namespaces:
         - name: load
           modifiers:
             - public
+          parameters:
+            - name: input
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: load
+          modifiers:
+            - public
           returns:
             type:
               basic: void
@@ -3188,6 +3814,16 @@ namespaces:
           modifiers:
             - public
             - static
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
           returns:
             type:
               basic: void

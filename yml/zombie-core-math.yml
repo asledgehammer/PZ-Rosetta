@@ -81,6 +81,75 @@ namespaces:
         - final
       javaType: class
     PZMath:
+      fields:
+        degToRads:
+          name: degToRads
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+          notes: Conversion ratios, Degrees to Radians and back
+        microsToNanos:
+          name: microsToNanos
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: long
+        millisToMicros:
+          name: millisToMicros
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: long
+        PI:
+          name: PI
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+          notes: |-
+            The double value that is closer than any other to
+             pi, the ratio of the circumference of a circle to its
+             diameter.
+        PI2:
+          name: PI2
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+        radToDegs:
+          name: radToDegs
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+        secondsToMillis:
+          name: secondsToMillis
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: long
+        secondsToNanos:
+          name: secondsToNanos
+          modifiers:
+            - public
+            - static
+          type:
+            basic: long
       constructors:
         - modifiers:
             - public
@@ -193,6 +262,42 @@ namespaces:
           parameters:
             - name: val
               type:
+                basic: float
+            - name: min
+              type:
+                basic: float
+            - name: max
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+            notes: min <= val <= max
+          notes: Result is clamped between min and max.
+        - name: clamp
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: val
+              type:
+                basic: long
+            - name: min
+              type:
+                basic: long
+            - name: max
+              type:
+                basic: long
+          returns:
+            type:
+              basic: long
+        - name: clamp
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: val
+              type:
                 basic: int
             - name: min
               type:
@@ -240,6 +345,20 @@ namespaces:
           parameters:
             - name: src
               type:
+                basic: org.joml.Matrix4f
+            - name: dst
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Matrix4f
+        - name: convertMatrix
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: src
+              type:
                 basic: org.lwjgl.util.vector.Matrix4f
             - name: dst
               type:
@@ -269,12 +388,37 @@ namespaces:
             - name: b
               type:
                 basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: equal
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
             - name: delta
               type:
                 basic: float
           returns:
             type:
               basic: boolean
+        - name: fastfloor
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: x
+              type:
+                basic: double
+          returns:
+            type:
+              basic: int
         - name: fastfloor
           modifiers:
             - public
@@ -364,6 +508,43 @@ namespaces:
             - public
             - static
           parameters:
+            - name: src
+              type:
+                basic: float
+            - name: dest
+              type:
+                basic: float
+            - name: alpha
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: lerp
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: out
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: a
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: b
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: t
+              type:
+                basic: float
+          returns:
+            type:
+              basic: org.lwjgl.util.vector.Vector3f
+        - name: lerp
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: out
               type:
                 basic: Vector2
@@ -436,6 +617,20 @@ namespaces:
           parameters:
             - name: a
               type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: max
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
                 basic: int
             - name: b
               type:
@@ -443,6 +638,20 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: min
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
         - name: min
           modifiers:
             - public
@@ -644,6 +853,20 @@ namespaces:
             - public
             - static
           parameters:
+            - name: val
+              type:
+                basic: float
+            - name: range
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: wrap
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: in_val
               type:
                 basic: float
@@ -662,23 +885,32 @@ namespaces:
       javaType: class
       extends: Object
     PZMath.SideOfLine:
-      methods:
-        - name: valueOf
+      fields:
+        Left:
+          name: Left
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: PZMath.SideOfLine
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: PZMath.SideOfLine
+        OnLine:
+          name: OnLine
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PZMath.SideOfLine
+        Right:
+          name: Right
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PZMath.SideOfLine
+      methods:
         - name: values
           modifiers:
             - public

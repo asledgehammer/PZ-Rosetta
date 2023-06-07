@@ -2,11 +2,68 @@
   "namespaces": {
     "zombie.core.profiling": {
       "AbstractPerformanceProfileProbe": {
+        "fields": {
+          "Name": {
+            "name": "Name",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "methods": [
           {
             "name": "end",
             "modifiers": [
               "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "invokeAndMeasure",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "invoke",
+                "type": {
+                  "basic": "Runnable"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "invokeAndMeasure",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "invoker",
+                "type": {
+                  "basic": "Invokers.Params1.ICallback",
+                  "full": "Invokers.Params1.ICallback<T1>"
+                }
+              }
             ],
             "returns": {
               "type": {
@@ -197,6 +254,32 @@
                 "type": {
                   "basic": "int"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "PerformanceProfileProbeList"
+              }
+            }
+          },
+          {
+            "name": "construct",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "prefix",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "count",
+                "type": {
+                  "basic": "int"
+                }
               },
               {
                 "name": "type",
@@ -282,6 +365,26 @@
         "javaType": "interface"
       },
       "TriggerGameProfilerFile": {
+        "fields": {
+          "discard": {
+            "name": "discard",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "isRecording": {
+            "name": "isRecording",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

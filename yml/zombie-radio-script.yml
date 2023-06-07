@@ -15,6 +15,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: container
+              type:
+                basic: ConditionContainer
+          returns:
+            type:
+              basic: void
+        - name: Add
+          modifiers:
+            - public
+          parameters:
             - name: A
               type:
                 basic: RadioGlobal
@@ -122,23 +132,32 @@ namespaces:
       javaType: class
       extends: Object
     OperatorType:
-      methods:
-        - name: valueOf
+      fields:
+        AND:
+          name: AND
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: OperatorType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: OperatorType
+        NONE:
+          name: NONE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: OperatorType
+        OR:
+          name: OR
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: OperatorType
+      methods:
         - name: values
           modifiers:
             - public

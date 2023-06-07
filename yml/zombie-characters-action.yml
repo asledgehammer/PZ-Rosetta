@@ -1,6 +1,14 @@
 namespaces:
   zombie.characters.action:
     ActionContext:
+      fields:
+        onStateChanged:
+          name: onStateChanged
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -111,6 +119,17 @@ namespaces:
             - name: eventName
               type:
                 basic: String
+          returns:
+            type:
+              basic: boolean
+          notes: Returns TRUE if an event has occurred on any layer.
+        - name: hasEventOccurred
+          modifiers:
+            - public
+          parameters:
+            - name: eventName
+              type:
+                basic: String
             - name: layerIdx
               type:
                 basic: int
@@ -133,6 +152,16 @@ namespaces:
         - name: logCurrentState
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: reportEvent
+          modifiers:
+            - public
+          parameters:
+            - name: event
+              type:
+                basic: String
           returns:
             type:
               basic: void
@@ -224,6 +253,19 @@ namespaces:
             - name: layer
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: layer
+              type:
+                basic: int
             - name: bAgnosticLayer
               type:
                 basic: boolean
@@ -296,6 +338,21 @@ namespaces:
       javaType: class
       extends: Object
     ActionState:
+      fields:
+        name:
+          name: name
+          modifiers:
+            - public
+            - final
+          type:
+            basic: String
+        transitions:
+          name: transitions
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -308,6 +365,17 @@ namespaces:
           modifiers:
             - public
             - final
+          returns:
+            type:
+              basic: boolean
+        - name: canHaveSubState
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: child
+              type:
+                basic: ActionState
           returns:
             type:
               basic: boolean
@@ -395,6 +463,19 @@ namespaces:
       javaType: class
       extends: Object
     ActionStateSnapshot:
+      fields:
+        childStateNames:
+          name: childStateNames
+          modifiers:
+            - public
+          type:
+            basic: String
+        stateName:
+          name: stateName
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -493,6 +574,14 @@ namespaces:
       javaType: class
       extends: Object
     IActionCondition:
+      fields:
+        s_factoryMap:
+          name: s_factoryMap
+          modifiers:
+            - static
+            - final
+          type:
+            basic: HashMap
       methods:
         - name: clone
           returns:

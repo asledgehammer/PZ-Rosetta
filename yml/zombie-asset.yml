@@ -130,23 +130,32 @@ namespaces:
       javaType: class
       extends: ArrayList
     Asset.State:
-      methods:
-        - name: valueOf
+      fields:
+        EMPTY:
+          name: EMPTY
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: Asset.State
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: Asset.State
+        FAILURE:
+          name: FAILURE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: Asset.State
+        READY:
+          name: READY
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: Asset.State
+      methods:
         - name: values
           modifiers:
             - public
@@ -214,6 +223,29 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: path
+              type:
+                basic: AssetPath
+          returns:
+            type:
+              basic: Asset
+        - name: load
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: AssetPath
+            - name: params
+              type:
+                basic: AssetManager.AssetParams
+          returns:
+            type:
+              basic: Asset
+        - name: load
+          modifiers:
+            - public
+          parameters:
             - name: asset
               type:
                 basic: Asset
@@ -240,6 +272,26 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: path
+              type:
+                basic: AssetPath
+          returns:
+            type:
+              basic: void
+        - name: reload
+          modifiers:
+            - public
+          parameters:
+            - name: asset
+              type:
+                basic: Asset
+          returns:
+            type:
+              basic: void
+        - name: reload
+          modifiers:
+            - public
+          parameters:
             - name: asset
               type:
                 basic: Asset
@@ -252,6 +304,16 @@ namespaces:
         - name: removeUnreferenced
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: unload
+          modifiers:
+            - public
+          parameters:
+            - name: path
+              type:
+                basic: AssetPath
           returns:
             type:
               basic: void
@@ -359,12 +421,6 @@ namespaces:
           returns:
             type:
               basic: boolean
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
         - final
@@ -390,6 +446,13 @@ namespaces:
         - public
       javaType: interface
     AssetTask:
+      fields:
+        m_asset:
+          name: m_asset
+          modifiers:
+            - public
+          type:
+            basic: Asset
       constructors:
         - modifiers:
             - public
@@ -447,6 +510,21 @@ namespaces:
       javaType: class
       extends: AssetTask
     AssetType:
+      fields:
+        INVALID_ASSET_TYPE:
+          name: INVALID_ASSET_TYPE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: AssetType
+        type:
+          name: type
+          modifiers:
+            - public
+          type:
+            basic: long
       constructors:
         - modifiers:
             - public

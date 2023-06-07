@@ -2,6 +2,124 @@
   "namespaces": {
     "zombie.core.sprite": {
       "GenericSpriteRenderState": {
+        "fields": {
+          "bCursorVisible": {
+            "name": "bCursorVisible",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bRendered": {
+            "name": "bRendered",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "defaultStyle": {
+            "name": "defaultStyle",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "AbstractStyle"
+            }
+          },
+          "fbo": {
+            "name": "fbo",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureFBO"
+            }
+          },
+          "index": {
+            "name": "index",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "numSprites": {
+            "name": "numSprites",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "postRender": {
+            "name": "postRender",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "sprite": {
+            "name": "sprite",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureDraw"
+            }
+          },
+          "style": {
+            "name": "style",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Style"
+            }
+          },
+          "UVCA_CIRCLE": {
+            "name": "UVCA_CIRCLE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "UVCA_NOCIRCLE": {
+            "name": "UVCA_NOCIRCLE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "UVCA_NONE": {
+            "name": "UVCA_NONE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          }
+        },
         "methods": [
           {
             "name": "CheckSpriteSlots",
@@ -624,6 +742,43 @@
                 "type": {
                   "basic": "int"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "glDoStartFrame",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "w",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "h",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "zoom",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "player",
+                "type": {
+                  "basic": "int"
+                }
               },
               {
                 "name": "isTextFrame",
@@ -945,6 +1100,439 @@
             "name": "onRendered",
             "modifiers": [
               "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "double"
+                }
+              },
+              {
+                "name": "r1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "c1",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c2",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c3",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c4",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
             ],
             "returns": {
               "type": {
@@ -1333,6 +1921,79 @@
               {
                 "name": "x1",
                 "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "thickness",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "renderline",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
                   "basic": "int"
                 }
               },
@@ -1352,6 +2013,182 @@
                 "name": "y2",
                 "type": {
                   "basic": "int"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "renderPoly",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "renderPoly",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
                 }
               },
               {
@@ -1915,6 +2752,41 @@
         "extends": "Object"
       },
       "RenderStateSlot": {
+        "fields": {
+          "Populating": {
+            "name": "Populating",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RenderStateSlot"
+            }
+          },
+          "Ready": {
+            "name": "Ready",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RenderStateSlot"
+            }
+          },
+          "Rendering": {
+            "name": "Rendering",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RenderStateSlot"
+            }
+          }
+        },
         "methods": [
           {
             "name": "count",
@@ -1937,29 +2809,6 @@
                 "basic": "int"
               }
             }
-          },
-          {
-            "name": "valueOf",
-            "modifiers": [
-              "public",
-              "static"
-            ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "RenderStateSlot"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
           },
           {
             "name": "values",
@@ -2166,6 +3015,93 @@
         "extends": "Object"
       },
       "SpriteRenderState": {
+        "fields": {
+          "fbo": {
+            "name": "fbo",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureFBO"
+            }
+          },
+          "maxZoomLevel": {
+            "name": "maxZoomLevel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "minZoomLevel": {
+            "name": "minZoomLevel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "playerAmbient": {
+            "name": "playerAmbient",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "float[]"
+            }
+          },
+          "playerCamera": {
+            "name": "playerCamera",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "PlayerCamera"
+            }
+          },
+          "playerIndex": {
+            "name": "playerIndex",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "stateUI": {
+            "name": "stateUI",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "SpriteRenderStateUI"
+            }
+          },
+          "time": {
+            "name": "time",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "long"
+            }
+          },
+          "zoomLevel": {
+            "name": "zoomLevel",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "float[]"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2258,6 +3194,17 @@
         "extends": "GenericSpriteRenderState"
       },
       "SpriteRenderStateUI": {
+        "fields": {
+          "bActive": {
+            "name": "bActive",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

@@ -162,6 +162,32 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToServerChat
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: sendServerAlertMessageToServerChat
+          modifiers:
+            - public
+          parameters:
+            - name: author
+              type:
+                basic: String
             - name: msg
               type:
                 basic: String
@@ -227,6 +253,87 @@ namespaces:
       javaType: class
       extends: Object
     ChatType:
+      fields:
+        admin:
+          name: admin
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        faction:
+          name: faction
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        general:
+          name: general
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        notDefined:
+          name: notDefined
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        radio:
+          name: radio
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        safehouse:
+          name: safehouse
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        say:
+          name: say
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        server:
+          name: server
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        shout:
+          name: shout
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
+        whisper:
+          name: whisper
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatType
       methods:
         - name: getTitleID
           modifiers:
@@ -240,22 +347,6 @@ namespaces:
           returns:
             type:
               basic: int
-        - name: valueOf
-          modifiers:
-            - public
-            - static
-          parameters:
-            - name: value
-              type:
-                basic: Integer
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: ChatType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
         - name: values
           modifiers:
             - public

@@ -1,6 +1,13 @@
 namespaces:
   zombie.iso:
     Alarm:
+      fields:
+        finished:
+          name: finished
+          modifiers:
+            - public
+          type:
+            basic: boolean
       constructors:
         - modifiers:
             - public
@@ -225,6 +232,117 @@ namespaces:
       javaType: class
       extends: Object
     BuildingDef:
+      fields:
+        bAlarmed:
+          name: bAlarmed
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        emptyoutside:
+          name: emptyoutside
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        food:
+          name: food
+          modifiers:
+            - public
+          type:
+            basic: int
+        hasBeenVisited:
+          name: hasBeenVisited
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        items:
+          name: items
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        itemTypes:
+          name: itemTypes
+          modifiers:
+            - public
+          type:
+            basic: HashSet
+        lootRespawnHour:
+          name: lootRespawnHour
+          modifiers:
+            - public
+          type:
+            basic: int
+        metaID:
+          name: metaID
+          modifiers:
+            - public
+          type:
+            basic: long
+        overlappedChunks:
+          name: overlappedChunks
+          modifiers:
+            - public
+          type:
+            basic: gnu.trove.list.array.TShortArrayList
+        rooms:
+          name: rooms
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        seen:
+          name: seen
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        stash:
+          name: stash
+          modifiers:
+            - public
+          type:
+            basic: String
+        table:
+          name: table
+          modifiers:
+            - public
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        x2:
+          name: x2
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        y2:
+          name: y2
+          modifiers:
+            - public
+          type:
+            basic: int
+        zone:
+          name: zone
+          modifiers:
+            - public
+          type:
+            basic: IsoMetaGrid.Zone
       constructors:
         - modifiers:
             - public
@@ -512,6 +630,31 @@ namespaces:
       javaType: class
       extends: Object
     CellLoader:
+      fields:
+        isoObjectCache:
+          name: isoObjectCache
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayDeque
+        isoTreeCache:
+          name: isoTreeCache
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayDeque
+        smashedWindowSpriteMap:
+          name: smashedWindowSpriteMap
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
       constructors:
         - modifiers:
             - public
@@ -553,6 +696,26 @@ namespaces:
             - public
             - static
           parameters:
+            - name: cell
+              type:
+                basic: IsoCell
+            - name: wx
+              type:
+                basic: int
+            - name: wy
+              type:
+                basic: int
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: boolean
+        - name: LoadCellBinaryChunk
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: spr
               type:
                 basic: IsoSpriteManager
@@ -571,6 +734,26 @@ namespaces:
       javaType: class
       extends: Object
     ChunkSaveWorker:
+      fields:
+        bSaving:
+          name: bSaving
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+          type:
+            basic: ChunkSaveWorker
+        toSaveQueue:
+          name: toSaveQueue
+          modifiers:
+            - public
+          type:
+            basic: ConcurrentLinkedQueue
       constructors:
         - modifiers:
             - public
@@ -582,6 +765,17 @@ namespaces:
             - name: ch
               type:
                 basic: IsoChunk
+          returns:
+            type:
+              basic: void
+        - name: SaveNow
+          modifiers:
+            - public
+          parameters:
+            - name: aboutToLoad
+              type:
+                basic: ArrayList
+                full: ArrayList<IsoChunk>
           returns:
             type:
               basic: void
@@ -606,6 +800,15 @@ namespaces:
       javaType: class
       extends: Object
     ContainerOverlays:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ContainerOverlays
       constructors:
         - modifiers:
             - public
@@ -692,6 +895,16 @@ namespaces:
         - name: reset
           modifiers:
             - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          returns:
+            type:
+              basic: DiamondMatrixIterator
+        - name: reset
+          modifiers:
+            - public
           returns:
             type:
               basic: void
@@ -729,6 +942,25 @@ namespaces:
       javaType: class
       extends: Shader
     Helicopter:
+      fields:
+        target:
+          name: target
+          modifiers:
+            - public
+          type:
+            basic: IsoGameCharacter
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -788,6 +1020,72 @@ namespaces:
       javaType: class
       extends: Object
     IsoCamera:
+      fields:
+        CamCharacter:
+          name: CamCharacter
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IsoGameCharacter
+        cameras:
+          name: cameras
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PlayerCamera
+        FakePos:
+          name: FakePos
+          modifiers:
+            - public
+            - static
+          type:
+            basic: Vector2
+        FakePosVec:
+          name: FakePosVec
+          modifiers:
+            - public
+            - static
+          type:
+            basic: Vector2
+        frameState:
+          name: frameState
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoCamera.FrameState
+        PLAYER_OFFSET_X:
+          name: PLAYER_OFFSET_X
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        PLAYER_OFFSET_Y:
+          name: PLAYER_OFFSET_Y
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        TargetTileX:
+          name: TargetTileX
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        TargetTileY:
+          name: TargetTileY
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1125,6 +1423,85 @@ namespaces:
       javaType: class
       extends: Object
     IsoCamera.FrameState:
+      fields:
+        CamCharacter:
+          name: CamCharacter
+          modifiers:
+            - public
+          type:
+            basic: IsoGameCharacter
+        CamCharacterRoom:
+          name: CamCharacterRoom
+          modifiers:
+            - public
+          type:
+            basic: IsoRoom
+        CamCharacterSquare:
+          name: CamCharacterSquare
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        CamCharacterX:
+          name: CamCharacterX
+          modifiers:
+            - public
+          type:
+            basic: float
+        CamCharacterY:
+          name: CamCharacterY
+          modifiers:
+            - public
+          type:
+            basic: float
+        CamCharacterZ:
+          name: CamCharacterZ
+          modifiers:
+            - public
+          type:
+            basic: float
+        frameCount:
+          name: frameCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        OffscreenHeight:
+          name: OffscreenHeight
+          modifiers:
+            - public
+          type:
+            basic: int
+        OffscreenWidth:
+          name: OffscreenWidth
+          modifiers:
+            - public
+          type:
+            basic: int
+        OffX:
+          name: OffX
+          modifiers:
+            - public
+          type:
+            basic: float
+        OffY:
+          name: OffY
+          modifiers:
+            - public
+          type:
+            basic: float
+        Paused:
+          name: Paused
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        playerIndex:
+          name: playerIndex
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1145,6 +1522,174 @@ namespaces:
       javaType: class
       extends: Object
     IsoCell:
+      fields:
+        addVehicles:
+          name: addVehicles
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        bRendering:
+          name: bRendering
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        BuildingList:
+          name: BuildingList
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        ChunkMap:
+          name: ChunkMap
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoChunkMap
+        DangerScore:
+          name: DangerScore
+          modifiers:
+            - public
+          type:
+            basic: IntGrid
+        DeferredCharacterTick:
+          name: DeferredCharacterTick
+          modifiers:
+            - public
+          type:
+            basic: int
+        ENABLE_SQUARE_CACHE:
+          name: ENABLE_SQUARE_CACHE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: boolean
+        ISOANGLEFACTOR:
+          name: ISOANGLEFACTOR
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        MaxHeight:
+          name: MaxHeight
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        perPlayerRender:
+          name: perPlayerRender
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoCell.PerPlayerRender
+        ProcessWorldItemsRemove:
+          name: ProcessWorldItemsRemove
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        recalcFloors:
+          name: recalcFloors
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        roomLights:
+          name: roomLights
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        RTF_MinusFloorCharacters:
+          name: RTF_MinusFloorCharacters
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        RTF_ShadedFloor:
+          name: RTF_ShadedFloor
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        RTF_Shadows:
+          name: RTF_Shadows
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        RTF_SolidFloor:
+          name: RTF_SolidFloor
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        RTF_VegetationCorpses:
+          name: RTF_VegetationCorpses
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        StencilX1:
+          name: StencilX1
+          modifiers:
+            - public
+          type:
+            basic: int
+        StencilX2:
+          name: StencilX2
+          modifiers:
+            - public
+          type:
+            basic: int
+        StencilY1:
+          name: StencilY1
+          modifiers:
+            - public
+          type:
+            basic: int
+        StencilY2:
+          name: StencilY2
+          modifiers:
+            - public
+          type:
+            basic: int
+        Trees:
+          name: Trees
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        vehicles:
+          name: vehicles
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -1163,6 +1708,16 @@ namespaces:
             - name: heatSource
               type:
                 basic: IsoHeatSource
+          returns:
+            type:
+              basic: void
+        - name: addLamppost
+          modifiers:
+            - public
+          parameters:
+            - name: light
+              type:
+                basic: IsoLightSource
           returns:
             type:
               basic: void
@@ -1228,10 +1783,30 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: item
+              type:
+                basic: InventoryItem
+          returns:
+            type:
+              basic: void
+        - name: addToProcessItems
+          modifiers:
+            - public
+          parameters:
             - name: items
               type:
                 basic: ArrayList
                 full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: void
+        - name: addToProcessItemsRemove
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: InventoryItem
           returns:
             type:
               basic: void
@@ -1682,6 +2257,38 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: getGridSquare
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: double
+            - name: y
+              type:
+                basic: double
+            - name: z
+              type:
+                basic: double
+          returns:
+            type:
+              basic: IsoGridSquare
+        - name: getGridSquare
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: Double
+            - name: y
+              type:
+                basic: Double
+            - name: z
+              type:
+                basic: Double
+          returns:
+            type:
+              basic: IsoGridSquare
         - name: getGridSquare
           modifiers:
             - public
@@ -2205,6 +2812,50 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: filename
+              type:
+                basic: String
+            - name: sx
+              type:
+                basic: int
+            - name: sy
+              type:
+                basic: int
+            - name: sz
+              type:
+                basic: int
+            - name: bClearExisting
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: PlaceLot
+          modifiers:
+            - public
+          parameters:
+            - name: lot
+              type:
+                basic: IsoLot
+            - name: sx
+              type:
+                basic: int
+            - name: sy
+              type:
+                basic: int
+            - name: sz
+              type:
+                basic: int
+            - name: bClearExisting
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: PlaceLot
+          modifiers:
+            - public
+          parameters:
             - name: lot
               type:
                 basic: IsoLot
@@ -2278,6 +2929,22 @@ namespaces:
             - name: heatSource
               type:
                 basic: IsoHeatSource
+          returns:
+            type:
+              basic: void
+        - name: removeLamppost
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
           returns:
             type:
               basic: void
@@ -2365,6 +3032,16 @@ namespaces:
               type:
                 basic: Stack
                 full: Stack<BuildingScore>
+          returns:
+            type:
+              basic: void
+        - name: setCacheChunk
+          modifiers:
+            - public
+          parameters:
+            - name: chunk
+              type:
+                basic: IsoChunk
           returns:
             type:
               basic: void
@@ -2727,23 +3404,48 @@ namespaces:
       javaType: class
       extends: Object
     IsoCell.BuildingSearchCriteria:
-      methods:
-        - name: valueOf
+      fields:
+        Defense:
+          name: Defense
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoCell.BuildingSearchCriteria
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoCell.BuildingSearchCriteria
+        Food:
+          name: Food
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoCell.BuildingSearchCriteria
+        General:
+          name: General
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoCell.BuildingSearchCriteria
+        Weapons:
+          name: Weapons
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoCell.BuildingSearchCriteria
+        Wood:
+          name: Wood
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoCell.BuildingSearchCriteria
+      methods:
         - name: values
           modifiers:
             - public
@@ -2762,6 +3464,62 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoCell.PerPlayerRender:
+      fields:
+        FlattenGrassEtc:
+          name: FlattenGrassEtc
+          modifiers:
+            - public
+          type:
+            basic: boolean[][]
+        GridStacks:
+          name: GridStacks
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoGridStack
+        maxX:
+          name: maxX
+          modifiers:
+            - public
+          type:
+            basic: int
+        maxY:
+          name: maxY
+          modifiers:
+            - public
+          type:
+            basic: int
+        minX:
+          name: minX
+          modifiers:
+            - public
+          type:
+            basic: int
+        minY:
+          name: minY
+          modifiers:
+            - public
+          type:
+            basic: int
+        StencilValues:
+          name: StencilValues
+          modifiers:
+            - public
+          type:
+            basic: short[][][]
+        VisiCulledFlags:
+          name: VisiCulledFlags
+          modifiers:
+            - public
+          type:
+            basic: boolean[][]
+        VisiOccludedFlags:
+          name: VisiOccludedFlags
+          modifiers:
+            - public
+          type:
+            basic: boolean[][][]
       constructors:
         - modifiers:
             - public
@@ -2786,6 +3544,225 @@ namespaces:
       javaType: class
       extends: Object
     IsoChunk:
+      fields:
+        bDoServerRequests:
+          name: bDoServerRequests
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        bLightingNeverDone:
+          name: bLightingNeverDone
+          modifiers:
+            - public
+            - final
+          type:
+            basic: boolean[]
+        bLoaded:
+          name: bLoaded
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        collision:
+          name: collision
+          modifiers:
+            - public
+            - final
+          type:
+            basic: CollideWithObstaclesPoly.ChunkData
+        corpseData:
+          name: corpseData
+          modifiers:
+            - public
+          type:
+            basic: FliesSound.ChunkData
+        FloorBloodSplats:
+          name: FloorBloodSplats
+          modifiers:
+            - public
+            - final
+          type:
+            basic: BoundedQueue
+        FloorBloodSplatsFade:
+          name: FloorBloodSplatsFade
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        jobType:
+          name: jobType
+          modifiers:
+            - public
+          type:
+            basic: IsoChunk.JobType
+        lightCheck:
+          name: lightCheck
+          modifiers:
+            - public
+            - final
+          type:
+            basic: boolean[]
+        loadGridSquare:
+          name: loadGridSquare
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ConcurrentLinkedQueue
+        lootRespawnHour:
+          name: lootRespawnHour
+          modifiers:
+            - public
+          type:
+            basic: int
+        lotheader:
+          name: lotheader
+          modifiers:
+            - public
+          type:
+            basic: LotHeader
+        m_adjacentChunkLoadedCounter:
+          name: m_adjacentChunkLoadedCounter
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_loadVehiclesObject:
+          name: m_loadVehiclesObject
+          modifiers:
+            - public
+          type:
+            basic: Object
+        m_objectEmitterData:
+          name: m_objectEmitterData
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ObjectAmbientEmitters.ChunkData
+        m_vehicleStorySpawnData:
+          name: m_vehicleStorySpawnData
+          modifiers:
+            - public
+          type:
+            basic: VehicleStorySpawnData
+        maxLevel:
+          name: maxLevel
+          modifiers:
+            - public
+          type:
+            basic: int
+        nearestWalls:
+          name: nearestWalls
+          modifiers:
+            - public
+            - final
+          type:
+            basic: NearestWalls.ChunkData
+        next:
+          name: next
+          modifiers:
+            - public
+          type:
+            basic: IsoChunk
+        ObjectsSyncCount:
+          name: ObjectsSyncCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        randomID:
+          name: randomID
+          modifiers:
+            - public
+          type:
+            basic: int
+        refs:
+          name: refs
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        renderByIndex:
+          name: renderByIndex
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte[][]
+        revision:
+          name: revision
+          modifiers:
+            - public
+          type:
+            basic: long
+        roomLights:
+          name: roomLights
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        SoundList:
+          name: SoundList
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        squares:
+          name: squares
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoGridSquare
+        vehicles:
+          name: vehicles
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        vehiclesForAddToWorld:
+          name: vehiclesForAddToWorld
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        vehiclesForAddToWorldLock:
+          name: vehiclesForAddToWorldLock
+          modifiers:
+            - public
+            - final
+          type:
+            basic: Object
+        WriteLock:
+          name: WriteLock
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: Object
+        wx:
+          name: wx
+          modifiers:
+            - public
+          type:
+            basic: int
+        wy:
+          name: wy
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -2987,6 +3964,20 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: Fix2x
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
+            - name: spriteID
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
         - name: Fix2x
           modifiers:
             - public
@@ -3320,6 +4311,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: bSaveQuit
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: Save
+          modifiers:
+            - public
+          parameters:
             - name: bb
               type:
                 basic: ByteBuffer
@@ -3430,23 +4431,32 @@ namespaces:
       javaType: class
       extends: Object
     IsoChunk.JobType:
-      methods:
-        - name: valueOf
+      fields:
+        Convert:
+          name: Convert
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoChunk.JobType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoChunk.JobType
+        None:
+          name: None
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoChunk.JobType
+        SoftReset:
+          name: SoftReset
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoChunk.JobType
+      methods:
         - name: values
           modifiers:
             - public
@@ -3465,6 +4475,150 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoChunkMap:
+      fields:
+        bSettingChunk:
+          name: bSettingChunk
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ReentrantLock
+        ChunkGridWidth:
+          name: ChunkGridWidth
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        ChunksPerWidth:
+          name: ChunksPerWidth
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        chunkStore:
+          name: chunkStore
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ConcurrentLinkedQueue
+        ChunkWidthInTiles:
+          name: ChunkWidthInTiles
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        filenameServerRequests:
+          name: filenameServerRequests
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        ignore:
+          name: ignore
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        LEVELS:
+          name: LEVELS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        MPWorldXA:
+          name: MPWorldXA
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        MPWorldYA:
+          name: MPWorldYA
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        MPWorldZA:
+          name: MPWorldZA
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        PlayerID:
+          name: PlayerID
+          modifiers:
+            - public
+          type:
+            basic: int
+        SharedChunks:
+          name: SharedChunks
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
+        SWorldX:
+          name: SWorldX
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int[]
+        SWorldY:
+          name: SWorldY
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int[]
+        WorldX:
+          name: WorldX
+          modifiers:
+            - public
+          type:
+            basic: int
+        WorldXA:
+          name: WorldXA
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        WorldY:
+          name: WorldY
+          modifiers:
+            - public
+          type:
+            basic: int
+        WorldYA:
+          name: WorldYA
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        WorldZA:
+          name: WorldZA
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -3790,8 +4944,103 @@ namespaces:
       javaType: class
       extends: Object
     IsoDirections:
+      fields:
+        E:
+          name: E
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        Max:
+          name: Max
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        N:
+          name: N
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        NE:
+          name: NE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        NW:
+          name: NW
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        S:
+          name: S
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        SE:
+          name: SE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        SW:
+          name: SW
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
+        W:
+          name: W
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoDirections
       methods:
         - name: cardinalFromAngle
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: angle
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: IsoDirections
+        - name: fromAngle
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: angleRadians
+              type:
+                basic: float
+          returns:
+            type:
+              basic: IsoDirections
+        - name: fromAngle
           modifiers:
             - public
             - static
@@ -3872,11 +5121,43 @@ namespaces:
         - name: RotLeft
           modifiers:
             - public
+          parameters:
+            - name: time
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoDirections
+        - name: RotLeft
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: IsoDirections
+        - name: RotLeft
+          modifiers:
+            - public
             - static
           parameters:
             - name: dir
               type:
                 basic: IsoDirections
+          returns:
+            type:
+              basic: IsoDirections
+        - name: RotRight
+          modifiers:
+            - public
+          parameters:
+            - name: time
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoDirections
+        - name: RotRight
+          modifiers:
+            - public
           returns:
             type:
               basic: IsoDirections
@@ -3909,22 +5190,6 @@ namespaces:
           returns:
             type:
               basic: Vector2
-        - name: valueOf
-          modifiers:
-            - public
-            - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoDirections
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
         - name: values
           modifiers:
             - public
@@ -3942,6 +5207,13 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoDirectionSet:
+      fields:
+        set:
+          name: set
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -3971,6 +5243,71 @@ namespaces:
       javaType: class
       extends: Object
     IsoFloorBloodSplat:
+      fields:
+        fade:
+          name: fade
+          modifiers:
+            - public
+          type:
+            basic: int
+        FADE_HOURS:
+          name: FADE_HOURS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+        FloorBloodTypes:
+          name: FloorBloodTypes
+          modifiers:
+            - public
+            - static
+          type:
+            basic: String
+        index:
+          name: index
+          modifiers:
+            - public
+          type:
+            basic: int
+        SpriteMap:
+          name: SpriteMap
+          modifiers:
+            - public
+            - static
+          type:
+            basic: HashMap
+        Type:
+          name: Type
+          modifiers:
+            - public
+          type:
+            basic: int
+        worldAge:
+          name: worldAge
+          modifiers:
+            - public
+          type:
+            basic: float
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -4021,6 +5358,15 @@ namespaces:
       javaType: class
       extends: Object
     IsoGridOcclusionData:
+      fields:
+        MAXBUILDINGOCCLUDERS:
+          name: MAXBUILDINGOCCLUDERS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -4078,23 +5424,32 @@ namespaces:
       extends: Object
       notes: Created by ChrisWood (Tanglewood Games Limited) on 09/10/2017.
     IsoGridOcclusionData.OccluderType:
-      methods:
-        - name: valueOf
+      fields:
+        Full:
+          name: Full
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoGridOcclusionData.OccluderType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoGridOcclusionData.OccluderType
+        NotFull:
+          name: NotFull
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridOcclusionData.OccluderType
+        Unknown:
+          name: Unknown
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridOcclusionData.OccluderType
+      methods:
         - name: values
           modifiers:
             - public
@@ -4113,23 +5468,32 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoGridOcclusionData.OcclusionFilter:
-      methods:
-        - name: valueOf
+      fields:
+        All:
+          name: All
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoGridOcclusionData.OcclusionFilter
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoGridOcclusionData.OcclusionFilter
+        Left:
+          name: Left
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridOcclusionData.OcclusionFilter
+        Right:
+          name: Right
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridOcclusionData.OcclusionFilter
+      methods:
         - name: values
           modifiers:
             - public
@@ -4148,6 +5512,358 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoGridSquare:
+      fields:
+        bFlattenGrassEtc:
+          name: bFlattenGrassEtc
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bmod:
+          name: bmod
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        CachedScreenX:
+          name: CachedScreenX
+          modifiers:
+            - public
+          type:
+            basic: float
+        CachedScreenY:
+          name: CachedScreenY
+          modifiers:
+            - public
+          type:
+            basic: float
+        cellGetSquare:
+          name: cellGetSquare
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridSquare.CellGetSquare
+        choices:
+          name: choices
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
+        chunk:
+          name: chunk
+          modifiers:
+            - public
+          type:
+            basic: IsoChunk
+        CircleStencil:
+          name: CircleStencil
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        collideMatrix:
+          name: collideMatrix
+          modifiers:
+            - public
+          type:
+            basic: int
+        e:
+          name: e
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        gmod:
+          name: gmod
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        gridSquareCacheEmptyTimer:
+          name: gridSquareCacheEmptyTimer
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        hashCodeObjects:
+          name: hashCodeObjects
+          modifiers:
+            - public
+          type:
+            basic: long
+        haveRoof:
+          name: haveRoof
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        haveSheetRope:
+          name: haveSheetRope
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        hourLastSeen:
+          name: hourLastSeen
+          modifiers:
+            - public
+          type:
+            basic: int
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: Integer
+        IDMax:
+          name: IDMax
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        isExteriorCache:
+          name: isExteriorCache
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        isoGridSquareCache:
+          name: isoGridSquareCache
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ConcurrentLinkedQueue
+        isOnScreenLast:
+          name: isOnScreenLast
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        isSolidFloorCache:
+          name: isSolidFloorCache
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        isVegitationCache:
+          name: isVegitationCache
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        lighting:
+          name: lighting
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoGridSquare.ILighting
+        loadGridSquareCache:
+          name: loadGridSquareCache
+          modifiers:
+            - public
+            - static
+          type:
+            basic: ArrayDeque
+        n:
+          name: n
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        nav:
+          name: nav
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoGridSquare
+        ne:
+          name: ne
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        nw:
+          name: nw
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        ObjectsSyncCount:
+          name: ObjectsSyncCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        pathMatrix:
+          name: pathMatrix
+          modifiers:
+            - public
+          type:
+            basic: int
+        propertiesDirty:
+          name: propertiesDirty
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        RecalcLightTime:
+          name: RecalcLightTime
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        rmod:
+          name: rmod
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        roofHideBuilding:
+          name: roofHideBuilding
+          modifiers:
+            - public
+          type:
+            basic: IsoBuilding
+        room:
+          name: room
+          modifiers:
+            - public
+          type:
+            basic: IsoRoom
+        roomID:
+          name: roomID
+          modifiers:
+            - public
+          type:
+            basic: int
+        s:
+          name: s
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        se:
+          name: se
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        SolidFloor:
+          name: SolidFloor
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        SolidFloorCached:
+          name: SolidFloorCached
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        sw:
+          name: sw
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        USE_WALL_SHADER:
+          name: USE_WALL_SHADER
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        UseSlowCollision:
+          name: UseSlowCollision
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        visionMatrix:
+          name: visionMatrix
+          modifiers:
+            - public
+          type:
+            basic: int
+        w:
+          name: w
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        WALL_TYPE_E:
+          name: WALL_TYPE_E
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WALL_TYPE_N:
+          name: WALL_TYPE_N
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WALL_TYPE_S:
+          name: WALL_TYPE_S
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WALL_TYPE_W:
+          name: WALL_TYPE_W
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
+        zone:
+          name: zone
+          modifiers:
+            - public
+          type:
+            basic: IsoMetaGrid.Zone
       constructors:
         - modifiers:
             - public
@@ -4214,6 +5930,16 @@ namespaces:
             - name: obj
               type:
                 basic: IsoObject
+          returns:
+            type:
+              basic: void
+        - name: AddSpecialObject
+          modifiers:
+            - public
+          parameters:
+            - name: obj
+              type:
+                basic: IsoObject
             - name: index
               type:
                 basic: int
@@ -4259,12 +5985,82 @@ namespaces:
             - name: obj
               type:
                 basic: IsoObject
+          returns:
+            type:
+              basic: void
+        - name: AddTileObject
+          modifiers:
+            - public
+          parameters:
+            - name: obj
+              type:
+                basic: IsoObject
             - name: index
               type:
                 basic: int
           returns:
             type:
               basic: void
+        - name: AddWorldInventoryItem
+          modifiers:
+            - public
+          parameters:
+            - name: String
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+            - name: nbr
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: AddWorldInventoryItem
+          modifiers:
+            - public
+          parameters:
+            - name: String
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+          returns:
+            type:
+              basic: InventoryItem
+        - name: AddWorldInventoryItem
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: InventoryItem
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: height
+              type:
+                basic: float
+          returns:
+            type:
+              basic: InventoryItem
         - name: AddWorldInventoryItem
           modifiers:
             - public
@@ -4301,6 +6097,12 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: Burn
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
         - name: Burn
           modifiers:
             - public
@@ -4349,12 +6151,63 @@ namespaces:
             - name: bIgnoreSolidTrans
               type:
                 basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: CalculateCollide
+          modifiers:
+            - public
+          parameters:
+            - name: gridSquare
+              type:
+                basic: IsoGridSquare
+            - name: bVision
+              type:
+                basic: boolean
+            - name: bPathfind
+              type:
+                basic: boolean
+            - name: bIgnoreSolidTrans
+              type:
+                basic: boolean
+            - name: bIgnoreSolid
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: CalculateCollide
+          modifiers:
+            - public
+          parameters:
+            - name: gridSquare
+              type:
+                basic: IsoGridSquare
+            - name: bVision
+              type:
+                basic: boolean
+            - name: bPathfind
+              type:
+                basic: boolean
+            - name: bIgnoreSolidTrans
+              type:
+                basic: boolean
             - name: bIgnoreSolid
               type:
                 basic: boolean
             - name: getter
               type:
                 basic: IsoGridSquare.GetSquare
+          returns:
+            type:
+              basic: boolean
+        - name: CalculateVisionBlocked
+          modifiers:
+            - public
+          parameters:
+            - name: gridSquare
+              type:
+                basic: IsoGridSquare
           returns:
             type:
               basic: boolean
@@ -4468,9 +6321,42 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: DistTo
+          modifiers:
+            - public
+          parameters:
+            - name: sq
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: float
+        - name: DistTo
+          modifiers:
+            - public
+          parameters:
             - name: other
               type:
                 basic: IsoMovingObject
+          returns:
+            type:
+              basic: float
+        - name: DistToProper
+          modifiers:
+            - public
+          parameters:
+            - name: sq
+              type:
+                basic: IsoGridSquare
           returns:
             type:
               basic: float
@@ -4705,6 +6591,29 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: FindEnemy
+          modifiers:
+            - public
+          parameters:
+            - name: g
+              type:
+                basic: IsoGameCharacter
+            - name: range
+              type:
+                basic: int
+            - name: EnemyList
+              type:
+                basic: ArrayList
+                full: ArrayList<IsoMovingObject>
+            - name: RangeTest
+              type:
+                basic: IsoGameCharacter
+            - name: TestRangeMax
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoGameCharacter
         - name: FindEnemy
           modifiers:
             - public
@@ -5209,6 +7118,26 @@ namespaces:
                 basic: int
             - name: x
               type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: getMatrixBit
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: matrix
+              type:
+                basic: int
+            - name: x
+              type:
                 basic: byte
             - name: y
               type:
@@ -5239,6 +7168,29 @@ namespaces:
             type:
               basic: IsoGridSquare
             notes: the n
+        - name: getNew
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: cell
+              type:
+                basic: IsoCell
+            - name: slice
+              type:
+                basic: SliceY
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoGridSquare
         - name: getNew
           modifiers:
             - public
@@ -5648,6 +7600,16 @@ namespaces:
         - name: getWindow
           modifiers:
             - public
+          parameters:
+            - name: north
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: IsoWindow
+        - name: getWindow
+          modifiers:
+            - public
           returns:
             type:
               basic: IsoWindow
@@ -5941,6 +7903,16 @@ namespaces:
           parameters:
             - name: flag
               type:
+                basic: IsoFlagType
+          returns:
+            type:
+              basic: boolean
+        - name: Is
+          modifiers:
+            - public
+          parameters:
+            - name: flag
+              type:
                 basic: String
           returns:
             type:
@@ -6048,6 +8020,16 @@ namespaces:
             - name: bCountOtherCharacters
               type:
                 basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: isFreeOrMidair
+          modifiers:
+            - public
+          parameters:
+            - name: bCountOtherCharacters
+              type:
+                basic: boolean
             - name: bDoZombie
               type:
                 basic: boolean
@@ -6083,6 +8065,12 @@ namespaces:
         - name: IsOnScreen
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+        - name: IsOnScreen
+          modifiers:
+            - public
           parameters:
             - name: halfTileBorder
               type:
@@ -6097,6 +8085,12 @@ namespaces:
             type:
               basic: boolean
         - name: isOverlayDone
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+        - name: isSafeToSpawn
           modifiers:
             - public
           returns:
@@ -6224,6 +8218,19 @@ namespaces:
             - name: WorldVersion
               type:
                 basic: int
+          returns:
+            type:
+              basic: void
+        - name: load
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
             - name: IS_DEBUG_SAVE
               type:
                 basic: boolean
@@ -6250,12 +8257,32 @@ namespaces:
             - name: file
               type:
                 basic: String
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
             - name: doWorldSound
               type:
                 basic: boolean
           returns:
             type:
               basic: long
+        - name: RecalcAllWithNeighbours
+          modifiers:
+            - public
+          parameters:
+            - name: bDoReverse
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
         - name: RecalcAllWithNeighbours
           modifiers:
             - public
@@ -6300,6 +8327,16 @@ namespaces:
             - name: square
               type:
                 basic: IsoGridSquare
+          returns:
+            type:
+              basic: void
+        - name: ReCalculateCollide
+          modifiers:
+            - public
+          parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
             - name: getter
               type:
                 basic: IsoGridSquare.GetSquare
@@ -6313,9 +8350,29 @@ namespaces:
             - name: square
               type:
                 basic: IsoGridSquare
+          returns:
+            type:
+              basic: void
+        - name: ReCalculatePathFind
+          modifiers:
+            - public
+          parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
             - name: getter
               type:
                 basic: IsoGridSquare.GetSquare
+          returns:
+            type:
+              basic: void
+        - name: ReCalculateVisionBlocked
+          modifiers:
+            - public
+          parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
           returns:
             type:
               basic: void
@@ -6480,6 +8537,19 @@ namespaces:
         - name: restackSheetRope
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
+            - name: outputObj
+              type:
+                basic: ObjectOutputStream
           returns:
             type:
               basic: void
@@ -6786,6 +8856,29 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: setMatrixBit
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: matrix
+              type:
+                basic: int
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: val
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: int
         - name: setMatrixBit
           modifiers:
             - public
@@ -7163,6 +9256,25 @@ namespaces:
             - name: z
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: testPathFindAdjacent
+          modifiers:
+            - public
+          parameters:
+            - name: mover
+              type:
+                basic: IsoMovingObject
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
             - name: getter
               type:
                 basic: IsoGridSquare.GetSquare
@@ -7285,6 +9397,21 @@ namespaces:
       javaType: class
       extends: Object
     IsoGridSquare.CircleStencilShader:
+      fields:
+        a_wallShadeColor:
+          name: a_wallShadeColor
+          modifiers:
+            - public
+          type:
+            basic: int
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridSquare.CircleStencilShader
       constructors:
         - modifiers:
             - public
@@ -7317,6 +9444,10 @@ namespaces:
     IsoGridSquare.ILighting:
       methods:
         - name: bCanSee
+          returns:
+            type:
+              basic: boolean
+        - name: bCanSee
           parameters:
             - name: canSee
               type:
@@ -7324,6 +9455,10 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: bCouldSee
+          returns:
+            type:
+              basic: boolean
         - name: bCouldSee
           parameters:
             - name: couldSee
@@ -7333,6 +9468,10 @@ namespaces:
             type:
               basic: void
         - name: bSeen
+          returns:
+            type:
+              basic: boolean
+        - name: bSeen
           parameters:
             - name: seen
               type:
@@ -7340,6 +9479,10 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: darkMulti
+          returns:
+            type:
+              basic: float
         - name: darkMulti
           parameters:
             - name: f
@@ -7357,6 +9500,10 @@ namespaces:
             type:
               basic: IsoGridSquare.ResultLight
         - name: lampostTotalB
+          returns:
+            type:
+              basic: float
+        - name: lampostTotalB
           parameters:
             - name: b
               type:
@@ -7365,6 +9512,10 @@ namespaces:
             type:
               basic: void
         - name: lampostTotalG
+          returns:
+            type:
+              basic: float
+        - name: lampostTotalG
           parameters:
             - name: g
               type:
@@ -7372,6 +9523,10 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: lampostTotalR
+          returns:
+            type:
+              basic: float
         - name: lampostTotalR
           parameters:
             - name: r
@@ -7384,6 +9539,14 @@ namespaces:
           returns:
             type:
               basic: ColorInfo
+        - name: lightverts
+          parameters:
+            - name: i
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
         - name: lightverts
           parameters:
             - name: i
@@ -7403,6 +9566,10 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: targetDarkMulti
+          returns:
+            type:
+              basic: float
         - name: targetDarkMulti
           parameters:
             - name: f
@@ -7423,6 +9590,12 @@ namespaces:
         - name: bCanSee
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+        - name: bCanSee
+          modifiers:
+            - public
           parameters:
             - name: canSee
               type:
@@ -7430,6 +9603,12 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: bCouldSee
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
         - name: bCouldSee
           modifiers:
             - public
@@ -7443,6 +9622,12 @@ namespaces:
         - name: bSeen
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+        - name: bSeen
+          modifiers:
+            - public
           parameters:
             - name: seen
               type:
@@ -7450,6 +9635,12 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: darkMulti
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: darkMulti
           modifiers:
             - public
@@ -7473,6 +9664,12 @@ namespaces:
         - name: lampostTotalB
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: lampostTotalB
+          modifiers:
+            - public
           parameters:
             - name: b
               type:
@@ -7483,6 +9680,12 @@ namespaces:
         - name: lampostTotalG
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: lampostTotalG
+          modifiers:
+            - public
           parameters:
             - name: g
               type:
@@ -7490,6 +9693,12 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: lampostTotalR
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: lampostTotalR
           modifiers:
             - public
@@ -7506,6 +9715,16 @@ namespaces:
           returns:
             type:
               basic: ColorInfo
+        - name: lightverts
+          modifiers:
+            - public
+          parameters:
+            - name: i
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
         - name: lightverts
           modifiers:
             - public
@@ -7534,6 +9753,12 @@ namespaces:
         - name: targetDarkMulti
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: targetDarkMulti
+          modifiers:
+            - public
           parameters:
             - name: f
               type:
@@ -7548,6 +9773,27 @@ namespaces:
       javaType: class
       extends: Object
     IsoGridSquare.NoCircleStencilShader:
+      fields:
+        a_wallShadeColor:
+          name: a_wallShadeColor
+          modifiers:
+            - public
+          type:
+            basic: int
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoGridSquare.NoCircleStencilShader
+        ShaderID:
+          name: ShaderID
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -7558,6 +9804,35 @@ namespaces:
       javaType: class
       extends: Object
     IsoGridSquare.PuddlesDirection:
+      fields:
+        PUDDLES_DIR_ALL:
+          name: PUDDLES_DIR_ALL
+          modifiers:
+            - public
+            - static
+          type:
+            basic: byte
+        PUDDLES_DIR_NE:
+          name: PUDDLES_DIR_NE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: byte
+        PUDDLES_DIR_NONE:
+          name: PUDDLES_DIR_NONE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: byte
+        PUDDLES_DIR_NW:
+          name: PUDDLES_DIR_NW
+          modifiers:
+            - public
+            - static
+          type:
+            basic: byte
       constructors:
         - modifiers:
             - public
@@ -7567,6 +9842,85 @@ namespaces:
       javaType: class
       extends: Object
     IsoGridSquare.ResultLight:
+      fields:
+        b:
+          name: b
+          modifiers:
+            - public
+          type:
+            basic: float
+        flags:
+          name: flags
+          modifiers:
+            - public
+          type:
+            basic: int
+        g:
+          name: g
+          modifiers:
+            - public
+          type:
+            basic: float
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: int
+        r:
+          name: r
+          modifiers:
+            - public
+          type:
+            basic: float
+        radius:
+          name: radius
+          modifiers:
+            - public
+          type:
+            basic: int
+        RLF_NONE:
+          name: RLF_NONE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        RLF_ROOMLIGHT:
+          name: RLF_ROOMLIGHT
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        RLF_TORCH:
+          name: RLF_TORCH
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -7588,6 +9942,13 @@ namespaces:
       javaType: class
       extends: Object
     IsoGridStack:
+      fields:
+        Squares:
+          name: Squares
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -7654,6 +10015,25 @@ namespaces:
         - name: isInBounds
           modifiers:
             - public
+          parameters:
+            - name: minX
+              type:
+                basic: int
+            - name: minY
+              type:
+                basic: int
+            - name: maxX
+              type:
+                basic: int
+            - name: maxY
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isInBounds
+          modifiers:
+            - public
           returns:
             type:
               basic: boolean
@@ -7682,6 +10062,140 @@ namespaces:
       javaType: class
       extends: Object
     IsoLightSource:
+      fields:
+        b:
+          name: b
+          modifiers:
+            - public
+          type:
+            basic: float
+        bActive:
+          name: bActive
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bActiveJNI:
+          name: bActiveJNI
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bHydroPowered:
+          name: bHydroPowered
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bJNI:
+          name: bJNI
+          modifiers:
+            - public
+          type:
+            basic: float
+        bWasActive:
+          name: bWasActive
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        chunk:
+          name: chunk
+          modifiers:
+            - public
+          type:
+            basic: IsoChunk
+        g:
+          name: g
+          modifiers:
+            - public
+          type:
+            basic: float
+        gJNI:
+          name: gJNI
+          modifiers:
+            - public
+          type:
+            basic: float
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: int
+        life:
+          name: life
+          modifiers:
+            - public
+          type:
+            basic: int
+        lightMap:
+          name: lightMap
+          modifiers:
+            - public
+          type:
+            basic: Object
+        localToBuilding:
+          name: localToBuilding
+          modifiers:
+            - public
+          type:
+            basic: IsoBuilding
+        NextID:
+          name: NextID
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        r:
+          name: r
+          modifiers:
+            - public
+          type:
+            basic: float
+        radius:
+          name: radius
+          modifiers:
+            - public
+          type:
+            basic: int
+        rJNI:
+          name: rJNI
+          modifiers:
+            - public
+          type:
+            basic: float
+        startlife:
+          name: startlife
+          modifiers:
+            - public
+          type:
+            basic: int
+        switches:
+          name: switches
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -7846,6 +10360,25 @@ namespaces:
         - name: isInBounds
           modifiers:
             - public
+          parameters:
+            - name: minX
+              type:
+                basic: int
+            - name: minY
+              type:
+                basic: int
+            - name: maxX
+              type:
+                basic: int
+            - name: maxY
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isInBounds
+          modifiers:
+            - public
           returns:
             type:
               basic: boolean
@@ -7978,6 +10511,51 @@ namespaces:
       javaType: class
       extends: Object
     IsoLot:
+      fields:
+        InfoFileNames:
+          name: InfoFileNames
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
+        InfoHeaderNames:
+          name: InfoHeaderNames
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
+        InfoHeaders:
+          name: InfoHeaders
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
+        pool:
+          name: pool
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ObjectPool
+        wx:
+          name: wx
+          modifiers:
+            - public
+          type:
+            basic: int
+        wy:
+          name: wy
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -8083,6 +10661,13 @@ namespaces:
       javaType: class
       extends: Object
     IsoLuaMover:
+      fields:
+        luaMoverTable:
+          name: luaMoverTable
+          modifiers:
+            - public
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
       constructors:
         - modifiers:
             - public
@@ -8155,6 +10740,15 @@ namespaces:
       javaType: class
       extends: IsoGameCharacter
     IsoMarkers:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoMarkers
       methods:
         - name: addCircleIsoMarker
           modifiers:
@@ -8178,6 +10772,65 @@ namespaces:
           returns:
             type:
               basic: IsoMarkers.CircleIsoMarker
+        - name: addIsoMarker
+          modifiers:
+            - public
+          parameters:
+            - name: spriteName
+              type:
+                basic: String
+            - name: gs
+              type:
+                basic: IsoGridSquare
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: doAlpha
+              type:
+                basic: boolean
+            - name: doIsoObject
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: IsoMarkers.IsoMarker
+        - name: addIsoMarker
+          modifiers:
+            - public
+          parameters:
+            - name: textureTable
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: textureOverlayTable
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: gs
+              type:
+                basic: IsoGridSquare
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: doAlpha
+              type:
+                basic: boolean
+            - name: doIsoObject
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: IsoMarkers.IsoMarker
         - name: addIsoMarker
           modifiers:
             - public
@@ -8248,9 +10901,29 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: marker
+              type:
+                basic: IsoMarkers.CircleIsoMarker
+          returns:
+            type:
+              basic: boolean
+        - name: removeCircleIsoMarker
+          modifiers:
+            - public
+          parameters:
             - name: id
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: removeIsoMarker
+          modifiers:
+            - public
+          parameters:
+            - name: marker
+              type:
+                basic: IsoMarkers.IsoMarker
           returns:
             type:
               basic: boolean
@@ -8728,6 +11401,59 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: textureTable
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: textureOverlayTable
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: gs
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: textureTable
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: textureOverlayTable
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: gs
+              type:
+                basic: IsoGridSquare
+            - name: doTempIsoObject
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+          parameters:
             - name: spriteName
               type:
                 basic: String
@@ -8912,6 +11638,48 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaCell:
+      fields:
+        ChunkMap:
+          name: ChunkMap
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoMetaChunk
+        info:
+          name: info
+          modifiers:
+            - public
+          type:
+            basic: LotHeader
+        mannequinZones:
+          name: mannequinZones
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        roomTones:
+          name: roomTones
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        triggers:
+          name: triggers
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        vehicleZones:
+          name: vehicleZones
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -9075,6 +11843,23 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaChunk:
+      fields:
+        zombiesFullPerChunk:
+          name: zombiesFullPerChunk
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+        zombiesMinPerChunk:
+          name: zombiesMinPerChunk
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -9190,6 +11975,16 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: getZombieIntensity
+          modifiers:
+            - public
+          parameters:
+            - name: bRandom
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: float
         - name: getZombieIntensity
           modifiers:
             - public
@@ -9311,6 +12106,65 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaGrid:
+      fields:
+        Buildings:
+          name: Buildings
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        Grid:
+          name: Grid
+          modifiers:
+            - public
+          type:
+            basic: IsoMetaCell
+        maxX:
+          name: maxX
+          modifiers:
+            - public
+          type:
+            basic: int
+        maxY:
+          name: maxY
+          modifiers:
+            - public
+          type:
+            basic: int
+        MetaCharacters:
+          name: MetaCharacters
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        minX:
+          name: minX
+          modifiers:
+            - public
+          type:
+            basic: int
+        minY:
+          name: minY
+          modifiers:
+            - public
+          type:
+            basic: int
+        VehiclesZones:
+          name: VehiclesZones
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        Zones:
+          name: Zones
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -9670,10 +12524,48 @@ namespaces:
             - name: z
               type:
                 basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getZonesAt
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
             - name: result
               type:
                 basic: ArrayList
                 full: ArrayList<IsoMetaGrid.Zone>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getZonesIntersecting
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: w
+              type:
+                basic: int
+            - name: h
+              type:
+                basic: int
           returns:
             type:
               basic: ArrayList
@@ -9787,6 +12679,12 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: load
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
         - name: load
           modifiers:
             - public
@@ -9965,6 +12863,34 @@ namespaces:
             - name: height
               type:
                 basic: int
+          returns:
+            type:
+              basic: IsoMetaGrid.Zone
+        - name: registerZone
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: type
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: width
+              type:
+                basic: int
+            - name: height
+              type:
+                basic: int
             - name: geometryType
               type:
                 basic: IsoMetaGrid.ZoneGeometryType
@@ -10051,6 +12977,16 @@ namespaces:
         - name: save
           modifiers:
             - public
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
           returns:
             type:
               basic: void
@@ -10086,6 +13022,37 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaGrid.RoomTone:
+      fields:
+        entireBuilding:
+          name: entireBuilding
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        enumValue:
+          name: enumValue
+          modifiers:
+            - public
+          type:
+            basic: String
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -10096,6 +13063,43 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaGrid.Trigger:
+      fields:
+        data:
+          name: data
+          modifiers:
+            - public
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+        def:
+          name: def
+          modifiers:
+            - public
+          type:
+            basic: BuildingDef
+        triggered:
+          name: triggered
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        triggerRange:
+          name: triggerRange
+          modifiers:
+            - public
+          type:
+            basic: int
+        type:
+          name: type
+          modifiers:
+            - public
+          type:
+            basic: String
+        zombieExclusionRange:
+          name: zombieExclusionRange
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -10126,6 +13130,27 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaGrid.VehicleZone:
+      fields:
+        dir:
+          name: dir
+          modifiers:
+            - public
+          type:
+            basic: IsoDirections
+        flags:
+          name: flags
+          modifiers:
+            - public
+          type:
+            basic: short
+        VZF_FaceDirection:
+          name: VZF_FaceDirection
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
       constructors:
         - modifiers:
             - public
@@ -10168,6 +13193,159 @@ namespaces:
       javaType: class
       extends: IsoMetaGrid.Zone
     IsoMetaGrid.Zone:
+      fields:
+        geometryType:
+          name: geometryType
+          modifiers:
+            - public
+          type:
+            basic: IsoMetaGrid.ZoneGeometryType
+        h:
+          name: h
+          modifiers:
+            - public
+          type:
+            basic: int
+        haveConstruction:
+          name: haveConstruction
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        hourLastSeen:
+          name: hourLastSeen
+          modifiers:
+            - public
+          type:
+            basic: int
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: Double
+        isPreferredZoneForSquare:
+          name: isPreferredZoneForSquare
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        lastActionTimestamp:
+          name: lastActionTimestamp
+          modifiers:
+            - public
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        pickedRZStory:
+          name: pickedRZStory
+          modifiers:
+            - public
+          type:
+            basic: RandomizedZoneStoryBase
+        pickedXForZoneStory:
+          name: pickedXForZoneStory
+          modifiers:
+            - public
+          type:
+            basic: int
+        pickedYForZoneStory:
+          name: pickedYForZoneStory
+          modifiers:
+            - public
+          type:
+            basic: int
+        points:
+          name: points
+          modifiers:
+            - public
+            - final
+          type:
+            basic: gnu.trove.list.array.TIntArrayList
+        polylineOutlinePoints:
+          name: polylineOutlinePoints
+          modifiers:
+            - public
+          type:
+            basic: float[]
+        polylineWidth:
+          name: polylineWidth
+          modifiers:
+            - public
+          type:
+            basic: int
+        spawnedZombies:
+          name: spawnedZombies
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        spawnSpecialZombies:
+          name: spawnSpecialZombies
+          modifiers:
+            - public
+          type:
+            basic: Boolean
+        totalArea:
+          name: totalArea
+          modifiers:
+            - public
+          type:
+            basic: float
+        triangleAreas:
+          name: triangleAreas
+          modifiers:
+            - public
+          type:
+            basic: float[]
+        triangles:
+          name: triangles
+          modifiers:
+            - public
+          type:
+            basic: float[]
+        type:
+          name: type
+          modifiers:
+            - public
+          type:
+            basic: String
+        w:
+          name: w
+          modifiers:
+            - public
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
+        zombiesTypeToSpawn:
+          name: zombiesTypeToSpawn
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -10582,23 +13760,40 @@ namespaces:
       javaType: class
       extends: Object
     IsoMetaGrid.ZoneGeometryType:
-      methods:
-        - name: valueOf
+      fields:
+        INVALID:
+          name: INVALID
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoMetaGrid.ZoneGeometryType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoMetaGrid.ZoneGeometryType
+        Point:
+          name: Point
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoMetaGrid.ZoneGeometryType
+        Polygon:
+          name: Polygon
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoMetaGrid.ZoneGeometryType
+        Polyline:
+          name: Polyline
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoMetaGrid.ZoneGeometryType
+      methods:
         - name: values
           modifiers:
             - public
@@ -10617,6 +13812,102 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoMovingObject:
+      fields:
+        bOutline:
+          name: bOutline
+          modifiers:
+            - public
+            - final
+          type:
+            basic: boolean[]
+        def:
+          name: def
+          modifiers:
+            - public
+          type:
+            basic: IsoSpriteInstance
+        last:
+          name: last
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        lx:
+          name: lx
+          modifiers:
+            - public
+          type:
+            basic: float
+        ly:
+          name: ly
+          modifiers:
+            - public
+          type:
+            basic: float
+        lz:
+          name: lz
+          modifiers:
+            - public
+          type:
+            basic: float
+        MAX_ZOMBIES_EATING:
+          name: MAX_ZOMBIES_EATING
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        noDamage:
+          name: noDamage
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        nx:
+          name: nx
+          modifiers:
+            - public
+          type:
+            basic: float
+        ny:
+          name: ny
+          modifiers:
+            - public
+          type:
+            basic: float
+        outlineColor:
+          name: outlineColor
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ColorInfo
+        treeSoundMgr:
+          name: treeSoundMgr
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IsoMovingObject.TreeSoundManager
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -10690,6 +13981,19 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+          returns:
+            type:
+              basic: float
+        - name: DistTo
+          modifiers:
+            - public
+          parameters:
             - name: other
               type:
                 basic: IsoMovingObject
@@ -10709,6 +14013,16 @@ namespaces:
             - name: other
               type:
                 basic: IsoObject
+          returns:
+            type:
+              basic: float
+        - name: DistToSquared
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: IsoMovingObject
           returns:
             type:
               basic: float
@@ -10846,6 +14160,12 @@ namespaces:
           returns:
             type:
               basic: IsoGridSquare
+        - name: getGlobalMovementMod
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: getGlobalMovementMod
           modifiers:
             - public
@@ -11080,6 +14400,16 @@ namespaces:
         - name: getVectorFromDirection
           modifiers:
             - public
+          parameters:
+            - name: moveForwardVec
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: Vector2
+        - name: getVectorFromDirection
+          modifiers:
+            - public
             - static
           parameters:
             - name: moveForwardVec
@@ -11091,6 +14421,12 @@ namespaces:
           returns:
             type:
               basic: Vector2
+        - name: getWeight
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: getWeight
           modifiers:
             - public
@@ -12021,6 +15357,273 @@ namespaces:
       javaType: class
       extends: Object
     IsoObject:
+      fields:
+        AttachedAnimSprite:
+          name: AttachedAnimSprite
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        bAlphaForced:
+          name: bAlphaForced
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bmod:
+          name: bmod
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        bNeverDoneAlpha:
+          name: bNeverDoneAlpha
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        container:
+          name: container
+          modifiers:
+            - public
+          type:
+            basic: ItemContainer
+        Damage:
+          name: Damage
+          modifiers:
+            - public
+          type:
+            basic: short
+        dir:
+          name: dir
+          modifiers:
+            - public
+          type:
+            basic: IsoDirections
+        doNotSync:
+          name: doNotSync
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        emitter:
+          name: emitter
+          modifiers:
+            - public
+          type:
+            basic: BaseSoundEmitter
+        gmod:
+          name: gmod
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        highlightFlags:
+          name: highlightFlags
+          modifiers:
+            - public
+          type:
+            basic: byte
+        keyId:
+          name: keyId
+          modifiers:
+            - public
+          type:
+            basic: int
+        lastRendered:
+          name: lastRendered
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IsoObject
+        lastRenderedRendered:
+          name: lastRenderedRendered
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IsoObject
+        LowLightingQualityHack:
+          name: LowLightingQualityHack
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        MAX_WALL_SPLATS:
+          name: MAX_WALL_SPLATS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        NoPicking:
+          name: NoPicking
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        OBF_Blink:
+          name: OBF_Blink
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        OBF_Highlighted:
+          name: OBF_Highlighted
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        OBF_HighlightRenderOnce:
+          name: OBF_HighlightRenderOnce
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        offsetX:
+          name: offsetX
+          modifiers:
+            - public
+          type:
+            basic: float
+        offsetY:
+          name: offsetY
+          modifiers:
+            - public
+          type:
+            basic: float
+        OutlineOnMouseover:
+          name: OutlineOnMouseover
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        overlaySprite:
+          name: overlaySprite
+          modifiers:
+            - public
+          type:
+            basic: IsoSprite
+        overlaySpriteColor:
+          name: overlaySpriteColor
+          modifiers:
+            - public
+          type:
+            basic: ColorInfo
+        partialThumpDmg:
+          name: partialThumpDmg
+          modifiers:
+            - public
+          type:
+            basic: float
+        rerouteCollide:
+          name: rerouteCollide
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
+        rerouteMask:
+          name: rerouteMask
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
+        rmod:
+          name: rmod
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        sheetRope:
+          name: sheetRope
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        sheetRopeHealth:
+          name: sheetRopeHealth
+          modifiers:
+            - public
+          type:
+            basic: float
+        sprite:
+          name: sprite
+          modifiers:
+            - public
+          type:
+            basic: IsoSprite
+        spriteName:
+          name: spriteName
+          modifiers:
+            - public
+          type:
+            basic: String
+        square:
+          name: square
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        sx:
+          name: sx
+          modifiers:
+            - public
+          type:
+            basic: float
+        sy:
+          name: sy
+          modifiers:
+            - public
+          type:
+            basic: float
+        table:
+          name: table
+          modifiers:
+            - public
+          type:
+            basic: se.krka.kahlua.vm.KahluaTable
+        tintb:
+          name: tintb
+          modifiers:
+            - public
+          type:
+            basic: float
+        tintg:
+          name: tintg
+          modifiers:
+            - public
+          type:
+            basic: float
+        tintr:
+          name: tintr
+          modifiers:
+            - public
+          type:
+            basic: float
+        wallBloodSplats:
+          name: wallBloodSplats
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -12158,6 +15761,37 @@ namespaces:
             - name: frameIncrease
               type:
                 basic: float
+            - name: OffsetX
+              type:
+                basic: int
+            - name: OffsetY
+              type:
+                basic: int
+            - name: Looping
+              type:
+                basic: boolean
+            - name: FinishHoldFrameIndex
+              type:
+                basic: int
+            - name: DeleteWhenFinished
+              type:
+                basic: boolean
+            - name: zBias
+              type:
+                basic: float
+            - name: TintMod
+              type:
+                basic: ColorInfo
+          returns:
+            type:
+              basic: void
+        - name: AttachExistingAnim
+          modifiers:
+            - public
+          parameters:
+            - name: spr
+              type:
+                basic: IsoSprite
             - name: OffsetX
               type:
                 basic: int
@@ -12364,6 +15998,20 @@ namespaces:
             - name: cell
               type:
                 basic: IsoCell
+            - name: classID
+              type:
+                basic: byte
+          returns:
+            type:
+              basic: IsoObject
+        - name: factoryFromFileInput
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: cell
+              type:
+                basic: IsoCell
             - name: b
               type:
                 basic: ByteBuffer
@@ -12400,6 +16048,17 @@ namespaces:
             - public
             - static
           parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: IsoObject
+        - name: FindExternalWaterSource
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: x
               type:
                 basic: int
@@ -12423,6 +16082,13 @@ namespaces:
           returns:
             type:
               basic: IsoObject
+        - name: getAlpha
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+            notes: the alpha
         - name: getAlpha
           modifiers:
             - public
@@ -12641,6 +16307,26 @@ namespaces:
           modifiers:
             - public
             - static
+          parameters:
+            - name: sq
+              type:
+                basic: IsoGridSquare
+            - name: spriteName
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: bShareTilesWithMap
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: IsoObject
+        - name: getNew
+          modifiers:
+            - public
+            - static
           returns:
             type:
               basic: IsoObject
@@ -12680,6 +16366,13 @@ namespaces:
           returns:
             type:
               basic: float
+        - name: getOutlineHighlightCol
+          modifiers:
+            - public
+            - final
+          returns:
+            type:
+              basic: int
         - name: getOutlineHighlightCol
           modifiers:
             - public
@@ -12826,6 +16519,13 @@ namespaces:
             type:
               basic: se.krka.kahlua.vm.KahluaTable
             notes: the table
+        - name: getTargetAlpha
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
+            notes: the targetAlpha
         - name: getTargetAlpha
           modifiers:
             - public
@@ -12997,6 +16697,13 @@ namespaces:
         - name: isAlphaAndTargetZero
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+          notes: Returns TRUE if both Alpha nad TargetAlpha are transparent, or near-zero.
+        - name: isAlphaAndTargetZero
+          modifiers:
+            - public
           parameters:
             - name: playerIndex
               type:
@@ -13004,6 +16711,13 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: isAlphaZero
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: Returns TRUE if Alpha is transparent, or near-zero.
         - name: isAlphaZero
           modifiers:
             - public
@@ -13079,6 +16793,19 @@ namespaces:
             - name: y
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isMaskClicked
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
             - name: flip
               type:
                 basic: boolean
@@ -13108,6 +16835,13 @@ namespaces:
           modifiers:
             - public
             - final
+          returns:
+            type:
+              basic: boolean
+        - name: isOutlineHighlight
+          modifiers:
+            - public
+            - final
           parameters:
             - name: playerIndex
               type:
@@ -13119,10 +16853,23 @@ namespaces:
           modifiers:
             - public
             - final
+          returns:
+            type:
+              basic: boolean
+        - name: isOutlineHlAttached
+          modifiers:
+            - public
+            - final
           parameters:
             - name: playerIndex
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: isOutlineHlBlink
+          modifiers:
+            - public
           returns:
             type:
               basic: boolean
@@ -13218,6 +16965,20 @@ namespaces:
         - name: load
           modifiers:
             - public
+            - final
+          parameters:
+            - name: input
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: load
+          modifiers:
+            - public
           parameters:
             - name: input
               type:
@@ -13239,6 +17000,16 @@ namespaces:
               type:
                 basic: String
             - name: bb
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: loadFromRemoteBuffer
+          modifiers:
+            - public
+          parameters:
+            - name: b
               type:
                 basic: ByteBuffer
           returns:
@@ -13576,6 +17347,17 @@ namespaces:
         - name: save
           modifiers:
             - public
+            - final
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
           parameters:
             - name: output
               type:
@@ -13619,6 +17401,29 @@ namespaces:
             - name: change
               type:
                 basic: String
+          returns:
+            type:
+              basic: void
+        - name: sendObjectChange
+          modifiers:
+            - public
+          parameters:
+            - name: change
+              type:
+                basic: String
+            - name: tbl
+              type:
+                basic: se.krka.kahlua.vm.KahluaTable
+          returns:
+            type:
+              basic: void
+        - name: sendObjectChange
+          modifiers:
+            - public
+          parameters:
+            - name: change
+              type:
+                basic: String
             - name: args
               type:
                 basic: Object...
@@ -13635,9 +17440,31 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: alpha
+              type:
+                basic: float
+              notes: the alpha to set
+          returns:
+            type:
+              basic: void
+        - name: setAlpha
+          modifiers:
+            - public
+          parameters:
             - name: playerIndex
               type:
                 basic: int
+            - name: alpha
+              type:
+                basic: float
+              notes: the alpha to set
+          returns:
+            type:
+              basic: void
+        - name: setAlphaAndTarget
+          modifiers:
+            - public
+          parameters:
             - name: alpha
               type:
                 basic: float
@@ -13719,6 +17546,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: col
+              type:
+                basic: ColorInfo
+          returns:
+            type:
+              basic: void
+        - name: setCustomColor
+          modifiers:
+            - public
+          parameters:
             - name: r
               type:
                 basic: float
@@ -13762,8 +17599,29 @@ namespaces:
           parameters:
             - name: dir
               type:
+                basic: IsoDirections
+              notes: the dir to set
+          returns:
+            type:
+              basic: void
+        - name: setDir
+          modifiers:
+            - public
+          parameters:
+            - name: dir
+              type:
                 basic: int
               notes: the dir to set
+          returns:
+            type:
+              basic: void
+        - name: setHighlightColor
+          modifiers:
+            - public
+          parameters:
+            - name: highlightColor
+              type:
+                basic: ColorInfo
           returns:
             type:
               basic: void
@@ -13783,6 +17641,16 @@ namespaces:
             - name: a
               type:
                 basic: float
+          returns:
+            type:
+              basic: void
+        - name: setHighlighted
+          modifiers:
+            - public
+          parameters:
+            - name: highlight
+              type:
+                basic: boolean
           returns:
             type:
               basic: void
@@ -13902,12 +17770,68 @@ namespaces:
             - public
             - final
           parameters:
+            - name: isOutlineHighlight
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOutlineHighlight
+          modifiers:
+            - public
+            - final
+          parameters:
             - name: playerIndex
               type:
                 basic: int
             - name: isOutlineHighlight
               type:
                 basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOutlineHighlightCol
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: outlineHighlightCol
+              type:
+                basic: ColorInfo
+          returns:
+            type:
+              basic: void
+        - name: setOutlineHighlightCol
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: playerIndex
+              type:
+                basic: int
+            - name: outlineHighlightCol
+              type:
+                basic: ColorInfo
+          returns:
+            type:
+              basic: void
+        - name: setOutlineHighlightCol
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
           returns:
             type:
               basic: void
@@ -13937,12 +17861,32 @@ namespaces:
         - name: setOutlineHlAttached
           modifiers:
             - public
+          parameters:
+            - name: isOutlineHlAttached
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOutlineHlAttached
+          modifiers:
+            - public
             - final
           parameters:
             - name: playerIndex
               type:
                 basic: int
             - name: isOutlineHlAttached
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOutlineHlBlink
+          modifiers:
+            - public
+          parameters:
+            - name: isOutlineHlBlink
               type:
                 basic: boolean
           returns:
@@ -13978,6 +17922,51 @@ namespaces:
             - public
           parameters:
             - name: outlineThickness
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setOverlaySprite
+          modifiers:
+            - public
+          parameters:
+            - name: spriteName
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setOverlaySprite
+          modifiers:
+            - public
+          parameters:
+            - name: spriteName
+              type:
+                basic: String
+            - name: bTransmit
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setOverlaySprite
+          modifiers:
+            - public
+          parameters:
+            - name: spriteName
+              type:
+                basic: String
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
               type:
                 basic: float
           returns:
@@ -14044,6 +18033,16 @@ namespaces:
             - name: type
               type:
                 basic: RenderEffectType
+          returns:
+            type:
+              basic: void
+        - name: setRenderEffect
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: RenderEffectType
             - name: reuseEqualType
               type:
                 basic: boolean
@@ -14096,6 +18095,17 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: sprite
+              type:
+                basic: IsoSprite
+              notes: the sprite to set
+          returns:
+            type:
+              basic: void
+        - name: setSprite
+          modifiers:
+            - public
+          parameters:
             - name: name
               type:
                 basic: String
@@ -14141,6 +18151,17 @@ namespaces:
             - name: tainted
               type:
                 basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setTargetAlpha
+          modifiers:
+            - public
+          parameters:
+            - name: targetAlpha
+              type:
+                basic: float
+              notes: the targetAlpha to set
           returns:
             type:
               basic: void
@@ -14311,6 +18332,16 @@ namespaces:
         - name: transmitUpdatedSpriteToClients
           modifiers:
             - public
+          parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: transmitUpdatedSpriteToClients
+          modifiers:
+            - public
           returns:
             type:
               basic: void
@@ -14419,6 +18450,15 @@ namespaces:
       javaType: class
       extends: Object
     IsoObject.OutlineShader:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoObject.OutlineShader
       constructors:
         - modifiers:
             - public
@@ -14476,23 +18516,32 @@ namespaces:
       javaType: class
       extends: Object
     IsoObject.VisionResult:
-      methods:
-        - name: valueOf
+      fields:
+        Blocked:
+          name: Blocked
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoObject.VisionResult
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoObject.VisionResult
+        NoEffect:
+          name: NoEffect
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoObject.VisionResult
+        Unblocked:
+          name: Unblocked
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoObject.VisionResult
+      methods:
         - name: values
           modifiers:
             - public
@@ -14511,6 +18560,70 @@ namespaces:
       javaType: enum
       extends: Enum
     IsoObjectPicker:
+      fields:
+        ClickObjectStore:
+          name: ClickObjectStore
+          modifiers:
+            - public
+          type:
+            basic: IsoObjectPicker.ClickObject
+        count:
+          name: count
+          modifiers:
+            - public
+          type:
+            basic: int
+        counter:
+          name: counter
+          modifiers:
+            - public
+          type:
+            basic: int
+        dirty:
+          name: dirty
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Instance:
+          name: Instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoObjectPicker
+        maxcount:
+          name: maxcount
+          modifiers:
+            - public
+          type:
+            basic: int
+        ThisFrame:
+          name: ThisFrame
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        wasDirty:
+          name: wasDirty
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        xOffSinceDirty:
+          name: xOffSinceDirty
+          modifiers:
+            - public
+          type:
+            basic: float
+        yOffSinceDirty:
+          name: yOffSinceDirty
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -14719,6 +18832,67 @@ namespaces:
       javaType: class
       extends: Object
     IsoObjectPicker.ClickObject:
+      fields:
+        height:
+          name: height
+          modifiers:
+            - public
+          type:
+            basic: int
+        lx:
+          name: lx
+          modifiers:
+            - public
+          type:
+            basic: int
+        ly:
+          name: ly
+          modifiers:
+            - public
+          type:
+            basic: int
+        scaleX:
+          name: scaleX
+          modifiers:
+            - public
+          type:
+            basic: float
+        scaleY:
+          name: scaleY
+          modifiers:
+            - public
+          type:
+            basic: float
+        square:
+          name: square
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        tile:
+          name: tile
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
+        width:
+          name: width
+          modifiers:
+            - public
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -14742,10 +18916,37 @@ namespaces:
       javaType: class
       extends: Object
     IsoObjectSyncRequests:
+      fields:
+        requests:
+          name: requests
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        timeout:
+          name: timeout
+          modifiers:
+            - public
+          type:
+            basic: long
       constructors:
         - modifiers:
             - public
       methods:
+        - name: putRequest
+          modifiers:
+            - public
+          parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
+            - name: obj
+              type:
+                basic: IsoObject
+          returns:
+            type:
+              basic: void
         - name: putRequest
           modifiers:
             - public
@@ -14811,6 +19012,37 @@ namespaces:
       extends: Object
       notes: Created by kroto on 6/23/2017.
     IsoPhysicsObject:
+      fields:
+        speedMod:
+          name: speedMod
+          modifiers:
+            - public
+          type:
+            basic: float
+        terminalVelocity:
+          name: terminalVelocity
+          modifiers:
+            - public
+          type:
+            basic: float
+        velX:
+          name: velX
+          modifiers:
+            - public
+          type:
+            basic: float
+        velY:
+          name: velY
+          modifiers:
+            - public
+          type:
+            basic: float
+        velZ:
+          name: velZ
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -14852,6 +19084,84 @@ namespaces:
       javaType: class
       extends: IsoMovingObject
     IsoPuddles:
+      fields:
+        BOOL_MAX:
+          name: BOOL_MAX
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        Effect:
+          name: Effect
+          modifiers:
+            - public
+          type:
+            basic: Shader
+        FLOAT_MAX:
+          name: FLOAT_MAX
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        FLOAT_MUDDYPUDDLES:
+          name: FLOAT_MUDDYPUDDLES
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        FLOAT_PUDDLESSIZE:
+          name: FLOAT_PUDDLESSIZE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        FLOAT_RAIN:
+          name: FLOAT_RAIN
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        FLOAT_RAININTENSITY:
+          name: FLOAT_RAININTENSITY
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        FLOAT_WETGROUND:
+          name: FLOAT_WETGROUND
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        leakingPuddlesInTheRoom:
+          name: leakingPuddlesInTheRoom
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        VBOs:
+          name: VBOs
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SharedVertexBufferObjects
       constructors:
         - modifiers:
             - public
@@ -15138,6 +19448,15 @@ namespaces:
       javaType: class
       extends: Object
     IsoPuddlesGeometry:
+      fields:
+        pool:
+          name: pool
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ObjectPool
       constructors:
         - modifiers:
             - public
@@ -15180,6 +19499,37 @@ namespaces:
       javaType: class
       extends: Object
     IsoPushableObject:
+      fields:
+        carryCapacity:
+          name: carryCapacity
+          modifiers:
+            - public
+          type:
+            basic: int
+        connectList:
+          name: connectList
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        emptyWeight:
+          name: emptyWeight
+          modifiers:
+            - public
+          type:
+            basic: float
+        ox:
+          name: ox
+          modifiers:
+            - public
+          type:
+            basic: float
+        oy:
+          name: oy
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -15316,6 +19666,92 @@ namespaces:
       extends: Object
       notes: TurboTuTone.
     IsoRoomLight:
+      fields:
+        b:
+          name: b
+          modifiers:
+            - public
+          type:
+            basic: float
+        bActive:
+          name: bActive
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bActiveJNI:
+          name: bActiveJNI
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bHydroPowered:
+          name: bHydroPowered
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        g:
+          name: g
+          modifiers:
+            - public
+          type:
+            basic: float
+        height:
+          name: height
+          modifiers:
+            - public
+          type:
+            basic: int
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: int
+        NextID:
+          name: NextID
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        r:
+          name: r
+          modifiers:
+            - public
+          type:
+            basic: float
+        room:
+          name: room
+          modifiers:
+            - public
+          type:
+            basic: IsoRoom
+        width:
+          name: width
+          modifiers:
+            - public
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -15401,6 +19837,26 @@ namespaces:
             - name: toY
               type:
                 basic: float
+          returns:
+            type:
+              basic: float
+        - name: DistanceManhatten
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: fromX
+              type:
+                basic: float
+            - name: fromY
+              type:
+                basic: float
+            - name: toX
+              type:
+                basic: float
+            - name: toY
+              type:
+                basic: float
             - name: fromZ
               type:
                 basic: float
@@ -15411,6 +19867,26 @@ namespaces:
             type:
               basic: float
         - name: DistanceManhattenSquare
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: fromX
+              type:
+                basic: float
+            - name: fromY
+              type:
+                basic: float
+            - name: toX
+              type:
+                basic: float
+            - name: toY
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: DistanceTo
           modifiers:
             - public
             - static
@@ -15471,6 +19947,32 @@ namespaces:
               type:
                 basic: float
             - name: toY
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: DistanceToSquared
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: fromX
+              type:
+                basic: float
+            - name: fromY
+              type:
+                basic: float
+            - name: fromZ
+              type:
+                basic: float
+            - name: toX
+              type:
+                basic: float
+            - name: toY
+              type:
+                basic: float
+            - name: toZ
               type:
                 basic: float
           returns:
@@ -15733,6 +20235,19 @@ namespaces:
       javaType: class
       extends: Object
     IsoWallBloodSplat:
+      fields:
+        sprite:
+          name: sprite
+          modifiers:
+            - public
+          type:
+            basic: IsoSprite
+        worldAge:
+          name: worldAge
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -15794,6 +20309,13 @@ namespaces:
       javaType: class
       extends: Object
     IsoWater:
+      fields:
+        Effect:
+          name: Effect
+          modifiers:
+            - public
+          type:
+            basic: Shader
       constructors:
         - modifiers:
             - public
@@ -16014,6 +20536,15 @@ namespaces:
       javaType: class
       extends: Object
     IsoWaterGeometry:
+      fields:
+        pool:
+          name: pool
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ObjectPool
       constructors:
         - modifiers:
             - public
@@ -16046,6 +20577,678 @@ namespaces:
       javaType: class
       extends: Object
     IsoWorld:
+      fields:
+        AddCoopPlayers:
+          name: AddCoopPlayers
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        bDoChunkMapUpdate:
+          name: bDoChunkMapUpdate
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Characters:
+          name: Characters
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        CurrentCell:
+          name: CurrentCell
+          modifiers:
+            - public
+          type:
+            basic: IsoCell
+        emitterUpdate:
+          name: emitterUpdate
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        helicopter:
+          name: helicopter
+          modifiers:
+            - public
+            - final
+          type:
+            basic: Helicopter
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IsoWorld
+        mapPath:
+          name: mapPath
+          modifiers:
+            - public
+            - static
+          type:
+            basic: String
+        mapUseJar:
+          name: mapUseJar
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        MetaGrid:
+          name: MetaGrid
+          modifiers:
+            - public
+            - final
+          type:
+            basic: IsoMetaGrid
+        NoZombies:
+          name: NoZombies
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        PropertyValueMap:
+          name: PropertyValueMap
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
+        SavedWorldVersion:
+          name: SavedWorldVersion
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        saveoffsetx:
+          name: saveoffsetx
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        saveoffsety:
+          name: saveoffsety
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        sky:
+          name: sky
+          modifiers:
+            - public
+          type:
+            basic: SkyBox
+        SurvivorDescriptors:
+          name: SurvivorDescriptors
+          modifiers:
+            - public
+          type:
+            basic: HashMap
+        SurvivorSurvivalRecord:
+          name: SurvivorSurvivalRecord
+          modifiers:
+            - public
+          type:
+            basic: int
+        TotalSurvivorNights:
+          name: TotalSurvivorNights
+          modifiers:
+            - public
+          type:
+            basic: int
+        TotalSurvivorsDead:
+          name: TotalSurvivorsDead
+          modifiers:
+            - public
+          type:
+            basic: int
+        TotalWorldVersion:
+          name: TotalWorldVersion
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        WorldVersion:
+          name: WorldVersion
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_AlarmClockRingSince:
+          name: WorldVersion_AlarmClockRingSince
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_AllPatches:
+          name: WorldVersion_AllPatches
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_AlreadyReadBooks1:
+          name: WorldVersion_AlreadyReadBooks1
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_AlreadyReadBooks2:
+          name: WorldVersion_AlreadyReadBooks2
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_AttachedSlotType:
+          name: WorldVersion_AttachedSlotType
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_Barricade:
+          name: WorldVersion_Barricade
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_BodyLocation:
+          name: WorldVersion_BodyLocation
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_CanUpgradePerk:
+          name: WorldVersion_CanUpgradePerk
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_CharacterModelData:
+          name: WorldVersion_CharacterModelData
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_CharacterModelData2:
+          name: WorldVersion_CharacterModelData2
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_CharacterModelData3:
+          name: WorldVersion_CharacterModelData3
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ChunkSpawnedRooms:
+          name: WorldVersion_ChunkSpawnedRooms
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ChunkVehicles:
+          name: WorldVersion_ChunkVehicles
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ClimateAdded:
+          name: WorldVersion_ClimateAdded
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ClimateColors:
+          name: WorldVersion_ClimateColors
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ClothingPatchSaveLoad:
+          name: WorldVersion_ClothingPatchSaveLoad
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_CompostLastUpdated:
+          name: WorldVersion_CompostLastUpdated
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ContainerMaxCapacity:
+          name: WorldVersion_ContainerMaxCapacity
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_CruiseSpeedSaving:
+          name: WorldVersion_CruiseSpeedSaving
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DayLengthHours:
+          name: WorldVersion_DayLengthHours
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeadBodyAngle:
+          name: WorldVersion_DeadBodyAngle
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeadBodyAtlas:
+          name: WorldVersion_DeadBodyAtlas
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeadBodyFakeDead:
+          name: WorldVersion_DeadBodyFakeDead
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeadBodyID:
+          name: WorldVersion_DeadBodyID
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeadBodyPersistentOutfitID:
+          name: WorldVersion_DeadBodyPersistentOutfitID
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeadBodyZombieRotStage:
+          name: WorldVersion_DeadBodyZombieRotStage
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_DeathDragDown:
+          name: WorldVersion_DeathDragDown
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_Fitness:
+          name: WorldVersion_Fitness
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_Fitness2:
+          name: WorldVersion_Fitness2
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_FliesSound:
+          name: WorldVersion_FliesSound
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_GeneratorFuelFloat:
+          name: WorldVersion_GeneratorFuelFloat
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_HumanVisualBlood:
+          name: WorldVersion_HumanVisualBlood
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_IgnoreRemoveSandbox:
+          name: WorldVersion_IgnoreRemoveSandbox
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_InfectionTime:
+          name: WorldVersion_InfectionTime
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ItemContainerIdenticalItems:
+          name: WorldVersion_ItemContainerIdenticalItems
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ItemContainerIdenticalItemsInt:
+          name: WorldVersion_ItemContainerIdenticalItemsInt
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ItemVisualFullType:
+          name: WorldVersion_ItemVisualFullType
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_KateBobStorm:
+          name: WorldVersion_KateBobStorm
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_KnownMediaLines:
+          name: WorldVersion_KnownMediaLines
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_LampOnPillar:
+          name: WorldVersion_LampOnPillar
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_LampOnPillar2:
+          name: WorldVersion_LampOnPillar2
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_LootRespawn:
+          name: WorldVersion_LootRespawn
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_MapMetaBounds:
+          name: WorldVersion_MapMetaBounds
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_MediaDisksAndTapes:
+          name: WorldVersion_MediaDisksAndTapes
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_NaturalHairBeardColor:
+          name: WorldVersion_NaturalHairBeardColor
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_NewFog:
+          name: WorldVersion_NewFog
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_NewSandboxLootModifier:
+          name: WorldVersion_NewSandboxLootModifier
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_NoiseMakerDuration:
+          name: WorldVersion_NoiseMakerDuration
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_OverlappingGenerators:
+          name: WorldVersion_OverlappingGenerators
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_PerkName:
+          name: WorldVersion_PerkName
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_PlayerVehicleSeat:
+          name: WorldVersion_PlayerVehicleSeat
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_PolygonZone:
+          name: WorldVersion_PolygonZone
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_PolylineZone:
+          name: WorldVersion_PolylineZone
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_SandboxOptions:
+          name: WorldVersion_SandboxOptions
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_Scarecrow:
+          name: WorldVersion_Scarecrow
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_Thermos:
+          name: WorldVersion_Thermos
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_TimedActionInstantCheat:
+          name: WorldVersion_TimedActionInstantCheat
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_VehicleBlood:
+          name: WorldVersion_VehicleBlood
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_VehicleJNITransform:
+          name: WorldVersion_VehicleJNITransform
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_VehicleLightFocusing:
+          name: WorldVersion_VehicleLightFocusing
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_VehicleSirenStartTime:
+          name: WorldVersion_VehicleSirenStartTime
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_VehicleTowAttachment:
+          name: WorldVersion_VehicleTowAttachment
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_VehicleTowingID:
+          name: WorldVersion_VehicleTowingID
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        WorldVersion_ZombieRotStage:
+          name: WorldVersion_ZombieRotStage
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -16113,6 +21316,12 @@ namespaces:
         - name: getAllTiles
           modifiers:
             - public
+          returns:
+            type:
+              basic: HashMap
+        - name: getAllTiles
+          modifiers:
+            - public
           parameters:
             - name: filename
               type:
@@ -16150,6 +21359,12 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: getFreeEmitter
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: BaseSoundEmitter
         - name: getFreeEmitter
           modifiers:
             - public
@@ -16472,10 +21687,32 @@ namespaces:
           parameters:
             - name: in
               type:
+                basic: RandomAccessFile
+          returns:
+            type:
+              basic: int
+        - name: readInt
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: in
+              type:
                 basic: InputStream
           returns:
             type:
               basic: int
+        - name: readString
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: in
+              type:
+                basic: RandomAccessFile
+          returns:
+            type:
+              basic: String
         - name: readString
           modifiers:
             - public
@@ -16935,6 +22172,37 @@ namespaces:
       javaType: class
       extends: Object
     IsoWorld.MetaCell:
+      fields:
+        from:
+          name: from
+          modifiers:
+            - public
+          type:
+            basic: int[][]
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        zombieCount:
+          name: zombieCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        zombieMigrateDirection:
+          name: zombieMigrateDirection
+          modifiers:
+            - public
+          type:
+            basic: IsoDirections
       constructors:
         - modifiers:
             - public
@@ -16944,6 +22212,30 @@ namespaces:
       javaType: class
       extends: Object
     LightingJNI:
+      fields:
+        ForcedVis:
+          name: ForcedVis
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int[][]
+        init:
+          name: init
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        ROOM_SPAWN_DIST:
+          name: ROOM_SPAWN_DIST
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -17826,6 +23118,12 @@ namespaces:
         - name: bCanSee
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+        - name: bCanSee
+          modifiers:
+            - public
           parameters:
             - name: canSee
               type:
@@ -17833,6 +23131,12 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: bCouldSee
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
         - name: bCouldSee
           modifiers:
             - public
@@ -17846,6 +23150,12 @@ namespaces:
         - name: bSeen
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+        - name: bSeen
+          modifiers:
+            - public
           parameters:
             - name: seen
               type:
@@ -17853,6 +23163,12 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: darkMulti
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: darkMulti
           modifiers:
             - public
@@ -17876,6 +23192,12 @@ namespaces:
         - name: lampostTotalB
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: lampostTotalB
+          modifiers:
+            - public
           parameters:
             - name: b
               type:
@@ -17886,6 +23208,12 @@ namespaces:
         - name: lampostTotalG
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: lampostTotalG
+          modifiers:
+            - public
           parameters:
             - name: g
               type:
@@ -17893,6 +23221,12 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: lampostTotalR
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: lampostTotalR
           modifiers:
             - public
@@ -17909,6 +23243,16 @@ namespaces:
           returns:
             type:
               basic: ColorInfo
+        - name: lightverts
+          modifiers:
+            - public
+          parameters:
+            - name: i
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
         - name: lightverts
           modifiers:
             - public
@@ -17937,6 +23281,12 @@ namespaces:
         - name: targetDarkMulti
           modifiers:
             - public
+          returns:
+            type:
+              basic: float
+        - name: targetDarkMulti
+          modifiers:
+            - public
           parameters:
             - name: f
               type:
@@ -17951,6 +23301,41 @@ namespaces:
       javaType: class
       extends: Object
     LightingThread:
+      fields:
+        bFinished:
+          name: bFinished
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        DebugLockTime:
+          name: DebugLockTime
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: LightingThread
+        Interrupted:
+          name: Interrupted
+          modifiers:
+            - public
+            - volatile
+          type:
+            basic: boolean
+        lightingThread:
+          name: lightingThread
+          modifiers:
+            - public
+          type:
+            basic: Thread
       constructors:
         - modifiers:
             - public
@@ -18025,6 +23410,42 @@ namespaces:
       javaType: class
       extends: Object
     LosUtil:
+      fields:
+        cachecleared:
+          name: cachecleared
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean[]
+        cachedresults:
+          name: cachedresults
+          modifiers:
+            - public
+            - static
+          type:
+            basic: byte[][][][]
+        XSIZE:
+          name: XSIZE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        YSIZE:
+          name: YSIZE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        ZSIZE:
+          name: ZSIZE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -18043,6 +23464,38 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: lineClear
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: cell
+              type:
+                basic: IsoCell
+            - name: x0
+              type:
+                basic: int
+            - name: y0
+              type:
+                basic: int
+            - name: z0
+              type:
+                basic: int
+            - name: x1
+              type:
+                basic: int
+            - name: y1
+              type:
+                basic: int
+            - name: z1
+              type:
+                basic: int
+            - name: bIgnoreDoors
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: LosUtil.TestResults
         - name: lineClear
           modifiers:
             - public
@@ -18180,23 +23633,48 @@ namespaces:
       javaType: class
       extends: Object
     LosUtil.TestResults:
-      methods:
-        - name: valueOf
+      fields:
+        Blocked:
+          name: Blocked
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: LosUtil.TestResults
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: LosUtil.TestResults
+        Clear:
+          name: Clear
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: LosUtil.TestResults
+        ClearThroughClosedDoor:
+          name: ClearThroughClosedDoor
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: LosUtil.TestResults
+        ClearThroughOpenDoor:
+          name: ClearThroughOpenDoor
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: LosUtil.TestResults
+        ClearThroughWindow:
+          name: ClearThroughWindow
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: LosUtil.TestResults
+      methods:
         - name: values
           modifiers:
             - public
@@ -18215,6 +23693,100 @@ namespaces:
       javaType: enum
       extends: Enum
     LotHeader:
+      fields:
+        bFixed2x:
+          name: bFixed2x
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        BuildingByMetaID:
+          name: BuildingByMetaID
+          modifiers:
+            - public
+            - final
+          type:
+            basic: gnu.trove.map.hash.TLongObjectHashMap
+            full: gnu.trove.map.hash.TLongObjectHashMap<
+        Buildings:
+          name: Buildings
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        cellX:
+          name: cellX
+          modifiers:
+            - public
+          type:
+            basic: int
+        cellY:
+          name: cellY
+          modifiers:
+            - public
+          type:
+            basic: int
+        height:
+          name: height
+          modifiers:
+            - public
+          type:
+            basic: int
+        isoBuildings:
+          name: isoBuildings
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        isoRooms:
+          name: isoRooms
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        levels:
+          name: levels
+          modifiers:
+            - public
+          type:
+            basic: int
+        RoomByMetaID:
+          name: RoomByMetaID
+          modifiers:
+            - public
+            - final
+          type:
+            basic: gnu.trove.map.hash.TLongObjectHashMap
+            full: gnu.trove.map.hash.TLongObjectHashMap<
+        RoomList:
+          name: RoomList
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        Rooms:
+          name: Rooms
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        version:
+          name: version
+          modifiers:
+            - public
+          type:
+            basic: int
+        width:
+          name: width
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -18338,6 +23910,15 @@ namespaces:
       javaType: class
       extends: Object
     MultiStageBuilding:
+      fields:
+        stages:
+          name: stages
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -18396,6 +23977,17 @@ namespaces:
             - public
             - static
           parameters:
+            - name: square
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: int
+        - name: ClosestWallDistance
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: chunk
               type:
                 basic: IsoChunk
@@ -18443,6 +24035,79 @@ namespaces:
       javaType: class
       extends: Object
     ObjectsSyncRequests:
+      fields:
+        ClientSendChunkHashes:
+          name: ClientSendChunkHashes
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
+        ClientSendGridSquareRequest:
+          name: ClientSendGridSquareRequest
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
+        ClientSendObjectRequests:
+          name: ClientSendObjectRequests
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
+        requestsSyncIsoChunk:
+          name: requestsSyncIsoChunk
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        requestsSyncIsoGridSquare:
+          name: requestsSyncIsoGridSquare
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        requestsSyncIsoObject:
+          name: requestsSyncIsoObject
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        ServerSendGridSquareHashes:
+          name: ServerSendGridSquareHashes
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
+        ServerSendGridSquareObjectsHashes:
+          name: ServerSendGridSquareObjectsHashes
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
+        ServerSendObject:
+          name: ServerSendObject
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: short
+        timeout:
+          name: timeout
+          modifiers:
+            - public
+          type:
+            basic: long
       constructors:
         - modifiers:
             - public
@@ -18573,6 +24238,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: udpEngine
+              type:
+                basic: UdpEngine
+          returns:
+            type:
+              basic: void
+        - name: serverSendRequests
+          modifiers:
+            - public
+          parameters:
             - name: connection
               type:
                 basic: UdpConnection
@@ -18586,6 +24261,36 @@ namespaces:
       extends: Object
       notes: Created by krotos139 on 11/6/2017.
     Particles:
+      fields:
+        funcs:
+          name: funcs
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IGLBufferObject
+        ParticleSystems:
+          name: ParticleSystems
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
+        ParticleSystemsCount:
+          name: ParticleSystemsCount
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        ParticleSystemsLast:
+          name: ParticleSystemsLast
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -18730,6 +24435,25 @@ namespaces:
       javaType: class
       extends: ArrayList
     ParticlesFire:
+      fields:
+        EffectFire:
+          name: EffectFire
+          modifiers:
+            - public
+          type:
+            basic: FireShader
+        EffectSmoke:
+          name: EffectSmoke
+          modifiers:
+            - public
+          type:
+            basic: SmokeShader
+        EffectVape:
+          name: EffectVape
+          modifiers:
+            - public
+          type:
+            basic: Shader
       constructors:
         - modifiers:
             - public
@@ -18789,6 +24513,104 @@ namespaces:
       javaType: class
       extends: Particles
     PlayerCamera:
+      fields:
+        DeferedX:
+          name: DeferedX
+          modifiers:
+            - public
+          type:
+            basic: float
+        DeferedY:
+          name: DeferedY
+          modifiers:
+            - public
+          type:
+            basic: float
+        lastOffX:
+          name: lastOffX
+          modifiers:
+            - public
+          type:
+            basic: float
+        lastOffY:
+          name: lastOffY
+          modifiers:
+            - public
+          type:
+            basic: float
+        OffscreenHeight:
+          name: OffscreenHeight
+          modifiers:
+            - public
+          type:
+            basic: int
+        OffscreenWidth:
+          name: OffscreenWidth
+          modifiers:
+            - public
+          type:
+            basic: int
+        OffX:
+          name: OffX
+          modifiers:
+            - public
+          type:
+            basic: float
+        OffY:
+          name: OffY
+          modifiers:
+            - public
+          type:
+            basic: float
+        playerIndex:
+          name: playerIndex
+          modifiers:
+            - public
+            - final
+          type:
+            basic: int
+        RightClickTargetX:
+          name: RightClickTargetX
+          modifiers:
+            - public
+          type:
+            basic: float
+        RightClickTargetY:
+          name: RightClickTargetY
+          modifiers:
+            - public
+          type:
+            basic: float
+        RightClickX:
+          name: RightClickX
+          modifiers:
+            - public
+          type:
+            basic: float
+        RightClickY:
+          name: RightClickY
+          modifiers:
+            - public
+          type:
+            basic: float
+        TOffX:
+          name: TOffX
+          modifiers:
+            - public
+          type:
+            basic: float
+        TOffY:
+          name: TOffY
+          modifiers:
+            - public
+          type:
+            basic: float
+        zoom:
+          name: zoom
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -18968,6 +24790,111 @@ namespaces:
       javaType: class
       extends: Shader
     RoomDef:
+      fields:
+        area:
+          name: area
+          modifiers:
+            - public
+          type:
+            basic: int
+        bDoneSpawn:
+          name: bDoneSpawn
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bExplored:
+          name: bExplored
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bLightsActive:
+          name: bLightsActive
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        building:
+          name: building
+          modifiers:
+            - public
+          type:
+            basic: BuildingDef
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: int
+        IndoorZombies:
+          name: IndoorZombies
+          modifiers:
+            - public
+          type:
+            basic: int
+        level:
+          name: level
+          modifiers:
+            - public
+          type:
+            basic: int
+        metaID:
+          name: metaID
+          modifiers:
+            - public
+          type:
+            basic: long
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        objects:
+          name: objects
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        rects:
+          name: rects
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        spawnCount:
+          name: spawnCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        x2:
+          name: x2
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        y2:
+          name: y2
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -19021,6 +24948,16 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: getAreaOverlapping
+          modifiers:
+            - public
+          parameters:
+            - name: chunk
+              type:
+                basic: IsoChunk
+          returns:
+            type:
+              basic: float
         - name: getAreaOverlapping
           modifiers:
             - public
@@ -19258,6 +25195,31 @@ namespaces:
       javaType: class
       extends: Object
     RoomDef.RoomRect:
+      fields:
+        h:
+          name: h
+          modifiers:
+            - public
+          type:
+            basic: int
+        w:
+          name: w
+          modifiers:
+            - public
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -19708,6 +25670,23 @@ namespaces:
       javaType: class
       extends: Object
     SliceY:
+      fields:
+        SliceBuffer:
+          name: SliceBuffer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ByteBuffer
+        SliceBufferLock:
+          name: SliceBufferLock
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: Object
       constructors:
         - modifiers:
             - public
@@ -19747,6 +25726,15 @@ namespaces:
       javaType: class
       extends: Shader
     SpawnPoints:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SpawnPoints
       constructors:
         - modifiers:
             - public
@@ -19797,6 +25785,15 @@ namespaces:
       javaType: class
       extends: Object
     TallFenceShader:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: TallFenceShader
       constructors:
         - modifiers:
             - public
@@ -19960,6 +25957,15 @@ namespaces:
         - public
       javaType: class
     TileOverlays:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: TileOverlays
       constructors:
         - modifiers:
             - public
@@ -20015,6 +26021,21 @@ namespaces:
       javaType: class
       extends: Object
     Vector2:
+      fields:
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+          notes: The horizontal part of this vector
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+          notes: The vertical part of this vector
       constructors:
         - modifiers:
             - public
@@ -20136,6 +26157,26 @@ namespaces:
         - name: dot
           modifiers:
             - public
+            - static
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: tx
+              type:
+                basic: float
+            - name: ty
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: dot
+          modifiers:
+            - public
           parameters:
             - name: other
               type:
@@ -20186,6 +26227,12 @@ namespaces:
             type:
               basic: Vector2
           notes: Create a new vector with a specified length and direction
+        - name: getDirection
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: float
         - name: getDirection
           modifiers:
             - public
@@ -20257,6 +26304,16 @@ namespaces:
         - name: scale
           modifiers:
             - public
+          parameters:
+            - name: scale
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: scale
+          modifiers:
+            - public
             - static
           parameters:
             - name: val
@@ -20268,6 +26325,18 @@ namespaces:
           returns:
             type:
               basic: Vector2
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: Vector2
+              notes: The Vector2 to copy
+          returns:
+            type:
+              basic: Vector2
+          notes: Make this vector identical to another vector
         - name: set
           modifiers:
             - public
@@ -20366,20 +26435,33 @@ namespaces:
               basic: Point
             notes: a java.awt.Point
           notes: Convert this vector to an AWT Point
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
-            notes: A String representing this vector
-          notes: Returns a string representing this vector
       modifiers:
         - public
         - final
       javaType: class
       extends: Object
     Vector3:
+      fields:
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+          notes: The horizontal part of this vector
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+          notes: The vertical part of this vector
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -20420,6 +26502,19 @@ namespaces:
               basic: Vector2
             notes: The result as new Vector2
           notes: Add another vector to this one and return as a new vector
+        - name: addToThis
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: Vector2
+              notes: The other Vector2 to add to this one
+          returns:
+            type:
+              basic: Vector3
+            notes: This vector, with the other vector added
+          notes: Add another vector to this one and store the result in this one
         - name: addToThis
           modifiers:
             - public
@@ -20486,6 +26581,26 @@ namespaces:
           returns:
             type:
               basic: Vector3
+        - name: dot
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: tx
+              type:
+                basic: float
+            - name: ty
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
         - name: dot
           modifiers:
             - public
@@ -20603,6 +26718,18 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: other
+              type:
+                basic: Vector3
+              notes: The Vector2 to copy
+          returns:
+            type:
+              basic: Vector3
+          notes: Make this vector identical to another vector
+        - name: set
+          modifiers:
+            - public
+          parameters:
             - name: x
               type:
                 basic: float
@@ -20659,6 +26786,19 @@ namespaces:
         - name: sub
           modifiers:
             - public
+          parameters:
+            - name: val
+              type:
+                basic: Vector3
+            - name: out
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: Vector3
+        - name: sub
+          modifiers:
+            - public
             - static
           parameters:
             - name: a
@@ -20689,14 +26829,6 @@ namespaces:
               basic: Point
             notes: a java.awt.Point
           notes: Convert this vector to an AWT Point
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
-            notes: A String representing this vector
-          notes: Returns a string representing this vector
       modifiers:
         - public
         - final
@@ -20743,6 +26875,28 @@ namespaces:
       javaType: class
       extends: Shader
     WorldConverter:
+      fields:
+        converting:
+          name: converting
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldConverter
+        TilesetConversions:
+          name: TilesetConversions
+          modifiers:
+            - public
+          type:
+            basic: HashMap
       constructors:
         - modifiers:
             - public
@@ -20772,6 +26926,15 @@ namespaces:
       javaType: class
       extends: Object
     WorldMarkers:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldMarkers
       methods:
         - name: addDirectionArrow
           modifiers:
@@ -20807,6 +26970,62 @@ namespaces:
           returns:
             type:
               basic: WorldMarkers.DirectionArrow
+        - name: addGridSquareMarker
+          modifiers:
+            - public
+          parameters:
+            - name: gs
+              type:
+                basic: IsoGridSquare
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: doAlpha
+              type:
+                basic: boolean
+            - name: size
+              type:
+                basic: float
+          returns:
+            type:
+              basic: WorldMarkers.GridSquareMarker
+        - name: addGridSquareMarker
+          modifiers:
+            - public
+          parameters:
+            - name: texid
+              type:
+                basic: String
+            - name: overlay
+              type:
+                basic: String
+            - name: gs
+              type:
+                basic: IsoGridSquare
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: doAlpha
+              type:
+                basic: boolean
+            - name: size
+              type:
+                basic: float
+          returns:
+            type:
+              basic: WorldMarkers.GridSquareMarker
         - name: addGridSquareMarker
           modifiers:
             - public
@@ -20847,6 +27066,50 @@ namespaces:
           returns:
             type:
               basic: WorldMarkers.GridSquareMarker
+        - name: addPlayerHomingPoint
+          modifiers:
+            - public
+          parameters:
+            - name: player
+              type:
+                basic: IsoPlayer
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+          returns:
+            type:
+              basic: WorldMarkers.PlayerHomingPoint
+        - name: addPlayerHomingPoint
+          modifiers:
+            - public
+          parameters:
+            - name: player
+              type:
+                basic: IsoPlayer
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: WorldMarkers.PlayerHomingPoint
         - name: addPlayerHomingPoint
           modifiers:
             - public
@@ -20967,6 +27230,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: arrow
+              type:
+                basic: WorldMarkers.DirectionArrow
+          returns:
+            type:
+              basic: boolean
+        - name: removeDirectionArrow
+          modifiers:
+            - public
+          parameters:
             - name: id
               type:
                 basic: int
@@ -20977,9 +27250,29 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: marker
+              type:
+                basic: WorldMarkers.GridSquareMarker
+          returns:
+            type:
+              basic: boolean
+        - name: removeGridSquareMarker
+          modifiers:
+            - public
+          parameters:
             - name: id
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: removeHomingPoint
+          modifiers:
+            - public
+          parameters:
+            - name: point
+              type:
+                basic: WorldMarkers.PlayerHomingPoint
           returns:
             type:
               basic: boolean
@@ -21000,9 +27293,35 @@ namespaces:
             - name: player
               type:
                 basic: IsoPlayer
+            - name: arrow
+              type:
+                basic: WorldMarkers.DirectionArrow
+          returns:
+            type:
+              basic: boolean
+        - name: removePlayerDirectionArrow
+          modifiers:
+            - public
+          parameters:
+            - name: player
+              type:
+                basic: IsoPlayer
             - name: id
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: removePlayerHomingPoint
+          modifiers:
+            - public
+          parameters:
+            - name: player
+              type:
+                basic: IsoPlayer
+            - name: point
+              type:
+                basic: WorldMarkers.PlayerHomingPoint
           returns:
             type:
               basic: boolean
@@ -21806,6 +28125,20 @@ namespaces:
       javaType: class
       extends: Object
     WorldObjectsSyncRequests:
+      fields:
+        requests:
+          name: requests
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        timeout:
+          name: timeout
+          modifiers:
+            - public
+          type:
+            basic: long
       constructors:
         - modifiers:
             - public
@@ -21850,6 +28183,21 @@ namespaces:
       extends: Object
       notes: Created by kroto on 11/6/2017.
     WorldReuserThread:
+      fields:
+        finished:
+          name: finished
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldReuserThread
       constructors:
         - modifiers:
             - public
@@ -21899,6 +28247,26 @@ namespaces:
       extends: Object
       notes: Created by LEMMY on 07/05/2017.
     WorldStreamer:
+      fields:
+        bFinished:
+          name: bFinished
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+          type:
+            basic: WorldStreamer
+        worldStreamer:
+          name: worldStreamer
+          modifiers:
+            - public
+          type:
+            basic: Thread
       constructors:
         - modifiers:
             - public

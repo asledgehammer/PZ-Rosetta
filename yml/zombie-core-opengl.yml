@@ -1,6 +1,15 @@
 namespaces:
   zombie.core.opengl:
     CharacterModelCamera:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CharacterModelCamera
       constructors:
         - modifiers:
             - public
@@ -23,6 +32,79 @@ namespaces:
       javaType: class
       extends: ModelCamera
     GLState:
+      fields:
+        AlphaFunc:
+          name: AlphaFunc
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CAlphaFunc
+        AlphaTest:
+          name: AlphaTest
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CAlphaTest
+        BlendFunc:
+          name: BlendFunc
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CBlendFunc
+        BlendFuncSeparate:
+          name: BlendFuncSeparate
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CBlendFuncSeparate
+        ColorMask:
+          name: ColorMask
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CColorMask
+        StencilFunc:
+          name: StencilFunc
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CStencilFunc
+        StencilMask:
+          name: StencilMask
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CStencilMask
+        StencilOp:
+          name: StencilOp
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CStencilOp
+        StencilTest:
+          name: StencilTest
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CStencilTest
       constructors:
         - modifiers:
             - public
@@ -128,6 +210,19 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: a
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GLState.C2IntsValue
+        - name: set
+          modifiers:
+            - public
+          parameters:
             - name: other
               type:
                 basic: IOpenGLState.Value
@@ -155,6 +250,22 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: a
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: c
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GLState.C3IntsValue
         - name: set
           modifiers:
             - public
@@ -190,6 +301,25 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: a
+              type:
+                basic: boolean
+            - name: b
+              type:
+                basic: boolean
+            - name: c
+              type:
+                basic: boolean
+            - name: d
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: GLState.C4BooleansValue
+        - name: set
+          modifiers:
+            - public
+          parameters:
             - name: other
               type:
                 basic: IOpenGLState.Value
@@ -217,6 +347,25 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: a
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: int
+            - name: c
+              type:
+                basic: int
+            - name: d
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GLState.C4IntsValue
         - name: set
           modifiers:
             - public
@@ -274,6 +423,23 @@ namespaces:
       javaType: class
       extends: GLState.Base4Ints
     GLState.CBooleanValue:
+      fields:
+        "FALSE":
+          name: "FALSE"
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CBooleanValue
+        "TRUE":
+          name: "TRUE"
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GLState.CBooleanValue
       methods:
         - name: equals
           modifiers:
@@ -329,6 +495,19 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: a
+              type:
+                basic: int
+            - name: b
+              type:
+                basic: float
+          returns:
+            type:
+              basic: GLState.CIntFloatValue
+        - name: set
+          modifiers:
+            - public
+          parameters:
             - name: other
               type:
                 basic: IOpenGLState.Value
@@ -356,6 +535,16 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: a
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GLState.CIntValue
         - name: set
           modifiers:
             - public
@@ -534,9 +723,31 @@ namespaces:
             - public
             - static
           parameters:
+            - name: matrix
+              type:
+                basic: org.joml.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: loadMatrix
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: mode
               type:
                 basic: int
+            - name: matrix
+              type:
+                basic: org.joml.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: multMatrix
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: matrix
               type:
                 basic: org.joml.Matrix4f
@@ -763,6 +974,55 @@ namespaces:
       extends: Object
       notes: TurboTuTone.
     RenderSettings.PlayerRenderSettings:
+      fields:
+        CM_Ambient:
+          name: CM_Ambient
+          modifiers:
+            - public
+          type:
+            basic: float
+        CM_DayLightStrength:
+          name: CM_DayLightStrength
+          modifiers:
+            - public
+          type:
+            basic: float
+        CM_Desaturation:
+          name: CM_Desaturation
+          modifiers:
+            - public
+          type:
+            basic: float
+        CM_FogIntensity:
+          name: CM_FogIntensity
+          modifiers:
+            - public
+          type:
+            basic: float
+        CM_GlobalLight:
+          name: CM_GlobalLight
+          modifiers:
+            - public
+          type:
+            basic: ClimateColorInfo
+        CM_GlobalLightIntensity:
+          name: CM_GlobalLightIntensity
+          modifiers:
+            - public
+          type:
+            basic: float
+        CM_NightStrength:
+          name: CM_NightStrength
+          modifiers:
+            - public
+          type:
+            basic: float
+        CM_ViewDistance:
+          name: CM_ViewDistance
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -869,6 +1129,22 @@ namespaces:
       javaType: class
       extends: Object
     RenderThread:
+      fields:
+        m_contextLock:
+          name: m_contextLock
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: Object
+        RenderThread:
+          name: RenderThread
+          modifiers:
+            - public
+            - static
+          type:
+            basic: Thread
       constructors:
         - modifiers:
             - public
@@ -898,6 +1174,71 @@ namespaces:
           modifiers:
             - public
             - static
+          returns:
+            type:
+              basic: void
+        - name: invokeOnRenderContext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: toInvoke
+              type:
+                basic: Runnable
+          returns:
+            type:
+              basic: void
+        - name: invokeOnRenderContext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: val1
+              type:
+                basic: T1
+            - name: invoker
+              type:
+                basic: Invokers.Params1.ICallback
+                full: Invokers.Params1.ICallback<T1>
+          returns:
+            type:
+              basic: void
+        - name: invokeOnRenderContext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: val1
+              type:
+                basic: T1
+            - name: val2
+              type:
+                basic: T2
+            - name: invoker
+              type:
+                basic: Invokers.Params2.ICallback
+                full: Invokers.Params2.ICallback<T1,T2>
+          returns:
+            type:
+              basic: void
+        - name: invokeOnRenderContext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: val1
+              type:
+                basic: T1
+            - name: val2
+              type:
+                basic: T2
+            - name: val3
+              type:
+                basic: T3
+            - name: invoker
+              type:
+                basic: Invokers.Params3.ICallback
+                full: Invokers.Params3.ICallback<T1,T2,T3>
           returns:
             type:
               basic: void
@@ -961,6 +1302,17 @@ namespaces:
             - name: glEx
               type:
                 basic: org.lwjglx.opengl.OpenGLException
+          returns:
+            type:
+              basic: void
+        - name: logGLException
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: glEx
+              type:
+                basic: org.lwjglx.opengl.OpenGLException
             - name: stackTrace
               type:
                 basic: boolean
@@ -971,6 +1323,17 @@ namespaces:
           modifiers:
             - public
             - static
+          returns:
+            type:
+              basic: void
+        - name: queueInvokeOnRenderContext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: runnable
+              type:
+                basic: Runnable
           returns:
             type:
               basic: void
@@ -1029,6 +1392,38 @@ namespaces:
       javaType: class
       extends: Object
     Shader:
+      fields:
+        height:
+          name: height
+          modifiers:
+            - public
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        ShaderMap:
+          name: ShaderMap
+          modifiers:
+            - public
+            - static
+          type:
+            basic: HashMap
+        tex:
+          name: tex
+          modifiers:
+            - public
+          type:
+            basic: Texture
+        width:
+          name: width
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1252,6 +1647,20 @@ namespaces:
         - name: getUniform
           modifiers:
             - public
+            - final
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: type
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ShaderProgram.Uniform
+        - name: getUniform
+          modifiers:
+            - public
           parameters:
             - name: loc
               type:
@@ -1312,6 +1721,71 @@ namespaces:
             - name: loc
               type:
                 basic: String
+            - name: val
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: matrix4f
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
             - name: tex
               type:
                 basic: Texture
@@ -1351,6 +1825,22 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val_x
+              type:
+                basic: float
+            - name: val_y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setVector2
+          modifiers:
+            - public
+          parameters:
             - name: id
               type:
                 basic: int
@@ -1358,6 +1848,25 @@ namespaces:
               type:
                 basic: float
             - name: y
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setVector3
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val_x
+              type:
+                basic: float
+            - name: val_y
+              type:
+                basic: float
+            - name: val_z
               type:
                 basic: float
           returns:
@@ -1377,6 +1886,28 @@ namespaces:
               type:
                 basic: float
             - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setVector4
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val_x
+              type:
+                basic: float
+            - name: val_y
+              type:
+                basic: float
+            - name: val_z
+              type:
+                basic: float
+            - name: val_w
               type:
                 basic: float
           returns:
@@ -1416,6 +1947,37 @@ namespaces:
       javaType: class
       extends: Object
     ShaderProgram.Uniform:
+      fields:
+        loc:
+          name: loc
+          modifiers:
+            - public
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        sampler:
+          name: sampler
+          modifiers:
+            - public
+          type:
+            basic: int
+        size:
+          name: size
+          modifiers:
+            - public
+          type:
+            basic: int
+        type:
+          name: type
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1487,23 +2049,24 @@ namespaces:
       javaType: class
       extends: Object
     ShaderUnit.Type:
-      methods:
-        - name: valueOf
+      fields:
+        Frag:
+          name: Frag
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: ShaderUnit.Type
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: ShaderUnit.Type
+        Vert:
+          name: Vert
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ShaderUnit.Type
+      methods:
         - name: values
           modifiers:
             - public
@@ -1522,6 +2085,26 @@ namespaces:
       javaType: enum
       extends: Enum
     SharedVertexBufferObjects:
+      fields:
+        bufferSizeVertices:
+          name: bufferSizeVertices
+          modifiers:
+            - public
+            - final
+          type:
+            basic: int
+        indices:
+          name: indices
+          modifiers:
+            - public
+          type:
+            basic: ShortBuffer
+        vertices:
+          name: vertices
+          modifiers:
+            - public
+          type:
+            basic: FloatBuffer
       constructors:
         - modifiers:
             - public
@@ -1574,6 +2157,71 @@ namespaces:
         - name: End
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: Vector3
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: val
+              type:
+                basic: Vector2
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: loc
+              type:
+                basic: String
+            - name: matrix4f
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
           returns:
             type:
               basic: void
@@ -1678,6 +2326,43 @@ namespaces:
               type:
                 basic: float
             - name: z
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: addLine
+          modifiers:
+            - public
+          parameters:
+            - name: x0
+              type:
+                basic: float
+            - name: y0
+              type:
+                basic: float
+            - name: z0
+              type:
+                basic: float
+            - name: x1
+              type:
+                basic: float
+            - name: y1
+              type:
+                basic: float
+            - name: z1
               type:
                 basic: float
             - name: r

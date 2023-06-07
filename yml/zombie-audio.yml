@@ -1,6 +1,14 @@
 namespaces:
   zombie.audio:
     BaseSoundBank:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+          type:
+            basic: BaseSoundBank
       constructors:
         - modifiers:
             - public
@@ -107,6 +115,17 @@ namespaces:
             - public
             - abstract
           parameters:
+            - name: channel
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: isPlaying
+          modifiers:
+            - public
+            - abstract
+          parameters:
             - name: alias
               type:
                 basic: String
@@ -157,6 +176,110 @@ namespaces:
             - name: file
               type:
                 basic: String
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: character
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: square
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: doWorldSound
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: parent
+              type:
+                basic: IsoObject
+          returns:
+            type:
+              basic: long
+        - name: playSoundImpl
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: square
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: long
+        - name: playSoundImpl
+          modifiers:
+            - public
+            - abstract
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: doWorldSound
+              type:
+                basic: boolean
             - name: parent
               type:
                 basic: IsoObject
@@ -501,6 +624,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: channel
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: isPlaying
+          modifiers:
+            - public
+          parameters:
             - name: alias
               type:
                 basic: String
@@ -547,6 +680,103 @@ namespaces:
             - name: file
               type:
                 basic: String
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: character
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: square
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: doWorldSound
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: long
+        - name: playSound
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: parent
+              type:
+                basic: IsoObject
+          returns:
+            type:
+              basic: long
+        - name: playSoundImpl
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: square
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: long
+        - name: playSoundImpl
+          modifiers:
+            - public
+          parameters:
+            - name: file
+              type:
+                basic: String
+            - name: doWorldSound
+              type:
+                basic: boolean
             - name: parent
               type:
                 basic: IsoObject
@@ -956,6 +1186,21 @@ namespaces:
       javaType: class
       extends: Object
     FMODParameterList:
+      fields:
+        parameterArray:
+          name: parameterArray
+          modifiers:
+            - public
+            - final
+          type:
+            basic: FMODParameter
+        parameterList:
+          name: parameterList
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -992,6 +1237,56 @@ namespaces:
       javaType: class
       extends: Object
     GameSound:
+      fields:
+        category:
+          name: category
+          modifiers:
+            - public
+          type:
+            basic: String
+        clips:
+          name: clips
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        is3D:
+          name: is3D
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        loop:
+          name: loop
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        master:
+          name: master
+          modifiers:
+            - public
+          type:
+            basic: GameSound.MasterVolume
+        maxInstancesPerEmitter:
+          name: maxInstancesPerEmitter
+          modifiers:
+            - public
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        reloadEpoch:
+          name: reloadEpoch
+          modifiers:
+            - public
+          type:
+            basic: short
       constructors:
         - modifiers:
             - public
@@ -1064,23 +1359,40 @@ namespaces:
       javaType: class
       extends: Object
     GameSound.MasterVolume:
-      methods:
-        - name: valueOf
+      fields:
+        Ambient:
+          name: Ambient
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: GameSound.MasterVolume
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: GameSound.MasterVolume
+        Music:
+          name: Music
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GameSound.MasterVolume
+        Primary:
+          name: Primary
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GameSound.MasterVolume
+        VehicleEngine:
+          name: VehicleEngine
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: GameSound.MasterVolume
+      methods:
         - name: values
           modifiers:
             - public
@@ -1099,6 +1411,100 @@ namespaces:
       javaType: enum
       extends: Enum
     GameSoundClip:
+      fields:
+        distanceMax:
+          name: distanceMax
+          modifiers:
+            - public
+          type:
+            basic: float
+        distanceMin:
+          name: distanceMin
+          modifiers:
+            - public
+          type:
+            basic: float
+        event:
+          name: event
+          modifiers:
+            - public
+          type:
+            basic: String
+        eventDescription:
+          name: eventDescription
+          modifiers:
+            - public
+          type:
+            basic: fmod.fmod.FMOD_STUDIO_EVENT_DESCRIPTION
+        file:
+          name: file
+          modifiers:
+            - public
+          type:
+            basic: String
+        gameSound:
+          name: gameSound
+          modifiers:
+            - public
+            - final
+          type:
+            basic: GameSound
+        INIT_FLAG_DISTANCE_MAX:
+          name: INIT_FLAG_DISTANCE_MAX
+          modifiers:
+            - public
+            - static
+          type:
+            basic: short
+        INIT_FLAG_DISTANCE_MIN:
+          name: INIT_FLAG_DISTANCE_MIN
+          modifiers:
+            - public
+            - static
+          type:
+            basic: short
+        initFlags:
+          name: initFlags
+          modifiers:
+            - public
+          type:
+            basic: short
+        pitch:
+          name: pitch
+          modifiers:
+            - public
+          type:
+            basic: float
+        priority:
+          name: priority
+          modifiers:
+            - public
+          type:
+            basic: int
+        reloadEpoch:
+          name: reloadEpoch
+          modifiers:
+            - public
+          type:
+            basic: short
+        reverbFactor:
+          name: reverbFactor
+          modifiers:
+            - public
+          type:
+            basic: float
+        reverbMaxRange:
+          name: reverbMaxRange
+          modifiers:
+            - public
+          type:
+            basic: float
+        volume:
+          name: volume
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -1474,6 +1880,19 @@ namespaces:
       javaType: class
       extends: ObjectAmbientEmitters.PerObjectLogic
     ObjectAmbientEmitters.PerObjectLogic:
+      fields:
+        object:
+          name: object
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
+        parameterValue1:
+          name: parameterValue1
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public

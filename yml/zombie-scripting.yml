@@ -22,6 +22,63 @@ namespaces:
         - public
       javaType: interface
     ScriptManager:
+      fields:
+        currentFileName:
+          name: currentFileName
+          modifiers:
+            - public
+          type:
+            basic: String
+        CurrentLoadingModule:
+          name: CurrentLoadingModule
+          modifiers:
+            - public
+          type:
+            basic: ScriptModule
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ScriptManager
+        ModuleList:
+          name: ModuleList
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        ModuleMap:
+          name: ModuleMap
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        scriptsWithVehicles:
+          name: scriptsWithVehicles
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        scriptsWithVehicleTemplates:
+          name: scriptsWithVehicleTemplates
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        VanillaID:
+          name: VanillaID
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -32,6 +89,16 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: FindItem
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: Item
         - name: FindItem
           modifiers:
             - public
@@ -237,6 +304,16 @@ namespaces:
           returns:
             type:
               basic: ModelScript
+        - name: getModule
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+          returns:
+            type:
+              basic: ScriptModule
         - name: getModule
           modifiers:
             - public
@@ -488,6 +565,40 @@ namespaces:
       javaType: class
       extends: Object
     ScriptParser.Block:
+      fields:
+        children:
+          name: children
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        elements:
+          name: elements
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: String
+        type:
+          name: type
+          modifiers:
+            - public
+          type:
+            basic: String
+        values:
+          name: values
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -651,6 +762,13 @@ namespaces:
         - static
       javaType: interface
     ScriptParser.Value:
+      fields:
+        string:
+          name: string
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -705,6 +823,23 @@ namespaces:
         - modifiers:
             - public
       methods:
+        - name: SplitExceptInbetween
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: src
+              type:
+                basic: String
+            - name: delimiter
+              type:
+                basic: String
+            - name: exceptionContainerOpen
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
         - name: SplitExceptInbetween
           modifiers:
             - public

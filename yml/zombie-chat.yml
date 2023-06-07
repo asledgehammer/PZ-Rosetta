@@ -205,7 +205,30 @@ namespaces:
           parameters:
             - name: msg
               type:
+                basic: ChatMessage
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToChatMembers
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
                 basic: ServerChatMessage
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToPlayer
+          modifiers:
+            - public
+          parameters:
+            - name: connection
+              type:
+                basic: UdpConnection
+            - name: msg
+              type:
+                basic: ChatMessage
           returns:
             type:
               basic: void
@@ -229,6 +252,16 @@ namespaces:
             - name: playerConnection
               type:
                 basic: UdpConnection
+          returns:
+            type:
+              basic: void
+        - name: sendPlayerLeaveChatPacket
+          modifiers:
+            - public
+          parameters:
+            - name: playerID
+              type:
+                basic: short
           returns:
             type:
               basic: void
@@ -299,6 +332,19 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: text
+              type:
+                basic: String
+            - name: author
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: showMessage
+          modifiers:
+            - public
+          parameters:
             - name: msg
               type:
                 basic: ChatMessage
@@ -332,6 +378,21 @@ namespaces:
       javaType: class
       extends: Object
     ChatElement:
+      fields:
+        backdropTexture:
+          name: backdropTexture
+          modifiers:
+            - public
+            - static
+          type:
+            basic: NineGridTexture
+        doBackDrop:
+          name: doBackDrop
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
       constructors:
         - modifiers:
             - public
@@ -346,6 +407,47 @@ namespaces:
               type:
                 basic: String
       methods:
+        - name: addChatLine
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: String
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: baseRange
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: addChatLine
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: String
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
         - name: addChatLine
           modifiers:
             - public
@@ -466,6 +568,22 @@ namespaces:
             - static
           parameters:
             - name: playerNum
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: renderBatched
+          modifiers:
+            - public
+          parameters:
+            - name: playerNum
+              type:
+                basic: int
+            - name: x
+              type:
+                basic: int
+            - name: y
               type:
                 basic: int
           returns:
@@ -764,6 +882,22 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: author
+              type:
+                basic: String
+            - name: type
+              type:
+                basic: ChatType
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: sendMessageToChat
+          modifiers:
+            - public
+          parameters:
             - name: type
               type:
                 basic: ChatType
@@ -796,12 +930,32 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: msg
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: showInfoMessage
+          modifiers:
+            - public
+          parameters:
             - name: author
               type:
                 basic: String
             - name: msg
               type:
                 basic: String
+          returns:
+            type:
+              basic: void
+        - name: showRadioMessage
+          modifiers:
+            - public
+          parameters:
+            - name: msg
+              type:
+                basic: ChatMessage
           returns:
             type:
               basic: void
@@ -1170,34 +1324,37 @@ namespaces:
           returns:
             type:
               basic: void
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
       javaType: class
       extends: Object
     ChatMode:
-      methods:
-        - name: valueOf
+      fields:
+        ClientMultiPlayer:
+          name: ClientMultiPlayer
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: ChatMode
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: ChatMode
+        ServerMultiPlayer:
+          name: ServerMultiPlayer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatMode
+        SinglePlayer:
+          name: SinglePlayer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatMode
+      methods:
         - name: values
           modifiers:
             - public
@@ -1215,6 +1372,15 @@ namespaces:
       javaType: enum
       extends: Enum
     ChatSettings:
+      fields:
+        infinityRange:
+          name: infinityRange
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -1421,6 +1587,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: fontColor
+              type:
+                basic: Color
+          returns:
+            type:
+              basic: void
+        - name: setFontColor
+          modifiers:
+            - public
+          parameters:
             - name: r
               type:
                 basic: float
@@ -1521,23 +1697,40 @@ namespaces:
       javaType: class
       extends: Object
     ChatSettings.FontSize:
-      methods:
-        - name: valueOf
+      fields:
+        Large:
+          name: Large
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: ChatSettings.FontSize
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: ChatSettings.FontSize
+        Medium:
+          name: Medium
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatSettings.FontSize
+        NotDefine:
+          name: NotDefine
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatSettings.FontSize
+        Small:
+          name: Small
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ChatSettings.FontSize
+      methods:
         - name: values
           modifiers:
             - public
@@ -1665,12 +1858,34 @@ namespaces:
             - public
             - static
           parameters:
+            - name: playerOnlineID
+              type:
+                basic: short
+          returns:
+            type:
+              basic: UdpConnection
+        - name: findConnection
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: playerName
               type:
                 basic: String
           returns:
             type:
               basic: UdpConnection
+        - name: findPlayer
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: playerOnlineID
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoPlayer
         - name: findPlayer
           modifiers:
             - public
@@ -1705,6 +1920,20 @@ namespaces:
             - public
             - static
           parameters:
+            - name: source
+              type:
+                basic: IsoObject
+            - name: dest
+              type:
+                basic: IsoPlayer
+          returns:
+            type:
+              basic: float
+        - name: getDistance
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: srcX
               type:
                 basic: float
@@ -1714,6 +1943,23 @@ namespaces:
             - name: dest
               type:
                 basic: IsoPlayer
+          returns:
+            type:
+              basic: float
+        - name: getScrambleValue
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: src
+              type:
+                basic: IsoObject
+            - name: dest
+              type:
+                basic: IsoPlayer
+            - name: baseRange
+              type:
+                basic: float
           returns:
             type:
               basic: float
@@ -1772,6 +2018,23 @@ namespaces:
           returns:
             type:
               basic: String
+        - name: playerWithinBounds
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: source
+              type:
+                basic: IsoObject
+            - name: dest
+              type:
+                basic: IsoObject
+            - name: dist
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
         - name: playerWithinBounds
           modifiers:
             - public

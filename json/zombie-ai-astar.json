@@ -16,30 +16,53 @@
         "extends": "Object"
       },
       "AStarPathFinder.PathFindProgress": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "failed": {
+            "name": "failed",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "AStarPathFinder.PathFindProgress"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "AStarPathFinder.PathFindProgress"
+            }
           },
+          "found": {
+            "name": "found",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AStarPathFinder.PathFindProgress"
+            }
+          },
+          "notrunning": {
+            "name": "notrunning",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AStarPathFinder.PathFindProgress"
+            }
+          },
+          "notyetfound": {
+            "name": "notyetfound",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AStarPathFinder.PathFindProgress"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -63,6 +86,26 @@
         "extends": "Enum"
       },
       "AStarPathFinderResult": {
+        "fields": {
+          "maxSearchDistance": {
+            "name": "maxSearchDistance",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "progress": {
+            "name": "progress",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "AStarPathFinder.PathFindProgress"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -156,6 +199,27 @@
         "notes": "A tagging interface for an object representing the entity in the game that\n is going to moving along the path. This allows us to pass around entity/state\n information to determine whether a particular tile is blocked, or how much\n cost to apply on a particular tile.\n\n For instance, a Mover might represent a tank or plane on a game map. Passing round\n this entity allows us to determine whether rough ground on a map should effect\n the unit's cost for moving through the tile."
       },
       "Path": {
+        "fields": {
+          "cost": {
+            "name": "cost",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "stepstore": {
+            "name": "stepstore",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "Stack"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -392,6 +456,37 @@
         "notes": "A path determined by some path finding algorithm. A series of steps from\n the starting location to the target location. This includes a step for the\n initial location."
       },
       "Path.Step": {
+        "fields": {
+          "x": {
+            "name": "x",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            },
+            "notes": "The x coordinate at the given step"
+          },
+          "y": {
+            "name": "y",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            },
+            "notes": "The y coordinate at the given step"
+          },
+          "z": {
+            "name": "z",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

@@ -2,6 +2,28 @@
   "namespaces": {
     "zombie.inventory.types": {
       "AlarmClock": {
+        "fields": {
+          "PacketPlayer": {
+            "name": "PacketPlayer",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "short"
+            }
+          },
+          "PacketWorld": {
+            "name": "PacketWorld",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "short"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -471,6 +493,28 @@
         "extends": "InventoryItem"
       },
       "AlarmClockClothing": {
+        "fields": {
+          "PacketPlayer": {
+            "name": "PacketPlayer",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "short"
+            }
+          },
+          "PacketWorld": {
+            "name": "PacketWorld",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "short"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -964,6 +1008,28 @@
         "extends": "Clothing"
       },
       "Clothing": {
+        "fields": {
+          "bloodLevel": {
+            "name": "bloodLevel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "CONDITION_PER_HOLES": {
+            "name": "CONDITION_PER_HOLES",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2275,17 +2341,6 @@
             }
           },
           {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              }
-            }
-          },
-          {
             "name": "Unwear",
             "modifiers": [
               "public"
@@ -2298,6 +2353,17 @@
           },
           {
             "name": "update",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "updateWetness",
             "modifiers": [
               "public"
             ],
@@ -2359,6 +2425,77 @@
         "extends": "InventoryItem"
       },
       "Clothing.ClothingPatchFabricType": {
+        "fields": {
+          "Cotton": {
+            "name": "Cotton",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "Clothing.ClothingPatchFabricType"
+            }
+          },
+          "Denim": {
+            "name": "Denim",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "Clothing.ClothingPatchFabricType"
+            }
+          },
+          "index": {
+            "name": "index",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "Leather": {
+            "name": "Leather",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "Clothing.ClothingPatchFabricType"
+            }
+          },
+          "maxBiteDef": {
+            "name": "maxBiteDef",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "maxScratchDef": {
+            "name": "maxScratchDef",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "type": {
+            "name": "type",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "methods": [
           {
             "name": "fromIndex",
@@ -2410,29 +2547,6 @@
                 "basic": "String"
               }
             }
-          },
-          {
-            "name": "valueOf",
-            "modifiers": [
-              "public",
-              "static"
-            ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "Clothing.ClothingPatchFabricType"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
           },
           {
             "name": "values",
@@ -2574,6 +2688,17 @@
         "javaType": "interface"
       },
       "DrainableComboItem": {
+        "fields": {
+          "ReplaceOnCooked": {
+            "name": "ReplaceOnCooked",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "List"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3261,6 +3386,46 @@
         "extends": "InventoryItem"
       },
       "Food": {
+        "fields": {
+          "FreezerAgeMultiplier": {
+            "name": "FreezerAgeMultiplier",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Poison": {
+            "name": "Poison",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "spices": {
+            "name": "spices",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "thirstChange": {
+            "name": "thirstChange",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -5104,6 +5269,98 @@
         "extends": "InventoryItem"
       },
       "HandWeapon": {
+        "fields": {
+          "aimingMod": {
+            "name": "aimingMod",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "bIsAimedFirearm": {
+            "name": "bIsAimedFirearm",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bIsAimedHandWeapon": {
+            "name": "bIsAimedHandWeapon",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "CriticalChance": {
+            "name": "CriticalChance",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "HitAngleMod": {
+            "name": "HitAngleMod",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "IdleAnim": {
+            "name": "IdleAnim",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "ProjectileCount": {
+            "name": "ProjectileCount",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "RunAnim": {
+            "name": "RunAnim",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "SplatSize": {
+            "name": "SplatSize",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "WeaponLength": {
+            "name": "WeaponLength",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -5169,6 +5426,25 @@
           }
         ],
         "methods": [
+          {
+            "name": "attachWeaponPart",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "part",
+                "type": {
+                  "basic": "WeaponPart"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
           {
             "name": "attachWeaponPart",
             "modifiers": [
@@ -5354,6 +5630,17 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "getAllWeaponParts",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "ArrayList"
               }
             }
           },
@@ -5935,6 +6222,18 @@
                 "basic": "int"
               },
               "notes": "the maxHitCount"
+            }
+          },
+          {
+            "name": "getMaxRange",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              },
+              "notes": "the maxRange"
             }
           },
           {
@@ -6525,6 +6824,25 @@
             "returns": {
               "type": {
                 "basic": "WeaponPart"
+              }
+            }
+          },
+          {
+            "name": "getWeaponPartWeightModifier",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "type",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
               }
             }
           },
@@ -9154,6 +9472,25 @@
                 "type": {
                   "basic": "ObjectTooltip"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "DoTooltip",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tooltipUI",
+                "type": {
+                  "basic": "ObjectTooltip"
+                }
               },
               {
                 "name": "layout",
@@ -9484,6 +9821,19 @@
         "extends": "InventoryItem"
       },
       "Key": {
+        "fields": {
+          "highlightDoor": {
+            "name": "highlightDoor",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "Key"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -9891,6 +10241,35 @@
         "extends": "InventoryItem"
       },
       "Literature": {
+        "fields": {
+          "bAlreadyRead": {
+            "name": "bAlreadyRead",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "requireInHandOrInventory": {
+            "name": "requireInHandOrInventory",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "useOnConsume": {
+            "name": "useOnConsume",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -10518,6 +10897,18 @@
         "extends": "InventoryItem"
       },
       "MapItem": {
+        "fields": {
+          "WORLD_MAP_INSTANCE": {
+            "name": "WORLD_MAP_INSTANCE",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "MapItem"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -11325,6 +11716,61 @@
             ],
             "parameters": [
               {
+                "name": "line",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "guid",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "codes",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "distance",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "AddDeviceText",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "msg",
                 "type": {
                   "basic": "ChatMessage"
@@ -11693,6 +12139,74 @@
         "notes": "Turbo"
       },
       "WeaponPart": {
+        "fields": {
+          "TYPE_CANON": {
+            "name": "TYPE_CANON",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "TYPE_CLIP": {
+            "name": "TYPE_CLIP",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "TYPE_RECOILPAD": {
+            "name": "TYPE_RECOILPAD",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "TYPE_SCOPE": {
+            "name": "TYPE_SCOPE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "TYPE_SLING": {
+            "name": "TYPE_SLING",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "TYPE_STOCK": {
+            "name": "TYPE_STOCK",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -12144,6 +12658,154 @@
         "extends": "InventoryItem"
       },
       "WeaponType": {
+        "fields": {
+          "barehand": {
+            "name": "barehand",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "canMiss": {
+            "name": "canMiss",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "chainsaw": {
+            "name": "chainsaw",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "firearm": {
+            "name": "firearm",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "handgun": {
+            "name": "handgun",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "heavy": {
+            "name": "heavy",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "isRanged": {
+            "name": "isRanged",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "knife": {
+            "name": "knife",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "onehanded": {
+            "name": "onehanded",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "possibleAttack": {
+            "name": "possibleAttack",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "List"
+            }
+          },
+          "spear": {
+            "name": "spear",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "throwing": {
+            "name": "throwing",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "twohanded": {
+            "name": "twohanded",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "WeaponType"
+            }
+          },
+          "type": {
+            "name": "type",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "methods": [
           {
             "name": "getType",
@@ -12153,6 +12815,26 @@
             "returns": {
               "type": {
                 "basic": "String"
+              }
+            }
+          },
+          {
+            "name": "getWeaponType",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "weapon",
+                "type": {
+                  "basic": "HandWeapon"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "WeaponType"
               }
             }
           },
@@ -12175,29 +12857,6 @@
                 "basic": "WeaponType"
               }
             }
-          },
-          {
-            "name": "valueOf",
-            "modifiers": [
-              "public",
-              "static"
-            ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "WeaponType"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
           },
           {
             "name": "values",

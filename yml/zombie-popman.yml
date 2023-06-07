@@ -1,6 +1,15 @@
 namespaces:
   zombie.popman:
     MPDebugInfo:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: MPDebugInfo
       constructors:
         - modifiers:
             - public
@@ -70,6 +79,13 @@ namespaces:
       javaType: class
       extends: Object
     NetworkZombieList:
+      fields:
+        lock:
+          name: lock
+          modifiers:
+            - public
+          type:
+            basic: Object
       constructors:
         - modifiers:
             - public
@@ -315,6 +331,15 @@ namespaces:
       javaType: class
       extends: Object
     NetworkZombieSimulator:
+      fields:
+        MAX_ZOMBIES_PER_UPDATE:
+          name: MAX_ZOMBIES_PER_UPDATE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -488,6 +513,38 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: obj
+              type:
+                basic: T
+          returns:
+            type:
+              basic: void
+        - name: release
+          modifiers:
+            - public
+          parameters:
+            - name: objs
+              type:
+                basic: List
+                full: List<T>
+          returns:
+            type:
+              basic: void
+        - name: release
+          modifiers:
+            - public
+          parameters:
+            - name: objs
+              type:
+                basic: Iterable
+                full: Iterable<T>
+          returns:
+            type:
+              basic: void
+        - name: release
+          modifiers:
+            - public
+          parameters:
             - name: objs
               type:
                 basic: T[]
@@ -520,6 +577,31 @@ namespaces:
         - static
       javaType: interface
     ZombieCountOptimiser:
+      fields:
+        maxZombieCount:
+          name: maxZombieCount
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        minZombieDistance:
+          name: minZombieDistance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        zombiesForDelete:
+          name: zombiesForDelete
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -547,6 +629,46 @@ namespaces:
       javaType: class
       extends: Object
     ZombiePopulationManager:
+      fields:
+        bDebugLoggingEnabled:
+          name: bDebugLoggingEnabled
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ZombiePopulationManager
+        radarCount:
+          name: radarCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        radarRenderFlag:
+          name: radarRenderFlag
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        radarRequestFlag:
+          name: radarRequestFlag
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        radarXY:
+          name: radarXY
+          modifiers:
+            - public
+          type:
+            basic: float[]
       methods:
         - name: addChunkToWorld
           modifiers:
@@ -669,6 +791,13 @@ namespaces:
         - name: endSaveRealZombies
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: init
+          modifiers:
+            - public
+            - static
           returns:
             type:
               basic: void
@@ -1204,6 +1333,25 @@ namespaces:
       javaType: class
       extends: Object
     ZombieTriggerXmlFile:
+      fields:
+        bDebugLoggingEnabled:
+          name: bDebugLoggingEnabled
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        setDebugLoggingEnabled:
+          name: setDebugLoggingEnabled
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        spawnHorde:
+          name: spawnHorde
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public

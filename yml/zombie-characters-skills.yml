@@ -1,6 +1,38 @@
 namespaces:
   zombie.characters.skills:
     CustomPerk:
+      fields:
+        m_bPassive:
+          name: m_bPassive
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        m_id:
+          name: m_id
+          modifiers:
+            - public
+          type:
+            basic: String
+        m_parent:
+          name: m_parent
+          modifiers:
+            - public
+          type:
+            basic: String
+        m_translation:
+          name: m_translation
+          modifiers:
+            - public
+          type:
+            basic: String
+        m_xp:
+          name: m_xp
+          modifiers:
+            - public
+            - final
+          type:
+            basic: int[]
       constructors:
         - modifiers:
             - public
@@ -14,6 +46,15 @@ namespaces:
       javaType: class
       extends: Object
     CustomPerks:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CustomPerks
       constructors:
         - modifiers:
             - public
@@ -43,10 +84,157 @@ namespaces:
       javaType: class
       extends: Object
     PerkFactory:
+      fields:
+        PerkList:
+          name: PerkList
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
       methods:
+        - name: AddPerk
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: perk
+              type:
+                basic: PerkFactory.Perk
+            - name: translation
+              type:
+                basic: String
+            - name: xp1
+              type:
+                basic: int
+            - name: xp2
+              type:
+                basic: int
+            - name: xp3
+              type:
+                basic: int
+            - name: xp4
+              type:
+                basic: int
+            - name: xp5
+              type:
+                basic: int
+            - name: xp6
+              type:
+                basic: int
+            - name: xp7
+              type:
+                basic: int
+            - name: xp8
+              type:
+                basic: int
+            - name: xp9
+              type:
+                basic: int
+            - name: xp10
+              type:
+                basic: int
+          returns:
+            type:
+              basic: PerkFactory.Perk
+        - name: AddPerk
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: perk
+              type:
+                basic: PerkFactory.Perk
+            - name: translation
+              type:
+                basic: String
+            - name: xp1
+              type:
+                basic: int
+            - name: xp2
+              type:
+                basic: int
+            - name: xp3
+              type:
+                basic: int
+            - name: xp4
+              type:
+                basic: int
+            - name: xp5
+              type:
+                basic: int
+            - name: xp6
+              type:
+                basic: int
+            - name: xp7
+              type:
+                basic: int
+            - name: xp8
+              type:
+                basic: int
+            - name: xp9
+              type:
+                basic: int
+            - name: xp10
+              type:
+                basic: int
+            - name: passiv
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: PerkFactory.Perk
+        - name: AddPerk
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: perk
+              type:
+                basic: PerkFactory.Perk
+            - name: translation
+              type:
+                basic: String
+            - name: parent
+              type:
+                basic: PerkFactory.Perk
+            - name: xp1
+              type:
+                basic: int
+            - name: xp2
+              type:
+                basic: int
+            - name: xp3
+              type:
+                basic: int
+            - name: xp4
+              type:
+                basic: int
+            - name: xp5
+              type:
+                basic: int
+            - name: xp6
+              type:
+                basic: int
+            - name: xp7
+              type:
+                basic: int
+            - name: xp8
+              type:
+                basic: int
+            - name: xp9
+              type:
+                basic: int
+            - name: xp10
+              type:
+                basic: int
+          returns:
+            type:
+              basic: PerkFactory.Perk
         - name: AddPerk
           modifiers:
             - public
@@ -157,6 +345,91 @@ namespaces:
       javaType: class
       extends: Object
     PerkFactory.Perk:
+      fields:
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        parent:
+          name: parent
+          modifiers:
+            - public
+          type:
+            basic: PerkFactory.Perk
+        passiv:
+          name: passiv
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        translation:
+          name: translation
+          modifiers:
+            - public
+          type:
+            basic: String
+        xp1:
+          name: xp1
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp10:
+          name: xp10
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp2:
+          name: xp2
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp3:
+          name: xp3
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp4:
+          name: xp4
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp5:
+          name: xp5
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp6:
+          name: xp6
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp7:
+          name: xp7
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp8:
+          name: xp8
+          modifiers:
+            - public
+          type:
+            basic: int
+        xp9:
+          name: xp9
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -302,12 +575,6 @@ namespaces:
           returns:
             type:
               basic: void
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
         - static
@@ -315,6 +582,303 @@ namespaces:
       javaType: class
       extends: Object
     PerkFactory.Perks:
+      fields:
+        Agility:
+          name: Agility
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Aiming:
+          name: Aiming
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Axe:
+          name: Axe
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Blacksmith:
+          name: Blacksmith
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Blunt:
+          name: Blunt
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Combat:
+          name: Combat
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Cooking:
+          name: Cooking
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Crafting:
+          name: Crafting
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Doctor:
+          name: Doctor
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Electricity:
+          name: Electricity
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Farming:
+          name: Farming
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Firearm:
+          name: Firearm
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Fishing:
+          name: Fishing
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Fitness:
+          name: Fitness
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Lightfoot:
+          name: Lightfoot
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        LongBlade:
+          name: LongBlade
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Maintenance:
+          name: Maintenance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        MAX:
+          name: MAX
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Mechanics:
+          name: Mechanics
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Melee:
+          name: Melee
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Melting:
+          name: Melting
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        MetalWelding:
+          name: MetalWelding
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Nimble:
+          name: Nimble
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        None:
+          name: None
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Passiv:
+          name: Passiv
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        PlantScavenging:
+          name: PlantScavenging
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Reloading:
+          name: Reloading
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        SmallBlade:
+          name: SmallBlade
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        SmallBlunt:
+          name: SmallBlunt
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Sneak:
+          name: Sneak
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Spear:
+          name: Spear
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Sprinting:
+          name: Sprinting
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Strength:
+          name: Strength
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Survivalist:
+          name: Survivalist
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Tailoring:
+          name: Tailoring
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Trapping:
+          name: Trapping
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
+        Woodwork:
+          name: Woodwork
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: PerkFactory.Perk
       constructors:
         - modifiers:
             - public

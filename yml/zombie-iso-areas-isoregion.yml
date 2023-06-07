@@ -47,23 +47,24 @@ namespaces:
       extends: Exception
       notes: TurboTuTone.
     IsoRegionLogType:
-      methods:
-        - name: valueOf
+      fields:
+        Normal:
+          name: Normal
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: IsoRegionLogType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: IsoRegionLogType
+        Warn:
+          name: Warn
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoRegionLogType
+      methods:
         - name: values
           modifiers:
             - public
@@ -82,6 +83,238 @@ namespaces:
       extends: Enum
       notes: TurboTuTone.
     IsoRegions:
+      fields:
+        BIT_EMPTY:
+          name: BIT_EMPTY
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_HAS_FLOOR:
+          name: BIT_HAS_FLOOR
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_HAS_ROOF:
+          name: BIT_HAS_ROOF
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_PATH_WALL_N:
+          name: BIT_PATH_WALL_N
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_PATH_WALL_W:
+          name: BIT_PATH_WALL_W
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_STAIRCASE:
+          name: BIT_STAIRCASE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_WALL_N:
+          name: BIT_WALL_N
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        BIT_WALL_W:
+          name: BIT_WALL_W
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        CELL_CHUNK_DIM:
+          name: CELL_CHUNK_DIM
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        CELL_DIM:
+          name: CELL_DIM
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        CHUNK_DIM:
+          name: CHUNK_DIM
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        CHUNK_MAX_Z:
+          name: CHUNK_MAX_Z
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        CHUNKS_DATA_PACKET_SIZE:
+          name: CHUNKS_DATA_PACKET_SIZE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        DIR_2D_MAX:
+          name: DIR_2D_MAX
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_2D_NW:
+          name: DIR_2D_NW
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_BOT:
+          name: DIR_BOT
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_E:
+          name: DIR_E
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_MAX:
+          name: DIR_MAX
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_N:
+          name: DIR_N
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_NONE:
+          name: DIR_NONE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_S:
+          name: DIR_S
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_TOP:
+          name: DIR_TOP
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        DIR_W:
+          name: DIR_W
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        FILE_DIR:
+          name: FILE_DIR
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: String
+        FILE_EXT:
+          name: FILE_EXT
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: String
+        FILE_PRE:
+          name: FILE_PRE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: String
+        FILE_SEP:
+          name: FILE_SEP
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: String
+        PRINT_D:
+          name: PRINT_D
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        SINGLE_CHUNK_PACKET_SIZE:
+          name: SINGLE_CHUNK_PACKET_SIZE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -246,6 +479,17 @@ namespaces:
             - name: str
               type:
                 basic: String
+          returns:
+            type:
+              basic: void
+        - name: log
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: str
+              type:
+                basic: String
             - name: col
               type:
                 basic: Color
@@ -316,6 +560,20 @@ namespaces:
           notes: >-
             Needs to be called before a player manipulates the grid.
              Records bitFlags for the state of the square that are compared to bitFlags for the state of the square after manipulation to detect relevant changes.
+        - name: squareChanged
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: gs
+              type:
+                basic: IsoGridSquare
+          returns:
+            type:
+              basic: void
+          notes: >-
+            Called after the grid has been manipulated by a player.
+             NOTE: setPreviousFlags needs to be called prior to the grid being manipulated by a player.
         - name: squareChanged
           modifiers:
             - public
@@ -797,6 +1055,25 @@ namespaces:
             - name: a
               type:
                 basic: double
+          returns:
+            type:
+              basic: void
+        - name: renderStringUI
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: str
+              type:
+                basic: String
+            - name: c
+              type:
+                basic: Color
           returns:
             type:
               basic: void

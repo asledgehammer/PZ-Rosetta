@@ -1,6 +1,14 @@
 namespaces:
   zombie.core.skinnedmodel.animation:
     AnimationBoneBinding:
+      fields:
+        boneName:
+          name: boneName
+          modifiers:
+            - public
+            - final
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -31,17 +39,26 @@ namespaces:
           returns:
             type:
               basic: void
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
       javaType: class
       extends: Object
     AnimationBoneBindingPair:
+      fields:
+        boneBindingA:
+          name: boneBindingA
+          modifiers:
+            - public
+            - final
+          type:
+            basic: AnimationBoneBinding
+        boneBindingB:
+          name: boneBindingB
+          modifiers:
+            - public
+            - final
+          type:
+            basic: AnimationBoneBinding
       constructors:
         - modifiers:
             - public
@@ -106,12 +123,6 @@ namespaces:
           returns:
             type:
               basic: void
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
         - final
@@ -186,6 +197,26 @@ namespaces:
       javaType: class
       extends: AnimationBoneBinding
     AnimationClip:
+      fields:
+        Duration:
+          name: Duration
+          modifiers:
+            - public
+          type:
+            basic: float
+        Name:
+          name: Name
+          modifiers:
+            - public
+            - final
+          type:
+            basic: String
+        staticClip:
+          name: staticClip
+          modifiers:
+            - public
+          type:
+            basic: StaticAnimation
       constructors:
         - modifiers:
             - public
@@ -369,6 +400,50 @@ namespaces:
       extends: Object
       notes: Created by LEMMYMAIN on 28/02/2015.
     AnimationPlayer:
+      fields:
+        angleStepDelta:
+          name: angleStepDelta
+          modifiers:
+            - public
+          type:
+            basic: float
+        angleTwistDelta:
+          name: angleTwistDelta
+          modifiers:
+            - public
+          type:
+            basic: float
+        bDoBlending:
+          name: bDoBlending
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bUpdateBones:
+          name: bUpdateBones
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        dismembered:
+          name: dismembered
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        modelTransforms:
+          name: modelTransforms
+          modifiers:
+            - public
+          type:
+            basic: org.lwjgl.util.vector.Matrix4f[]
+        parentPlayer:
+          name: parentPlayer
+          modifiers:
+            - public
+          type:
+            basic: AnimationPlayer
       methods:
         - name: addBoneReparent
           modifiers:
@@ -857,6 +932,12 @@ namespaces:
         - name: Update
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: Update
+          modifiers:
+            - public
           parameters:
             - name: deltaT
               type:
@@ -893,6 +974,67 @@ namespaces:
       extends: PooledObject
       notes: Created by LEMMYATI on 03/01/14.
     AnimationTrack:
+      fields:
+        BlendDelta:
+          name: BlendDelta
+          modifiers:
+            - public
+          type:
+            basic: float
+        blendFieldWeight:
+          name: blendFieldWeight
+          modifiers:
+            - public
+          type:
+            basic: float
+        earlyBlendOutTime:
+          name: earlyBlendOutTime
+          modifiers:
+            - public
+          type:
+            basic: float
+        IsPlaying:
+          name: IsPlaying
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        priority:
+          name: priority
+          modifiers:
+            - public
+          type:
+            basic: int
+        reverse:
+          name: reverse
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        SpeedDelta:
+          name: SpeedDelta
+          modifiers:
+            - public
+          type:
+            basic: float
+        SyncTrackingEnabled:
+          name: SyncTrackingEnabled
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        triggerOnNonLoopedAnimFadeOutEvent:
+          name: triggerOnNonLoopedAnimFadeOutEvent
+          modifiers:
+            - public
+          type:
+            basic: boolean
       methods:
         - name: addListener
           modifiers:
@@ -1371,23 +1513,24 @@ namespaces:
         - public
       javaType: interface
     BoneAxis:
-      methods:
-        - name: valueOf
+      fields:
+        Y:
+          name: Y
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: BoneAxis
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: BoneAxis
+        Z:
+          name: Z
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: BoneAxis
+      methods:
         - name: values
           modifiers:
             - public
@@ -1452,6 +1595,19 @@ namespaces:
         - name: mul
           modifiers:
             - public
+          parameters:
+            - name: a
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: b
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: mul
+          modifiers:
+            - public
             - static
           parameters:
             - name: a
@@ -1463,6 +1619,32 @@ namespaces:
             - name: out_result
               type:
                 basic: org.lwjgl.util.vector.Matrix4f
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: rhs
+              type:
+                basic: BoneTransform
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
+            - name: pos
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: rot
+              type:
+                basic: org.lwjgl.util.vector.Quaternion
+            - name: scale
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
           returns:
             type:
               basic: void
@@ -1533,6 +1715,43 @@ namespaces:
       javaType: interface
       notes: Created by LEMMYMAIN on 23/02/2015.
     Keyframe:
+      fields:
+        Bone:
+          name: Bone
+          modifiers:
+            - public
+          type:
+            basic: int
+        BoneName:
+          name: BoneName
+          modifiers:
+            - public
+          type:
+            basic: String
+        Position:
+          name: Position
+          modifiers:
+            - public
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
+        Rotation:
+          name: Rotation
+          modifiers:
+            - public
+          type:
+            basic: org.lwjgl.util.vector.Quaternion
+        Scale:
+          name: Scale
+          modifiers:
+            - public
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
+        Time:
+          name: Time
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -1585,6 +1804,26 @@ namespaces:
             - name: time
               type:
                 basic: float
+            - name: out_result
+              type:
+                basic: Keyframe
+          returns:
+            type:
+              basic: Keyframe
+        - name: lerp
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: a
+              type:
+                basic: Keyframe
+            - name: b
+              type:
+                basic: Keyframe
+            - name: time
+              type:
+                basic: float
             - name: out_pos
               type:
                 basic: org.lwjgl.util.vector.Vector3f
@@ -1604,6 +1843,12 @@ namespaces:
             - name: keyframe
               type:
                 basic: Keyframe
+          returns:
+            type:
+              basic: void
+        - name: setIdentity
+          modifiers:
+            - public
           returns:
             type:
               basic: void
@@ -1632,6 +1877,49 @@ namespaces:
             - name: to
               type:
                 basic: org.lwjgl.util.vector.Quaternion
+          returns:
+            type:
+              basic: void
+        - name: setIfNotNull
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: to
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: val
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: default_x
+              type:
+                basic: float
+            - name: default_y
+              type:
+                basic: float
+            - name: default_z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setIfNotNull
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: to
+              type:
+                basic: org.lwjgl.util.vector.Vector3f
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
           returns:
             type:
               basic: void
@@ -1733,6 +2021,71 @@ namespaces:
       javaType: class
       extends: PooledObject
     ModelTransformSampler.L_updateBoneAnimationTransform:
+      fields:
+        deferredPos:
+          name: deferredPos
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
+        key:
+          name: key
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: Keyframe
+        pos:
+          name: pos
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
+        rot:
+          name: rot
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Quaternion
+        rotAxis:
+          name: rotAxis
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
+        rotEulers:
+          name: rotEulers
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
+        rotMat:
+          name: rotMat
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Matrix4f
+        scale:
+          name: scale
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: org.lwjgl.util.vector.Vector3f
       constructors:
         - modifiers:
             - public
@@ -1742,6 +2095,46 @@ namespaces:
       javaType: class
       extends: Object
     SoftwareSkinnedModelAnim:
+      fields:
+        AnimationLength:
+          name: AnimationLength
+          modifiers:
+            - public
+          type:
+            basic: HashMap
+        AnimationOffset:
+          name: AnimationOffset
+          modifiers:
+            - public
+          type:
+            basic: HashMap
+        boneTransforms:
+          name: boneTransforms
+          modifiers:
+            - public
+            - static
+          type:
+            basic: org.lwjgl.util.vector.Matrix4f[]
+        skinTransforms:
+          name: skinTransforms
+          modifiers:
+            - public
+            - static
+          type:
+            basic: org.lwjgl.util.vector.Matrix4f[]
+        vertCount:
+          name: vertCount
+          modifiers:
+            - public
+          type:
+            basic: int
+        worldTransforms:
+          name: worldTransforms
+          modifiers:
+            - public
+            - static
+          type:
+            basic: org.lwjgl.util.vector.Matrix4f[]
       constructors:
         - modifiers:
             - public
@@ -1821,6 +2214,25 @@ namespaces:
       extends: Object
       notes: Created by LEMMY on 3/17/2016.
     StaticAnimation:
+      fields:
+        Clip:
+          name: Clip
+          modifiers:
+            - public
+          type:
+            basic: AnimationClip
+        Matrices:
+          name: Matrices
+          modifiers:
+            - public
+          type:
+            basic: org.lwjgl.util.vector.Matrix4f[][]
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -1886,6 +2298,20 @@ namespaces:
               type:
                 basic: List
                 full: List<Keyframe>
+            - name: time
+              type:
+                basic: float
+          returns:
+            type:
+              basic: Keyframe
+        - name: interpolate
+          modifiers:
+            - public
+          parameters:
+            - name: frames
+              type:
+                basic: List
+                full: List<Keyframe>
           returns:
             type:
               basic: void
@@ -1896,6 +2322,19 @@ namespaces:
       extends: Object
       notes: Created by LEMMY on 3/15/2016.
     TwistableBoneTransform:
+      fields:
+        BlendWeight:
+          name: BlendWeight
+          modifiers:
+            - public
+          type:
+            basic: float
+        Twist:
+          name: Twist
+          modifiers:
+            - public
+          type:
+            basic: float
       methods:
         - name: alloc
           modifiers:

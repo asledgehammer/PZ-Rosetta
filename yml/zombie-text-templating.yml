@@ -46,12 +46,42 @@ namespaces:
             - name: input
               type:
                 basic: String
+          returns:
+            type:
+              basic: String
+        - name: Build
+          parameters:
+            - name: input
+              type:
+                basic: String
+            - name: replaceProvider
+              type:
+                basic: IReplaceProvider
+          returns:
+            type:
+              basic: String
+        - name: Build
+          parameters:
+            - name: input
+              type:
+                basic: String
             - name: table
               type:
                 basic: se.krka.kahlua.j2se.KahluaTableImpl
           returns:
             type:
               basic: String
+        - name: RegisterKey
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: table
+              type:
+                basic: se.krka.kahlua.j2se.KahluaTableImpl
+          returns:
+            type:
+              basic: void
         - name: RegisterKey
           parameters:
             - name: key
@@ -99,6 +129,19 @@ namespaces:
         - modifiers:
             - public
       methods:
+        - name: addKey
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
         - name: addKey
           modifiers:
             - public
@@ -244,6 +287,31 @@ namespaces:
             - name: input
               type:
                 basic: String
+          returns:
+            type:
+              basic: String
+        - name: Build
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: input
+              type:
+                basic: String
+            - name: replaceProvider
+              type:
+                basic: IReplaceProvider
+          returns:
+            type:
+              basic: String
+        - name: Build
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: input
+              type:
+                basic: String
             - name: table
               type:
                 basic: se.krka.kahlua.j2se.KahluaTableImpl
@@ -262,12 +330,65 @@ namespaces:
             - public
             - static
           parameters:
+            - name: min
+              type:
+                basic: float
+            - name: max
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: RandNext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: bound
+              type:
+                basic: float
+          returns:
+            type:
+              basic: float
+        - name: RandNext
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: min
+              type:
+                basic: int
+            - name: max
+              type:
+                basic: int
+          returns:
+            type:
+              basic: int
+        - name: RandNext
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: bound
               type:
                 basic: int
           returns:
             type:
               basic: int
+        - name: RegisterKey
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: table
+              type:
+                basic: se.krka.kahlua.j2se.KahluaTableImpl
+          returns:
+            type:
+              basic: void
         - name: RegisterKey
           modifiers:
             - public
@@ -303,12 +424,50 @@ namespaces:
             - name: input
               type:
                 basic: String
+          returns:
+            type:
+              basic: String
+        - name: Build
+          modifiers:
+            - public
+          parameters:
+            - name: input
+              type:
+                basic: String
+            - name: replaceProvider
+              type:
+                basic: IReplaceProvider
+          returns:
+            type:
+              basic: String
+        - name: Build
+          modifiers:
+            - public
+          parameters:
+            - name: input
+              type:
+                basic: String
             - name: table
               type:
                 basic: se.krka.kahlua.j2se.KahluaTableImpl
           returns:
             type:
               basic: String
+        - name: RegisterKey
+          modifiers:
+            - public
+          parameters:
+            - name: key
+              type:
+                basic: String
+            - name: table
+              type:
+                basic: se.krka.kahlua.j2se.KahluaTableImpl
+          returns:
+            type:
+              basic: void
+          notes: "Supplied: lua table with strings, picks a random string when key called
+            in Build."
         - name: RegisterKey
           modifiers:
             - public

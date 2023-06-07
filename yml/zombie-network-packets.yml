@@ -74,6 +74,14 @@ namespaces:
       javaType: class
       extends: Object
     AddXp:
+      fields:
+        target:
+          name: target
+          modifiers:
+            - public
+            - final
+          type:
+            basic: PlayerID
       constructors:
         - modifiers:
             - public
@@ -229,6 +237,13 @@ namespaces:
       javaType: class
       extends: Object
     DeadCharacterPacket:
+      fields:
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: short
       constructors:
         - modifiers:
             - public
@@ -495,6 +510,33 @@ namespaces:
       javaType: class
       extends: Object
     EventPacket:
+      fields:
+        MAX_PLAYER_EVENTS:
+          name: MAX_PLAYER_EVENTS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -591,23 +633,184 @@ namespaces:
       javaType: class
       extends: Object
     EventPacket.EventType:
-      methods:
-        - name: valueOf
+      fields:
+        ChargeSpearConnect:
+          name: ChargeSpearConnect
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: EventPacket.EventType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: EventPacket.EventType
+        collideWithWall:
+          name: collideWithWall
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventClimbDownRope:
+          name: EventClimbDownRope
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventClimbFence:
+          name: EventClimbFence
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventClimbRope:
+          name: EventClimbRope
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventClimbWall:
+          name: EventClimbWall
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventClimbWindow:
+          name: EventClimbWindow
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventCloseWindow:
+          name: EventCloseWindow
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventEmote:
+          name: EventEmote
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventFallClimb:
+          name: EventFallClimb
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventFishing:
+          name: EventFishing
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventFitness:
+          name: EventFitness
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventOpenWindow:
+          name: EventOpenWindow
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventOverrideItem:
+          name: EventOverrideItem
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventSetActivatedPrimary:
+          name: EventSetActivatedPrimary
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventSetActivatedSecondary:
+          name: EventSetActivatedSecondary
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventSitOnGround:
+          name: EventSitOnGround
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventSmashWindow:
+          name: EventSmashWindow
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        EventUpdateFitness:
+          name: EventUpdateFitness
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        Unknown:
+          name: Unknown
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        Update:
+          name: Update
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+        wasBumped:
+          name: wasBumped
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EventPacket.EventType
+      methods:
         - name: values
           modifiers:
             - public
@@ -803,6 +1006,135 @@ namespaces:
       javaType: class
       extends: Instance
     PlayerPacket:
+      fields:
+        bleedingLevel:
+          name: bleedingLevel
+          modifiers:
+            - public
+          type:
+            basic: byte
+        booleanVariables:
+          name: booleanVariables
+          modifiers:
+            - public
+          type:
+            basic: int
+        collidePointX:
+          name: collidePointX
+          modifiers:
+            - public
+          type:
+            basic: float
+        collidePointY:
+          name: collidePointY
+          modifiers:
+            - public
+          type:
+            basic: float
+        direction:
+          name: direction
+          modifiers:
+            - public
+          type:
+            basic: float
+        footstepSoundRadius:
+          name: footstepSoundRadius
+          modifiers:
+            - public
+          type:
+            basic: byte
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: short
+        moveType:
+          name: moveType
+          modifiers:
+            - public
+          type:
+            basic: NetworkVariables.PredictionTypes
+        PACKET_SIZE_BYTES:
+          name: PACKET_SIZE_BYTES
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        realdir:
+          name: realdir
+          modifiers:
+            - public
+          type:
+            basic: byte
+        realt:
+          name: realt
+          modifiers:
+            - public
+          type:
+            basic: int
+        realx:
+          name: realx
+          modifiers:
+            - public
+          type:
+            basic: float
+        realy:
+          name: realy
+          modifiers:
+            - public
+          type:
+            basic: float
+        realz:
+          name: realz
+          modifiers:
+            - public
+          type:
+            basic: byte
+        usePathFinder:
+          name: usePathFinder
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        variables:
+          name: variables
+          modifiers:
+            - public
+          type:
+            basic: PlayerVariables
+        VehicleID:
+          name: VehicleID
+          modifiers:
+            - public
+          type:
+            basic: short
+        VehicleSeat:
+          name: VehicleSeat
+          modifiers:
+            - public
+          type:
+            basic: short
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: byte
       constructors:
         - modifiers:
             - public
@@ -861,6 +1193,14 @@ namespaces:
       javaType: class
       extends: Object
     PlayerPacket.l_receive:
+      fields:
+        playerPacket:
+          name: playerPacket
+          modifiers:
+            - public
+            - static
+          type:
+            basic: PlayerPacket
       constructors:
         - modifiers:
             - public
@@ -870,6 +1210,14 @@ namespaces:
       javaType: class
       extends: Object
     PlayerPacket.l_send:
+      fields:
+        playerPacket:
+          name: playerPacket
+          modifiers:
+            - public
+            - static
+          type:
+            basic: PlayerPacket
       constructors:
         - modifiers:
             - public
@@ -1355,6 +1703,14 @@ namespaces:
       javaType: class
       extends: Object
     RequestDataPacket:
+      fields:
+        large_file_bb:
+          name: large_file_bb
+          modifiers:
+            - public
+            - static
+          type:
+            basic: ByteBuffer
       constructors:
         - modifiers:
             - public
@@ -1459,6 +1815,12 @@ namespaces:
         - name: setRequest
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: setRequest
+          modifiers:
+            - public
           parameters:
             - name: id
               type:
@@ -1482,6 +1844,55 @@ namespaces:
       extends: Object
       notes: Packet for transmitting data. This packet could transmit large files.
     RequestDataPacket.RequestID:
+      fields:
+        ConnectionDetails:
+          name: ConnectionDetails
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RequestDataPacket.RequestID
+        Descriptors:
+          name: Descriptors
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RequestDataPacket.RequestID
+        MapZone:
+          name: MapZone
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RequestDataPacket.RequestID
+        MetaGrid:
+          name: MetaGrid
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RequestDataPacket.RequestID
+        PlayerZombieDescriptors:
+          name: PlayerZombieDescriptors
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RequestDataPacket.RequestID
+        RadioData:
+          name: RadioData
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RequestDataPacket.RequestID
       methods:
         - name: getDescriptor
           modifiers:
@@ -1489,22 +1900,6 @@ namespaces:
           returns:
             type:
               basic: String
-        - name: valueOf
-          modifiers:
-            - public
-            - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: RequestDataPacket.RequestID
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
         - name: values
           modifiers:
             - public
@@ -1904,6 +2299,37 @@ namespaces:
       javaType: class
       extends: Object
     SyncInjuriesPacket:
+      fields:
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: short
+        player:
+          name: player
+          modifiers:
+            - public
+          type:
+            basic: IsoPlayer
+        strafeSpeed:
+          name: strafeSpeed
+          modifiers:
+            - public
+          type:
+            basic: float
+        walkInjury:
+          name: walkInjury
+          modifiers:
+            - public
+          type:
+            basic: float
+        walkSpeed:
+          name: walkSpeed
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -1964,6 +2390,20 @@ namespaces:
       javaType: class
       extends: Object
     SyncNonPvpZonePacket:
+      fields:
+        doRemove:
+          name: doRemove
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        zone:
+          name: zone
+          modifiers:
+            - public
+            - final
+          type:
+            basic: NonPvpZone
       constructors:
         - modifiers:
             - public
@@ -2014,6 +2454,31 @@ namespaces:
       javaType: class
       extends: Object
     SyncSafehousePacket:
+      fields:
+        ownerUsername:
+          name: ownerUsername
+          modifiers:
+            - public
+          type:
+            basic: String
+        remove:
+          name: remove
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        safehouse:
+          name: safehouse
+          modifiers:
+            - public
+          type:
+            basic: SafeHouse
+        shouldCreateChat:
+          name: shouldCreateChat
+          modifiers:
+            - public
+          type:
+            basic: boolean
       constructors:
         - modifiers:
             - public
@@ -2155,23 +2620,24 @@ namespaces:
       javaType: class
       extends: Object
     ValidatePacket.ValidateState:
-      methods:
-        - name: valueOf
+      fields:
+        Request:
+          name: Request
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: ValidatePacket.ValidateState
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: ValidatePacket.ValidateState
+        Success:
+          name: Success
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ValidatePacket.ValidateState
+      methods:
         - name: values
           modifiers:
             - public
@@ -2329,6 +2795,145 @@ namespaces:
       javaType: class
       extends: Object
     ZombiePacket:
+      fields:
+        booleanVariables:
+          name: booleanVariables
+          modifiers:
+            - public
+          type:
+            basic: short
+        descriptorID:
+          name: descriptorID
+          modifiers:
+            - public
+          type:
+            basic: int
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: short
+        moveType:
+          name: moveType
+          modifiers:
+            - public
+          type:
+            basic: NetworkVariables.PredictionTypes
+        pfbTarget:
+          name: pfbTarget
+          modifiers:
+            - public
+          type:
+            basic: short
+        pfbTargetX:
+          name: pfbTargetX
+          modifiers:
+            - public
+          type:
+            basic: float
+        pfbTargetY:
+          name: pfbTargetY
+          modifiers:
+            - public
+          type:
+            basic: float
+        pfbTargetZ:
+          name: pfbTargetZ
+          modifiers:
+            - public
+          type:
+            basic: byte
+        pfbType:
+          name: pfbType
+          modifiers:
+            - public
+          type:
+            basic: byte
+        realHealth:
+          name: realHealth
+          modifiers:
+            - public
+          type:
+            basic: short
+        realState:
+          name: realState
+          modifiers:
+            - public
+          type:
+            basic: NetworkVariables.ZombieState
+        realX:
+          name: realX
+          modifiers:
+            - public
+          type:
+            basic: float
+        realY:
+          name: realY
+          modifiers:
+            - public
+          type:
+            basic: float
+        realZ:
+          name: realZ
+          modifiers:
+            - public
+          type:
+            basic: byte
+        reanimatedBodyID:
+          name: reanimatedBodyID
+          modifiers:
+            - public
+          type:
+            basic: short
+        smParamTargetAngle:
+          name: smParamTargetAngle
+          modifiers:
+            - public
+          type:
+            basic: int
+        speedMod:
+          name: speedMod
+          modifiers:
+            - public
+          type:
+            basic: short
+        target:
+          name: target
+          modifiers:
+            - public
+          type:
+            basic: short
+        timeSinceSeenFlesh:
+          name: timeSinceSeenFlesh
+          modifiers:
+            - public
+          type:
+            basic: int
+        walkType:
+          name: walkType
+          modifiers:
+            - public
+          type:
+            basic: NetworkVariables.WalkType
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: byte
       constructors:
         - modifiers:
             - public
@@ -2369,6 +2974,16 @@ namespaces:
             - name: chr
               type:
                 basic: IsoZombie
+          returns:
+            type:
+              basic: void
+        - name: write
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
           returns:
             type:
               basic: void

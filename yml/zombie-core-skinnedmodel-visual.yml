@@ -82,6 +82,13 @@ namespaces:
       javaType: class
       extends: Object
     HumanVisual:
+      fields:
+        zombieRotStage:
+          name: zombieRotStage
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -146,6 +153,19 @@ namespaces:
             - name: other_
               type:
                 basic: BaseVisual
+          returns:
+            type:
+              basic: void
+        - name: dressInClothingItem
+          modifiers:
+            - public
+          parameters:
+            - name: itemGUID
+              type:
+                basic: String
+            - name: itemVisuals
+              type:
+                basic: ItemVisuals
           returns:
             type:
               basic: void
@@ -659,6 +679,45 @@ namespaces:
         - public
       javaType: interface
     ItemVisual:
+      fields:
+        m_BaseTexture:
+          name: m_BaseTexture
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_Decal:
+          name: m_Decal
+          modifiers:
+            - public
+          type:
+            basic: String
+        m_Hue:
+          name: m_Hue
+          modifiers:
+            - public
+          type:
+            basic: float
+        m_TextureChoice:
+          name: m_TextureChoice
+          modifiers:
+            - public
+          type:
+            basic: int
+        m_Tint:
+          name: m_Tint
+          modifiers:
+            - public
+          type:
+            basic: ImmutableColor
+        NULL_HUE:
+          name: NULL_HUE
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -739,6 +798,16 @@ namespaces:
         - name: getAlternateModelName
           modifiers:
             - public
+          returns:
+            type:
+              basic: String
+        - name: getBaseTexture
+          modifiers:
+            - public
+          parameters:
+            - name: clothingItem
+              type:
+                basic: ClothingItem
           returns:
             type:
               basic: String
@@ -889,9 +958,29 @@ namespaces:
         - name: getTextureChoice
           modifiers:
             - public
+          parameters:
+            - name: clothingItem
+              type:
+                basic: ClothingItem
+          returns:
+            type:
+              basic: String
+        - name: getTextureChoice
+          modifiers:
+            - public
           returns:
             type:
               basic: int
+        - name: getTint
+          modifiers:
+            - public
+          parameters:
+            - name: clothingItem
+              type:
+                basic: ClothingItem
+          returns:
+            type:
+              basic: ImmutableColor
         - name: getTint
           modifiers:
             - public
@@ -1135,12 +1224,6 @@ namespaces:
           returns:
             type:
               basic: void
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
         - final

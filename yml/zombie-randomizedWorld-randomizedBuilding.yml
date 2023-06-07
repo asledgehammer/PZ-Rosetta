@@ -47,6 +47,53 @@ namespaces:
             - name: sq
               type:
                 basic: IsoGridSquare
+            - name: xoffset
+              type:
+                basic: float
+            - name: yoffset
+              type:
+                basic: float
+            - name: zoffset
+              type:
+                basic: float
+          returns:
+            type:
+              basic: InventoryItem
+        - name: addWorldItem
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: String
+            - name: sq
+              type:
+                basic: IsoGridSquare
+            - name: xoffset
+              type:
+                basic: float
+            - name: yoffset
+              type:
+                basic: float
+            - name: zoffset
+              type:
+                basic: float
+            - name: worldZ
+              type:
+                basic: int
+          returns:
+            type:
+              basic: InventoryItem
+        - name: addWorldItem
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: String
+            - name: sq
+              type:
+                basic: IsoGridSquare
             - name: obj
               type:
                 basic: IsoObject
@@ -269,6 +316,13 @@ namespaces:
       javaType: class
       extends: RandomizedWorldBase
     RandomizedBuildingBase.HumanCorpse:
+      fields:
+        isSkeleton:
+          name: isSkeleton
+          modifiers:
+            - public
+          type:
+            basic: boolean
       constructors:
         - modifiers:
             - public
@@ -1057,6 +1111,32 @@ namespaces:
         Add money/alcohol on table
          Can also generate a rare male venue
     RBTableStory:
+      fields:
+        allStories:
+          name: allStories
+          modifiers:
+            - public
+            - static
+          type:
+            basic: ArrayList
+        fullTableMap:
+          name: fullTableMap
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        table1:
+          name: table1
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
+        table2:
+          name: table2
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
       constructors:
         - modifiers:
             - public

@@ -2,6 +2,117 @@
   "namespaces": {
     "zombie.core.physics": {
       "Bullet": {
+        "fields": {
+          "cmdBuf": {
+            "name": "cmdBuf",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "ByteBuffer"
+            }
+          },
+          "TO_ACTIVATE_CHUNKMAP": {
+            "name": "TO_ACTIVATE_CHUNKMAP",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_ADD_VEHICLE": {
+            "name": "TO_ADD_VEHICLE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_DEBUG_DRAW_WORLD": {
+            "name": "TO_DEBUG_DRAW_WORLD",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_END": {
+            "name": "TO_END",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_INIT_WORLD": {
+            "name": "TO_INIT_WORLD",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_SCROLL_CHUNKMAP": {
+            "name": "TO_SCROLL_CHUNKMAP",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_STEP_SIMULATION": {
+            "name": "TO_STEP_SIMULATION",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_UPDATE_CHUNK": {
+            "name": "TO_UPDATE_CHUNK",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "TO_UPDATE_PLAYER_LIST": {
+            "name": "TO_UPDATE_PLAYER_LIST",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -700,6 +811,38 @@
                 }
               },
               {
+                "name": "bServer",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "initWorld",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "offsetX",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "offsetY",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
                 "name": "wx",
                 "type": {
                   "basic": "int"
@@ -994,6 +1137,32 @@
             ],
             "parameters": [
               {
+                "name": "vehicle",
+                "type": {
+                  "basic": "BaseVehicle"
+                }
+              },
+              {
+                "name": "isActive",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setVehicleActive",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
                 "name": "ID",
                 "type": {
                   "basic": "int"
@@ -1055,6 +1224,32 @@
                 "name": "data",
                 "type": {
                   "basic": "float[]"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "setVehicleStatic",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "vehicle",
+                "type": {
+                  "basic": "BaseVehicle"
+                }
+              },
+              {
+                "name": "isStatic",
+                "type": {
+                  "basic": "boolean"
                 }
               }
             ],
@@ -1289,6 +1484,101 @@
         "extends": "Object"
       },
       "CarController": {
+        "fields": {
+          "acceleratorOn": {
+            "name": "acceleratorOn",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "brakeOn": {
+            "name": "brakeOn",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "BrakingForce": {
+            "name": "BrakingForce",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "clientControls": {
+            "name": "clientControls",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "CarController.ClientControls"
+            }
+          },
+          "clientForce": {
+            "name": "clientForce",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "EngineForce": {
+            "name": "EngineForce",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "gears": {
+            "name": "gears",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "CarController.GearInfo"
+            }
+          },
+          "isEnable": {
+            "name": "isEnable",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "speed": {
+            "name": "speed",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "vehicleObject": {
+            "name": "vehicleObject",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "BaseVehicle"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1399,6 +1689,37 @@
                 "type": {
                   "basic": "float"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "drawCircle",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "radius",
+                "type": {
+                  "basic": "float"
+                }
               },
               {
                 "name": "r",
@@ -1420,6 +1741,49 @@
               },
               {
                 "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "drawRect",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "vec",
+                "type": {
+                  "basic": "org.joml.Vector3f"
+                }
+              },
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "w",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "h",
                 "type": {
                   "basic": "float"
                 }
@@ -1614,6 +1978,71 @@
         "extends": "Object"
       },
       "CarController.ClientControls": {
+        "fields": {
+          "backward": {
+            "name": "backward",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "brake": {
+            "name": "brake",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "forceBrake": {
+            "name": "forceBrake",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "long"
+            }
+          },
+          "forward": {
+            "name": "forward",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "shift": {
+            "name": "shift",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "steering": {
+            "name": "steering",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "wasUsingParkingBrakes": {
+            "name": "wasUsingParkingBrakes",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2142,6 +2571,30 @@
         "extends": "TextureDraw.GenericDrawer"
       },
       "Transform": {
+        "fields": {
+          "basis": {
+            "name": "basis",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "org.joml.Matrix3f"
+            },
+            "notes": "Rotation matrix of this Transform."
+          },
+          "origin": {
+            "name": "origin",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "org.joml.Vector3f"
+            },
+            "notes": "Translation vector of this Transform."
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2262,11 +2715,60 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "inverse",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "tr",
                 "type": {
                   "basic": "Transform"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "set",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tr",
+                "type": {
+                  "basic": "Transform"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "set",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "mat",
+                "type": {
+                  "basic": "org.joml.Matrix3f"
                 }
               }
             ],
@@ -2354,6 +2856,74 @@
         "notes": "Transform represents translation and rotation (rigid transform). Scaling and\n shearing is not supported."
       },
       "WorldSimulation": {
+        "fields": {
+          "created": {
+            "name": "created",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "WorldSimulation"
+            }
+          },
+          "LEVEL_ZERO_ONLY": {
+            "name": "LEVEL_ZERO_ONLY",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "offsetX": {
+            "name": "offsetX",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "offsetY": {
+            "name": "offsetY",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "physicsObjectMap": {
+            "name": "physicsObjectMap",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "time": {
+            "name": "time",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "long"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

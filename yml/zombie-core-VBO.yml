@@ -61,6 +61,22 @@ namespaces:
             - name: target
               type:
                 basic: int
+            - name: data
+              type:
+                basic: ByteBuffer
+            - name: usage
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: glBufferData
+          modifiers:
+            - public
+          parameters:
+            - name: target
+              type:
+                basic: int
             - name: data_size
               type:
                 basic: long
@@ -197,6 +213,22 @@ namespaces:
             - name: target
               type:
                 basic: int
+            - name: data
+              type:
+                basic: ByteBuffer
+            - name: usage
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: glBufferData
+          modifiers:
+            - public
+          parameters:
+            - name: target
+              type:
+                basic: int
             - name: data_size
               type:
                 basic: long
@@ -273,6 +305,14 @@ namespaces:
       javaType: class
       extends: Object
     GLVertexBufferObject:
+      fields:
+        funcs:
+          name: funcs
+          modifiers:
+            - public
+            - static
+          type:
+            basic: IGLBufferObject
       constructors:
         - modifiers:
             - public
@@ -372,6 +412,16 @@ namespaces:
         - name: map
           modifiers:
             - public
+          parameters:
+            - name: size
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ByteBuffer
+        - name: map
+          modifiers:
+            - public
           returns:
             type:
               basic: ByteBuffer
@@ -381,12 +431,6 @@ namespaces:
           returns:
             type:
               basic: void
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
         - name: unmap
           modifiers:
             - public
@@ -430,6 +474,20 @@ namespaces:
               type:
                 basic: int
             - name: buffer
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: glBufferData
+          parameters:
+            - name: target
+              type:
+                basic: int
+            - name: data
+              type:
+                basic: ByteBuffer
+            - name: usage
               type:
                 basic: int
           returns:

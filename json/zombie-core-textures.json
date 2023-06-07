@@ -2,6 +2,44 @@
   "namespaces": {
     "zombie.core.textures": {
       "ColorInfo": {
+        "fields": {
+          "a": {
+            "name": "a",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "b": {
+            "name": "b",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "g": {
+            "name": "g",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "r": {
+            "name": "r",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -142,6 +180,25 @@
             ],
             "parameters": [
               {
+                "name": "other",
+                "type": {
+                  "basic": "ColorInfo"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ColorInfo"
+              }
+            }
+          },
+          {
+            "name": "set",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "R",
                 "type": {
                   "basic": "float"
@@ -191,17 +248,6 @@
             "returns": {
               "type": {
                 "basic": "ImmutableColor"
-              }
-            }
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
               }
             }
           }
@@ -1924,6 +1970,47 @@
         "javaType": "interface"
       },
       "ImageData": {
+        "fields": {
+          "data": {
+            "name": "data",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "MipMapLevel"
+            },
+            "notes": "the data of image"
+          },
+          "id": {
+            "name": "id",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "mask": {
+            "name": "mask",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "BooleanGrid"
+            }
+          },
+          "MIP_LEVEL_IDX_OFFSET": {
+            "name": "MIP_LEVEL_IDX_OFFSET",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2357,6 +2444,39 @@
                 "type": {
                   "basic": "byte"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "make the image transparent"
+          },
+          {
+            "name": "makeTransp",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "red",
+                "type": {
+                  "basic": "byte"
+                },
+                "notes": "the red value (0-255)"
+              },
+              {
+                "name": "green",
+                "type": {
+                  "basic": "byte"
+                }
+              },
+              {
+                "name": "blue",
+                "type": {
+                  "basic": "byte"
+                }
               },
               {
                 "name": "alpha",
@@ -2371,6 +2491,25 @@
               }
             },
             "notes": "make the image transparent"
+          },
+          {
+            "name": "setData",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "image",
+                "type": {
+                  "basic": "BufferedImage"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
           },
           {
             "name": "setData",
@@ -2827,6 +2966,38 @@
         "extends": "Object"
       },
       "MipMapLevel": {
+        "fields": {
+          "data": {
+            "name": "data",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "WrappedBuffer"
+            }
+          },
+          "height": {
+            "name": "height",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "width": {
+            "name": "width",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2938,6 +3109,76 @@
         "extends": "Object"
       },
       "MultiTextureFBO2": {
+        "fields": {
+          "bAutoZoom": {
+            "name": "bAutoZoom",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "boolean[]"
+            }
+          },
+          "bZoomEnabled": {
+            "name": "bZoomEnabled",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "Current": {
+            "name": "Current",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureFBO"
+            }
+          },
+          "FBOrendered": {
+            "name": "FBOrendered",
+            "modifiers": [
+              "public",
+              "volatile"
+            ],
+            "type": {
+              "basic": "TextureFBO"
+            }
+          },
+          "startZoom": {
+            "name": "startZoom",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "float[]"
+            }
+          },
+          "targetZoom": {
+            "name": "targetZoom",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "float[]"
+            }
+          },
+          "zoom": {
+            "name": "zoom",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "float[]"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3227,6 +3468,63 @@
         "extends": "Object"
       },
       "Pcx": {
+        "fields": {
+          "Cache": {
+            "name": "Cache",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "imageData": {
+            "name": "imageData",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "byte[]"
+            }
+          },
+          "imageHeight": {
+            "name": "imageHeight",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "imageWidth": {
+            "name": "imageWidth",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "palette": {
+            "name": "palette",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int[]"
+            }
+          },
+          "pic": {
+            "name": "pic",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int[]"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3313,6 +3611,44 @@
         "extends": "Object"
       },
       "PNGDecoder": {
+        "fields": {
+          "bDoMask": {
+            "name": "bDoMask",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "mask": {
+            "name": "mask",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "BooleanGrid"
+            }
+          },
+          "maskID": {
+            "name": "maskID",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "readTotal": {
+            "name": "readTotal",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "long"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3525,6 +3861,85 @@
         "notes": "A PNGDecoder. The slick PNG decoder is based on this class :)"
       },
       "PNGDecoder.Format": {
+        "fields": {
+          "ABGR": {
+            "name": "ABGR",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          },
+          "ALPHA": {
+            "name": "ALPHA",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          },
+          "BGRA": {
+            "name": "BGRA",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          },
+          "LUMINANCE": {
+            "name": "LUMINANCE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          },
+          "LUMINANCE_ALPHA": {
+            "name": "LUMINANCE_ALPHA",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          },
+          "RGB": {
+            "name": "RGB",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          },
+          "RGBA": {
+            "name": "RGBA",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "PNGDecoder.Format"
+            }
+          }
+        },
         "methods": [
           {
             "name": "getNumComponents",
@@ -3549,29 +3964,6 @@
             }
           },
           {
-            "name": "valueOf",
-            "modifiers": [
-              "public",
-              "static"
-            ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "PNGDecoder.Format"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
-          },
-          {
             "name": "values",
             "modifiers": [
               "public",
@@ -3594,6 +3986,26 @@
         "extends": "Enum"
       },
       "PNGSize": {
+        "fields": {
+          "height": {
+            "name": "height",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "width": {
+            "name": "width",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3602,6 +4014,25 @@
           }
         ],
         "methods": [
+          {
+            "name": "readSize",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "path",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
           {
             "name": "readSize",
             "modifiers": [
@@ -3630,6 +4061,27 @@
         "extends": "Object"
       },
       "SmartTexture": {
+        "fields": {
+          "commands": {
+            "name": "commands",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "result": {
+            "name": "result",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3638,6 +4090,306 @@
           }
         ],
         "methods": [
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "params",
+                "type": {
+                  "basic": "ArrayList",
+                  "full": "ArrayList<TextureCombinerShaderParam>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "params",
+                "type": {
+                  "basic": "ArrayList",
+                  "full": "ArrayList<TextureCombinerShaderParam>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "params",
+                "type": {
+                  "basic": "ArrayList",
+                  "full": "ArrayList<TextureCombinerShaderParam>"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
           {
             "name": "add",
             "modifiers": [
@@ -3753,6 +4505,37 @@
               {
                 "name": "tex",
                 "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "h",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addHue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
                   "basic": "Texture"
                 }
               },
@@ -3764,6 +4547,55 @@
               },
               {
                 "name": "h",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addMaskedTexture",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "mask",
+                "type": {
+                  "basic": "CharacterMask"
+                }
+              },
+              {
+                "name": "masksFolder",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "base",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "tint",
+                "type": {
+                  "basic": "ImmutableColor"
+                }
+              },
+              {
+                "name": "hue",
                 "type": {
                   "basic": "float"
                 }
@@ -3815,6 +4647,43 @@
                 "name": "hue",
                 "type": {
                   "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addOverlay",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "mask",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "intensity",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
                 }
               }
             ],
@@ -3926,6 +4795,154 @@
               {
                 "name": "tex",
                 "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "srcBlendA",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlendA",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addSeparate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "srcBlendA",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlendA",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addSeparate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "params",
+                "type": {
+                  "basic": "ArrayList",
+                  "full": "ArrayList<TextureCombinerShaderParam>"
+                }
+              },
+              {
+                "name": "srcBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlend",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "srcBlendA",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destBlendA",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addSeparate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
                   "basic": "Texture"
                 }
               },
@@ -4005,6 +5022,49 @@
               },
               {
                 "name": "hue",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addTint",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
                 "type": {
                   "basic": "float"
                 }
@@ -4191,6 +5251,37 @@
               {
                 "name": "tex",
                 "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "mask",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
                   "basic": "Texture"
                 }
               },
@@ -4204,6 +5295,43 @@
                 "name": "category",
                 "type": {
                   "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "maskHue",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "h",
+                "type": {
+                  "basic": "float"
                 }
               }
             ],
@@ -4239,6 +5367,55 @@
               },
               {
                 "name": "h",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "maskTint",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "maskTex",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "category",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
                 "type": {
                   "basic": "float"
                 }
@@ -4308,6 +5485,56 @@
               {
                 "name": "bodyTex",
                 "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "part",
+                "type": {
+                  "basic": "BloodBodyPartType"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "removeHole",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bodyTex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "part",
+                "type": {
+                  "basic": "BloodBodyPartType"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "removeHole",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bodyTex",
+                "type": {
                   "basic": "Texture"
                 }
               },
@@ -4358,6 +5585,216 @@
         "notes": "Created by LEMMY on 6/30/2016."
       },
       "Texture": {
+        "fields": {
+          "ASSET_TYPE": {
+            "name": "ASSET_TYPE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AssetType"
+            }
+          },
+          "assetParams": {
+            "name": "assetParams",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture.TextureAssetParams"
+            }
+          },
+          "bDoingQuad": {
+            "name": "bDoingQuad",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bindAlways": {
+            "name": "bindAlways",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "BindCount": {
+            "name": "BindCount",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            },
+            "notes": "indicates if all the texture will auto create the masks on load\n The auto creation works only with the getTexture() methods"
+          },
+          "flip": {
+            "name": "flip",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "la": {
+            "name": "la",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "lastlastTextureID": {
+            "name": "lastlastTextureID",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "lastTextureID": {
+            "name": "lastTextureID",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "lb": {
+            "name": "lb",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "lg": {
+            "name": "lg",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "lr": {
+            "name": "lr",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "nullTextures": {
+            "name": "nullTextures",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "HashSet"
+            }
+          },
+          "offsetX": {
+            "name": "offsetX",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "offsetY": {
+            "name": "offsetY",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "totalTextureID": {
+            "name": "totalTextureID",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "WarnFailFindTexture": {
+            "name": "WarnFailFindTexture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "xEnd": {
+            "name": "xEnd",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            },
+            "notes": "internal texture coordinates\n it's used to get the max border of texture..."
+          },
+          "xStart": {
+            "name": "xStart",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            },
+            "notes": "internal texture coordinates\n it's used to get the max border of texture..."
+          },
+          "yEnd": {
+            "name": "yEnd",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            },
+            "notes": "internal texture coordinates\n it's used to get the max border of texture..."
+          },
+          "yStart": {
+            "name": "yStart",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            },
+            "notes": "internal texture coordinates\n it's used to get the max border of texture..."
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -4679,6 +6116,18 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Blinds the image"
+          },
+          {
+            "name": "bind",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "unit",
@@ -4781,6 +6230,56 @@
                 "name": "height",
                 "type": {
                   "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "createMask",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "creates the mask of collisions"
+          },
+          {
+            "name": "createMask",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "mask",
+                "type": {
+                  "basic": "boolean[]"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "createMask",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "mask",
+                "type": {
+                  "basic": "BooleanGrid"
                 }
               }
             ],
@@ -5042,6 +6541,78 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "getSharedTexture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Texture"
+              }
+            }
+          },
+          {
+            "name": "getSharedTexture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "flags",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Texture"
+              }
+            }
+          },
+          {
+            "name": "getSharedTexture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "palette",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Texture"
               }
             }
           },
@@ -5447,6 +7018,136 @@
                 "name": "name",
                 "type": {
                   "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "render",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
                 }
               }
             ],
@@ -6357,6 +8058,86 @@
                 }
               },
               {
+                "name": "width",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Texture"
+              }
+            }
+          },
+          {
+            "name": "split",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "xOffset",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "yOffset",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Texture"
+              }
+            }
+          },
+          {
+            "name": "split",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "xOffset",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "yOffset",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
                 "name": "row",
                 "type": {
                   "basic": "int"
@@ -6456,17 +8237,6 @@
             }
           },
           {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              }
-            }
-          },
-          {
             "name": "trygetTexture",
             "modifiers": [
               "public",
@@ -6494,30 +8264,31 @@
         "extends": "Asset"
       },
       "Texture.PZFileformat": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "DDS": {
+            "name": "DDS",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "Texture.PZFileformat"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "Texture.PZFileformat"
+            }
           },
+          "PNG": {
+            "name": "PNG",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "Texture.PZFileformat"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -6557,6 +8328,19 @@
         "extends": "AssetManager.AssetParams"
       },
       "TextureAssetManager": {
+        "fields": {
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureAssetManager"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6572,6 +8356,63 @@
         "extends": "AssetManager"
       },
       "TextureBinder": {
+        "fields": {
+          "activeTextureIndex": {
+            "name": "activeTextureIndex",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "TextureBinder"
+            }
+          },
+          "maxTextureUnits": {
+            "name": "maxTextureUnits",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "textureIndex": {
+            "name": "textureIndex",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "textureUnitIDs": {
+            "name": "textureUnitIDs",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int[]"
+            }
+          },
+          "textureUnitIDStart": {
+            "name": "textureUnitIDStart",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6607,6 +8448,29 @@
         "extends": "Object"
       },
       "TextureCombiner": {
+        "fields": {
+          "count": {
+            "name": "count",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureCombiner"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6623,6 +8487,31 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "combine",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex1",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "tex2",
+                "type": {
+                  "basic": "Texture"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Texture"
               }
             }
           },
@@ -6801,6 +8690,149 @@
         "notes": "Created by LEMMY on 6/21/2016."
       },
       "TextureCombinerCommand": {
+        "fields": {
+          "blendDest": {
+            "name": "blendDest",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "blendDestA": {
+            "name": "blendDestA",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "blendSrc": {
+            "name": "blendSrc",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "blendSrcA": {
+            "name": "blendSrcA",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "DEFAULT_DST_A": {
+            "name": "DEFAULT_DST_A",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "DEFAULT_SRC_A": {
+            "name": "DEFAULT_SRC_A",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "h": {
+            "name": "h",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "mask": {
+            "name": "mask",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture"
+            }
+          },
+          "pool": {
+            "name": "pool",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ObjectPool"
+            }
+          },
+          "shader": {
+            "name": "shader",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "SmartShader"
+            }
+          },
+          "shaderParams": {
+            "name": "shaderParams",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "tex": {
+            "name": "tex",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture"
+            }
+          },
+          "w": {
+            "name": "w",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "x": {
+            "name": "x",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "y": {
+            "name": "y",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6832,6 +8864,167 @@
                 "type": {
                   "basic": "Texture"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "src",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dest",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "mask",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "src",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dest",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "w",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "h",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
               },
               {
                 "name": "shader",
@@ -6844,6 +9037,99 @@
                 "type": {
                   "basic": "ArrayList",
                   "full": "ArrayList<TextureCombinerShaderParam>"
+                }
+              },
+              {
+                "name": "mask",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "src",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dest",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "shader",
+                "type": {
+                  "basic": "SmartShader"
+                }
+              },
+              {
+                "name": "params",
+                "type": {
+                  "basic": "ArrayList",
+                  "full": "ArrayList<TextureCombinerShaderParam>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureCombinerCommand"
+              }
+            }
+          },
+          {
+            "name": "initSeparate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "src",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "dest",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "srcA",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "destA",
+                "type": {
+                  "basic": "int"
                 }
               }
             ],
@@ -6914,17 +9200,6 @@
                 "basic": "TextureCombinerCommand"
               }
             }
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              }
-            }
           }
         ],
         "modifiers": [
@@ -6935,6 +9210,35 @@
         "extends": "Object"
       },
       "TextureCombinerShaderParam": {
+        "fields": {
+          "max": {
+            "name": "max",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "min": {
+            "name": "min",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "name": {
+            "name": "name",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6990,6 +9294,413 @@
         "notes": "Created by LEMMY on 6/30/2016."
       },
       "TextureDraw": {
+        "fields": {
+          "a": {
+            "name": "a",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "b": {
+            "name": "b",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "bSingleCol": {
+            "name": "bSingleCol",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "c": {
+            "name": "c",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "col0": {
+            "name": "col0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "col1": {
+            "name": "col1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "col2": {
+            "name": "col2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "col3": {
+            "name": "col3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "d": {
+            "name": "d",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "drawer": {
+            "name": "drawer",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureDraw.GenericDrawer"
+            }
+          },
+          "f1": {
+            "name": "f1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "flipped": {
+            "name": "flipped",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "tex": {
+            "name": "tex",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture"
+            }
+          },
+          "tex1": {
+            "name": "tex1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture"
+            }
+          },
+          "tex1_col0": {
+            "name": "tex1_col0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "tex1_col1": {
+            "name": "tex1_col1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "tex1_col2": {
+            "name": "tex1_col2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "tex1_col3": {
+            "name": "tex1_col3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "tex1_u0": {
+            "name": "tex1_u0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_u1": {
+            "name": "tex1_u1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_u2": {
+            "name": "tex1_u2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_u3": {
+            "name": "tex1_u3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_v0": {
+            "name": "tex1_v0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_v1": {
+            "name": "tex1_v1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_v2": {
+            "name": "tex1_v2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "tex1_v3": {
+            "name": "tex1_v3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "type": {
+            "name": "type",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "u0": {
+            "name": "u0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "u1": {
+            "name": "u1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "u2": {
+            "name": "u2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "u3": {
+            "name": "u3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "useAttribArray": {
+            "name": "useAttribArray",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "byte"
+            }
+          },
+          "v0": {
+            "name": "v0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "v1": {
+            "name": "v1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "v2": {
+            "name": "v2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "v3": {
+            "name": "v3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "vars": {
+            "name": "vars",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float[]"
+            }
+          },
+          "x0": {
+            "name": "x0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "x1": {
+            "name": "x1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "x2": {
+            "name": "x2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "x3": {
+            "name": "x3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "y0": {
+            "name": "y0",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "y1": {
+            "name": "y1",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "y2": {
+            "name": "y2",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "y3": {
+            "name": "y3",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -6998,6 +9709,781 @@
           }
         ],
         "methods": [
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureDraw"
+              }
+            }
+          },
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "wallSection",
+                "type": {
+                  "basic": "SpriteRenderer.WallShaderTexRender"
+                }
+              },
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureDraw"
+              }
+            }
+          },
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "width",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "height",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "u1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "v1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "u2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "v2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "u3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "v3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "u4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "v4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureDraw"
+              }
+            }
+          },
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "r1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "g1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "b1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "a1",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "c1",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c2",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c3",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c4",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Create",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "tex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "x1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y1",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y2",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y3",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "x4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y4",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "c1",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c2",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c3",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "c4",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "texdModifier",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<TextureDraw>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TextureDraw"
+              }
+            }
+          },
           {
             "name": "Create",
             "modifiers": [
@@ -7838,6 +11324,50 @@
                 "type": {
                   "basic": "int"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "glDoStartFrame",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "texd",
+                "type": {
+                  "basic": "TextureDraw"
+                }
+              },
+              {
+                "name": "w",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "h",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "zoom",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "player",
+                "type": {
+                  "basic": "int"
+                }
               },
               {
                 "name": "isTextFrame",
@@ -8456,17 +11986,6 @@
                 "basic": "void"
               }
             }
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              }
-            }
           }
         ],
         "modifiers": [
@@ -8518,30 +12037,405 @@
         "extends": "Object"
       },
       "TextureDraw.Type": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "BindActiveTexture": {
+            "name": "BindActiveTexture",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "TextureDraw.Type"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
           },
+          "doCoreIntParam": {
+            "name": "doCoreIntParam",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "DrawModel": {
+            "name": "DrawModel",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "DrawParticles": {
+            "name": "DrawParticles",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "DrawPuddles": {
+            "name": "DrawPuddles",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "DrawSkyBox": {
+            "name": "DrawSkyBox",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "drawTerrain": {
+            "name": "drawTerrain",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "DrawWater": {
+            "name": "DrawWater",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glAlphaFunc": {
+            "name": "glAlphaFunc",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glBind": {
+            "name": "glBind",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glBlendEquation": {
+            "name": "glBlendEquation",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glBlendFunc": {
+            "name": "glBlendFunc",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glBlendFuncSeparate": {
+            "name": "glBlendFuncSeparate",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glBuffer": {
+            "name": "glBuffer",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glClear": {
+            "name": "glClear",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glClearColor": {
+            "name": "glClearColor",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glColorMask": {
+            "name": "glColorMask",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDepthMask": {
+            "name": "glDepthMask",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDisable": {
+            "name": "glDisable",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDoEndFrame": {
+            "name": "glDoEndFrame",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDoEndFrameFx": {
+            "name": "glDoEndFrameFx",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDoStartFrame": {
+            "name": "glDoStartFrame",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDoStartFrameFx": {
+            "name": "glDoStartFrameFx",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDoStartFrameText": {
+            "name": "glDoStartFrameText",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glDraw": {
+            "name": "glDraw",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glEnable": {
+            "name": "glEnable",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glGenerateMipMaps": {
+            "name": "glGenerateMipMaps",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glIgnoreStyles": {
+            "name": "glIgnoreStyles",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glLoadIdentity": {
+            "name": "glLoadIdentity",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glStencilFunc": {
+            "name": "glStencilFunc",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glStencilMask": {
+            "name": "glStencilMask",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glStencilOp": {
+            "name": "glStencilOp",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glTexParameteri": {
+            "name": "glTexParameteri",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "glViewport": {
+            "name": "glViewport",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "ShaderUpdate": {
+            "name": "ShaderUpdate",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          },
+          "StartShader": {
+            "name": "StartShader",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureDraw.Type"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -8771,6 +12665,17 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "startDrawing",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "clear",
@@ -8819,6 +12724,96 @@
         "extends": "Object"
       },
       "TextureFlags": {
+        "fields": {
+          "CLAMP_TO_EDGE": {
+            "name": "CLAMP_TO_EDGE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "COMPRESS": {
+            "name": "COMPRESS",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "CREATE_MASK": {
+            "name": "CREATE_MASK",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FBO": {
+            "name": "FBO",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FILTER_MAG_NEAREST": {
+            "name": "FILTER_MAG_NEAREST",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FILTER_MIN_NEAREST": {
+            "name": "FILTER_MIN_NEAREST",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "MIPMAPS": {
+            "name": "MIPMAPS",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "NONE": {
+            "name": "NONE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -8834,6 +12829,89 @@
         "extends": "Object"
       },
       "TextureID": {
+        "fields": {
+          "ASSET_TYPE": {
+            "name": "ASSET_TYPE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AssetType"
+            }
+          },
+          "assetParams": {
+            "name": "assetParams",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureID.TextureIDAssetParams"
+            }
+          },
+          "bUseCompression": {
+            "name": "bUseCompression",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bUseCompressionOption": {
+            "name": "bUseCompressionOption",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "deleteTextureIDS": {
+            "name": "deleteTextureIDS",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "IntBuffer"
+            }
+          },
+          "totalGraphicMemory": {
+            "name": "totalGraphicMemory",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "long"
+            }
+          },
+          "totalMemUsed": {
+            "name": "totalMemUsed",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "UseFiltering": {
+            "name": "UseFiltering",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -9315,6 +13393,19 @@
         "extends": "AssetManager.AssetParams"
       },
       "TextureIDAssetManager": {
+        "fields": {
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "TextureIDAssetManager"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -9389,6 +13480,151 @@
         "extends": "RuntimeException"
       },
       "TexturePackPage": {
+        "fields": {
+          "bIgnoreWorldItemTextures": {
+            "name": "bIgnoreWorldItemTextures",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "chl1": {
+            "name": "chl1",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "chl2": {
+            "name": "chl2",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "chl3": {
+            "name": "chl3",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "chl4": {
+            "name": "chl4",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "FoundTextures": {
+            "name": "FoundTextures",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "subTextureMap": {
+            "name": "subTextureMap",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "subTextureMap2": {
+            "name": "subTextureMap2",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "subTextures": {
+            "name": "subTextures",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "tempFilenameCheck": {
+            "name": "tempFilenameCheck",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "TempSubTextureInfo": {
+            "name": "TempSubTextureInfo",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "tex": {
+            "name": "tex",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Texture"
+            }
+          },
+          "texturePackPageMap": {
+            "name": "texturePackPageMap",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "TexturePackPageNameMap": {
+            "name": "TexturePackPageNameMap",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -9485,6 +13721,26 @@
               {
                 "name": "in",
                 "type": {
+                  "basic": "InputStream"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "readInt",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "in",
+                "type": {
                   "basic": "ByteBuffer"
                 }
               }
@@ -9564,6 +13820,89 @@
         "extends": "Object"
       },
       "TexturePackPage.SubTextureInfo": {
+        "fields": {
+          "fx": {
+            "name": "fx",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "fy": {
+            "name": "fy",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "h": {
+            "name": "h",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "name": {
+            "name": "name",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "ox": {
+            "name": "ox",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "oy": {
+            "name": "oy",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "w": {
+            "name": "w",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "x": {
+            "name": "x",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "y": {
+            "name": "y",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

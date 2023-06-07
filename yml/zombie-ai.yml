@@ -1,6 +1,55 @@
 namespaces:
   zombie.ai:
     AIBrainPlayerControlVars:
+      fields:
+        bAiming:
+          name: bAiming
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bBannedAttacking:
+          name: bBannedAttacking
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bMelee:
+          name: bMelee
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bRunning:
+          name: bRunning
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        initiateAttack:
+          name: initiateAttack
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        JustMoved:
+          name: JustMoved
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        strafeX:
+          name: strafeX
+          modifiers:
+            - public
+          type:
+            basic: float
+        strafeY:
+          name: strafeY
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -10,6 +59,102 @@ namespaces:
       javaType: class
       extends: Object
     GameCharacterAIBrain:
+      fields:
+        AIFocusPoint:
+          name: AIFocusPoint
+          modifiers:
+            - public
+            - final
+          type:
+            basic: Vector2
+        aiTarget:
+          name: aiTarget
+          modifiers:
+            - public
+          type:
+            basic: IsoMovingObject
+        allowLongTermTick:
+          name: allowLongTermTick
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        BlockedMemories:
+          name: BlockedMemories
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        chasingZombies:
+          name: chasingZombies
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        controlledByAdvancedPathfinder:
+          name: controlledByAdvancedPathfinder
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        HumanControlVars:
+          name: HumanControlVars
+          modifiers:
+            - public
+            - final
+          type:
+            basic: AIBrainPlayerControlVars
+        isAI:
+          name: isAI
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        isInMeta:
+          name: isInMeta
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        NextPathNodeInvalidated:
+          name: NextPathNodeInvalidated
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        nextPathTarget:
+          name: nextPathTarget
+          modifiers:
+            - public
+            - final
+          type:
+            basic: Vector3
+        spottedCharacters:
+          name: spottedCharacters
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        stance:
+          name: stance
+          modifiers:
+            - public
+          type:
+            basic: Stance
+        StepBehaviors:
+          name: StepBehaviors
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        teammateChasingZombies:
+          name: teammateChasingZombies
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -40,6 +185,16 @@ namespaces:
           returns:
             type:
               basic: IsoGameCharacter
+        - name: getClosestChasingZombie
+          modifiers:
+            - public
+          parameters:
+            - name: recurse
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: IsoZombie
         - name: getClosestChasingZombie
           modifiers:
             - public
@@ -137,6 +292,37 @@ namespaces:
       javaType: class
       extends: Object
     KnownBlockedEdges:
+      fields:
+        n:
+          name: n
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        w:
+          name: w
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -145,6 +331,32 @@ namespaces:
           modifiers:
             - public
             - static
+          returns:
+            type:
+              basic: KnownBlockedEdges
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: KnownBlockedEdges
+          returns:
+            type:
+              basic: KnownBlockedEdges
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
           returns:
             type:
               basic: KnownBlockedEdges
@@ -220,6 +432,12 @@ namespaces:
         - name: getKnownBlockedEdges
           modifiers:
             - public
+          returns:
+            type:
+              basic: ArrayList
+        - name: getKnownBlockedEdges
+          modifiers:
+            - public
           parameters:
             - name: x
               type:
@@ -249,6 +467,19 @@ namespaces:
           returns:
             type:
               basic: KnownBlockedEdges
+        - name: setKnownBlockedDoor
+          modifiers:
+            - public
+          parameters:
+            - name: object
+              type:
+                basic: IsoDoor
+            - name: blocked
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
         - name: setKnownBlockedDoor
           modifiers:
             - public
@@ -476,6 +707,13 @@ namespaces:
       javaType: class
       extends: Object
     StateMachine:
+      fields:
+        activeStateChanged:
+          name: activeStateChanged
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -484,6 +722,20 @@ namespaces:
               type:
                 basic: IsoGameCharacter
       methods:
+        - name: changeState
+          modifiers:
+            - public
+          parameters:
+            - name: newState
+              type:
+                basic: State
+            - name: subStates
+              type:
+                basic: Iterable
+                full: Iterable<State>
+          returns:
+            type:
+              basic: void
         - name: changeState
           modifiers:
             - public
@@ -646,6 +898,15 @@ namespaces:
       javaType: class
       extends: Object
     ZombieGroupManager:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ZombieGroupManager
       constructors:
         - modifiers:
             - public

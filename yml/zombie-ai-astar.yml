@@ -9,23 +9,40 @@ namespaces:
       javaType: class
       extends: Object
     AStarPathFinder.PathFindProgress:
-      methods:
-        - name: valueOf
+      fields:
+        failed:
+          name: failed
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: AStarPathFinder.PathFindProgress
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: AStarPathFinder.PathFindProgress
+        found:
+          name: found
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: AStarPathFinder.PathFindProgress
+        notrunning:
+          name: notrunning
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: AStarPathFinder.PathFindProgress
+        notyetfound:
+          name: notyetfound
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: AStarPathFinder.PathFindProgress
+      methods:
         - name: values
           modifiers:
             - public
@@ -44,6 +61,19 @@ namespaces:
       javaType: enum
       extends: Enum
     AStarPathFinderResult:
+      fields:
+        maxSearchDistance:
+          name: maxSearchDistance
+          modifiers:
+            - public
+          type:
+            basic: int
+        progress:
+          name: progress
+          modifiers:
+            - public
+          type:
+            basic: AStarPathFinder.PathFindProgress
       constructors:
         - modifiers:
             - public
@@ -103,6 +133,20 @@ namespaces:
          this entity allows us to determine whether rough ground on a map should effect
          the unit's cost for moving through the tile.
     Path:
+      fields:
+        cost:
+          name: cost
+          modifiers:
+            - public
+          type:
+            basic: float
+        stepstore:
+          name: stepstore
+          modifiers:
+            - public
+            - static
+          type:
+            basic: Stack
       constructors:
         - modifiers:
             - public
@@ -241,6 +285,27 @@ namespaces:
          the starting location to the target location. This includes a step for the
          initial location.
     Path.Step:
+      fields:
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: int
+          notes: The x coordinate at the given step
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: int
+          notes: The y coordinate at the given step
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public

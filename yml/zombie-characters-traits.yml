@@ -1,6 +1,14 @@
 namespaces:
   zombie.characters.traits:
     ObservationFactory:
+      fields:
+        ObservationMap:
+          name: ObservationMap
+          modifiers:
+            - public
+            - static
+          type:
+            basic: HashMap
       constructors:
         - modifiers:
             - public
@@ -60,6 +68,13 @@ namespaces:
       javaType: class
       extends: Object
     ObservationFactory.Observation:
+      fields:
+        MutuallyExclusive:
+          name: MutuallyExclusive
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -181,6 +196,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: o
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: boolean
+        - name: contains
+          modifiers:
+            - public
+          parameters:
             - name: trait
               type:
                 basic: String
@@ -210,6 +235,16 @@ namespaces:
         - name: isEmpty
           modifiers:
             - public
+          returns:
+            type:
+              basic: boolean
+        - name: remove
+          modifiers:
+            - public
+          parameters:
+            - name: o
+              type:
+                basic: Object
           returns:
             type:
               basic: boolean
@@ -253,21 +288,46 @@ namespaces:
           returns:
             type:
               basic: int
-        - name: toString
-          modifiers:
-            - public
-          returns:
-            type:
-              basic: String
       modifiers:
         - public
       javaType: class
       extends: Object
     TraitFactory:
+      fields:
+        TraitMap:
+          name: TraitMap
+          modifiers:
+            - public
+            - static
+          type:
+            basic: LinkedHashMap
       constructors:
         - modifiers:
             - public
       methods:
+        - name: addTrait
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: cost
+              type:
+                basic: int
+            - name: desc
+              type:
+                basic: String
+            - name: profession
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: TraitFactory.Trait
         - name: addTrait
           modifiers:
             - public
@@ -353,6 +413,55 @@ namespaces:
       javaType: class
       extends: Object
     TraitFactory.Trait:
+      fields:
+        cost:
+          name: cost
+          modifiers:
+            - public
+          type:
+            basic: int
+        description:
+          name: description
+          modifiers:
+            - public
+          type:
+            basic: String
+        MutuallyExclusive:
+          name: MutuallyExclusive
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        prof:
+          name: prof
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        texture:
+          name: texture
+          modifiers:
+            - public
+          type:
+            basic: Texture
+        traitID:
+          name: traitID
+          modifiers:
+            - public
+          type:
+            basic: String
+        XPBoostMap:
+          name: XPBoostMap
+          modifiers:
+            - public
+          type:
+            basic: HashMap
       constructors:
         - modifiers:
             - public

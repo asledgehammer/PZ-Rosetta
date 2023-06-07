@@ -2,7 +2,45 @@
   "namespaces": {
     "zombie.util.io": {
       "BitHeader": {
+        "fields": {
+          "DEBUG": {
+            "name": "DEBUG",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          }
+        },
         "methods": [
+          {
+            "name": "allocRead",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "size",
+                "type": {
+                  "basic": "BitHeader.HeaderSize"
+                }
+              },
+              {
+                "name": "buffer",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "BitHeaderRead"
+              }
+            }
+          },
           {
             "name": "allocRead",
             "modifiers": [
@@ -32,6 +70,32 @@
             "returns": {
               "type": {
                 "basic": "BitHeaderRead"
+              }
+            }
+          },
+          {
+            "name": "allocWrite",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "size",
+                "type": {
+                  "basic": "BitHeader.HeaderSize"
+                }
+              },
+              {
+                "name": "buffer",
+                "type": {
+                  "basic": "ByteBuffer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "BitHeaderWrite"
               }
             }
           },
@@ -106,6 +170,25 @@
               {
                 "name": "flags",
                 "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addFlags",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
                   "basic": "long"
                 }
               }
@@ -124,6 +207,25 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "equals",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
               }
             }
           },
@@ -166,6 +268,25 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "hasFlags",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
               }
             }
           },
@@ -360,30 +481,53 @@
         "extends": "BitHeader.BitHeaderBase"
       },
       "BitHeader.HeaderSize": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "Byte": {
+            "name": "Byte",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "BitHeader.HeaderSize"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "BitHeader.HeaderSize"
+            }
           },
+          "Integer": {
+            "name": "Integer",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "BitHeader.HeaderSize"
+            }
+          },
+          "Long": {
+            "name": "Long",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "BitHeader.HeaderSize"
+            }
+          },
+          "Short": {
+            "name": "Short",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "BitHeader.HeaderSize"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -414,6 +558,22 @@
               {
                 "name": "flags",
                 "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "equals",
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
                   "basic": "long"
                 }
               }
@@ -437,6 +597,22 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "hasFlags",
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
               }
             }
           },
@@ -487,6 +663,22 @@
               {
                 "name": "flags",
                 "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addFlags",
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
                   "basic": "long"
                 }
               }
@@ -502,6 +694,22 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "equals",
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
               }
             }
           },
@@ -534,6 +742,22 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "hasFlags",
+            "parameters": [
+              {
+                "name": "flags",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
               }
             }
           },

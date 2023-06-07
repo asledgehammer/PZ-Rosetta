@@ -1,6 +1,19 @@
 namespaces:
   zombie.core.skinnedmodel.shader:
     Shader:
+      fields:
+        BoneIndicesAttrib:
+          name: BoneIndicesAttrib
+          modifiers:
+            - public
+          type:
+            basic: int
+        BoneWeightsAttrib:
+          name: BoneWeightsAttrib
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -47,6 +60,16 @@ namespaces:
             - public
           parameters:
             - name: alpha
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setAmbient
+          modifiers:
+            - public
+          parameters:
+            - name: amb
               type:
                 basic: float
           returns:
@@ -119,6 +142,43 @@ namespaces:
             - name: animPlayerAngle
               type:
                 basic: float
+            - name: inst
+              type:
+                basic: ModelInstance
+          returns:
+            type:
+              basic: void
+        - name: setLight
+          modifiers:
+            - public
+          parameters:
+            - name: index
+              type:
+                basic: int
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: rad
+              type:
+                basic: float
+            - name: animPlayerAngle
+              type:
+                basic: float
             - name: offsetX
               type:
                 basic: float
@@ -141,6 +201,19 @@ namespaces:
             - name: lighting
               type:
                 basic: float
+          returns:
+            type:
+              basic: void
+        - name: setMatrix
+          modifiers:
+            - public
+          parameters:
+            - name: location
+              type:
+                basic: int
+            - name: matrix4f
+              type:
+                basic: org.joml.Matrix4f
           returns:
             type:
               basic: void
@@ -180,6 +253,39 @@ namespaces:
             - name: matrix2
               type:
                 basic: float[]
+          returns:
+            type:
+              basic: void
+        - name: setMatrixPalette
+          modifiers:
+            - public
+          parameters:
+            - name: skin
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f[]
+          returns:
+            type:
+              basic: void
+        - name: setMatrixPalette
+          modifiers:
+            - public
+          parameters:
+            - name: matrixPalette
+              type:
+                basic: FloatBuffer
+          returns:
+            type:
+              basic: void
+        - name: setMatrixPalette
+          modifiers:
+            - public
+          parameters:
+            - name: matrixPalette
+              type:
+                basic: FloatBuffer
+            - name: transpose
+              type:
+                basic: boolean
           returns:
             type:
               basic: void
@@ -299,6 +405,38 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTexturePainColor
+          modifiers:
+            - public
+          parameters:
+            - name: vec
+              type:
+                basic: org.joml.Vector3f
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTexturePainColor
+          modifiers:
+            - public
+          parameters:
             - name: vec
               type:
                 basic: org.joml.Vector4f
@@ -348,6 +486,19 @@ namespaces:
             - name: z
               type:
                 basic: float
+          returns:
+            type:
+              basic: void
+        - name: setTransformMatrix
+          modifiers:
+            - public
+          parameters:
+            - name: matrix4f
+              type:
+                basic: org.lwjgl.util.vector.Matrix4f
+            - name: transpose
+              type:
+                basic: boolean
           returns:
             type:
               basic: void
@@ -408,6 +559,15 @@ namespaces:
       javaType: class
       extends: Object
     ShaderManager:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ShaderManager
       constructors:
         - modifiers:
             - public

@@ -24,6 +24,85 @@ namespaces:
       extends: Object
       notes: Created by Gennadii on 11.06.2015.
     GameServerDetails:
+      fields:
+        address:
+          name: address
+          modifiers:
+            - public
+          type:
+            basic: String
+        gameDescription:
+          name: gameDescription
+          modifiers:
+            - public
+          type:
+            basic: String
+        gamedir:
+          name: gamedir
+          modifiers:
+            - public
+          type:
+            basic: String
+        map:
+          name: map
+          modifiers:
+            - public
+          type:
+            basic: String
+        maxPlayers:
+          name: maxPlayers
+          modifiers:
+            - public
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        numPlayers:
+          name: numPlayers
+          modifiers:
+            - public
+          type:
+            basic: int
+        passwordProtected:
+          name: passwordProtected
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        ping:
+          name: ping
+          modifiers:
+            - public
+          type:
+            basic: int
+        port:
+          name: port
+          modifiers:
+            - public
+          type:
+            basic: int
+        steamId:
+          name: steamId
+          modifiers:
+            - public
+          type:
+            basic: long
+        tags:
+          name: tags
+          modifiers:
+            - public
+          type:
+            basic: String
+        version:
+          name: version
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -99,10 +178,26 @@ namespaces:
               basic: void
         - name: OnServerFailedToRespond
           parameters:
+            - name: serverIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: OnServerFailedToRespond
+          parameters:
             - name: host
               type:
                 basic: String
             - name: port
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: OnServerResponded
+          parameters:
+            - name: serverIndex
               type:
                 basic: int
           returns:
@@ -259,6 +354,29 @@ namespaces:
             - name: leaseTime
               type:
                 basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: addMapping
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: wanPort
+              type:
+                basic: int
+            - name: lanPort
+              type:
+                basic: int
+            - name: description
+              type:
+                basic: String
+            - name: proto
+              type:
+                basic: String
+            - name: leaseTime
+              type:
+                basic: int
             - name: force
               type:
                 basic: boolean
@@ -279,6 +397,17 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: getExternalAddress
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: forceUpdate
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: String
         - name: getExternalAddress
           modifiers:
             - public
@@ -372,6 +501,17 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: GetServerDetails
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: serverIndex
+              type:
+                basic: int
+          returns:
+            type:
+              basic: GameServerDetails
         - name: GetServerDetails
           modifiers:
             - public
@@ -544,6 +684,63 @@ namespaces:
       extends: Object
       notes: Created by Gennadiy on 11.06.2015.
     SteamFriends:
+      fields:
+        k_EPersonaStateAway:
+          name: k_EPersonaStateAway
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EPersonaStateBusy:
+          name: k_EPersonaStateBusy
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EPersonaStateLookingToPlay:
+          name: k_EPersonaStateLookingToPlay
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EPersonaStateLookingToTrade:
+          name: k_EPersonaStateLookingToTrade
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EPersonaStateOffline:
+          name: k_EPersonaStateOffline
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EPersonaStateOnline:
+          name: k_EPersonaStateOnline
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EPersonaStateSnooze:
+          name: k_EPersonaStateSnooze
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -725,6 +922,28 @@ namespaces:
       extends: Object
       notes: Created by serge on 10.06.2015.
     SteamGameServer:
+      fields:
+        STEAM_SERVERS_CONNECTED:
+          name: STEAM_SERVERS_CONNECTED
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        STEAM_SERVERS_CONNECTFAILURE:
+          name: STEAM_SERVERS_CONNECTFAILURE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        STEAM_SERVERS_DISCONNECTED:
+          name: STEAM_SERVERS_DISCONNECTED
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1035,6 +1254,71 @@ namespaces:
       javaType: class
       extends: Object
     SteamUtils:
+      fields:
+        k_EFloatingGamepadTextInputModeEmail:
+          name: k_EFloatingGamepadTextInputModeEmail
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EFloatingGamepadTextInputModeMultipleLines:
+          name: k_EFloatingGamepadTextInputModeMultipleLines
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EFloatingGamepadTextInputModeNumeric:
+          name: k_EFloatingGamepadTextInputModeNumeric
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EFloatingGamepadTextInputModeSingleLine:
+          name: k_EFloatingGamepadTextInputModeSingleLine
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EGamepadTextInputLineModeMultipleLines:
+          name: k_EGamepadTextInputLineModeMultipleLines
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EGamepadTextInputLineModeSingleLine:
+          name: k_EGamepadTextInputLineModeSingleLine
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EGamepadTextInputModeNormal:
+          name: k_EGamepadTextInputModeNormal
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        k_EGamepadTextInputModePassword:
+          name: k_EGamepadTextInputModePassword
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -1194,6 +1478,15 @@ namespaces:
       javaType: class
       extends: Object
     SteamWorkshop:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshop
       constructors:
         - modifiers:
             - public
@@ -1756,7 +2049,74 @@ namespaces:
       javaType: class
       extends: Object
     SteamWorkshopItem.ItemState:
+      fields:
+        Downloading:
+          name: Downloading
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
+        DownloadPending:
+          name: DownloadPending
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
+        Installed:
+          name: Installed
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
+        LegacyItem:
+          name: LegacyItem
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
+        NeedsUpdate:
+          name: NeedsUpdate
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
+        None:
+          name: None
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
+        Subscribed:
+          name: Subscribed
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: SteamWorkshopItem.ItemState
       methods:
+        - name: and
+          modifiers:
+            - public
+          parameters:
+            - name: other
+              type:
+                basic: SteamWorkshopItem.ItemState
+          returns:
+            type:
+              basic: boolean
         - name: and
           modifiers:
             - public
@@ -1783,33 +2143,6 @@ namespaces:
           returns:
             type:
               basic: boolean
-        - name: toString
-          modifiers:
-            - public
-            - static
-          parameters:
-            - name: bits
-              type:
-                basic: long
-          returns:
-            type:
-              basic: String
-        - name: valueOf
-          modifiers:
-            - public
-            - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: SteamWorkshopItem.ItemState
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
         - name: values
           modifiers:
             - public
@@ -1836,6 +2169,17 @@ namespaces:
           modifiers:
             - public
             - static
+          returns:
+            type:
+              basic: void
+        - name: SetLogLevel
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: level
+              type:
+                basic: int
           returns:
             type:
               basic: void
@@ -1871,6 +2215,193 @@ namespaces:
       javaType: class
       extends: Object
     ZNetStatistics:
+      fields:
+        BPSLimitByCongestionControl:
+          name: BPSLimitByCongestionControl
+          modifiers:
+            - public
+          type:
+            basic: long
+        BPSLimitByOutgoingBandwidthLimit:
+          name: BPSLimitByOutgoingBandwidthLimit
+          modifiers:
+            - public
+          type:
+            basic: long
+        bytesInResendBuffer:
+          name: bytesInResendBuffer
+          modifiers:
+            - public
+          type:
+            basic: long
+        bytesInSendBufferHigh:
+          name: bytesInSendBufferHigh
+          modifiers:
+            - public
+          type:
+            basic: double
+        bytesInSendBufferImmediate:
+          name: bytesInSendBufferImmediate
+          modifiers:
+            - public
+          type:
+            basic: double
+        bytesInSendBufferLow:
+          name: bytesInSendBufferLow
+          modifiers:
+            - public
+          type:
+            basic: double
+        bytesInSendBufferMedium:
+          name: bytesInSendBufferMedium
+          modifiers:
+            - public
+          type:
+            basic: double
+        connectionStartTime:
+          name: connectionStartTime
+          modifiers:
+            - public
+          type:
+            basic: long
+        isLimitedByCongestionControl:
+          name: isLimitedByCongestionControl
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        isLimitedByOutgoingBandwidthLimit:
+          name: isLimitedByOutgoingBandwidthLimit
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        lastActualBytesReceived:
+          name: lastActualBytesReceived
+          modifiers:
+            - public
+          type:
+            basic: long
+        lastActualBytesSent:
+          name: lastActualBytesSent
+          modifiers:
+            - public
+          type:
+            basic: long
+        lastUserMessageBytesPushed:
+          name: lastUserMessageBytesPushed
+          modifiers:
+            - public
+          type:
+            basic: long
+        lastUserMessageBytesReceivedIgnored:
+          name: lastUserMessageBytesReceivedIgnored
+          modifiers:
+            - public
+          type:
+            basic: long
+        lastUserMessageBytesReceivedProcessed:
+          name: lastUserMessageBytesReceivedProcessed
+          modifiers:
+            - public
+          type:
+            basic: long
+        lastUserMessageBytesResent:
+          name: lastUserMessageBytesResent
+          modifiers:
+            - public
+          type:
+            basic: long
+        lastUserMessageBytesSent:
+          name: lastUserMessageBytesSent
+          modifiers:
+            - public
+          type:
+            basic: long
+        messageInSendBufferHigh:
+          name: messageInSendBufferHigh
+          modifiers:
+            - public
+          type:
+            basic: long
+        messageInSendBufferImmediate:
+          name: messageInSendBufferImmediate
+          modifiers:
+            - public
+          type:
+            basic: long
+        messageInSendBufferLow:
+          name: messageInSendBufferLow
+          modifiers:
+            - public
+          type:
+            basic: long
+        messageInSendBufferMedium:
+          name: messageInSendBufferMedium
+          modifiers:
+            - public
+          type:
+            basic: long
+        messagesInResendBuffer:
+          name: messagesInResendBuffer
+          modifiers:
+            - public
+          type:
+            basic: long
+        packetlossLastSecond:
+          name: packetlossLastSecond
+          modifiers:
+            - public
+          type:
+            basic: double
+        packetlossTotal:
+          name: packetlossTotal
+          modifiers:
+            - public
+          type:
+            basic: double
+        totalActualBytesReceived:
+          name: totalActualBytesReceived
+          modifiers:
+            - public
+          type:
+            basic: long
+        totalActualBytesSent:
+          name: totalActualBytesSent
+          modifiers:
+            - public
+          type:
+            basic: long
+        totalUserMessageBytesPushed:
+          name: totalUserMessageBytesPushed
+          modifiers:
+            - public
+          type:
+            basic: long
+        totalUserMessageBytesReceivedIgnored:
+          name: totalUserMessageBytesReceivedIgnored
+          modifiers:
+            - public
+          type:
+            basic: long
+        totalUserMessageBytesReceivedProcessed:
+          name: totalUserMessageBytesReceivedProcessed
+          modifiers:
+            - public
+          type:
+            basic: long
+        totalUserMessageBytesResent:
+          name: totalUserMessageBytesResent
+          modifiers:
+            - public
+          type:
+            basic: long
+        totalUserMessageBytesSent:
+          name: totalUserMessageBytesSent
+          modifiers:
+            - public
+          type:
+            basic: long
       constructors:
         - modifiers:
             - public

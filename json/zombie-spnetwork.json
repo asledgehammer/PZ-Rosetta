@@ -2,6 +2,30 @@
   "namespaces": {
     "zombie.spnetwork": {
       "SinglePlayerClient": {
+        "fields": {
+          "connection": {
+            "name": "connection",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "UdpConnection"
+            }
+          },
+          "udpEngine": {
+            "name": "udpEngine",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "UdpEngine"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -107,6 +131,19 @@
         "extends": "Object"
       },
       "SinglePlayerServer": {
+        "fields": {
+          "udpEngine": {
+            "name": "udpEngine",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "SinglePlayerServer.UdpEngineServer"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -179,9 +216,79 @@
                 }
               },
               {
+                "name": "tbl",
+                "type": {
+                  "basic": "se.krka.kahlua.vm.KahluaTable"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "sendObjectChange",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "IsoObject"
+                }
+              },
+              {
+                "name": "change",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
                 "name": "objects",
                 "type": {
                   "basic": "Object..."
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "sendServerCommand",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "module",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "command",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "args",
+                "type": {
+                  "basic": "se.krka.kahlua.vm.KahluaTable"
+                }
+              },
+              {
+                "name": "c",
+                "type": {
+                  "basic": "UdpConnection"
                 }
               }
             ],
@@ -244,6 +351,18 @@
         "extends": "Object"
       },
       "SinglePlayerServer.UdpEngineServer": {
+        "fields": {
+          "connections": {
+            "name": "connections",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          }
+        },
         "methods": [
           {
             "name": "Receive",
@@ -293,6 +412,18 @@
         "extends": "UdpEngine"
       },
       "UdpConnection": {
+        "fields": {
+          "players": {
+            "name": "players",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "IsoPlayer"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -565,6 +696,18 @@
         "extends": "Object"
       },
       "ZomboidNetDataPool": {
+        "fields": {
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "ZomboidNetDataPool"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [

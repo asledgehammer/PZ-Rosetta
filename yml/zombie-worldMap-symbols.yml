@@ -15,6 +15,25 @@ namespaces:
             - name: path
               type:
                 basic: String
+            - name: width
+              type:
+                basic: int
+            - name: height
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: addTexture
+          modifiers:
+            - public
+          parameters:
+            - name: id
+              type:
+                basic: String
+            - name: path
+              type:
+                basic: String
           returns:
             type:
               basic: void
@@ -99,6 +118,14 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapBaseSymbol:
+      fields:
+        DEFAULT_SCALE:
+          name: DEFAULT_SCALE
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -309,6 +336,30 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapSymbols:
+      fields:
+        COLLAPSED_RADIUS:
+          name: COLLAPSED_RADIUS
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: float
+        MIN_VISIBLE_ZOOM:
+          name: MIN_VISIBLE_ZOOM
+          modifiers:
+            - public
+            - final
+          type:
+            basic: float
+        SAVEFILE_VERSION:
+          name: SAVEFILE_VERSION
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -356,6 +407,34 @@ namespaces:
           returns:
             type:
               basic: WorldMapTextSymbol
+        - name: addTexture
+          modifiers:
+            - public
+          parameters:
+            - name: symbolID
+              type:
+                basic: String
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
+          returns:
+            type:
+              basic: WorldMapTextureSymbol
         - name: addTexture
           modifiers:
             - public
@@ -543,23 +622,32 @@ namespaces:
       javaType: class
       extends: Object
     WorldMapSymbols.WorldMapSymbolType:
-      methods:
-        - name: valueOf
+      fields:
+        NONE:
+          name: NONE
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: WorldMapSymbols.WorldMapSymbolType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: WorldMapSymbols.WorldMapSymbolType
+        Text:
+          name: Text
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldMapSymbols.WorldMapSymbolType
+        Texture:
+          name: Texture
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: WorldMapSymbols.WorldMapSymbolType
+      methods:
         - name: values
           modifiers:
             - public

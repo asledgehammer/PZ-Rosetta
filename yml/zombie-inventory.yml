@@ -1,6 +1,15 @@
 namespaces:
   zombie.inventory:
     ClothingItemsDotTxt:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ClothingItemsDotTxt
       constructors:
         - modifiers:
             - public
@@ -40,6 +49,24 @@ namespaces:
               type:
                 basic: ArrayList
                 full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: save
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
+            - name: items
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+            - name: noCompress
+              type:
+                basic: IsoGameCharacter
           returns:
             type:
               basic: ArrayList
@@ -161,6 +188,127 @@ namespaces:
       javaType: class
       extends: Object
     InventoryItem:
+      fields:
+        atlasTexture:
+          name: atlasTexture
+          modifiers:
+            - public
+          type:
+            basic: WorldItemAtlas.ItemTexture
+        byteData:
+          name: byteData
+          modifiers:
+            - public
+          type:
+            basic: ByteBuffer
+        CanStack:
+          name: CanStack
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        CanStoreWater:
+          name: CanStoreWater
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        CloseKillMove:
+          name: CloseKillMove
+          modifiers:
+            - public
+          type:
+            basic: String
+        col:
+          name: col
+          modifiers:
+            - public
+          type:
+            basic: Color
+        Cooked:
+          name: Cooked
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        extraItems:
+          name: extraItems
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        fatigueChange:
+          name: fatigueChange
+          modifiers:
+            - public
+          type:
+            basic: float
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: int
+        IsWaterSource:
+          name: IsWaterSource
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        jobDelta:
+          name: jobDelta
+          modifiers:
+            - public
+          type:
+            basic: float
+        jobType:
+          name: jobType
+          modifiers:
+            - public
+          type:
+            basic: String
+        keepOnDeplete:
+          name: keepOnDeplete
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        mainCategory:
+          name: mainCategory
+          modifiers:
+            - public
+          type:
+            basic: String
+        ReplaceOnUseOn:
+          name: ReplaceOnUseOn
+          modifiers:
+            - public
+          type:
+            basic: String
+        RequiresEquippedBothHands:
+          name: RequiresEquippedBothHands
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        worldItem:
+          name: worldItem
+          modifiers:
+            - public
+          type:
+            basic: IsoWorldInventoryObject
+        worldScale:
+          name: worldScale
+          modifiers:
+            - public
+          type:
+            basic: float
+        worldZRotation:
+          name: worldZRotation
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -276,6 +424,16 @@ namespaces:
         - name: doBuildingStash
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: DoTooltip
+          modifiers:
+            - public
+          parameters:
+            - name: tooltipUI
+              type:
+                basic: ObjectTooltip
           returns:
             type:
               basic: void
@@ -1716,6 +1874,20 @@ namespaces:
             - name: WorldVersion
               type:
                 basic: int
+          returns:
+            type:
+              basic: InventoryItem
+        - name: loadItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: input
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
             - name: doSaveTypeCheck
               type:
                 basic: boolean
@@ -2090,6 +2262,19 @@ namespaces:
             - name: colorRed
               type:
                 basic: float
+          returns:
+            type:
+              basic: void
+        - name: setCondition
+          modifiers:
+            - public
+          parameters:
+            - name: Condition
+              type:
+                basic: int
+            - name: doSound
+              type:
+                basic: boolean
           returns:
             type:
               basic: void
@@ -3174,6 +3359,22 @@ namespaces:
         - name: Use
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: Use
+          modifiers:
+            - public
+          parameters:
+            - name: bCrafting
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: Use
+          modifiers:
+            - public
           parameters:
             - name: bCrafting
               type:
@@ -3204,6 +3405,99 @@ namespaces:
             - public
             - static
           parameters:
+            - name: itemType
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InventoryItem
+        - name: CreateItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: itemType
+              type:
+                basic: String
+            - name: food
+              type:
+                basic: Food
+          returns:
+            type:
+              basic: InventoryItem
+        - name: CreateItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: itemType
+              type:
+                basic: String
+            - name: useDelta
+              type:
+                basic: float
+          returns:
+            type:
+              basic: InventoryItem
+        - name: CreateItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: itemType
+              type:
+                basic: String
+            - name: useDelta
+              type:
+                basic: float
+            - name: moduleDefaultsToBase
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: InventoryItem
+        - name: CreateItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: itemType
+              type:
+                basic: String
+            - name: useDelta
+              type:
+                basic: float
+            - name: param
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InventoryItem
+        - name: CreateItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: module
+              type:
+                basic: String
+            - name: name
+              type:
+                basic: String
+            - name: type
+              type:
+                basic: String
+            - name: tex
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InventoryItem
+        - name: CreateItem
+          modifiers:
+            - public
+            - static
+          parameters:
             - name: registryID
               type:
                 basic: short
@@ -3216,6 +3510,97 @@ namespaces:
       javaType: class
       extends: Object
     ItemContainer:
+      fields:
+        active:
+          name: active
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        ageFactor:
+          name: ageFactor
+          modifiers:
+            - public
+          type:
+            basic: float
+        bExplored:
+          name: bExplored
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Capacity:
+          name: Capacity
+          modifiers:
+            - public
+          type:
+            basic: int
+        containingItem:
+          name: containingItem
+          modifiers:
+            - public
+          type:
+            basic: InventoryItem
+        CookingFactor:
+          name: CookingFactor
+          modifiers:
+            - public
+          type:
+            basic: float
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: int
+        IncludingObsoleteItems:
+          name: IncludingObsoleteItems
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        inventoryContainer:
+          name: inventoryContainer
+          modifiers:
+            - public
+          type:
+            basic: InventoryContainer
+        IsDevice:
+          name: IsDevice
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Items:
+          name: Items
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        parent:
+          name: parent
+          modifiers:
+            - public
+          type:
+            basic: IsoObject
+        SourceGrid:
+          name: SourceGrid
+          modifiers:
+            - public
+          type:
+            basic: IsoGridSquare
+        type:
+          name: type
+          modifiers:
+            - public
+          type:
+            basic: String
+        vehiclePart:
+          name: vehiclePart
+          modifiers:
+            - public
+          type:
+            basic: VehiclePart
       constructors:
         - modifiers:
             - public
@@ -3267,6 +3652,26 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: item
+              type:
+                basic: InventoryItem
+          returns:
+            type:
+              basic: InventoryItem
+        - name: AddItem
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InventoryItem
+        - name: AddItem
+          modifiers:
+            - public
+          parameters:
             - name: type
               type:
                 basic: String
@@ -3302,6 +3707,19 @@ namespaces:
           parameters:
             - name: item
               type:
+                basic: String
+            - name: use
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: AddItems
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
                 basic: InventoryItem
             - name: use
               type:
@@ -3321,6 +3739,58 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: item
+              type:
+                basic: InventoryItem
+          returns:
+            type:
+              basic: boolean
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: itemToFind
+              type:
+                basic: InventoryItem
+            - name: doInv
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: doInv
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: contains
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: doInv
+              type:
+                basic: boolean
+            - name: ignoreBroken
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
         - name: contains
           modifiers:
             - public
@@ -3515,6 +3985,16 @@ namespaces:
             - name: moduleType
               type:
                 basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: containsWithModule
+          modifiers:
+            - public
+          parameters:
+            - name: moduleType
+              type:
+                basic: String
             - name: withDeltaLeft
               type:
                 basic: boolean
@@ -3584,6 +4064,33 @@ namespaces:
             - name: type
               type:
                 basic: String
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: FindAndReturn
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: itemToCheck
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: InventoryItem
+        - name: FindAndReturn
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
           returns:
             type:
               basic: InventoryItem
@@ -3592,6 +4099,16 @@ namespaces:
             - public
           parameters:
             - name: category
+              type:
+                basic: String
+          returns:
+            type:
+              basic: InventoryItem
+        - name: FindAndReturnStack
+          modifiers:
+            - public
+          parameters:
+            - name: type
               type:
                 basic: String
           returns:
@@ -3655,6 +4172,35 @@ namespaces:
               type:
                 basic: Predicate
                 full: Predicate<InventoryItem>
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAll
+          modifiers:
+            - public
+          parameters:
+            - name: predicate
+              type:
+                basic: Predicate
+                full: Predicate<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllCategory
+          modifiers:
+            - public
+          parameters:
+            - name: category
+              type:
+                basic: String
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -3689,6 +4235,37 @@ namespaces:
             - name: functionObj
               type:
                 basic: se.krka.kahlua.vm.LuaClosure
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllEval
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllEvalArg
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -3715,6 +4292,37 @@ namespaces:
             - name: arg
               type:
                 basic: Object
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllEvalArgRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllEvalRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -3775,12 +4383,49 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: tag
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTagEval
+          modifiers:
+            - public
+          parameters:
             - name: type
               type:
                 basic: String
             - name: functionObj
               type:
                 basic: se.krka.kahlua.vm.LuaClosure
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTagEvalArg
+          modifiers:
+            - public
+          parameters:
+            - name: tag
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -3858,6 +4503,20 @@ namespaces:
             - name: type
               type:
                 basic: String
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
           returns:
             type:
               basic: ArrayList
@@ -3871,6 +4530,43 @@ namespaces:
             - name: functionObj
               type:
                 basic: se.krka.kahlua.vm.LuaClosure
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTypeEval
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTypeEvalArg
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -3903,6 +4599,26 @@ namespaces:
             - name: arg
               type:
                 basic: Object
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTypeEvalArgRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
           returns:
             type:
               basic: ArrayList
@@ -3916,6 +4632,37 @@ namespaces:
             - name: functionObj
               type:
                 basic: se.krka.kahlua.vm.LuaClosure
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTypeEvalRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+          returns:
+            type:
+              basic: ArrayList
+        - name: getAllTypeRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -3957,6 +4704,17 @@ namespaces:
             - name: descriptor
               type:
                 basic: SurvivorDesc
+          returns:
+            type:
+              basic: InventoryItem
+        - name: getBestCondition
+          modifiers:
+            - public
+          parameters:
+            - name: predicate
+              type:
+                basic: Predicate
+                full: Predicate<InventoryItem>
           returns:
             type:
               basic: InventoryItem
@@ -4013,6 +4771,17 @@ namespaces:
             - name: functionObj
               type:
                 basic: se.krka.kahlua.vm.LuaClosure
+          returns:
+            type:
+              basic: InventoryItem
+        - name: getBestConditionRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: predicate
+              type:
+                basic: Predicate
+                full: Predicate<InventoryItem>
           returns:
             type:
               basic: InventoryItem
@@ -4192,6 +4961,16 @@ namespaces:
               type:
                 basic: Comparator
                 full: Comparator<InventoryItem>
+          returns:
+            type:
+              basic: InventoryItem
+        - name: getBestWeapon
+          modifiers:
+            - public
+          parameters:
+            - name: desc
+              type:
+                basic: SurvivorDesc
           returns:
             type:
               basic: InventoryItem
@@ -4725,6 +5504,16 @@ namespaces:
             - name: type
               type:
                 basic: String
+          returns:
+            type:
+              basic: int
+        - name: getItemCount
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
             - name: doBags
               type:
                 basic: boolean
@@ -4751,6 +5540,44 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: getItemFromType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+            - name: notEquipped
+              type:
+                basic: boolean
+            - name: ignoreBroken
+              type:
+                basic: boolean
+            - name: includeInv
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: InventoryItem
+        - name: getItemFromType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: ignoreBroken
+              type:
+                basic: boolean
+            - name: includeInv
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: InventoryItem
         - name: getItemFromType
           modifiers:
             - public
@@ -4801,9 +5628,29 @@ namespaces:
             - name: type
               type:
                 basic: String
+          returns:
+            type:
+              basic: ArrayList
+        - name: getItemsFromFullType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
             - name: includeInv
               type:
                 basic: boolean
+          returns:
+            type:
+              basic: ArrayList
+        - name: getItemsFromType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
           returns:
             type:
               basic: ArrayList
@@ -4846,6 +5693,46 @@ namespaces:
           returns:
             type:
               basic: float
+        - name: getNumberOfItem
+          modifiers:
+            - public
+          parameters:
+            - name: findItem
+              type:
+                basic: String
+            - name: includeReplaceOnDeplete
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: int
+        - name: getNumberOfItem
+          modifiers:
+            - public
+          parameters:
+            - name: findItem
+              type:
+                basic: String
+          returns:
+            type:
+              basic: int
+        - name: getNumberOfItem
+          modifiers:
+            - public
+          parameters:
+            - name: findItem
+              type:
+                basic: String
+            - name: includeReplaceOnDeplete
+              type:
+                basic: boolean
+            - name: containers
+              type:
+                basic: ArrayList
+                full: ArrayList<ItemContainer>
+          returns:
+            type:
+              basic: int
         - name: getNumberOfItem
           modifiers:
             - public
@@ -4925,6 +5812,23 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeCategory
+          modifiers:
+            - public
+          parameters:
+            - name: category
+              type:
+                basic: String
+            - name: count
+              type:
+                basic: int
           returns:
             type:
               basic: ArrayList
@@ -4935,6 +5839,23 @@ namespaces:
             - name: category
               type:
                 basic: String
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeEval
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
             - name: count
               type:
                 basic: int
@@ -4971,6 +5892,46 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeEvalArg
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeEvalArgRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -5000,6 +5961,23 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeEvalRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: count
+              type:
+                basic: int
           returns:
             type:
               basic: ArrayList
@@ -5011,6 +5989,23 @@ namespaces:
               type:
                 basic: Predicate
                 full: Predicate<InventoryItem>
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTag
+          modifiers:
+            - public
+          parameters:
+            - name: tag
+              type:
+                basic: String
             - name: count
               type:
                 basic: int
@@ -5093,6 +6088,49 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTagEvalArgRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: tag
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTagEvalRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: tag
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -5122,6 +6160,40 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTagRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: tag
+              type:
+                basic: String
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeType
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -5151,6 +6223,49 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTypeEval
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTypeEvalArg
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -5189,6 +6304,29 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTypeEvalArgRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: arg
+              type:
+                basic: Object
+            - name: count
+              type:
+                basic: int
           returns:
             type:
               basic: ArrayList
@@ -5205,6 +6343,43 @@ namespaces:
             - name: count
               type:
                 basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTypeEvalRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: functionObj
+              type:
+                basic: se.krka.kahlua.vm.LuaClosure
+            - name: count
+              type:
+                basic: int
+          returns:
+            type:
+              basic: ArrayList
+        - name: getSomeTypeRecurse
+          modifiers:
+            - public
+          parameters:
+            - name: type
+              type:
+                basic: String
+            - name: count
+              type:
+                basic: int
+            - name: result
+              type:
+                basic: ArrayList
+                full: ArrayList<InventoryItem>
           returns:
             type:
               basic: ArrayList
@@ -5316,6 +6491,19 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: hasRoomFor
+          modifiers:
+            - public
+          parameters:
+            - name: chr
+              type:
+                basic: IsoGameCharacter
+            - name: item
+              type:
+                basic: InventoryItem
+          returns:
+            type:
+              basic: boolean
         - name: hasRoomFor
           modifiers:
             - public
@@ -5475,6 +6663,26 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: item
+              type:
+                basic: InventoryItem
+          returns:
+            type:
+              basic: void
+        - name: Remove
+          modifiers:
+            - public
+          parameters:
+            - name: itemTypes
+              type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: Remove
+          modifiers:
+            - public
+          parameters:
             - name: itemType
               type:
                 basic: ItemType
@@ -5544,6 +6752,19 @@ namespaces:
             - name: String
               type:
                 basic: String
+            - name: insideInv
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: boolean
+        - name: RemoveOneOf
+          modifiers:
+            - public
+          parameters:
+            - name: String
+              type:
+                basic: String
           returns:
             type:
               basic: void
@@ -5566,9 +6787,28 @@ namespaces:
             - name: output
               type:
                 basic: ByteBuffer
+            - name: noCompress
+              type:
+                basic: IsoGameCharacter
           returns:
             type:
               basic: ArrayList
+        - name: save
+          modifiers:
+            - public
+          parameters:
+            - name: output
+              type:
+                basic: ByteBuffer
+          returns:
+            type:
+              basic: ArrayList
+        - name: sendContentsToRemoteContainer
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
         - name: sendContentsToRemoteContainer
           modifiers:
             - public
@@ -5805,6 +7045,74 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava:
+      fields:
+        containers:
+          name: containers
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: gnu.trove.map.hash.THashMap
+            full: gnu.trove.map.hash.THashMap<
+        NoContainerFillRooms:
+          name: NoContainerFillRooms
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
+        ProceduralDistributions:
+          name: ProceduralDistributions
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: gnu.trove.map.hash.THashMap
+            full: gnu.trove.map.hash.THashMap<
+        rooms:
+          name: rooms
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: gnu.trove.map.hash.THashMap
+            full: gnu.trove.map.hash.THashMap<
+        VehicleDistributions:
+          name: VehicleDistributions
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: gnu.trove.map.hash.THashMap
+            full: gnu.trove.map.hash.THashMap<
+        WeaponUpgradeMap:
+          name: WeaponUpgradeMap
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
+        WeaponUpgrades:
+          name: WeaponUpgrades
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ArrayList
+        zombieDensityCap:
+          name: zombieDensityCap
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -6002,6 +7310,73 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava.ItemPickerContainer:
+      fields:
+        dontSpawnAmmo:
+          name: dontSpawnAmmo
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        fillRand:
+          name: fillRand
+          modifiers:
+            - public
+          type:
+            basic: int
+        ignoreZombieDensity:
+          name: ignoreZombieDensity
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Items:
+          name: Items
+          modifiers:
+            - public
+          type:
+            basic: ItemPickerJava.ItemPickerItem
+        junk:
+          name: junk
+          modifiers:
+            - public
+          type:
+            basic: ItemPickerJava.ItemPickerContainer
+        maxMap:
+          name: maxMap
+          modifiers:
+            - public
+          type:
+            basic: int
+        noAutoAge:
+          name: noAutoAge
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        procedural:
+          name: procedural
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        proceduralItems:
+          name: proceduralItems
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        rolls:
+          name: rolls
+          modifiers:
+            - public
+          type:
+            basic: float
+        stashChance:
+          name: stashChance
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -6012,6 +7387,19 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava.ItemPickerItem:
+      fields:
+        chance:
+          name: chance
+          modifiers:
+            - public
+          type:
+            basic: float
+        itemName:
+          name: itemName
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -6022,6 +7410,32 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava.ItemPickerRoom:
+      fields:
+        Containers:
+          name: Containers
+          modifiers:
+            - public
+          type:
+            basic: gnu.trove.map.hash.THashMap
+            full: gnu.trove.map.hash.THashMap<
+        fillRand:
+          name: fillRand
+          modifiers:
+            - public
+          type:
+            basic: int
+        isShop:
+          name: isShop
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        specificId:
+          name: specificId
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -6032,6 +7446,19 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava.ItemPickerUpgradeWeapons:
+      fields:
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        Upgrades:
+          name: Upgrades
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -6042,6 +7469,55 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava.ProceduralItem:
+      fields:
+        forceForItems:
+          name: forceForItems
+          modifiers:
+            - public
+          type:
+            basic: List
+        forceForRooms:
+          name: forceForRooms
+          modifiers:
+            - public
+          type:
+            basic: List
+        forceForTiles:
+          name: forceForTiles
+          modifiers:
+            - public
+          type:
+            basic: List
+        forceForZones:
+          name: forceForZones
+          modifiers:
+            - public
+          type:
+            basic: List
+        max:
+          name: max
+          modifiers:
+            - public
+          type:
+            basic: int
+        min:
+          name: min
+          modifiers:
+            - public
+          type:
+            basic: int
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        weightChance:
+          name: weightChance
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -6052,6 +7528,20 @@ namespaces:
       javaType: class
       extends: Object
     ItemPickerJava.VehicleDistribution:
+      fields:
+        Normal:
+          name: Normal
+          modifiers:
+            - public
+          type:
+            basic: ItemPickerJava.ItemPickerRoom
+        Specific:
+          name: Specific
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
       constructors:
         - modifiers:
             - public
@@ -6120,6 +7610,95 @@ namespaces:
       javaType: class
       extends: Object
     ItemType:
+      fields:
+        AlarmClock:
+          name: AlarmClock
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        AlarmClockClothing:
+          name: AlarmClockClothing
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Clothing:
+          name: Clothing
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Drainable:
+          name: Drainable
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Food:
+          name: Food
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Key:
+          name: Key
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        KeyRing:
+          name: KeyRing
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Literature:
+          name: Literature
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Moveable:
+          name: Moveable
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        None:
+          name: None
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
+        Weapon:
+          name: Weapon
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ItemType
       methods:
         - name: fromIndex
           modifiers:
@@ -6138,22 +7717,6 @@ namespaces:
           returns:
             type:
               basic: int
-        - name: valueOf
-          modifiers:
-            - public
-            - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: ItemType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
         - name: values
           modifiers:
             - public
@@ -6205,6 +7768,17 @@ namespaces:
             type:
               basic: void
         - name: RemoveItem
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: item
+              type:
+                basic: InventoryItem
+          returns:
+            type:
+              basic: void
+        - name: UseItem
           modifiers:
             - public
             - static

@@ -1,23 +1,56 @@
 namespaces:
   zombie.radio.globals:
     CompareMethod:
-      methods:
-        - name: valueOf
+      fields:
+        equals:
+          name: equals
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: CompareMethod
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: CompareMethod
+        lessthan:
+          name: lessthan
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareMethod
+        lessthanorequals:
+          name: lessthanorequals
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareMethod
+        morethan:
+          name: morethan
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareMethod
+        morethanorequals:
+          name: morethanorequals
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareMethod
+        notequals:
+          name: notequals
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareMethod
+      methods:
         - name: values
           modifiers:
             - public
@@ -35,23 +68,32 @@ namespaces:
       javaType: enum
       extends: Enum
     CompareResult:
-      methods:
-        - name: valueOf
+      fields:
+        "False":
+          name: "False"
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: CompareResult
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: CompareResult
+        Invalid:
+          name: Invalid
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareResult
+        "True":
+          name: "True"
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: CompareResult
+      methods:
         - name: values
           modifiers:
             - public
@@ -107,23 +149,64 @@ namespaces:
       javaType: class
       extends: Object
     EditGlobalEvent:
-      methods:
-        - name: valueOf
+      fields:
+        OnBroadcastRemove:
+          name: OnBroadcastRemove
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: EditGlobalEvent
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: EditGlobalEvent
+        OnBroadcastSetActive:
+          name: OnBroadcastSetActive
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalEvent
+        OnExit:
+          name: OnExit
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalEvent
+        OnPlayerListens:
+          name: OnPlayerListens
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalEvent
+        OnPlayerListensOnce:
+          name: OnPlayerListensOnce
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalEvent
+        OnPostDelay:
+          name: OnPostDelay
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalEvent
+        OnSetActive:
+          name: OnSetActive
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalEvent
+      methods:
         - name: values
           modifiers:
             - public
@@ -141,23 +224,32 @@ namespaces:
       javaType: enum
       extends: Enum
     EditGlobalOps:
-      methods:
-        - name: valueOf
+      fields:
+        add:
+          name: add
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: EditGlobalOps
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: EditGlobalOps
+        set:
+          name: set
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalOps
+        sub:
+          name: sub
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: EditGlobalOps
+      methods:
         - name: values
           modifiers:
             - public
@@ -279,6 +371,16 @@ namespaces:
           parameters:
             - name: value
               type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: value
+              type:
                 basic: RadioGlobal
             - name: operator
               type:
@@ -340,6 +442,16 @@ namespaces:
           parameters:
             - name: value
               type:
+                basic: float
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: value
+              type:
                 basic: RadioGlobal
             - name: operator
               type:
@@ -395,6 +507,16 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: value
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
         - name: setValue
           modifiers:
             - public
@@ -480,6 +602,22 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: compare
+          modifiers:
+            - public
+          parameters:
+            - name: A
+              type:
+                basic: RadioGlobal
+            - name: B
+              type:
+                basic: RadioGlobal
+            - name: compareMethod
+              type:
+                basic: CompareMethod
+          returns:
+            type:
+              basic: CompareResult
         - name: compare
           modifiers:
             - public
@@ -598,6 +736,61 @@ namespaces:
                 basic: String
             - name: value
               type:
+                basic: RadioGlobal
+            - name: operator
+              type:
+                basic: EditGlobalOps
+          returns:
+            type:
+              basic: boolean
+        - name: setGlobal
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: setGlobal
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: int
+          returns:
+            type:
+              basic: boolean
+        - name: setGlobal
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: value
+              type:
+                basic: float
+          returns:
+            type:
+              basic: boolean
+        - name: setGlobal
+          modifiers:
+            - public
+          parameters:
+            - name: name
+              type:
+                basic: String
+            - name: value
+              type:
                 basic: boolean
           returns:
             type:
@@ -656,6 +849,16 @@ namespaces:
           parameters:
             - name: value
               type:
+                basic: String
+          returns:
+            type:
+              basic: void
+        - name: setValue
+          modifiers:
+            - public
+          parameters:
+            - name: value
+              type:
                 basic: RadioGlobal
             - name: operator
               type:
@@ -669,23 +872,48 @@ namespaces:
       javaType: class
       extends: RadioGlobal
     RadioGlobalType:
-      methods:
-        - name: valueOf
+      fields:
+        Boolean:
+          name: Boolean
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: RadioGlobalType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: RadioGlobalType
+        Float:
+          name: Float
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RadioGlobalType
+        Integer:
+          name: Integer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RadioGlobalType
+        Invalid:
+          name: Invalid
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RadioGlobalType
+        String:
+          name: String
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: RadioGlobalType
+      methods:
         - name: values
           modifiers:
             - public

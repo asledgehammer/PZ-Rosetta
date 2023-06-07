@@ -200,6 +200,19 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "int[]"
+              },
+              "notes": "a new array containing the elements of this\n              collection."
+            },
+            "notes": "Description copied from interface: IntCollection"
+          },
+          {
+            "name": "toArray",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "a",
@@ -216,19 +229,6 @@
               "notes": "a, if a has room for all the\n              elements of this collection; otherwise a new\n              array is allocated, filled with the elements of\n              this collection, and returned."
             },
             "notes": "Description copied from interface: IntCollection"
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a string representation of this collection."
-            },
-            "notes": "Returns a string representation of this collection."
           },
           {
             "name": "trimToSize",
@@ -387,30 +387,97 @@
         "extends": "Object"
       },
       "AddCoopPlayer.Stage": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "AddToWorld": {
+            "name": "AddToWorld",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "AddCoopPlayer.Stage"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
           },
+          "CheckMapLoading": {
+            "name": "CheckMapLoading",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          },
+          "Finished": {
+            "name": "Finished",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          },
+          "Init": {
+            "name": "Init",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          },
+          "ReceiveClientConnect": {
+            "name": "ReceiveClientConnect",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          },
+          "ReceivePlayerConnect": {
+            "name": "ReceivePlayerConnect",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          },
+          "SendPlayerConnect": {
+            "name": "SendPlayerConnect",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          },
+          "StartMapLoading": {
+            "name": "StartMapLoading",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "AddCoopPlayer.Stage"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -513,6 +580,18 @@
           {
             "name": "read",
             "modifiers": [
+              "public",
+              "final"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "read",
+            "modifiers": [
               "public"
             ],
             "parameters": [
@@ -585,6 +664,17 @@
           }
         ],
         "methods": [
+          {
+            "name": "read",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
+              }
+            }
+          },
           {
             "name": "read",
             "modifiers": [
@@ -687,6 +777,44 @@
             "returns": {
               "type": {
                 "basic": "ByteBuffer"
+              }
+            }
+          },
+          {
+            "name": "write",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bty",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "write",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bytes",
+                "type": {
+                  "basic": "byte[]"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
               }
             }
           },
@@ -1051,6 +1179,16 @@
           },
           {
             "name": "toArray",
+            "returns": {
+              "type": {
+                "basic": "int[]"
+              },
+              "notes": "a new array containing the elements of this\n              collection."
+            },
+            "notes": "Returns the elements of this collection as an array."
+          },
+          {
+            "name": "toArray",
             "parameters": [
               {
                 "name": "a",
@@ -1187,6 +1325,33 @@
           },
           {
             "name": "release",
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "release",
+            "modifiers": [
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "list",
+                "type": {
+                  "basic": "IPooledObject[]"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "release",
             "modifiers": [
               "static"
             ],
@@ -1313,6 +1478,201 @@
                 }
               },
               {
+                "name": "captureConsumer",
+                "type": {
+                  "basic": "Stacks.Params1.ICallback",
+                  "full": "Stacks.Params1.ICallback<T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "capture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "captureConsumer",
+                "type": {
+                  "basic": "Stacks.Params2.ICallback",
+                  "full": "Stacks.Params2.ICallback<T1,T2>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "capture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "val3",
+                "type": {
+                  "basic": "T3"
+                }
+              },
+              {
+                "name": "captureConsumer",
+                "type": {
+                  "basic": "Stacks.Params3.ICallback",
+                  "full": "Stacks.Params3.ICallback<T1,T2,T3>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "capture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "val3",
+                "type": {
+                  "basic": "T3"
+                }
+              },
+              {
+                "name": "val4",
+                "type": {
+                  "basic": "T4"
+                }
+              },
+              {
+                "name": "captureConsumer",
+                "type": {
+                  "basic": "Stacks.Params4.ICallback",
+                  "full": "Stacks.Params4.ICallback<T1,T2,T3,T4>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "capture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "val3",
+                "type": {
+                  "basic": "T3"
+                }
+              },
+              {
+                "name": "val4",
+                "type": {
+                  "basic": "T4"
+                }
+              },
+              {
+                "name": "val5",
+                "type": {
+                  "basic": "T5"
+                }
+              },
+              {
+                "name": "captureConsumer",
+                "type": {
+                  "basic": "Stacks.Params5.ICallback",
+                  "full": "Stacks.Params5.ICallback<T1,T2,T3,T4,T5>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "capture",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
                 "name": "val2",
                 "type": {
                   "basic": "T2"
@@ -1370,6 +1730,33 @@
                 }
               },
               {
+                "name": "comparator",
+                "type": {
+                  "basic": "Comparators.Params1.ICallback",
+                  "full": "Comparators.Params1.ICallback<E,T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Comparator"
+              }
+            }
+          },
+          {
+            "name": "comparator",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
                 "name": "val2",
                 "type": {
                   "basic": "T2"
@@ -1386,6 +1773,150 @@
             "returns": {
               "type": {
                 "basic": "Comparator"
+              }
+            }
+          },
+          {
+            "name": "consumer",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "consumer",
+                "type": {
+                  "basic": "Consumers.Params1.ICallback",
+                  "full": "Consumers.Params1.ICallback<E,T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Consumer"
+              }
+            }
+          },
+          {
+            "name": "consumer",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "consumer",
+                "type": {
+                  "basic": "Consumers.Params2.ICallback",
+                  "full": "Consumers.Params2.ICallback<E,T1,T2>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Consumer"
+              }
+            }
+          },
+          {
+            "name": "consumer",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "val3",
+                "type": {
+                  "basic": "T3"
+                }
+              },
+              {
+                "name": "consumer",
+                "type": {
+                  "basic": "Consumers.Params3.ICallback",
+                  "full": "Consumers.Params3.ICallback<E,T1,T2,T3>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Consumer"
+              }
+            }
+          },
+          {
+            "name": "consumer",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "val3",
+                "type": {
+                  "basic": "T3"
+                }
+              },
+              {
+                "name": "val4",
+                "type": {
+                  "basic": "T4"
+                }
+              },
+              {
+                "name": "consumer",
+                "type": {
+                  "basic": "Consumers.Params4.ICallback",
+                  "full": "Consumers.Params4.ICallback<E,T1,T2,T3,T4>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Consumer"
               }
             }
           },
@@ -1572,6 +2103,41 @@
                 }
               },
               {
+                "name": "lambdaFunc",
+                "type": {
+                  "basic": "Consumers.Params1.ICallback",
+                  "full": "Consumers.Params1.ICallback<E,T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "forEach\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
+          },
+          {
+            "name": "forEach",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "forEachFunction",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<Consumer<E>>"
+                }
+              },
+              {
+                "name": "captureVal1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
                 "name": "captureVal2",
                 "type": {
                   "basic": "T2"
@@ -1591,6 +2157,137 @@
               }
             },
             "notes": "forEach\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
+          },
+          {
+            "name": "forEachFrom",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "forEachFunction",
+                "type": {
+                  "basic": "BiConsumer",
+                  "full": "BiConsumer<List<E>,Consumer<E>>"
+                }
+              },
+              {
+                "name": "from",
+                "type": {
+                  "basic": "List",
+                  "full": "List<E>"
+                }
+              },
+              {
+                "name": "captureVal1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "lambdaFunc",
+                "type": {
+                  "basic": "Consumers.Params1.ICallback",
+                  "full": "Consumers.Params1.ICallback<E,T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "forEachFrom (List, 1-param)\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
+          },
+          {
+            "name": "forEachFrom",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "forEachFunction",
+                "type": {
+                  "basic": "BiConsumer",
+                  "full": "BiConsumer<List<E>,Consumer<E>>"
+                }
+              },
+              {
+                "name": "from",
+                "type": {
+                  "basic": "List",
+                  "full": "List<E>"
+                }
+              },
+              {
+                "name": "captureVal1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "captureVal2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "lambdaFunc",
+                "type": {
+                  "basic": "Consumers.Params2.ICallback",
+                  "full": "Consumers.Params2.ICallback<E,T1,T2>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "forEachFrom (List, 2-param)\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
+          },
+          {
+            "name": "forEachFrom",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "forEachFunction",
+                "type": {
+                  "basic": "BiConsumer",
+                  "full": "BiConsumer<F,Consumer<E>>"
+                }
+              },
+              {
+                "name": "from",
+                "type": {
+                  "basic": "F"
+                }
+              },
+              {
+                "name": "captureVal1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "lambdaFunc",
+                "type": {
+                  "basic": "Consumers.Params1.ICallback",
+                  "full": "Consumers.Params1.ICallback<E,T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "forEachFrom (Node, 1-param)\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
           },
           {
             "name": "forEachFrom",
@@ -1695,6 +2392,41 @@
                 }
               },
               {
+                "name": "lambdaFunc",
+                "type": {
+                  "basic": "Invokers.Params1.ICallback",
+                  "full": "Invokers.Params1.ICallback<T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "invoke\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
+          },
+          {
+            "name": "invoke",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "runFunction",
+                "type": {
+                  "basic": "Consumer",
+                  "full": "Consumer<Runnable>"
+                }
+              },
+              {
+                "name": "captureVal1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
                 "name": "captureVal2",
                 "type": {
                   "basic": "T2"
@@ -1714,6 +2446,105 @@
               }
             },
             "notes": "invoke\n A way to call in-place lambdas with captured variables while avoiding Garbage-Collection."
+          },
+          {
+            "name": "invoker",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "invoker",
+                "type": {
+                  "basic": "Invokers.Params1.ICallback",
+                  "full": "Invokers.Params1.ICallback<T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Runnable"
+              }
+            }
+          },
+          {
+            "name": "invoker",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "invoker",
+                "type": {
+                  "basic": "Invokers.Params2.ICallback",
+                  "full": "Invokers.Params2.ICallback<T1,T2>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Runnable"
+              }
+            }
+          },
+          {
+            "name": "invoker",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "val3",
+                "type": {
+                  "basic": "T3"
+                }
+              },
+              {
+                "name": "invoker",
+                "type": {
+                  "basic": "Invokers.Params3.ICallback",
+                  "full": "Invokers.Params3.ICallback<T1,T2,T3>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Runnable"
+              }
+            }
           },
           {
             "name": "invoker",
@@ -1774,6 +2605,66 @@
                 }
               },
               {
+                "name": "predicate",
+                "type": {
+                  "basic": "Predicates.Params1.ICallback",
+                  "full": "Predicates.Params1.ICallback<E,T1>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Predicate"
+              }
+            }
+          },
+          {
+            "name": "predicate",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
+                "name": "val2",
+                "type": {
+                  "basic": "T2"
+                }
+              },
+              {
+                "name": "predicate",
+                "type": {
+                  "basic": "Predicates.Params2.ICallback",
+                  "full": "Predicates.Params2.ICallback<E,T1,T2>"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Predicate"
+              }
+            }
+          },
+          {
+            "name": "predicate",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val1",
+                "type": {
+                  "basic": "T1"
+                }
+              },
+              {
                 "name": "val2",
                 "type": {
                   "basic": "T2"
@@ -1809,6 +2700,19 @@
         "notes": "A GC-friendly lambda class. Useful for capturing local variables for use in callbacks."
       },
       "LocationRNG": {
+        "fields": {
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "LocationRNG"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1836,6 +2740,26 @@
             "returns": {
               "type": {
                 "basic": "float"
+              }
+            },
+            "notes": "Reference:"
+          },
+          {
+            "name": "nextInt",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "n",
+                "type": {
+                  "basic": "int"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "int"
               }
             },
             "notes": "Reference:"
@@ -1952,6 +2876,46 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "tryRelease",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "obj",
+                "type": {
+                  "basic": "E"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "E"
+              }
+            }
+          },
+          {
+            "name": "tryRelease",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "pooledObject",
+                "type": {
+                  "basic": "E"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "E"
               }
             }
           },
@@ -2324,6 +3288,18 @@
         "extends": "PooledArrayObject"
       },
       "PublicServerUtil": {
+        "fields": {
+          "webSite": {
+            "name": "webSite",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2673,19 +3649,6 @@
             ]
           }
         ],
-        "methods": [
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              }
-            }
-          }
-        ],
         "modifiers": [
           "public",
           "final"
@@ -2803,6 +3766,32 @@
             ],
             "parameters": [
               {
+                "name": "data",
+                "type": {
+                  "basic": "T"
+                }
+              },
+              {
+                "name": "outFile",
+                "type": {
+                  "basic": "File"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "tryWrite",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
                 "name": "doc",
                 "type": {
                   "basic": "Document"
@@ -2818,6 +3807,32 @@
             "returns": {
               "type": {
                 "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "write",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "data",
+                "type": {
+                  "basic": "T"
+                }
+              },
+              {
+                "name": "outFile",
+                "type": {
+                  "basic": "File"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
               }
             }
           },
@@ -2957,6 +3972,30 @@
         "extends": "Object"
       },
       "StringUtils": {
+        "fields": {
+          "s_emptyString": {
+            "name": "s_emptyString",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "UTF8_BOM": {
+            "name": "UTF8_BOM",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "char"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -3427,6 +4466,26 @@
           }
         ],
         "methods": [
+          {
+            "name": "asBoolean",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
           {
             "name": "asBoolean",
             "modifiers": [

@@ -145,18 +145,6 @@
               }
             },
             "notes": "Atomically set the sum of the striped counters to specified value.\n  Rather more expensive than a simple store, in order to remain atomic."
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              }
-            },
-            "notes": "Return the counter's"
           }
         ],
         "modifiers": [
@@ -503,6 +491,27 @@
                 "type": {
                   "basic": "Object"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n         null if there was no mapping for key"
+            },
+            "notes": "Removes the key (and its corresponding value) from this map.\n  This method does nothing if the key is not in the map."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
               },
               {
                 "name": "val",
@@ -514,6 +523,32 @@
             "returns": {
               "type": {
                 "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
               }
             },
             "notes": "Atomically do a"
@@ -575,19 +610,6 @@
               "notes": "the number of key-value mappings in this map"
             },
             "notes": "Returns the number of key-value mappings in this map."
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a string representation of this map"
-            },
-            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
           },
           {
             "name": "values",
@@ -710,6 +732,27 @@
               {
                 "name": "key",
                 "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if the key is in the table"
+            },
+            "notes": "Tests if the key in the table."
+          },
+          {
+            "name": "containsKey",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
                   "basic": "Object"
                 }
               }
@@ -767,6 +810,27 @@
               }
             },
             "notes": "Returns a"
+          },
+          {
+            "name": "get",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Returns the value to which the specified key is mapped, or"
           },
           {
             "name": "get",
@@ -835,6 +899,34 @@
               {
                 "name": "key",
                 "type": {
+                  "basic": "long"
+                },
+                "notes": "key with which the specified value is to be associated"
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n          null if there was no mapping for key"
+            },
+            "notes": "Maps the specified key to the specified value in the table.  The value\n  cannot be null."
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
                   "basic": "Long"
                 }
               },
@@ -851,6 +943,33 @@
               }
             },
             "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "putIfAbsent",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with the specified key,\n         or null if there was no mapping for the key"
+            },
+            "notes": "Atomically, do a"
           },
           {
             "name": "putIfAbsent",
@@ -887,6 +1006,73 @@
               {
                 "name": "key",
                 "type": {
+                  "basic": "long"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n         null if there was no mapping for key"
+            },
+            "notes": "Removes the key (and its corresponding value) from this map.\n This method does nothing if the key is not in the map."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
                   "basic": "Object"
                 }
               },
@@ -900,6 +1086,90 @@
             "returns": {
               "type": {
                 "basic": "boolean"
+              }
+            },
+            "notes": "Auto-boxing version of"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "long"
+                }
+              },
+              {
+                "name": "oldValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              },
+              {
+                "name": "newValue",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Long"
+                }
+              },
+              {
+                "name": "Val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
               }
             },
             "notes": "Auto-boxing version of"
@@ -1408,6 +1678,27 @@
                 "type": {
                   "basic": "Object"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n         null if there was no mapping for key"
+            },
+            "notes": "Removes the key (and its corresponding value) from this map.\n  This method does nothing if the key is not in the map."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
               },
               {
                 "name": "val",
@@ -1419,6 +1710,32 @@
             "returns": {
               "type": {
                 "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
               }
             },
             "notes": "Atomically do a"
@@ -1480,19 +1797,6 @@
               "notes": "the number of key-value mappings in this map"
             },
             "notes": "Returns the number of key-value mappings in this map."
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a string representation of this map"
-            },
-            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
           },
           {
             "name": "values",
@@ -1812,6 +2116,27 @@
                 "type": {
                   "basic": "Object"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
+              },
+              "notes": "the previous value associated with key, or\n         null if there was no mapping for key"
+            },
+            "notes": "Removes the key (and its corresponding value) from this map.\n  This method does nothing if the key is not in the map."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "Object"
+                }
               },
               {
                 "name": "val",
@@ -1823,6 +2148,32 @@
             "returns": {
               "type": {
                 "basic": "boolean"
+              }
+            },
+            "notes": "Atomically do a"
+          },
+          {
+            "name": "replace",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "key",
+                "type": {
+                  "basic": "TypeK"
+                }
+              },
+              {
+                "name": "val",
+                "type": {
+                  "basic": "TypeV"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "TypeV"
               }
             },
             "notes": "Atomically do a"
@@ -1886,19 +2237,6 @@
             "notes": "Returns the number of key-value mappings in this map."
           },
           {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a string representation of this map"
-            },
-            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
-          },
-          {
             "name": "values",
             "modifiers": [
               "public"
@@ -1937,6 +2275,27 @@
               {
                 "name": "i",
                 "type": {
+                  "basic": "Integer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if i was added to the set."
+            },
+            "notes": "Add"
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "i",
+                "type": {
                   "basic": "int"
                 }
               }
@@ -1960,6 +2319,27 @@
               }
             },
             "notes": "Empty the bitvector."
+          },
+          {
+            "name": "contains",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if i was in the set."
+            },
+            "notes": "Test if"
           },
           {
             "name": "contains",
@@ -2036,6 +2416,27 @@
               }
             },
             "notes": "Verbose printout of internal structure for debugging."
+          },
+          {
+            "name": "remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "o",
+                "type": {
+                  "basic": "Object"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              },
+              "notes": "true if i was removed to the set."
+            },
+            "notes": "Remove"
           },
           {
             "name": "remove",
@@ -2334,19 +2735,6 @@
             "notes": ""
           },
           {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a string representation of this map"
-            },
-            "notes": "Returns a string representation of this map.  The string representation\n consists of a list of key-value mappings in the order returned by the\n map's"
-          },
-          {
             "name": "values",
             "modifiers": [
               "public"
@@ -2489,19 +2877,6 @@
               "notes": "the old value corresponding to the entry"
             },
             "notes": "Replaces the value corresponding to this entry with the specified\n value."
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a String representation of this map entry"
-            },
-            "notes": "Returns a String representation of this map entry.  This\n implementation returns the string representation of this\n entry's key followed by the equals character (\""
           }
         ],
         "modifiers": [
@@ -2635,19 +3010,6 @@
               "notes": "(Does not return)"
             },
             "notes": "Replaces the value corresponding to this entry with the specified\n value (optional operation).  This implementation simply throws"
-          },
-          {
-            "name": "toString",
-            "modifiers": [
-              "public"
-            ],
-            "returns": {
-              "type": {
-                "basic": "String"
-              },
-              "notes": "a String representation of this map entry"
-            },
-            "notes": "Returns a String representation of this map entry.  This\n implementation returns the string representation of this\n entry's key followed by the equals character (\""
           }
         ],
         "modifiers": [

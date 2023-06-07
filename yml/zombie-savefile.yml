@@ -1,6 +1,13 @@
 namespaces:
   zombie.savefile:
     ClientPlayerDB:
+      fields:
+        canSavePlayers:
+          name: canSavePlayers
+          modifiers:
+            - public
+          type:
+            basic: boolean
       constructors:
         - modifiers:
             - public
@@ -138,6 +145,21 @@ namespaces:
       javaType: class
       extends: Object
     PlayerDB:
+      fields:
+        INVALID_ID:
+          name: INVALID_ID
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: int
+        m_canSavePlayers:
+          name: m_canSavePlayers
+          modifiers:
+            - public
+          type:
+            basic: boolean
       constructors:
         - modifiers:
             - public
@@ -319,6 +341,13 @@ namespaces:
         - modifiers:
             - public
       methods:
+        - name: create
+          modifiers:
+            - public
+            - static
+          returns:
+            type:
+              basic: void
         - name: create
           modifiers:
             - public

@@ -42,6 +42,21 @@ namespaces:
       javaType: class
       extends: Object
     ProfanityFilter:
+      fields:
+        DEBUG:
+          name: DEBUG
+          modifiers:
+            - public
+            - static
+          type:
+            basic: boolean
+        LOCALES_DIR:
+          name: LOCALES_DIR
+          modifiers:
+            - public
+            - static
+          type:
+            basic: String
       methods:
         - name: addFilterWord
           modifiers:
@@ -50,6 +65,16 @@ namespaces:
             - name: word
               type:
                 basic: String
+          returns:
+            type:
+              basic: void
+        - name: addLocale
+          modifiers:
+            - public
+          parameters:
+            - name: l
+              type:
+                basic: Locale
           returns:
             type:
               basic: void
@@ -162,6 +187,16 @@ namespaces:
           returns:
             type:
               basic: void
+        - name: validateString
+          modifiers:
+            - public
+          parameters:
+            - name: str
+              type:
+                basic: String
+          returns:
+            type:
+              basic: String
         - name: validateString
           modifiers:
             - public

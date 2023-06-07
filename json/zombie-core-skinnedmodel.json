@@ -17,6 +17,30 @@
         "extends": "Object"
       },
       "DeadBodyAtlas": {
+        "fields": {
+          "ATLAS_SIZE": {
+            "name": "ATLAS_SIZE",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "DeadBodyAtlas"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -40,6 +64,31 @@
               {
                 "name": "body",
                 "type": {
+                  "basic": "IsoDeadBody"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "checkLights",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "entryTex",
+                "type": {
+                  "basic": "Texture"
+                }
+              },
+              {
+                "name": "body",
+                "type": {
                   "basic": "IsoZombie"
                 }
               }
@@ -47,6 +96,112 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getBodyTexture",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "body",
+                "type": {
+                  "basic": "IsoDeadBody"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "DeadBodyAtlas.BodyTexture"
+              }
+            }
+          },
+          {
+            "name": "getBodyTexture",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "body",
+                "type": {
+                  "basic": "IsoZombie"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "DeadBodyAtlas.BodyTexture"
+              }
+            }
+          },
+          {
+            "name": "getBodyTexture",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "body",
+                "type": {
+                  "basic": "IsoMannequin"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "DeadBodyAtlas.BodyTexture"
+              }
+            }
+          },
+          {
+            "name": "getBodyTexture",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "bFemale",
+                "type": {
+                  "basic": "boolean"
+                }
+              },
+              {
+                "name": "animSet",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "stateName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "dir",
+                "type": {
+                  "basic": "IsoDirections"
+                }
+              },
+              {
+                "name": "frame",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "trackTime",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "DeadBodyAtlas.BodyTexture"
               }
             }
           },
@@ -333,6 +488,64 @@
                 "type": {
                   "basic": "org.lwjgl.util.vector.Quaternion"
                 }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "org.lwjgl.util.vector.Matrix4f"
+              }
+            }
+          },
+          {
+            "name": "CreateFromQuaternion",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "q",
+                "type": {
+                  "basic": "org.lwjgl.util.vector.Quaternion"
+                }
+              },
+              {
+                "name": "result",
+                "type": {
+                  "basic": "org.lwjgl.util.vector.Matrix4f"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "org.lwjgl.util.vector.Matrix4f"
+              }
+            }
+          },
+          {
+            "name": "CreateFromQuaternionPositionScale",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "position",
+                "type": {
+                  "basic": "org.lwjgl.util.vector.Vector3f"
+                }
+              },
+              {
+                "name": "rotation",
+                "type": {
+                  "basic": "org.lwjgl.util.vector.Quaternion"
+                }
+              },
+              {
+                "name": "scale",
+                "type": {
+                  "basic": "org.lwjgl.util.vector.Vector3f"
+                }
               },
               {
                 "name": "result",
@@ -394,6 +607,18 @@
             "returns": {
               "type": {
                 "basic": "org.lwjgl.util.vector.Quaternion"
+              }
+            }
+          },
+          {
+            "name": "getMatrix",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "returns": {
+              "type": {
+                "basic": "org.lwjgl.util.vector.Matrix4f"
               }
             }
           },
@@ -757,6 +982,18 @@
         "notes": "Created by LEMMYATI on 03/01/14."
       },
       "HelperFunctions.TransformResult_QPS": {
+        "fields": {
+          "result": {
+            "name": "result",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "org.lwjgl.util.vector.Matrix4f"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -842,6 +1079,18 @@
         "notes": "Created by LEMMYATI on 03/01/14."
       },
       "Matrix4": {
+        "fields": {
+          "Identity": {
+            "name": "Identity",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "Matrix4"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1029,7 +1278,101 @@
               {
                 "name": "m",
                 "type": {
+                  "basic": "float[]"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "mult",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
                   "basic": "Matrix4"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "index",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "f",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "index",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "v",
+                "type": {
+                  "basic": "Vector3"
+                }
+              },
+              {
+                "name": "w",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "put",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "m",
+                "type": {
+                  "basic": "float[]"
                 }
               }
             ],
@@ -1071,6 +1414,43 @@
                 }
               },
               {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "rotate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "angle",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
                 "name": "vec",
                 "type": {
                   "basic": "Vector3"
@@ -1090,9 +1470,71 @@
             ],
             "parameters": [
               {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "scale",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "vec",
                 "type": {
                   "basic": "Vector3"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Matrix4"
+              }
+            }
+          },
+          {
+            "name": "translate",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
                 }
               }
             ],
@@ -1140,6 +1582,81 @@
         "extends": "Object"
       },
       "ModelCamera": {
+        "fields": {
+          "bDepthMask": {
+            "name": "bDepthMask",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "ModelCamera"
+            }
+          },
+          "m_bInVehicle": {
+            "name": "m_bInVehicle",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "m_bUseWorldIso": {
+            "name": "m_bUseWorldIso",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "m_useAngle": {
+            "name": "m_useAngle",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "m_x": {
+            "name": "m_x",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "m_y": {
+            "name": "m_y",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "m_z": {
+            "name": "m_z",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1156,6 +1673,19 @@
         "notes": "Created by LEMMYATI on 03/01/14."
       },
       "ModelCameraRenderData": {
+        "fields": {
+          "s_pool": {
+            "name": "s_pool",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ObjectPool"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1164,6 +1694,31 @@
           }
         ],
         "methods": [
+          {
+            "name": "init",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "camera",
+                "type": {
+                  "basic": "ModelCamera"
+                }
+              },
+              {
+                "name": "modelSlot",
+                "type": {
+                  "basic": "ModelManager.ModelSlot"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ModelCameraRenderData"
+              }
+            }
+          },
           {
             "name": "init",
             "modifiers": [
@@ -1250,6 +1805,102 @@
         "extends": "TextureDraw.GenericDrawer"
       },
       "ModelManager": {
+        "fields": {
+          "bCreateSoftwareMeshes": {
+            "name": "bCreateSoftwareMeshes",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bDebugEnableModels": {
+            "name": "bDebugEnableModels",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bitmap": {
+            "name": "bitmap",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "TextureFBO"
+            }
+          },
+          "instance": {
+            "name": "instance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ModelManager"
+            }
+          },
+          "m_femaleModel": {
+            "name": "m_femaleModel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Model"
+            }
+          },
+          "m_maleModel": {
+            "name": "m_maleModel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Model"
+            }
+          },
+          "m_skeletonFemaleModel": {
+            "name": "m_skeletonFemaleModel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Model"
+            }
+          },
+          "m_skeletonMaleModel": {
+            "name": "m_skeletonMaleModel",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Model"
+            }
+          },
+          "NoOpenGL": {
+            "name": "NoOpenGL",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "SoftwareMeshAnims": {
+            "name": "SoftwareMeshAnims",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1300,6 +1951,49 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addStatic",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "slot",
+                "type": {
+                  "basic": "ModelManager.ModelSlot"
+                }
+              },
+              {
+                "name": "meshName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "texName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "boneName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "shaderName",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "ModelInstance"
               }
             }
           },
@@ -1581,6 +2275,25 @@
             "returns": {
               "type": {
                 "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "getLoadedModel",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "meshName",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Model"
               }
             }
           },
@@ -1968,6 +2681,25 @@
             ],
             "parameters": [
               {
+                "name": "chr",
+                "type": {
+                  "basic": "IsoGameCharacter"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "Remove",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "vehicle",
                 "type": {
                   "basic": "BaseVehicle"
@@ -2127,6 +2859,27 @@
             "modifiers": [
               "public"
             ],
+            "parameters": [
+              {
+                "name": "chr",
+                "type": {
+                  "basic": "IsoGameCharacter"
+                },
+                "notes": "the character to reset"
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            },
+            "notes": "Reset\n Resets the specified character."
+          },
+          {
+            "name": "Reset",
+            "modifiers": [
+              "public"
+            ],
             "returns": {
               "type": {
                 "basic": "void"
@@ -2273,6 +3026,43 @@
             ],
             "parameters": [
               {
+                "name": "meshName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "texName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "shaderName",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "bStatic",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "setModelMetaData",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "modelId",
                 "type": {
                   "basic": "String"
@@ -2373,6 +3163,47 @@
         "notes": "Created by LEMMYATI on 05/01/14."
       },
       "ModelManager.ModAnimations": {
+        "fields": {
+          "m_animationAssetList": {
+            "name": "m_animationAssetList",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "m_animationAssetMap": {
+            "name": "m_animationAssetMap",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "HashMap"
+            }
+          },
+          "m_modID": {
+            "name": "m_modID",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "m_priority": {
+            "name": "m_priority",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2429,6 +3260,81 @@
         "extends": "Object"
       },
       "ModelManager.ModelSlot": {
+        "fields": {
+          "active": {
+            "name": "active",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "bRemove": {
+            "name": "bRemove",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "character": {
+            "name": "character",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "IsoGameCharacter"
+            }
+          },
+          "framesSinceStart": {
+            "name": "framesSinceStart",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "ID": {
+            "name": "ID",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "model": {
+            "name": "model",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ModelInstance"
+            }
+          },
+          "renderRefCount": {
+            "name": "renderRefCount",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "sub": {
+            "name": "sub",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2552,6 +3458,37 @@
             ],
             "parameters": [
               {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Vector3"
+              }
+            }
+          },
+          {
+            "name": "add",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "vec",
                 "type": {
                   "basic": "Vector3"
@@ -2620,6 +3557,56 @@
             ],
             "parameters": [
               {
+                "name": "f",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Vector3"
+              }
+            }
+          },
+          {
+            "name": "mul",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Vector3"
+              }
+            }
+          },
+          {
+            "name": "mul",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "vec",
                 "type": {
                   "basic": "Vector3"
@@ -2661,9 +3648,71 @@
             ],
             "parameters": [
               {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Vector3"
+              }
+            }
+          },
+          {
+            "name": "set",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "vec",
                 "type": {
                   "basic": "Vector3"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Vector3"
+              }
+            }
+          },
+          {
+            "name": "sub",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
                 }
               }
             ],
@@ -2697,6 +3746,17 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "x",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "x",
@@ -2716,6 +3776,17 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "float"
+              }
+            }
+          },
+          {
+            "name": "y",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "y",
@@ -2727,6 +3798,17 @@
             "returns": {
               "type": {
                 "basic": "Vector3"
+              }
+            }
+          },
+          {
+            "name": "z",
+            "modifiers": [
+              "public"
+            ],
+            "returns": {
+              "type": {
+                "basic": "float"
               }
             }
           },
@@ -2759,6 +3841,44 @@
         "notes": "Created by LEMMYATI on 03/01/14."
       },
       "Vector4": {
+        "fields": {
+          "w": {
+            "name": "w",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "x": {
+            "name": "x",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "y": {
+            "name": "y",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "z": {
+            "name": "z",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -2811,6 +3931,43 @@
           }
         ],
         "methods": [
+          {
+            "name": "set",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "x",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "z",
+                "type": {
+                  "basic": "float"
+                }
+              },
+              {
+                "name": "w",
+                "type": {
+                  "basic": "float"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "Vector4"
+              }
+            }
+          },
           {
             "name": "set",
             "modifiers": [

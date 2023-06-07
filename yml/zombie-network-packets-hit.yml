@@ -1,6 +1,57 @@
 namespaces:
   zombie.network.packets.hit:
     AttackVars:
+      fields:
+        bAimAtFloor:
+          name: bAimAtFloor
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bCloseKill:
+          name: bCloseKill
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bDoShove:
+          name: bDoShove
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        recoilDelay:
+          name: recoilDelay
+          modifiers:
+            - public
+          type:
+            basic: int
+        targetOnGround:
+          name: targetOnGround
+          modifiers:
+            - public
+          type:
+            basic: MovingObject
+        targetsProne:
+          name: targetsProne
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        targetsStanding:
+          name: targetsStanding
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        useChargeDelta:
+          name: useChargeDelta
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -240,6 +291,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: hitReaction
+              type:
+                basic: HitReactionNetworkAI
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
             - name: dropPositionX
               type:
                 basic: float
@@ -412,23 +473,80 @@ namespaces:
       javaType: class
       extends: Object
     HitCharacterPacket.HitType:
-      methods:
-        - name: valueOf
+      fields:
+        Max:
+          name: Max
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: HitCharacterPacket.HitType
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        Min:
+          name: Min
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        PlayerHitPlayer:
+          name: PlayerHitPlayer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        PlayerHitSquare:
+          name: PlayerHitSquare
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        PlayerHitVehicle:
+          name: PlayerHitVehicle
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        PlayerHitZombie:
+          name: PlayerHitZombie
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        VehicleHitPlayer:
+          name: VehicleHitPlayer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        VehicleHitZombie:
+          name: VehicleHitZombie
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+        ZombieHitPlayer:
+          name: ZombieHitPlayer
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HitCharacterPacket.HitType
+      methods:
         - name: values
           modifiers:
             - public
@@ -447,6 +565,55 @@ namespaces:
       javaType: enum
       extends: Enum
     HitInfo:
+      fields:
+        chance:
+          name: chance
+          modifiers:
+            - public
+          type:
+            basic: int
+        distSq:
+          name: distSq
+          modifiers:
+            - public
+          type:
+            basic: float
+        dot:
+          name: dot
+          modifiers:
+            - public
+          type:
+            basic: float
+        object:
+          name: object
+          modifiers:
+            - public
+          type:
+            basic: MovingObject
+        window:
+          name: window
+          modifiers:
+            - public
+          type:
+            basic: NetObject
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: float
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: float
+        z:
+          name: z
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -469,6 +636,31 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: init
+          modifiers:
+            - public
+          parameters:
+            - name: obj
+              type:
+                basic: IsoMovingObject
+            - name: dot
+              type:
+                basic: float
+            - name: distSq
+              type:
+                basic: float
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+          returns:
+            type:
+              basic: HitInfo
         - name: init
           modifiers:
             - public
@@ -594,6 +786,42 @@ namespaces:
         - public
       javaType: interface
     MovingObject:
+      fields:
+        objectTypeNone:
+          name: objectTypeNone
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
+        objectTypeObject:
+          name: objectTypeObject
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
+        objectTypePlayer:
+          name: objectTypePlayer
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
+        objectTypeVehicle:
+          name: objectTypeVehicle
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
+        objectTypeZombie:
+          name: objectTypeZombie
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
       constructors:
         - modifiers:
             - public
@@ -654,6 +882,21 @@ namespaces:
       javaType: class
       extends: Object
     NetObject:
+      fields:
+        objectTypeNone:
+          name: objectTypeNone
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
+        objectTypeObject:
+          name: objectTypeObject
+          modifiers:
+            - public
+            - final
+          type:
+            basic: byte
       constructors:
         - modifiers:
             - public
@@ -869,6 +1112,19 @@ namespaces:
           returns:
             type:
               basic: String
+        - name: parse
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: ByteBuffer
+            - name: character
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
         - name: parse
           modifiers:
             - public
@@ -1425,6 +1681,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: character
+              type:
+                basic: IsoGameCharacter
+          returns:
+            type:
+              basic: void
+        - name: set
+          modifiers:
+            - public
+          parameters:
             - name: _square
               type:
                 basic: IsoGridSquare
@@ -1512,6 +1778,31 @@ namespaces:
       javaType: class
       extends: Instance
     VehicleHit:
+      fields:
+        isTargetHitFromBehind:
+          name: isTargetHitFromBehind
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        isVehicleHitFromBehind:
+          name: isVehicleHitFromBehind
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        vehicleDamage:
+          name: vehicleDamage
+          modifiers:
+            - public
+          type:
+            basic: int
+        vehicleSpeed:
+          name: vehicleSpeed
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -1857,6 +2148,19 @@ namespaces:
           returns:
             type:
               basic: boolean
+        - name: parse
+          modifiers:
+            - public
+          parameters:
+            - name: b
+              type:
+                basic: ByteBuffer
+            - name: character
+              type:
+                basic: IsoLivingCharacter
+          returns:
+            type:
+              basic: void
         - name: parse
           modifiers:
             - public

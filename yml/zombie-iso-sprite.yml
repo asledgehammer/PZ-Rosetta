@@ -42,6 +42,58 @@ namespaces:
       javaType: class
       extends: Object
     IsoAnim:
+      fields:
+        FinishUnloopedOnFrame:
+          name: FinishUnloopedOnFrame
+          modifiers:
+            - public
+          type:
+            basic: short
+        FrameDelay:
+          name: FrameDelay
+          modifiers:
+            - public
+          type:
+            basic: short
+        Frames:
+          name: Frames
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        FramesArray:
+          name: FramesArray
+          modifiers:
+            - public
+          type:
+            basic: IsoDirectionFrame
+        GlobalAnimMap:
+          name: GlobalAnimMap
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: HashMap
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: int
+        LastFrame:
+          name: LastFrame
+          modifiers:
+            - public
+          type:
+            basic: short
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
       constructors:
         - modifiers:
             - public
@@ -76,6 +128,22 @@ namespaces:
             - name: ObjectName
               type:
                 basic: String
+            - name: AnimName
+              type:
+                basic: String
+            - name: RepeatFrame
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: LoadFramesBitRepeatFrame
+          modifiers:
+            - public
+          parameters:
+            - name: ObjectName
+              type:
+                basic: String
             - name: Variant
               type:
                 basic: String
@@ -88,6 +156,41 @@ namespaces:
             - name: pal
               type:
                 basic: String
+          returns:
+            type:
+              basic: void
+        - name: LoadFramesBits
+          modifiers:
+            - public
+          parameters:
+            - name: ObjectName
+              type:
+                basic: String
+            - name: Variant
+              type:
+                basic: String
+            - name: AnimName
+              type:
+                basic: String
+            - name: nFrames
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: LoadFramesBits
+          modifiers:
+            - public
+          parameters:
+            - name: ObjectName
+              type:
+                basic: String
+            - name: AnimName
+              type:
+                basic: String
+            - name: nFrames
+              type:
+                basic: int
           returns:
             type:
               basic: void
@@ -222,6 +325,14 @@ namespaces:
       javaType: class
       extends: Object
     IsoDirectionFrame:
+      fields:
+        directions:
+          name: directions
+          modifiers:
+            - public
+            - final
+          type:
+            basic: Texture
       constructors:
         - modifiers:
             - public
@@ -344,6 +455,25 @@ namespaces:
             - name: scale
               type:
                 basic: float
+          returns:
+            type:
+              basic: void
+        - name: renderexplicit
+          modifiers:
+            - public
+          parameters:
+            - name: sx
+              type:
+                basic: int
+            - name: sy
+              type:
+                basic: int
+            - name: dir
+              type:
+                basic: IsoDirections
+            - name: scale
+              type:
+                basic: float
             - name: color
               type:
                 basic: ColorInfo
@@ -379,6 +509,253 @@ namespaces:
       javaType: class
       extends: Object
     IsoSprite:
+      fields:
+        alphaStep:
+          name: alphaStep
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        alwaysDraw:
+          name: alwaysDraw
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Animate:
+          name: Animate
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        AnimMap:
+          name: AnimMap
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
+        AnimStack:
+          name: AnimStack
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ArrayList
+        attachedFloor:
+          name: attachedFloor
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        burntTile:
+          name: burntTile
+          modifiers:
+            - public
+          type:
+            basic: String
+        canBeRemoved:
+          name: canBeRemoved
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        CurrentAnim:
+          name: CurrentAnim
+          modifiers:
+            - public
+          type:
+            basic: IsoAnim
+        cutN:
+          name: cutN
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        cutW:
+          name: cutW
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        def:
+          name: def
+          modifiers:
+            - public
+          type:
+            basic: IsoSpriteInstance
+        DeleteWhenFinished:
+          name: DeleteWhenFinished
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        firerequirement:
+          name: firerequirement
+          modifiers:
+            - public
+          type:
+            basic: int
+        forceAmbient:
+          name: forceAmbient
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        forceRender:
+          name: forceRender
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        globalOffsetX:
+          name: globalOffsetX
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        globalOffsetY:
+          name: globalOffsetY
+          modifiers:
+            - public
+            - static
+          type:
+            basic: float
+        ID:
+          name: ID
+          modifiers:
+            - public
+          type:
+            basic: int
+        invisible:
+          name: invisible
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        isBush:
+          name: isBush
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Loop:
+          name: Loop
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        maxCount:
+          name: maxCount
+          modifiers:
+            - public
+            - static
+          type:
+            basic: int
+        modelSlot:
+          name: modelSlot
+          modifiers:
+            - public
+          type:
+            basic: ModelManager.ModelSlot
+        moveWithWind:
+          name: moveWithWind
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        name:
+          name: name
+          modifiers:
+            - public
+          type:
+            basic: String
+        Properties:
+          name: Properties
+          modifiers:
+            - public
+            - final
+          type:
+            basic: PropertyContainer
+        renderLayer:
+          name: renderLayer
+          modifiers:
+            - public
+          type:
+            basic: byte
+        RL_DEFAULT:
+          name: RL_DEFAULT
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        RL_FLOOR:
+          name: RL_FLOOR
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        soffX:
+          name: soffX
+          modifiers:
+            - public
+          type:
+            basic: short
+        soffY:
+          name: soffY
+          modifiers:
+            - public
+          type:
+            basic: short
+        solid:
+          name: solid
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        solidfloor:
+          name: solidfloor
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        solidTrans:
+          name: solidTrans
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        tileSheetIndex:
+          name: tileSheetIndex
+          modifiers:
+            - public
+          type:
+            basic: int
+        TintMod:
+          name: TintMod
+          modifiers:
+            - public
+            - final
+          type:
+            basic: ColorInfo
+        treatAsWallOrder:
+          name: treatAsWallOrder
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        windType:
+          name: windType
+          modifiers:
+            - public
+          type:
+            basic: int
       constructors:
         - modifiers:
             - public
@@ -507,6 +884,12 @@ namespaces:
         - name: getSheetGridIdFromName
           modifiers:
             - public
+          returns:
+            type:
+              basic: int
+        - name: getSheetGridIdFromName
+          modifiers:
+            - public
             - static
           parameters:
             - name: name
@@ -515,6 +898,37 @@ namespaces:
           returns:
             type:
               basic: int
+        - name: getSprite
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: manager
+              type:
+                basic: IsoSpriteManager
+            - name: id
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoSprite
+        - name: getSprite
+          modifiers:
+            - public
+            - static
+          parameters:
+            - name: manager
+              type:
+                basic: IsoSpriteManager
+            - name: spr
+              type:
+                basic: IsoSprite
+            - name: offset
+              type:
+                basic: int
+          returns:
+            type:
+              basic: IsoSprite
         - name: getSprite
           modifiers:
             - public
@@ -587,6 +1001,22 @@ namespaces:
             - name: string
               type:
                 basic: String
+          returns:
+            type:
+              basic: boolean
+        - name: isMaskClicked
+          modifiers:
+            - public
+          parameters:
+            - name: dir
+              type:
+                basic: IsoDirections
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
           returns:
             type:
               basic: boolean
@@ -767,6 +1197,16 @@ namespaces:
           modifiers:
             - public
           parameters:
+            - name: anim
+              type:
+                basic: IsoAnim
+          returns:
+            type:
+              basic: void
+        - name: PlayAnim
+          modifiers:
+            - public
+          parameters:
             - name: name
               type:
                 basic: String
@@ -780,6 +1220,118 @@ namespaces:
             - name: name
               type:
                 basic: String
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: obj
+              type:
+                basic: IsoObject
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: dir
+              type:
+                basic: IsoDirections
+            - name: offsetX
+              type:
+                basic: float
+            - name: offsetY
+              type:
+                basic: float
+            - name: info2
+              type:
+                basic: ColorInfo
+            - name: bDoRenderPrep
+              type:
+                basic: boolean
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: obj
+              type:
+                basic: IsoObject
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: dir
+              type:
+                basic: IsoDirections
+            - name: offsetX
+              type:
+                basic: float
+            - name: offsetY
+              type:
+                basic: float
+            - name: info2
+              type:
+                basic: ColorInfo
+            - name: bDoRenderPrep
+              type:
+                basic: boolean
+            - name: texdModifier
+              type:
+                basic: Consumer
+                full: Consumer<TextureDraw>
+          returns:
+            type:
+              basic: void
+        - name: render
+          modifiers:
+            - public
+            - final
+          parameters:
+            - name: inst
+              type:
+                basic: IsoSpriteInstance
+            - name: obj
+              type:
+                basic: IsoObject
+            - name: x
+              type:
+                basic: float
+            - name: y
+              type:
+                basic: float
+            - name: z
+              type:
+                basic: float
+            - name: dir
+              type:
+                basic: IsoDirections
+            - name: offsetX
+              type:
+                basic: float
+            - name: offsetY
+              type:
+                basic: float
+            - name: info2
+              type:
+                basic: ColorInfo
+            - name: bDoRenderPrep
+              type:
+                basic: boolean
           returns:
             type:
               basic: void
@@ -903,6 +1455,34 @@ namespaces:
             - name: z
               type:
                 basic: int
+          returns:
+            type:
+              basic: void
+        - name: RenderGhostTileColor
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: int
+            - name: y
+              type:
+                basic: int
+            - name: z
+              type:
+                basic: int
+            - name: r
+              type:
+                basic: float
+            - name: g
+              type:
+                basic: float
+            - name: b
+              type:
+                basic: float
+            - name: a
+              type:
+                basic: float
           returns:
             type:
               basic: void
@@ -1128,6 +1708,12 @@ namespaces:
         - name: update
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: update
+          modifiers:
+            - public
           parameters:
             - name: def
               type:
@@ -1264,6 +1850,129 @@ namespaces:
       extends: Object
       notes: Turbo
     IsoSpriteInstance:
+      fields:
+        alpha:
+          name: alpha
+          modifiers:
+            - public
+          type:
+            basic: float
+        AnimFrameIncrease:
+          name: AnimFrameIncrease
+          modifiers:
+            - public
+          type:
+            basic: float
+        bCopyTargetAlpha:
+          name: bCopyTargetAlpha
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        bMultiplyObjectAlpha:
+          name: bMultiplyObjectAlpha
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Finished:
+          name: Finished
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Flip:
+          name: Flip
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        Frame:
+          name: Frame
+          modifiers:
+            - public
+          type:
+            basic: float
+        Looped:
+          name: Looped
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        NextFrame:
+          name: NextFrame
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        offX:
+          name: offX
+          modifiers:
+            - public
+          type:
+            basic: float
+        offY:
+          name: offY
+          modifiers:
+            - public
+          type:
+            basic: float
+        offZ:
+          name: offZ
+          modifiers:
+            - public
+          type:
+            basic: float
+        parentSprite:
+          name: parentSprite
+          modifiers:
+            - public
+          type:
+            basic: IsoSprite
+        pool:
+          name: pool
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: ObjectPool
+        scaleX:
+          name: scaleX
+          modifiers:
+            - public
+          type:
+            basic: float
+        scaleY:
+          name: scaleY
+          modifiers:
+            - public
+          type:
+            basic: float
+        targetAlpha:
+          name: targetAlpha
+          modifiers:
+            - public
+          type:
+            basic: float
+        tintb:
+          name: tintb
+          modifiers:
+            - public
+          type:
+            basic: float
+        tintg:
+          name: tintg
+          modifiers:
+            - public
+          type:
+            basic: float
+        tintr:
+          name: tintr
+          modifiers:
+            - public
+          type:
+            basic: float
       constructors:
         - modifiers:
             - public
@@ -1519,10 +2228,44 @@ namespaces:
       javaType: class
       extends: Object
     IsoSpriteManager:
+      fields:
+        instance:
+          name: instance
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: IsoSpriteManager
+        IntMap:
+          name: IntMap
+          modifiers:
+            - public
+            - final
+          type:
+            basic: gnu.trove.map.hash.TIntObjectHashMap
+            full: gnu.trove.map.hash.TIntObjectHashMap<
+        NamedMap:
+          name: NamedMap
+          modifiers:
+            - public
+            - final
+          type:
+            basic: HashMap
       constructors:
         - modifiers:
             - public
       methods:
+        - name: AddSprite
+          modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
+          returns:
+            type:
+              basic: IsoSprite
         - name: AddSprite
           modifiers:
             - public
@@ -1549,9 +2292,29 @@ namespaces:
             - name: tex
               type:
                 basic: String
+          returns:
+            type:
+              basic: IsoSprite
+        - name: getOrAddSpriteCache
+          modifiers:
+            - public
+          parameters:
+            - name: tex
+              type:
+                basic: String
             - name: col
               type:
                 basic: Color
+          returns:
+            type:
+              basic: IsoSprite
+        - name: getSprite
+          modifiers:
+            - public
+          parameters:
+            - name: gid
+              type:
+                basic: int
           returns:
             type:
               basic: IsoSprite
@@ -1571,6 +2334,19 @@ namespaces:
       javaType: class
       extends: Object
     SkyBox:
+      fields:
+        def:
+          name: def
+          modifiers:
+            - public
+          type:
+            basic: IsoSpriteInstance
+        Effect:
+          name: Effect
+          modifiers:
+            - public
+          type:
+            basic: Shader
       constructors:
         - modifiers:
             - public

@@ -2,6 +2,68 @@
   "namespaces": {
     "zombie.randomizedWorld.randomizedZoneStory": {
       "RandomizedZoneStoryBase": {
+        "fields": {
+          "alwaysDo": {
+            "name": "alwaysDo",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "baseChance": {
+            "name": "baseChance",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "chance": {
+            "name": "chance",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "totalChance": {
+            "name": "totalChance",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "zoneStory": {
+            "name": "zoneStory",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "zoneType": {
+            "name": "zoneType",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -133,6 +195,31 @@
             "modifiers": [
               "public"
             ],
+            "parameters": [
+              {
+                "name": "zone",
+                "type": {
+                  "basic": "IsoMetaGrid.Zone"
+                }
+              },
+              {
+                "name": "force",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "isValid",
+            "modifiers": [
+              "public"
+            ],
             "returns": {
               "type": {
                 "basic": "boolean"
@@ -192,30 +279,86 @@
         "extends": "RandomizedWorldBase"
       },
       "RandomizedZoneStoryBase.ZoneType": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "Baseball": {
+            "name": "Baseball",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "RandomizedZoneStoryBase.ZoneType"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
           },
+          "Beach": {
+            "name": "Beach",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
+          },
+          "Forest": {
+            "name": "Forest",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
+          },
+          "Lake": {
+            "name": "Lake",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
+          },
+          "MusicFest": {
+            "name": "MusicFest",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
+          },
+          "MusicFestStage": {
+            "name": "MusicFestStage",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
+          },
+          "NewsStory": {
+            "name": "NewsStory",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "RandomizedZoneStoryBase.ZoneType"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [

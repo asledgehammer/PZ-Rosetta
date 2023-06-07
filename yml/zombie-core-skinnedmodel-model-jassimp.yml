@@ -121,23 +121,32 @@ namespaces:
       extends: Object
       notes: Created by Mark Rowley - Bitbaboon
     JAssImpImporter.LoadMode:
-      methods:
-        - name: valueOf
+      fields:
+        AnimationOnly:
+          name: AnimationOnly
           modifiers:
             - public
             - static
-          parameters:
-            - name: name
-              type:
-                basic: String
-              notes: the name of the enum constant to be returned.
-          returns:
-            type:
-              basic: JAssImpImporter.LoadMode
-            notes: the enum constant with the specified name
-          notes: |-
-            Returns the enum constant of this class with the specified name.
-            The string must match
+            - final
+          type:
+            basic: JAssImpImporter.LoadMode
+        Normal:
+          name: Normal
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: JAssImpImporter.LoadMode
+        StaticMesh:
+          name: StaticMesh
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: JAssImpImporter.LoadMode
+      methods:
         - name: values
           modifiers:
             - public
@@ -203,6 +212,43 @@ namespaces:
       javaType: class
       extends: Object
     ProcessedAiSceneParams:
+      fields:
+        animBonesRotateModifier:
+          name: animBonesRotateModifier
+          modifiers:
+            - public
+          type:
+            basic: org.lwjgl.util.vector.Quaternion
+        animBonesScaleModifier:
+          name: animBonesScaleModifier
+          modifiers:
+            - public
+          type:
+            basic: float
+        meshName:
+          name: meshName
+          modifiers:
+            - public
+          type:
+            basic: String
+        mode:
+          name: mode
+          modifiers:
+            - public
+          type:
+            basic: JAssImpImporter.LoadMode
+        scene:
+          name: scene
+          modifiers:
+            - public
+          type:
+            basic: jassimp.AiScene
+        skinnedTo:
+          name: skinnedTo
+          modifiers:
+            - public
+          type:
+            basic: SkinningData
       methods:
         - name: create
           modifiers:

@@ -16,12 +16,28 @@ namespaces:
               basic: boolean
         - name: isPlaying
           parameters:
+            - name: channel
+              type:
+                basic: long
+          returns:
+            type:
+              basic: boolean
+        - name: isPlaying
+          parameters:
             - name: alias
               type:
                 basic: String
           returns:
             type:
               basic: boolean
+        - name: playSound
+          parameters:
+            - name: file
+              type:
+                basic: String
+          returns:
+            type:
+              basic: long
         - name: playSound
           parameters:
             - name: file
@@ -154,6 +170,11 @@ namespaces:
       javaType: interface
     ITexture:
       methods:
+        - name: bind
+          returns:
+            type:
+              basic: void
+          notes: bind the current texture in the VRAM
         - name: bind
           parameters:
             - name: unit

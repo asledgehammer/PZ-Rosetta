@@ -2,6 +2,71 @@
   "namespaces": {
     "zombie.iso.areas": {
       "BuildingScore": {
+        "fields": {
+          "building": {
+            "name": "building",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "IsoBuilding"
+            }
+          },
+          "defense": {
+            "name": "defense",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "food": {
+            "name": "food",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "safety": {
+            "name": "safety",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "size": {
+            "name": "size",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "weapons": {
+            "name": "weapons",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "wood": {
+            "name": "wood",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -25,6 +90,28 @@
         "extends": "Object"
       },
       "IsoArea": {
+        "fields": {
+          "Doobo": {
+            "name": "Doobo",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "version": {
+            "name": "version",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -139,6 +226,159 @@
         "extends": "Object"
       },
       "IsoBuilding": {
+        "fields": {
+          "bounds": {
+            "name": "bounds",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Rectangle"
+            }
+          },
+          "bSeenInside": {
+            "name": "bSeenInside",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "container": {
+            "name": "container",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "def": {
+            "name": "def",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "BuildingDef"
+            }
+          },
+          "Exits": {
+            "name": "Exits",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "Vector"
+            }
+          },
+          "GoodBuildingScore": {
+            "name": "GoodBuildingScore",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "ID": {
+            "name": "ID",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "IDMax": {
+            "name": "IDMax",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "IsResidence": {
+            "name": "IsResidence",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "boolean"
+            }
+          },
+          "lights": {
+            "name": "lights",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "PoorBuildingScore": {
+            "name": "PoorBuildingScore",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "float"
+            }
+          },
+          "Rooms": {
+            "name": "Rooms",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "Vector"
+            }
+          },
+          "safety": {
+            "name": "safety",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "scoreUpdate": {
+            "name": "scoreUpdate",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "transparentWalls": {
+            "name": "transparentWalls",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "Windows": {
+            "name": "Windows",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "Vector"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -177,6 +417,43 @@
                 "type": {
                   "basic": "boolean"
                 }
+              },
+              {
+                "name": "from",
+                "type": {
+                  "basic": "IsoGridSquare"
+                }
+              },
+              {
+                "name": "building",
+                "type": {
+                  "basic": "IsoBuilding"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addDoor",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "obj",
+                "type": {
+                  "basic": "IsoDoor"
+                }
+              },
+              {
+                "name": "bOtherTile",
+                "type": {
+                  "basic": "boolean"
+                }
               }
             ],
             "returns": {
@@ -195,6 +472,43 @@
                 "name": "room",
                 "type": {
                   "basic": "IsoRoom"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "addWindow",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "obj",
+                "type": {
+                  "basic": "IsoWindow"
+                }
+              },
+              {
+                "name": "bOtherTile",
+                "type": {
+                  "basic": "boolean"
+                }
+              },
+              {
+                "name": "from",
+                "type": {
+                  "basic": "IsoGridSquare"
+                }
+              },
+              {
+                "name": "building",
+                "type": {
+                  "basic": "IsoBuilding"
                 }
               }
             ],
@@ -425,6 +739,17 @@
             "modifiers": [
               "public"
             ],
+            "returns": {
+              "type": {
+                "basic": "IsoRoom"
+              }
+            }
+          },
+          {
+            "name": "getRandomRoom",
+            "modifiers": [
+              "public"
+            ],
             "parameters": [
               {
                 "name": "room",
@@ -588,6 +913,180 @@
         "extends": "IsoArea"
       },
       "IsoRoom": {
+        "fields": {
+          "Beds": {
+            "name": "Beds",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "Vector"
+            }
+          },
+          "bounds": {
+            "name": "bounds",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "Rectangle"
+            }
+          },
+          "building": {
+            "name": "building",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "IsoBuilding"
+            }
+          },
+          "Containers": {
+            "name": "Containers",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "def": {
+            "name": "def",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "RoomDef"
+            }
+          },
+          "Exits": {
+            "name": "Exits",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "Vector"
+            }
+          },
+          "layer": {
+            "name": "layer",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "lightSwitches": {
+            "name": "lightSwitches",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "rects": {
+            "name": "rects",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "RoomDef": {
+            "name": "RoomDef",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "roomLights": {
+            "name": "roomLights",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "seen": {
+            "name": "seen",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "Squares": {
+            "name": "Squares",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "TileList": {
+            "name": "TileList",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "Vector"
+            }
+          },
+          "transparentWalls": {
+            "name": "transparentWalls",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "visited": {
+            "name": "visited",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "WaterSources": {
+            "name": "WaterSources",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          },
+          "Windows": {
+            "name": "Windows",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -932,6 +1431,72 @@
         "extends": "Object"
       },
       "IsoRoomExit": {
+        "fields": {
+          "From": {
+            "name": "From",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "IsoRoom"
+            }
+          },
+          "layer": {
+            "name": "layer",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "ThiggleQ": {
+            "name": "ThiggleQ",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "type": {
+              "basic": "String"
+            }
+          },
+          "To": {
+            "name": "To",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "IsoRoomExit"
+            }
+          },
+          "type": {
+            "name": "type",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "IsoRoomExit.ExitType"
+            }
+          },
+          "x": {
+            "name": "x",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          },
+          "y": {
+            "name": "y",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "int"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1062,30 +1627,31 @@
         "extends": "Object"
       },
       "IsoRoomExit.ExitType": {
-        "methods": [
-          {
-            "name": "valueOf",
+        "fields": {
+          "Door": {
+            "name": "Door",
             "modifiers": [
               "public",
-              "static"
+              "static",
+              "final"
             ],
-            "parameters": [
-              {
-                "name": "name",
-                "type": {
-                  "basic": "String"
-                },
-                "notes": "the name of the enum constant to be returned."
-              }
-            ],
-            "returns": {
-              "type": {
-                "basic": "IsoRoomExit.ExitType"
-              },
-              "notes": "the enum constant with the specified name"
-            },
-            "notes": "Returns the enum constant of this class with the specified name.\nThe string must match"
+            "type": {
+              "basic": "IsoRoomExit.ExitType"
+            }
           },
+          "Window": {
+            "name": "Window",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "IsoRoomExit.ExitType"
+            }
+          }
+        },
+        "methods": [
           {
             "name": "values",
             "modifiers": [
@@ -1109,6 +1675,19 @@
         "extends": "Enum"
       },
       "NonPvpZone": {
+        "fields": {
+          "nonPvpZoneList": {
+            "name": "nonPvpZoneList",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1528,6 +2107,17 @@
         "extends": "Object"
       },
       "SafeHouse": {
+        "fields": {
+          "playersRespawn": {
+            "name": "playersRespawn",
+            "modifiers": [
+              "public"
+            ],
+            "type": {
+              "basic": "ArrayList"
+            }
+          }
+        },
         "constructors": [
           {
             "modifiers": [
@@ -1595,6 +2185,56 @@
             ],
             "parameters": [
               {
+                "name": "x",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "w",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "h",
+                "type": {
+                  "basic": "int"
+                }
+              },
+              {
+                "name": "player",
+                "type": {
+                  "basic": "String"
+                }
+              },
+              {
+                "name": "remote",
+                "type": {
+                  "basic": "boolean"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "SafeHouse"
+              }
+            }
+          },
+          {
+            "name": "addSafeHouse",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
                 "name": "square",
                 "type": {
                   "basic": "IsoGridSquare"
@@ -1630,6 +2270,25 @@
             "returns": {
               "type": {
                 "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "alreadyHaveSafehouse",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "username",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "SafeHouse"
               }
             }
           },
@@ -1819,6 +2478,26 @@
             ],
             "parameters": [
               {
+                "name": "square",
+                "type": {
+                  "basic": "IsoGridSquare"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "SafeHouse"
+              }
+            }
+          },
+          {
+            "name": "getSafeHouse",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
                 "name": "x",
                 "type": {
                   "basic": "int"
@@ -1924,6 +2603,26 @@
             "returns": {
               "type": {
                 "basic": "int"
+              }
+            }
+          },
+          {
+            "name": "hasSafehouse",
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "parameters": [
+              {
+                "name": "username",
+                "type": {
+                  "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "SafeHouse"
               }
             }
           },
@@ -2108,6 +2807,25 @@
             ],
             "parameters": [
               {
+                "name": "player",
+                "type": {
+                  "basic": "IsoPlayer"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "boolean"
+              }
+            }
+          },
+          {
+            "name": "playerAllowed",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
                 "name": "name",
                 "type": {
                   "basic": "String"
@@ -2130,6 +2848,25 @@
                 "name": "player",
                 "type": {
                   "basic": "String"
+                }
+              }
+            ],
+            "returns": {
+              "type": {
+                "basic": "void"
+              }
+            }
+          },
+          {
+            "name": "removeSafeHouse",
+            "modifiers": [
+              "public"
+            ],
+            "parameters": [
+              {
+                "name": "player",
+                "type": {
+                  "basic": "IsoPlayer"
                 }
               }
             ],

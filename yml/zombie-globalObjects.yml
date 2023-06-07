@@ -632,6 +632,47 @@ namespaces:
       javaType: class
       extends: GlobalObject
     SGlobalObjectNetwork:
+      fields:
+        PACKET_ClientCommand:
+          name: PACKET_ClientCommand
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        PACKET_NewLuaObjectAt:
+          name: PACKET_NewLuaObjectAt
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        PACKET_RemoveLuaObjectAt:
+          name: PACKET_RemoveLuaObjectAt
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        PACKET_ServerCommand:
+          name: PACKET_ServerCommand
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
+        PACKET_UpdateLuaObjectAt:
+          name: PACKET_UpdateLuaObjectAt
+          modifiers:
+            - public
+            - static
+            - final
+          type:
+            basic: byte
       constructors:
         - modifiers:
             - public
@@ -912,6 +953,19 @@ namespaces:
         - name: load
           modifiers:
             - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
+            - name: WorldVersion
+              type:
+                basic: int
+          returns:
+            type:
+              basic: void
+        - name: load
+          modifiers:
+            - public
           returns:
             type:
               basic: void
@@ -960,6 +1014,16 @@ namespaces:
         - name: Reset
           modifiers:
             - public
+          returns:
+            type:
+              basic: void
+        - name: save
+          modifiers:
+            - public
+          parameters:
+            - name: bb
+              type:
+                basic: ByteBuffer
           returns:
             type:
               basic: void
