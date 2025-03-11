@@ -271,6 +271,7 @@ namespaces:
             - name: val
               type:
                 basic: TypeV
+              notes: value to be associated with the specified key
           returns:
             type:
               basic: TypeV
@@ -582,6 +583,7 @@ namespaces:
             - name: val
               type:
                 basic: TypeV
+              notes: value to be associated with the specified key
           returns:
             type:
               basic: TypeV
@@ -787,6 +789,59 @@ namespaces:
       javaType: class
       extends: AbstractMap
       notes: A lock-free alternate implementation of
+    NonBlockingHashMapLong.IteratorLong:
+      constructors:
+        - modifiers:
+            - public
+          notes: A new IteratorLong
+      methods:
+        - name: hasMoreElements
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: True if there are more keys to iterate over.
+        - name: hasNext
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: boolean
+          notes: True if there are more keys to iterate over.
+        - name: next
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Long
+          notes: Auto-box
+        - name: nextElement
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: Long
+          notes: Auto-box
+        - name: nextLong
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: long
+          notes: Return the next key as a primitive
+        - name: remove
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: Remove last key returned by
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: A class which implements the
     NonBlockingHashSet:
       constructors:
         - modifiers:
@@ -1026,6 +1081,7 @@ namespaces:
             - name: val
               type:
                 basic: TypeV
+              notes: value to be associated with the specified key
           returns:
             type:
               basic: TypeV
@@ -1312,6 +1368,7 @@ namespaces:
             - name: val
               type:
                 basic: TypeV
+              notes: value to be associated with the specified key
           returns:
             type:
               basic: TypeV
@@ -1752,6 +1809,7 @@ namespaces:
             - name: value
               type:
                 basic: V
+              notes: the value represented by this entry
           notes: |-
             Creates an entry representing a mapping from the specified
              key to the specified value.
@@ -1845,6 +1903,7 @@ namespaces:
             - name: value
               type:
                 basic: V
+              notes: the value represented by this entry
           notes: |-
             Creates an entry representing a mapping from the specified
              key to the specified value.
@@ -1938,6 +1997,7 @@ namespaces:
             - name: loadFactor
               type:
                 basic: float
+              notes: the load factor
           notes: Constructs an empty
         - modifiers:
             - public
@@ -2054,6 +2114,7 @@ namespaces:
             - name: value
               type:
                 basic: V
+              notes: value to be associated with the specified key
           returns:
             type:
               basic: V
@@ -2144,6 +2205,7 @@ namespaces:
             - name: loadFactor
               type:
                 basic: float
+              notes: the load factor of the hash map
           notes: Constructs a new, empty set; the backing
         - modifiers:
             - public

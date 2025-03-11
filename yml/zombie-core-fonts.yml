@@ -69,6 +69,7 @@ namespaces:
             - name: image
               type:
                 basic: Texture
+              notes: The image to use for the font
           notes: >-
             Create a new font based on a font definition from AngelCode's tool
             and
@@ -83,6 +84,7 @@ namespaces:
             - name: imgFile
               type:
                 basic: String
+              notes: The location of the font image
           notes: >-
             Create a new font based on a font definition from AngelCode's tool
             and
@@ -105,9 +107,11 @@ namespaces:
             - name: y
               type:
                 basic: float
+              notes: The y location at which to draw the string
             - name: text
               type:
                 basic: String
+              notes: The text to be displayed
           returns:
             type:
               basic: void
@@ -123,12 +127,15 @@ namespaces:
             - name: y
               type:
                 basic: float
+              notes: The y location at which to draw the string
             - name: text
               type:
                 basic: String
+              notes: The text to be displayed
             - name: col
               type:
                 basic: Color
+              notes: The colour to draw with
           returns:
             type:
               basic: void
@@ -203,18 +210,23 @@ namespaces:
             - name: y
               type:
                 basic: float
+              notes: The y location at which to draw the string
             - name: text
               type:
                 basic: String
+              notes: The text to be displayed
             - name: col
               type:
                 basic: Color
+              notes: The colour to draw with
             - name: startIndex
               type:
                 basic: int
+              notes: The index of the first character to draw
             - name: endIndex
               type:
                 basic: int
+              notes: The index of the last character from the string to draw
           returns:
             type:
               basic: void
@@ -417,6 +429,154 @@ namespaces:
         A font implementation that will parse BMFont format font files. The font
         files can be output
          by Hiero, which is included with Slick, and also the AngelCode font tool available at:
+    AngelCodeFont.CharDef:
+      fields:
+        dlIndex:
+          name: dlIndex
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The display list index for this character
+        height:
+          name: height
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The height of the character image
+        id:
+          name: id
+          modifiers:
+            - public
+          type:
+            basic: int
+          notes: The id of the character
+        image:
+          name: image
+          modifiers:
+            - public
+          type:
+            basic: Texture
+          notes: The image containing the character
+        kerningAmount:
+          name: kerningAmount
+          modifiers:
+            - public
+          type:
+            basic: short[]
+        kerningSecond:
+          name: kerningSecond
+          modifiers:
+            - public
+          type:
+            basic: short[]
+          notes: The kerning info for this character
+        page:
+          name: page
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The page number for fonts with multiple textures
+        width:
+          name: width
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The width of the character image
+        x:
+          name: x
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The x location on the sprite sheet
+        xadvance:
+          name: xadvance
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The amount to move the current position after drawing the character
+        xoffset:
+          name: xoffset
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The amount the x position should be offset when drawing the image
+        y:
+          name: y
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The y location on the sprite sheet
+        yoffset:
+          name: yoffset
+          modifiers:
+            - public
+          type:
+            basic: short
+          notes: The amount the y position should be offset when drawing the image
+      constructors:
+        - modifiers:
+            - public
+      methods:
+        - name: destroy
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+        - name: draw
+          modifiers:
+            - public
+          parameters:
+            - name: x
+              type:
+                basic: float
+              notes: The x position at which to draw the text
+            - name: y
+              type:
+                basic: float
+              notes: The y position at which to draw the text
+          returns:
+            type:
+              basic: void
+          notes: Draw this character embedded in a image draw
+        - name: getKerning
+          modifiers:
+            - public
+          parameters:
+            - name: otherCodePoint
+              type:
+                basic: int
+              notes: The other code point
+          returns:
+            type:
+              basic: int
+            notes: the kerning offset
+          notes: get the kerning offset between this character and the specified
+            character.
+        - name: init
+          modifiers:
+            - public
+          returns:
+            type:
+              basic: void
+          notes: |-
+            Initialise the image by cutting the right section from the map
+             produced by the AngelCode tool.
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+      notes: |-
+        The definition of a single character as defined in the AngelCode file
+         format
     AngelCodeFont.CharDefTexture:
       constructors:
         - modifiers:
@@ -452,9 +612,11 @@ namespaces:
             - name: y
               type:
                 basic: float
+              notes: The y location at which to draw the string
             - name: text
               type:
                 basic: String
+              notes: The text to be displayed
           returns:
             type:
               basic: void
@@ -468,12 +630,15 @@ namespaces:
             - name: y
               type:
                 basic: float
+              notes: The y location at which to draw the string
             - name: text
               type:
                 basic: String
+              notes: The text to be displayed
             - name: col
               type:
                 basic: Color
+              notes: The colour to draw with
           returns:
             type:
               basic: void
@@ -487,18 +652,23 @@ namespaces:
             - name: y
               type:
                 basic: float
+              notes: The y location at which to draw the string
             - name: text
               type:
                 basic: String
+              notes: The text to be displayed
             - name: col
               type:
                 basic: Color
+              notes: The colour to draw with
             - name: startIndex
               type:
                 basic: int
+              notes: The index of the first character to draw
             - name: endIndex
               type:
                 basic: int
+              notes: The index of the last character from the string to draw
           returns:
             type:
               basic: void

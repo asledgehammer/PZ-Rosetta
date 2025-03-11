@@ -111,15 +111,23 @@ namespaces:
             - name: totalZombies
               type:
                 basic: int
+              notes: zombies to spawn (if 0 we gonna randomize it)
             - name: outfit
               type:
                 basic: String
+              notes: force zombies spanwed in a specific outfit (not mandatory)
             - name: femaleChance
               type:
                 basic: Integer
+              notes: >-
+                force female zombies (if not set it'll be 50% chance, you can
+                set
+                            it to 0 to exclude female from spawning, or 100 to force only
+                            female)
             - name: room
               type:
                 basic: RoomDef
+              notes: force spawn zombies inside a certain room (not mandatory)
           returns:
             type:
               basic: ArrayList
@@ -1178,3 +1186,81 @@ namespaces:
       extends: RandomizedBuildingBase
       notes: TODO Not used anymore, but i'm keeping it around just in case, gonna
         delete this soon
+    RBTableStory.StoryDef:
+      fields:
+        addBlood:
+          name: addBlood
+          modifiers:
+            - public
+          type:
+            basic: boolean
+        items:
+          name: items
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+        rooms:
+          name: rooms
+          modifiers:
+            - public
+          type:
+            basic: ArrayList
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: items
+              type:
+                basic: ArrayList
+                full: ArrayList<RBTableStory.StorySpawnItem>
+        - modifiers:
+            - public
+          parameters:
+            - name: items
+              type:
+                basic: ArrayList
+                full: ArrayList<RBTableStory.StorySpawnItem>
+            - name: rooms
+              type:
+                basic: ArrayList
+                full: ArrayList<String>
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
+    RBTableStory.StorySpawnItem:
+      constructors:
+        - modifiers:
+            - public
+          parameters:
+            - name: eitherObject
+              type:
+                basic: LinkedHashMap
+                full: LinkedHashMap<String,Integer>
+            - name: object
+              type:
+                basic: String
+            - name: chanceToSpawn
+              type:
+                basic: Integer
+        - modifiers:
+            - public
+          parameters:
+            - name: eitherObject
+              type:
+                basic: LinkedHashMap
+                full: LinkedHashMap<String,Integer>
+            - name: object
+              type:
+                basic: String
+            - name: chanceToSpawn
+              type:
+                basic: Integer
+            - name: forcedOffset
+              type:
+                basic: float
+      modifiers:
+        - public
+      javaType: class
+      extends: Object
